@@ -1,0 +1,109 @@
+.tabs-component {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+}
+.tabs-component .tabs-navigator-placeholder {
+  width: 100%;
+  border-bottom: 1px solid #f3f3f3;
+}
+.tabs-component .tabs-navigator-placeholder .tabs-navigator {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 5px;
+  padding-bottom: 0;
+  box-sizing: border-box;
+  z-index: 2;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.tabs-component .tabs-navigator-placeholder .tabs-navigator.centered {
+  margin: auto;
+}
+.tabs-component .tabs-navigator-placeholder .tabs-navigator .tab-header {
+  margin-bottom: 1px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  cursor: pointer;
+  height: 100%;
+  min-height: 25px;
+  flex-wrap: nowrap;
+  line-height: 30px;
+  box-sizing: border-box;
+  display: flex;
+  border-bottom: 3px solid #ffffff;
+  outline: 0;
+  justify-content: center;
+  max-width: 150px;
+  min-width: 60px;
+  padding: 4px;
+}
+.tabs-component .tabs-navigator-placeholder .tabs-navigator .tab-header:hover {
+  border-bottom: 3px solid #77797c;
+}
+.tabs-component .tabs-navigator-placeholder .tabs-navigator .tab-header:hover .icon-container .icon svg.icon {
+  fill: #3d3d3d;
+}
+.tabs-component .tabs-navigator-placeholder .tabs-navigator .tab-header.disabled {
+  color: #77797c;
+}
+.tabs-component .tabs-navigator-placeholder .tabs-navigator .tab-header.disabled .icon-container svg.icon {
+  fill: #77797c;
+}
+.tabs-component .tabs-navigator-placeholder .tabs-navigator .tab-header:last-child {
+  margin-right: 0;
+}
+.tabs-component .tabs-navigator-placeholder .tabs-navigator .tab-header .icon-container {
+  display: flex;
+}
+.tabs-component .tabs-navigator-placeholder .tabs-navigator .tab-header .icon-container .icon {
+  /*width: 15px;*/
+  margin: 4px;
+}
+.tabs-component .tabs-navigator-placeholder .tabs-navigator .tab-header .icon-container .icon svg.icon {
+  fill: #7cbadd;
+}
+.tabs-component .tabs-navigator-placeholder .tabs-navigator .tab-header.active {
+  border-bottom: 3px solid #368ec4;
+}
+.tabs-component .tabs-navigator-placeholder .tabs-navigator .tab-header.active.menu-item {
+  padding-bottom: 5px;
+  border-bottom: 0px solid #368ec4;
+  border-left: 2px solid #368ec4;
+}
+.tabs-component .tabs-navigator-placeholder .tabs-navigator .tab-header .hidden-items-button-icon {
+  width: 12px;
+}
+.tabs-component .hided-items-menu {
+  position: absolute;
+  right: 0;
+  top: 30px;
+  z-index: 3;
+  background-color: #f3f3f3;
+  padding: 10px;
+}
+.tabs-component .tab-content {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  padding: 5px;
+  box-sizing: border-box;
+  z-index: 1;
+  overflow: hidden;
+}
+.tabs-component .tab-container {
+  display: none;
+}
+.tabs-component .tab-container.active {
+  display: block;
+  width: 100%;
+  height: 100%;
+}/*# sourceMappingURL=styles.css.map */

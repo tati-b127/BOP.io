@@ -1,0 +1,88 @@
+@import './variables.scss';
+
+.resources-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.resources-tabs-buttons-container{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+.resources-loader{
+    position: absolute;
+    left: calc(50% - 25px);
+    top: calc(50% - 25px);
+    width: 50px;
+    height: 50px;
+    border-width: 8px;
+}
+
+div.mask {
+    position:           absolute;
+    z-index:            1;
+    top:                0;
+    left:               0;
+    width:              100%;
+    height:             100%;
+    background-color:   rgba(0,0,0,0.15);
+}
+
+.ReactTable {
+    height: inherit;
+    overflow: hidden;
+
+    .rt-table {
+        overflow-x: auto;
+        overflow-y: hidden;
+
+        .rt-thead {
+            .rt-tr {
+                .rt-th {
+                    text-align: center;
+
+                    &>div{
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        height: 100%;
+                    }
+                }
+            }
+
+            .rt-td {
+                padding: 0px;
+                line-height: initial;
+            }
+        }
+
+        .rt-tbody {
+            min-width: 100%;
+            overflow-y: overlay;
+            overflow-x: hidden;
+
+            .rt-tr-group:last-child {
+                border-bottom: solid 1px rgba(0, 0, 0, 0.05);
+            }
+
+            .rt-tr-group {
+                flex: unset;
+    
+                .rt-tr.selected {
+                    background-color: $lightBlueColor;
+                }
+
+                .rt-tr {
+                    height: 100%;
+                    align-items: center;
+                    display: flex;
+                    justify-content: center;
+                }
+            }
+        }
+    }   
+}

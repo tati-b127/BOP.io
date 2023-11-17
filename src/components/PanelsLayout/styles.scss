@@ -1,0 +1,99 @@
+@import "../../styles/variables.scss";
+
+.panels-layout {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+
+  & .view {
+    flex: 1;
+    overflow: hidden;
+  }
+
+  & .panel{
+    box-sizing: border-box;
+    width: 100px;
+    position: relative;
+    transition: width 0.1s;
+
+    &.resizing {
+      pointer-events: none;
+      user-select: none;
+      -webkit-transition: none !important;
+      -moz-transition: none !important;
+      -o-transition: none !important;
+      transition: none !important;
+    }
+
+    & .panel-body{
+      overflow: hidden;
+      height: 100%;
+      width: 100%;
+      z-index: 1;      
+    }
+
+    &.collapsed {
+      width: 0px;
+      border: 0px !important;
+    }
+
+    &.left{
+      border-right: $defaultBorder;
+    }
+
+    &.right{
+      border-left: $defaultBorder;
+    }
+  }
+
+  & .resizer {
+    position: absolute;
+    width: 5px;
+    height: 100%;
+    top: 0;
+    z-index: 2;
+  
+    &.left {
+      right: 0;
+    }
+
+    &.right {
+      left: 0;
+    }
+
+    &:hover {
+      cursor: col-resize;
+    }
+  }
+
+  & .minify-button {
+    cursor: pointer;
+    height: 20px;
+    width: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    color: $greyColor;
+    top: 50%;
+    z-index: 1;
+  
+    & > svg {
+      width: 12px;
+    }
+  
+    &:hover{
+      color: $hoverGreyColor;
+    }
+
+    &.left {
+      right: -17px;
+    }
+
+    &.right {
+      left: -35px;
+    }
+  }
+}

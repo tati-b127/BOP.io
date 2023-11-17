@@ -1,0 +1,100 @@
+.cell {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.res-cell {
+  display: flex;
+  align-items: center;
+}
+
+.icon-div {
+  position: relative;
+}
+
+.cell-icon {
+  width: 22px;
+  min-width: 22px;
+  max-width: 22px;
+  margin-left: 6px;
+  margin-top: 6px;
+  margin-bottom: 6px;
+  color: #368ec4;
+  position: relative;
+}
+
+.cell-icon-scoped {
+  width: 12px;
+  bottom: 7px;
+  left: 6px;
+  position: absolute;
+}
+
+.cell-icon-attachment {
+  width: 16px;
+  min-width: 16px;
+  max-width: 22px;
+  margin-left: 6px;
+  color: #368ec4;
+}
+
+.cell-item {
+  margin-left: 6px;
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+.cell-item .title {
+  margin-right: 10px;
+}
+
+.cell-editor-container {
+  flex: 1;
+}
+
+.cell-value {
+  line-height: 14px;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+.tree-selected-row, .tree-selected-row:hover {
+  background-color: #7cbadd;
+}
+
+.tree-row-dragging {
+  border: 1px dashed #3d3d3d;
+}
+
+.row-instruction {
+  height: 25px !important;
+  border: 0px;
+}
+
+.row-border-top {
+  border-top-width: 1px;
+  border-top-color: #eeeeee;
+  border-top-style: solid;
+}
+
+.BaseTable__row-cell {
+  box-sizing: initial;
+}
+
+.BaseTable__header-row {
+  background-color: initial;
+}
+
+.BaseTable__header-cell {
+  box-sizing: initial;
+}
+
+.BaseTable__resizing-line {
+  visibility: hidden;
+}/*# sourceMappingURL=treegrid.css.map */

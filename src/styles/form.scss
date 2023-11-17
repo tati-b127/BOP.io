@@ -1,0 +1,63 @@
+@import './variables.scss';
+
+.form-container{
+    height: 100%;
+    overflow: auto;
+    padding: 5px;
+}
+
+.field-container{
+    margin-top: 10px;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+
+    .field-label{
+        flex: 1;
+        /*font-weight: bold;*/
+        /*text-align: end;*/
+        padding: 2px;
+        margin-left: 5px;
+        margin-right: 5px;
+        color: $darkGreyColor;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    
+    .field-value{
+        flex: 1;
+        margin-right: 5px;
+
+        &.flex2{
+            flex: 2;
+        }
+
+        .validation{
+            margin-top: 3px;
+            &.error{
+                color: red;
+            }
+        }
+    }
+}
+
+.fieldset-container {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid $borderGreyColor;
+    margin: 4px;
+    border-radius: 2px;
+    padding: 5px;
+
+    .fieldset-label {
+        font-weight: bold;
+        margin: 5px;
+        margin-left: 10px;
+        position: relative;
+    }
+}
+
+
+

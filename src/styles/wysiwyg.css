@@ -1,0 +1,56 @@
+.editor-wrapper{
+    height: 100%;
+    overflow: auto;
+}
+
+.wysiwyg-container{
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+}
+
+.jodit-container{
+    display: flex;
+    flex-direction: column;
+    height: inherit !important;
+}
+
+.jodit-workplace{
+    flex: 1;
+    font-family: 'gosttype_aregular', 'Arial';
+}
+
+.jodit-symbols{
+    font-family: 'gosttype_aregular';
+}
+
+.jodit-dialog__box .jodit-dialog__overlay{
+    background-color: rgba(0, 0, 0, 0.08)
+}
+
+.jodit-symbols table td a {
+    font-size: 25px;
+    text-decoration: none;
+    color: #4c4c4c;
+    display: inline-block;
+    box-sizing: border-box;
+    width: calc(25px*1.2);
+    height: calc(25px*1.2);
+    border: 1px solid transparent;
+    text-align: center;
+    line-height: calc(25px*1.2);
+    vertical-align: top;
+}
+
+.jodit-symbols {
+    width: 610px;
+    padding: 8px;
+}
+
+.jodit-symbols__container{
+    display: flex;
+}
+
+.jodit-symbols__container_table{
+    flex: 1;
+}

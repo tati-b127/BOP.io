@@ -1,0 +1,37 @@
+@import './variables.scss';
+
+.input-suffix-container{
+    position: relative;
+    overflow: hidden;
+
+    &.error{
+        border: 2px solid red;
+        border-radius: 4px;
+    }
+
+    input{
+        box-sizing: border-box;
+        width: 100%;
+        padding: 2px;
+        font-size: 14px;
+        font-family: Arial, Helvetica, sans-serif;
+        color: $darkGreyColor;
+
+        &:disabled{
+            background-color: $lightGreyColor;
+            outline: 0;
+            border: 1px solid lightgray;
+            border-radius: 1px;
+            padding: 3px;
+        }
+    }
+
+    .suffix {
+        position: absolute;
+        left: 0;
+        top: 6px;
+        color: $greyColor;
+        padding-left: 3px;
+        font: inherit;
+    }
+}

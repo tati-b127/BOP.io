@@ -1,0 +1,32 @@
+.drop-container {
+  position: relative;
+  text-align: center;
+  vertical-align: middle;
+  color: #ccc;
+  height: 100%;
+  overflow: hidden;
+  font-size: 11px;
+  border: 1px dashed;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.drop-container.dragging-over {
+  border: 2px dashed gray;
+}
+
+.drop-container .drop-icon-container {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+  user-select: none;
+}
+
+.drop-icon-container .drop-icon {
+  display: inline-block;
+  margin: 0 0.2em;
+  height: 40px;
+  width: 40px;
+}

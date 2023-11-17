@@ -1,0 +1,19 @@
+.drag-handler{
+    flex: none;
+    width: 7.5px;
+    height: 100%;
+    cursor: pointer;
+}
+
+.drag-handler::before {
+    content: '';
+    border-left: 4px dotted #ccc;
+    display: block;
+    height: 20px;
+    margin: 15px 3px;
+    cursor: pointer;
+}
+
+.drag-handler:hover::before {
+    border-color: #888;
+}

@@ -1,0 +1,31 @@
+.input-suffix-container {
+  position: relative;
+  overflow: hidden;
+}
+.input-suffix-container.error {
+  border: 2px solid red;
+  border-radius: 4px;
+}
+.input-suffix-container input {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 2px;
+  font-size: 14px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #3d3d3d;
+}
+.input-suffix-container input:disabled {
+  background-color: #f3f3f3;
+  outline: 0;
+  border: 1px solid lightgray;
+  border-radius: 1px;
+  padding: 3px;
+}
+.input-suffix-container .suffix {
+  position: absolute;
+  left: 0;
+  top: 6px;
+  color: #77797c;
+  padding-left: 3px;
+  font: inherit;
+}/*# sourceMappingURL=inputSuffix.css.map */

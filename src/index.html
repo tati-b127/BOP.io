@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html
+  xmlns:widget="http://www.netvibes.com/ns/"
+  xmlns="http://www.w3.org/1999/xhtml"
+>
+  <head>
+    <title>BOP Widget</title>
+    <meta content="vnalimov" name="author" />
+    <meta content="BOP Widget" name="description" />
+    <meta name="autoRefresh" content="0" />
+    <widget:preferences> </widget:preferences>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="//uwa.netvibes.com/lib/c/UWA/assets/css/standalone.css"
+    />
+    <script
+      type="text/javascript"
+      src="//uwa.netvibes.com/lib/c/UWA/js/UWA_Standalone_Alone.js"
+    ></script>
+
+    <script type="text/javascript">
+      // change this URL
+      const URL_3DSPACE = 'https://eno-3de-sw-d01.igatec.com/3dspace';
+      const setResizeable = () => {
+        let footer = document.getElementsByClassName('moduleFooter')[0]
+        let module = document.getElementsByClassName('module')[0]
+        let width = document.body.offsetWidth * 0.8
+        let height = document.documentElement.clientHeight * 0.8
+        module.style.width = width + 'px'
+        widget.body.style.height = height + 'px'
+        var x, y
+        footer.onmousedown = function(event) {
+          x = event.clientX
+          y = event.clientY
+          document.onmousemove = function(event) {
+            let dx = event.clientX - x
+            let dy = event.clientY - y
+            x = event.clientX
+            y = event.clientY
+            width = width + dx
+            height = height + dy
+            module.style.width = width + 'px'
+            widget.body.style.height = height + 'px'
+            document.getElementsByClassName('moduleEdit')[0].style.height =
+              height + 'px'
+          }
+          footer.onmouseup = function() {
+            document.onmousemove = function() {}
+            footer.onmouseup = function() {}
+          }
+        }
+      }
+
+      // if you have to use DS modules you need to create  dummy object or make your own implementation in createWidgetDummies.
+      // It is required for development mode, bus is not used in files for 3DDashboard
+      const getValOrig = widget.getValue
+      const setValOrig = widget.setValue
+
+      const localWidget = {
+        onLoad: function() {
+          setResizeable()
+          widget.clearValues()
+          widget.setValue('URL3DSpace', URL_3DSPACE)
+          widget.setValue("objectId", "29C7E2B60000528860084CBA0000BBE7")
+          window.widgetInstance.init()
+        },
+        setBody: function(content) {
+          let children = widget.body.getChildren()
+          let destroyFrom = -1
+          for (let i in children) {
+            if (
+              destroyFrom == -1 &&
+              children[i].getTagName() != 'script' &&
+              children[i].getTagName() != 'link'
+            )
+              destroyFrom = i
+            if (destroyFrom != -1) children[i].destroy()
+          }
+          widget.body.innerHTML += content
+        },
+        getCustomKeyPrefix: function() {
+          return this.widgetName + '_'
+        },
+        transformKey: function(key) {
+          return this.getCustomKeyPrefix() + key
+        },
+        setValue: function(key, value) {
+          setValOrig.call(this, key, value)
+          localStorage.setItem(this.transformKey(key), value)
+        },
+        getValue: function(key) {
+          const widgetValue = getValOrig.call(this, key)
+          const storageValue = localStorage.getItem(this.transformKey(key))
+          let value
+          if (widgetValue) {
+            value = widgetValue
+            if (storageValue !== value) widget.setValue(key, value)
+          } else if (storageValue) {
+            value = storageValue
+            if (widgetValue !== value) widget.setValue(key, value)
+          }
+          return value
+        },
+        clearValues: function() {
+          const toClear = []
+          for (let i = 0; i < localStorage.length; i++) {
+            let key = localStorage.key(i)
+            if (key.startsWith(this.getCustomKeyPrefix())) {
+              toClear.push(key)
+            }
+          }
+          toClear.map(value => localStorage.removeItem(value))
+        },
+        // dummy for WAFData (DS/WAFData/WAFData) and implementing authenticatedRequest(url, params) method
+        WAFData: {
+          authenticatedRequest: function(url, params) {
+            function createCORSRequest(method, url) {
+              var xhr = new XMLHttpRequest()
+              if ('withCredentials' in xhr) {
+                xhr.open(method, url, true)
+              } else if (typeof XDomainRequest != 'undefined') {
+                xhr = new XDomainRequest()
+                xhr.open(method, url)
+              } else {
+                xhr = null
+              }
+              return xhr
+            }
+
+            var xhr = createCORSRequest(
+              params.method ? params.method : 'GET',
+              url
+            )
+            if (!xhr) {
+              throw new Error('CORS not supported')
+            }
+            if (params && params.headers) {
+              for (let [header, value] of Object.entries(params.headers)) {
+                xhr.setRequestHeader(header, value)
+              }
+            }
+            xhr.onload = function() {
+              var rspns = JSON.parse(xhr.responseText)
+              params.onComplete(rspns)
+            }
+            xhr.onerror = params.onFailure
+            xhr.withCredentials = true
+            xhr.send(params.data)
+          },
+        },
+        // dummy for API (DS/PlatformAPI/PlatformAPI)
+        API: {
+          subscribe: function() {
+            console.dir(arguments)
+          },
+          publish: function() {
+            console.dir(arguments)
+          },
+        },
+        // dummy for DnD (DS/DataDragAndDrop/DataDragAndDrop)
+        DnD: {
+          droppable: function() {
+            console.dir(arguments)
+          },
+          draggable: function() {
+            console.dir(arguments)
+          },
+        },
+        // dummy for i3DXCompassServices (DS/i3DXCompassServices/i3DXCompassServices)
+        i3DXCompassServices: {},
+        // dummy for TagNavigatorProxy (DS/TagNavigatorProxy/TagNavigatorProxy)
+        TagNavigatorProxy: {},
+        widgetName: window.location.pathname.split('/')[1],
+      }
+      Object.assign(widget, localWidget)
+    </script>
+  </head>
+
+  <body>
+    <p>Loading...</p>
+  </body>
+</html>

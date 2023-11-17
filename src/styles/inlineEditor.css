@@ -1,0 +1,41 @@
+.editor-container{
+    display: flex;
+    /*height: 50px;*/
+    width: 100%;
+}
+
+.editor-container > div[contenteditable="true"] {
+    font-family: 'gosttype_aregular', 'Arial';
+    min-height: 20px;
+    /*overflow: auto;*/
+    align-items: center;
+    padding: 5px;
+    width: 100%;
+    word-break: break-word;
+    display: flex;
+    /*min-width: 50px;*/
+}
+
+.editor-container > div[contenteditable="true"].editable {
+    border: 1px dashed rgb(235, 233, 233);
+    background-color: white;
+}
+
+.editor-controls{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.editor-controls > .icon{
+    padding: 2px;
+    cursor: pointer;
+}
+
+.icon.save{
+    color: green;
+}
+
+.icon.cancel{
+    color: red;
+}

@@ -1,0 +1,106 @@
+@import './variables.scss';
+
+@font-face {
+    font-family: 'gosttype_aregular';
+    src: url('../fonts/subset-GOSTtypeA.woff2') format('woff2'),
+        url('../fonts/subset-GOSTtypeA.woff') format('woff'),
+        url('../fonts/subset-GOSTtypeA.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+#root {
+    height: 100%;
+}
+
+.root{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
+    color: $darkGreyColor;
+}
+
+.ReactTable {
+    height: 100%;
+    color: $greyColor;
+}
+
+.left-sidebar {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    flex: 5
+}
+
+.right-sidebar{
+    position: relative;
+    height: 100%;
+    flex: 2;
+}
+
+button, .button{
+    border: $defaultBorder;
+    color: $backgroundColor;
+    background-color: $blueColor;
+    padding: 4px;
+    margin: 2px;
+    border-radius: 4px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    min-width: 50px;
+    justify-content: center;
+
+    &.toggle-button{
+        min-width: initial;
+        width: 28px;
+        height: 28px;
+        position: relative;
+        outline: 0;
+        &.on{
+            background-color: $blueColor;
+            box-shadow: 1px 1px 1px 1px $blueColor;
+            bottom: 2px;
+            right: 2px;
+        }
+        &.off{
+            background-color: $lightBlueColor;
+        }
+    }
+
+    &:hover{
+        background-color: $lightBlueColor;
+    }
+
+    &.active{
+        background: $lightBlueColor;
+    }
+
+    &:disabled{
+        cursor: not-allowed;
+        opacity: 0.65;
+    }
+}
+
+.inputfile {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.buttons-container {
+    display: flex;
+    margin: 2px;
+    justify-content: flex-start;
+
+    &.right{
+        justify-content: flex-end;
+    }
+}

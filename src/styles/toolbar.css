@@ -1,0 +1,16 @@
+.toolbar-container .menu-container .workbench-container{
+    overflow-x: initial;
+    overflow-y: initial;
+}
+
+.toolbar-container .menu-container{
+    overflow: initial;
+}
+
+.command-container .command-item{
+    cursor: default;
+}
+
+.toolbar-container .menu-container .tabs-placeholder .tabs-container .tab-item{
+    font-size: 12px;
+}

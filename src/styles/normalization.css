@@ -1,0 +1,29 @@
+.normalization-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.normalization-form-container {
+  height: 100%;
+  overflow: auto;
+  font-size: 14px;
+  font-family: Arial;
+}
+
+.normalization-placeholder {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  align-items: center;
+}
+
+.normalization-status-container {
+  padding: 5px;
+}
+.normalization-status-container p.warning {
+  color: #a5a500;
+}
+.normalization-status-container p.error {
+  color: #ff0000;
+}/*# sourceMappingURL=normalization.css.map */

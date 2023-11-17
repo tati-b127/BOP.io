@@ -1,0 +1,12 @@
+@import './variables.scss';
+
+.loader{
+    width: 15px;
+    height: 15px;
+    border: 3px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 3px solid $blueColor;
+    border-bottom: 3px solid $blueColor;
+    animation: rotation 2s infinite linear;
+    margin: 6px;
+}

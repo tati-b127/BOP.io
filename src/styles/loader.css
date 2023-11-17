@@ -1,0 +1,10 @@
+.loader {
+  width: 15px;
+  height: 15px;
+  border: 3px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 3px solid #368ec4;
+  border-bottom: 3px solid #368ec4;
+  animation: rotation 2s infinite linear;
+  margin: 6px;
+}/*# sourceMappingURL=loader.css.map */
