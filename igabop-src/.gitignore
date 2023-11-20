@@ -23,7 +23,7 @@ src/js/build
 src/js/node_modules
 src/js/src/ckeditor5/node_modules
 /src/main/resources/static/*
-# package-lock.json
+package-lock.json
 .gradle/
 /build
 /gradle/
