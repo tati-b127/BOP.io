@@ -1,0 +1,92 @@
+<?xml version="1.0" ?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2012, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified"
+	       ModelerType="Top"
+	       Name="CATReport"
+         Uuid="234FEA09-099B-4c97-A1DD-A425623CCF5D"
+         UseNames="PLMCORE"
+	       UseProcedures="RGNProcAttach"
+	       CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>CATIA System Report Package</ShortRole>
+    <Role>This package includes all the entities of CATIA System Report model except one connection defined in CATReportCnx.metadata</Role>
+  </CAAComment>
+
+  <Class Name="CATReportReference"
+         Uuid="01F2F2EA-37AB-4438-9543-8BA5485B4C75"
+         Abstract="No"
+         SuperName="PLMCoreReference"
+         CAAExposition="L0"
+	       CustomerExposition="Programmer"
+	       Specializable="Yes">
+
+    <Property Name="KweNew_InstanciationMethod" Value="CATEReportDelegateInstanciation"/>
+    <Property Name="Newable" Value="Insert" />
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="IconName" Value="I_RGN_Report"/>
+    <Property Name="ChangeManagementSupport" Value="Yes"/>
+    <Property Name="Searchable" Value="Yes"/>
+
+    <!-- PROCEDURES Declaration  -->
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+  <Class Name="CATReportInputsConnection"
+         Uuid="3D7914C7-B7FD-4eda-A86F-DADDD459E506"
+         Abstract="No"
+         SuperName="PLMConnection"
+    OwnerTypes="CATReportReference"
+	       CustomerExposition="Programmer">
+    <!-- OwnerTypes="CATReportReference"  Integrate this line if you want to declare the aggregation constraint -->
+
+    <Property Name="Searchable" Value="No"/>
+
+ 
+    <Path Name="CATReportModel"
+      Uuid="F42E9F46-206E-4e32-988D-7418C67F1591"
+      MultiValuated="No"
+      RoleName="CATReportModel"
+   		Type="SemanticRelation" AdaptativeToMinor="No"
+		  SynchroSensitivity="PathAndLast"
+		  RerouteOnEffectivityChange="No" Orientation="In"
+      Semantics="Reference3"/>
+
+    <Path Name="CATReportTemplate"
+        Uuid="36DD65ED-087F-4782-927E-C9ABF212D391"
+        MultiValuated="No"
+        RoleName="CATReportTemplate"		
+        Type="SemanticRelation" AdaptativeToMinor="No"
+		    SynchroSensitivity="PathAndLast"
+		    RerouteOnEffectivityChange="No" Orientation="In"
+        Semantics="Reference3"/>
+
+		<Path Name="CATReportInputData"
+        Uuid="36D67C90-5D85-4cbb-8FCC-CFD5EC824DC2"
+        MultiValuated="Yes"
+        RoleName="CATReportInputData"
+        Type="SemanticRelation" AdaptativeToMinor="No"
+		    SynchroSensitivity="PathAndLast"
+      RerouteOnEffectivityChange="No" Orientation="In"
+        Semantics="Reference3"/>   
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+  <!-- ********************************************************* -->
+  <!-- FUNCTIONS Declarations : here are delcared PLMQL Functions -->
+
+  <!-- ********************************************************* -->
+
+  <!-- DISCIPLINES DECLARATIONS -->
+
+  <!-- ********************************************************* -->
+</Package>
+

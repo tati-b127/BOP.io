@@ -1,0 +1,4 @@
+#Prog Drafting_ExportCompletion_Myself( iPLMIDSet : #In PLMIDSet, oPLMIDSet : #Out PLMIDSet ) : VoidType
+{
+  oPLMIDSet = iPLMIDSet
+}

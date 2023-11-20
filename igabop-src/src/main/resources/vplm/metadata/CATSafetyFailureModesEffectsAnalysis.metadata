@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2015, All rights reserved -->
+<Package
+	xmlns="PLMDictionaryUnified"
+	Name="CATSafetyFailureModesEffectsAnalysis"
+	Uuid="121c35d9-a2a5-41ed-9c9e-04f79649ec8e"
+	UseNames="PLMCORE"
+	BelongsToModeler="CATSafety"
+	CustomerExposition="Programmer"
+	ModelerType="Top"
+	Architecture="Web">
+  <Extension
+  	Name="ISO26262"
+  	Uuid="9d9e047c-4fc6-40f0-b4c6-35260c7d1369" 
+  	CustomerExposition="Programmer"
+  	ScopeNames="HazardousEvent FailureModesEffectsAnalysisCausalityRelationship"
+  	Specializable="No"
+  	Searchable="Yes"
+  	Standard="Yes">
+  	<Simple
+			Name="Exposure"
+			Uuid="8cde2128-51fd-4563-9882-732cfc561d64"
+			Type="Integer"
+			Protection="ExternalIN"
+			PLMImpacting="Yes"
+			DefaultValue="4"
+			MultiValuated="No"
+			CAAExposition="L0">
+			<CAAComment>
+				<ShortRole>Exposure
+				</ShortRole>
+				<Role>ISO26262 Exposure
+				</Role>
+			</CAAComment>
+			<Range>
+		        <Between>
+		          <Min>0</Min>
+		        </Between>
+		        <Between>
+		          <Max>4</Max>
+		        </Between>
+		      </Range>
+    </Simple>
+    <Simple
+			Name="Severity"
+			Uuid="e8d3c3f9-7e95-4580-8c25-be1114eb8024"
+			Type="Integer"
+			Protection="ExternalIN"
+			PLMImpacting="Yes"
+			DefaultValue="3"
+			MultiValuated="No"
+			CAAExposition="L0">
+			<CAAComment>
+				<ShortRole>Severity
+				</ShortRole>
+				<Role>ISO26262 Severity
+				</Role>
+			</CAAComment>
+			<Range>
+		        <Between>
+		          <Min>0</Min>
+		        </Between>
+		        <Between>
+		          <Max>3</Max>
+		        </Between>
+		      </Range>
+    </Simple>
+    <Simple
+			Name="Controllability"
+			Uuid="0190fd68-2d0b-4e7c-b983-f1838d3f1bf7"
+			Type="Integer"
+			Protection="ExternalIN"
+			PLMImpacting="Yes"
+			DefaultValue="3"
+			MultiValuated="No"
+			CAAExposition="L0">
+			<CAAComment>
+				<ShortRole>Controllability
+				</ShortRole>
+				<Role>ISO26262 Controllability
+				</Role>
+			</CAAComment>
+			<Range>
+		        <Between>
+		          <Min>0</Min>
+		        </Between>
+		        <Between>
+		          <Max>3</Max>
+		        </Between>
+		      </Range>
+    </Simple>
+  </Extension>
+  <Extension
+  	Name="RiskPriorityNumber"
+  	Uuid="803810d9-2e0d-464e-8f59-6df17b560b2a" 
+  	CustomerExposition="Programmer"
+  	ScopeNames="FailureModesEffectsAnalysisCausalityRelationship"
+  	Specializable="No"
+  	Searchable="Yes"
+  	Standard="Yes">
+  	<Simple
+			Name="RPNOccurrence"
+			Uuid="feddb46e-5653-434f-b613-26155ae02ba1"
+			Type="Integer"
+			Protection="ExternalIN"
+			PLMImpacting="Yes"
+			MultiValuated="No"
+			CAAExposition="L0">
+			<CAAComment>
+				<ShortRole>Occurrence
+				</ShortRole>
+				<Role>Occurrence of the cause
+				</Role>
+			</CAAComment>
+			<Range>
+		        <Between>
+		          <Min>1</Min>
+		        </Between>
+		        <Between>
+		          <Max>10</Max>
+		        </Between>
+		      </Range>
+    </Simple>
+    <Simple
+			Name="RPNDetection"
+			Uuid="5ba8dd92-073d-4ea3-bfaf-fe3300a283fc"
+			Type="Integer"
+			Protection="ExternalIN"
+			PLMImpacting="Yes"
+			MultiValuated="No"
+			CAAExposition="L0">
+			<CAAComment>
+				<ShortRole>Detection
+				</ShortRole>
+				<Role>Detection of failure mode
+				</Role>
+			</CAAComment>
+			<Range>
+		        <Between>
+		          <Min>1</Min>
+		        </Between>
+		        <Between>
+		          <Max>10</Max>
+		        </Between>
+		      </Range>
+    </Simple>
+    <Simple
+			Name="RPNSeverity"
+			Uuid="d3b2bb96-c6df-418d-b2c9-afd162419e7b"
+			Type="Integer"
+			Protection="ExternalIN"
+			PLMImpacting="Yes"
+			MultiValuated="No"
+			CAAExposition="L0">
+			<CAAComment>
+				<ShortRole>Severity
+				</ShortRole>
+				<Role>Severity of effect
+				</Role>
+			</CAAComment>
+			<Range>
+		        <Between>
+		          <Min>1</Min>
+		        </Between>
+		        <Between>
+		          <Max>10</Max>
+		        </Between>
+		      </Range>
+    </Simple>
+  </Extension>
+  <Class
+		Name="HazardousEvent"
+		Uuid="4667f9f9-7df1-4498-a56b-e142fdabd07b"
+		CustomerExposition="Programmer"
+		CustomerExtensible="Yes"
+		Specializable="Yes"
+		SuperName="PLMCoreReference">
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope" />
+    </Method>
+  </Class>
+
+  <Class
+		Name="HazardousEventFailureMode"
+		Uuid="79555adb-27e7-412b-9b2d-a6be0fbe5a4a"
+		CustomerExposition="Programmer"
+		SuperName="PLMPort"
+		OwnerTypes="HazardousEvent"
+		>
+    <Path Name="failureMode"
+			Uuid="43226cb3-7fd8-4fa7-b93b-b7ce9f48beef"
+		    Orientation="In"
+		    SynchroSensitivity="PathAndLast"
+		    Protection="External"
+		    RerouteOnEffectivityChange="No"
+		    MultiValuated="No"
+		    Type="SemanticRelation"
+		    TargetName="V_SR"
+			TargetNames="FailureMode"
+			RoleName="HazardousEventFailureMode"
+		    Semantics="Reference3"
+			/>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope" />
+    </Method>
+  </Class>
+  <Class
+		Name="HazardousEventPhase"
+		Uuid="36753ade-dd53-481d-b26f-149aa956c166"
+		CustomerExposition="Programmer"
+		SuperName="PLMConnection"
+		OwnerTypes="HazardousEvent"
+		>
+    <Path Name="phase"
+			Uuid="57d116a1-3837-4eae-bbb8-afe1405a67ab"
+			Type="SemanticRelation"
+		    Orientation="In"
+		    SynchroSensitivity="PathAndLast"
+		    Protection="External"
+		    RerouteOnEffectivityChange="No"
+		    MultiValuated="Yes"
+		    TargetName="V_SRs"
+			TargetNames="PLMCoreInstance"
+			RoleName="HazardousEventPhase"
+		    Semantics="Reference3"
+			/>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope" />
+    </Method>
+  </Class>
+  <Class
+     Name="FailureModesEffectsAnalysis"
+     Uuid="4be595f8-b98e-4f1d-b134-9bab4b1a293d"
+     CustomerExposition="Programmer"
+     CustomerExtensible="Yes"
+     Specializable="Yes"
+     SuperName="PLMCoreReference"
+     IconName="FailureModesEffectsAnalysis">
+    <Simple Name="V_Model" Uuid="1da18cfd-1919-4540-b66f-21f3f95ec8ba" Type="Clob" Protection="Internal"/>
+    <Simple Name="V_Team" Uuid="6134a0a7-4d9e-44f3-a306-729d6e12ef86" Type="String" Protection="ExternalIN"/>
+    <Simple Name="V_KeyDate" Uuid="7d63a54b-a1d4-4c8c-9e12-f7f284e5afc4" Type="Date" Protection="ExternalIN"/>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope" />
+    </Method>
+  </Class>
+  <Class
+     Name="FailureModesEffectsAnalysisCausalityRelationship"
+     Uuid="2727b073-3a7d-4cc1-9ec7-caa94ece72c0"
+     SuperName="PLMConnection"
+     Specializable="Yes"
+	 Searchable="Yes"
+     CustomerExtensible="Yes"
+     CustomerExposition="Programmer"
+     OwnerTypes="FailureModesEffectsAnalysis"
+		>
+    <Simple Name="V_Perceived" Uuid="5c7d9261-480f-4f5f-9f4c-447c36b8c905" Type="Boolean" Protection="ExternalIN"/>
+    <Simple Name="V_NotDetailed" Uuid="c84da69a-8ecc-4e57-aaf4-2092917f4a26" Type="Boolean" Protection="ExternalIN"/>
+    <Simple Name="V_Type" Uuid="43e31f70-5499-4011-80bd-e9fe340f03a6" Type="String" Protection="ExternalIN"/>
+    <Simple Name="V_Detection" Uuid="a5af3d3e-64ed-4195-b7fb-32b016427bfd" Type="String" MultiValuated="Yes" Protection="ExternalIN"/>
+    <Simple Name="V_Prevention" Uuid="63297d6b-8520-4d2c-9d5e-6d0c33b5e422" Type="String" MultiValuated="Yes" Protection="ExternalIN"/>
+    <Simple Name="V_Task" Uuid="bf9f8fc3-5ed7-454d-9cb3-11ef65fa5e86" Type="String" MultiValuated="Yes" Protection="ExternalIN"/>
+    <Simple Name="V_Comments" Uuid="5d49a388-a86c-49e3-93fe-fa427f812abc" Type="Clob" MultiValuated="No" Protection="ExternalIN"/>
+    <Path Name="causeFailureMode"
+			Uuid="c9caeeef-a965-4cbf-907c-5bc02eeeb90c"
+			Type="SemanticRelation"
+		    Orientation="In"
+		    SynchroSensitivity="PathAndLast"
+		    Protection="External"
+		    RerouteOnEffectivityChange="No"
+		    MultiValuated="Yes"
+		    TargetName="V_SRs"
+			TargetNames="FailureMode"
+			RoleName="FailureModesEffectsAnalysisCauseFailureMode"
+		    Semantics="Reference3"
+			/>
+    <Path Name="causeOccurrence"
+			Uuid="7080d8a3-9626-473a-92ae-6faf9e4dfd64"
+			Type="SemanticRelation"
+		    Orientation="In"
+		    SynchroSensitivity="PathAndLast"
+		    Protection="External"
+		    RerouteOnEffectivityChange="No"
+		    MultiValuated="Yes"
+		    TargetName="V_SRs"
+			RoleName="FailureModesEffectsAnalysisCauseOccurrence"
+		    Semantics="Reference3"
+			/>
+    <Path Name="effectsWithoutBarrier"
+          Uuid="75677ae0-0bab-4352-88f6-6476df8e3cb2"
+          Type="SemanticRelation"
+          Orientation="In"
+          SynchroSensitivity="PathAndLast"
+          Protection="External"
+          RerouteOnEffectivityChange="No"
+          MultiValuated="Yes"
+          TargetName="V_SRs"
+          TargetNames="HazardousEvent;FailureMode"
+          RoleName="FailureModesEffectsAnalysisEffectsWithoutBarrier"
+          Semantics="Reference3"
+			/>
+    <Path Name="effectsWithoutBarrierOccurrence"
+          Uuid="8f6d4bb1-5de3-468c-aeee-f57adee32114"
+          Type="SemanticRelation"
+          Orientation="In"
+          SynchroSensitivity="PathAndLast"
+          Protection="External"
+          RerouteOnEffectivityChange="No"
+          MultiValuated="Yes"
+          TargetName="V_SRs"
+          RoleName="FailureModesEffectsAnalysisEffectsWithoutBarrierOccurrence"
+          Semantics="Reference3"
+			/>
+    <Path Name="effectsWithBarrier"
+          Uuid="cbe1ba02-6362-4105-9b91-e479d9d984e1"
+          Type="SemanticRelation"
+          Orientation="In"
+          SynchroSensitivity="PathAndLast"
+          Protection="External"
+          RerouteOnEffectivityChange="No"
+          MultiValuated="Yes"
+          TargetName="V_SRs"
+          TargetNames="HazardousEvent;FailureMode"
+          RoleName="FailureModesEffectsAnalysisEffectsWithBarrier"
+          Semantics="Reference3"
+			/>
+    <Path Name="effectsWithBarrierOccurrence"
+          Uuid="e24854b9-6e32-4672-810a-082ca05750fc"
+          Type="SemanticRelation"
+          Orientation="In"
+          SynchroSensitivity="PathAndLast"
+          Protection="External"
+          RerouteOnEffectivityChange="No"
+          MultiValuated="Yes"
+          TargetName="V_SRs"
+          RoleName="FailureModesEffectsAnalysisEffectsWithBarrierOccurrence"
+          Semantics="Reference3"
+			/>
+	<Path Name="isPreventedBy"
+		  Uuid="ea61b703-1735-4326-9bee-4d74ae923fdd"
+		  Type="SemanticRelation"
+          Orientation="In"
+          SynchroSensitivity="PathAndLast"
+          Protection="External"
+          RerouteOnEffectivityChange="No"
+          MultiValuated="Yes"
+          TargetName="V_SRs"
+          TargetNames=""
+          RoleName="FailureModesEffectsAnalysisPrevention"
+          Semantics="Reference3"
+			/>
+	<Path Name="isDetectedBy"
+		  Uuid="2821099b-c66a-4ecb-b9b2-f4a4e1c8885e"
+		  Type="SemanticRelation"
+          Orientation="In"
+          SynchroSensitivity="PathAndLast"
+          Protection="External"
+          RerouteOnEffectivityChange="No"
+          MultiValuated="Yes"
+          TargetName="V_SRs"
+          TargetNames=""
+          RoleName="FailureModesEffectsAnalysisDetection"
+          Semantics="Reference3"
+			/>
+  	<Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope" />
+    </Method>
+  </Class>
+  <Class
+   Name="FailureModesEffectsAnalysisAnalyzes"
+   Uuid="ed477be2-5794-4f3a-b91c-c46c8ba2affc"
+   CustomerExposition="Programmer"
+   SuperName="PLMPort"
+   OwnerTypes="FailureModesEffectsAnalysis"
+		>
+    <Path Name="analyzes"
+			Uuid="7c566fb4-a4f9-46d7-be5e-35fc56e55fe2"
+		    Orientation="In"
+		    SynchroSensitivity="PathAndLast"
+		    Protection="External"
+		    RerouteOnEffectivityChange="No"
+		    MultiValuated="No"
+		    Type="SemanticRelation"
+		    TargetName="V_SR"
+			TargetNames="PLMCoreReference"
+			RoleName="FailureModesEffectsAnalysisAnalyzes"
+		    Semantics="Reference3"
+			/>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope" />
+    </Method>
+  </Class>
+
+  <Class
+   Name="FailureModesEffectsAnalysisAnalysisContext"
+   Uuid="2e9685d0-6add-41d4-8e4d-444091573b6c"
+   CustomerExposition="Programmer"
+   SuperName="PLMPort"
+   OwnerTypes="FailureModesEffectsAnalysis"
+		>
+    <Path Name="analysisContext"
+			Uuid="55e48881-ed3f-46d1-8f7a-27d52c868968"
+		    Orientation="In"
+		    SynchroSensitivity="PathAndLast"
+		    Protection="External"
+		    RerouteOnEffectivityChange="No"
+		    MultiValuated="Yes"
+		    Type="SemanticRelation"
+		    TargetName="V_SR"
+			TargetNames="PLMCoreInstance"
+			RoleName="FailureModesEffectsAnalysisAnalysisContext"
+		    Semantics="Reference3"
+			/>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope" />
+    </Method>
+  </Class>
+  
+  <Class
+		Name="FailureModesEffectsAnalysisRep"
+		Uuid="44ff5b32-336b-41c8-9e91-45afa4371f69"
+		SuperName="PLMCoreRepReference"
+		CustomerExposition="ProgrammerOnly">
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope" />
+    </Method>
+  </Class>
+  <RelationClass
+		Name="FailureModesEffectsAnalysisRepInstance"
+		Uuid="4b4e6d06-1939-409c-8a2b-74005d42663c"
+		CustomerExposition="ProgrammerOnly"
+		SuperName="PLMCoreRepInstance">
+    <SubClause Name="from"   TargetName="FailureModesEffectsAnalysis"/>
+    <SubClause Name="to"   TargetName="FailureModesEffectsAnalysisRep"/>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope" />
+    </Method>
+  </RelationClass>
+
+</Package>

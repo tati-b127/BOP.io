@@ -1,0 +1,277 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR DELMIA Production System Application -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top"
+         Name="DELLmiProductionSystemAbstract"
+	       Uuid="b3e040d7-4575-4ffd-965c78a70f265588"
+         BelongsToModeler="DELLmiProductionSystem"
+	       UseNames="PLMCORE"
+         UseProcedures="ENOPsm_Procedures"
+         CustomerExposition="None">
+
+  <CAAComment>
+    <ShortRole>PLM DELMIA Abstract Production System</ShortRole>
+    <Role>This package describes the PLM DELMIA Abstract Production System model on top of PLM Core</Role>
+  </CAAComment>
+
+  <Comment>last update 2012-01-20</Comment>
+
+  <!-- *********************************************************** -->
+  <!-- *  DELLmiAbstractProductionEntity (PLMCoreReference)   * -->
+  <!-- *********************************************************** -->
+
+  <Class Name="DELLmiAbstractProductionEntity"
+		     Uuid="96debafe-2673-48ac-a732c929c09986f7"
+		     Abstract="Yes"
+		     SuperName="PLMCoreReference"
+         Specializable="No"
+         CustomerExtensible="No"
+         CustomerExposition="None">
+
+    <CAAComment>
+      <ShortRole>PLM DELMIA Abstract Production System Entity</ShortRole>
+      <Role>PLM DELMIA Abstract Production System Entity</Role>
+    </CAAComment>
+
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Design"/>
+        <UsedProcedure href="ENOPsm_Procedures.proc#ProductionSystem_ExportAsDesign"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Channel"/>
+        <UsedProcedure href="ENOPsm_Procedures.proc#ProductionSystem_ExportAsDesign"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#TransferSiteOwnership"/>
+        <UsedProcedure href="ENOPsm_Procedures.proc#Process_TSO_References"/>
+      </ProcedureForUsage>
+    </Method>
+  </Class>
+
+  <!-- FUNCTIONS Declarations : here are declared PLMQL Functions -->
+
+  <Function Name="ENOPsm_ProductionSystem_addAllEntities">
+    <Implementation Name="ENOPsm_ProductionSystem_addAllEntities" FileLocation="ENOPsm_ProductionSystem_addAllEntities.plmql" Language="PLMQL"/>
+    <Signature href="ENOProductionSystemSignature"/>
+  </Function>
+
+  <Function Name="ENOPsm_ProductionSystem_addAllEntitiesOneLevel">
+    <Implementation Name="ENOPsm_ProductionSystem_addAllEntitiesOneLevel" FileLocation="ENOPsm_ProductionSystem_addAllEntitiesOneLevel.plmql" Language="PLMQL"/>
+    <Signature href="ENOProductionSystemSignature"/>
+  </Function>
+
+  <Function Name="ENOPsm_ProductionSystem_addAllEntitiesWithoutDocRep">
+    <Implementation Name="ENOPsm_ProductionSystem_addAllEntitiesWithoutDocRep" FileLocation="ENOPsm_ProductionSystem_addAllEntitiesWithoutDocRep.plmql" Language="PLMQL"/>
+    <Signature href="ENOProductionSystemSignature"/>
+  </Function>
+
+  <Function Name="ENOPsm_ProductionSystem_addAllEntitiesWithoutDocRepAndCandidateRsc">
+    <Implementation Name="ENOPsm_ProductionSystem_addAllEntitiesWithoutDocRepAndCandidateRsc" FileLocation="ENOPsm_ProductionSystem_addAllEntitiesWithoutDocRepAndCandidateRsc.plmql" Language="PLMQL"/>
+    <Signature href="ENOProductionSystemSignature"/>
+  </Function>
+
+  <Function Name="ENOPsm_ProductionSystem_addPlugRep">
+    <Implementation Name="ENOPsm_ProductionSystem_addPlugRep" FileLocation="ENOPsm_ProductionSystem_addPlugRep.plmql" Language="PLMQL"/>
+    <Signature href="ENOProductionSystemSignature"/>
+  </Function>
+
+  <Function Name="ENOPsm_ProductionSystem_addSupplyChainSourcingLevel2">
+    <Implementation Name="ENOPsm_ProductionSystem_addSupplyChainSourcingLevel2" FileLocation="ENOPsm_ProductionSystem_addSupplyChainSourcingLevel2.plmql" Language="PLMQL"/>
+    <Signature href="ENOProductionSystemSignature"/>
+  </Function>
+
+  <Function Name="ENOPsm_ProductionSystem_addAllCnxPort">
+    <Implementation Name="ENOPsm_ProductionSystem_addAllCnxPort" FileLocation="ENOPsm_ProductionSystem_addAllCnxPort.plmql" Language="PLMQL"/>
+    <Signature href="ENOProductionSystemSignature"/>
+  </Function>
+
+  <Function Name="ENOPsm_ProductionSystem_addAllRefInstRepRefRepInst">
+    <Implementation Name="ENOPsm_ProductionSystem_addAllRefInstRepRefRepInst" FileLocation="ENOPsm_ProductionSystem_addAllRefInstRepRefRepInst.plmql" Language="PLMQL"/>
+    <Signature href="ENOProductionSystemSignature"/>
+  </Function>
+
+  <Function Name="ENOPsm_ProductionSystem_addMaterialFlow">
+    <Implementation Name="ENOPsm_ProductionSystem_addMaterialFlow" FileLocation="ENOPsm_ProductionSystem_addMaterialFlow.plmql" Language="PLMQL"/>
+    <Signature href="ENOProductionSystemSignature"/>
+  </Function>
+
+  <Function Name="ENOPsm_ProductionSystem_expandIOPorts">
+    <Implementation Name="ENOPsm_ProductionSystem_expandIOPorts" FileLocation="ENOPsm_ProductionSystem_expandIOPorts.plmql" Language="PLMQL"/>
+    <Signature href="ENOProductionSystemSignature"/>
+  </Function>
+
+  <Function Name="ENOPsm_ProductionSystem_addTimeCstFromConstrainedObject">
+    <Implementation Name="ENOPsm_ProductionSystem_addTimeCstFromConstrainedObject" FileLocation="ENOPsm_ProductionSystem_addTimeCstFromConstrainedObject.plmql" Language="PLMQL"/>
+    <Signature href="ENOProductionSystemSignature"/>
+  </Function>
+
+  <Function Name="ENOPsm_ProductionSystem_addMaterialFlowCnxFromIN">
+    <Implementation Name="ENOPsm_ProductionSystem_addMaterialFlowCnxFromIN" FileLocation="ENOPsm_ProductionSystem_addMaterialFlowCnxFromIN.plmql" Language="PLMQL"/>
+    <Signature href="ENOProductionSystemSignature"/>
+  </Function>
+
+  <Function Name="ENOPsm_ProductionSystem_addCandidateResourcesWithoutPrefered">
+    <Implementation Name="ENOPsm_ProductionSystem_addCandidateResourcesWithoutPrefered" FileLocation="ENOPsm_ProductionSystem_addCandidateResourcesWithoutPrefered.plmql" Language="PLMQL"/>
+    <Signature href="ENOProductionSystemSignature"/>
+  </Function>
+
+  <Function Name="ENOPsm_ProductionSystem_addImplementingResources">
+    <Implementation Name="ENOPsm_ProductionSystem_addImplementingResources" FileLocation="ENOPsm_ProductionSystem_addImplementingResources.plmql" Language="PLMQL"/>
+    <Signature href="ENOProductionSystemSignature"/>
+  </Function>
+
+  <Function Name="ENOPsm_ProductionSystem_addImplementedProcess">
+    <Implementation Name="ENOPsm_ProductionSystem_addImplementedProcess" FileLocation="ENOPsm_ProductionSystem_addImplementedProcess.plmql" Language="PLMQL"/>
+    <Signature href="ENOProductionSystemSignature"/>
+  </Function>
+
+  <Function Name="ENOPsm_ProductionSystem_expandOneLevelOperations">
+    <Implementation Name="ENOPsm_ProductionSystem_expandOneLevelOperations" FileLocation="ENOPsm_ProductionSystem_expandOneLevelOperations.plmql" Language="PLMQL"/>
+    <Signature href="ENOProductionSystemSignature"/>
+  </Function>
+
+  <Function Name="ENOPsm_ProductionSystem_expandCompiledWKIRep">
+    <Implementation Name="ENOPsm_ProductionSystem_expandCompiledWKIRep" FileLocation="ENOPsm_ProductionSystem_expandCompiledWKIRep.plmql" Language="PLMQL"/>
+    <Signature href="ENOProductionSystemSignature"/>
+  </Function>
+
+  <Function Name="ENOPsm_ProductionSystem_expandWorkInstructions">
+    <Implementation Name="ENOPsm_ProductionSystem_expandWorkInstructions" FileLocation="ENOPsm_ProductionSystem_expandWorkInstructions.plmql" Language="PLMQL"/>
+    <Signature href="ENOProductionSystemSignature"/>
+  </Function>
+
+  <Function Name="ENOPsm_ProductionSystem_addImplementingResourcesFromCnx">
+    <Implementation Name="ENOPsm_ProductionSystem_addImplementingResourcesFromCnx" FileLocation="ENOPsm_ProductionSystem_addImplementingResourcesFromCnx.plmql" Language="PLMQL"/>
+    <Signature href="ENOProductionSystemSignature"/>
+  </Function>
+
+  <Function Name="ENOPsm_ProductionSystem_addImplementedProcessesFromCnx">
+    <Implementation Name="ENOPsm_ProductionSystem_addImplementedProcessesFromCnx" FileLocation="ENOPsm_ProductionSystem_addImplementedProcessesFromCnx.plmql" Language="PLMQL"/>
+    <Signature href="ENOProductionSystemSignature"/>
+  </Function>
+
+  <Function Name="ENOPsm_ProductionSystem_addProcessRefFromProcessInst">
+    <Implementation Name="ENOPsm_ProductionSystem_addProcessRefFromProcessInst" FileLocation="ENOPsm_ProductionSystem_addProcessRefFromProcessInst.plmql" Language="PLMQL"/>
+    <Signature href="ENOProductionSystemSignature"/>
+  </Function>
+
+    <Function Name="ENOPsm_ProductionSystem_addAllPortsAndCnxExceptImplCnx">
+      <Implementation Name="ENOPsm_ProductionSystem_addAllPortsAndCnxExceptImplCnx" FileLocation="ENOPsm_ProductionSystem_addAllPortsAndCnxExceptImplCnx.plmql" Language="PLMQL"/>
+      <Signature href="ENOProductionSystemSignature"/>
+    </Function>
+    
+    <Function Name="ENOPsm_ProductionSystem_addAllPortsRepInstAndCnxExceptImplCnx">
+      <Implementation Name="ENOPsm_ProductionSystem_addAllPortsRepInstAndCnxExceptImplCnx" FileLocation="ENOPsm_ProductionSystem_addAllPortsRepInstAndCnxExceptImplCnx.plmql" Language="PLMQL"/>
+      <Signature href="ENOProductionSystemSignature"/>
+    </Function>
+
+  <Function Name="ENOPsm_ProductionSystem_addCandidateResourcesFromCnx">
+    <Implementation Name="ENOPsm_ProductionSystem_addCandidateResourcesFromCnx" FileLocation="ENOPsm_ProductionSystem_addCandidateResourcesFromCnx.plmql" Language="PLMQL"/>
+    <Signature href="ENOProductionSystemSignature"/>
+  </Function>
+
+  <Function Name="ENOPsm_ProductionSystem_addSystemScopesFromWorkplan">
+    <Implementation Name="ENOPsm_ProductionSystem_addSystemScopesFromWorkplan" FileLocation="ENOPsm_ProductionSystem_addSystemScopesFromWorkplan.plmql" Language="PLMQL"/>
+    <Signature href="ENOProductionSystemSignature"/>
+  </Function>
+
+  <Function Name="ENOPsm_ProductionSystem_addImplementingObjFromRFLPCnx">
+    <Implementation Name="ENOPsm_ProductionSystem_addImplementingObjFromRFLPCnx" FileLocation="ENOPsm_ProductionSystem_addImplementingObjFromRFLPCnx.plmql" Language="PLMQL"/>
+    <Signature href="ENOProductionSystemSignature"/>
+  </Function>
+
+  <Function Name="ENOPsm_ProductionSystem_expandForExecution">
+    <Implementation Name="ENOPsm_ProductionSystem_expandForExecution" FileLocation="ENOPsm_ProductionSystem_expandForExecution.plmql" Language="PLMQL"/>
+    <Signature href="ENOProductionSystemSignature"/>
+  </Function>
+
+  <Function Name="ENOPsm_ProductionSystem_addSerializedFrom">
+    <Implementation Name="ENOPsm_ProductionSystem_addSerializedFrom" FileLocation="ENOPsm_ProductionSystem_addSerializedFrom.plmql" Language="PLMQL"/>
+    <Signature href="ENOProductionSystemSignature"/>
+  </Function>
+
+  <Function Name="ENOPsm_CandidateResourceCnx_addAllDocuments">
+    <Implementation Name="ENOPsm_CandidateResourceCnx_addAllDocuments" FileLocation="ENOPsm_CandidateResourceCnx_addAllDocuments.plmql" Language="PLMQL"/>
+    <Signature href="ENOProductionSystemSignature"/>
+  </Function>
+
+  <Function Name="TimeAnalysis_ExportAsDesign">
+    <Implementation Name="TimeAnalysis_ExportAsDesign" FileLocation="TimeAnalysis_ExportAsDesign.plmql" Language="PLMQL"/>
+    <Signature href="ENOProductionSystemSignature"/>
+  </Function>
+
+  <Function Name="ENOPsm_ProductionSystem_addAllPortsRepInstAndCnx">
+    <Implementation Name="ENOPsm_ProductionSystem_addAllPortsRepInstAndCnx" FileLocation="ENOPsm_ProductionSystem_addAllPortsRepInstAndCnx.plmql" Language="PLMQL"/>
+    <Signature href="ENOProductionSystemSignature"/>
+  </Function>
+
+  <Function Name="ENOPsm_WorkOrder_addWhereResource">
+    <Implementation Name="ENOPsm_WorkOrder_addWhereResource" FileLocation="ENOPsm_WorkOrder_addWhereResource.plmql" Language="PLMQL"/>
+    <Signature href="ENOProductionSystemSignature"/>
+  </Function>
+
+  <Function Name="ENOPsm_WorkOrder_addTimeConstraint">
+    <Implementation Name="ENOPsm_WorkOrder_addTimeConstraint" FileLocation="ENOPsm_WorkOrder_addTimeConstraint.plmql" Language="PLMQL"/>
+    <Signature href="ENOProductionSystemSignature"/>
+  </Function>
+
+  <Function Name="ENOPsm_WorkOrder_addWhoResource">
+    <Implementation Name="ENOPsm_WorkOrder_addWhoResource" FileLocation="ENOPsm_WorkOrder_addWhoResource.plmql" Language="PLMQL"/>
+    <Signature href="ENOProductionSystemSignature"/>
+  </Function>
+
+  <Function Name="ENOPsm_WorkOrder_addCandidateResourceCnx">
+    <Implementation Name="ENOPsm_WorkOrder_addCandidateResourceCnx" FileLocation="ENOPsm_WorkOrder_addCandidateResourceCnx.plmql" Language="PLMQL"/>
+    <Signature href="ENOProductionSystemSignature"/>
+  </Function>
+
+  <Function Name="ENOPsm_WorkOrder_addWhereResourceRelation">
+    <Implementation Name="ENOPsm_WorkOrder_addWhereResourceRelation" FileLocation="ENOPsm_WorkOrder_addWhereResourceRelation.plmql" Language="PLMQL"/>
+    <Signature href="ENOProductionSystemSignature"/>
+  </Function>
+
+  <Function Name="ENOPsm_WorkOrder_addTimeConstraintRelation">
+    <Implementation Name="ENOPsm_WorkOrder_addTimeConstraintRelation" FileLocation="ENOPsm_WorkOrder_addTimeConstraintRelation.plmql" Language="PLMQL"/>
+    <Signature href="ENOProductionSystemSignature"/>
+  </Function>
+
+  <Function Name="ENOPsm_WorkOrder_addWhoResourceRelation">
+    <Implementation Name="ENOPsm_WorkOrder_addWhoResourceRelation" FileLocation="ENOPsm_WorkOrder_addWhoResourceRelation.plmql" Language="PLMQL"/>
+    <Signature href="ENOProductionSystemSignature"/>
+  </Function>
+
+  <Function Name="ENOPsm_WorkOrder_addCandidateResourceCnxRelation">
+    <Implementation Name="ENOPsm_WorkOrder_addCandidateResourceCnxRelation" FileLocation="ENOPsm_WorkOrder_addCandidateResourceCnxRelation.plmql" Language="PLMQL"/>
+    <Signature href="ENOProductionSystemSignature"/>
+  </Function>
+
+  <Function Name="ENOPsm_ProductionSystem_addSerializedFromRelation">
+    <Implementation Name="ENOPsm_ProductionSystem_addSerializedFromRelation" FileLocation="ENOPsm_ProductionSystem_addSerializedFromRelation.plmql" Language="PLMQL"/>
+    <Signature href="ENOProductionSystemSignature"/>
+  </Function>
+
+  <Function Name="ENOPsm_WorkOrder_addAggregatingCandidateResourceCnx">
+    <Implementation Name="ENOPsm_WorkOrder_addAggregatingCandidateResourceCnx" FileLocation="ENOPsm_WorkOrder_addAggregatingCandidateResourceCnx.plmql" Language="PLMQL"/>
+    <Signature href="ENOProductionSystemSignature"/>
+  </Function>
+
+  <Function Name="ENOPsm_WorkOrder_addConstrainingTimeConstraint">
+    <Implementation Name="ENOPsm_WorkOrder_addConstrainingTimeConstraint" FileLocation="ENOPsm_WorkOrder_addConstrainingTimeConstraint.plmql" Language="PLMQL"/>
+    <Signature href="ENOProductionSystemSignature"/>
+  </Function>
+
+  <Function Name="ENOPsm_WorkOrder_addSerializationFromFromSR">
+    <Implementation Name="ENOPsm_WorkOrder_addSerializationFromFromSR" FileLocation="ENOPsm_WorkOrder_addSerializationFromFromSR.plmql" Language="PLMQL"/>
+    <Signature href="ENOProductionSystemSignature"/>
+  </Function>
+
+  <Signature id="ENOProductionSystemSignature">
+    <Parameter Name="InputIds" Lower="0" Upper="-1" Direction="in" MultiValuated="Yes" DataType="PLMId"/>
+    <Parameter Name="OutputIds" Lower="0" Upper="-1" Direction="out" MultiValuated="No" DataType="PLMRouteSet"/>
+  </Signature>
+  <!-- ********************************************************* -->
+
+</Package>

@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2009, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" DataRDB_OID="ENODR_STTASK" Name="ENOSTTaskActionDS" Uuid="3ab2af8c-e669-4035-88c7da73cd961c69" UseNames="PLMChgTaskAction" Alias="Standard Team Task" >
+	<CAAComment>
+		<ShortRole>Standard Team Task Action Package</ShortRole>
+		<Role>This package includes the Team product entities for Task Action Reference and Task Child Action Instance - these are production customization change entities</Role>
+	</CAAComment>
+	<Comment>last update 2009-08-20-09.00.00</Comment>
+	<!-- *************************************** -->
+	<!-- * ENOSTTaskAction(PLMTaskAction)      * -->
+	<!-- *************************************** -->
+	<Class Name="ENOSTTaskAction" Uuid="603e7cf5-758e-4d96-86a7-7557d141e632" SuperName="PLMTaskAction" SuperRef="cb8fb36d-c823-0000-020a100536000000"  >
+		<CAAComment>
+			<ShortRole>Standard Task Action Reference</ShortRole>
+			<Role>Standard Action Reference for Task - this is a Team production customized Task Action</Role>
+		</CAAComment>
+                <!-- R206: contains identifier of object from which it is made from  -->
+                <!-- not exhanged between sites -->
+                <Simple Name="E_fromExternalId"
+                  Uuid="35d76858-0da0-4d24-a66d-109c529b5e26"
+                  Alias="Definition"
+                  Type="String"
+                  MaxLength="256"
+                  Mandatory="No"
+                  MultiValuated="No"
+                  Protection="Free"
+                  CAAExposition="L0"
+                />
+
+				<IdentifierSet Name="E_identifier"
+                  Uuid="cf68ee80-018a-4422-bc113b3522792a80"
+            	  IdentifierNames="PLM_ExternalID"
+            	  IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB"  />
+         	
+	</Class>
+	<!-- ********************************************** -->
+	<!-- * ENOSTTaskChildAction(PLMTaskChildAction)   * -->
+	<!-- ********************************************** -->
+  <RelationClass Name="ENOSTTaskChildAction" Uuid="b597f4fb-41d6-4834-8a9c-edb0c399bd9e" SuperName="PLMTaskChildAction" SuperRef="cb8fb7dd-49dc-0000-020a100536000000"  >
+    <CAAComment>
+      <ShortRole>Standard Task Child Action Instance</ShortRole>
+      <Role>Standard Child Action Instance for Task - this is a  Team production customized Task Child Action</Role>
+    </CAAComment>
+    <!-- ********************************************************* -->
+    <!-- * Overload(s) of PLMCoreInstance attributes. -->
+    <!-- ********************************************************* -->
+    <SubClause Name="to"   TargetName="ENOSTTaskAction"/>
+  </RelationClass>
+
+</Package>

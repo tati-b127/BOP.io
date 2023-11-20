@@ -1,0 +1,39 @@
+#Prog Rmt_ReqSpec_ExportCompletion( iPLMIDSet : #In PLMIDSet, oPLMIDSet : #Out PLMIDSet ) : VoidType
+{
+let RsReqSpecChildren      (PLMRouteSet)
+let IdsReqSpec              (PLMIDSet)
+let IdsReqSpecChildren      (PLMIDSet)
+let IdsChapters             (PLMIDSet)
+let IdsChaptersAndScope     (PLMIDSet)
+let IdsReqs                 (PLMIDSet)
+let IdsReqsAndScope         (PLMIDSet)
+let IdsReqSpecVersions      (PLMIDSet)
+
+
+/* Get the reqspecs, with their children */
+IdsReqSpec = Restrict( iPLMIDSet , "Class/Requirement Specification" )
+RsReqSpecChildren = ExecutePLMFunction( "Requirement", "rmt_nav_reqspec_children", IdsReqSpec )
+IdsReqSpecChildren = Ids( RsReqSpecChildren )
+
+
+/* Get the iterations (active version - latest version - versions) of the Req Spec (as it is a DOCUMENTS by inheritance */
+IdsReqSpecVersions = ExecutePLMProcedure( "DocumentCompletion", IdsReqSpec ) 
+
+
+/* Isolate the chapter(s) & get their scope */
+IdsChapters = Restrict( IdsReqSpecChildren , "Class/Chapter" )
+IdsChaptersAndScope = ExecutePLMProcedure( "Rmt_Chapter_ExportCompletion", IdsChapters )
+
+
+/* Complete procedure to export  reqs */
+IdsReqs = Restrict( IdsReqSpecChildren , "Class/Requirement" ) + Restrict( IdsChaptersAndScope , "Class/Requirement" )
+IdsReqsAndScope = ExecutePLMProcedure( "Rmt_Requirement_ExportCompletion", IdsReqs )
+
+
+/* Provide back all that stuff */
+oPLMIDSet = iPLMIDSet
++ IdsReqSpecChildren
++ IdsReqSpecVersions
++ IdsChaptersAndScope
++ IdsReqsAndScope
+}

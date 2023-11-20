@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY FOR SequenceDiagram                 -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2014, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" 
+         ModelerType="Top" 
+         Name="DIFSequenceDiagram" 
+         Uuid="FB43EF28-912F-45D6-8098-53F4261D5F73" 
+         UseNames="DIFModelerAbstractView"
+         BelongsToModeler="DIFModeler01"
+         CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <!-- ******************************************* -->
+  <!-- *  SequenceDiagram (PLMCoreReference)     * -->
+  <!-- ******************************************* -->
+  <Class Name="SequenceDiagram" 
+         Uuid="A6147EC8-B773-4A6F-9635-54055456CD13" 
+         Abstract="No" 
+         SuperName="DIFAbstractView"
+         Abbreviation="sqd"
+         CreateInstName="SequenceDiagramInstance"
+         CustomerExposition="Programmer"
+         Specializable="Yes" 
+         DeleteAvailability="Yes">  
+  
+    <CAAComment>
+      <ShortRole>Sequence Diagram View Object</ShortRole>
+      <Role>Sequence Diagram View Object</Role>
+    </CAAComment>
+
+    <!-- PLM New UI/KWE Scripts New -->
+    <Property Name="KweNew_InstanciationMethod" Value="CATDifKBEDelegateInstanciation"/>
+
+    <!-- Icon and 3D Icon -->
+    <Property Name="IconName" Value="I_FLE_SD_VIEW"/>
+
+    <!-- Collaborative Space Applicability -->
+    <Property Name="ShareBetweenProjectsAvailability" Value="Yes"/>
+
+    <!-- Export -->
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Remove"/>
+        <UsedProcedure href="DIFpe_Procedures.proc#DIFModeler_ExportCompletion_DifAbstractView"/>
+      </ProcedureForUsage>
+
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#TransferSiteOwnership"/>
+        <UsedProcedure href="DIFpe_Procedures.proc#DIFModeler_ExportCompletion_DifAbstractView"/>
+      </ProcedureForUsage>
+    </Method>
+
+  </Class>
+
+  <!-- *************************************************** -->
+  <!-- * SequenceDiagramInstance (PLMCoreInstance)       * -->
+  <!-- *************************************************** -->
+  <RelationClass Name="SequenceDiagramInstance" 
+         Uuid="69B0D51E-0C5A-444C-851D-514F42055E89" 
+         Abstract="No" 
+         SuperName="DIFAbstractViewInstance"
+         CustomerExposition="Programmer"
+         Specializable="Yes">
+
+    <CAAComment>
+      <ShortRole>Sequence Diagram Instance Object</ShortRole>
+      <Role>Sequence Diagram Instance Object</Role>
+    </CAAComment>
+
+    <!-- Configuration -->
+    <Property Name="Filtrable" Value="Yes"/>
+
+    <!-- PLM New UI/KWE Scripts New -->
+    <Property Name="KweNew_InstanciationMethod" Value="CATDifKBEDelegateInstanciation"/>
+
+    <!-- Icon and 3D Icon -->
+    <Property Name="IconName" Value="I_FLE_SD_VIEW"/>
+
+    <!-- Export -->
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+    <SubClause Name="from"   TargetName="DIFSheet"/>
+    <SubClause Name="to"   TargetName="SequenceDiagram"/>
+    
+  </RelationClass>
+
+</Package>

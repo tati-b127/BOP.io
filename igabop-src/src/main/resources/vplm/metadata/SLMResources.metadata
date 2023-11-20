@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2004, All rights reserved -->
+<Package
+    xmlns="PLMDictionaryUnified" 
+    ModelerType="Top" 
+    Name="SLMResources" 
+    Uuid="713C58D3-D48F-4b50-9884-703829C124ED" 
+    CustomerExposition="Programmer"
+    UseProcedures="SLMProcedure"
+    >
+   
+
+</Package>

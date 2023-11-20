@@ -1,0 +1,114 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2005, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified"  CustomerExposition="Programmer" BelongsToModeler="PLMKnowHowRule" ModelerType="Top" Name="PLMKnowHowRuleSet" Uuid="D50C3494-BEFC-4ca7-B08C8DD7F85E7BA1" UseNames="PLMKnowHowGenericRuleBaseComponent" >
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+  <CAAComment>
+		<ShortRole>KnowHow RuleSet Package</ShortRole>
+		<Role>This package includes the RuleSet entities of KnowHow Rule Model</Role>
+	</CAAComment>
+	<Comment>last update 2007-03-23</Comment>
+	<!-- ********************************* -->
+	<!-- * PLMRuleSet (PLMCoreReference) * -->
+	<!-- ********************************* -->
+	<Class Name="PLMRuleSet"  CustomerExposition="Programmer" Uuid="09C43B63-559E-4c19-98C7034830C12D75" Abstract="No" SuperName="PLMGenericRuleBaseComponent" Specializable="Yes" CustomerExtensible="Yes" CreateInstName="PLMRuleSetInstance" Abbreviation="kws" DeleteAvailability="Yes" >
+    <Property Name="IconName"        Value="I_PLMRuleSet"/>
+    <Property Name="Searchable"      Value="Yes"/>
+    <Property Name="Newable"         Value="All"/>
+    <Property Name="PQ_Attributes"   Value="PLM_ExternalID V_user"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATKBEDelegateInstanciationRule"/>
+    <Property Name="KweNew_ReturnedType" Value="PLMRuleSetInstance"/>
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <CAAComment>
+			<ShortRole>PLM RuleSet</ShortRole>
+			<Role>PLM RuleSet</Role>
+		</CAAComment>
+    <Simple Name="V_ProductLoadMode" Uuid="935CAABB-F64F-465a-B2144A34D05F7ACE" Type="String"  MultiValuated="No" MaxLength="20" Protection="External">
+      <CAAComment>
+        <ShortRole>The value describes on which product structure loading mode the RuleSet works</ShortRole>
+      </CAAComment>
+    </Simple>
+<Simple Name="V_WorkingMode" Uuid="C3953509-CFF2-402A-A56D1603BE667406" Type="Integer" Protection="Free" CAAExposition="L0" DefaultValue="1">
+      <CAAComment>
+        <ShortRole>The value describes on which loading mode the RuleBase works</ShortRole>
+      </CAAComment>
+<Property Name="RangeAsEnumName" Value="KWEWorkingMode"/>
+<Property Name="RangeAsEnumAuthorizedValues" Value="WholeObjects;PLMObjects;LeafOccurenceObjects;AllOccurenceObjects"/>
+<Range>
+<Equal>1</Equal>
+<Equal>2</Equal>
+<Equal>3</Equal>
+<Equal>4</Equal>
+</Range>
+</Simple>
+	<Simple Name="V_CandidateForQCC" Uuid="404A0073-7661-44B3-8B64-6C3E21083FB8" Type="Boolean" DefaultValue="False" Protection="Free" CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>The value describes if the Rule Set is Candidate to be explore in QCC product.</ShortRole>
+      </CAAComment>
+    </Simple>
+<Simple Name="V_Version" Uuid="33c5fc0e-abc0-498b-9b93-77315f3d88e8" Type="String"  MultiValuated="No" MaxLength="255" Protection="External">
+      <CAAComment>
+        <ShortRole>The version of a rule</ShortRole>
+      </CAAComment>
+    </Simple>	
+   
+	
+    <!-- PROCEDURES Declaration  -->
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Design"/>
+        <UsedProcedure href="KWEpe_Procedures.proc#Kwe_ExportRuleSet"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Channel"/>
+        <UsedProcedure href="KWEpe_Procedures.proc#Kwe_ExportRuleSet"/>
+      </ProcedureForUsage>
+	  <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Remove"/>
+        <UsedProcedure href="KWEpe_Procedures.proc#Kwe_ExportRuleSet"/>
+      </ProcedureForUsage>
+	  <ProcedureForUsage>
+        <Usage href="ExportScope.meth#TransferSiteOwnership"/>
+        <UsedProcedure href="KWEpe_Procedures.proc#Kwe_ExportRuleSet"/>
+      </ProcedureForUsage>
+    </Method>
+  </Class>
+	<!-- **************************************** -->
+	<!-- * PLMRuleSetInstance (PLMCoreInstance) * -->
+	<!-- **************************************** -->
+	<RelationClass Name="PLMRuleSetInstance"  CustomerExposition="Programmer" Uuid="FA9E0741-3ECC-4e96-B8C659DE28DF81D5"  Abstract="No" SuperName="PLMGenericRuleBaseComponentInstance" >
+    <Property Name="KweNew_InstanciationMethod" Value="CATKBEDelegateInstanciationRule"/>
+    <Property Name="KweNew_ReturnedType" Value="PLMRuleSetInstance"/>
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <CAAComment>
+			<ShortRole>PLM RuleSet instance aggregated in another PLM RuleSet</ShortRole>
+			<Role>PLM RuleSet instance aggregated in another PLM RuleSet</Role>
+		</CAAComment>
+    <SubClause Name="from"   TargetName="PLMRuleSet"/>
+    <SubClause Name="to"   TargetName="PLMRuleSet"/>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </RelationClass>
+  
+  <!-- ******************************* -->
+  <!-- FUNCTIONS Declarations : PLMQL  -->
+  <Function Name="kwe_expand_rules">
+    <Implementation Name="kwe_expand_rules" FileLocation="kwe_expand_rules.plmql" Language="PLMQL"/>
+    <Signature href="PLMKnowHowSignature"/>
+  </Function>
+  <Function Name="kwe_navigate_ruleset">
+    <Implementation Name="kwe_navigate_ruleset" FileLocation="kwe_navigate_ruleset.plmql" Language="PLMQL"/>
+    <Signature href="PLMKnowHowSignature"/>
+  </Function>
+
+  <Signature id="PLMKnowHowSignature">
+    <Parameter Name="InputIds" Lower="0" Upper="-1" Direction="in" MultiValuated="Yes" DataType="PLMId"/>
+    <Parameter Name="OutputIds" Lower="0" Upper="-1" Direction="out" MultiValuated="No" DataType="PLMRouteSet"/>
+  </Signature>
+  <!-- ******************************* -->
+
+</Package>

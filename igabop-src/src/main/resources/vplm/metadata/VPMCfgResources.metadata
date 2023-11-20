@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2016, All rights reserved -->
+<Package
+    xmlns="PLMDictionaryUnified" 
+    ModelerType="Resources" 
+    Name="VPMCfgResources" 
+    Uuid="0EC2BEB9-4661-4DC9-99D6-FC5AC1B04534"
+    UseProcedures="ENOCfgModel_Procedures"
+    >
+</Package>

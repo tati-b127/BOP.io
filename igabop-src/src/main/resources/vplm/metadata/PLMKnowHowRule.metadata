@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2005, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified"  CustomerExposition="Programmer" BelongsToModeler="PLMKnowHowRule" ModelerType="Top"  Name="PLMKnowHowRule" Uuid="E84C63DA-C09C-45be-BF1654CDF8DD9C1D" UseNames="PLMKnowHowRuleBaseComponent"  >
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+  <CAAComment>
+		<ShortRole>KnowHow Rule Package</ShortRole>
+		<Role>This package includes the Rule entities of KnowHow Rule Model</Role>
+	</CAAComment> 
+	<Comment>last update 2007-03-23</Comment>
+	<!-- ***************************************** -->
+	<!-- * PLMRule (PLMCoreReference)             * -->
+	<!-- ***************************************** -->
+	<Class Name="PLMRule" Uuid="CBA6EA43-9467-496b-BB4BCEABED5B2DC2"  CustomerExposition="Programmer" Abstract="No" SuperName="PLMRuleBaseComponent" Specializable="Yes" CustomerExtensible="Yes" CreateInstName="PLMRuleInstance" Abbreviation="kwr" DeleteAvailability="Yes" >
+    <Property Name="IconName"        Value="I_PLMRule"/>
+    <Property Name="Searchable"      Value="Yes"/>
+    <Property Name="Newable"         Value="All"/>
+    <Property Name="PQ_Attributes"   Value="PLM_ExternalID V_user"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATKBEDelegateInstanciationRule"/>
+    <Property Name="KweNew_ReturnedType" Value="PLMRuleInstance"/>
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <CAAComment>
+			<ShortRole>PLM Rule</ShortRole>
+			<Role>PLM Rule</Role>
+		</CAAComment>
+    <!-- ********************************************************* -->
+    <!-- * Elementary PLMRule attributes                         * -->
+    <!-- ********************************************************* -->
+		<Simple Name="V_Priority" Uuid="F80A3F29-D3E6-49CE-8E95883B8CEE9AEC" Type="Double" Protection="External">
+			<CAAComment>
+				<ShortRole>The Priority of the Rule Reference</ShortRole>
+			</CAAComment>
+		</Simple>
+		<Simple Name="V_CustomerDelivery" Uuid="EE11CE10-A169-4954-ADFA-3A420D57DF12" Type="Integer"  MultiValuated="No" Protection="Internal" DefaultValue="0">
+      <CAAComment>
+        <ShortRole>To mask the body when Rule is delivered to customer</ShortRole>
+      </CAAComment>
+		</Simple>
+      <Method ImplementationType="None">
+        <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      </Method>
+    </Class>
+	<!-- *************************************** -->
+	<!-- * PLMRuleInstance (PLMCoreInstance)   * -->
+	<!-- *************************************** -->
+  <RelationClass Name="PLMRuleInstance"  CustomerExposition="Programmer" Uuid="50BE900C-9892-43e8-918E6D858180A047"   Abstract="No" SuperName="PLMRuleBaseComponentInstance" >
+    <Property Name="KweNew_InstanciationMethod" Value="CATKBEDelegateInstanciationRule"/>
+    <Property Name="KweNew_ReturnedType" Value="PLMRuleInstance"/>
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <SubClause Name="to"   TargetName="PLMRule"/>
+    <CAAComment>
+			<ShortRole>PLM Rule instance aggregated in a PLM RuleSet</ShortRole>
+			<Role>PLM Rule instance aggregated in a PLM RuleSet</Role>
+		</CAAComment>
+      <Method ImplementationType="None">
+        <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      </Method>
+  </RelationClass>
+</Package>

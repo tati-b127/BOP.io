@@ -1,0 +1,17 @@
+NAVIGATE
+   T0.PLMID, T1.PLMID, T2.PLMID, T3.PLMID, T4.PLMID, T5.PLMID
+FROM
+   RFLPLMFunctional/RFLPLMFunctionalInstance T0,
+   RFLPLMFunctionalCommunication/RFLPLMFunctionalCommunicationInstance T1,
+   RFLPLMFunctional/RFLPLMFunctionalRepInstance T2,
+   RFLPLMFunctional/RFLPLMFunctionalConnection T3,
+   RFLPLMFunctional/RFLPLMFunctionalConnector T4,
+   RFLPLMFlowExposition/RFLPLMFlowExpositionInstance T5
+FROM_ROOTS [?1?]
+ON
+RELATION (FROM=RFLPLMFunctional/RFLPLMFunctionalReference TO=RFLPLMFunctional/RFLPLMFunctionalInstance,
+   RFLPLMFunctionalCommunication/RFLPLMFunctionalCommunicationInstance, RFLPLMFunctional/RFLPLMFunctionalRepInstance,
+   RFLPLMFunctional/RFLPLMFunctionalConnection, RFLPLMFunctional/RFLPLMFunctionalConnector, 
+   RFLPLMFlowExposition/RFLPLMFlowExpositionInstance THROUGH=POINTEDBY)
+WITH QUALITY_FILTER  (CATEGORY=ISOWNEDBY)
+ITER=1;

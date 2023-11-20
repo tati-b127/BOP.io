@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2010, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" 
+         ModelerType="Top" 
+         Name="PLMPrototypeCnx" 
+         Uuid="09252AD6-9306-424a-B160-07FCD483F740" 
+         BelongsToModeler="PLMPrototype"
+         UseNames="PLMCORE"
+         CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+  <Comment>PLM Prototype Modeler</Comment>
+
+
+
+    <Class Name="PLMPrototypeInstantiationCnx"
+           Uuid="23FCCA48-A7BB-4615-A9CF-E1C1BC9EBE6B"
+           SuperName="PLMConnection"
+           Abstract="No"
+           CustomerExposition="Programmer" OwnerTypes="PLMCoreReference"
+           Specializable="No"
+           CustomerExtensible="No"
+        >
+
+      <Property Name="DMCDerivable" Value="Yes"/>
+
+
+        <Path Name="PLMLinkToPrototypeObject"
+            Uuid="0062971C-7123-486d-9293-96126DF81812"
+            RoleName="PLM_LinkToPrototypeObject"
+        		Type="SemanticRelation" AdaptativeToMinor="No"
+        		SynchroSensitivity="None"
+		        RerouteOnEffectivityChange="No"
+            MultiValuated="No"
+            Semantics="Reference" />
+
+
+        <CAAComment>
+            <ShortRole>The PLMPrototypeInstantiationCnx.class</ShortRole>
+            <Role>The PLMPrototypeInstantiationCnx.class is a connection that enable to keep a link between a reference instantiation and a prototype reference</Role>
+        </CAAComment>
+
+        <Method ImplementationType="None">
+            <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+        </Method>
+
+    </Class>
+
+
+</Package>

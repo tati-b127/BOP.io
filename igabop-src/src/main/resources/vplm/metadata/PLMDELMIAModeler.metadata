@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified"
+         ModelerType="Top"
+         Name="PLMDELMIAModeler"
+         Uuid="e66ca9b2-3351-11e8-b467-0ed5f89f718b"
+         BelongsToModeler="PLMDELMIAModeler"
+         UseNames="PRODUCTCFG DELLmiProductionCurveOperation DELLmiProductionPunctualOperation DELFmiFunctionalModelQuantity DELSerializedMBOMModel"
+         CustomerExposition="Programmer">
+	<CAAComment>
+		<ShortRole/>
+		<Role/>
+	</CAAComment>
+
+  <Extension Name="DELSerialNumber"
+         Uuid="e69d7adc-3352-11e8-b467-0ed5f89f718b"
+         ScopeNames="VPMReference;DELSerializedUnitAbstract"
+         Discipline="No"
+         Abstract="No"
+         Specializable="No"
+         CAAExposition="L0"
+         CustomerExposition="Programmer">
+
+    <Simple Name="V_SerialNumber"
+            Uuid="e69d7d84-3352-11e8-b467-0ed5f89f718b"
+            Type="String"
+            MultiValuated="No"
+            Protection="External"
+            CAAExposition="L0">
+    </Simple>
+  </Extension>
+
+  <Extension Name="DELLotNumber"
+           Uuid="FE7806EC-2791-4ce2-9ABE-0E6974CCD283"
+           ScopeNames="DELSerializedLotAbstract"
+           Discipline="No"
+           Abstract="No"
+           Specializable="No"
+           CAAExposition="L0"
+           CustomerExposition="Programmer">
+
+    <Simple Name="V_LotNumber"
+            Uuid="84F6EB08-F13E-4c9e-AE64-C00509A40C8B"
+            Type="String"
+            MultiValuated="No"
+            Protection="External"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Define the Lot Number.</ShortRole>
+      </CAAComment>
+    </Simple>
+    <CAAComment>
+      <ShortRole>Lot Number Specification.</ShortRole>
+      <Role>Lot Number Specification.</Role>
+    </CAAComment>
+  </Extension>
+
+  <Extension Name="DELFastenerClassification"
+         Uuid="B8708DC8-E08B-43e8-9F0F-234C77B2575D"
+         ScopeNames="DELFmiFunctionIdentifiedInstance;DELLmiCurveOperationInstance;DELLmiPunctualOperationInstance"
+         Discipline="No"
+         Abstract="No"
+         Specializable="No"
+         CAAExposition="L0"
+         CustomerExposition="Programmer">
+
+    <Simple Name="V_FstClassification"
+            Uuid="02386325-28A3-4aa6-A9BA-46B5B0AC0243"
+            Type="String"
+            MultiValuated="No"
+            Protection="Free"
+            DefaultValue="GeoSpot"
+            CAAExposition="L0">
+      <Range>
+        <Equal>GeoSpot</Equal>
+        <Equal>ReSpot</Equal>
+      </Range>    </Simple>
+  </Extension>
+
+</Package>

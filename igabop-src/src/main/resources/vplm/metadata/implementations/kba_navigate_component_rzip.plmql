@@ -1,0 +1,20 @@
+NAVIGATE
+
+   	T0.PLMID			, T1.PLMID ,
+   	T0.PLM_ExternalID	, T1.PLM_ExternalID
+
+FROM
+
+	PLMKbaAppliResourcesZip/PLMKbaAppliResourcesZip T0 ,
+
+	PLMKbaAppliComponent/PLMKbaAppliComponent T1
+
+FROM_ROOTS
+
+	[?1?]
+
+ON
+
+	(RELATION (FROM=PLMKbaAppliComponent/PLMKbaAppliComponent TO=PLMKbaAppliResourcesZip/PLMKbaAppliResourcesZip THROUGH=POINTSTO) WITH QUALITY_FILTER (CATEGORY=Composition AND ROLE=PLMKba_OwnedRZip) )
+
+ITER = 1 ;

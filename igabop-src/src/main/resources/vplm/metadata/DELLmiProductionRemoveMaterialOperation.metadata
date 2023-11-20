@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR DELMIA Production System Application -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified"
+         ModelerType="Top"
+         Name="DELLmiProductionRemoveMaterialOperation"
+	       Uuid="0d1df9aa-30d1-46d2-93eae2ec1fe56cf1"
+         BelongsToModeler="DELLmiProductionSystem"
+	       UseNames="DELLmiProductionOperationPPR"
+         CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>PLM DELMIA RemoveMaterial Operation </ShortRole>
+    <Role>This package describes the PLM DELMIA RemoveMaterial Operation model on top of DELLmiProductionOperationPPR</Role>
+  </CAAComment>
+
+  <Comment>last update 2012-01-20</Comment>
+
+  <Class Name="DELLmiRemoveMaterialOperationReference"
+		     Uuid="9c006ee7-7864-4d8a-bf383f6777c900d5"
+		     Abstract="No"
+         SuperName="DELLmiOperationPPRReference"
+         CustomerExposition="Programmer"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         CreateInstName="DELLmiRemoveMaterialOperationInstance"
+         Abbreviation="rmop"
+         InstantiationOwnerTypes="DELLmiGeneralSystemReference;DELLmiWorkPlanSystemReference;DELLmiTransformationSystemReference;DELLmiGeneralOperationReference;DELLmiInterruptOperationReference;DELLmiHeaderOperationReference;DELLmiExecHeaderOperationReference"
+         >
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELMPProdSystemAdvDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELLmiRemoveMaterialOperationInstance"/>
+    <Property Name="IconName" Value="I_PPRSeqRemovingMaterial"/>
+    <Property Name="3DIconName" Value="I_PPRSeqRemovingMaterial.cgr"/>
+    <Property Name="Newable" Value="Insert_CAA"/>
+    <Property Name="Searchable" Value="Yes"/>
+
+    <CAAComment>
+      <ShortRole>PLM DELMIA RemoveMaterial Operation Reference</ShortRole>
+      <Role>PLM DELMIA RemoveMaterial Operation Reference</Role>
+    </CAAComment>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+
+  </Class>
+
+  <RelationClass Name="DELLmiRemoveMaterialOperationInstance"
+		     Uuid="c814a005-bd38-4f52-abb15daffb3a2938"
+		     Abstract="No"
+         SuperName="DELLmiOperationPPRInstance"
+         CustomerExposition="Programmer"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         >
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELMPProdSystemAdvDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELLmiRemoveMaterialOperationInstance"/>
+
+    <CAAComment>
+      <ShortRole>PLM DELMIA RemoveMaterial Operation Instance. Specialization is not supported yet.</ShortRole>
+      <Role>PLM DELMIA RemoveMaterial Operation Instance</Role>
+    </CAAComment>
+
+    <Volatile Name="Reference"
+              Uuid="2C234D48-A2E5-4463-832A-E8B951D67FFB"
+              Accessor="PLMModelerReferenceKweAttribute"
+              TypeName="DELLmiRemoveMaterialOperationReference"
+              AccessMode="ReadOnly" />
+
+    <SubClause Name="to"   TargetName="DELLmiRemoveMaterialOperationReference"/>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+
+  </RelationClass>
+
+</Package>

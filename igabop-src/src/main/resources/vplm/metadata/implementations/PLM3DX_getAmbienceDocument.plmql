@@ -1,0 +1,16 @@
+NAVIGATE
+T0.PLMID
+FROM
+PLMDmtDocument/PLMDMTDocument T0
+FROM_ROOTS [?1?]
+ON (
+	RELATION (
+		FROM=PLM3DXEnvironment/PLM3DXEnvironment
+		TO=PLMDmtDocument/PLMDMTDocument
+		THROUGH=POINTSTO
+	)
+	WITH QUALITY_FILTER 
+	(ROLE=CATMaterialReferenceToTextureLink)
+)
+;
+

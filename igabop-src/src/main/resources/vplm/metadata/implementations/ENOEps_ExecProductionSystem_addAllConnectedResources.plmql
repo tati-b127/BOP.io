@@ -1,0 +1,19 @@
+NAVIGATE
+	T0.PLMID, 
+	T1.PLMID
+FROM
+	DELRmiResourceModelProdSysImplCnx/PLMDELProdSysImplCnx T0,
+	PRODUCTCFG/VPMReference T1
+FROM_ROOTS [?1?]
+ON ( RELATION(
+	FROM=DELLmiProductionSystem/DELLmiProductionSystemReference 
+	TO=DELRmiResourceModelProdSysImplCnx/PLMDELProdSysImplCnx 
+	THROUGH=POINTEDBY))
+THEN (
+RELATION(
+	FROM=DELRmiResourceModelProdSysImplCnx/PLMDELProdSysImplCnx 
+	TO=PRODUCTCFG/VPMReference 
+	THROUGH=POINTSTO)
+)
+;
+

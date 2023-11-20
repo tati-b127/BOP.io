@@ -1,0 +1,23 @@
+<?xml version="1.0"?> <!-- COPYRIGHT DASSAULT SYSTEMES 2004, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo"  Name="ENOSTFProcessPrecDS"
+      Uuid="587e6326-b56b-463a-b23b-11c870a4dea7" 
+      UseNames="DELFmiFunctionalModelPrecedenceCnx1" 
+      >
+
+      <CAAComment>
+            <ShortRole>PLM Functional Customization for ENOVIA Team Engineering</ShortRole>
+            <Role>Used by Team Engineering</Role>
+      </CAAComment>
+      
+      <Class Name="ENOSTFProcessPrec"
+            Uuid="439d3e0b-6d9b-48d3-b993-5ca811915f9b"
+            SuperName="DELFmiProcessPrecedenceCnxCust" 
+            SuperRef="E4806629-4C5A-49E5-9D2F-7E2281B98064" 
+             >
+
+            <CAAComment>
+                  <ShortRole>Customized PLM Function Connection Object</ShortRole>
+                  <Role>Customized PLM Function Connection Object</Role>
+            </CAAComment>
+      </Class>
+</Package>

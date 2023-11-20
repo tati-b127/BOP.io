@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2012, All rights reserved -->
+
+<Package CustomerExposition = "Programmer" ModelerType = "Top" Name = "AECTransportElementIfc" UseNames = "AECTransportElement" Uuid = "DBBAE48F-66B4-40E4-AAD3-1284FEB98951" xmlns = "PLMDictionaryUnified">
+  <Extension CustomerExposition = "Programmer" Name = "IfcTransportElement" ScopeNames = "AecTransportElement" Uuid = "8D7954BF-BD75-433C-B4DA-47A02E137218">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcTransportElement_ObjectType" Protection = "Free" Type = "String" Uuid = "8D7954BF-BD75-433C-B4DA-1ad52eb2ea5e"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcTransportElement_Tag" Protection = "Free" Type = "String" Uuid = "8D7954BF-BD75-433C-B4DA-ed12431a92f4"/>
+    <Simple CAAExposition = "L0" DefaultValue = "NOTDEFINED" MaxLength = "255" Name = "IfcTransportElement_PredefinedType" Protection = "Free" Type = "String" Uuid = "D7AB2772-21B4-47CD-82A0-7DFA0704F88A">
+      <Range>
+        <Equal>ELEVATOR</Equal>
+        <Equal>ESCALATOR</Equal>
+        <Equal>MOVINGWALKWAY</Equal>
+        <Equal>CRANEWAY</Equal>
+        <Equal>LIFTINGGEAR</Equal>
+        <Equal>USERDEFINED</Equal>
+        <Equal>NOTDEFINED</Equal>
+      </Range>
+    </Simple>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcTransportElementType" ScopeNames = "AecTransportElementType" Uuid = "84C99C10-9325-4026-A433-398A22283B68">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcTransportElementType_Tag" Protection = "Free" Type = "String" Uuid = "84C99C10-9325-4026-A433-cc2a36316812"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcTransportElementType_ElementType" Protection = "Free" Type = "String" Uuid = "84C99C10-9325-4026-A433-4fccfb51960c"/>
+    <Simple CAAExposition = "L0" DefaultValue = "NOTDEFINED" MaxLength = "255" Name = "IfcTransportElementType_PredefinedType" Protection = "Free" Type = "String" Uuid = "4749A15B-92BB-487F-A6B2-A63A9C803052">
+      <Range>
+        <Equal>ELEVATOR</Equal>
+        <Equal>ESCALATOR</Equal>
+        <Equal>MOVINGWALKWAY</Equal>
+        <Equal>CRANEWAY</Equal>
+        <Equal>LIFTINGGEAR</Equal>
+        <Equal>USERDEFINED</Equal>
+        <Equal>NOTDEFINED</Equal>
+      </Range>
+    </Simple>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcPset_TransportElementCommon" ScopeNames = "AecTransportElement AecTransportElementType" Uuid = "C8A357B3-914F-4E96-AC5F-B314D06951AB">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_TransportElementCommon_Reference" Protection = "Free" Type = "String" Uuid = "DDA5A3E8-917A-430E-9929-411C375F0507"/>
+    <Simple CAAExposition = "L0" DefaultValue = "UNSET" MaxLength = "255" Name = "IfcPset_TransportElementCommon_Status" Protection = "Free" Type = "String" Uuid = "7FE8B84A-7251-4096-B7F9-1B07839922F4">
+      <Range>
+        <Equal>NEW</Equal>
+        <Equal>EXISTING</Equal>
+        <Equal>DEMOLISH</Equal>
+        <Equal>TEMPORARY</Equal>
+        <Equal>OTHER</Equal>
+        <Equal>NOTKNOWN</Equal>
+        <Equal>UNSET</Equal>
+      </Range>
+    </Simple>
+    <Simple CAAExposition = "L0" Name = "IfcPset_TransportElementCommon_CapacityPeople" Protection = "Free" Type = "Integer" Uuid = "4B2ED613-26AB-4362-95CD-5EBED26979CA"/>
+    <Simple CAAExposition = "L0" Magnitude = "MASS" Name = "IfcPset_TransportElementCommon_CapacityWeight" Protection = "Free" Type = "Double" Uuid = "9D34474D-2F39-4846-9AED-6C8129C0C478"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_TransportElementCommon_FireExit" Protection = "Free" Type = "Boolean" Uuid = "5891133B-71D5-474B-B37B-F85A668006F1"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcPset_TransportElementElevator" ScopeNames = "AecTransportElement AecTransportElementType" Uuid = "40BA8C88-BFD4-4391-B330-35E9B36DDCD0">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_TransportElementElevator_FireFightingLift" Protection = "Free" Type = "Boolean" Uuid = "026270A5-05CC-4867-A0E6-EE1E9082102D"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_TransportElementElevator_ClearWidth" Protection = "Free" Type = "Double" Uuid = "4976C5AD-5A06-4B1A-BE89-B347CAA57FE9"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_TransportElementElevator_ClearDepth" Protection = "Free" Type = "Double" Uuid = "81F41962-E3CE-4CBE-8820-657FE11DFB9E"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_TransportElementElevator_ClearHeight" Protection = "Free" Type = "Double" Uuid = "90FB8E79-4F39-4875-9223-2C053A3665BE"/>
+  </Extension>
+</Package>

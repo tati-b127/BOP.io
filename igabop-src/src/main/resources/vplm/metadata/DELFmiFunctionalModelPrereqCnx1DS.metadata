@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2010, All rights reserved -->
+
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" Name="DELFmiFunctionalModelPrereqCnx1DS" Uuid="1141c00f-bf7a-4d1a-afc6-d8109dacc69f" UseNames="DELFmiFunctionalModelPrerequisiteCnx1">
+	
+<Property Name="OptionalInstallation" Value="Yes" /> 
+	<CAAComment>
+		<ShortRole>Package to customize Process Prerequisite connection</ShortRole>
+		<Role>Package to customize package DELFmiFunctionalModelPrerequisiteCnx1 for Process Prerequisite connection</Role>
+	</CAAComment>
+	
+	<Class Name="DELFmiProcessPrereqCnxCustDS" Uuid="29a04a32-dfbf-448f-ad94-8f71d0ab2c42"
+		SuperName="DELFmiProcessPrerequisiteCnxCust">
+
+		<CAAComment>
+			<ShortRole>PLM Customization for Process Prerequisite connection</ShortRole>
+			<Role>PLM Customization for Process Prerequisite connection "DELFmiProcessPrerequisiteCnxCust"</Role>
+		</CAAComment>
+
+	</Class>
+	
+</Package>

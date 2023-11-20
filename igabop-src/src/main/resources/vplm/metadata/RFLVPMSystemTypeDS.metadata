@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR RFL System Type Custo 1-->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2006, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" DataRDB_OID="ENODR_RFLLTypeDS" Name="RFLVPMSystemTypeDS"
+	Uuid="8A15B6CB-F1E7-4b69-A769-CDAAFBFE12F6" 
+	UseNames="RFLVPMSystemType" 
+	>
+
+<Property Name="OptionalInstallation" Value="Yes" /> 
+	<CAAComment>
+		<ShortRole>PLM RFL System Type Custo Package</ShortRole>
+		<Role>PLM RFL System Type Custo Package</Role>
+	</CAAComment>
+	
+	<Comment>last update 2007-09-15</Comment>
+	
+    <!-- ***************************************************************** -->
+	<!-- *  RFLVPMSystemTypeReferenceDS (RFLVPMSystemTypeReference)  * -->
+	<!-- ***************************************************************** -->
+		
+	<Class Name="RFLVPMSystemTypeReferenceDS" 
+		Uuid="D16FD2D1-3FE4-41cf-A195-7387E3986911" 
+
+		SuperName="RFLVPMSystemTypeReference" 
+		SuperRef="ff8fb607-a2ec-4caf-a9d9-b534fe559b0f" 
+		 
+		>
+
+        <IdentifierSet Name="Identifier"
+            Uuid="D6F4A344-C2FE-4182-915F-8C06E9711F95"
+            IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755"
+            IdentifierNames="PLM_ExternalID V_version" />
+
+	</Class>
+
+	<!-- ************************************************************* -->
+	<!-- * RFLVPMSystemTypeInstanceDS (RFLVPMSystemTypeInstance) * -->
+	<!-- ************************************************************* -->
+	
+	<Class Name="RFLVPMSystemTypeInstanceDS" 
+		Uuid="130D0055-2C46-4ef2-87EC-654EF4BD0EB8" 
+
+		SuperName="RFLVPMSystemTypeInstance" 
+		SuperRef="aa6657c3-9fc2-4990-86a7-22bdd6931f38" 		 
+		>
+	</Class>
+
+</Package>

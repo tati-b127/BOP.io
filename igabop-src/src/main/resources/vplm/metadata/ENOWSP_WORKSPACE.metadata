@@ -1,0 +1,123 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2006, All rights reserved -->
+<!-- [chd:04.03.2014] disparition definitive de InterfaceImplementation --> 
+<Package xmlns="PLMDictionaryUnified" BelongsToModeler="ENOWSP_WORKSPACE" ModelerType="Top" Name="ENOWSP_WORKSPACE" Uuid="82b5c57a-f919-4fb0-9959-f6c35b0067d7" UseNames="ENOFLD_ABSTRACT_REF;PLMCORE" CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+  <CAAComment>
+		<ShortRole>Workspace Package</ShortRole>
+		<Role>This package includes all the entities of Workspace Model</Role>
+	</CAAComment>
+	<Comment>last update 2009-05-28-00.00.00</Comment>
+	<!-- ********************************************* -->
+	<!-- * Workspace reference * -->
+	<!-- ********************************************* -->
+	<Class Name="ENOWSP_WorkspaceRef" Uuid="c7951f98-4c6b-4c02-aed6-fe4d9979ee2d" CustomerExposition="Programmer" Abstract="No" SuperName="ENOFLD_AbstractReference" CreateInstName="ENOWSP_WorkspaceInst" Abbreviation="dws" NewMajorRevisionAvailability="No">
+		<Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <CAAComment>
+			<ShortRole>Workspace Reference</ShortRole>
+			<Role>Workspace Reference</Role>
+		</CAAComment>
+		<!-- ********************************************************* -->
+		<!-- * Elementary Class attributes                           * -->
+		<!-- ********************************************************* -->
+		<Simple Name="V_IsDeliveryAllowed" Uuid="95443ddb-c962-4ca1-ae2f5808c178aeec" Type="Boolean" DefaultValue="True" MultiValuated="No" Protection="External" CAAExposition="L0">
+			<CAAComment>
+				<ShortRole>Describes whether the Workspace can be delivered</ShortRole>
+			</CAAComment>
+		</Simple>
+<Simple Name="V_ReservationMode" Uuid="8d2ebbef-ba89-409d-8c33d002c76e96d2" Type="Integer" Protection="External" CAAExposition="L0" DefaultValue="1">
+			<CAAComment>
+				<ShortRole>Describes the mode of data reservation inside Workspace</ShortRole>
+			</CAAComment>
+<Property Name="RangeAsEnumName" Value="V_ReservationModeEnum"/>
+<Property Name="RangeAsEnumAuthorizedValues" Value="LockInReference;NoLockInReference"/>
+<Range>
+<Equal>1</Equal>
+<Equal>2</Equal>
+</Range>
+</Simple>
+
+		<Simple Name="V_DWSVersion" Uuid="af114015-9deb-4a29-b862256625a438b6" Type="Integer" DefaultValue="0" MultiValuated="No" Protection="Internal">
+			<CAAComment>
+				<ShortRole>Defines algorithms version of Workspace application</ShortRole>
+			</CAAComment>
+		</Simple>
+		<Property Name="KweNew_InstanciationMethod" Value="CATEPLMWorkspaceDelegateInstanciation"/>
+		<Property Name="Newable" Value="New"/>
+		<Property Name="KweNew_ReturnedType" Value="ENOWSP_WorkspaceInst"/>
+		<Property Name="ManageAccessAvailability" Value="Yes"/>
+		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+		<Property Name="IconName" Value="I_DWSPWorkspace"/>
+		<Property Name="3DIconName" Value="Workspace_3DNAVREP.cgr"/>
+		<Simple Name="V_LastSynchronizedDate" Uuid="0459EC2C-E30A-44A9-B03C-E48B6E0F6B66" Type="Date"  
+              MultiValuated="No" Protection="External">
+			<CAAComment>
+				<ShortRole>Describes Last synchronization Date of Workspace</ShortRole>
+			</CAAComment>
+		</Simple>
+	</Class>
+	<!-- ******************************************* -->
+	<!-- * WorkspaceInstance * -->
+	<!-- ******************************************* -->
+  <RelationClass Name="ENOWSP_WorkspaceInst" Uuid="d43ee9ec-ebce-49d8-a459-ca177a95c869" Abstract="No" SuperName="ENOFLD_AbstractInstance" CustomerExposition="Programmer">
+		<Property Name="DMCDerivable" Value="Yes"/>
+    <!-- Behavior patterns: default values -->
+    <Property Name="EditPropertiesAvailability" Value="No"/>    
+		<CAAComment>
+			<ShortRole>Instance between a Workspace Root and a Workspace</ShortRole>
+			<Role>Instance between a Workspace Root and a Workspace</Role>
+		</CAAComment>
+		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+	</RelationClass>
+	<!-- ******************************************** -->
+	<!-- *  * -->
+	<!-- ******************************************** -->
+	<Class Name="ENOWSP_WorkspaceCnx" Uuid="0b15ba8e-97ca-475f-9d6c-1eeea6e16c20" CustomerExposition="Programmer" Abstract="No" SuperName="ENOFLD_AbstractConnection">
+		<CAAComment>
+			<ShortRole>Workspace Connection Object</ShortRole>
+			<Role>Connects a workspace and the data it contains</Role>
+		</CAAComment>
+		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+	</Class>
+	<!-- ********************************************* -->
+	<!-- * Workspace rep instance                    * -->
+	<!-- ********************************************* -->
+	<RelationClass Name="ENOWSP_WorkspaceRepInst" Uuid="8015138d-fa74-45aa-8dd2-db67c924e90b" CustomerExposition="Programmer" Abstract="No" SuperName="PLMCoreRepInstance">
+		<CAAComment>
+			<ShortRole>Points to the mapping rep</ShortRole>
+			<Role>One and only one aggregated underneath a workspace, points to the rep containing mapping information</Role>
+		</CAAComment>
+
+    <SubClause Name="from"   TargetName="ENOWSP_WorkspaceRef"/>
+    <SubClause Name="to"   TargetName="ENOWSP_WorkspaceRep"/>
+
+    <Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+	</RelationClass>
+	<!-- ***************************************** -->
+	<!-- * Workspace mapping data RepRef (PLMCoreRepReference) * -->
+	<!-- ***************************************** -->
+	<Class Name="ENOWSP_WorkspaceRep" Uuid="fff076a0-889b-4df3-ab98-2a9a3dd51d26" CustomerExposition="Programmer" Abstract="No" SuperName="PLMCoreRepReference" CreateInstName="ENOWSP_WorkspaceRepInst">
+		<CAAComment>
+			<ShortRole>Workspace mapping information.  Contain various information needed for promote and synchronization of the workspace. Not to be PLM exposed</ShortRole>
+			<Role>Workspace mapping information.  Contain various information needed for promote and synchronization of the workspace. Not to be PLM exposed</Role>
+		</CAAComment>
+		<Property Name="Searchable" Value="No"/>
+		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+	</Class>
+	<!-- ****************************************** -->
+	<!-- *Workspace mapping data RepRef unique key* -->
+	<!-- ****************************************** -->
+	<UniqueKey Name="E_identifier" Uuid="19a239ab-1c4a-4e53-a5cc-f773482f807e" ClassName="ENOWSP_WorkspaceRep" AttributeNames="PLM_ExternalID"/>
+</Package>

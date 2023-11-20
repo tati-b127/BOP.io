@@ -1,0 +1,222 @@
+#Prog Drafting_ExportCompletion (iPLMIDSet :  #In PLMIDSet,oPLMIDSet :  #Out PLMIDSet) : VoidType
+  {
+/* Step 0 local variables */
+/* ---------------------- */
+let PLMIDSet_in_0(PLMIDSet)
+let PLMIDSet_out_0(PLMIDSet)
+
+let TgtRef_RS(PLMRouteSet)
+let TgtRefPath_IS(PLMIDSet)
+let TgtRepRef_RS(PLMRouteSet)
+let TgtRepRefPath_IS(PLMIDSet)
+let TgtInstance_RS(PLMRouteSet)
+let TgtInstancePath_IS(PLMIDSet)
+let TgtAllPath_IS(PLMIDSet)
+let TgtPVS_RS(PLMRouteSet)
+let TgtPVSPath_IS(PLMIDSet)
+let TgtPVSPath_IS2(PLMIDSet)
+let TgtFilterRoot_RS(PLMRouteSet)
+let TgtFilterRootPath_IS(PLMIDSet)
+
+
+let TgtAgregatingRefs_RS(PLMRouteSet)
+let TgtAgregatingRefs_IS(PLMIDSet)
+
+/* Step 1 local variables */
+/* ---------------------- */
+let PLMIDSet_in_1(PLMIDSet )
+let ProductComponents_R(PLMRouteSet)
+let PLMIDSet_out_1(PLMIDSet )
+
+/* Step 2 local variables */
+/* ---------------------- */
+let PLMIDSet_in_2(PLMIDSet )
+let PLMIDSet_out_2(PLMIDSet )
+
+let PLMRouteSet1(PLMRouteSet)
+let PLMRouteSet2(PLMRouteSet)
+let PLMRouteSet5(PLMRouteSet)
+let PLMRouteSet6(PLMRouteSet)
+let PLMRouteSet7(PLMRouteSet)
+let PLMRouteSet8(PLMRouteSet)
+let PLMRouteSet9(PLMRouteSet)
+let PLMRouteSet10(PLMRouteSet)
+let PLMRouteSet11(PLMRouteSet)
+let PLMRouteSet13(PLMRouteSet)
+let PLMRouteSet14(PLMRouteSet)
+let PLMRouteSet16(PLMRouteSet)
+let RsImportedRulesets(PLMRouteSet)
+let RsRuleEntity(PLMRouteSet)
+let RsAggreatedSpecPVS(PLMRouteSet)
+
+let PLMIDSetproc (PLMIDSet )
+let PLMIDSet1 (PLMIDSet )
+let PLMIDSet1Rep (PLMIDSet )
+let PLMIDSet6 (PLMIDSet )
+let PLMIDSet7(PLMIDSet )
+let PLMIDSet8(PLMIDSet )
+let PLMIDSet9(PLMIDSet ) 
+let IdsImportedRulesets(PLMIDSet ) 
+
+let PLMIDSetRestricted(PLMIDSet)
+let PLMIDSetRestrictedRep(PLMIDSet)
+
+/***********************************************************/
+/* STEP 0: Collect all components that must be expanded    */
+/*                                                         */
+/* input (PLMIDSet_in_0)                                   */
+/*   + the Drawing RepRef                                  */
+/*                                                         */
+/* output (PLMIDSet_out_0)                                 */
+/*   + the Drafting RepRef                                 */
+/*   + all the Refs/RepRefs stored in the "IsAViewOf"      */
+/*     relation of the Drawing RepRef                      */
+/*   + all the Refs that agregate the Insts and the PVS    */
+/*     that agregate the Ref stored in the "IsAViewOf"	   */
+/*     relation of the Drawing RepRef					   */
+/***********************************************************/
+PLMIDSet_in_0 = Restrict(iPLMIDSet, "PRODUCTCFG/Drawing")
+
+/* Case 1:                                                 */
+/* a VPMReference is targeted via IsAViewOf                */
+TgtRef_RS = ExecutePLMFunction("CATDraftingDiscipline", "CATDraftingDiscipline_AddIsAViewOfReference", PLMIDSet_in_0)
+TgtRefPath_IS = Ids(TgtRef_RS, "all")
+
+/* Case 2:                                                 */
+/* a VPMRepReference is targeted via IsAViewOf             */
+TgtRepRef_RS = ExecutePLMFunction("CATDraftingDiscipline", "CATDraftingDiscipline_AddIsAViewOfRepReference", PLMIDSet_in_0)
+TgtRepRefPath_IS = Ids(TgtRepRef_RS, "all")
+
+/* Case 3:                                                 */
+/* a VPMInstance is targeted via IsAViewOf                 */
+TgtInstance_RS = ExecutePLMFunction("CATDraftingDiscipline", "CATDraftingDiscipline_AddIsAViewOfInstance", PLMIDSet_in_0)
+TgtInstancePath_IS = Ids(TgtInstance_RS, "all")
+
+/* Case 4:                                                 */
+/* a PVS is targeted via IsAViewOf, retrieve the PVS and then add its filtered product root */
+TgtPVS_RS = ExecutePLMFunction("CATDraftingDiscipline", "CATDraftingDiscipline_AddIsAViewOfPVS", PLMIDSet_in_0)
+TgtPVSPath_IS = Ids(TgtPVS_RS, "all")
+TgtPVSPath_IS2 = Restrict(TgtPVSPath_IS, "PLMWspSpecFilter/PLMWspSpecPVS")
+TgtFilterRoot_RS = ExecutePLMFunction("PLMWspSpecFilter", "PLMWspSpecFilter_RetrieveFilteredRoot", TgtPVSPath_IS2)
+TgtFilterRootPath_IS = Ids(TgtFilterRoot_RS, "all")
+
+TgtAllPath_IS = TgtRefPath_IS + TgtRepRefPath_IS + TgtInstancePath_IS + TgtFilterRootPath_IS
+
+TgtAgregatingRefs_RS = ExecutePLMFunction("PRODUCTCFG", "ProductCfg_AddAggregatingReference", Restrict(TgtAllPath_IS, "PRODUCTCFG/VPMInstance") + Restrict(TgtAllPath_IS, "PRODUCTCFG/VPMRepInstance"))
+TgtAgregatingRefs_IS = Ids(TgtAgregatingRefs_RS)
+
+PLMIDSet_out_0 = TgtAgregatingRefs_IS + Restrict(TgtAllPath_IS, "PRODUCTCFG/VPMReference") + Restrict(TgtAllPath_IS, "PRODUCTCFG/VPMRepReference") +  Restrict(TgtFilterRootPath_IS, "PRODUCTCFG/VPMReference") + PLMIDSet_in_0
+
+
+/***********************************************************/
+/* STEP 1: Add in the input PLMIDSet all Refs/Insts that   */
+/* are agregated by the Refs in the input PLMIDSet         */
+/*                                                         */
+/* input (PLMIDSet_in_1)                                   */
+/*   + see  PLMIDSet_out_0                                 */
+/*                                                         */
+/* output (PLMIDSet_out_1)                                 */
+/*   + input                                               */
+/*   + all direct/indirect agregated Ref/Inst children     */
+/*                                                         */
+/***********************************************************/
+PLMIDSet_in_1 = PLMIDSet_out_0
+
+ProductComponents_R = ExecutePLMFunction("PRODUCTCFG", "ProductCfg_AddChildrenProduct", Restrict(PLMIDSet_in_1, "PRODUCTCFG/VPMReference")) 
+
+PLMIDSet_out_1 = Ids(ProductComponents_R) + PLMIDSet_in_1
+
+/***********************************************************/
+/* STEP 2: Add in the input PLMIDSet all RepRefs/RepInsts  */
+/* that are agregated by the components of the input       */
+/* PLMIDSet                                                */
+/*                                                         */
+/* This code is taken from                                 */
+/* VPMEditor_GetAllRepresentations.KProc                   */
+/*                                                         */
+/* input (PLMIDSet_in_2)                                   */
+/*  + see PLMIDSet_out_1                                   */
+/* output (PLMIDSet_out_2)                                 */
+/*  + input                                                */
+/*  + all agregated RepRefs/RepInst                        */
+/***********************************************************/
+
+PLMIDSet_in_2 = PLMIDSet_out_1
+
+PLMIDSetRestricted = Restrict(PLMIDSet_in_2, "PRODUCTCFG/VPMReference")
+PLMIDSetRestrictedRep = Restrict(PLMIDSet_in_2, "PRODUCTCFG/VPMRepReference")
+
+/*	 uncomment this call when function PLMWspSpecFilter_AddAllAggregatedSpecPVS will be added			
+	 to product procedure and remove all the function taken from VPMEditor_GetAllRepresentations.KProc	
+	 executing product procedure to export aggregated PVS												*/
+/*	 PLMIDSetproc = executePLMProcedure("VPMEditor_GetAllRepresentations",PLMIDSet_in_0)				
+	 PLMIDSet_out_2 = PLMIDSet_in_2 + PLMIDSetproc														*/
+
+/*Completes with all Representations(except NavRep) and LPPrivateRep, VPMPorts and VPMConnections*/
+PLMRouteSet1 = ExecutePLMFunction("PRODUCTCFG", "ProductCfg_AddVPMRepsPortsAndConnections", PLMIDSetRestricted)
+PLMIDSet1 = Ids(PLMRouteSet1)
+PLMIDSet1Rep = PLMIDSetRestrictedRep + Restrict(PLMIDSet1, "PRODUCTCFG/VPMRepReference")
+
+/*Completes with PointedDesignTable */
+PLMRouteSet2 = ExecutePLMFunction("PLMKnowledgewareDiscipline", "KwaDiscipline_AddPointedDesignTable", PLMIDSet1Rep )
+
+/*Completes with Implement Link connections */
+PLMRouteSet5 = ExecutePLMFunction("RFLPLMImplementConnection", "RFLPLMImplementConnection_AddAllImplementCnx", PLMIDSetRestricted )
+
+/* Completes with Material*/
+PLMRouteSet6 = ExecutePLMFunction("CATMaterial", "mat_retrieveAllAppliedMaterial", PLMIDSetRestricted )
+PLMIDSet6 = Ids(PLMRouteSet6)
+
+PLMRouteSet7 = ExecutePLMFunction("CATMaterialRef", "mat_retrieveDomains",  Restrict(PLMIDSet6, "CATMaterialRef/CATMatReference"))
+PLMIDSet7= Ids(PLMRouteSet7)
+
+/* getting all connections aggregated by the material*/
+PLMRouteSet8 = ExecutePLMFunction("CATMaterialRef", "mat_retrieveCnx", Restrict(PLMIDSet6, "CATMaterialRef/CATMatReference"))
+PLMIDSet8 = Ids(PLMRouteSet8)
+
+/* getting all connections aggregated by the material*/
+PLMRouteSet9 = ExecutePLMFunction("CATMaterialRef", "rdg_retrieveTexture", Restrict(PLMIDSet7, "CATMaterialRef/MaterialDomain"))
+PLMIDSet9 = Ids(PLMRouteSet9)
+
+/*Completes with Document pointed by a FEM Rep */
+PLMRouteSet14 = ExecutePLMFunction("SIMObjSimulationGeneric", "sim_retrieveExternalDocumentfromFEMRep", PLMIDSet1Rep )
+
+
+/*Completes with Non Catia Document pointed by Rendering Rep */
+PLMRouteSet16 = ExecutePLMFunction("Rendering", "Rendering_AddExternalDocFromRenderingRep", PLMIDSet1Rep )
+
+
+/*Completes with Engineering Connections */
+/* evb:2009/08/28: removal of call to CATMCXIAssembly_AddAllAggregatedMCXI (merge of functions by assembly team)*/
+PLMRouteSet10 = ExecutePLMFunction("CATMCXAssembly", "CATMCXAssembly_AddAllAggregatedMCX", PLMIDSetRestricted)
+
+/* Completes with Symmetry */
+/* evb:2009/08/28: removal of call to CATAsmSymGeo_AddAllSymGeo and CATAsmSymStruct_AddAllSymStruct (merge of functions by assembly team)*/
+PLMRouteSet11 = ExecutePLMFunction("CATAsmSymGeo", "CATAsmSymObj_AddAllSymObj", PLMIDSetRestricted)
+
+
+/*Completes with Documents Connections */
+PLMRouteSet13 = ExecutePLMFunction("PLMDocConnection", "PLMDocConnection_retrieveAllDocuments", PLMIDSetRestricted)
+
+
+/* Get imported rulesets */
+RsImportedRulesets = ExecutePLMFunction( "PLMKnowHowRuleSet", "kwe_navigate_ruleset", PLMIDSet1Rep )
+IdsImportedRulesets = Ids( RsImportedRulesets )
+
+/* Get rules entities */
+RsRuleEntity = ExecutePLMFunction( "PLMKnowHowRuleSet", "kwe_expand_rules", IdsImportedRulesets )
+
+/* Get aggregated PVS */
+RsAggreatedSpecPVS = ExecutePLMFunction( "PLMWspSpecFilter", "PLMWspSpecFilter_AddAllAggregatedSpecPVS", PLMIDSetRestricted )
+
+PLMIDSet_out_2 = PLMIDSet_in_2 + PLMIDSet1 + Ids(PLMRouteSet2) + Ids(PLMRouteSet5) + PLMIDSet6 + PLMIDSet7+ PLMIDSet8+ PLMIDSet9 + Ids(PLMRouteSet10)+ Ids(PLMRouteSet11) + Ids(PLMRouteSet13) + Ids(PLMRouteSet14)
+		+Ids(PLMRouteSet16)	+ Ids(RsRuleEntity) + Ids(RsAggreatedSpecPVS)
+
+/***********************************************************/
+/* STEP 3: build the procedure output   :                  */
+/* Adding the components retrieved from the drawing		   */
+/* + the input ID to be consistent with export protocol	   */
+/***********************************************************/
+
+oPLMIDSet = PLMIDSet_out_2 + iPLMIDSet
+}

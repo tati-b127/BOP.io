@@ -1,0 +1,17 @@
+EXPAND
+  T0.PLMID, T1.PLMID, T2.PLMID, T3.PLMID, T4.PLMID, T5.PLMID, T6.PLMID, T7.PLMID, T8.PLMID, T9.PLMID
+
+FROM
+  PLMKnowHowRuleSet/PLMRuleSet T0,
+  PLMKnowHowRuleSet/PLMRuleSetInstance T1,
+  PLMKnowHowRule/PLMRule T2,
+  PLMKnowHowRule/PLMRuleInstance T3,
+  PLMKnowHowCheck/PLMCheck  T4,
+  PLMKnowHowCheck/PLMCheckInstance T5,
+  PLMKnowHowCheck/PLMFilteringCheck  T6,
+  PLMKnowHowCheck/PLMFilteringCheckInstance T7,
+  PLMKnowHowCheck/PLMPreCondCheck  T8,
+  PLMKnowHowCheck/PLMPrecondCheckInstance T9
+
+FROM_ROOTS [?1?] 
+;

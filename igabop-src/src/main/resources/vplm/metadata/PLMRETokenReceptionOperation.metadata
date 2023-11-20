@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+
+<Package xmlns="PLMDictionaryTop" ModelerType="Top" Name="PLMRETokenReceptionOperation" Uuid="42b433e9-9b3f-4364-9758-dae08da69d3d"  UseNames="PLMRETokenTransferOperation">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+
+  <!-- ******************************* -->
+<!-- PLMRETokenReceptionOperation    -->
+<!-- ******************************* -->
+
+<!-- operation receiving a token -->
+<Class Name="PLMRETokenReceptionOperation" Uuid="0d3ca5df-95e0-4ac9-ab76-b4073e724ad8"  SuperName="PLMRETokenTransferOperation" CAAExposition="L0">
+<Property Name="Searchable" Value="No"/>
+<Method ImplementationType="None">
+<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+</Method>
+<!-- Transfer operation reception status : received | processed | confirmed | completed -->
+<Simple Name="V_ReceptionStep" Uuid="867a19fc-652f-47f3-bcee-307510abbe8f"   MultiValuated="No" Type="String" MaxLength="60"  Protection="Internal"/>
+<!-- acquired | refused | (failure) -->
+<Simple Name="V_ReceptionStatus" Uuid="0a885621-8615-4a46-bdd9-a97501b99019"   MultiValuated="No" Type="String" MaxLength="60"  Protection="Internal"/>
+<IdentifierSet Name="Identifier" Uuid="a67b0a44-ba4a-42c9-951f-ca9090b0bf37" IdentifierNames="V_OperationId" IdentifierUuids="9f921798-63eb-429b-8baf-4f6fb81befd3" />
+</Class>
+
+
+</Package>
+

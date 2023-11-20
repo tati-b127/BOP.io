@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<Package
+  xmlns="PLMDictionaryUnified"
+  ModelerType="Top"
+  Name="CATQCCheckSeal"
+  Uuid="029C6E2B-3DB2-4E5A-B425-ABD2A04CCE2A"
+  UseNames="PRODUCTCFG"
+  BelongsToModeler="CATQCCheckSeal"
+  CustomerExposition="Programmer">
+
+  <Extension
+    Name="CATQCCheckSealExt"
+    Uuid="4D612458-C7AB-4FFC-B812-4FCA79782393"
+    ScopeNames="VPMReference VPMRepReference"
+    CustomerExposition="ProgrammerOnly">
+    <CAAComment>
+      <ShortRole>DO NOT USE</ShortRole>
+      <Role>DO NOT USE</Role>
+    </CAAComment>
+
+    <Simple
+      Name="V_QCCheckDate"
+      Uuid="EC4285B5-4B19-4A2F-9E0C-6095FEB4C1DC"
+      Type="Date"
+      MultiValuated="No"
+      Protection="External"
+ 	    CAAExposition="L1">
+      <CAAComment>
+        <ShortRole>DO NOT USE</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple
+		  Name="V_QCStamp"
+		  Uuid="B1960239-FADE-4BDA-960D-574896F2C5AB"
+		  Type="Integer"
+		  Protection="External"
+		  CAAExposition="L1"
+		  DefaultValue="-1">
+      <CAAComment>
+        <ShortRole>DO NOT USE</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple
+		  Name="V_QCStatus"
+		  Uuid="10F35C2E-5358-4D61-9306-2C12776F8DEE"
+		  Type="String"
+		  Protection="External"
+		  CAAExposition="L1"
+		  DefaultValue="">
+      <CAAComment>
+        <ShortRole>DO NOT USE</ShortRole>
+      </CAAComment>
+    </Simple>
+  </Extension>
+</Package>

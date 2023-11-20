@@ -1,0 +1,31 @@
+
+# Default ignored files
+/.idea/workspace.xml
+# Editor-based HTTP Client requests
+/httpRequests/
+/gradlew
+/gradlew.bat
+/src/js/package-lock.json
+/config.json
+.vscode
+.classpath
+.settings
+.project
+.idea
+*.iml
+/target/
+/slt.bat
+/sloth/
+/intellij-enovia/
+**/.DS_Store
+node_modules
+src/js/build
+src/js/node_modules
+src/js/src/ckeditor5/node_modules
+/src/main/resources/static/*
+# package-lock.json
+.gradle/
+/build
+/gradle/
+/logs/
+

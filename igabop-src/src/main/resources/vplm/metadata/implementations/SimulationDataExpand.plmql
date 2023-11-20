@@ -1,0 +1,83 @@
+NAVIGATE
+
+	T0.logicalid 	, T1.logicalid	, T2.logicalid ,	T3.logicalid ,	T4.logicalid ,	T5.logicalid ,	T6.PLMID ,
+	T0.physicalid	, T1.physicalid	, T2.physicalid ,	T3.physicalid ,	T4.physicalid ,	T5.physicalid ,	
+   	T0.type			, T1.type		, T2.type ,			T3.type ,		T4.type ,		T5.type 
+
+FROM
+	Class/SIMULATIONS T0 ,
+	
+	"RelationClass/Simulation Data" T1 ,
+	
+	"Class/Simulation Folders" T2 ,
+	
+	Class/DOCUMENTS T3 ,
+	
+	"Class/Requirement" T4 ,
+	
+	"Class/PARParameter" T5 ,
+	
+	PLMCORE/PLMCoreReference T6
+	
+FROM_ROOTS
+
+	[?1?]
+
+ON
+
+(
+	(
+		RELATION
+			(FROM=Class/SIMULATIONS TO="RelationClass/Simulation Data" THROUGH=POINTEDBY)
+			WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY)
+		THEN RELATION
+			(FROM="RelationClass/Simulation Data" TO="Class/Simulation Folders" THROUGH=POINTSTO) 
+			WITH QUALITY_FILTER (CATEGORY=ISINSTANCEOF)
+	)	
+	
+OR
+
+	(
+		RELATION
+			(FROM="Class/SIMULATIONS" TO="RelationClass/Simulation Data" THROUGH=POINTEDBY) 
+			WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY) 
+		THEN RELATION
+			(FROM="RelationClass/Simulation Data" TO=Class/DOCUMENTS THROUGH=POINTSTO) 
+			WITH QUALITY_FILTER (CATEGORY=ISINSTANCEOF)
+	)
+	
+OR
+
+	(
+		RELATION
+			(FROM="Class/SIMULATIONS" TO="RelationClass/Simulation Data" THROUGH=POINTEDBY) 
+			WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY) 
+		THEN RELATION
+			(FROM="RelationClass/Simulation Data" TO="Class/Requirement" THROUGH=POINTSTO) 
+			WITH QUALITY_FILTER (CATEGORY=ISINSTANCEOF)
+	)
+	
+OR
+
+	(
+		RELATION
+			(FROM="Class/SIMULATIONS" TO="RelationClass/Simulation Data" THROUGH=POINTEDBY) 
+			WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY) 
+		THEN RELATION
+			(FROM="RelationClass/Simulation Data" TO="Class/PARParameter" THROUGH=POINTSTO) 
+			WITH QUALITY_FILTER (CATEGORY=ISINSTANCEOF)
+	)
+	
+OR
+
+	(
+		RELATION
+			(FROM="Class/SIMULATIONS" TO="RelationClass/Simulation Data" THROUGH=POINTEDBY) 
+			WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY) 
+		THEN RELATION
+			(FROM="RelationClass/Simulation Data" TO=PLMCORE/PLMCoreReference THROUGH=POINTSTO) 
+			WITH QUALITY_FILTER (CATEGORY=ISINSTANCEOF)
+	)
+)
+
+ITER = 2;

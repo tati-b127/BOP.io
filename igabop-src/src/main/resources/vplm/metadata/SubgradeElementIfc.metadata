@@ -1,0 +1,122 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2012, All rights reserved -->
+
+<Package CustomerExposition = "Programmer" ModelerType = "Top" Name = "SubgradeElementIfc" UseNames = "SubgradeElement" Uuid = "C844906E-05D4-43F5-A2E8-EAA1907D7CB7" xmlns = "PLMDictionaryUnified">
+  <Extension CustomerExposition = "Programmer" Name = "IfcSubgradeElement" ScopeNames = "SubgradeElement" Uuid = "DEE2A6F9-8B6C-4DFE-BFA2-63915DBA1F01">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcSubgradeElement_ObjectType" Protection = "Free" Type = "String" Uuid = "DEE2A6F9-8B6C-4DFE-BFA2-1ad52eb2ea5e"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcSubgradeElement_Tag" Protection = "Free" Type = "String" Uuid = "DEE2A6F9-8B6C-4DFE-BFA2-ed12431a92f4"/>
+    <Simple CAAExposition = "L0" DefaultValue = "NOTDEFINED" MaxLength = "255" Name = "IfcSubgradeElement_PredefinedType" Protection = "Free" Type = "String" Uuid = "1FA0119C-4AE9-45E7-A81D-115F4BDA6400">
+      <Range>
+        <Equal>USERDEFINED</Equal>
+        <Equal>NOTDEFINED</Equal>
+      </Range>
+    </Simple>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcSubgradeElementType" ScopeNames = "SubgradeElementType" Uuid = "A36848B9-A596-458D-A087-3740B47311B1">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcSubgradeElementType_Tag" Protection = "Free" Type = "String" Uuid = "A36848B9-A596-458D-A087-cc2a36316812"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcSubgradeElementType_ElementType" Protection = "Free" Type = "String" Uuid = "A36848B9-A596-458D-A087-4fccfb51960c"/>
+    <Simple CAAExposition = "L0" DefaultValue = "NOTDEFINED" MaxLength = "255" Name = "IfcSubgradeElementType_PredefinedType" Protection = "Free" Type = "String" Uuid = "4A71B200-EDAF-4F4F-80D8-D9DFAE601698">
+      <Range>
+        <Equal>USERDEFINED</Equal>
+        <Equal>NOTDEFINED</Equal>
+      </Range>
+    </Simple>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcSubgradeRetainingElement" ScopeNames = "SubgradeRetainingElement" Uuid = "9C212C01-2C67-4CCC-9DBB-2DBFE39C742F">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcSubgradeRetainingElement_ObjectType" Protection = "Free" Type = "String" Uuid = "9C212C01-2C67-4CCC-9DBB-1ad52eb2ea5e"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcSubgradeRetainingElement_Tag" Protection = "Free" Type = "String" Uuid = "9C212C01-2C67-4CCC-9DBB-ed12431a92f4"/>
+    <Simple CAAExposition = "L0" DefaultValue = "99" Name = "IfcSubgradeRetainingElement_PredefinedType" Protection = "Free" Type = "Integer" Uuid = "1F5B3AC1-C30C-4964-8E5C-C2681076676E">
+      <Property Name = "RangeAsEnumName" Value = "IfcSubgradeRetainingElementTypeEnum"/>
+      <Property Name = "RangeAsEnumAuthorizedValues" Value = "WALL;PANEL;CRIB;CELL;FLAT;NAIL;SHEETPILE;BOXPILE;USERDEFINED;NOTDEFINED"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+        <Equal>5</Equal>
+        <Equal>6</Equal>
+        <Equal>7</Equal>
+        <Equal>8</Equal>
+        <Equal>98</Equal>
+        <Equal>99</Equal>
+      </Range>
+    </Simple>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcSubgradeRetainingElementType" ScopeNames = "SubgradeRetainingElementType" Uuid = "38B87424-2A35-4F77-9478-CB7CBB71BDEA">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcSubgradeRetainingElementType_Tag" Protection = "Free" Type = "String" Uuid = "38B87424-2A35-4F77-9478-cc2a36316812"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcSubgradeRetainingElementType_ElementType" Protection = "Free" Type = "String" Uuid = "38B87424-2A35-4F77-9478-4fccfb51960c"/>
+    <Simple CAAExposition = "L0" DefaultValue = "99" Name = "IfcSubgradeRetainingElementType_PredefinedType" Protection = "Free" Type = "Integer" Uuid = "2D57FD4C-0318-4C35-8483-7F886F1BA0A7">
+      <Property Name = "RangeAsEnumName" Value = "IfcSubgradeRetainingElementTypeEnum"/>
+      <Property Name = "RangeAsEnumAuthorizedValues" Value = "WALL;PANEL;CRIB;CELL;FLAT;NAIL;SHEETPILE;BOXPILE;USERDEFINED;NOTDEFINED"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+        <Equal>5</Equal>
+        <Equal>6</Equal>
+        <Equal>7</Equal>
+        <Equal>8</Equal>
+        <Equal>98</Equal>
+        <Equal>99</Equal>
+      </Range>
+    </Simple>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcQto_DS_SubgradeExcavationWorksBaseQuantities" ScopeNames = "SubgradeExcavationWorks SubgradeExcavationWorksType" Uuid = "2F7150BF-C39A-4817-B65A-5DB3775D9968">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcQto_DS_SubgradeExcavationWorksBaseQuantities_MethodOfMeasurement" Protection = "Free" Type = "String" Uuid = "2F7150BF-C39A-4817-B65A-14b1550b5f09"/>
+    <Simple CAAExposition = "L0" Magnitude = "VOLUME" Name = "IfcQto_DS_SubgradeExcavationWorksBaseQuantities_BankVolume" Protection = "Free" Type = "Double" Uuid = "6AC99C3F-51E2-408D-A874-981913BD30DE"/>
+    <Simple CAAExposition = "L0" Magnitude = "VOLUME" Name = "IfcQto_DS_SubgradeExcavationWorksBaseQuantities_LooseVolume" Protection = "Free" Type = "Double" Uuid = "0A0C75EE-851C-4522-BC1D-552AF3C9EBE2"/>
+    <Simple CAAExposition = "L0" Magnitude = "VOLUME" Name = "IfcQto_DS_SubgradeExcavationWorksBaseQuantities_CompactedVolume" Protection = "Free" Type = "Double" Uuid = "F4EF9968-9FFC-44E3-BB2E-A22CE0810514"/>
+    <Simple CAAExposition = "L0" Magnitude = "MASS" Name = "IfcQto_DS_SubgradeExcavationWorksBaseQuantities_Weight" Protection = "Free" Type = "Double" Uuid = "B10F3A60-0898-4579-A1BD-BEC50AD901D0"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcQto_DS_SubgradeFillingWorksBaseQuantities" ScopeNames = "SubgradeFillingWorks SubgradeFillingWorksType" Uuid = "B35C6490-EAAE-4300-9FD1-C08A8414A1F9">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcQto_DS_SubgradeFillingWorksBaseQuantities_MethodOfMeasurement" Protection = "Free" Type = "String" Uuid = "B35C6490-EAAE-4300-9FD1-14b1550b5f09"/>
+    <Simple CAAExposition = "L0" Magnitude = "VOLUME" Name = "IfcQto_DS_SubgradeFillingWorksBaseQuantities_BankVolume" Protection = "Free" Type = "Double" Uuid = "2E75C714-5017-4C88-8D10-082B2AFBE5C5"/>
+    <Simple CAAExposition = "L0" Magnitude = "MASS" Name = "IfcQto_DS_SubgradeFillingWorksBaseQuantities_Weight" Protection = "Free" Type = "Double" Uuid = "BAC7514C-3022-41A4-AE32-FC1038302478"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcQto_DS_SubgradeOtherElementBaseQuantities" ScopeNames = "SubgradeOtherElement SubgradeOtherElementType" Uuid = "BBF03428-F8C1-4CD9-8B2F-86CDC8250C0E">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcQto_DS_SubgradeOtherElementBaseQuantities_MethodOfMeasurement" Protection = "Free" Type = "String" Uuid = "BBF03428-F8C1-4CD9-8B2F-14b1550b5f09"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcQto_DS_SubgradeOtherElementBaseQuantities_Height" Protection = "Free" Type = "Double" Uuid = "26637B7F-1927-49B8-BAC2-D922B62E4696"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcQto_DS_SubgradeOtherElementBaseQuantities_Width" Protection = "Free" Type = "Double" Uuid = "86F6A25B-B15E-43B6-B15F-D88A8E306C25"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcQto_DS_SubgradeOtherElementBaseQuantities_Length" Protection = "Free" Type = "Double" Uuid = "CBC25173-37A8-4DA9-AA48-E1A06CE53B9B"/>
+    <Simple CAAExposition = "L0" Magnitude = "AREA" Name = "IfcQto_DS_SubgradeOtherElementBaseQuantities_GrossSurfaceArea" Protection = "Free" Type = "Double" Uuid = "20CA1498-3D37-44A7-B3D7-0D5ABE3A88EE"/>
+    <Simple CAAExposition = "L0" Magnitude = "AREA" Name = "IfcQto_DS_SubgradeOtherElementBaseQuantities_NetSurfaceArea" Protection = "Free" Type = "Double" Uuid = "FE0A83A5-6075-40AD-9483-3EE38630BEA6"/>
+    <Simple CAAExposition = "L0" Magnitude = "VOLUME" Name = "IfcQto_DS_SubgradeOtherElementBaseQuantities_GrossVolume" Protection = "Free" Type = "Double" Uuid = "BC40425C-D811-40AA-B42E-F1D512D6D208"/>
+    <Simple CAAExposition = "L0" Magnitude = "VOLUME" Name = "IfcQto_DS_SubgradeOtherElementBaseQuantities_NetVolume" Protection = "Free" Type = "Double" Uuid = "051002BC-033D-47A0-9BB0-EC8083597722"/>
+    <Simple CAAExposition = "L0" Magnitude = "MASS" Name = "IfcQto_DS_SubgradeOtherElementBaseQuantities_GrossWeight" Protection = "Free" Type = "Double" Uuid = "118442DB-E7EA-4B25-A7E6-AACC0F92B847"/>
+    <Simple CAAExposition = "L0" Magnitude = "MASS" Name = "IfcQto_DS_SubgradeOtherElementBaseQuantities_NetWeight" Protection = "Free" Type = "Double" Uuid = "75183213-3914-4472-84CC-8B1D78081D6D"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcQto_DS_SubgradeRetainingElementBaseQuantities" ScopeNames = "SubgradeRetainingElement SubgradeRetainingElementType" Uuid = "8658C51B-8881-4159-AED0-03DB36C907E6">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcQto_DS_SubgradeRetainingElementBaseQuantities_MethodOfMeasurement" Protection = "Free" Type = "String" Uuid = "8658C51B-8881-4159-AED0-14b1550b5f09"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcQto_DS_SubgradeRetainingElementBaseQuantities_Height" Protection = "Free" Type = "Double" Uuid = "E2F7E251-5C44-447A-B84E-75921B4F2BEC"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcQto_DS_SubgradeRetainingElementBaseQuantities_Width" Protection = "Free" Type = "Double" Uuid = "DA811811-E1E3-4C59-A89C-5748537E4F29"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcQto_DS_SubgradeRetainingElementBaseQuantities_Length" Protection = "Free" Type = "Double" Uuid = "7F2D1AF3-1CAB-4A2D-80E2-110143BF7EDA"/>
+    <Simple CAAExposition = "L0" Magnitude = "AREA" Name = "IfcQto_DS_SubgradeRetainingElementBaseQuantities_GrossSurfaceArea" Protection = "Free" Type = "Double" Uuid = "B5098F7F-41A8-4054-BA33-F6916FFABC03"/>
+    <Simple CAAExposition = "L0" Magnitude = "AREA" Name = "IfcQto_DS_SubgradeRetainingElementBaseQuantities_NetSurfaceArea" Protection = "Free" Type = "Double" Uuid = "BA608F54-D5C0-4D98-A410-59A5F2E76596"/>
+    <Simple CAAExposition = "L0" Magnitude = "VOLUME" Name = "IfcQto_DS_SubgradeRetainingElementBaseQuantities_GrossVolume" Protection = "Free" Type = "Double" Uuid = "8DCCDE2E-6C02-4887-A041-D7D65C416E82"/>
+    <Simple CAAExposition = "L0" Magnitude = "VOLUME" Name = "IfcQto_DS_SubgradeRetainingElementBaseQuantities_NetVolume" Protection = "Free" Type = "Double" Uuid = "011B688A-4324-40FB-8868-853D65DB17CC"/>
+    <Simple CAAExposition = "L0" Magnitude = "MASS" Name = "IfcQto_DS_SubgradeRetainingElementBaseQuantities_GrossWeight" Protection = "Free" Type = "Double" Uuid = "93E65882-DCD2-4F9B-82E1-1C4679A6699F"/>
+    <Simple CAAExposition = "L0" Magnitude = "MASS" Name = "IfcQto_DS_SubgradeRetainingElementBaseQuantities_NetWeight" Protection = "Free" Type = "Double" Uuid = "D091F45A-7E0C-4BFD-97FF-7810F15D9C6B"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcQto_DS_SubgradeStockpileBaseQuantities" ScopeNames = "SubgradeStockpile SubgradeStockpileType" Uuid = "BAD1A04C-0BB8-4B09-B21E-6121A0729A14">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcQto_DS_SubgradeStockpileBaseQuantities_MethodOfMeasurement" Protection = "Free" Type = "String" Uuid = "BAD1A04C-0BB8-4B09-B21E-14b1550b5f09"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcQto_DS_SubgradeStockpileBaseQuantities_Height" Protection = "Free" Type = "Double" Uuid = "834DCA26-F969-4066-AF62-4AABB4D4131F"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcQto_DS_SubgradeStockpileBaseQuantities_Width" Protection = "Free" Type = "Double" Uuid = "8B5CE356-8E47-4F32-ACF4-946B6B5C16EF"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcQto_DS_SubgradeStockpileBaseQuantities_Length" Protection = "Free" Type = "Double" Uuid = "51328A12-8284-49E4-B4F4-DB8FC081CBCC"/>
+    <Simple CAAExposition = "L0" Magnitude = "AREA" Name = "IfcQto_DS_SubgradeStockpileBaseQuantities_GrossSurfaceArea" Protection = "Free" Type = "Double" Uuid = "69921B37-29C4-4999-9F60-D84A4E9FDEA7"/>
+    <Simple CAAExposition = "L0" Magnitude = "AREA" Name = "IfcQto_DS_SubgradeStockpileBaseQuantities_NetSurfaceArea" Protection = "Free" Type = "Double" Uuid = "D1A3DBE0-D385-495B-8BA5-7E36017277E7"/>
+    <Simple CAAExposition = "L0" Magnitude = "VOLUME" Name = "IfcQto_DS_SubgradeStockpileBaseQuantities_GrossVolume" Protection = "Free" Type = "Double" Uuid = "9834D974-8775-4E3D-9FDC-812C77AA83D5"/>
+    <Simple CAAExposition = "L0" Magnitude = "VOLUME" Name = "IfcQto_DS_SubgradeStockpileBaseQuantities_NetVolume" Protection = "Free" Type = "Double" Uuid = "A78445FA-CED0-4586-BCFC-AE76DE9EE7C8"/>
+    <Simple CAAExposition = "L0" Magnitude = "MASS" Name = "IfcQto_DS_SubgradeStockpileBaseQuantities_GrossWeight" Protection = "Free" Type = "Double" Uuid = "2BB509ED-B927-4BBA-B032-B4E444F6EAE7"/>
+    <Simple CAAExposition = "L0" Magnitude = "MASS" Name = "IfcQto_DS_SubgradeStockpileBaseQuantities_NetWeight" Protection = "Free" Type = "Double" Uuid = "0C225E22-C152-433D-A94B-A59FFFB4D33C"/>
+  </Extension>
+</Package>

@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2007, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" Name="PLMCollabDesign" Uuid="d917a839-cd1e-4d6e-bc01-10be1d829b9c" UseNames="PLMCORE" CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+  <Comment> First Delivery 06-02-2008 by AES</Comment>
+  <!-- ***************************************** -->
+  <!-- CCD Workspace Elements -->
+  <!-- ***************************************** -->
+  <Class Name="PLMCCDWorkspaceRef" Uuid="27ca0d6b-ad4c-4e53-b3fa-f03fd61e0eaa" Abstract="No" SuperName="PLMCoreReference" CustomerExposition="Programmer" Specializable="No" CustomerExtensible="No" Abbreviation="wks" DeleteAvailability="Yes">
+    <Simple Name="V_MemberList" Uuid="1b4a3908-3140-4dba-b713-8cf0df1edcca" Type="String" MultiValuated="Yes" MaxLength="20"  Protection="External" CAAExposition="L0" CollectionType="Set"/>
+    <Property Name="IconName"	Value="I_PLMCCDWorkspaceRef"/>
+    <Property Name="3DIconName"	Value="PLMCCDWorkspaceRef.cgr"/>
+    <Property Name="Newable"	Value="New"/>
+    <Property Name="Searchable"	Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod"	Value="CATCCDWorkspacePLMNew"/>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+  <!-- ***************************************** -->
+  <!-- CCD BriefCase Elements -->
+  <!-- ***************************************** -->
+  <Class Name="PLMCCDBriefcaseRepRef" Uuid="c575d267-32c6-4f19-b856-66d7fb8410af" Abstract="No" SuperName="PLMCoreRepReference" CustomerExposition="Programmer" CreateInstName="PLMCCDBriefcaseRepInst" Specializable="No" CustomerExtensible="No">
+    <Property Name="IconName"	Value="I_PLMCCDBriefcaseRepRef"/>
+    <Property Name="3DIconName"	Value="PLMCCDBriefcaseRepRef.cgr"/>
+    <Property Name="Newable"	Value="No"/>
+    <Property Name="Searchable"	Value="No"/>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+  <RelationClass Name="PLMCCDBriefcaseRepInst" Uuid="8d2c6c5d-c296-4c64-847b-9b335fafe0cf" Abstract="No" SuperName="PLMCoreRepInstance" CustomerExposition="Programmer" Specializable="No" CustomerExtensible="No">
+    <Simple Name="V_BriefcaseStatus" Uuid="02bc3174-bdd6-4522-be1f-aebe9526ece7" Type="Integer" Protection="External" CAAExposition="L0" DefaultValue="1">
+      <Property Name="RangeAsEnumName" Value="BriefcaseStatus"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="Pending;Opened;Merged"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+      </Range>
+    </Simple>
+    <Simple Name="V_Creator" Uuid="2a1a455b-a47e-400a-87e1-7737dc37a18b" Type="String" MultiValuated="No" MaxLength="20"  Protection="External" CAAExposition="L0"/>
+    <Property Name="IconName"	Value="I_PLMCCDBriefcaseRepInst"/>
+    <Property Name="3DIconName"	Value="PLMCCDBriefcaseRepInst.cgr"/>
+    <Property Name="Newable"	Value="No"/>
+    <Property Name="Searchable"	Value="No"/>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </RelationClass>
+
+</Package>
+

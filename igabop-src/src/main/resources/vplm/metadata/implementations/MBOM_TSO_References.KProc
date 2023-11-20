@@ -1,0 +1,92 @@
+/*********************************************************************************************************************************/
+/* Export procedure for Process                                                                                        */
+/* --> Retrieves all agregated PLM objects (References, Ref Instances, Rep References, Rep Instances, Ports and Connections)     */
+/*********************************************************************************************************************************/
+#Prog MBOM_TSO_References( iPLMIDSet : #In PLMIDSet, oPLMIDSet : #Out PLMIDSet ) : VoidType
+{
+	let PLMRouteSetPortsAndCnx (PLMRouteSet)
+	let PLMRouteSetImplCnx (PLMRouteSet)
+	let PLMRouteSetCapableDocuments (PLMRouteSet)
+	let PLMRouteSetMatProduct (PLMRouteSet)
+	let PLMRouteSetProducts (PLMRouteSet)
+	let PLMRouteSetAttachedDocCnx (PLMRouteSet)
+
+	let PLMIDSetProcessReference (PLMIDSet)
+	let PLMIDSetProcessInstance (PLMIDSet)
+	let PLMIDSetProcessRefAndInst (PLMIDSet)
+	let PLMIDSetPortsAndCnx (PLMIDSet)
+	let PLMIDSetDRPorts (PLMIDSet)
+	let PLMIDSetPrecedencePorts (PLMIDSet)
+	let PLMIDSetDRCnx (PLMIDSet)
+	let PLMIDSetPrecedenceCnx (PLMIDSet)
+	let PLMIDSetMaterialisationCnx (PLMIDSet)
+	let PLMIDSetCapableCnx (PLMIDSet)
+	let PLMIDSetImplCnx (PLMIDSet)
+	let PLMIDSetCapableDocuments (PLMIDSet)
+	let PLMIDSetMatProduct (PLMIDSet)
+	let PLMIDSetProducts (PLMIDSet)
+	let PLMIDSetProductStructure (PLMIDSet)
+	let PLMIDSetAssignmentFilterCnx (PLMIDSet)
+	let PLMIDSetHowToCnx (PLMIDSet)
+	let PLMIDSetAttachedDocCnx (PLMIDSet)
+	let PLMIDSetProductRefrep (PLMIDSet)
+	let PLMIDSetTSORef (PLMIDSet)
+	let PLMIDSetProductInst (PLMIDSet)
+	let PLMIDSetTSOInst (PLMIDSet)
+	let PLMIDProductRef (PLMIDSet)
+	let PLMIDSetHistoRefCnx  (PLMIDSet)
+
+
+	PLMIDSetProcessReference = Restrict(iPLMIDSet, "DELFmiFunctionalModel/DELFmiFunctionReference")
+	PLMIDSetProcessInstance = Restrict(iPLMIDSet, "DELFmiFunctionalModel/DELFmiFunctionInstance")
+	PLMIDSetProcessRefAndInst = PLMIDSetProcessReference + PLMIDSetProcessInstance
+
+	/* Retrieves all Ports, Rep Instances and Cnx needed from reference         */
+	PLMRouteSetPortsAndCnx  = ExecutePLMFunction("DELFmiFunctionalModel", "DELFmiFunctionalModel_addPortsRepInstAndCnxExceptImplCnx", PLMIDSetProcessReference)
+	PLMIDSetPortsAndCnx = Ids(PLMRouteSetPortsAndCnx,"all")
+	PLMIDSetDRPorts = Restrict(PLMIDSetPortsAndCnx, "DELFmiFunctionalModelPrerequisitePort/DELFmiProcessPrerequisitePort")
+	PLMIDSetPrecedencePorts = Restrict(PLMIDSetPortsAndCnx, "DELFmiFunctionalModelPrecedencePort/DELFmiProcessPrecedencePort")
+	PLMIDSetDRCnx = Restrict(PLMIDSetPortsAndCnx, "DELFmiFunctionalModelPrerequisiteCnx/DELFmiProcessPrerequisiteCnx") + Restrict(PLMIDSetPortsAndCnx, "DELFmiFunctionalModelPrerequisiteCnx1/DELFmiProcessPrerequisiteCnxCust")
+	PLMIDSetPrecedenceCnx = Restrict(PLMIDSetPortsAndCnx, "DELFmiFunctionalModelPrecedenceCnx/DELFmiProcessPrecedenceCnx") + Restrict(PLMIDSetPortsAndCnx, "DELFmiFunctionalModelPrecedenceCnx1/DELFmiProcessPrecedenceCnxCust")
+	PLMIDSetMaterialisationCnx = Restrict(PLMIDSetPortsAndCnx, "DELFmiFunctionalModelPrereqMatCnx/DELFmiProcessPrereqMaterializationCnx")
+	PLMIDSetCapableCnx = Restrict(PLMIDSetPortsAndCnx, "DELAsmAssemblyModelCnx/DELAsmProcessCanUseCnx")
+	PLMIDSetAssignmentFilterCnx = Restrict(PLMIDSetPortsAndCnx, "PLMAssignmentFilter/PLMAssignmentFilterCnx")
+	PLMIDSetHowToCnx = Restrict(PLMIDSetPortsAndCnx, "PLMRequirementSpecifyHowToCnxAbstract/PLMReqSpecifyHowToCnxAbstract")
+	PLMIDSetHistoRefCnx = Restrict(PLMIDSetPortsAndCnx, "PLMHistorizationCnx/PLMHistoLinkCnx")
+
+	/* Add implementing connections */
+	PLMRouteSetImplCnx  = ExecutePLMFunction("DELFmiFunctionalModel", "DELFmiFunctionModel_AddImplementingCnx", PLMIDSetProcessRefAndInst)
+	PLMIDSetImplCnx =Ids(PLMRouteSetImplCnx,"all")
+
+	/* Add PLMDocConnections without documents pointed by these PLMDocConnections*/
+	PLMRouteSetAttachedDocCnx = ExecutePLMFunction("PLMDocConnection","PLMDocConnection_retrieveAllConnections",PLMIDSetProcessReference)
+	PLMIDSetAttachedDocCnx = Ids(PLMRouteSetAttachedDocCnx,"all")
+	/* Retrieves all attached documents on capable connexions.*/
+	PLMRouteSetCapableDocuments = ExecutePLMFunction("DELAsmAssemblyModelCnx", "DELAsmAssemblyModelCnx_addAllDocuments", PLMIDSetCapableCnx)
+	PLMIDSetCapableDocuments = Ids(PLMRouteSetCapableDocuments,"all")
+
+	/* Retrieves Product materialization pointed by materialization connections by PROCESSES */
+	PLMRouteSetMatProduct = ExecutePLMFunction("DELPPRContextModel", "ENOPcx_PPRContext_addProductsLinkedToProcessPorts", PLMIDSetMaterialisationCnx)
+	PLMIDSetMatProduct = Ids(PLMRouteSetMatProduct,"all")
+
+	/* Retrieves all aggregated references and ref. instances for PRODUCTS and RESOURCES */
+	PLMRouteSetProducts = ExecutePLMFunction("PRODUCTCFG", "ProductCfg_AddChildrenProduct", Restrict(Ids(PLMRouteSetMatProduct), "PRODUCTCFG/VPMReference"))
+	PLMIDSetProducts = Ids(PLMRouteSetProducts,"all")
+	PLMIDProductRef = Restrict(PLMIDSetProducts, "PRODUCTCFG/VPMReference") 
+	
+	/* Retrieves all aggregated representations (references / instances) for PRODUCTS and RESOURCES */
+	PLMIDSetProductStructure = ExecutePLMProcedure("VPMEditor_GetAllRepresentations", PLMIDProductRef)
+
+	/* get Product Ref and Rep  and execute TSO procedure*/
+	PLMIDSetProductRefrep = Restrict(PLMIDSetProducts, "PRODUCTCFG/VPMReference") + Restrict(PLMIDSetProductStructure, "PRODUCTCFG/VPMReference") + Restrict(PLMIDSetProductStructure, "PRODUCTCFG/VPMRepReference")
+	PLMIDSetTSORef = ExecutePLMProcedure("VPMEditor_TSO_VPMReferenceVPMRepReference", PLMIDSetProductRefrep)
+
+	/* get Product Instance and rep inst and execute TSO procedure*/
+	PLMIDSetProductInst = Restrict(PLMIDSetProducts, "PRODUCTCFG/VPMInstance") + Restrict(PLMIDSetProductStructure, "PRODUCTCFG/VPMInstance") + Restrict(PLMIDSetProductStructure, "PRODUCTCFG/VPMRepInstance")
+	PLMIDSetTSOInst = ExecutePLMProcedure("VPMEditor_TSO_VPMInstance", PLMIDSetProductInst)
+
+	/**********************/
+	/* Returns all PLMIds */
+	/**********************/
+	oPLMIDSet = iPLMIDSet + PLMIDSetDRPorts + PLMIDSetPrecedencePorts + PLMIDSetDRCnx + PLMIDSetPrecedenceCnx + PLMIDSetMaterialisationCnx + PLMIDSetCapableCnx + PLMIDSetAssignmentFilterCnx + PLMIDSetHowToCnx + PLMIDSetImplCnx + PLMIDSetAttachedDocCnx + PLMIDSetCapableDocuments + PLMIDSetProductRefrep + PLMIDSetTSORef + PLMIDSetProductInst + PLMIDSetTSOInst + PLMIDSetHistoRefCnx
+}

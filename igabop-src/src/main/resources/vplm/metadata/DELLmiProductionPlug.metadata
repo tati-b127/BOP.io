@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR DELMIA Production System Application -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2010, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified"
+         ModelerType="Top"
+         Name="DELLmiProductionPlug"
+	       Uuid="32E03DA6-9501-4f30-AB97-7D674A1438B6"
+         BelongsToModeler="DELLmiProductionSystem"
+	       UseNames="PLMCORE DELLmiProductionSystemAbstract"
+         CustomerExposition="Programmer"
+         UseProcedures="PPR_Procedures">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>PLM DELMIA Plug Model </ShortRole>
+    <Role>This package describes the PLM DELMIA Plug model on top of DELLmiProductionSystemAbstract</Role>
+  </CAAComment>
+
+  <Comment>last update 2008-09-07</Comment>
+
+  <Class Name="DELLmiProductionPlugReference"
+		     Uuid="52E6C378-2A1B-4377-BE04-35342A3F4F6B"
+		     Abstract="No"
+    		 SuperName="DELLmiAbstractProductionEntity"
+         CustomerExposition="Programmer"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         CreateInstName="DELLmiProductionPlugInstance"
+         Abbreviation="plg"
+         InstantiationOwnerTypes="DELLmiGeneralSystemReference;DELLmiTransformationSystemReference;DELLmiTransferSystemReference;DELLmiStorageSystemReference"
+         >
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELMPProdSystemAdvDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELLmiProductionPlugInstance"/>
+    <Property Name="IconName" Value="I_PPRPlug"/>
+    <Property Name="3DIconName" Value="Root_Operation_3DNAVREP.cgr"/>
+    <Property Name="Newable" Value="Insert"/>
+    <Property Name="Searchable" Value="No"/>
+
+    <CAAComment>
+      <ShortRole>PLM DELMIA Plug Reference</ShortRole>
+      <Role>PLM DELMIA Plug Reference</Role>
+    </CAAComment>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+  </Class>
+
+
+  <RelationClass Name="DELLmiProductionPlugInstance"
+		     Uuid="D9B737A6-2097-4bb0-B6D1-731C70DEC74A"
+		     Abstract="No"
+    		 SuperName="PLMCoreInstance"
+         CustomerExposition="Programmer"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         >
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELMPProdSystemAdvDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELLmiProductionPlugInstance"/>
+
+    <CAAComment>
+      <ShortRole>PLM DELMIA Plug Instance. Specialization is not supported yet.</ShortRole>
+      <Role>PLM DELMIA Plug Instance</Role>
+    </CAAComment>
+
+    <Volatile Name="Reference"
+              Uuid="EF4AA718-B8EC-4a51-987F-A3F4FD64BC4E"
+              Accessor="PLMModelerReferenceKweAttribute"
+              TypeName="DELLmiProductionPlugReference"
+              AccessMode="ReadOnly" />
+
+    <SubClause Name="from" TargetName="DELLmiProductionSystemReference"/>
+    <SubClause Name="to"   TargetName="DELLmiProductionPlugReference"/>
+
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#TransferSiteOwnership"/>
+        <UsedProcedure href="PPR_Procedures.proc#PPR_TSO_StandAlone"/>
+      </ProcedureForUsage>
+    </Method>
+
+  </RelationClass>
+
+</Package>

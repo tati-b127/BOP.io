@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR DELMIA Production System Application -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified"
+         ModelerType="Top"
+         Name="DELLmiProductionAbstractOperationPPR"
+         BelongsToModeler="DELLmiProductionSystem"
+	       Uuid="D3904EE4-6C18-4820-9428-B807B8058F79"
+	       UseNames="DELLmiProductionOperation"
+         CustomerExposition="Programmer"
+         UseProcedures="PPR_Procedures">
+
+  <CAAComment>
+    <ShortRole>PLM DELMIA Abstract Simple Operation </ShortRole>
+    <Role>This package describes the PLM DELMIA Abstract PPR Operation model on top of DELLmiProductionOperation</Role>
+  </CAAComment>
+
+  <Comment>last update 2012-01-20</Comment>
+
+
+  <Class Name="DELLmiPPROperationReference"
+         Uuid="0BD84424-5560-4cad-B613-43F28A00FD72"
+         Abstract="Yes"
+         SuperName="DELLmiOperationReference"
+         CustomerExposition="Programmer"
+         Specializable="No"
+         CustomerExtensible="No"
+         CreateInstName="DELLmiPPROperationInstance"
+         >
+
+    <CAAComment>
+      <ShortRole>PLM DELMIA Abstract PPR Operation Reference</ShortRole>
+      <Role>PLM DELMIA Abstract PPR Operation Reference</Role>
+    </CAAComment>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+
+  </Class>
+
+
+
+  <RelationClass Name="DELLmiPPROperationInstance"
+		     Uuid="9243382F-05D3-4813-A1A1-BC76C5383D22"
+		     Abstract="Yes"
+         SuperName="DELLmiOperationInstance"
+         Specializable="No"
+         CustomerExtensible="No"
+         CustomerExposition="Programmer">
+
+    <CAAComment>
+      <ShortRole>PLM DELMIA Abstract PPR Operation Instance</ShortRole>
+      <Role>PLM DELMIA Abstract PPR Operation Instance</Role>
+    </CAAComment>
+
+    <SubClause Name="to"   TargetName="DELLmiPPROperationReference"/>
+
+
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#TransferSiteOwnership"/>
+        <UsedProcedure href="PPR_Procedures.proc#PPR_TSO_StandAlone"/>
+      </ProcedureForUsage>
+    </Method>
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+
+  </RelationClass>
+
+
+
+</Package>

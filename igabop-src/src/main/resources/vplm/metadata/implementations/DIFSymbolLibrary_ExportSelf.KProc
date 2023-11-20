@@ -1,0 +1,13 @@
+#Prog DIFSymbolLibrary_ExportSelf (iPLMIDSet :  #In PLMIDSet, oPLMIDSet :  #Out PLMIDSet) : VoidType
+{
+
+let PLMDifSymbolLibrarySet(PLMRouteSet)
+let PLMDifSymbolLibraryIDSet(PLMIDSet)
+
+/* Retrieve Symbol Library from iPLMIDSet */
+PLMDifSymbolLibrarySet = ExecutePLMFunction("DIFModeler05", "DifModeler_AddSymbolLibrary", iPLMIDSet)
+PLMDifSymbolLibraryIDSet = Ids(PLMDifSymbolLibrarySet)
+
+oPLMIDSet = iPLMIDSet + PLMDifSymbolLibraryIDSet
+
+}

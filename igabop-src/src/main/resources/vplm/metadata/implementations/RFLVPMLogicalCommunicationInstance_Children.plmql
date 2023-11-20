@@ -1,0 +1,9 @@
+NAVIGATE
+   T0.PLMID
+FROM
+   RFLVPMLogicalCommunication/RFLVPMLogicalCommunicationReference T0
+FROM_ROOTS [?1?]
+ON 
+RELATION (FROM=RFLVPMLogicalCommunication/RFLVPMLogicalCommunicationInstance  TO=RFLVPMLogicalCommunication/RFLVPMLogicalCommunicationReference  THROUGH=POINTSTO)
+WITH QUALITY_FILTER (CATEGORY=ISINSTANCEOF)
+ITER=1;

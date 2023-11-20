@@ -1,0 +1,86 @@
+<?xml version="1.0" ?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2012, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" Name="IterationExtension"
+    Uuid="0a71bdb0-8954-11e1-b0c4-0800200c9a66"
+    UseNames="PLMCORE"
+	CustomerExposition="None">
+	<Extension Name="ItfSnapshotOfIteration"
+        Uuid="f714ce80-9068-11e1-b0c4-0800200c9a66"
+        ScopeNames="PLMCoreRepReference;PLMPort;"
+		CustomerExposition="None">
+		<Simple Name="V_originalPhysicalid" 
+            Uuid="20431170-8954-11e1-b0c4-0800200c9a66"
+            Type="String" 
+            MaxLength="32" 
+            MultiValuated="No" 
+            Protection="Internal">
+            <CAAComment>
+                <ShortRole>Physicalid of the original object</ShortRole>
+            </CAAComment>
+        </Simple>
+		<Simple Name="V_originalLogicalid" 
+            Uuid="5d5d4f80-8954-11e1-b0c4-0800200c9a66"
+            Type="String" 
+            MaxLength="32" 
+            MultiValuated="No" 
+            Protection="Internal">
+            <CAAComment>
+                <ShortRole>Logicalid of the original object</ShortRole>
+            </CAAComment>
+        </Simple>		
+		<Simple Name="V_originalMajorid" 
+            Uuid="af1a4c60-8954-11e1-b0c4-0800200c9a66"
+            Type="String" 
+            MaxLength="32" 
+            MultiValuated="No" 
+            Protection="Internal">
+            <CAAComment>
+                <ShortRole>Majorid of the original object</ShortRole>
+            </CAAComment>
+        </Simple>
+		<Simple Name="V_originalType" 
+            Uuid="06719cc0-8955-11e1-b0c4-0800200c9a66"
+            Type="String" 
+			MaxLength="256" 
+            MultiValuated="No" 
+            Protection="Internal">
+            <CAAComment>
+                <ShortRole>Type of the original object</ShortRole>
+            </CAAComment>
+        </Simple>		
+		<Simple Name="V_originalName" 
+            Uuid="e4a73f30-9068-11e1-b0c4-0800200c9a66"
+            Type="String" 
+			MaxLength="256" 
+            MultiValuated="No" 
+            Protection="Internal">
+            <CAAComment>
+                <ShortRole>Name of the original object</ShortRole>
+            </CAAComment>
+        </Simple>	
+        <Simple Name="V_originalIterationDate"
+            Uuid="b94c2960-8954-11e1-b0c4-0800200c9a66"
+            Type="Date"
+            MultiValuated="No"
+            Protection="Internal">
+            <CAAComment>
+                <ShortRole>modification date of the original object</ShortRole>
+            </CAAComment>
+        </Simple>        
+    <Simple Name="V_iterationReason"
+      Uuid="333ce5c0-8955-11e1-b0c4-0800200c9a66"
+	  Type="String"
+	  MultiValuated="No"
+      DefaultValue="Automatic"
+      Protection="Internal">
+      <Range>
+        <Equal>Automatic</Equal>
+        <Equal>Manual</Equal>
+        <Equal>ODT</Equal>
+      </Range>
+    </Simple>
+	</Extension>
+</Package>

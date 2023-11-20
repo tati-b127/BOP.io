@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2010, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" 
+         ModelerType="Top" 
+         Name="PLMPropagationRuleSetCnx"
+         Uuid="ED16D0C1-8AF0-4120-A522-B7E1B890696A"
+         UseNames="PLMCORE"
+         CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>PLM Propagation Rule Set model</ShortRole>
+    <Role>This package describe the Propagation Rule Set Connection</Role>
+  </CAAComment>
+
+    <Class Name="PLMRuleSetPropagationCnx"
+           Uuid="77727A2E-D41C-416d-9903-34297C4D7678"
+           Abstract="No"
+           SuperName="PLMConnection"
+           CustomerExposition="Programmer"
+           Specializable="No"
+           CustomerExtensible="No"
+           OwnerTypes="PLMCoreReference"
+        >
+
+      <Property Name="Newable" Value="No"/>
+      <Property Name="Searchable" Value="No"/>
+
+      <CAAComment>
+        <ShortRole>Defines PLM Propagation Rule Set Connection</ShortRole>
+        <Role>Connects a Rule Set to a PLM Core Reference</Role>
+      </CAAComment>
+      
+      <Path Name="PLMLinkToRuleSet"
+          Uuid="65B900F3-1A60-4d94-AC2D-647C24FEEACE"
+          MultiValuated="No"
+          RoleName="PLM_LinkToRuleSetObject" 
+          Type="SemanticRelation" AdaptativeToMinor="No"		
+          SynchroSensitivity="None"		
+          RerouteOnEffectivityChange="No"
+          Semantics="Reference"/>
+
+      <Method ImplementationType="None">
+        <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      </Method>
+
+    </Class>
+</Package>

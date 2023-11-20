@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top"
+         Name="DELLmiProductionSystemExposedOpPort"
+         Uuid="c6048d02-0dde-4ab9-b60f7c86cb659aa3"
+         BelongsToModeler="DELLmiProductionSystem"
+         UseNames="PLMCORE"
+         CustomerExposition="None">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>Production System Modeler</ShortRole>
+    <Role>This package describes Port for Production System that exposes an Operation</Role>
+  </CAAComment>
+
+    <Class Name="DELLmiProdSystemExposedOpPort"
+           Uuid="54aee8b9-b961-42d2-8e4873407cac7779"
+           SuperName="PLMPort"
+           Abstract="No"
+           CustomerExposition="None"
+           Specializable="No"
+           CustomerExtensible="No"
+           OwnerTypes="DELLmiProductionSystemReference"
+           >
+      <CAAComment>
+        <ShortRole>Defines Port for Production System that exposes an Operation</ShortRole>
+        <Role>Defines Port for Production System that exposes an Operation</Role>
+      </CAAComment>
+
+      <Simple Name="V_ExposedOpInformation" 
+              Uuid="2c1fc4ba-c836-4b7d-ba792046bdbc1c0f" 
+              Type="String" 
+              MultiValuated="No" 
+              Protection="Free" 
+              CAAExposition="L0"/>
+
+
+
+      <Path Name="V_ExposedOperation"
+          Uuid="6c69831d-0030-4ae8-883d-321d3a733f5d"
+          MultiValuated="No"
+          RoleName="Publish"		
+          Type="SemanticRelation" AdaptativeToMinor="Yes"
+		      SynchroSensitivity="PathAndLast"
+		      RerouteOnEffectivityChange="No" Orientation="In"
+          Semantics="Reference3"/>
+
+      <Method ImplementationType="None">
+        <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      </Method>
+
+    </Class>
+
+</Package>

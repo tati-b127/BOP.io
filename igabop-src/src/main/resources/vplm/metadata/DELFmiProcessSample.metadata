@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2006, All rights reserved -->
+
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" DataRDB_OID="ENODR_DELPRSAM" Name="DELFmiProcessSample" Uuid="5697774a-3f3c-4a9b-9c3e-9c33bb359a1f" UseNames="DELFmiFunctionalModel" >
+
+  <Property Name="OptionalInstallation" Value="Yes" />
+  <CAAComment>
+    <ShortRole>PLM Customization for Process Function entities</ShortRole>
+    <Role>PLM Customization for Process Function modeler "DELFmiFunctionalModel" package.</Role>
+  </CAAComment>
+
+  <Class Name="DELFmiProcessReferenceSample" Uuid="2b764c0e-951f-4f50-830f-965438ef3290"
+		SuperName="DELFmiFunctionReference" >
+
+    <Property Name="IconName" Value="I_FunctionDef"/>
+    <Property Name="3DIconName" Value="Default3DProcessRep.cgr"/>
+
+    <CAAComment>
+      <ShortRole>PLM Customization for Process Function Reference</ShortRole>
+      <Role>PLM Customization for Process Function Reference "DELFmiFunctionReference".</Role>
+    </CAAComment>
+
+    <IdentifierSet Name="Identifier" Uuid="d177a6fd-460f-42cc-8c6a-32fc06454ce0" IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755"
+			IdentifierNames="PLM_ExternalID V_version"/>
+
+    <Simple Name="V_ProcessType" Uuid="a92c7e88-5514-4750-a38b-edc99ae013d0"
+			Type="String" MaxLength="32"
+			MultiValuated="No"
+			Protection="User"
+			/>
+    <Simple Name="E_ServiceMakeBuyCodeOutsourceDecision" Uuid="72b09db2-6cb4-4532-8df7-2bf4cfc1bb26" Type="Integer" Protection="User" DefaultValue="3">
+      <CAAComment>
+        <ShortRole>Defines whether the process must be detailed or not</ShortRole>
+        <Role>Defines whether the process must be either bought or detailed. This information can be inherited from EBOM.</Role>
+      </CAAComment>
+      <Property Name="RangeAsEnumName" Value="E_ServiceMakeBuyCodeOutsourceDecision_Enum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="Make;Buy;Unassigned"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+      </Range>
+    </Simple>
+
+  </Class>
+
+  <Class Name="DELFmiProcessInstanceSample"  Uuid="f3502ce9-0795-41f5-8945-eaa462d2e39a"
+		SuperName="DELFmiFunctionInstance" >
+
+    <Property Name="IconName" Value="I_FunctionDef"/>
+    <Property Name="3DIconName" Value="Default3DProcessRep.cgr"/>
+
+    <CAAComment>
+      <ShortRole>PLM Customization for Process Function Instance</ShortRole>
+      <Role>PLM Customization for Process Function Instance "DELFmiFunctionInstance".</Role>
+    </CAAComment>
+
+    <Simple Name="V_ProcessCategory" Uuid="c3fa17c1-ade3-48e7-8170-b23517632265"
+			Type="String" MaxLength="32"
+			
+			MultiValuated="No"
+			Protection="User"
+			/>
+  </Class>
+
+  <Class Name="DELFmiFunctionRepresentationReferenceSample"  Uuid="57dfaaaf-b482-49cd-9afa-9f29a6a57847"
+		SuperName="DELFmiFunctionRepresentationReference" >
+
+    <Property Name="IconName" Value="I_FunctionDef"/>
+
+    <CAAComment>
+      <ShortRole>PLM Customization for Process Function Representation Reference</ShortRole>
+      <Role>PLM Customization for Process Function Representation Reference "DELFmiFunctionRepresentationReference".</Role>
+    </CAAComment>
+
+    <IdentifierSet Name="Identifier" Uuid="070245c2-178d-4c3e-aa94-c7542178199e" IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755"
+			IdentifierNames="PLM_ExternalID V_version"/>
+
+    <Simple Name="V_CustomerIdentifier" Uuid="65285067-ba99-4513-a7d9-220424ac544d"
+			Type="String" MaxLength="80"
+			MultiValuated="No"
+			Protection="User"
+			/>
+
+    <Simple Name="V_ReviewStatus"  Uuid="e12e7705-2b4c-40c0-9eac-6a94f09135b4"
+			Type="Boolean"
+			MultiValuated="No"
+			Protection="User"
+			/>
+
+  </Class>
+
+  <Class Name="DELFmiFunctionRepresentationInstanceSample"  Uuid="730b61ef-948a-4e8f-b8d8-0f412b7368ac"
+		SuperName="DELFmiFunctionRepresentationInstance" >
+
+    <CAAComment>
+      <ShortRole>PLM Customization for Process Function Representation Instance</ShortRole>
+      <Role>PLM Customization for Process Function Representation Instance "DELFmiFunctionRepresentationInstance".</Role>
+    </CAAComment>
+
+    <Simple Name="V_ReviewStatus"  Uuid="569eb032-5f77-43f0-8fe2-af6ebe4ec2ee"
+			Type="Boolean"
+			MultiValuated="No"
+			Protection="User"
+			/>
+
+  </Class>
+
+</Package>

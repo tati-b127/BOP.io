@@ -1,0 +1,17 @@
+NAVIGATE
+
+   T0.PLMID, T0.PLM_ExternalID
+
+FROM
+
+   RFLVPMSystemType/RFLVPMSystemTypeReference T0
+
+FROM_ROOTS [?1?]
+
+ON 
+
+RELATION (FROM=RFLVPMSystemTypeExposition/RFLVPMSystemTypeExpositionInstance TO=RFLVPMSystemType/RFLVPMSystemTypeReference THROUGH=POINTSTO)
+
+WITH QUALITY_FILTER (CATEGORY=ISINSTANCEOF)
+
+ITER=1;

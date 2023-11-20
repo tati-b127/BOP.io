@@ -1,0 +1,1 @@
+EXPAND T0.PLMID, T0.PLM_ExternalID FROM PLMLSRRouteConnection/PLMLSRRouteConnection T0 FROM_ROOTS [?1?] DEPTH=1;

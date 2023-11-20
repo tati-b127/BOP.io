@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2007 (http://www.altova.com) by DASSAULT SYSTEMES (DASSAULT SYSTEMES) -->
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" BelongsToModeler="PLMExp3DExperience" Name="PLMExp3DExperience" Uuid="2A4365A4-4305-4996-A566-DB666530907B" UseNames="PLMExpAbstract3DExperience" CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+  <Class Name="3DExperience" Uuid="030A62DC-2C1C-4fd2-8F9B-BE948E22E160" Abstract="No" SuperName="Abstract3DExperienceObject" CustomerExposition="Programmer" Abbreviation="3dx">
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATE3DExperience_PLMNew"/>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+  </Class>
+
+</Package>

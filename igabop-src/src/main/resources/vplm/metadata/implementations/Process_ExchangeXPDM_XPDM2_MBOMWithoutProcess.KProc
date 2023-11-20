@@ -1,0 +1,172 @@
+/*********************************************************************************************************************************/
+/* Exchange XPDM procedure for Process                                                                                        */
+/* --> Retrieves all agregated PLM objects (References, Ref Instances, Rep References, Rep Instances, Ports and Connections)     */
+/*********************************************************************************************************************************/
+#Prog Process_ExchangeXPDM_XPDM2_MBOMWithoutProcess( iPLMIDSet : #In PLMIDSet, oPLMIDSet : #Out PLMIDSet ) : VoidType
+{
+	let PLMRouteSetProduct (PLMRouteSet)
+	let PLMRouteSetCapableRsc (PLMRouteSet)
+	let PLMRouteSetProductSTL (PLMRouteSet)
+	let PLMRouteSetPortsAndCnx (PLMRouteSet)
+	let PLMRouteSetAlternate (PLMRouteSet)
+	let PLMRouteSetReq (PLMRouteSet)
+	let PLMRouteSetParts (PLMRouteSet)
+	let PLMRouteSetProduct2 (PLMRouteSet)
+	let PLMRouteSetSubstitute (PLMRouteSet)
+	let PLMRouteSetResponsibility (PLMRouteSet)
+	let PLMRouteSetHistoRef (PLMRouteSet)
+	let PLMRouteSetProductOccFilter (PLMRouteSet)
+	let PLMRouteSetProductStructure (PLMRouteSet)
+	let PLMRouteSetProductAggrRep (PLMRouteSet)
+
+
+	let PLMIDSetProcessRef (PLMIDSet)
+	let PLMIDSetProcessInst (PLMIDSet)
+	let PLMIDSetProduct (PLMIDSet)
+	let PLMIDSetPrecedencePorts (PLMIDSet)
+	let PLMIDSetPrecedenceCnx (PLMIDSet)
+	let PLMIDSetValidPrecedenceCnx (PLMIDSet)
+	let PLMIDSetScopePrecedenceCnx (PLMIDSet)
+	let PLMIDSetDRCnx (PLMIDSet)
+	let PLMIDSetMaterializationCnx (PLMIDSet)
+	let PLMIDSetScopePrequisiteCnx (PLMIDSet)
+	let PLMIDSetValidPrequisiteCnx (PLMIDSet)
+	let PLMIDSetProductSTL (PLMIDSet)
+	let PLMIDSetCapableRsc (PLMIDSet)
+	let PLMIDSetDRPorts  (PLMIDSet)
+	let PLMIDSetPortsAndCnx  (PLMIDSet)
+	let PLMIDSetCapableCnx  (PLMIDSet)
+	let PLMIDSetAlternateProcess  (PLMIDSet)
+	let PLMIDSetReqCnx (PLMIDSet)
+	let PLMIDSetReqs (PLMIDSet)
+	let PLMIDSetReqSpec (PLMIDSet)
+	let PLMIDSetReqSpecCompletude (PLMIDSet)
+	let PLMIDSetReq (PLMIDSet)
+	let PLMIDSetReqCompletude (PLMIDSet)
+	let PLMIDSetReqChapter (PLMIDSet)
+	let PLMIDSetReqChapterCompletude (PLMIDSet)
+	let PLMIDSetEBOMRel (PLMIDSet)
+	let PLMIDSetParts (PLMIDSet)
+	let PLMIDSetImplCnx (PLMIDSet)
+	let PLMIDSetScopeImplCnx (PLMIDSet)
+	let PLMIDSetValidImplCnx (PLMIDSet)
+	let PLMIDSetSubstituteCnx (PLMIDSet)
+	let PLMIDSetValidSubstituteCnx (PLMIDSet)
+	let PLMIDSetResponsibilityCnx (PLMIDSet)
+	let PLMIDSetSubstitute (PLMIDSet)
+	let PLMIDSetResponsibility (PLMIDSet)
+	let PLMIDSetHistoRefCnx (PLMIDSet)
+	let PLMIDSetHistoRef (PLMIDSet)
+	let PLMIDSetAssignFilterCnx (PLMIDSet)
+	let PLMIDSetProductOccFilter (PLMIDSet)
+	let PLMIDSetProductInst  (PLMIDSet)
+	let PLMIDSetProductStructure  (PLMIDSet)
+	let PLMIDSetProductRef  (PLMIDSet)
+	let PLMIDSetProductAggrRep (PLMIDSet)
+
+
+	PLMIDSetProcessRef = Restrict(iPLMIDSet, "DELFmiFunctionalModel/DELFmiFunctionReference") 
+	PLMIDSetProcessInst = Restrict(iPLMIDSet,"DELFmiFunctionalModel/DELFmiFunctionInstance") 
+		
+	/* Export Alternate Processes */
+	PLMRouteSetAlternate = ExecutePLMFunction("DELPPRContextModel", "ENOPcs_Process_addAlternateProcesses", PLMIDSetProcessRef)
+	PLMIDSetAlternateProcess = Ids(PLMRouteSetAlternate,"all")
+
+	
+	/* Retrieves all Ports and Cnx needed from reference         */
+	PLMRouteSetPortsAndCnx  = ExecutePLMFunction("DELFmiFunctionalModel", "DELFmiFunctionalModel_addPortsAndCnxExceptImplCnx", PLMIDSetProcessRef)
+	PLMIDSetPortsAndCnx = Ids(PLMRouteSetPortsAndCnx,"all")
+	PLMIDSetDRPorts = Restrict(PLMIDSetPortsAndCnx, "DELFmiFunctionalModelPrerequisitePort/DELFmiProcessPrerequisitePort")
+	PLMIDSetPrecedencePorts = Restrict(PLMIDSetPortsAndCnx, "DELFmiFunctionalModelPrecedencePort/DELFmiProcessPrecedencePort")
+	PLMIDSetDRCnx = Restrict(PLMIDSetPortsAndCnx, "DELFmiFunctionalModelPrerequisiteCnx/DELFmiProcessPrerequisiteCnx") + Restrict(PLMIDSetPortsAndCnx, "DELFmiFunctionalModelPrerequisiteCnx1/DELFmiProcessPrerequisiteCnxCust")
+	PLMIDSetPrecedenceCnx = Restrict(PLMIDSetPortsAndCnx, "DELFmiFunctionalModelPrecedenceCnx/DELFmiProcessPrecedenceCnx") + Restrict(PLMIDSetPortsAndCnx, "DELFmiFunctionalModelPrecedenceCnx1/DELFmiProcessPrecedenceCnxCust")
+	PLMIDSetMaterializationCnx = Restrict(PLMIDSetPortsAndCnx, "DELFmiFunctionalModelPrereqMatCnx/DELFmiProcessPrereqMaterializationCnx")
+	PLMIDSetCapableCnx = Restrict(PLMIDSetPortsAndCnx, "DELAsmAssemblyModelCnx/DELAsmProcessCanUseCnx")
+	PLMIDSetReqCnx = Restrict(PLMIDSetPortsAndCnx,"PLMRequirementSpecifyHowToCnxAbstract/PLMReqSpecifyHowToCnxAbstract")
+	PLMIDSetImplCnx = Restrict(PLMIDSetPortsAndCnx, "DELFmiFunctionalModelImplementCnx/DELFmiProcessImplementCnx")
+	PLMIDSetSubstituteCnx = Restrict(PLMIDSetPortsAndCnx, "DELFmiMfgSubstitute/DELFmiMfgSubstituteCnx")
+	PLMIDSetResponsibilityCnx = Restrict(PLMIDSetPortsAndCnx, "DELMfgResponsibility/DELMfgResponsibilityCnx")
+	PLMIDSetHistoRefCnx = Restrict(PLMIDSetPortsAndCnx, "PLMHistorizationCnx/PLMHistoLinkCnx")
+	PLMIDSetAssignFilterCnx = Restrict(PLMIDSetPortsAndCnx, "PLMAssignmentFilter/PLMAssignmentFilterCnx")
+
+	/* Get Original MBOM References from Historiztion connections */
+	PLMRouteSetHistoRef = ExecutePLMFunction("PLMHistorizationCnx", "PLMHistorizationCnx_addHistoEntitiesFromCnx", PLMIDSetHistoRefCnx)
+	PLMIDSetHistoRef = Ids(PLMRouteSetHistoRef,"all")
+
+	/* Get Associated Requirements */
+	PLMRouteSetReq = ExecutePLMFunction("DELPPRContextModel", "GetAllLinkedRequirementsFromCnx", PLMIDSetReqCnx)
+	PLMIDSetReqs = Ids(PLMRouteSetReq,"all")
+
+	/* Complete Requirement Specification*/
+	PLMIDSetReqSpec = Restrict(PLMIDSetReqs, "Class/Requirement Specification")
+	PLMIDSetReqSpecCompletude = ExecutePLMProcedure( "Rmt_ReqSpec_ExportCompletion", PLMIDSetReqSpec )
+
+	/* Complete Requirement */
+	PLMIDSetReq = Restrict(PLMIDSetReqs, "Class/Requirement")
+	PLMIDSetReqCompletude = ExecutePLMProcedure( "Rmt_Requirement_ExportCompletion", PLMIDSetReq )
+
+	/* Complete Requirement Chapter*/
+	PLMIDSetReqChapter = Restrict(PLMIDSetReqs, "Class/Chapter")
+	PLMIDSetReqChapterCompletude = ExecutePLMProcedure( "Rmt_Chapter_ExportCompletion", PLMIDSetReqChapter )
+	
+	/* Extract only valid Implement Cnx */
+	PLMIDSetScopeImplCnx = PLMIDSetProcessRef + PLMIDSetProcessInst 
+	PLMIDSetValidImplCnx = ValidateSRs (PLMIDSetImplCnx,"PLM_ImplementLink_Source",PLMIDSetScopeImplCnx)	
+
+	/* Extract only valid Precedences Cnx */
+	PLMIDSetScopePrecedenceCnx = PLMIDSetProcessInst + PLMIDSetPrecedencePorts 
+	PLMIDSetValidPrecedenceCnx = ValidateSRs (PLMIDSetPrecedenceCnx,"DELFmi_PrecedenceCst_Target,DELFmi_PrecedenceCst_Source",PLMIDSetScopePrecedenceCnx)
+	
+	/* Extract only valid Prequisite Cnx */
+	PLMIDSetScopePrequisiteCnx = PLMIDSetProcessInst + PLMIDSetDRPorts
+	PLMIDSetValidPrequisiteCnx = ValidateSRs (PLMIDSetDRCnx,"DELFmi_PrerequisiteCst_Target,DELFmi_PrerequisiteCst_Source",PLMIDSetScopePrequisiteCnx)
+
+	/* Retrieves all implemented products from Implement Cnx*/
+	PLMRouteSetProduct = ExecutePLMFunction("DELFmiFunctionalModelImplementCnx", "DELFmiFunctionModelImplCnx_AddAllImplementedComponentsFromCnx", PLMIDSetValidImplCnx)
+
+	/* Retrieves all implemented products from SR*/
+	PLMRouteSetProduct2 = ExecutePLMFunction("DELFmiFunctionalModelImplementCnx", "DELFmiFunctionModelImplCnx_AddAllImplementedComponentsFromSR", PLMIDSetProcessInst)
+	PLMIDSetProduct = Ids(PLMRouteSetProduct2,"all") + Ids(PLMRouteSetProduct,"all")
+
+	/* Retrieves all products Occ from Assignment Filter Cnx*/
+	PLMRouteSetProductOccFilter = ExecutePLMFunction("DELAsmAssemblyModelDisciplines", "ENOPcs_Process_addProductOccFromAssignmentFilter", PLMIDSetAssignFilterCnx)
+	PLMIDSetProductOccFilter = Ids(PLMRouteSetProductOccFilter,"all") 
+
+	/* Retrieve Parts From EBOM relations */
+	PLMIDSetEBOMRel = Restrict(PLMIDSetProduct,"RelationClass/EBOM")
+	PLMRouteSetParts = ExecutePLMFunction("DELPPRContextModel", "ENOPpr_PPRData_getPartsFromEBOM", PLMIDSetEBOMRel)
+	PLMIDSetParts = Ids(PLMRouteSetParts,"all")
+
+	/* Retrieves all references and aggregating references from product instances*/
+	PLMIDSetProductInst =  Restrict(PLMIDSetProduct,"PRODUCTCFG/VPMInstance") + Restrict(PLMIDSetProductOccFilter,"PRODUCTCFG/VPMInstance")
+	PLMRouteSetProductStructure = ExecutePLMFunction("DELPPRContextModel", "ENOPpr_PPRData_addRefAndAggregatingRef", PLMIDSetProductInst)
+	PLMIDSetProductStructure = Ids(PLMRouteSetProductStructure,"all") 
+
+	/* Retreives Capable Resources from Capable connexions*/
+	PLMRouteSetCapableRsc = ExecutePLMFunction("DELPPRContextModel", "ENOPcs_Process_addCapableResourcesWithoutQueryFromCnx", PLMIDSetCapableCnx)
+	PLMIDSetCapableRsc = Ids(PLMRouteSetCapableRsc,"all")
+
+	/* Retrieves Product materialization pointed by DR Ports by PROCESSES */
+	PLMRouteSetProductSTL = ExecutePLMFunction("DELPPRContextModel", "ENOPcx_PPRContext_addProductsLinkedToProcessPorts", PLMIDSetMaterializationCnx)
+	PLMIDSetProductSTL = Ids(PLMRouteSetProductSTL,"all")
+
+	/* Get aggregated representations from all Product/Resource references for coherence for 3DPart */
+	PLMIDSetProductRef = Restrict(PLMIDSetProduct,"PRODUCTCFG/VPMReference") + Restrict(PLMIDSetProductStructure,"PRODUCTCFG/VPMReference") + Restrict(PLMIDSetProductSTL,"PRODUCTCFG/VPMReference")
+	PLMRouteSetProductAggrRep= ExecutePLMFunction( "PRODUCTCFG", "ProductCfg_Add3DPartRepresentation", PLMIDSetProductRef)
+	PLMIDSetProductAggrRep = Ids(PLMRouteSetProductAggrRep,"all")
+	
+	/* Extract only valid substitute connections  */
+	PLMIDSetValidSubstituteCnx = ValidateSRs (PLMIDSetSubstituteCnx,"DELMfgSubstitute_Source",PLMIDSetProcessInst)
+
+	/* Get pointed substitute from valid substitute connections  */
+	PLMRouteSetSubstitute = ExecutePLMFunction("DELPPRContextModel", "ENOPcs_Process_addSubstituteFromCnx", PLMIDSetValidSubstituteCnx)
+	PLMIDSetSubstitute = Ids(PLMRouteSetSubstitute,"all")
+
+	/* Get Plant and Company from responsibility connections  */	
+	PLMRouteSetResponsibility = ExecutePLMFunction("DELPPRContextModel", "ENOPpr_PPRData_addResponsibilityFromCnx", PLMIDSetResponsibilityCnx)
+	PLMIDSetResponsibility = Ids(PLMRouteSetResponsibility,"all")
+
+
+	oPLMIDSet = iPLMIDSet + PLMIDSetDRPorts + PLMIDSetPrecedencePorts + PLMIDSetMaterializationCnx + PLMIDSetCapableCnx + PLMIDSetValidPrecedenceCnx + PLMIDSetValidPrequisiteCnx + PLMIDSetProduct + PLMIDSetCapableRsc + PLMIDSetProductSTL + PLMIDSetAlternateProcess + PLMIDSetReqCnx + PLMIDSetReqs + PLMIDSetReqSpecCompletude + PLMIDSetReqCompletude + PLMIDSetReqChapterCompletude + PLMIDSetParts + PLMIDSetValidImplCnx + PLMIDSetResponsibilityCnx + PLMIDSetValidSubstituteCnx + PLMIDSetSubstitute + PLMIDSetResponsibility + PLMIDSetHistoRefCnx + PLMIDSetHistoRef + PLMIDSetProductOccFilter + PLMIDSetProductStructure + PLMIDSetProductAggrRep
+	/* Even if we don't mention precedence ports in the xml output, we need to export them for futur import */
+}

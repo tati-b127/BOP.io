@@ -1,0 +1,4 @@
+#Prog Functional_ExportContract_Remove (iPLMIDSet :  #In PLMIDSet,oPLMIDSet :  #Out PLMIDSet) : VoidType
+{
+oPLMIDSet = iPLMIDSet
+}

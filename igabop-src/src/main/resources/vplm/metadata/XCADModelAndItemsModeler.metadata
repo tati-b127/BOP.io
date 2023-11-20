@@ -1,0 +1,127 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2017, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified"
+	ModelerType="Top"
+	Name="XCADModelAndItemsModeler"
+	Uuid="b0614c05-ce43-4f71-9609-006ec974d9c4"
+	UseNames="PLMCORE PRODUCTCFG"
+	CustomerExposition="Programmer" 
+	Architecture="All"
+	BelongsToModeler="XCADModelAndItemsModeler"
+>
+
+	<CAAComment>
+		<ShortRole>XCAD Model and Item Modeler Package</ShortRole>
+		<Role>This package includes all the entities involved in the XCAD modelisation for XCADModel and items (aka Family and Instances).</Role>
+	</CAAComment>
+
+	<Comment>last update 2017-09-18</Comment>
+
+	<Class Name="XCADModelRepReference" 
+		Uuid="b224c6ae-ca79-4189-9733-1f473fc148f2"
+		ChangeManagementSupport="Yes"
+		ChangeManagementContext="Yes"
+		ChangeManagementReferential="Yes"
+		Abstract="No" 
+		CustomerExposition="Programmer"
+		SuperName="PLMCoreRepReference" 
+		Specializable="Yes"
+		CustomerExtensible="Yes"
+		Searchable="Yes"
+		AggregatableTypes="None"
+		InstantiationOwnerTypes="None"
+		ObjectNature="Independent"
+		Abbreviation="xcadmodel"
+		IconName="I_XCADModelRepReference">
+		
+		<Property Name="KweNew_InstanciationMethod" Value="CATKBEXCADModelRepReferenceDelegateInstanciation"/>
+		
+		<!-- Used to defined XCADModel File Name -->
+		<Simple Name="V_CADFileName"
+			Uuid="e4584c0c-2446-461f-83e8-545cf92ff17c"
+			Type="String"
+			Protection="External"
+			Faceted="Yes"
+			MultiValuated="No"
+			ResetOnCloning="Yes"
+			ResetOnNewVersion="No"
+			UIAccess="ReadOnly" >
+		</Simple>
+		
+		<!-- Used to defined XCADModel File Type (sldprt/sldasm/...) -->
+		<Simple Name="V_CADFileType"
+			Uuid="59ded4b0-e943-4426-8fa6-9ee0d4ecdc8a"
+			Type="String"
+			Protection="External"
+			Faceted="Yes"
+			MultiValuated="No"
+			ResetOnCloning="No"
+			ResetOnNewVersion="No"
+			UIAccess="ReadOnly" >
+			<Property Name="SIXW" Value="ds6w:kind"/>
+		</Simple>
+		
+		<!-- Used to identified if an XCADModel is synchronized with its items -->
+		<Simple Name="V_CADSynchroStatus"
+			Uuid="6bae74f9-6e41-4d43-8ebf-37ba3ba5c80c"
+			Type="Integer"
+			DefaultValue="0"
+			Protection="External"
+			Faceted="No"
+			MultiValuated="No"
+			ResetOnCloning="Yes"
+			ResetOnNewVersion="Yes"
+			UIAccess="None" >
+		</Simple>
+		
+		<!-- PROCEDURES Declaration  -->
+		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+	</Class>
+	
+	<!-- Define a XCADItemExtension Extension on VPMReference -->
+	<Extension Name="XCADItemExtension" 
+		Uuid="c5d2e571-01a9-4de2-8c20-153fa86e4ae6"
+		CustomerExposition="Programmer"
+		ScopeNames="VPMReference"
+		Searchable="Yes" >
+
+		<!-- Used to define Model Name -->
+		<Simple Name="V_ModelName"
+			Uuid="2445b6c9-4090-43de-8f21-e0a8103b5cf4"
+			Type="String"
+			Faceted="Yes"
+			Protection="External"
+			MultiValuated="No"
+			ResetOnCloning="Yes"
+			ResetOnNewVersion="No"
+			UIAccess="ReadOnly" >
+		</Simple>
+		
+		
+		<!-- Used to define Model Name -->
+		<Simple Name="V_ItemName"
+			Uuid="c0b5ecb6-bb82-4d66-a345-078427057664"
+			Type="String"
+			Faceted="Yes"
+			Protection="External"
+			MultiValuated="No"
+			ResetOnCloning="No"
+			ResetOnNewVersion="No"
+			UIAccess="ReadOnly" >
+		</Simple>
+	
+		<Simple Name="V_ItemInternalID"
+			Uuid="e3366ede-905d-4e2a-b19c-841b941dafcd"
+			Type="String"
+			Faceted="No"
+			Protection="External"
+			MultiValuated="No"
+			ResetOnCloning="No"
+			ResetOnNewVersion="No"
+			UIAccess="None" >
+		</Simple>
+	</Extension>	
+		
+</Package>

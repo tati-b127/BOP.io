@@ -1,0 +1,38 @@
+<?xml version="1.0" ?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2011, All rights reserved -->
+
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" Name="CATReportDS"
+	Uuid="2EDEBC74-D99B-4d52-8425-C6455592AB00"
+    UseNames="CATReport">
+
+<Property Name="OptionalInstallation" Value="Yes" /> 
+  <CAAComment>
+    <ShortRole>CATIA System Report DS standard customization Package</ShortRole>
+    <Role>This package includes DS default customization of the CATIA System Report model</Role>
+  </CAAComment>
+
+  <Class Name="CATReportReferenceDS"
+      Uuid="F483CF96-ED92-4698-8669-D8CCA87B45AE"
+      SuperName="CATReportReference"
+      SuperRef="01F2F2EA-37AB-4438-9543-8BA5485B4C75"
+      CAAExposition="L0">
+
+    <IdentifierSet Name="Identifier"
+            Uuid="C070D154-2BE3-4d43-98B9-9B5B3DD43165"
+            IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755"
+            IdentifierNames="PLM_ExternalID V_version" />
+
+	</Class>
+
+  <!-- ********************************************************* -->
+  <!-- FUNCTIONS Declarations : here are delcared PLMQL Functions -->
+
+  <!-- ********************************************************* -->
+
+  <!-- DISCIPLINES DECLARATIONS -->
+
+  <!-- ********************************************************* -->
+</Package>
+

@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+
+<Package xmlns="PLMDictionaryResources" 
+   Name="PLMGlobalFunctions"
+   Uuid="b27db0e1-bc3b-0000-020a100000000000"
+   ModelerType="Resources"
+   >
+<!--Global interface for V6 application and DRM purpose (eg, WG) -->
+ <Interface 
+      Name="vplm::EXPORT"
+      Uuid="b27db0e1-bc3b-0000-020a100000001000"
+      >
+      <Service 
+         Name="vplm::EXPORT"
+         Uuid="b27db0e1-bc3b-0000-020a100000001001" 
+         SecurityPattern="Browse"
+         >           
+      </Service>
+    </Interface>
+<Interface 
+      Name="vplm::IMPORT"
+      Uuid="b27db0e1-bc3b-0000-020a100000002000"
+      >
+      <Service 
+         Name="vplm::IMPORT"
+         Uuid="b27db0e1-bc3b-0000-020a100000002001" 
+         SecurityPattern="Modify"
+         >           
+      </Service>
+    </Interface>
+<Interface 
+      Name="vplm::SAVE"
+      Uuid="b27db0e1-bc3b-0000-020a100000003000"
+      >
+      <Service 
+         Name="vplm::SAVE"
+         Uuid="b27db0e1-bc3b-0000-020a100000003001" 
+         SecurityPattern="Modify"
+         >           
+      </Service>
+    </Interface>
+<Interface 
+      Name="vplm::DATABASEDETACH"
+      Uuid="b27db0e1-bc3b-0000-020a100000004000"
+      >
+      <Service 
+         Name="vplm::DATABASEDETACH"
+         Uuid="b27db0e1-bc3b-0000-020a100000004001" 
+         SecurityPattern="Browse"
+         >           
+      </Service>
+    </Interface>
+
+
+  
+</Package>

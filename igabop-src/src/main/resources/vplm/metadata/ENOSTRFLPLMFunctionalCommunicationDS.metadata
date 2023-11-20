@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR RFL Functional Application Custo 1-->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2007, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo"  Name="ENOSTRFLPLMFunctionalCommunicationDS"
+	Uuid="d2e79f2a-c184-4323-8ba2-b38869c4c2d2" 
+	UseNames="RFLPLMFunctionalCommunication" 
+	>
+
+	<CAAComment>
+		<ShortRole>PLM Functional Communication Customization sample Package</ShortRole>
+		<Role>This package describes a Customization of PLM Functional Communication model</Role>
+	</CAAComment>
+	
+	<Comment>last update 2007-09-12</Comment>
+	
+	<!-- ****************************************************************************************** -->
+	<!-- *  ENOSTFunctionalCommunicationReference(RFLPLMFunctionalCommunicationReference) * -->
+	<!-- ****************************************************************************************** -->
+
+	<Class Name="ENOSTFunctionalCommunicationReference" 
+		Uuid="59a23ff2-d9ae-4494-9ba1-1910e6cb7b6a" 
+
+		SuperName="RFLPLMFunctionalCommunicationReference" 
+		SuperRef="cd1718b8-e0d5-4cb1-bada5ca7b9960659" 
+		 
+		>
+
+		<CAAComment>
+			<ShortRole>Customized PLM Function Communication Reference Object</ShortRole>
+			<Role>Customized PLM Function Communication Reference Object</Role>
+		</CAAComment>
+
+    <!-- R206: contains identifier of object from which it is made from  -->
+    <!-- not exhanged between sites -->
+    <Simple Name="E_fromExternalId"
+    Uuid="523b26da-a3d0-47de-979a-a9f1dd99d1e6"
+    Alias="Definition"
+    Type="String"
+    MaxLength="256"
+    Mandatory="No"
+    MultiValuated="No"
+    Protection="Free"
+    CAAExposition="L0"
+          />
+
+    <!-- R206: contains Name comments  -->
+    <!-- not exhanged between sites -->
+    <Simple Name="E_versionComment"
+    Uuid="2b9611b7-3a1a-4b53-b1d9-78c6a9130f86"
+    Alias="Version Comment"
+    Type="String"
+    MaxLength="256"
+    Mandatory="No"
+    MultiValuated="No"
+    Protection="Free"
+    CAAExposition="L0"
+    ResetOnNewVersion="Yes"
+    ResetOnCloning="Yes"
+              />
+    
+        <IdentifierSet Name="Identifier"
+            Uuid="0a8dacf4-4e0f-432f-abc3-278abc97f917"
+            IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755"
+            IdentifierNames="PLM_ExternalID V_version" />
+            
+	</Class>
+
+	<!-- *************************************************************************************** -->
+	<!-- * ENOSTFunctionalCommunicationInstance(RFLPLMFunctionalCommunicationInstance) * -->
+	<!-- *************************************************************************************** -->
+
+	<Class Name="ENOSTFunctionalCommunicationInstance" 
+		Uuid="a3cd4e0a-d1c7-4a10-9f43-3901a08b50eb" 
+
+		SuperName="RFLPLMFunctionalCommunicationInstance" 
+		SuperRef="11372baf-49f5-441c-81fa9c2e2a1be3ea" 
+		 
+		>
+
+		<CAAComment>
+			<ShortRole>Customized PLM Function Instance Object</ShortRole>
+			<Role>Customized PLM Function Instance Object</Role>
+		</CAAComment>
+
+	</Class>
+
+</Package>

@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY for E/E Editor -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2012, all rights reserved -->
+
+<Package Name="SoftwareArchitecture2"
+    Uuid="01DC8078-8052-43e2-8F59-F419A065BA8B"
+    xmlns="PLMDictionaryUnified"
+    ModelerType="Top"
+    BelongsToModeler="SoftwareArchitecture"
+	CustomerExposition="Programmer"
+	UseNames="RFLVPMLogical" >
+
+	<CAAComment>
+        <ShortRole>Software Architecture Package</ShortRole>
+        <Role>This package describes the PLM Software Architecture package on top of RFLVPMLogical Modeler.</Role>
+	</CAAComment>
+	<Comment>Initial creation: A58 Feb 2012</Comment>
+	<Property Name="OptionalInstallation" Value="Yes" /> 
+	
+<!-- ************************** -->
+<!-- EECompositionType : RFLVPMLogicalReference -->
+<!-- ************************** -->
+	<Class 
+		Name="EECompositionType"
+		Uuid="4124BF1D-8880-4905-A025-5F1D5BA98DBE"
+		Abstract="No"
+		Specializable="Yes"
+		Discipline="Yes"
+		CustomerExposition="Programmer"
+		CustomerExtensible="Yes"
+		SuperName="RFLVPMLogicalReference"
+		CreateInstName="EEComponentPrototype"
+		Abbreviation="eecot">
+		<Property Name="IconName" Value="EECompositionType"/>
+		<Property Name="Newable" Value="All"/>
+		<Property Name="Searchable" Value="Yes"/>
+		<Property Name="Configurable" Value="Yes"/>
+		<Property Name="KweNew_InstanciationMethod" Value="CATELogDelegateInstanciation"/>
+	  <Property Name="KweNew_ReturnedType" Value="EEComponentPrototype"/>
+	</Class>
+<!-- **************************************************** -->
+<!-- *  EEExecutableEntityRep :  RFLVPMLogicalRepReference  * -->
+<!-- **************************************************** -->
+	<Class Name="EEExecutableEntityRep" 
+		Uuid="CDA14394-8C01-49bb-8EA6-375D3F71803E" 
+		SuperName="RFLVPMLogicalRepReference" 
+		Specializable="Yes"
+		CreateInstName="RFLVPMLogicalRepInstance"
+		CustomerExposition="Programmer"
+		InstantiationOwnerTypes="EEExecutableEntity"
+		Discipline="Yes"
+		Abbreviation="eecsr">
+		<CAAComment>
+			<ShortRole>ExecutableEntity Rep Reference Object</ShortRole>
+			<Role>ExecutableEntity Rep Reference Object</Role>
+		</CAAComment>
+		<Property Name="KweNew_InstanciationMethod" Value="CATELogDelegateInstanciation"/>
+	   	<Property Name="KweNew_ReturnedType" Value="RFLVPMLogicalRepInstance"/>
+	</Class>
+</Package>

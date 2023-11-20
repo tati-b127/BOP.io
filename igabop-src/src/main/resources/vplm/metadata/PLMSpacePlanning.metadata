@@ -1,0 +1,281 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2017, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified"
+         ModelerType="Top"
+         CustomerExposition="Programmer"
+         Name="PLMSpacePlanning"
+         UseNames="PLMCORE;PRODUCTCFG"
+         Uuid="22c6fff6-556f-4470-a618-394929d50532"
+         UseProcedures="PLMSpacePlanning_Procedures"
+         BelongsToModeler="PLMSpacePlanning">
+  <CAAComment>
+    <ShortRole>Space Planning Package</ShortRole>
+    <Role>This package describes Space Planning data.</Role>
+  </CAAComment>
+
+  <Class Name="SPP_AbstractSpaceRef"
+    Uuid="1d73684d-bf6e-424c-a8de-7ef7ca85e2be"
+    Abstract="Yes"
+    CustomerExposition="Programmer"
+    SuperName="VPMReference"
+    Discipline="Yes"
+    Specializable="Yes">
+    <Simple
+              Name="V_StableName"
+              Uuid="57738584-2e34-4aa0-8152-9fc2ae81e6ed"
+              Type="String"
+              Protection="External"
+              CAAExposition="L0"
+     />
+  </Class>
+  
+  <Class Name="SPP_AbstractSpaceConcept"
+    Uuid="6f8c041f-a249-4933-99dd-172801507689"
+    Abstract="Yes"
+    CustomerExposition="Programmer"
+    SuperName="VPMReference"
+    Discipline="Yes"
+    Specializable="Yes">
+    <Simple
+              Name="V_StableName"
+              Uuid="28a798f9-3482-429f-9628-0664775ab177"
+              Type="String"
+              Protection="External"
+              CAAExposition="L0"
+     />
+  </Class>
+
+  <Class Name="SPP_SpaceRoot"
+    Uuid="b710dbe6-1cb8-45c7-89c2-ded99c455b51"
+    Abbreviation="SPR"
+    Abstract="No"
+    CustomerExposition="Programmer"
+    SuperName="SPP_AbstractSpaceRef"
+    CreateInstName="SPP_SpaceRootInstance"
+    Discipline="Yes"
+    Specializable="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATESppSpaceRootDelegateInstanciation"/>
+    <Property Name="Newable" Value="All"/>
+    <Property Name="IconName" Value="I_SppSpaceRoot"/>
+    <Property Name="3DPartAvailability" Value="ReferenceOnly"/>
+  </Class>
+
+  <Class Name="SPP_SpaceFolder"
+    Uuid="7024a994-4875-4221-a693-bf1d13238db5"
+    Abbreviation="SPF"
+    Abstract="No"
+    CustomerExposition="Programmer"
+    SuperName="VPMReference"
+    CreateInstName="SPP_SpaceFolderInstance"
+    Discipline="Yes"
+    Specializable="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATESppSpaceFolderDelegateInstanciation"/>
+    <Property Name="Newable" Value="All"/>
+    <Property Name="IconName" Value="I_SppSpaceFolder"/>
+    <Property Name="3DPartAvailability" Value="ReferenceOnly"/>
+    <Simple
+              Name="V_StableName"
+              Uuid="5e005988-75f5-4de1-91ee-ecf14f5e492e"
+              Type="String"
+              Protection="External"
+              CAAExposition="L0"
+     />
+  </Class>
+
+  <Class Name="SPP_SpaceRef"
+    Uuid="e739ccf1-1267-4260-ad1c-5aa9133b71d5"
+    Abbreviation="SPC"
+    Abstract="No"
+    CustomerExposition="Programmer"
+    SuperName="SPP_AbstractSpaceRef"
+    CreateInstName="SPP_SpaceInstance" 
+    Discipline="Yes"
+    Specializable="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATESppSpaceRefDelegateInstanciation"/>
+    <Property Name="Newable" Value="All"/>
+    <Property Name="IconName" Value="I_SppSpaceRef"/>
+    <Property Name="3DPartAvailability" Value="3DPartOnly"/>
+    <Simple
+              Name="V_Volume"
+              Uuid="8eca2704-0b57-4d1e-aef3-b2a6047d0916"
+              Type="Double"
+              Magnitude="VOLUME" 
+              Protection="External"
+              CAAExposition="L0"
+     />
+    <Simple
+              Name="V_EstimatedVolume"
+              Uuid="a26ca193-b375-42ba-83f9-84cf6054d029"
+              Type="Double"
+              Magnitude="VOLUME"
+              Protection="Free"
+              CAAExposition="L0"
+     />
+    <Method ImplementationType="Self">
+              <RealizeMethodType href="ExportScope.meth#ExportScope"/>      
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Design" />
+        <UsedProcedure href="PLMSpacePlanning_Procedures.proc#SPP_SpaceRef_GetAllSPPRelations" />
+      </ProcedureForUsage>
+    </Method>
+  </Class>
+
+  <Class Name="SPP_SpaceConceptRoot"
+    Uuid="8665afe2-ac51-4443-ae9f-4a5da13df0ec"
+    Abbreviation="SCT"
+    Abstract="No"
+    CustomerExposition="Programmer"
+    SuperName="SPP_AbstractSpaceConcept"
+    CreateInstName="SPP_SpaceConceptRootInstance"
+    Discipline="Yes"
+    Specializable="No">
+    <Property Name="KweNew_InstanciationMethod" Value="CATESppSpaceConceptRootDelegateInstanciation"/>
+    <Property Name="Newable" Value="All"/>
+    <Property Name="IconName" Value="I_SppSpaceConceptRoot"/>
+    <Property Name="3DPartAvailability" Value="ReferenceOnly"/>
+    <Simple
+              Name="V_UnionOfChildrenMustBeEqualToSpaceRootVolume"
+              Uuid="4a9cf8dd-5001-4554-bb94-b4062325baad"
+              Type="Boolean"
+              Protection="Free"
+              CAAExposition="L0"
+     />
+  </Class>
+
+  <Class Name="SPP_SpaceConceptNode"
+    Uuid="d6e5c94e-835c-4d1c-a227-3f43a35ac0b8"
+    Abbreviation="SCN"
+    Abstract="No"
+    CustomerExposition="Programmer"
+    SuperName="SPP_AbstractSpaceConcept"
+    CreateInstName="VPMInstance"
+    Discipline="Yes"
+    Specializable="No">
+    <Property Name="KweNew_InstanciationMethod" Value="CATESppSpaceConceptNodeDelegateInstanciation"/>
+    <Property Name="Newable" Value="All"/>
+    <Property Name="IconName" Value="I_SppSpaceConceptNode"/>
+    <Property Name="3DPartAvailability" Value="ReferenceOnly"/>
+    <Simple
+              Name="V_SpaceAssociated"
+              Uuid="d1480137-a088-44b9-8f16-409b7e54b759"
+              Type="Boolean"
+              Protection="External"
+              CAAExposition="L0"
+     />
+    <Simple
+              Name="V_UnionOfChildrenMustBeEqualToSpaceVolume"
+              Uuid="c3c228f2-d6ef-42bd-bbc4-cb859a5ce8e2"
+              Type="Boolean"
+              Protection="Free"
+              CAAExposition="L0"
+     />
+  </Class>
+
+  <Class Name="SPPConnection"
+         Uuid="96F164CA-FF8E-4AB0-8FDF-3EBC83F23F16"
+         CustomerExposition="Programmer"
+         SuperName="PLMConnection">
+    <Path
+      Name="FROM"
+      Uuid="538BC49B-7C89-4EFC-8DD7-162F83C177D2"
+      Type="SemanticRelation"
+      TargetNames="LPAbstractReference;LPAbstractInstance"
+      RoleName="SPP_AssignedObject"
+      Semantics="Reference2"
+      MultiValuated="No"
+      RerouteOnEffectivityChange="Yes"
+    />
+    <Path
+      Name="TO"
+      Uuid="65389884-DAA9-439C-9B17-1B5C8EA1DDCA"
+      Type="SemanticRelation"
+      TargetNames="SPP_SpaceRef"
+      RoleName="SPP_Space"
+      Semantics="Reference2"
+      MultiValuated="No"
+    />
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+  <RelationClass Name="SPP_SpaceRootInstance"
+    Uuid="3ef1c013-22a3-4c9e-9d91-a5513fe99e88"
+    Abstract="No"
+    CustomerExposition="Programmer"
+    SuperName="VPMInstance"
+    Discipline="Yes"
+    Specializable="No">
+    <SubClause Name="to"   TargetName="SPP_SpaceRoot"/>
+  </RelationClass>
+
+  <RelationClass Name="SPP_SpaceFolderInstance"
+    Uuid="dc3d0d11-0a58-4399-9868-ae45bd4b8cf4"
+    Abstract="No"
+    CustomerExposition="Programmer"
+    SuperName="VPMInstance"
+    Discipline="Yes"
+    Specializable="No">
+    <SubClause Name="to"   TargetName="SPP_SpaceFolder"/>
+  </RelationClass>
+
+  <RelationClass Name="SPP_SpaceInstance"
+    Uuid="70ddff65-c90f-429c-8b63-2771d5476124"
+    Abstract="No"
+    CustomerExposition="Programmer"
+    SuperName="VPMInstance"
+    Discipline="Yes"
+    Specializable="No">
+    <SubClause Name="to"   TargetName="SPP_SpaceRef"/>
+  </RelationClass>
+
+  <RelationClass Name="SPP_SpaceClassification"
+    Uuid="d7ba64a2-ffde-4407-9cfd-55364015cbe2"
+    Abstract="No"
+    CustomerExposition="Programmer"
+    SuperName="VPMInstance"
+    Discipline="Yes"
+    Specializable="No">
+    <SubClause Name="to"   TargetName="SPP_SpaceRef"/>
+  </RelationClass>
+
+  <RelationClass Name="SPP_SpaceConceptRootInstance"
+    Uuid="0fc2b72a-283e-40a4-9266-0d0833c7ce91"
+    Abstract="No"
+    CustomerExposition="Programmer"
+    SuperName="VPMInstance"
+    Discipline="Yes"
+    Specializable="No">
+    <SubClause Name="from"   TargetName="SPP_SpaceRoot"/>
+    <SubClause Name="to"   TargetName="SPP_SpaceConceptRoot"/>
+  </RelationClass>
+
+  <RelationClass Name="SPP_SpaceConceptNodeInstance"
+    Uuid="c731d633-37c6-41d5-a87d-f05543fbed90"
+    Abstract="No"
+    CustomerExposition="Programmer"
+    SuperName="VPMInstance"
+    Discipline="Yes"
+    Specializable="No">
+    <SubClause Name="from"   TargetName="SPP_AbstractSpaceConcept"/>
+    <SubClause Name="to"   TargetName="SPP_SpaceConceptNode"/>
+  </RelationClass>
+
+  <Function Name="SPP_SpaceRef_addAllConnectedSPPRelation">
+    <Implementation Name="SPP_SpaceRef_addAllConnectedSPPRelation" FileLocation="SPP_SpaceRef_addAllConnectedSPPRelation.plmql" Language="PLMQL"/>
+    <Signature href="SPLProductSignature"/>
+  </Function>
+
+  <Function Name="SPPConnection_addAllSPPConnection">
+    <Implementation Name="SPPConnection_addAllSPPConnection" FileLocation="SPPConnection_addAllSPPConnection.plmql" Language="PLMQL"/>
+    <Signature href="SPLProductSignature"/>
+  </Function>
+
+  <Signature id="SPLProductSignature">
+    <Parameter Name="InputIds" Lower="0" Upper="-1" Direction="in" MultiValuated="Yes" DataType="PLMId"/>
+    <Parameter Name="OutputIds" Lower="0" Upper="-1" Direction="out" MultiValuated="No" DataType="PLMRouteSet"/>
+  </Signature>
+
+</Package>

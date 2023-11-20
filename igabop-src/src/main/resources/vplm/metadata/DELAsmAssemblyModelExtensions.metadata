@@ -1,0 +1,395 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2007, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified"
+         ModelerType="Top"
+         Name="DELAsmAssemblyModelExtensions"
+         Uuid="2F269E39-633A-4519-B6BE-ECA96150F4D3"
+         BelongsToModeler="DELFmiFunctionalModel"
+         UseNames="DELAsmAssemblyModelDisciplines"
+         CustomerExposition="Programmer">
+
+  <CAAComment>
+    <ShortRole>DELAsmAssemblyModelExtensions Package</ShortRole>
+    <Role>This package describes Process Planning Modeler Extensions</Role>
+  </CAAComment>
+
+  <Extension Name="DELMBOMLotQuantitySpecAbstract"
+             Uuid="16FE10B8-047B-468e-BAFC-FAB6C985B054"
+             ScopeNames="DELFmiFunctionPPRContinuousReference"
+             Discipline="No"
+             Abstract="Yes"
+             Specializable="No"
+             CAAExposition="L0"
+             CustomerExposition="Programmer">
+
+    <Simple Name="V_QuantityModeMngt"
+            Uuid="5ABD633C-2FBA-4ac7-8580-BCFEFD2E62C5"
+            Type="String"
+            MaxLength="50"
+            MultiValuated="No"
+            Protection="External"
+            DefaultValue="Increment"
+            CAAExposition="L0">
+      <Range>
+        <Equal>Range</Equal>
+        <Equal>Increment</Equal>
+        <Equal>Possible value</Equal>
+      </Range>
+      <CAAComment>
+        <ShortRole>Define the mode of Lot packaging.</ShortRole>
+      </CAAComment>
+    </Simple>
+    <CAAComment>
+      <ShortRole>Abstract Lot Quantity Specification.</ShortRole>
+      <Role>Abstract Lot Quantity Specification.</Role>
+    </CAAComment>
+  </Extension>
+
+
+  <Extension Name="DELMBOMLotQuantitySpecEach"
+             Uuid="DE42221A-66DA-4df6-9EA8-487BDE9848B9"
+             Discipline="No"
+             Abstract="No"
+             Specializable="No"
+             ScopeNames="DELFmiFunctionPPRDiscreteReference"
+             CAAExposition="L0"
+             CustomerExposition="Programmer">
+
+    <Simple Name="V_QuantityModeMngt"
+            Uuid="202023D3-8EB5-478c-BCE4-82B820AB85F5"
+            Type="String"
+            MaxLength="50"
+            MultiValuated="No"
+            Protection="External"
+            DefaultValue="Increment"
+            CAAExposition="L0">
+      <Range>
+        <Equal>Range</Equal>
+        <Equal>Increment</Equal>
+        <Equal>Possible value</Equal>
+      </Range>
+      <CAAComment>
+        <ShortRole>Define the mode of Lot packaging.</ShortRole>
+      </CAAComment>
+    </Simple>
+    
+    <Simple Name="V_MinLotQuantity"
+            Uuid="56D38F42-DD71-4f98-8660-B94B6DF29DF2"
+            Type="Integer"
+            MultiValuated="No"
+            Protection="External"
+            DefaultValue="2"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Define the minimum size Lot.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_MaxLotQuantity"
+            Uuid="B46F13CF-8ECA-4f1e-90FF-BDEB578BFB8E"
+            Type="Integer"
+            MultiValuated="No"
+            Protection="External"
+            DefaultValue="10"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Define the maximum size Lot.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_IncrementQuantity"
+            Uuid="9257194B-D20B-45e6-AC72-3C4A2C49C257"
+            Type="Integer"
+            MultiValuated="No"
+            Protection="External"
+            DefaultValue="1"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Define the increment size Lot.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_PossibleQuantities"
+            Uuid="28944AAC-4CE9-4679-AB9A-BBDF22887A13"
+            Type="Integer"
+            MultiValuated="Yes"
+            Protection="External"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Define the possible quantities for Lot.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <CAAComment>
+      <ShortRole>Lot Quantity Specification for discrete Lot.</ShortRole>
+      <Role>Lot Quantity Specification for discrete Lot.</Role>
+    </CAAComment>
+  </Extension>
+
+  <Extension Name="DELMBOMLotQuantitySpecVolume"
+             Uuid="17901400-E871-43db-830B-F34441B2C971"
+             SuperName="DELMBOMLotQuantitySpecAbstract"
+             Discipline="No"
+             Abstract="No"
+             Specializable="No"
+             CAAExposition="L0"
+             CustomerExposition="Programmer">
+
+    <Simple Name="V_MinLotQuantity"
+            Uuid="76D7E9C0-B241-4e55-8F4F-9B9A1C01104C"
+            Type="Double"
+            Magnitude="VOLUME"
+            MultiValuated="No"
+            Protection="External"
+            DefaultValue="1.0"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Define the minimum size Lot.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_MaxLotQuantity"
+            Uuid="B1ED8510-23A1-43f1-AE59-67A3923EF29F"
+            Type="Double"
+            Magnitude="VOLUME"
+            MultiValuated="No"
+            Protection="External"
+            DefaultValue="3.0"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Define the maximum size Lot.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_IncrementQuantity"
+            Uuid="FCCE2EC7-9D6B-4792-8998-1773D0D2F9A3"
+            Type="Double"
+            Magnitude="VOLUME"
+            MultiValuated="No"
+            Protection="External"
+            DefaultValue="1.0"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Define the increment size Lot.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_PossibleQuantities"
+            Uuid="16BF57A0-12CC-4eae-A09A-73D4F25D8F19"
+            Type="Double"
+            Magnitude="VOLUME"
+            MultiValuated="Yes"
+            Protection="External"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Define the possible quantities for Lot.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <CAAComment>
+      <ShortRole>Lot Quantity Specification for continuous Lot with volume magnitude.</ShortRole>
+      <Role>Lot Quantity Specification for continuous Lot with volume magnitude.</Role>
+    </CAAComment>
+  </Extension>
+
+  <Extension Name="DELMBOMLotQuantitySpecMass"
+             Uuid="A9B81E29-157A-479e-9D5F-0FCF13B91F3D"
+             SuperName="DELMBOMLotQuantitySpecAbstract"
+             Discipline="No"
+             Abstract="No"
+             Specializable="No"
+             CAAExposition="L0"
+             CustomerExposition="Programmer">
+
+    <Simple Name="V_MinLotQuantity"
+            Uuid="1ED1588A-5984-4b19-B7CA-5038E1442B6C"
+            Type="Double"
+            Magnitude="MASS"
+            MultiValuated="No"
+            Protection="External"
+            DefaultValue="1.0"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Define the minimum size Lot.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_MaxLotQuantity"
+            Uuid="92E90F55-235F-423a-A253-95945052F82A"
+            Type="Double"
+             Magnitude="MASS"
+           MultiValuated="No"
+            Protection="External"
+            DefaultValue="3.0"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Define the maximum size Lot.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_IncrementQuantity"
+            Uuid="8D3A5E67-EBFE-4227-8E3B-72CD4B328073"
+            Type="Double"
+            Magnitude="MASS"
+            MultiValuated="No"
+            Protection="External"
+            DefaultValue="1.0"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Define the increment size Lot.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_PossibleQuantities"
+            Uuid="1E4167CA-A450-48d2-A03E-EE0EB6FAA3D9"
+            Type="Double"
+            Magnitude="MASS"
+            MultiValuated="Yes"
+            Protection="External"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Define the possible quantities for Lot.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <CAAComment>
+      <ShortRole>Lot Quantity Specification for continuous Lot with mass magnitude.</ShortRole>
+      <Role>Lot Quantity Specification for continuous Lot with mass magnitude.</Role>
+    </CAAComment>
+  </Extension>
+
+  <Extension Name="DELMBOMLotQuantitySpecArea"
+             Uuid="F7C0C07A-377F-4ad5-AF5D-74A9F84F35DD"
+             SuperName="DELMBOMLotQuantitySpecAbstract"
+             Discipline="No"
+             Abstract="No"
+             Specializable="No"
+             CAAExposition="L0"
+             CustomerExposition="Programmer">
+
+    <Simple Name="V_MinLotQuantity"
+            Uuid="E2F5C0B2-44C4-4247-AD54-03CC6017263B"
+            Type="Double"
+            Magnitude="AREA"
+            MultiValuated="No"
+            Protection="External"
+            DefaultValue="1.0"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Define the minimum size Lot.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_MaxLotQuantity"
+            Uuid="F83B8E64-C73D-48d8-88DB-6985431A2ABB"
+            Type="Double"
+            Magnitude="AREA"
+            MultiValuated="No"
+            Protection="External"
+            DefaultValue="3.0"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Define the maximum size Lot.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_IncrementQuantity"
+            Uuid="1B452A87-E8CC-4101-8AD7-3C5B355F3D3F"
+            Type="Double"
+            Magnitude="AREA"
+            MultiValuated="No"
+            Protection="External"
+            DefaultValue="1.0"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Define the increment size Lot.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_PossibleQuantities"
+            Uuid="2843141E-97B9-49da-96EE-CAA2A18E4C1F"
+            Type="Double"
+            Magnitude="AREA"
+            MultiValuated="Yes"
+            Protection="External"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Define the possible quantities for Lot.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <CAAComment>
+      <ShortRole>Lot Quantity Specification for continuous Lot with area magnitude.</ShortRole>
+      <Role>Lot Quantity Specification for continuous Lot with area magnitude.</Role>
+    </CAAComment>
+  </Extension>
+
+  <Extension Name="DELMBOMLotQuantitySpecLength"
+             Uuid="68ADA404-ACE7-4ffa-8719-B1B0C0816A81"
+             SuperName="DELMBOMLotQuantitySpecAbstract"
+             Discipline="No"
+             Abstract="No"
+             Specializable="No"
+             CAAExposition="L0"
+             CustomerExposition="Programmer">
+
+    <Simple Name="V_MinLotQuantity"
+            Uuid="5BBCF360-03D8-4758-B5FB-EB29AD46F881"
+            Type="Double"
+            Magnitude="LENGTH"
+            MultiValuated="No"
+            Protection="External"
+            DefaultValue="1.0"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Define the minimum size Lot.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_MaxLotQuantity"
+            Uuid="BBB5CD32-B67E-4f6f-B719-09348A6B631B"
+            Type="Double"
+            Magnitude="LENGTH"
+            MultiValuated="No"
+            Protection="External"
+            DefaultValue="3.0"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Define the maximum size Lot.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_IncrementQuantity"
+            Uuid="82E2DD75-8A8A-4f56-9945-05731804D150"
+            Type="Double"
+            Magnitude="LENGTH"
+            MultiValuated="No"
+            Protection="External"
+            DefaultValue="1.0"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Define the increment size Lot.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_PossibleQuantities"
+            Uuid="F64E29F4-3C5A-42d1-A2F8-CFDAAEB81C5C"
+            Type="Double"
+            Magnitude="LENGTH"
+            MultiValuated="Yes"
+            Protection="External"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Define the possible quantities for Lot.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <CAAComment>
+      <ShortRole>Lot Quantity Specification for continuous Lot with length magnitude.</ShortRole>
+      <Role>Lot Quantity Specification for continuous Lot with length magnitude.</Role>
+    </CAAComment>
+  </Extension>
+
+
+</Package>

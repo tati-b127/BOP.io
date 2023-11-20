@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" Name="CATFunctionalExec" Uuid="d1f0d912-2244-4ef5-bb56-2ca3a8d5fcf6" UseNames="RFLPLMFunctional" 
+         CustomerExposition="Programmer"
+    >
+  <Comment>last update the 2007-11-07 at 10:00:00</Comment>
+  <Extension  Name="FExecRef"
+              Uuid="27711d42-1e0a-43e5-8192-4d346376847d"
+              ScopeNames="RFLPLMFunctionalReference"
+              CustomerExposition="Programmer"
+              >
+
+    <Simple  Name="V_CycleTime"
+            Uuid="94cd09ec-7bdc-472d-9096-822d9689a9b9"
+            Type="Double"
+            MultiValuated="No"
+            Protection="External" CAAExposition="L0"/>
+
+    <Simple  Name="V_Offset"
+          Uuid="f3b3aa48-3c03-47b6-8b25-e62016f5721a"
+          Type="Double"
+          MultiValuated="No"
+          Protection="External" CAAExposition="L0"/>
+
+    <Simple  Name="V_ReactionTime"
+          Uuid="0317c800-a403-4509-ae01-6640814fb6c6"
+          Type="Double"
+          MultiValuated="No"
+          Protection="External" CAAExposition="L0"/>
+
+  </Extension>
+
+  <Extension  Name="FExecInst"
+           Uuid="20e6ce47-65d6-4e00-96ab-24ac917afe82"
+           ScopeNames="RFLPLMFunctionalInstance"
+           CustomerExposition="Programmer"
+              >
+
+    <Simple  Name="V_CycleTime"
+            Uuid="e39eacc5-e1a2-4759-b7f5-51922b820489"
+            Type="Double"
+            MultiValuated="No"
+            Protection="External" CAAExposition="L0"/>
+
+
+    <Simple  Name="V_Offset"
+          Uuid="5a95bfdb-27be-485e-8850-906ea7308483"
+          Type="Double"
+          MultiValuated="No"
+          Protection="External" CAAExposition="L0"/>
+
+
+    <Simple  Name="V_ReactionTime"
+          Uuid="d693029f-654c-4ddf-9444-eea35ef539c1"
+          Type="Double"
+          MultiValuated="No"
+          Protection="External" CAAExposition="L0"/>
+
+  </Extension>
+</Package>

@@ -1,0 +1,6 @@
+PLMConfigResources
+PLMCoreOperations
+PLMCoreSecurityProcess
+PLMCoreSemanticRelations
+PLMGlobalFunctions
+RELATION_ENUMS

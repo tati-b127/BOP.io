@@ -1,0 +1,3187 @@
+MM:
+  symbol=mm
+  formula=1e-3
+
+METER:
+  symbol=m
+
+CM:
+  symbol=cm
+  formula=1e-2
+
+KM:
+  symbol=km
+  formula=1e3
+
+INCH:
+  symbol=in
+  formula=0.0254
+
+FOOT:
+  symbol=ft
+  formula=12*INCH
+
+F_I_F64:
+  formula=FOOT
+
+F_I_F16:
+  formula=F_I_F64
+
+F_I_DEC:
+  formula=F_I_F64
+
+DEGREE:
+  symbol=deg
+  formula=Pi/180
+
+RADIAN:
+  symbol=rad
+
+GRADE:
+  symbol=grad
+  formula=Pi/200
+
+SECOND:
+  symbol=s
+
+MS:
+  symbol=ms
+  formula=1e-3
+
+MINUTE:
+  symbol=mn
+  formula=60*SECOND
+
+HOUR:
+  symbol=h
+  formula=60*MINUTE
+
+KILOGRAM:
+  symbol=kg
+
+GRAM:
+  symbol=g
+  formula=1e-3
+
+MG:
+  symbol=mg
+  formula=1e-6
+
+TONNE:
+  symbol=T
+  formula=1e3
+
+POUND:
+  symbol=lb
+  formula=0.45359237
+
+OUNCE:
+  symbol=oz
+  formula=POUND/16
+
+METER3:
+  symbol=m3
+
+MM3:
+  symbol=mm3
+  formula=1e-9
+
+CM3:
+  symbol=cm3
+  formula=1e-6
+
+INCH3:
+  symbol=in3
+  formula=INCH*INCH*INCH
+
+FOOT3:
+  symbol=ft3
+  formula=FOOT*FOOT*FOOT
+
+LITER:
+  symbol=L
+  formula=0.001
+
+KG__M3:
+  symbol=kg_m3
+
+LB__FT3:
+  symbol=lb_ft3
+  formula=POUND/FOOT3
+
+LB__IN3:
+  symbol=lb_in3
+  formula=POUND/INCH3
+
+METER2:
+  symbol=m2
+
+MM2:
+  symbol=mm2
+  formula=1e-06
+
+CM2:
+  symbol=cm2
+  formula=0.0001
+
+INCH2:
+  symbol=in2
+  formula=INCH*INCH
+
+FOOT2:
+  symbol=ft2
+  formula=FOOT*FOOT
+
+G_MM2:
+  symbol=gxmm2
+  formula=1e-09
+
+KG_M2:
+  symbol=kgxm2
+
+JOULE:
+  symbol=J
+
+WATT_H:
+  symbol=Wxh
+  formula=HOUR
+
+BTU:
+  symbol=Btu
+  formula=1055.05585262
+
+GRAVITY:
+  symbol=gravity
+  formula=9.80665
+
+LB_FORCE:
+  symbol=lbf
+  formula=POUND*GRAVITY
+
+FT_LBF:
+  symbol=ftlbf
+  formula=FOOT*LB_FORCE
+
+NEWTON:
+  symbol=N
+
+METER4:
+  symbol=m4
+
+MM4:
+  symbol=mm4
+  formula=1e-12
+
+CM4:
+  symbol=cm4
+  formula=1e-08
+
+INCH4:
+  symbol=in4
+  formula=INCH2*INCH2
+
+FOOT4:
+  symbol=ft4
+  formula=FOOT2*FOOT2
+
+KG__S:
+  symbol=kg_s
+
+LB__H:
+  symbol=lb_h
+  formula=POUND/HOUR
+
+KG__H:
+  symbol=kg_h
+  formula=1./3600.
+
+LB__M:
+  symbol=lb_min
+  formula=POUND/MINUTE
+
+N_M:
+  symbol=Nxm
+
+LF_IN:
+  symbol=lbfxin
+  formula=LB_FORCE*INCH
+
+N_MM:
+  symbol=Nxmm
+  formula=1e-3
+
+N__M2:
+  symbol=N_m2
+
+PASCAL:
+  symbol=Pa
+
+PSI:
+  symbol=psi
+  formula=LB_FORCE/INCH2
+
+N_M__RD:
+  symbol=Nxm_rad
+
+N_MM__MR:
+  symbol=Nxmm_mrd
+
+LF_IN__R:
+  symbol=lbfxin_rad
+  formula=LB_FORCE*INCH/RADIAN
+
+KELVIN:
+  symbol=Kdeg
+
+CELSIUS:
+  symbol=Cdeg
+  offset=-273.15
+
+FAHRENT:
+  symbol=Fdeg
+  formula=1./1.8
+  offset=-459.67
+
+KG__M:
+  symbol=kg_m
+
+LB__FT:
+  symbol=lb_ft
+  formula=POUND/FOOT
+
+LB__IN:
+  symbol=lb_in
+  formula=POUND/INCH
+
+N__M:
+  symbol=N_m
+
+N__MM:
+  symbol=N_mm
+  formula=1e3
+
+LF__FT:
+  symbol=lbf_ft
+  formula=LB_FORCE/FOOT
+
+LF__IN:
+  symbol=lbf_in
+  formula=LB_FORCE/INCH
+
+M3__S:
+  symbol=m3_s
+
+M3__H:
+  symbol=m3_h
+  formula=1./3600.
+
+FT3__H:
+  symbol=ft3_h
+  formula=FOOT3/HOUR
+
+gal:
+  symbol=gal
+  formula=0.003785411784
+
+brl:
+  symbol=brl
+  formula=42*gal
+
+day:
+  symbol=day
+  formula=24*HOUR
+
+GAL__MIN:
+  symbol=gal_min
+  formula=gal/MINUTE
+
+BRL__H:
+  symbol=brl_h
+  formula=brl/HOUR
+
+BRL__DAY:
+  symbol=brl_day
+  formula=brl/day
+
+FT3__M:
+  symbol=cfm
+  formula=FOOT3/MINUTE
+
+LITER__S:
+  symbol=L_s
+  formula=1e-3
+
+WATT:
+  symbol=W
+
+KWATT:
+  symbol=kW
+  formula=1e3
+
+CV:
+  symbol=CV
+  formula=1./736.
+
+HP:
+  symbol=HP
+  formula=33000*FOOT*LB_FORCE/MINUTE
+
+VOLT:
+  symbol=V
+
+KVOLT:
+  symbol=kV
+  formula=1e3
+
+MVOLT:
+  symbol=mV
+  formula=1e-3
+
+OHM:
+  symbol=Ohm
+
+KOHM:
+  symbol=kOhm
+  formula=1e3
+
+MOHM:
+  symbol=mOhm
+  formula=1e-3
+
+AMPER:
+  symbol=A
+
+KAMPER:
+  symbol=kA
+  formula=1e3
+
+MAMPER:
+  symbol=mA
+  formula=1e-3
+
+HERTZ:
+  symbol=Hz
+
+KHERTZ:
+  symbol=kHz
+  formula=1e3
+
+SQUARE_SECOND:
+  symbol=s2
+
+M__S2:
+  symbol=m_s2
+
+FT__S2:
+  symbol=ft_s2
+  formula=FOOT/SQUARE_SECOND
+
+IN__S2:
+  symbol=in_s2
+  formula=INCH/SQUARE_SECOND
+
+RAD__S2:
+  symbol=rad_s2
+
+N__M3:
+  symbol=N_m3
+
+LF__IN3:
+  symbol=lbf_in3
+  formula=LB_FORCE/INCH3
+
+KG__M2:
+  symbol=kg_m2
+
+LB__IN2:
+  symbol=lb_in2
+  formula=POUND/INCH2
+
+M__S:
+  symbol=m_s
+
+FT__S:
+  symbol=ft_s
+  formula=FOOT/SECOND
+
+MILE:
+  symbol=mile
+  formula=1609.344
+
+ML__HR:
+  symbol=mph
+  formula=MILE/HOUR
+
+KM__HR:
+  symbol=km_h
+  formula=1000./3600.
+
+FT__M:
+  symbol=fpm
+  formula=FOOT/MINUTE
+
+FT__H:
+  symbol=ft_h
+  formula=FOOT/HOUR
+
+MM__MN:
+  symbol=mm_mn
+  formula=1e-3/60.
+
+IN__MN:
+  symbol=in_mn
+  formula=INCH/MINUTE
+
+turn:
+  symbol=turn
+  formula=2*Pi
+
+MM__TR:
+  symbol=mm_turn
+  formula=MM/turn
+
+IN__TR:
+  symbol=in_turn
+  formula=INCH/turn
+
+M__MN:
+  symbol=m_mn
+  formula=1./60.
+
+FT__MN:
+  symbol=ft_mn
+  formula=FOOT/MINUTE
+
+TR__MN:
+  symbol=turn_mn
+  formula=turn/MINUTE
+
+MM2__MN:
+  symbol=mm2_mn
+  formula=1e-6/60.
+
+IN2__MN:
+  symbol=in2_mn
+  formula=INCH2/MINUTE
+
+RAD_S:
+  symbol=rad_s
+
+DEGMINSEC:
+  symbol=DegMinSec
+  formula=DEGREE
+
+LB_IN2:
+  symbol=lbxin2
+  formula=POUND*INCH2
+
+bara:
+  symbol=bara
+  formula=1e5
+
+barg:
+  symbol=barg
+  formula=1e5
+  offset=-1.0132
+
+micron:
+  symbol=micron
+  formula=1e-06
+
+MOL:
+  symbol=mol
+
+mPa:
+  symbol=mPa
+  formula=1e-3
+
+kPa:
+  symbol=kPa
+  formula=1e3
+
+m2_Kdeg_W:
+  symbol=m2_Kdeg_W
+
+W_Kdeg_m2:
+  symbol=W_Kdeg_m2
+
+mol_s:
+  symbol=mol_s
+
+kmol_h:
+  symbol=kmol_h
+  formula=1000*MOL/HOUR
+
+kmol_s:
+  symbol=kmol_s
+  formula=1e3
+
+kmol_m3:
+  symbol=kmol_m3
+  formula=1e3
+  
+mol_m3:
+  symbol=mol_m3
+  
+J_kg:
+  symbol=J_kg
+
+kJ_kg:
+  symbol=kJ_kg
+  formula=1e3
+
+J_kg_Kdeg:
+  symbol=J_kg_Kdeg
+
+J_kmol:
+  symbol=J_kmol
+  formula=1e-3
+ 
+J_kmol_Kdeg:
+  symbol=J_kmol_Kdeg
+  formula=1e-3
+  
+kJ_kg_Kdeg:
+  symbol=kJ_kg_Kdeg
+  formula=1e3
+
+Nxsec_m2:
+  symbol=Nxsec_m2
+
+kg_kmol:
+  symbol=kg_kmol
+  formula=1e-3
+
+mPaxs:
+  symbol=mPaxs
+  formula=1e-3
+
+Paxs:
+  symbol=Paxs
+
+m2_s:
+  symbol=m2_s
+
+mm2_s:
+  symbol=mm2_s
+  formula=1e-06
+
+ton_hr:
+  symbol=ton_hr
+  formula=TONNE/HOUR
+
+W_m_Kdeg:
+  symbol=W_m_Kdeg
+
+RPMUNIT:
+  symbol=rpm
+
+s_T:
+  symbol=s_T
+  formula=1e-3
+
+s_k:
+  symbol=s_kg
+
+s_lb:
+  symbol=s_lb
+  formula=SECOND/POUND
+
+1_T:
+  symbol=_T
+  formula=1e-3
+
+1_kg:
+  symbol=_kg
+
+1_lb:
+  symbol=_lb
+  formula=1/POUND
+
+1_m2:
+  symbol=_m2
+
+kg_m2_s:
+  symbol=kg_m2_s
+
+kg_m4_s:
+  symbol=kg_m4_s
+
+PERCENTAGE:
+  symbol=%
+  formula=0.01
+
+T_S:
+  symbol=T_s
+  formula=1e3
+
+LB_S:
+  symbol=lb_s
+  formula=POUND/SECOND
+
+TM2:
+  symbol=Txm2
+  formula=1e3
+
+KGMM2:
+  symbol=kgxmm2
+  formula=1e-06
+
+
+PER_SECOND:
+  symbol=_s
+
+T_MM3:
+  symbol=T_mm3
+  formula=1e12
+
+KG_MM3:
+  symbol=kg_mm3
+  formula=1e9
+
+TMM2:
+  symbol=Txmm2
+  formula=1e-3
+
+MMT_S2:
+  symbol=mmxT_s2
+
+MMKG_S2:
+  symbol=mmxkg_s2
+  formula=1e-3
+
+Dyne:
+  symbol=dyn
+  formula=1e-5
+
+KG_FORCE:
+  symbol=kgf
+  formula=KILOGRAM*GRAVITY
+
+MICRO_NEWTON:
+  symbol=micN
+  formula=1e-06
+
+MM2T_S2:
+  symbol=mm2T_s2
+  formula=1e-3
+
+MM2KG_S2:
+  symbol=mm2kg_s2
+  formula=1e-06
+
+T_MMS2:
+  symbol=T_mm_s2
+  formula=1000000
+
+KG_MMS2:
+  symbol=kg_mm_s2
+  formula=1e3
+
+MEGAPA:
+  symbol=MPa
+  formula=1000000
+
+GPA:
+  symbol=GPa
+  formula=1e9
+
+MM_S:
+  symbol=mm_s
+  formula=1e-3
+
+MM_S2:
+  symbol=mm_s2
+  formula=1e-3
+
+SLUG:
+  symbol=slug
+  formula=LB_FORCE*SQUARE_SECOND/FOOT
+
+SLUG12:
+  symbol=slinch
+  formula=LB_FORCE*SQUARE_SECOND/INCH
+
+NONE:
+
+PERTHOUSAND:
+  symbol=o_oo
+  formula=1e-3
+
+S2_KG:
+  symbol=s2_kg
+
+S2_T:
+  symbol=s2_T
+  formula=1e-3
+
+S2_LB:
+  symbol=s2_lb
+  formula=SQUARE_SECOND/POUND
+
+1_MKG:
+  symbol=_m_kg
+
+1_MT:
+  symbol=_m_T
+  formula=1e-3
+
+1_MMT:
+  symbol=_mm_T
+
+1_INLB:
+  symbol=_in_lb
+  formula=1/INCH/POUND
+
+S_MKG:
+  symbol=s_m_kg
+
+S_MT:
+  symbol=s_m_T
+  formula=1e-3
+
+S_MMT:
+  symbol=s_mm_T
+
+S_INLB:
+  symbol=s_in_lb
+  formula=SECOND*1_INLB
+
+S2_MKG:
+  symbol=s2_m_kg
+
+S2_MT:
+  symbol=s2_m_T
+  formula=1e-3
+
+S2_MMT:
+  symbol=s2_mm_T
+
+S2_INLB:
+  symbol=s2_in_lb
+  formula=SECOND*S_INLB
+
+S2RAD_MKG:
+  symbol=s2rad_m_kg
+
+S2RAD_MMKG:
+  symbol=s2rad_mm_kg
+  formula=1e3
+
+S2RAD_MMT:
+  symbol=s2rad_mm_T
+
+S2RAD_INLB:
+  symbol=s2rad_in_lb
+  formula=RADIAN*S2_INLB
+
+SRAD_MKG:
+  symbol=sxrad_m_kg
+
+SRAD_MMKG:
+  symbol=sxrad_mm_kg
+  formula=1e3
+
+SRAD_MMT:
+  symbol=sxrad_mm_T
+
+SRAD_INLB:
+  symbol=sxrad_in_lb
+  formula=RADIAN*S_INLB
+
+RAD_MKG:
+  symbol=rad_m_kg
+
+RAD_MMKG:
+  symbol=rad_mm_kg
+  formula=1e3
+
+RAD_MMT:
+  symbol=rad_mm_T
+
+RAD_INLB:
+  symbol=rad_in_lb
+  formula=RADIAN*1_INLB
+
+S2RAD_M2KG:
+  symbol=s2rad_m2_kg
+
+S2RAD_MM2KG:
+  symbol=s2rad_mm2_kg
+  formula=1e6
+
+S2RAD_MM2T:
+  symbol=s2rad_mm2_T
+  formula=1e3
+
+S2RAD_IN2LB:
+  symbol=s2rad_in2_lb
+  formula=SQUARE_SECOND*RADIAN/INCH2/POUND
+
+SRAD_M2KG:
+  symbol=sxrad_m2_kg
+
+SRAD_MM2KG:
+  symbol=sxrad_mm2_kg
+  formula=1e6
+
+SRAD_MM2T:
+  symbol=sxrad_mm2_T
+  formula=1e3
+
+SRAD_IN2LB:
+  symbol=sxrad_in2_lb
+  formula=SECOND*RADIAN/INCH2/POUND
+
+RAD_M2KG:
+  symbol=rad_m2_kg
+
+RAD_MM2KG:
+  symbol=rad_mm2_kg
+  formula=1e6
+
+RAD_MM2T:
+  symbol=rad_mm2_T
+  formula=1e3
+
+RAD_IN2LB:
+  symbol=rad_in2_lb
+  formula=RADIAN/INCH2/POUND
+
+1_MM2:
+  symbol=_mm2
+  formula=1e6
+
+1_IN2:
+  symbol=_in2
+  formula=1/INCH2
+
+1_M3:
+  symbol=_m3
+
+1_MM3:
+  symbol=_mm3
+  formula=1e9
+
+1_IN3:
+  symbol=_in3
+  formula=1/INCH3
+
+KG_S2:
+  symbol=kg_s2
+
+T_S2:
+  symbol=T_s2
+  formula=1e3
+
+LB_S2:
+  symbol=lb_s2
+  formula=POUND/SQUARE_SECOND
+
+MKG_S2RAD:
+  symbol=mxkg_s2_rad
+
+MMKG_S2RAD:
+  symbol=mmxkg_s2_rad
+  formula=1e-3
+
+MMT_S2RAD:
+  symbol=mmxT_s2_rad
+
+INLB_S2RAD:
+  symbol=inxlb_s2_rad
+  formula=INCH*POUND/SQUARE_SECOND/RADIAN
+
+MKG_S2:
+  symbol=mxkg_s2
+
+INLB_S2:
+  symbol=inxlb_s2
+  formula=INCH*POUND/SQUARE_SECOND
+
+M2KG_S2RAD:
+  symbol=m2kg_s2_rad
+
+MM2KG_S2RAD:
+  symbol=mm2kg_s2_rad
+  formula=1e-6
+
+MM2T_S2RAD:
+  symbol=mm2T_s2_rad
+  formula=1e-3
+
+IN2LB_S2RAD:
+  symbol=in2lb_s2_rad
+  formula=INCH*INLB_S2RAD
+
+KG_S2M2:
+  symbol=kg_s2_m2
+
+KG_S2MM2:
+  symbol=kg_s2_mm2
+  formula=1e6
+
+TON_S2MM2:
+  symbol=T_s2_mm2
+  formula=1e9
+
+LB_S2IN2:
+  symbol=lb_s2_in2
+  formula=POUND/SQUARE_SECOND/INCH2
+
+KG_S2MRAD:
+  symbol=kg_s2_m_rad
+
+KG_S2MMRAD:
+  symbol=kg_s2_mm_rad
+  formula=1e3
+
+TON_S2MMRAD:
+  symbol=T_s2_mm_rad
+  formula=1e6
+
+LB_S2INRAD:
+  symbol=lb_s2_in_rad
+  formula=POUND/SQUARE_SECOND/INCH/RADIAN
+
+MKG_SRAD:
+  symbol=mxkg_s_rad
+
+MMKG_SRAD:
+  symbol=mmxkg_s_rad
+  formula=1e-3
+
+MMT_SRAD:
+  symbol=mmxT_s_rad
+
+INLB_SRAD:
+  symbol=inxlb_s_rad
+  formula=INCH*POUND/SECOND/RADIAN
+
+MKG_S:
+  symbol=mxkg_s
+
+MMKG_S:
+  symbol=mmxkg_s
+  formula=1e-3
+
+MMT_S:
+  symbol=mmxT_s
+
+INLB_S:
+  symbol=inxlb_s
+  formula=INCH*POUND/SECOND
+
+M2KG_SRAD:
+  symbol=m2kg_s_rad
+
+MM2KG_SRAD:
+  symbol=mm2kg_s_rad
+  formula=1e-06
+
+MM2T_SRAD:
+  symbol=mm2T_s_rad
+  formula=1e-3
+
+IN2LB_SRAD:
+  symbol=in2lb_s_rad
+  formula=INCH2*POUND/SECOND/RADIAN
+
+KG_SMM2:
+  symbol=kg_s_mm2
+  formula=1e6
+
+TON_SMM2:
+  symbol=T_s_mm2
+  formula=1e9
+
+LB_SIN2:
+  symbol=lb_s_in2
+  formula=POUND/SECOND/INCH2
+
+KG_SMRAD:
+  symbol=kg_s_m_rad
+
+KG_SMMRAD:
+  symbol=kg_s_mm_rad
+  formula=1e3
+
+TON_SMMRAD:
+  symbol=T_s_mm_rad
+  formula=1e6
+
+LB_SINRAD:
+  symbol=lb_s_in_rad
+  formula=POUND/SECOND/INCH/RADIAN
+
+LB:
+  symbol=lb
+  formula=POUND
+
+MKG_RAD:
+  symbol=mxkg_rad
+
+MMKG_RAD:
+  symbol=mmxkg_rad
+  formula=1e-3
+
+MMT_RAD:
+  symbol=mmxT_rad
+
+INLB_RAD:
+  symbol=inxlb_rad
+  formula=INCH*POUND/RADIAN
+
+MKG:
+  symbol=mxkg
+
+MMKG:
+  symbol=mmxkg
+  formula=1e-3
+
+MMT:
+  symbol=mmxT
+
+INLB:
+  symbol=inxlb
+  formula=INCH*POUND
+
+M2KG_RAD:
+  symbol=m2kg_rad
+
+MM2KG_RAD:
+  symbol=mm2kg_rad
+  formula=1e-6
+
+MM2T_RAD:
+  symbol=mm2T_rad
+  formula=1e-3
+
+IN2LB_RAD:
+  symbol=in2lb_rad
+  formula=INCH2*POUND/RADIAN
+
+KG__MM2:
+  symbol=kg_mm2
+  formula=1e6
+
+TON__MM2:
+  symbol=T_mm2
+  formula=1e9
+
+KG_MRAD:
+  symbol=kg_m_rad
+
+KG_MMRAD:
+  symbol=kg_mm_rad
+  formula=1e3
+
+TON_MMRAD:
+  symbol=T_mm_rad
+  formula=1e6
+
+LB_INRAD:
+  symbol=lb_in_rad
+  formula=POUND/INCH/RADIAN
+
+IN2:
+  symbol=in2
+  formula=INCH2
+
+M2S2_KG:
+  symbol=m2s2_kg
+
+MM2S2_KG:
+  symbol=mm2s2_kg
+  formula=1e-06
+
+MM2S2_T:
+  symbol=mm2s2_T
+  formula=1e-09
+
+IN2S2_LB:
+  symbol=in2s2_lb
+  formula=INCH2*SQUARE_SECOND/POUND
+
+M2S_KG:
+  symbol=m2s_kg
+
+MM2S_KG:
+  symbol=mm2s_kg
+  formula=1e-06
+
+MM2S_T:
+  symbol=mm2s_T
+  formula=1e-09
+
+IN2S_LB:
+  symbol=in2s_lb
+  formula=INCH2*SECOND/POUND
+  
+M2_KG:
+  symbol=m2_kg
+
+MM2_KG:
+  symbol=mm2_kg
+  formula=1e-6
+
+MM2_T:
+  symbol=mm2_T
+  formula=1e-9
+
+IN2_LB:
+  symbol=in2_lb
+  formula=INCH2/POUND
+
+RADMS2_KG:
+  symbol=radxmxs2_kg
+
+RADMMS2_KG:
+  symbol=radxmmxs2_kg
+  formula=1e-3
+
+RADMMS2_T:
+  symbol=radxmmxs2_T
+  formula=1e-6
+
+RADINS2_LB:
+  symbol=radxinxs2_lb
+  formula=RADIAN*INCH*SECOND*SECOND/POUND
+
+RADMS_KG:
+  symbol=radxmxs_kg
+
+RADMMS_KG:
+  symbol=radxmmxs_kg
+  formula=1e-3
+
+RADMMS_T:
+  symbol=radxmmxs_T
+  formula=1e-6
+
+RADINS_LB:
+  symbol=radxinxs_lb
+  formula=RADIAN*INCH*SECOND/POUND
+
+RADM_KG:
+  symbol=radxm_kg
+
+RADMM_KG:
+  symbol=radxmm_kg
+  formula=1e-3
+
+RADMM_T:
+  symbol=radxmm_T
+  formula=1e-6
+
+RADIN_LB:
+  symbol=radxin_lb
+  formula=RADIAN*INCH/POUND
+
+KG_MS:
+  symbol=kg_m_s
+
+KG_MMS:
+  symbol=kg_mm_s
+  formula=1e3
+
+T_MMS:
+  symbol=T_mm_s
+  formula=1e6
+
+LB_INS:
+  symbol=lb_in_s
+  formula=POUND/INCH/SECOND
+
+S_M2:
+  symbol=s_m2
+
+S_MM2:
+  symbol=s_mm2
+  formula=1e6
+
+S_IN2:
+  symbol=s_in2
+  formula=SECOND/INCH2
+
+1_M2S:
+  symbol=_m2_s
+
+1_MM2S:
+  symbol=_mm2_s
+  formula=1e6
+
+1_IN2S:
+  symbol=_in2_s
+  formula=1/INCH2/SECOND
+
+RADS_M3:
+  symbol=radxs_m3
+
+RADS_MM3:
+  symbol=radxs_mm3
+  formula=1e9
+
+RADS_IN3:
+  symbol=radxs_in3
+  formula=RADIAN*SECOND/INCH3
+
+RAD_M3:
+  symbol=rad_m3
+
+RAD_MM3:
+  symbol=rad_mm3
+  formula=1e9
+
+RAD_IN3:
+  symbol=rad_in3
+  formula=RADIAN/INCH3
+
+RAD_M3S:
+  symbol=rad_m3_s
+
+RAD_MM3S:
+  symbol=rad_mm3_s
+  formula=1e9
+
+RAD_IN3S:
+  symbol=rad_in3_s
+  formula=RAD_IN3/SECOND
+  
+KG_MM:
+  symbol=kg_mm
+  formula=1e3
+
+T_MM:
+  symbol=T_mm
+  formula=1e6
+
+S2_M2:
+  symbol=s2_m2
+
+S2_MM2:
+  symbol=s2_mm2
+  formula=1e6
+
+S2_IN2:
+  symbol=s2_in2
+  formula=SQUARE_SECOND/INCH2
+  
+RADS2_M3:
+  symbol=radxs2_m3
+
+RADS2_MM3:
+  symbol=radxs2_mm3
+  formula=1e9
+
+RADS2_IN3:
+  symbol=radxs2_in3
+  formula=RADIAN*SQUARE_SECOND/INCH3
+  
+M_PER_SEC3:
+  symbol=m_s3
+
+CM_PER_SEC3:
+  symbol=cm_s3
+  formula=0.01
+
+MM_PER_SEC3:
+  symbol=mm_s3
+  formula=1e-3
+
+IN_PER_SEC3:
+  symbol=in_s3
+  formula=INCH/SECOND/SECOND/SECOND
+
+RAD_PER_SEC3:
+  symbol=rad_s3
+
+DEG_PER_SEC3:
+  symbol=deg_s3
+  formula=DEGREE/SECOND/SECOND/SECOND
+
+GM_CM_PER_SEC:
+  symbol=gxcm_s
+  formula=GRAM*CM/SECOND
+
+NEWTON_SEC:
+  symbol=Nxs
+
+LBF_SEC:
+  symbol=lbfxs
+  formula=LB_FORCE/SECOND
+
+HERTZ_SQUARE:
+  symbol=Hz2
+
+KILO_HERTZ_SQUARE:
+  symbol=kHz2
+  formula=1e6
+
+HERTZ_CUBE:
+  symbol=Hz3
+
+KILO_HERTZ_CUBE:
+  symbol=kHz3
+  formula=1e9
+
+PER_DEGREE:
+  symbol=_deg
+  formula=1/DEGREE
+
+PER_RADIAN:
+  symbol=_rad
+
+PER_DEGREE_SQUARE:
+  symbol=_deg2
+  formula=1/DEGREE/DEGREE
+
+PER_RADIAN_SQUARE:
+  symbol=_rad2
+
+KG_SQUARE_METER_PER_SQUARE_SECOND:
+  symbol=kgxm2_s2
+
+CUBIC_METER_PER_SQUARE_SECOND:
+  symbol=m3_s2
+
+WATT_PER_SQUARE_METER:
+  symbol=W_m2
+
+KG_PER_CUBIC_SECOND:
+  symbol=kg_s3
+
+SQUARE_METER_PER_SQUARE_SECOND:
+  symbol=m2_s2
+
+SQUARE_PASCAL:
+  symbol=Pa2
+
+SQUARE_KG_PER_SQUARE_METER_SECOND_TO_THE_FOURTH:
+  symbol=kg2_m2_s4
+
+SQUARE_TON_PER_SQUARE_MILLIMETER_SECOND_TO_THE_FOURTH:
+  symbol=T2_mm2_s4
+  formula=1e12
+
+SQUARE_KG_PER_SQUARE_MILLIMETER_SECOND_TO_THE_FOURTH:
+  symbol=kg2_mm2_s4
+  formula=1e6
+
+PASCAL_SECOND_PER_SQUARE_METER:
+  symbol=Paxs_m2
+
+NEWTON_SECOND_PER_METER_TO_THE_FOURTH:
+  symbol=Nxs_m4
+
+KG_PER_CUBIC_METER_SECOND:
+  symbol=kg_m3_s
+
+Btu_ft_hr_Fdeg:
+  symbol=Btu_ft_hr_Fdeg
+  formula=BTU/FOOT/HOUR/FAHRENT
+
+Btu_in_s_Fdeg:
+  symbol=Btu_in_s_Fdeg
+  formula=BTU/INCH/SECOND/FAHRENT
+
+Btu_lb_Fdeg:
+  symbol=Btu_lb_Fdeg
+  formula=BTU/POUND/FAHRENT
+
+Btu_ft2_hr_Fdeg:
+  symbol=Btu_ft2_hr_Fdeg
+  formula=BTU/FOOT2/HOUR/FAHRENT
+
+Btu_in2_s_Fdeg:
+  symbol=Btu_in2_s_Fdeg
+  formula=BTU/INCH2/SECOND/FAHRENT
+
+Btu_hr:
+  symbol=Btu_hr
+  formula=BTU/HOUR
+
+Btu_s:
+  symbol=Btu_s
+  formula=BTU/SECOND
+
+Btu_ft2_hr:
+  symbol=Btu_ft2_hr
+  formula=BTU/FOOT2/HOUR
+
+Btu_in2_s:
+  symbol=Btu_in2_s
+  formula=BTU/INCH2/SECOND
+
+G__CM3:
+  symbol=g_cm3
+  formula=1e3
+
+NEWTON_METER_SECOND:
+  symbol=Nxmxs
+
+DEG_S:
+  symbol=deg_s
+  formula=DEGREE/SECOND
+
+PER_METER:
+  symbol=_m
+
+PER_MM:
+  symbol=_mm
+  formula=1e3
+  
+PER_CM:
+  symbol=_cm
+  formula=100
+  
+PER_INCH:
+  symbol=_in
+  formula=1/INCH
+
+PER_FOOT:
+  symbol=_ft
+  formula=1/FOOT
+
+PASCAL_OVER_CUBIC_METER_PER_SQUARE_SECOND:
+  symbol=Pa_m3xs2
+
+SQUARE_NEWTON:
+  symbol=N2
+
+SQUARE_NEWTON_SQUARE_METER:
+  symbol=N2xm2
+
+SQUARE_RADIAN:
+  symbol=rad2
+
+SQUARE_RADIAN_PER_SQUARE_SECOND:
+  symbol=rad2_s2
+
+SQUARE_METER_PER_SECOND_TO_THE_FOURTH:
+  symbol=m2_s4
+
+SQUARE_RADIAN_PER_SECOND_TO_THE_FOURTH:
+  symbol=rad2_s4
+
+METER_POWER_SIX_PER_SECOND_POWER_FOUR:
+  symbol=m6_s4
+
+METER_POWER_SIX_PER_SQUARE_SECOND:
+  symbol=m6_s2
+
+STERADIAN:
+  symbol=sr
+
+KGF_CM:
+  symbol=kgfxcm
+  formula=KG_FORCE*CM
+
+KGF__CM2:
+  symbol=kgf_cm2
+  formula=KG_FORCE/CM2
+
+KGF__MM2:
+  symbol=kgf_mm2
+  formula=KG_FORCE/MM2
+
+MRAD:
+  symbol=mrad
+  formula=1e-3
+
+G__MM3:
+  symbol=g_mm3
+  formula=1e6
+
+CUBIC_METER_PER_SQUARE_SECOND_OVER_NEWTON:
+  symbol=m3_s2_N
+
+CUBIC_METER_PER_SQUARE_SECOND_OVER_NEWTON_METER:
+  symbol=m3_s2_N_m
+
+CUBIC_METER_PER_SECOND_OVER_NEWTON:
+  symbol=m3_s_N
+
+CUBIC_METER_PER_SECOND_OVER_NEWTON_METER:
+  symbol=m3_s_N_m
+
+CUBIC_METER_PER_SQUARE_SECOND_OVER_METER_PER_SQUARE_SECOND:
+  symbol=m3_s2_mxs2
+
+CUBIC_METER_PER_SECOND_OVER_METER_PER_SQUARE_SECOND:
+  symbol=m3_s_mxs2
+
+CUBIC_METER_PER_SQUARE_SECOND_OVER_RADIAN_PER_SQUARE_SECOND:
+  symbol=m3_s2_radxs2
+
+CUBIC_METER_PER_SECOND_OVER_RADIAN_PER_SQUARE_SECOND:
+  symbol=m3_s_radxs2
+
+PASCAL_PER_SECOND:
+  symbol=Pa_s
+
+KILOGRAM_PER_METER_PER_CUBIC_SECOND:
+  symbol=kg_m_s3
+
+PSI_PER_SECOND:
+  symbol=psi_s
+  formula=PSI/SECOND
+
+MILLIPASCAL_PER_SECOND:
+  symbol=mPa_s
+  formula=1e-3
+
+KILOPASCAL_PER_SECOND:
+  symbol=kPa_s
+  formula=1e3
+
+TON_PER_MILLIMETER_PER_CUBIC_SECOND:
+  symbol=T_mm_s3
+  formula=1e6
+
+KILOGRAM_PER_MILLIMETER_PER_CUBIC_SECOND:
+  symbol=kg_mm_s3
+  formula=1e3
+
+MEGAPASCAL_PER_SECOND:
+  symbol=MPa_s
+  formula=1e6
+
+GIGAPASCAL_PER_SECOND:
+  symbol=GPa_s
+  formula=1e9
+
+CUBIC_METER_PER_SQUARE_SECOND_OVER_METER:
+  symbol=m3_s2_m
+
+CUBIC_METER_PER_SECOND_OVER_METER:
+  symbol=m3_s_m
+
+CUBIC_METER_PER_SQUARE_SECOND_OVER_RADIAN:
+  symbol=m3_s2_rad
+
+CUBIC_METER_PER_SECOND_OVER_RADIAN:
+  symbol=m3_s_rad
+
+CUBIC_METER_PER_SQUARE_SECOND_OVER_METER_PER_SECOND:
+  symbol=m3s_s2_m
+
+CUBIC_METER_PER_SECOND_OVER_METER_PER_SECOND:
+  symbol=m3s_s_m
+
+CUBIC_METER_PER_SQUARE_SECOND_OVER_RADIAN_PER_SECOND:
+  symbol=m3s_rad_s2
+
+CUBIC_METER_PER_SECOND_OVER_RADIAN_PER_SECOND:
+  symbol=m3s_rad_s
+
+SQUARE_PASCAL_PER_HERTZ:
+  symbol=Pa2_Hz
+
+SQUARE_METER_SECOND:
+  symbol=m2s
+
+SQUARE_METER_PER_CUBIC_SECOND:
+  symbol=m2_s3
+
+METER_PER_SQUARE_SECOND_PASCAL:
+  symbol=Paxm_s2
+
+METER_PER_SECOND_PASCAL:
+  symbol=m_sxPa
+
+METER_PER_SQUARE_SECOND_NEWTON:
+  symbol=Nxm_s2
+
+METER_PER_SECOND_NEWTON:
+  symbol=m_sxN
+
+PASCAL_NEWTON:
+  symbol=PaxN
+
+METER_PER_SQUARE_SECOND_X_CUBIC_METER_PER_SQUARE_SECOND:
+  symbol=m_s2xm3_s2
+
+METER_PER_SECOND_X_CUBIC_METER_PER_SQUARE_SECOND:
+  symbol=m_sxm3_s2
+
+METER_X_CUBIC_METER_PER_SQUARE_SECOND:
+  symbol=mxm3_s2
+
+METER_X_CUBIC_METER_PER_SECOND:
+  symbol=mxm3_s
+
+PASCAL_OVER_METER_PER_SECOND:
+  symbol=Paxs_m
+
+METER_PER_NEWTON:
+  symbol=m_N
+
+METER_PER_SECOND_OVER_NEWTON:
+  symbol=m_s_N
+
+METER_PER_SQUARE_SECOND_OVER_NEWTON:
+  symbol=m_s2_N
+
+METER_PER_SQUARE_SECOND_OVER_NEWTON_METER:
+  symbol=m_s2_N_m
+
+METER_PER_SECOND_OVER_NEWTON_METER:
+  symbol=m_s_N_m
+
+METER_PER_NEWTON_METER:
+  symbol=m_N_m
+
+RADIAN_PER_NEWTON:
+  symbol=rad_N
+
+RADIAN_PER_SECOND_OVER_NEWTON:
+  symbol=rad_s_N
+
+RADIAN_PER_SQUARE_SECOND_OVER_NEWTON:
+  symbol=rad_s2_N
+
+RADIAN_PER_NEWTON_METER:
+  symbol=rad_N_m
+
+RADIAN_PER_SECOND_OVER_NEWTON_METER:
+  symbol=rad_s_N_m
+
+RADIAN_PER_SQUARE_SECOND_OVER_NEWTON_METER:
+  symbol=rad_s2_N_m
+
+PASCAL_OVER_NEWTON:
+  symbol=Pa_N
+
+PASCAL_OVER_NEWTON_METER:
+  symbol=Pa_N_m
+
+NEWTON_METER_PER_METER:
+  symbol=Nxm_m
+
+PASCAL_PER_METER:
+  symbol=Pa_m
+
+PASCAL_PER_RADIAN:
+  symbol=Pa_rad
+
+NEWTON_METER_OVER_METER_PER_SECOND:
+  symbol=Nxm_mxs
+
+NEWTON_OVER_RADIAN_PER_SECOND:
+  symbol=N_radxs
+
+PASCAL_OVER_RADIAN_PER_SECOND:
+  symbol=Pa_radxs
+
+NEWTON_OVER_METER_PER_SQUARE_SECOND:
+  symbol=N_mxs2
+
+NEWTON_METER_OVER_METER_PER_SQUARE_SECOND:
+  symbol=Nxm_mxs2
+
+PASCAL_OVER_METER_PER_SQUARE_SECOND:
+  symbol=Pa_mxs2
+
+NEWTON_OVER_RADIAN_PER_SQUARE_SECOND:
+  symbol=N_radxs2
+
+NEWTON_METER_OVER_RADIAN_PER_SQUARE_SECOND:
+  symbol=Nxm_radxs2
+
+PASCAL_OVER_RADIAN_PER_SQUARE_SECOND:
+  symbol=Pa_radxs2
+
+SLUG_PER_CUBE_FOOT:
+  symbol=slug_ft3
+  formula=SLUG/FOOT3
+
+SLINCH_PER_CUBE_INCH:
+  symbol=slinch_in3
+  formula=SLUG12/INCH3
+
+POUND_FORCE_PER_SQUARE_FOOT:
+  symbol=lbf_ft2
+  formula=LB_FORCE/FOOT2
+
+DYNE_PER_SQUARE_CENTIMETER:
+  symbol=dyn_cm2
+  formula=0.1
+
+POUND_FORCE_FOOT:
+  symbol=lbfxft
+  formula=LB_FORCE*FOOT
+
+DYNE_CENTIMETER:
+  symbol=dynxcm
+  formula=1e-07
+
+MICRONEWTON_MILLIMETER:
+  symbol=micNxmm
+  formula=1e-9
+
+INCH_PER_SECOND:
+  symbol=in_s
+  formula=INCH/SECOND
+
+CENTIMETER_PER_SECOND:
+  symbol=cm_s
+  formula=0.01
+
+CENTIMETER_PER_SQUARE_SECOND:
+  symbol=cm_s2
+  formula=0.01
+
+FOOT_PER_CUBE_SECOND:
+  symbol=ft_s3
+  formula=FOOT/SECOND/SECOND/SECOND
+
+SLUG_SQUARE_FOOT:
+  symbol=slugxft2
+  formula=SLUG*FOOT2
+
+SLINCH_SQUARE_INCH:
+  symbol=slinchxin2
+  formula=SLUG12*INCH2
+
+GRAM_SQUARE_CENTIMETER:
+  symbol=gxcm2
+  formula=1e-07
+
+DYNE_PER_CENTIMETER:
+  symbol=dyn_cm
+  formula=1e-3
+
+MICRONEWTON_PER_MILLIMETER:
+  symbol=micN_mm
+  formula=1e-3
+
+NEWTON_OVER_METER_PER_SECOND:
+  symbol=Nxs_m
+
+POUND_FORCE_OVER_FOOT_PER_SECOND:
+  symbol=lbfxs_ft
+  formula=LB_FORCE*SECOND/FOOT
+
+POUND_FORCE_OVER_INCH_PER_SECOND:
+  symbol=lbfxs_in
+  formula=LB_FORCE*SECOND/INCH
+
+DYNE_OVER_CENTIMETER_PER_SECOND:
+  symbol=dynxs_cm
+  formula=1e-3
+
+MICRONEWTON_OVER_MILLIMETER_PER_SECOND:
+  symbol=micNxs_mm
+  formula=1e-3
+
+NEWTON_OVER_MILLIMETER_PER_SECOND:
+  symbol=Nxs_mm
+  formula=1e3
+
+SQUARE_FOOT_PER_SECOND:
+  symbol=ft2_s
+  formula=FOOT2/SECOND
+
+SQUARE_INCH_PER_SECOND:
+  symbol=in2_s
+  formula=INCH2/SECOND
+
+SQUARE_CENTIMETER_PER_SECOND:
+  symbol=cm2_s
+  formula=1e-4
+
+DEGREE_PER_SQUARE_SECOND:
+  symbol=deg_s2
+  formula=DEGREE/SQUARE_SECOND
+
+POUND_FORCE_FOOT_PER_RADIAN:
+  symbol=lbfxft_rad
+  formula=LB_FORCE*FOOT/RADIAN
+
+POUND_FORCE_FOOT_PER_DEGREE:
+  symbol=lbfxft_deg
+  formula=LB_FORCE*FOOT/DEGREE
+
+POUND_FORCE_INCH_PER_DEGREE:
+  symbol=lbfxin_deg
+  formula=LB_FORCE*INCH/DEGREE
+
+NEWTON_METER_PER_DEGREE:
+  symbol=Nxm_deg
+  formula=NEWTON*METER/DEGREE
+
+DYNE_CENTIMETER_PER_RADIAN:
+  symbol=dynxcm_rad
+  formula=Dyne*CM/RADIAN
+
+DYNE_CENTIMETER_PER_DEGREE:
+  symbol=dynxcm_deg
+  formula=Dyne*CM/DEGREE
+
+MICRONEWTON_MILLIMETER_PER_RADIAN:
+  symbol=micNxmm_rad
+  formula=MICRONEWTON_MILLIMETER/RADIAN
+
+MICRONEWTON_MILLIMETER_PER_DEGREE:
+  symbol=micNxmm_deg
+  formula=MICRONEWTON_MILLIMETER/DEGREE
+
+NEWTON_MILLIMETER_PER_RADIAN:
+  symbol=Nxmm_rad
+  formula=NEWTON*MM/RADIAN
+
+NEWTON_MILLIMETER_PER_DEGREE:
+  symbol=Nxmm_deg
+  formula=NEWTON*MM/DEGREE
+
+NEWTON_METER_OVER_RADIAN_PER_SECOND:
+  symbol=Nxm_radxs
+  formula=NEWTON*METER/RADIAN/SECOND
+
+POUND_FORCE_FOOT_OVER_RADIAN_PER_SECOND:
+  symbol=lbfxft_radxs
+  formula=POUND_FORCE_FOOT/RADIAN/SECOND
+
+POUND_FORCE_FOOT_OVER_DEGREE_PER_SECOND:
+  symbol=lbfxft_degxs
+  formula=POUND_FORCE_FOOT/DEGREE/SECOND
+
+POUND_FORCE_INCH_OVER_RADIAN_PER_SECOND:
+  symbol=lbfxin_radxs
+  formula=LB_FORCE*INCH/RADIAN/SECOND
+
+POUND_FORCE_INCH_OVER_DEGREE_PER_SECOND:
+  symbol=lbfxin_degxs
+  formula=LB_FORCE*INCH/DEGREE/SECOND
+
+NEWTON_METER_OVER_DEGREE_PER_SECOND:
+  symbol=Nxm_degxs
+  formula=NEWTON_METER_PER_DEGREE/SECOND
+
+DYNE_CENTIMETER_OVER_RADIAN_PER_SECOND:
+  symbol=dynxcm_radxs
+  formula=DYNE_CENTIMETER_PER_RADIAN/SECOND
+
+DYNE_CENTIMETER_OVER_DEGREE_PER_SECOND:
+  symbol=dynxcm_degxs
+  formula=DYNE_CENTIMETER_PER_DEGREE/SECOND
+
+MICRONEWTON_MILLIMETER_OVER_RADIAN_PER_SECOND:
+  symbol=micNxmm_radxs
+  formula=MICRONEWTON_MILLIMETER_PER_RADIAN/SECOND
+
+MICRONEWTON_MILLIMETER_OVER_DEGREE_PER_SECOND:
+  symbol=micNxmm_degxs
+  formula=MICRONEWTON_MILLIMETER_PER_DEGREE/SECOND
+
+NEWTON_MILLIMETER_OVER_RADIAN_PER_SECOND:
+  symbol=Nxmm_radxs
+  formula=NEWTON_MILLIMETER_PER_RADIAN/SECOND
+
+NEWTON_MILLIMETER_OVER_DEGREE_PER_SECOND:
+  symbol=Nxmm_degxs
+  formula=NEWTON_MILLIMETER_PER_DEGREE/SECOND
+
+FOOT_PER_RADIAN:
+  symbol=ft_rad
+  formula=FOOT/RADIAN
+
+FOOT_PER_DEGREE:
+  symbol=ft_deg
+  formula=FOOT/DEGREE
+
+INCH_PER_RADIAN:
+  symbol=in_rad
+  formula=INCH/RADIAN
+
+INCH_PER_DEGREE:
+  symbol=in_deg
+  formula=INCH/DEGREE
+
+METER_PER_RADIAN:
+  symbol=m_rad
+
+METER_PER_DEGREE:
+  symbol=m_deg
+  formula=METER/DEGREE
+
+CENTIMETER_PER_RADIAN:
+  symbol=cm_rad
+  formula=CM/RADIAN
+
+CENTIMETER_PER_DEGREE:
+  symbol=cm_deg
+  formula=CM/DEGREE
+
+MILLIMETER_PER_RADIAN:
+  symbol=mm_rad
+  formula=MM/RADIAN
+
+MILLIMETER_PER_DEGREE:
+  symbol=mm_deg
+  formula=MM/DEGREE
+
+NEWTON_PER_RADIAN:
+  symbol=N_rad
+
+NEWTON_PER_DEGREE:
+  symbol=N_deg
+  formula=NEWTON/DEGREE
+
+POUND_FORCE_PER_RADIAN:
+  symbol=lbf_rad
+  formula=LB_FORCE/RADIAN
+
+POUND_FORCE_PER_DEGREE:
+  symbol=lbf_deg
+  formula=LB_FORCE/DEGREE
+
+DYNE_PER_RADIAN:
+  symbol=dyn_rad
+  formula=Dyne/RADIAN
+
+DYNE_PER_DEGREE:
+  symbol=dyn_deg
+  formula=Dyne/DEGREE
+
+MICRONEWTON_PER_RADIAN:
+  symbol=micN_rad
+  formula=1e-6
+
+CANDELA:
+  symbol=cd
+
+LUX:
+  symbol=cd_m2
+
+FOOTCANDLES:
+  symbol=cd_ft2
+  formula=CANDELA/FOOT2
+
+
+MICROAMPER:
+  symbol=muA
+  formula=1e-6
+
+KILO_NEWTON:
+  symbol=kN
+  formula=1e3
+
+KILO_POUND:
+  symbol=klbf
+  formula=1e3*LB_FORCE
+
+MILLI_HERTZ:
+  symbol=mHz
+  formula=1e-3
+
+MEGA_HERTZ:
+  symbol=MHz
+  formula=1e6
+
+GIGA_HERTZ:
+  symbol=GHz
+  formula=1e9
+
+YARD:
+  symbol=yard
+  formula=3*FOOT
+
+YEAR:
+  symbol=a
+  formula=365.25*day
+
+KILOMETER_PER_YEAR:
+  symbol=km_a
+  formula=KM/YEAR
+
+YARD_SQUARE:
+  symbol=yard2
+  formula=YARD*YARD
+
+YARD_CUBE:
+  symbol=yard3
+  formula=YARD*YARD*YARD
+
+KILO_WATT_HOURS:
+  symbol=kWxh
+  formula=1e3*WATT*HOUR
+
+PER_KELVIN:
+  symbol=_Kdeg
+
+DECA_NEWTON:
+  symbol=daN
+  formula=10
+
+HECTO_BARA:
+  symbol=hbara
+  formula=1e7
+
+DECA_NEWTON_PER_MILLIMETER:
+  symbol=daNxmm
+  formula=0.01
+
+MICRONEWTON_PER_DEGREE:
+  symbol=micN_deg
+  formula=1e-6*NEWTON/DEGREE
+
+SQUARE_RADIAN_SECOND:
+  symbol=rad2s
+
+SQUARE_DEGREE_SECOND:
+  symbol=deg2s
+  formula=DEGREE*DEGREE/SECOND
+
+SQUARE_RADIAN_PER_SECOND:
+  symbol=rad2_s
+
+SQUARE_DEGREE_PER_SECOND:
+  symbol=deg2_s
+  formula=DEGREE*DEGREE/SECOND
+
+SQUARE_RADIAN_PER_CUBIC_SECOND:
+  symbol=rad2_s3
+
+SQUARE_DEGREE_PER_CUBIC_SECOND:
+  symbol=deg2_s3
+  formula=SQUARE_DEGREE_PER_SECOND/SECOND/SECOND
+
+SQUARE_KILOGRAM_SQUARE_METER_PER_CUBIC_SECOND:
+  symbol=kg2xm2_s3
+
+SQUARE_NEWTON_SECOND:
+  symbol=N2s
+
+SQUARE_KILOGRAM_METER_TO_THE_FOURTH_PER_CUBIC_SECOND:
+  symbol=kg2xm4_s3
+
+SQUARE_NEWTON_SQUARE_METER_SECOND:
+  symbol=N2m2s
+
+GRAVITY_TON:
+  symbol=gravT
+  formula=TONNE*GRAVITY/M__S2
+
+KGFxS2_M:
+  symbol=kgfxs2_m
+  formula=KG_FORCE*SQUARE_SECOND/METER
+
+KGFxS2_MM:
+  symbol=kgfxs2_mm
+  formula=KG_FORCE*SQUARE_SECOND/MM
+
+KGFxS2_CM:
+  symbol=kgfxs2_cm
+  formula=KG_FORCE*SQUARE_SECOND/CM
+
+LBFxS2_IN:
+  symbol=lbfxs2_in
+  formula=LB_FORCE*SQUARE_SECOND/INCH
+
+LBFxS2_FT:
+  symbol=lbfxs2_ft
+  formula=LB_FORCE*SQUARE_SECOND/FOOT
+
+KGF_MM:
+  symbol=kgfxmm
+  formula=0.00980665
+
+KG_OVER_METER3_SECOND2:
+  symbol=kg_m3_s2
+
+PASCAL_PER_METER2:
+  symbol=Pa_m2
+
+HHMMSS:
+  symbol=h,mn,s
+  formula=HOUR
+
+OUNCE_FORCE:
+  symbol=ozf
+  formula=OUNCE*GRAVITY
+
+OUNCE_FORCE_INCH:
+  symbol=ozfxin
+  formula=OUNCE_FORCE*INCH
+
+INVERSE_SQUARE_PASCAL:
+  symbol=_Pa2
+
+SQUARE_METER_SECOND_TO_THE_FOURTH_PER_SQUARE_KG:
+  symbol=m2xs4_kg2
+
+SQUARE_MILLIMETER_SECOND_TO_THE_FOURTH_PER_SQUARE_TON:
+  symbol=mm2xs4_T2
+  formula=1e-12
+
+SQUARE_MILLIMETER_SECOND_TO_THE_FOURTH_PER_SQUARE_KG:
+  symbol=mm2xs4_kg2
+  formula=1e-6
+
+DECA_NEWTON_OVER_MILLIMETER:
+  symbol=daN_mm
+  formula=1e4
+
+SQUARE_METER_PER_HERTZ:
+  symbol=m2_Hz
+
+SQUARE_METER_OVER_SQUARE_SECOND_HERTZ:
+  symbol=m2_s2_Hz
+
+SQUARE_METER_OVER_SECOND_TO_THE_FOURTH_HERTZ:
+  symbol=m2_s4_Hz
+
+SQUARE_RADIAN_PER_HERTZ:
+  symbol=rad2_Hz
+
+SQUARE_DEGREE_PER_HERTZ:
+  symbol=deg2_Hz
+  formula=DEGREE*DEGREE/HERTZ
+
+SQUARE_RADIAN_OVER_SQUARE_SECOND_HERTZ:
+  symbol=rad2_s2_Hz
+  formula=SQUARE_RADIAN/SQUARE_SECOND/HERTZ
+
+SQUARE_DEGREE_OVER_SQUARE_SECOND_HERTZ:
+  symbol=deg2_s2_Hz
+  formula=DEGREE*DEGREE/SQUARE_SECOND/HERTZ
+
+SQUARE_RADIAN_OVER_SECOND_TO_THE_FOURTH_HERTZ:
+  symbol=rad2_s4_Hz
+  formula=SQUARE_RADIAN_OVER_SQUARE_SECOND_HERTZ/SQUARE_SECOND
+
+SQUARE_DEGREE_OVER_SECOND_TO_THE_FOURTH_HERTZ:
+  symbol=deg2_s4_Hz
+  formula=SQUARE_DEGREE_OVER_SQUARE_SECOND_HERTZ/SQUARE_SECOND
+
+SQUARE_NEWTON_PER_HERTZ:
+  symbol=N2_Hz
+
+SQUARE_NEWTON_SQUARE_METER_PER_HERTZ:
+  symbol=N2m2_Hz
+
+SQUARE_KILOGRAM_PER_CUBIC_SECOND:
+  symbol=kg2_s3
+
+KILOGRAM_SQUARE_METER_PER_SECOND:
+  symbol=kgxm2_s
+
+METER_SIXTH_PER_SECOND:
+  symbol=m6_s
+
+METER_SIXTH_PER_CUBIC_SECOND:
+  symbol=m6_s3
+
+NANOMETER:
+  symbol=nm
+  formula=1e-9
+
+ANGSTROM:
+  symbol=ang
+  formula=1e-10
+
+NEW_LUMEN:
+  symbol=lm
+
+MSCP:
+  symbol=MSCP
+  formula=4*Pi
+
+Nit:
+  symbol=nit
+
+FootLambert:
+  symbol=fl
+  formula=1/Pi*CANDELA/FOOT2
+
+WATT_PER_METER2_STERADIAN:
+  symbol=W_m2_sr
+
+WATT_PER_FOOT2_STERADIAN:
+  symbol=W_ft2_sr
+  formula=WATT/FOOT2/STERADIAN
+
+NEW_LUX:
+  symbol=lx
+
+FOOT_CANDLE:
+  symbol=fc
+  formula=FOOTCANDLES*STERADIAN
+
+WATT_PER_SQUARE_FOOT:
+  symbol=W_ft2
+  formula=WATT/FOOT2
+
+WATT_PER_STERADIAN:
+  symbol=W_sr
+
+WATT_PER_CUBIC_METER:
+  symbol=W_m3
+
+BTU_PER_HOUR_PER_CUBIC_FOOT:
+  symbol=Btu_hr_ft3
+  formula=BTU/HOUR/FOOT3
+
+ERG:
+  symbol=erg
+  formula=1e-7
+
+ERG_PER_CUBIC_CENTIMETER_PER_SECOND:
+  symbol=erg_cm3_s
+  formula=ERG/CM3/SECOND
+
+INCH_PER_FOOT:
+  symbol=in_ft
+  formula=INCH/FOOT
+
+ANGLE_PERCENT:
+  symbol=%_angle
+
+KILOGRAM_PER_MOL:
+  symbol=kg_mol
+
+GRAM_PER_MOL:
+  symbol=g_mol
+  formula=GRAM/MOL
+
+MM_OF_MERCURY:
+  symbol=mmHg
+  formula=MM*13.5951*GRAM/CM3*GRAVITY
+
+INCH_OF_MERCURY:
+  symbol=inHg
+  formula=INCH/MM*MM_OF_MERCURY
+
+MILLIBAR:
+  symbol=mbara
+  formula=100
+
+JOULE_PER_KILOGRAM_PER_SECOND:
+  symbol=m2_s3
+
+SECOND_PER_METER:
+  symbol=s_m
+
+METER_SIXTH:
+  symbol=m6
+  
+SQUARE_GRAVITY_HERTZ:
+  symbol=g2_Hz
+  formula=GRAVITY*GRAVITY/HERTZ
+  
+JOULE_PER_KELVIN_PER_KILOGRAM:
+  symbol=J_Kdeg_kg
+
+JOULE_PER_KELVIN_PER_GRAM:
+  symbol=J_Kdeg_g
+  formula=1e3
+  
+JOULE_PER_SQUARE_KELVIN_PER_KILOGRAM:
+  symbol=J_Kdeg2_kg
+  
+JOULE_PER_SQUARE_KELVIN_PER_GRAM:
+  symbol=J_Kdeg2_g
+  formula=1e3
+  
+JOULE_PER_CUBIC_KELVIN_PER_KILOGRAM:
+  symbol=J_Kdeg3_kg
+  
+JOULE_PER_CUBIC_KELVIN_PER_GRAM:
+  symbol=J_Kdeg3_g
+  formula=1e3
+
+SQUARE_PSI:
+  symbol=psi2
+  formula=PSI*PSI
+
+PER_OHM_METER:
+  symbol=_Ohm_m
+  
+SIEMENS_PER_METER:
+  symbol=S_m
+  
+NEWTON_PER_SQUARE_AMPERE:
+  symbol=N_A2
+  
+AMPERE_PER_SQUARE_METER:
+  symbol=A_m2
+
+RAD_PER_METER:
+  symbol=rad_m
+
+RAD_PER_MM:
+  symbol=rad_mm
+  formula=1e3
+
+RAD_PER_CM:
+  symbol=rad_cm
+  formula=1e2
+
+RAD_PER_INCH:
+  symbol=rad_in
+  formula=RADIAN/INCH
+
+RAD_PER_FOOT:
+  symbol=rad_ft
+  formula=RADIAN/FOOT
+
+DECIBEL:
+  symbol=dB
+
+PER_SIEMENS:
+  symbol=_S
+
+SIEMENS:
+  symbol=S
+
+M3_K:
+  symbol=m3_kg
+
+NEWTONM_A:
+  symbol=Nxm_A
+
+CELCIUSDIFF:
+  symbol=dCdeg
+
+FAHRENTDIFF:
+  symbol=dFdeg
+  formula=1./1.8
+
+KELVIN_SECOND:
+  symbol=Kdeg_s
+
+PA_PER_K:
+  symbol=Pa_Kdeg
+
+mPA_PER_K:
+  symbol=mPa_Kdeg
+  formula=1e-3
+
+kPA_PER_K:
+  symbol=kPa_Kdeg
+  formula=1e3
+
+PER_PASCAL:
+  symbol=_Pa
+
+PER_MILIPASCAL:
+  symbol=_mPa
+  formula=1e3
+
+PER_KILOPASCAL:
+  symbol=_kPa
+  formula=1e-3
+
+m2Kdeg_W:
+  symbol=m2Kdeg_W
+
+KELVIN_WATT:
+  symbol=Kdeg_W
+
+WATT_KELVIN:
+  symbol=W_Kdeg
+
+JOULE_KELVIN:
+  symbol=J_Kdeg
+
+JOULE_KELVIN_SEC:
+  symbol=J_Kdeg_s
+
+kgS2_M5:
+  symbol=kgxs2_m5
+
+kg_M3_Kdeg:
+  symbol=kg_m3_Kdeg
+
+JxMxS2_kg2:
+  symbol=Jxmxs2_kg2
+
+M5_S2:
+  symbol=m5_s2
+
+JxM3_kg:
+  symbol=Jxm3_kg
+
+JxMxS2_kg:
+  symbol=Jxmxs2_kg
+
+AMPER_PER_SECOND:
+  symbol=A_s
+	
+COULOMB:
+  symbol=C
+
+AMPERSECOND:
+  symbol=Axs
+
+COULOMB_PER_M3:
+  symbol=C_m3
+
+COULOMB_PER_M2:
+  symbol=C_m2
+
+VOLT_PER_METER:
+  symbol=V_m
+
+VOLT_PER_SEC:
+  symbol=V_s
+
+FARAD:
+  symbol=F
+
+FARAD_PER_METER:
+  symbol=F_m
+
+COULOMBxMETER:
+  symbol=Cxm
+
+AMPERE_PER_METER:
+  symbol=A_m
+
+TESLA:
+  symbol=Tesla
+
+WEBER:
+  symbol=Wb
+
+WEBER_PER_METER:
+  symbol=Wb_m
+
+HENRY:
+  symbol=H
+
+HENRY_PER_METER:
+  symbol=H_m
+
+WEBERxMETER:
+  symbol=Wbxm
+
+JOULE_PER_M3:
+  symbol=J_m3
+
+OHMxMETER:
+  symbol=Ohmxm
+
+PER_HENRY:
+  symbol=_H
+
+VOLTxAMPERE:
+  symbol=VA
+	
+VOLTxAMPERReact:
+  symbol=var
+
+AMPERE_PER_SQUARE_VOLT:
+  symbol=A_V2
+
+PER_VOLT:
+  symbol=_V
+
+JOULE_PER_M4:
+  symbol=J_m4
+
+LUMINANCE_SECOND:
+  symbol=lmxs
+
+LUMINANCE_PER_SQUARE_METER:
+  symbol=lm_m2
+
+LUX_SECOND:
+  symbol=lx_time_s
+
+LUMINANCE_PER_WATT:
+  symbol=lm_W
+
+SQUARE_METER_PER_MOL:
+  symbol=m2_mol
+
+PASCAL_SECOND_PER_M3:
+  symbol=Paxs_m3
+
+PHON:
+  symbol=phon
+
+NEW_PHON:
+  symbol=db_at_1000Hz_tone
+
+SONE:
+  symbol=sone
+
+MOLECULE_UNITY:
+  symbol=
+
+CUBIC_METER_PER_MOL:
+  symbol=m3_mol
+
+JOULE_PER_MOL:
+  symbol=J_mol
+
+JOULE_PER_MOL_KELVIN:
+  symbol=J_mol_Kdeg
+
+COULOMB_SQUARE_METER_PER_VOLT:
+  symbol=Cxm2_V
+
+COULOMB_PER_MOL:
+  symbol=C_mol
+
+MOL_PER_KG:
+  symbol=mol_kg
+
+SIEMMENS_M2_PER_MOL:
+  symbol=Sxm2_mol
+
+AMPER_M2_PER_J_PER_S:
+  symbol=Axm2_J_s
+
+AMPER_SECOND_PER_KG:
+  symbol=Axs_kg
+
+BECQUEREL:
+  symbol=Bq
+
+BECQUEREL_PER_KG:
+  symbol=Bq_kg
+
+SQUARE_METER_PER_STERADIAN:
+  symbol=m2_sr
+
+SQUARE_METER_PER_JOULE:
+  symbol=m2_J
+
+SQUARE_METER_PER_STERADIAN_PER_JOULE:
+  symbol=m2_sr_J
+
+JOULE_PER_M:
+  symbol=J_m
+
+JOULE_M2:
+  symbol=Jxm2
+  
+JOULE_M2_PER_KG:
+  symbol=Jxm2_kg
+
+SQUARE_METER_PER_VOLT_PER_SECOND:
+  symbol=m2_V_s
+
+1_S1M3:
+  symbol=_s_m3
+
+GRAY:
+  symbol=Gy
+
+SIEVERT:
+  symbol=Sv
+
+GRAY_PER_SECOND:
+  symbol=Gy_s
+
+COULOMB_PER_KG:
+  symbol=C_kg
+
+COULOM_PER_KG_PER_SEC:
+  symbol=C_kg_s
+
+AMPER_PER_KG:
+  symbol=A_kg
+
+SECOND_PER_CUBIC_METER:
+  symbol=s_m3
+
+CUBIC_METER_PER_JOULE:
+  symbol=m3_J
+
+SQUARE_VOLT_PER_SQUARE_KELVIN:
+  symbol=V2_Kdeg2
+
+VOLT_PER_KELVIN:
+  symbol=V_Kdeg
+
+CUBIC_METER_PER_COULOMB:
+  symbol=m3_C
+
+AMPER_PER_M2_PER_Kdeg2:
+  symbol=A_m2_Kdeg2
+
+ELECTRONVOLT:
+  symbol=eV
+
+PER_SQR_KELVIN:
+  symbol=_Kdeg2
+  
+AMPERxM2:
+  symbol=Axm2
+
+W_mm_Kdeg:
+  symbol=W_mm_Kdeg
+  formula=1e3
+
+WATT_PER_SQUARE_MILLIMETER:  
+  symbol=W_mm2
+  formula=1e6
+  
+WATT_PER_CUBIC_MILLIMETER:  
+  symbol=W_mm3
+  formula=1e9
+  
+W_Kdeg_mm2:
+  symbol=W_Kdeg_mm2
+  formula=1e6
+
+KAMPERE_PER_METER:
+	symbol=KA_m
+	formula=1e3
+	
+OERSTED:
+  symbol=Oe
+  formula=1e3/4/Pi
+	
+AMPERE_PER_SQUARE_CENTIMETER:
+  symbol=A_cm2
+  formula=1e4	
+	
+AMPERE_PER_SQUARE_INCH:
+  symbol=A_in2
+  formula=AMPER/INCH2
+  
+KGF_M:
+	symbol=kgfxm
+  formula=KG_FORCE*METER
+	
+OUNCE_FORCE_FOOT:
+	symbol=ozfxft
+  formula=OUNCE_FORCE*FOOT
+	
+GAUSS:
+	symbol=Gs
+	formula=1e-4	
+	
+POUND_FORCE_FOOT_PER_SECOND:
+	symbol=ftxlbf_s
+  formula=POUND_FORCE_FOOT/SECOND
+
+TR__S:
+  symbol=turn_s
+  formula=turn/SECOND
+ 
+POISE:
+  symbol=Po
+  formula=0.1
+  
+CENTIPOISE:
+  symbol=cPo
+  formula=0.001
+
+METER_PER_VOLT:
+  symbol=m_V
+	
+METER_PER_SECOND_PER_VOLT:
+  symbol=m_s_V
+
+METER_PER_SQUARE_SECOND_PER_VOLT:
+  symbol=m_s2_V
+	
+VOLT_PER_METER_PER_SECOND:
+  symbol=V_mxs
+
+VOLT_PER_METER_PER_SQUARE_SECOND:
+  symbol=V_mxs2
+
+PASCAL_PER_VOLT:
+  symbol=Pa_V
+  formula=PASCAL/VOLT
+	
+VOLT_PER_PASCAL:
+  symbol=V_Pa
+  formula=VOLT/PASCAL
+
+GRAM_PER_METER:
+  symbol=g_m
+  formula=GRAM/METER
+  
+WEEK:
+  symbol=week
+  formula=7*day
+  
+PER_MINUTE:
+  symbol=_mn
+  formula=1/MINUTE
+  
+PER_HOUR:
+  symbol=_h
+  formula=1/HOUR
+
+PER_day:
+  symbol=_day
+  formula=1/day
+  
+PER_WEEK:
+  symbol=_week
+  formula=1/WEEK
+  
+PER_YEAR:
+  symbol=_a
+  formula=1/YEAR
+
+DECIHOUR:
+  symbol=dh
+  formula=1e-1*HOUR
+  
+CENTIHOUR:
+  symbol=ch
+  formula=1e-2*HOUR
+  
+MILLIHOUR:
+  symbol=mh
+  formula=1e-3*HOUR
+
+PERCENTAGE_PER_SECOND:
+  symbol=%_s
+  formula=0.01
+  
+JOULE_PER_KELVIN_PER_CUBIC_METER:
+  symbol=J_Kdeg_m3
+
+CM_PER_MINUTE:
+  symbol=cm_mn
+  formula=CM/MINUTE
+  
+MOLE_PER_LITER:
+  symbol=mol_L
+  formula=MOL/LITER
+  
+MILLIMOLE_PER_LITER:
+  symbol=mmol_L
+  formula=1e-3*MOLE_PER_LITER
+  
+MICROMOLE_PER_LITER:
+  symbol=micmol_L
+  formula=1e-6*MOLE_PER_LITER
+
+NANOMOLE_PER_LITER:
+  symbol=nmol_L
+  formula=1e-9*MOLE_PER_LITER
+
+MYRIAMETER3_PER_DAY:
+  symbol=mym3_d
+  formula=1e4*METER3/day
+
+LITER_PER_HOUR:
+  symbol=L_h
+  formula=LITER/HOUR
+
+MG_PER_LITER:
+  symbol=mg_L
+  formula=MG/LITER
+
+GRAM_PER_LITER:
+  symbol=g_L
+  formula=GRAM/LITER
+
+HECTOMETER:
+  symbol=hm
+  formula=1e2*METER
+
+KM2:
+  symbol=km2
+  formula=KM*KM
+
+HECTOMETER2:
+  symbol=hm2
+  formula=HECTOMETER*HECTOMETER
+
+kJ:
+  symbol=kJ
+  formula=1e3*JOULE
+
+TONNE_PER_day:
+  symbol=T_day
+  formula=TONNE/day
+
+TONNE_PER_METER:
+  symbol=T_m
+  formula=TONNE/METER
+
+KILONEWTON_PER_METER:
+  symbol=kN_m
+  formula=KILO_NEWTON/METER
+
+METER_PER_HOUR:
+  symbol=m_h
+  formula=METER/HOUR
+
+METER3_PER_METER2_PER_HOUR:
+  symbol=m3_m2_h
+  formula=METER3/METER2/HOUR
+
+LITER_PER_METER2_PER_SECOND:
+  symbol=L_m2_s
+  formula=LITER/METER2/SECOND
+
+SQUARE_GRAVITY:
+  symbol=g2
+  formula=GRAVITY*GRAVITY
+  
+SQUARE_INCH_PER_SECOND_TO_THE_FOURTH:
+  symbol=in2_s4
+  formula=INCH2/SQUARE_SECOND/SQUARE_SECOND
+  
+SQUARE_INCH_PER_SECOND_TO_THE_FOURTH_PER_HERTZ:
+  symbol=in2_s4_Hz
+  formula=SQUARE_INCH_PER_SECOND_TO_THE_FOURTH/HERTZ
+
+KELVIN_PER_PASCAL:
+  symbol=Kdeg_Pa
+  formula=KELVIN/PASCAL
+
+M3_K_Kdeg:
+  symbol=m3_kg_Kdeg
+
+NAUTICAL_MILE:
+  symbol=nmi
+  formula=1852
+
+KNOT:
+ symbol=kn
+ formula=NAUTICAL_MILE/HOUR
+
+PER_MEGAPA:
+  symbol=_MPa
+  formula=1/MEGAPA
+  
+PER_PSI:
+  symbol=_psi
+  formula=1/PSI
+
+MT:
+ symbol=mxT
+ formula=METER*TONNE
+
+KILOGRAM_PER_HECTOMETER:
+ symbol=kg_hm
+ formula=KILOGRAM/HECTOMETER
+
+gal_PER_HOUR:
+ symbol=gal_h
+ formula=gal/HOUR
+
+HECTOGRAM:
+ symbol=hg
+ formula=1e-1*KILOGRAM
+
+MICROMOL:
+ symbol=micmol
+ formula=1e-6*MOL
+ 
+MICROMOL_PER_HECTOGRAM:
+ symbol=micmol_hg
+ formula=MICROMOL/HECTOGRAM
+
+KILOGRAM_SQUARE_RADIAN_PER_CUBIC_METER_PER_SQUARE_SECOND:
+ symbol=kgxrad2_m3_s2
+ formula=KILOGRAM*RADIAN*RADIAN/METER/METER/METER/SECOND/SECOND
+
+GRAM_SQUARE_RADIAN_PER_CUBIC_CENTIMETER_PER_SQUARE_SECOND:
+ symbol=gxrad2_cm3_s2
+ formula=GRAM*RADIAN*RADIAN/CM/CM/CM/SECOND/SECOND
+
+SLUG_SQUARE_RADIAN_PER_CUBIC_FOOT_PER_SQUARE_SECOND:
+ symbol=slugxrad2_ft3_s2
+ formula=SLUG*RADIAN*RADIAN/FOOT/FOOT/FOOT/SECOND/SECOND
+
+KILOGRAM_RADIAN_PER_CUBIC_METER_PER_SECOND:
+ symbol=kgxrad_m3_s
+ formula=KILOGRAM*RADIAN/METER/METER/METER/SECOND
+
+GRAM_RADIAN_PER_CUBIC_CENTIMETER_PER_SECOND:
+ symbol=gxrad_cm3_s
+ formula=GRAM*RADIAN/CM/CM/CM/SECOND
+
+SLUG_RADIAN_PER_CUBIC_FOOT_PER_SECOND:
+ symbol=slugxrad_ft3_s
+ formula=SLUG*RADIAN/FOOT/FOOT/FOOT/SECOND
+
+PASCAL_PER_SQUARE_SECOND:
+ symbol=Pa_s2
+ formula=PASCAL/SECOND/SECOND
+
+KILOPASCAL_PER_SQUARE_SECOND:
+ symbol=kPa_s2
+ formula=kPa/SECOND/SECOND
+
+MEGAPASCAL_PER_SQUARE_SECOND:
+ symbol=MPa_s2
+ formula=MEGAPA/SECOND/SECOND
+
+POUND_FORCE_PER_SQUARE_INCH_PER_SQUARE_SECOND:
+ symbol=lbf_inch2_s2
+ formula=LB_FORCE/INCH2/SECOND/SECOND
+
+POUND_FORCE_PER_SQUARE_FOOT_PER_SQUARE_SECOND:
+ symbol=lbf_ft2_s2
+ formula=LB_FORCE/FOOT2/SECOND/SECOND
+
+TIME_MEASUREMENT_UNIT:
+ symbol=tmu
+ formula=1e-5*HOUR
+
+CENTIMINUTE:
+ symbol=cmn
+ formula=1e-2*MINUTE
+
+INDUSTRIAL_MINUTE:
+ symbol=im
+ formula=CENTIHOUR
+
+WORKFACTOR:
+ symbol=fac
+ formula=5*TIME_MEASUREMENT_UNIT
+ 
+MILLIMINUTE:
+ symbol=mmn
+ formula=1e-3*MINUTE
+
+WATT_PER_KILOGRAM:
+ symbol=W_kg
+ formula=WATT/KILOGRAM
+
+WATT_PER_GRAM:
+ symbol=W_g
+ formula=WATT/GRAM
+
+JOULE_PER_SQUARE_METER:
+ symbol=J_m2
+
+CUBIC_CENTIMETER_PER_MINUTE:
+  symbol=cm3_mn
+  formula=CM3/MINUTE
+
+METER_PER_KILOGRAM:
+ symbol=m_kg
+ formula=METER/KILOGRAM
+
+CUBIC_DECIMETER:
+  symbol=dm3
+  formula=1e-3
+
+KILOGRAM_PER_CUBIC_DECIMETER:
+  symbol=kg_dm3
+  formula=KILOGRAM/CUBIC_DECIMETER
+
+CENTISECOND:
+  symbol=cs
+  formula=1e-2*SECOND
+
+DECINEWTON_METER:
+  symbol=dNm
+  formula=1e-1*NEWTON*METER
+
+NEWTON_PER_SQUARE_MILLIMETER:
+  symbol=N_mm2
+  formula=NEWTON/MM/MM
+
+MEGAJOULE:
+  symbol=MJ
+  formula=1e6*JOULE
+
+PARTS_PER_MILLION:
+  symbol=ppm
+  formula=1e-6
+
+DEGREE_PER_NEWTON:
+  symbol=deg_N
+  formula=DEGREE/NEWTON
+
+DEGREE_PER_NEWTON_METER:
+  symbol=deg_N_m
+  formula=DEGREE/NEWTON/METER
+
+DECIBEL_OF_QUIETNESS:
+  symbol=dBQ
+
+GRAM_PER_DECAMINUTE:
+  symbol=g_10mn
+  formula=GRAM/10/MINUTE
+
+TON_PER_SECOND_PER_SQUARE_METER:
+  symbol=T_s_m2
+  formula=TONNE/SECOND/METER/METER
+
+POUND_PER_SECOND_PER_SQUARE_METER:
+  symbol=lb_s_m2
+  formula=POUND/SECOND/METER/METER
+
+NEWTON_OVER_CUBIC_METER_PER_SECOND:
+  symbol=Nxs_m3
+  formula=NEWTON*SECOND/METER/METER/METER
+
+POUND_FORCE_OVER_CUBIC_FOOT_PER_SECOND:
+  symbol=lbfxs_ft3
+  formula=LB_FORCE*SECOND/FOOT/FOOT/FOOT
+
+POUND_FORCE_OVER_CUBIC_INCH_PER_SECOND:
+  symbol=lbfxs_in3
+  formula=LB_FORCE*SECOND/INCH/INCH/INCH
+
+DYNE_OVER_CUBIC_CENTIMETER_PER_SECOND:
+  symbol=dynxs_cm3
+  formula=Dyne*SECOND/CM/CM/CM
+
+MICRONEWTON_OVER_CUBIC_MILLIMETER_PER_SECOND:
+  symbol=micNxs_mm3
+  formula=MICRO_NEWTON*SECOND/MM/MM/MM
+
+NEWTON_OVER_CUBIC_MILLIMETER_PER_SECOND:
+  symbol=Nxs_mm3
+  formula=NEWTON*SECOND/MM/MM/MM
+
+DECIMETER:
+  symbol=dm
+  formula=1e-1
+
+PER_DECIMETER:
+  symbol=_dm
+  formula=1/DECIMETER
+
+STOKE:
+  symbol=St
+  formula=1e-4*METER*METER/SECOND
+
+CENTISTOKE:
+  symbol=cSt
+  formula=1e-6*METER*METER/SECOND
+
+GRAM_PER_GRAM:
+  symbol=g_g
+
+GRAM_PER_HECTOGRAM:
+  symbol=g_hg
+  formula=1e-2*GRAM_PER_GRAM
+
+GRAM_PER_KILOGRAM:
+  symbol=g_kg
+  formula=1e-3*GRAM_PER_GRAM
+
+MILLIGRAM_PER_GRAM:
+  symbol=mg_g
+  formula=1e-3*GRAM_PER_GRAM
+
+SQUARE_METER_PER_GRAM:
+  symbol=m2_g
+  formula=METER*METER/GRAM
+
+GRAM_PER_MILLILITER:
+  symbol=g_mL
+  formula=1e3*GRAM/LITER
+
+CENTINEWTON:
+  symbol=cN
+  formula=1e-2*NEWTON
+
+GRAMFORCE:
+  symbol=gf
+  formula=1e-3*KG_FORCE
+
+CENTIMILLIMETER:
+  symbol=cmm
+  formula=1e-5*METER
+
+THOUSANDTH_OF_AN_INCH:
+  symbol=mil
+  formula=1e-3*INCH
+
+TEX:
+  symbol=tex
+  formula=GRAM/KM
+
+KILOGRAM_PER_MINUTE:
+  symbol=kg_min
+  formula=KILOGRAM/MINUTE
+
+DECANEWTON_PER_SQUARE_CENTIMETER:
+  symbol=daN_cm2
+  formula=DECA_NEWTON/CM/CM
+
+MILLIBARG:
+  symbol=mbarg
+  formula=1e-3*barg
+  offset=-1013.2
+
+PSI_GAUGE:
+  symbol=psig
+  formula=PSI
+  offset=-14.7
+
+DECILITER_PER_GRAM:
+  symbol=dL_g
+  formula=1e-1*LITER/GRAM
+
+MILLILITER_PER_HECTOGRAM:
+  symbol=mL_hg
+  formula=1e-5*LITER/GRAM
+
+YARD_PER_MINUTE:
+  symbol=yard_min
+  formula=YARD/MINUTE
+
+GRAM_PER_SQUARE_METER:
+  symbol=g_m2
+  formula=GRAM/METER/METER
+
+POUND_PER_SQUARE_YARD:
+  symbol=lb_yard2
+  formula=POUND/YARD/YARD
+
+DECISECOND:
+  symbol=ds
+  formula=1e-1*SECOND
+
+TURN_PER_METER:
+  symbol=turn_m
+  formula=turn/METER
+
+ACTUAL_CUBIC_FEET_PER_HOUR:
+  symbol=acfh
+  formula=FOOT*FOOT*FOOT/HOUR
+
+ACTUAL_CUBIC_FEET_PER_MINUTE:
+  symbol=acfm
+  formula=FOOT*FOOT*FOOT/MINUTE
+
+NORMAL_CUBIC_METER_PER_HOUR:
+  symbol=Nm3_h
+  formula=METER*METER*METER/HOUR
+
+NORMAL_LITER_PER_HOUR:
+  symbol=NL_h
+  formula=LITER/HOUR
+
+STANDARD_CUBIC_FEET_PER_MINUTE:
+  symbol=scfm
+  formula=FOOT*FOOT*FOOT/MINUTE
+
+DECA_NEWTON_OVER_CENTIMETER:
+  symbol=daN_cm
+  formula=DECA_NEWTON/CM
+
+METER_PER_METER:
+  symbol=m_m
+
+NEWTON_CENTIMETER:
+  symbol=Nxcm
+  formula=NEWTON*CM
+
+LITER_PER_MINUTE:
+  symbol=L_min
+  formula=LITER/MINUTE
+
+KILOGRAM_PER_METER_PER_SQUARE_SECOND:
+  symbol=kg_m_s2
+  formula=KILOGRAM/METER/SECOND/SECOND
+
+VICKERS:
+  symbol=HV
+  formula=KGF__MM2
+

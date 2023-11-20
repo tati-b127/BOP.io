@@ -1,0 +1,31 @@
+NAVIGATE 
+  T0.physicalid, T0.logicalid, T0.majorid, T0.type, 
+  T0.name, 
+  T1.physicalid, T1.logicalid, T1.majorid, T1.type, 
+  T1.name, 
+  T2.physicalid, T2.logicalid, T2.majorid, T2.type, 
+  T2.name, 
+  T4.physicalid, T4.logicalid, T4.majorid, T4.type, 
+  T4.name, 
+  T5.physicalid, T5.logicalid, T5.majorid, T5.type, 
+  T5.name
+FROM
+  Class/Requirement T0, 
+  Class/Comment T1, 
+  "Class/Requirement Specification" T2, 
+  "Class/Requirement Group" T4, 
+  Class/Chapter T5
+FROM_ROOTS 
+  [?1?]
+ ON  ( 
+ (RELATION(FROM=DELFmiFunctionalModel/DELFmiFunctionReference TO=PLMRequirementGlobalSpecifyHowToCnx/PLMReqGlobalSpecifyHowToCnx THROUGH=POINTEDBY) WITH QUALITY_FILTER  ( CATEGORY=Reference5 AND ROLE=PLM_SpecifiedByReq) ) 
+ OR 
+ (RELATION(FROM=DELLmiProductionSystem/DELLmiProductionSystemReference TO=PLMRequirementGlobalSpecifyHowToCnx/PLMReqGlobalSpecifyHowToCnx THROUGH=POINTEDBY) WITH QUALITY_FILTER  ( CATEGORY=Reference5 AND ROLE=PLM_SpecifiedByReq) )
+ OR  
+(RELATION(FROM=DELLmiProductionOperation/DELLmiOperationReference TO=PLMRequirementGlobalSpecifyHowToCnx/PLMReqGlobalSpecifyHowToCnx THROUGH=POINTEDBY) WITH QUALITY_FILTER  ( CATEGORY=Reference5 AND ROLE=PLM_SpecifiedByReq) ) 
+) 
+   THEN 
+   ( 
+   (RELATION(FROM=PLMRequirementGlobalSpecifyHowToCnx/PLMReqGlobalSpecifyHowToCnx TO=Class/Requirement,"Class/Requirement Specification","Class/Requirement Group",Class/Chapter,Class/Comment THROUGH=POINTSTO) WITH QUALITY_FILTER  ( CATEGORY=Reference3 AND ROLE=PLM_SpecifyingReq) ) 
+   ) 
+ITER=1 ;  

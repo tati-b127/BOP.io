@@ -1,0 +1,164 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2017, All rights reserved -->
+
+<Package CustomerExposition = "Programmer" ModelerType = "Top" Name = "GeologyElementIfc" UseNames = "GeologyElement" Uuid = "F2575F36-BD4E-4DF8-84A9-9DB0121068A7" xmlns = "PLMDictionaryUnified">
+  <Extension CustomerExposition = "Programmer" Name = "IfcRockSoilMass" ScopeNames = "RockSoilMass" Uuid = "8A7D26BC-3E3C-4137-AB99-FF354F6ABD0C">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcRockSoilMass_ObjectType" Protection = "Free" Type = "String" Uuid = "A89107D8-321C-4889-A039-473AD640B60D"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcRockSoilMass_Tag" Protection = "Free" Type = "String" Uuid = "23D38DA6-EBC3-41CB-A454-851F42A2B58A"/>
+    <Simple CAAExposition = "L0" DefaultValue = "NOTDEFINED" Faceted = "Yes" Name = "IfcRockSoilMass_PredefinedType" Protection = "Free" Type = "String" Uuid = "F28684D6-7899-44CA-8A2F-509A9029CBE2">
+      <Range>
+        <Equal>SOILAGGREGATE</Equal>
+        <Equal>SANDYSOIL</Equal>
+        <Equal>MUDDYSOIL</Equal>
+        <Equal>CLAYEDSOIL</Equal>
+        <Equal>ROCK</Equal>
+        <Equal>USERDEFINED</Equal>
+        <Equal>NOTDEFINED</Equal>
+      </Range>
+      <Property Name = "Quadrant" Value = "What"/>
+      <Property Name = "SIXW" Value = "ds6w:predefinedType"/>
+    </Simple>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcRockSoilMassType" ScopeNames = "RockSoilMassType" Uuid = "2989335B-8F05-4680-AA25-0B01229A208A">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcRockSoilMassType_Tag" Protection = "Free" Type = "String" Uuid = "3FBDF87F-7BAC-4331-9CAA-9BE6A017CBAF"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcRockSoilMassType_ElementType" Protection = "Free" Type = "String" Uuid = "1D66ABFC-7F03-462D-B72B-724D5510B4EC"/>
+    <Simple CAAExposition = "L0" DefaultValue = "NOTDEFINED" Faceted = "Yes" Name = "IfcRockSoilMassType_PredefinedType" Protection = "Free" Type = "String" Uuid = "E80A5E38-8685-4F79-86C1-A1668A80CAC4">
+      <Range>
+        <Equal>SOILAGGREGATE</Equal>
+        <Equal>SANDYSOIL</Equal>
+        <Equal>MUDDYSOIL</Equal>
+        <Equal>CLAYEDSOIL</Equal>
+        <Equal>ROCK</Equal>
+        <Equal>USERDEFINED</Equal>
+        <Equal>NOTDEFINED</Equal>
+      </Range>
+      <Property Name = "Quadrant" Value = "What"/>
+      <Property Name = "SIXW" Value = "ds6w:predefinedType"/>
+    </Simple>
+  </Extension>
+  <Extension CustomerExposition="Programmer" Name="IfcPset_RockSoilMassCommon" ScopeNames="RockSoilMass RockSoilMassType" Uuid="B3B77EE7-895B-477D-99F4-C739444FD84E">
+    <Property Name="KweNew_InstanciationMethod" Value="CATAECDelegateExtension" />
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_RockSoilMassCommon_GeotechnicalName" Protection = "Free" Type = "String" Uuid = "6B2B0C6F-2DC4-482B-849D-9AC7446DB603"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_RockSoilMassCommon_AgeAndGenesis" Protection = "Free" Type = "String" Uuid = "9C2281E6-C489-49A7-85C8-CEB48CCDFA8C"/>
+  </Extension>
+  <Extension CustomerExposition="Programmer" Name="IfcPset_RockSoilMassProperty" ScopeNames="RockSoilMass RockSoilMassType" Uuid="5DA85C90-1DEE-45F8-B960-C93691CB5957">
+    <Property Name="KweNew_InstanciationMethod" Value="CATAECDelegateExtension" />
+    <Simple CAAExposition = "L0" DefaultValue = "NOTDEFINED" Name = "IfcPset_RockSoilMassProperty_Weathering" Protection = "Free" Type = "String" Uuid = "3EA7F976-DDF0-432B-A062-5F7BE9A39D43">
+     <Range>
+        <Equal>FRESH</Equal>
+        <Equal>SLIGHTLYWEATHERED</Equal>
+        <Equal>MODERATELYWEATHERED</Equal>
+        <Equal>HIGHLYWEATHERED</Equal>
+        <Equal>COMPLETELYWEATHERED</Equal>
+        <Equal>RESIDUALSOIL</Equal>
+        <Equal>USERDEFINED</Equal>
+        <Equal>NOTDEFINED</Equal>
+      </Range>
+    </Simple>
+    <Simple CAAExposition = "L0" DefaultValue = "NOTDEFINED" Name = "IfcPset_RockSoilMassProperty_Density" Protection = "Free" Type = "String" Uuid = "B4209652-D12A-4BF5-A2E1-027D2320591F">
+      <Range>
+        <Equal>VERYLOOSE</Equal>
+        <Equal>LOOSE</Equal>
+        <Equal>MEDIUMDENSE</Equal>
+        <Equal>DENSE</Equal>
+        <Equal>VERYDENSE</Equal>
+        <Equal>USERDEFINED</Equal>
+        <Equal>NOTDEFINED</Equal>
+      </Range>
+    </Simple>
+    <Simple CAAExposition = "L0" DefaultValue = "NOTDEFINED" Name = "IfcPset_RockSoilMassProperty_Consistency" Protection = "Free" Type = "String" Uuid = "784595AB-C583-4AC2-9CAD-1199ED81235B">
+      <Range>
+        <Equal>VERYSOFT</Equal>
+        <Equal>SOFT</Equal>
+        <Equal>FIRM</Equal>
+        <Equal>STIFF</Equal>
+        <Equal>VERYSTIFF</Equal>
+        <Equal>HARD</Equal>
+        <Equal>USERDEFINED</Equal>
+        <Equal>NOTDEFINED</Equal>
+      </Range>
+    </Simple>
+    <Simple CAAExposition = "L0" DefaultValue = "NOTDEFINED" Name = "IfcPset_RockSoilMassProperty_PlasticState" Protection = "Free" Type = "String" Uuid = "092FF6BC-0AA9-4E02-ABA6-34C3569E539D">
+      <Range>
+        <Equal>NONPLASTIC</Equal>
+        <Equal>LOW</Equal>
+        <Equal>MEDIUM</Equal>
+        <Equal>HIGH</Equal>
+        <Equal>USERDEFINED</Equal>
+        <Equal>NOTDEFINED</Equal>
+      </Range>
+    </Simple>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_RockSoilMassProperty_RockType" Protection = "Free" Type = "String" Uuid = "3DBA6BE4-B2BF-4FBF-AE78-3CF39B19228F"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_RockSoilMassProperty_Colour" Protection = "Free" Type = "String" Uuid = "16A4C956-174E-49AE-84B1-5F5F14C9E8D9"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcPset_RockQualityDesignation" ScopeNames = "RockSoilMass RockSoilMassType" Uuid = "FC692DB0-3FDA-416E-8F4D-B2AAA2B724E8">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" DefaultValue = "NOTDEFINED" Name = "IfcPset_RockQualityDesignation_RQDClassif" Protection = "Free" Type = "String" Uuid = "1EB688B9-DFA4-4832-8D86-D0795E33001C">
+      <Range>
+        <Equal>VERYPOOR</Equal>
+        <Equal>POOR</Equal>
+        <Equal>FAIR</Equal>
+        <Equal>GOOD</Equal>
+        <Equal>EXCELLENT</Equal>
+        <Equal>USERDEFINED</Equal>
+        <Equal>NOTDEFINED</Equal>
+      </Range>
+    </Simple>
+    <Simple CAAExposition = "L0" Magnitude="Ratio" Name = "IfcPset_RockQualityDesignation_RQDIndex" Protection = "Free" Type = "Double" Uuid = "56D10EC5-998B-4D46-8A1E-B1C56C2B049D"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcPset_RockMassRatingSystem" ScopeNames = "RockSoilMass RockSoilMassType" Uuid = "98581D92-63CF-4756-9834-FCB41091EFE0">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" DefaultValue = "NOTDEFINED" Name = "IfcPset_RockMassRatingSystem_RMRClassif" Protection = "Free" Type = "String" Uuid = "7F197F89-9BBB-4017-9AF4-26757253F855">
+      <Range>
+        <Equal>VERYPOOR</Equal>
+        <Equal>POOR</Equal>
+        <Equal>FAIR</Equal>
+        <Equal>GOOD</Equal>
+        <Equal>VERYGOOD</Equal>
+        <Equal>USERDEFINED</Equal>
+        <Equal>NOTDEFINED</Equal>
+      </Range>
+    </Simple>
+    <Simple CAAExposition = "L0" Magnitude="Ratio" Name = "IfcPset_RockMassRatingSystem_RMRIndex" Protection = "Free" Type = "Double" Uuid = "CFDBF667-F8D0-4115-905C-F4CB292C00EE"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcPset_RockTunnellingQuality" ScopeNames = "RockSoilMass RockSoilMassType" Uuid = "6BF13D03-46AB-4D0A-A3AB-279101E1038C">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" Magnitude="Ratio" Name = "IfcPset_RockTunnellingQuality_QIndex" Protection = "Free" Type = "Double" Uuid = "E89C325D-2FCE-47B1-95F7-4DC9896E0ECC"/>
+  </Extension>
+  <Extension CustomerExposition="Programmer" Name="IfcPset_EarthMaterial_Physical" ScopeNames="GeologyElement GeologyElementType" Uuid="2A4D2D83-7AAC-4F19-8933-18943F51DB0D">
+    <Property Name="KweNew_InstanciationMethod" Value="CATAECDelegateExtension" />
+    <Simple CAAExposition = "L0" Magnitude="Ratio" Name = "IfcPset_EarthMaterial_WaterContent" Protection = "Free" Type = "Double" Uuid = "F45E2BC3-1EE6-40E0-A2A6-B660B4321475"/>
+    <Simple CAAExposition = "L0" Magnitude="DENSITY" Name = "IfcPset_EarthMaterial_BulkDensity" Protection = "Free" Type = "Double" Uuid = "233254DF-1ED3-49DB-A95D-581136DD2389"/>
+    <Simple CAAExposition = "L0" Magnitude="DENSITY" Name = "IfcPset_EarthMaterial_DryDensity" Protection = "Free" Type = "Double" Uuid = "7528DFE7-F25A-4B6F-ACEF-033CE4BA43AA"/>
+    <Simple CAAExposition = "L0" Magnitude="DENSITY" Name = "IfcPset_EarthMaterial_SaturatedDensity" Protection = "Free" Type = "Double" Uuid = "CE3D19A3-4877-4997-A29D-9BD93E9764D5"/>
+    <Simple CAAExposition = "L0" Magnitude="Ratio" Name = "IfcPset_EarthMaterial_VoidRatio" Protection = "Free" Type = "Double" Uuid = "A8AA2F4A-8A1D-409D-9961-4F3904251CCF"/>
+    <Simple CAAExposition = "L0" Magnitude="Ratio" Name = "IfcPset_EarthMaterial_Saturation" Protection = "Free" Type = "Double" Uuid = "4E8D5853-1B6D-4886-88E3-1867F56C0960"/>
+    <Simple CAAExposition = "L0" Magnitude="SPEED" Name = "IfcPset_EarthMaterial_Permeability" Protection = "Free" Type = "Double" Uuid = "6362AF2D-7DCE-49AD-B9D4-05B67FB00F7E"/>
+  </Extension>
+  <Extension CustomerExposition="Programmer" Name="IfcPset_EarthMaterial_Consistency" ScopeNames="GeologyElement GeologyElementType" Uuid="AFA6D193-78E1-4BFC-8524-58055165AD40">
+    <Property Name="KweNew_InstanciationMethod" Value="CATAECDelegateExtension" />
+    <Simple CAAExposition = "L0" Magnitude="Ratio" Name = "IfcPset_EarthMaterial_LiqBoundary" Protection = "Free" Type = "Double" Uuid = "892C1427-B342-4865-9141-14C10FBEAEE4"/>
+    <Simple CAAExposition = "L0" Magnitude="Ratio" Name = "IfcPset_EarthMaterial_PlaBoundary" Protection = "Free" Type = "Double" Uuid = "46D29B18-21E4-40C6-9D88-FE238D1C6B18"/>
+    <Simple CAAExposition = "L0" Magnitude="Ratio" Name = "IfcPset_EarthMaterial_LiqIndex" Protection = "Free" Type = "Double" Uuid = "DC2842E8-5B8B-4BF0-81C0-8CD8F0FF4444"/>
+    <Simple CAAExposition = "L0" Magnitude="Ratio" Name = "IfcPset_EarthMaterial_PlaIndex" Protection = "Free" Type = "Double" Uuid = "683E3616-A6BF-42EC-A5A9-8C6A8511FF31"/>
+  </Extension>
+  <Extension CustomerExposition="Programmer" Name="IfcPset_EarthMaterial_Elastic" ScopeNames="GeologyElement GeologyElementType" Uuid="1D90C034-7B91-4079-8CB0-A9549EE76F97">
+    <Property Name="KweNew_InstanciationMethod" Value="CATAECDelegateExtension" />
+    <Simple CAAExposition = "L0" Magnitude="Ratio" Name = "IfcPset_EarthMaterial_PoissonRatio" Protection = "Free" Type = "Double" Uuid = "4C3A48ED-73D5-43D7-9433-390DAFC5A407"/>
+    <Simple CAAExposition = "L0" Magnitude="PRESSURE" Name = "IfcPset_EarthMaterial_ElasticityModulus" Protection = "Free" Type = "Double" Uuid = "42474C3C-17C7-4693-9069-1165E2A2CEB6"/>
+    <Simple CAAExposition = "L0" Magnitude="PRESSURE" Name = "IfcPset_EarthMaterial_ShearModulus" Protection = "Free" Type = "Double" Uuid = "8D80D618-617E-48F7-989C-FBB7C5FB2609"/>
+  </Extension>
+  <Extension CustomerExposition="Programmer" Name="IfcPset_EarthMaterial_Strength" ScopeNames="GeologyElement GeologyElementType" Uuid="91CC313D-26FE-4F54-8197-2C93ECAE64A4">
+    <Property Name="KweNew_InstanciationMethod" Value="CATAECDelegateExtension" />
+    <Simple CAAExposition = "L0" Magnitude="PRESSURE" Name = "IfcPset_EarthMaterial_UndrainedShearStrength" Protection = "Free" Type = "Double" Uuid = "52C3A2D5-7298-44FD-A87D-A8A2B02FA89F"/>
+    <Simple CAAExposition = "L0" Magnitude="PRESSURE" Name = "IfcPset_EarthMaterial_MaxUndrainedShearStrength" Protection = "Free" Type = "Double" Uuid = "2ED48C48-987A-46C5-AE0A-8F07020623A0"/>
+    <Simple CAAExposition = "L0" Magnitude="PRESSURE" Name = "IfcPset_EarthMaterial_TensileStrength" Protection = "Free" Type = "Double" Uuid = "AD646E8C-12CE-4E76-AB99-EA9C78E2266B"/>
+    <Simple CAAExposition = "L0" Magnitude="PRESSURE" Name = "IfcPset_EarthMaterial_MaxTensileStrength" Protection = "Free" Type = "Double" Uuid = "011F2DE2-BCB9-42E7-8920-534AA45CC8A6"/>
+    <Simple CAAExposition = "L0" Magnitude="PRESSURE" Name = "IfcPset_EarthMaterial_CompressiveStrength" Protection = "Free" Type = "Double" Uuid = "772ED246-20D1-4015-8D3C-C986B174D687"/>
+    <Simple CAAExposition = "L0" Magnitude="PRESSURE" Name = "IfcPset_EarthMaterial_MaxCompressiveStrength" Protection = "Free" Type = "Double" Uuid = "FA89C8C4-0233-42D6-A191-C597885E205E"/>
+    <Simple CAAExposition = "L0" Magnitude="ANGLE" Name = "IfcPset_EarthMaterial_InterFricAngle" Protection = "Free" Type = "Double" Uuid = "9866C897-378F-4F1C-BDA9-B98252F52687"/>
+    <Simple CAAExposition = "L0" Magnitude="PRESSURE" Name = "IfcPset_EarthMaterial_Cohesion" Protection = "Free" Type = "Double" Uuid = "FAF8CF02-431E-465B-89EB-46ACE2B4868B"/>
+  </Extension>
+</Package>

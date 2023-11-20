@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2012, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified"
+         ModelerType="Top"
+         Name="DELProcessModelDisciplines"
+         Uuid="A05F588D-2DAE-4063-A593-ED8F6CA482FB"
+         BelongsToModeler="DELFmiFunctionalModel"
+         UseNames="DELFmiFunctionalModelPrerequisitePort PLMGroupOfInstancesModel"
+         CustomerExposition="Programmer">
+
+	<CAAComment>
+		<ShortRole>DELProcessModelDisciplines Package</ShortRole>
+		<Role>This package describes Process Planning Modeler Disciplines</Role>
+	</CAAComment>
+
+	<!-- Discipline for Process Prerequisite Port -->
+	<Class Name="ComputedDROutput"
+		   Uuid="0FFEDA04-8A03-4732-92E3-7B21870C11A9"
+		   Abstract="No"
+		   Discipline="Yes"
+		   SuperName="DELFmiProcessPrerequisitePort"
+		   Specializable="No"
+		   CustomerExtensible="No"
+		   CustomerExposition="Programmer">
+
+		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+	</Class>
+
+	<Class Name="WhatDROutput"
+		   Uuid="01E49A01-5011-40c5-A8FF-D1032D504668"
+		   Abstract="No"
+		   Discipline="Yes"
+		   SuperName="DELFmiProcessPrerequisitePort"
+		   Specializable="No"
+		   CustomerExtensible="No"
+		   CustomerExposition="Programmer">
+
+		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+	</Class>
+  
+  <!-- Applicative Discipline for process group -->
+  <Class Name="GroupOfProcessInstance"
+			 Uuid="4DA7FA50-813E-4a62-8711-534A8485EE9A"
+		   Abstract="No"
+		   Discipline="Yes"
+			 SuperName="PLMGroupOfInstances"
+			 CustomerExposition="Programmer"
+		   Specializable="No"
+		   CustomerExtensible="No"
+       Abbreviation="gpp"
+          >
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+</Package>

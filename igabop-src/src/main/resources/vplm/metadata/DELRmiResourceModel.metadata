@@ -1,0 +1,2422 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2004, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified"
+         BelongsToModeler="DELRmiResourceModel"
+         ModelerType="Top"
+         Name="DELRmiResourceModel"
+         Uuid="ef8807e8-d1bf-44dd-80a9db16dec9d0ab"
+         UseNames="PRODUCTCFG CATMCXAssembly RFLVPMLogical DELRmiResourceModelProdSysImplCnx DELRmiResourceModelImplCnx"
+         UseProcedures="ENORme_Procedures;ENOVpe_Procedures"
+         CustomerExposition="Programmer">
+  <CAAComment>
+    <ShortRole>Resource Modeler Package</ShortRole>
+    <Role>This package includes all the base entities of the Resource Modeler</Role>
+  </CAAComment>
+  <Comment>Resource Modeler Message Catalog</Comment>
+
+
+
+  <!-- * Extension Resource * -->
+  <!-- ************************************************** -->
+  <Extension Name="Resource"
+             Uuid="C2B593F0-9312-4329-9301-78DAC5E5858C"
+             ScopeNames="VPMReference"
+             Discipline="Yes"
+             Abstract="Yes"
+		         Specializable="No"
+             CAAExposition="L0"
+             CustomerExposition="Programmer">
+
+    <CAAComment>
+      <ShortRole>Main Resource Typing Extension</ShortRole>
+      <Role>This extension defines main Resource characteristics</Role>
+    </CAAComment>
+
+    <Property Name="IconName" Value="I_DELRMOrganizationalSystem"/>
+    <Property Name="3DIconName" Value="I_DELRMOrganizationalSystem.cgr"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="Newable" Value="No"/>
+    <Property Name="MergedExtensionType" Value="PLMDELResTyping"/>
+    <Property Name="OccurrenceType" Value="ResourceOccurrence"/>
+
+    <Simple Name="V_SubType"
+            Uuid="230A734C-BB46-4035-81DF-8823A1419641"
+            Type="String"
+            MaxLength="30"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"
+            Faceted="Yes">
+      <Property Name = "SIXW" Value = "ds6w:kind"/>
+      <CAAComment>
+        <ShortRole>Model Identifier of the resource. This attribute is a free one, it must be considered as a comment.</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_Manufacturer"
+            Uuid="7EB06018-653E-4f19-AF9D-CCFED21470CE"
+            Type="String"
+            MaxLength="50"
+            MultiValuated="No"
+            Protection="Free"
+            Faceted="Yes"
+            CAAExposition="L0">
+      <Property Name = "SIXW" Value = "ds6w:manufacturer"/>
+      <CAAComment>
+        <ShortRole>Manufacturer description of a resource. This attribute is a free one, it must be considered as a comment.</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_Category"
+            Uuid="DEFC4A73-EF3D-44ef-B37F-12FFCD2422ED"
+            Type="String"
+            MaxLength="50"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"
+            Faceted="Yes">
+      <Property Name = "SIXW" Value = "ds6w:kind"/>
+      <CAAComment>
+        <ShortRole>Category description of a resource. This attribute is a free one, it must be considered as a comment.</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_MTBF"
+            Uuid="394E0E53-17BA-4069-988C-EC06EA9958AF"
+            Type="Double"
+            MultiValuated="No"
+            Magnitude="TIME"
+            Protection="Free"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Mean Time Between Failures of a resource</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_MTTR"
+            Uuid="C815B0CF-B1DC-4771-8523-EC0020DC7368"
+            Type="Double"
+            MultiValuated="No"
+            Magnitude="TIME"
+            Protection="Free"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Mean Time To Repair of a resource</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_PurchaseCost"
+            Uuid="C1AF9E46-78A2-4cd9-B66C-6AFCB59B2CDE"
+            Type="Double"
+            MultiValuated="No"
+            Protection="Free"
+            Faceted="Yes"
+            CAAExposition="L0">
+      <Property Name = "SIXW" Value = "ds6w:purchaseCost"/>
+      <CAAComment>
+        <ShortRole>Purchase Cost of a resource</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_RepairCost"
+            Uuid="2DE47CA0-A5F3-4c75-8640-48ED1A92697B"
+            Type="Double"
+            MultiValuated="No"
+            Protection="Free"
+            Faceted="Yes"
+            CAAExposition="L0">
+      <Property Name = "SIXW" Value = "ds6w:repairCost"/>
+      <CAAComment>
+        <ShortRole>Repair Cost of a resource</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_MaintenanceCost"
+            Uuid="8F32C561-D414-4a31-B7DE-C0E19A897C3A"
+            Type="Double"
+            MultiValuated="No"
+            Protection="Free"
+            Faceted="Yes"
+            CAAExposition="L0">
+      <Property Name = "SIXW" Value = "ds6w:maintenanceCost"/>
+      <CAAComment>
+        <ShortRole>Maintenance Cost of a resource</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_EnergyCost"
+            Uuid="9E66E95B-4DED-4de2-B42E-FF2FA342969B"
+            Type="Double"
+            MultiValuated="No"
+            Protection="Free"
+            Faceted="Yes"
+            CAAExposition="L0">
+      <Property Name = "SIXW" Value = "ds6w:energyCost"/>
+      <CAAComment>
+        <ShortRole>Energy Cost of a resource</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_ConsumableCost"
+            Uuid="D2BC5645-2C8F-4650-9AFF-D8F9CA117F29"
+            Type="Double"
+            MultiValuated="No"
+            Protection="Free"
+            Faceted="Yes"
+            CAAExposition="L0">
+      <Property Name = "SIXW" Value = "ds6w:consumableCost"/>
+      <CAAComment>
+        <ShortRole>Consumable Cost of a resource</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_CycleTime"
+            Uuid="614F354D-39AF-4fd5-8C63-F913269F4CD5"
+            Type="Double"
+            MultiValuated="No"
+            Magnitude="TIME"
+            Protection="Free"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Cycle Time of a resource</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_CalculatedCycleTime"
+            Uuid="E93D6F9F-ADF8-4f9a-9297-58F5D744859C"
+            Type="Double"
+            MultiValuated="No"
+            Magnitude="TIME"
+            Protection="Free"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Calculated Cycle Time of a resource</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_TargetedCycleTime"
+            Uuid="E06053B2-F46A-4633-A517-F756DE54B070"
+            Type="Double"
+            MultiValuated="No"
+            Magnitude="TIME"
+            Protection="Free"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Targeted Cycle Time of a resource</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_SetUpTime"
+            Uuid="96299158-2FF5-4b1d-BB8A-757076C14C39"
+            Type="Double"
+            MultiValuated="No"
+            Magnitude="TIME"
+            Protection="Free"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>SetUp Time of a resource</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_SetUpTimeReduced"
+            Uuid="C534A2BB-F9C5-44b1-8DB4-2F9D0F6DC317"
+            Type="Double"
+            MultiValuated="No"
+            Magnitude="TIME"
+            Protection="Free"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>SetUp Time Reduced of a resource</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_TargetCost"
+            Uuid="7E4629D6-9D2D-4233-B02F-B9B22F68257C"
+            Type="Double"
+            MultiValuated="No"
+            Protection="Free"
+            Faceted="Yes"
+            CAAExposition="L0">
+      <Property Name = "SIXW" Value = "ds6w:targetedCost"/>
+      <CAAComment>
+        <ShortRole>Target Cost of a resource</ShortRole>
+      </CAAComment>
+    </Simple>
+
+  </Extension>
+
+
+  <Extension Name="ToolDevice"
+             Uuid="f013f4d2-cea0-43d9-891e-7c73fce85be0"
+             Abstract="No"
+             Discipline="Yes"
+             SuperName="Resource"
+             CAAExposition="L0"
+             Specializable="Yes"
+             CustomerExposition="Programmer">
+
+    <Property Name="XPGApplyDisciplineOnInstance" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELPLMRmKWDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="VPMInstance"/>
+    <Property Name="IconName" Value="I_DELRMToolDeviceSystem"/>
+    <Property Name="3DIconName" Value="I_DELRMToolDeviceSystem.cgr"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="Newable" Value="All_Offline_CAA"/>
+    <Property Name="Abbreviation" Value="nct"/>
+
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Design"/>
+        <UsedProcedure href="ENORme_Procedures.proc#PhysicalResource_GetOneLevelEntitiesForDesign"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Channel"/>
+        <UsedProcedure href="ENORme_Procedures.proc#PhysicalResource_GetOneLevelEntitiesForChannel"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Review"/>
+        <UsedProcedure href="ENORme_Procedures.proc#PhysicalResource_GetOneLevelEntitiesForReview"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Remove"/>
+        <UsedProcedure href="ENOVpe_Procedures.proc#VPMEditor_Detach_VPMReferenceVPMRepReference"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#TransferSiteOwnership"/>
+        <UsedProcedure href="ENORme_Procedures.proc#Resource_TSO_References"/>
+      </ProcedureForUsage>
+    </Method>
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExchangeScope.meth#XPDM"/>
+        <UsedProcedure href="ENORme_Procedures.proc#PhysicalResource_ExchangeXPDM_GetAllEntities"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExchangeScope.meth#XPDM2"/>
+        <UsedProcedure href="ENOVpe_Procedures.proc#VPMEditor_XPDM2_VPMReferenceCompletion"/>
+      </ProcedureForUsage>
+    </Method>
+  </Extension>
+
+  <Extension Name="NCMachine"
+             Uuid="9b1fa750-3f1f-4ed8-b4b4-168bcb95e459"
+             Abstract="No"
+             Discipline="Yes"
+             SuperName="Resource"
+             CAAExposition="L0"
+             Specializable="Yes"
+             CustomerExposition="Programmer">
+
+    <Property Name="XPGApplyDisciplineOnInstance" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELPLMRmKWDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="VPMInstance"/>
+    <Property Name="IconName" Value="I_DELRMNCMachineSystem"/>
+    <Property Name="3DIconName" Value="I_DELRMNCMachineSystem.cgr"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="Newable" Value="All_Offline_CAA"/>
+    <Property Name="Abbreviation" Value="ncm"/>
+
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Design"/>
+        <UsedProcedure href="ENORme_Procedures.proc#PhysicalResource_GetOneLevelEntitiesForDesign"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Channel"/>
+        <UsedProcedure href="ENORme_Procedures.proc#PhysicalResource_GetOneLevelEntitiesForChannel"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Review"/>
+        <UsedProcedure href="ENORme_Procedures.proc#PhysicalResource_GetOneLevelEntitiesForReview"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Remove"/>
+        <UsedProcedure href="ENOVpe_Procedures.proc#VPMEditor_Detach_VPMReferenceVPMRepReference"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#TransferSiteOwnership"/>
+        <UsedProcedure href="ENORme_Procedures.proc#Resource_TSO_References"/>
+      </ProcedureForUsage>
+    </Method>
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExchangeScope.meth#XPDM"/>
+        <UsedProcedure href="ENORme_Procedures.proc#PhysicalResource_ExchangeXPDM_GetAllEntities"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExchangeScope.meth#XPDM2"/>
+        <UsedProcedure href="ENOVpe_Procedures.proc#VPMEditor_XPDM2_VPMReferenceCompletion"/>
+      </ProcedureForUsage>
+    </Method>
+  </Extension>
+
+  <Extension Name="Transport"
+             Uuid="1bc26934-0830-4410-a7c8-bfa09b1eee0f"
+             Abstract="No"
+             Discipline="Yes"
+             SuperName="Resource"
+             CAAExposition="L0"
+             Specializable="Yes"
+             CustomerExposition="Programmer">
+
+    <Property Name="XPGApplyDisciplineOnInstance" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELPLMRmKWDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="VPMInstance"/>
+    <Property Name="IconName" Value="I_DELRMTransportSystem"/>
+    <Property Name="3DIconName" Value="I_DELRMTransportSystem.cgr"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="Newable" Value="All_Offline_CAA"/>
+    <Property Name="Abbreviation" Value="rtr"/>
+
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Design"/>
+        <UsedProcedure href="ENORme_Procedures.proc#PhysicalResource_GetOneLevelEntitiesForDesign"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Channel"/>
+        <UsedProcedure href="ENORme_Procedures.proc#PhysicalResource_GetOneLevelEntitiesForChannel"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Review"/>
+        <UsedProcedure href="ENORme_Procedures.proc#PhysicalResource_GetOneLevelEntitiesForReview"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Remove"/>
+        <UsedProcedure href="ENOVpe_Procedures.proc#VPMEditor_Detach_VPMReferenceVPMRepReference"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#TransferSiteOwnership"/>
+        <UsedProcedure href="ENORme_Procedures.proc#Resource_TSO_References"/>
+      </ProcedureForUsage>
+    </Method>
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExchangeScope.meth#XPDM"/>
+        <UsedProcedure href="ENORme_Procedures.proc#PhysicalResource_ExchangeXPDM_GetAllEntities"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExchangeScope.meth#XPDM2"/>
+        <UsedProcedure href="ENOVpe_Procedures.proc#VPMEditor_XPDM2_VPMReferenceCompletion"/>
+      </ProcedureForUsage>
+    </Method>
+  </Extension>
+
+  <Extension Name="ControlDevice"
+             Uuid="ce277e88-6103-4afb-be40-13c962362486"
+             Abstract="No"
+             Discipline="Yes"
+             SuperName="Resource"
+             CAAExposition="L0"
+             Specializable="Yes"
+             CustomerExposition="Programmer">
+
+    <Property Name="XPGApplyDisciplineOnInstance" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELPLMRmKWDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="VPMInstance"/>
+    <Property Name="IconName" Value="I_DELRMControlDeviceSystem"/>
+    <Property Name="3DIconName" Value="I_DELRMControlDeviceSystem.cgr"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="Newable" Value="All_Offline_CAA"/>
+    <Property Name="Abbreviation" Value="rcd"/>
+
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Design"/>
+        <UsedProcedure href="ENORme_Procedures.proc#PhysicalResource_GetOneLevelEntitiesForDesign"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Channel"/>
+        <UsedProcedure href="ENORme_Procedures.proc#PhysicalResource_GetOneLevelEntitiesForChannel"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Review"/>
+        <UsedProcedure href="ENORme_Procedures.proc#PhysicalResource_GetOneLevelEntitiesForReview"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Remove"/>
+        <UsedProcedure href="ENOVpe_Procedures.proc#VPMEditor_Detach_VPMReferenceVPMRepReference"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#TransferSiteOwnership"/>
+        <UsedProcedure href="ENORme_Procedures.proc#Resource_TSO_References"/>
+      </ProcedureForUsage>
+    </Method>
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExchangeScope.meth#XPDM"/>
+        <UsedProcedure href="ENORme_Procedures.proc#PhysicalResource_ExchangeXPDM_GetAllEntities"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExchangeScope.meth#XPDM2"/>
+        <UsedProcedure href="ENOVpe_Procedures.proc#VPMEditor_XPDM2_VPMReferenceCompletion"/>
+      </ProcedureForUsage>
+    </Method>
+  </Extension>
+
+  <Extension Name="UserDefined"
+             Uuid="be285fc0-da86-40aa-ac9e-0b4fdcdfc712"
+             Abstract="No"
+             Discipline="Yes"
+             SuperName="Resource"
+             CAAExposition="L0"
+             Specializable="Yes"
+             CustomerExposition="Programmer">
+
+    <Property Name="XPGApplyDisciplineOnInstance" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELPLMRmKWDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="VPMInstance"/>
+    <Property Name="IconName" Value="I_DELRMUserDefinedSystem"/>
+    <Property Name="3DIconName" Value="I_DELRMUserDefinedSystem.cgr"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="Newable" Value="All_Offline_CAA"/>
+    <Property Name="Abbreviation" Value="rud"/>
+
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Design"/>
+        <UsedProcedure href="ENORme_Procedures.proc#PhysicalResource_GetOneLevelEntitiesForDesign"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Channel"/>
+        <UsedProcedure href="ENORme_Procedures.proc#PhysicalResource_GetOneLevelEntitiesForChannel"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Review"/>
+        <UsedProcedure href="ENORme_Procedures.proc#PhysicalResource_GetOneLevelEntitiesForReview"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Remove"/>
+        <UsedProcedure href="ENOVpe_Procedures.proc#VPMEditor_Detach_VPMReferenceVPMRepReference"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#TransferSiteOwnership"/>
+        <UsedProcedure href="ENORme_Procedures.proc#Resource_TSO_References"/>
+      </ProcedureForUsage>
+    </Method>
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExchangeScope.meth#XPDM"/>
+        <UsedProcedure href="ENORme_Procedures.proc#PhysicalResource_ExchangeXPDM_GetAllEntities"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExchangeScope.meth#XPDM2"/>
+        <UsedProcedure href="ENOVpe_Procedures.proc#VPMEditor_XPDM2_VPMReferenceCompletion"/>
+      </ProcedureForUsage>
+    </Method>
+  </Extension>
+
+  <Extension Name="Robot"
+             Uuid="82a99550-d303-41fa-96b1-36ab9a942fa2"
+             Abstract="No"
+             Discipline="Yes"
+             SuperName="Resource"
+             CAAExposition="L0"
+             Specializable="Yes"
+             CustomerExposition="Programmer">
+
+    <Property Name="XPGApplyDisciplineOnInstance" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELPLMRmKWDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="VPMInstance"/>
+    <Property Name="IconName" Value="I_DELRMRobotSystem"/>
+    <Property Name="3DIconName" Value="I_DELRMRobotSystem.cgr"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="Newable" Value="All_Offline_CAA"/>
+    <Property Name="Abbreviation" Value="rrb"/>
+
+    <Simple Name="V_DELRmi_IndustrialApplications"
+         Uuid="D704FDF9-01DA-42ef-8B79-DA4671E30203"
+         Type="String"
+         MaxLength="100"
+         MultiValuated="Yes"
+         Faceted="Yes"
+         Protection="Free"
+         CAAExposition="L0">
+      <Property Name = "SIXW" Value = "ds6w:technology"/>
+      <CAAComment>
+        <ShortRole>Main applications the robot is used for.</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_DELRmi_MaxPayload"
+         Uuid="C7A989A0-4AB4-4343-8886-482F11FA4DE2"
+         Type="Double"
+         Magnitude="MASS"
+         MultiValuated="No"
+         Faceted="Yes"
+         Protection="Free"
+         CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Maximum payload.</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_DELRmi_ApproachReach"
+         Uuid="9FCACD6D-AF97-422f-BFB9-70E89F938A43"
+         Type="Double"
+         Magnitude="LENGTH"
+         MultiValuated="No"
+         Faceted="Yes"
+         Protection="Free"
+         CAAExposition="L0">
+      <Property Name = "SIXW" Value = "ds6w:length"/>
+      <CAAComment>
+        <ShortRole>Maximum reach.</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_DELRmi_Repeatability"
+         Uuid="F02D20D3-8725-483e-BFBA-AD70242C4F2C"
+         Type="Double"
+         Magnitude="LENGTH"
+         MultiValuated="No"
+         Faceted="No"
+         Protection="Free"
+         CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>position repeatability.</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_DELRmi_MountingMethod"
+         Uuid="8E1BFBA3-35C0-48d8-9386-FB6097C176E7"
+         Type="String"
+         MaxLength="50"
+         MultiValuated="No"
+         Faceted="Yes"
+         Protection="Free"
+         CAAExposition="L0"
+         DefaultValue="NotDefined">
+      <Range>
+        <Equal>Floor</Equal>
+        <Equal>Ceiling</Equal>
+        <Equal>Wall</Equal>
+        <Equal>Angle</Equal>
+        <Equal>NotDefined</Equal>
+      </Range>
+      <Property Name = "SIXW" Value = "ds6w:kind"/>
+      <CAAComment>
+        <ShortRole>How the Robot can be installed.</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_DELRmi_RobotModelIDAliases"
+         Uuid="2A88A856-1949-4618-85A4-4F165E7C38AC"
+         Type="String"
+         MaxLength="100"
+         MultiValuated="Yes"
+         Faceted="No"
+         Protection="Free"
+         CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Alternate names for this robot.</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_DELRmi_ControllerVersion"
+         Uuid="91CD1F84-1228-4b95-99AF-37F14EFBD311"
+         Type="String"
+         MaxLength="50"
+         MultiValuated="No"
+         Faceted="Yes"
+         Protection="Free"
+         CAAExposition="L0">
+      <Property Name = "SIXW" Value = "ds6w:category"/>
+      <CAAComment>
+        <ShortRole>Robot's controller version.</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_DELRmi_NbDOFs"
+         Uuid="F9B93119-975C-4b5b-9A7A-439CEB790F6D"
+         Type="Integer"
+         MultiValuated="No"
+         Faceted="Yes"
+         Protection="Free"
+         CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Number of degrees of freedom.</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_DELRmi_KinematicClass"
+         Uuid="32DD13CC-C4F9-4ed8-8876-DE0B68366B62"
+         Type="String"
+         MaxLength="50"
+         MultiValuated="No"
+         Faceted="Yes"
+         Protection="External"
+         CAAExposition="L0"
+         DefaultValue="NotDefined">
+      <Range>
+        <Equal>Articulated</Equal>
+        <Equal>SCARA</Equal>
+        <Equal>Cartesian</Equal>
+        <Equal>Parallel</Equal>
+        <Equal>NotDefined</Equal>
+      </Range>
+      <Property Name = "SIXW" Value = "ds6w:kind"/>
+      <CAAComment>
+        <ShortRole>Type of robot kinematic.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Design"/>
+        <UsedProcedure href="ENORme_Procedures.proc#PhysicalResource_GetOneLevelEntitiesForDesign"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Channel"/>
+        <UsedProcedure href="ENORme_Procedures.proc#PhysicalResource_GetOneLevelEntitiesForChannel"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Review"/>
+        <UsedProcedure href="ENORme_Procedures.proc#PhysicalResource_GetOneLevelEntitiesForReview"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Remove"/>
+        <UsedProcedure href="ENOVpe_Procedures.proc#VPMEditor_Detach_VPMReferenceVPMRepReference"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#TransferSiteOwnership"/>
+        <UsedProcedure href="ENORme_Procedures.proc#Resource_TSO_References"/>
+      </ProcedureForUsage>
+    </Method>
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExchangeScope.meth#XPDM"/>
+        <UsedProcedure href="ENORme_Procedures.proc#PhysicalResource_ExchangeXPDM_GetAllEntities"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExchangeScope.meth#XPDM2"/>
+        <UsedProcedure href="ENOVpe_Procedures.proc#VPMEditor_XPDM2_VPMReferenceCompletion"/>
+      </ProcedureForUsage>
+    </Method>
+  </Extension>
+
+  <Extension Name="Organizational"
+             Uuid="e50723bd-19a0-43f4-a5d7-f5c932431a69"
+             Abstract="No"
+             Discipline="Yes"
+             SuperName="Resource"
+             CAAExposition="L0"
+             Specializable="Yes"
+             CustomerExposition="Programmer">
+
+    <Property Name="XPGApplyDisciplineOnInstance" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELPLMRmKWDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="VPMInstance"/>
+    <Property Name="IconName" Value="I_DELRMOrganizationalSystem"/>
+    <Property Name="3DIconName" Value="I_DELRMOrganizationalSystem.cgr"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="Newable" Value="All_Offline_CAA"/>
+    <Property Name="Abbreviation" Value="ncc"/>
+
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Design"/>
+        <UsedProcedure href="ENORme_Procedures.proc#PhysicalResource_GetOneLevelEntitiesForDesign"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Channel"/>
+        <UsedProcedure href="ENORme_Procedures.proc#PhysicalResource_GetOneLevelEntitiesForChannel"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Review"/>
+        <UsedProcedure href="ENORme_Procedures.proc#PhysicalResource_GetOneLevelEntitiesForReview"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Remove"/>
+        <UsedProcedure href="ENOVpe_Procedures.proc#VPMEditor_Detach_VPMReferenceVPMRepReference"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#TransferSiteOwnership"/>
+        <UsedProcedure href="ENORme_Procedures.proc#Resource_TSO_References"/>
+      </ProcedureForUsage>
+    </Method>
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExchangeScope.meth#XPDM"/>
+        <UsedProcedure href="ENORme_Procedures.proc#PhysicalResource_ExchangeXPDM_GetAllEntities"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExchangeScope.meth#XPDM2"/>
+        <UsedProcedure href="ENOVpe_Procedures.proc#VPMEditor_XPDM2_VPMReferenceCompletion"/>
+      </ProcedureForUsage>
+    </Method>
+  </Extension>
+  <Extension Name="WorkCenter"
+             Uuid="7ba5aa22-1bcb-11e8-accf-0ed5f89f718b"
+             Abstract="No"
+             Discipline="Yes"
+             SuperName="Organizational"
+             CAAExposition="L0"
+             Specializable="Yes"
+             CustomerExposition="Programmer">
+
+    <Property Name="XPGApplyDisciplineOnInstance" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELPLMRmKWDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="VPMInstance"/>
+    <Property Name="IconName" Value="I_DELRMWorkcenter"/>
+    <Property Name="3DIconName" Value="I_DELRMWorkcenter.cgr"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="Newable" Value="All_Offline_CAA"/>
+    <Property Name="Abbreviation" Value="rwkc"/>
+
+	<Simple Name="V_FollowupType" 
+			Uuid="1dbc058a-1bcd-11e8-accf-0ed5f89f718b" 
+			Type="String" 
+			Protection="Free" 
+			CAAExposition="L0" 
+			DefaultValue="Manual" 
+            MultiValuated="No">
+			
+		<Range>
+			<Equal>Manual</Equal>
+			<Equal>Automatic</Equal>
+		</Range>
+	</Simple>
+	<Simple Name="V_SequenceBackward"
+            Uuid="ad60bd48-1bcd-11e8-accf-0ed5f89f718b"
+            Type="Boolean"
+            MultiValuated="No"
+            Protection="Free"
+            DefaultValue="false"
+            CAAExposition="L0">
+    </Simple>
+	<Simple Name="V_IsFiniteCapacity"
+            Uuid="f9401888-5e9b-11e8-9c2d-fa7ae01bbebc"
+            Type="Boolean"
+            MultiValuated="No"
+            Protection="Free"
+            DefaultValue="True"
+            CAAExposition="L0">
+    </Simple>
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Design"/>
+        <UsedProcedure href="ENORme_Procedures.proc#PhysicalResource_GetOneLevelEntitiesForDesign"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Channel"/>
+        <UsedProcedure href="ENORme_Procedures.proc#PhysicalResource_GetOneLevelEntitiesForChannel"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Review"/>
+        <UsedProcedure href="ENORme_Procedures.proc#PhysicalResource_GetOneLevelEntitiesForReview"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Remove"/>
+        <UsedProcedure href="ENOVpe_Procedures.proc#VPMEditor_Detach_VPMReferenceVPMRepReference"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#TransferSiteOwnership"/>
+        <UsedProcedure href="ENORme_Procedures.proc#Resource_TSO_References"/>
+      </ProcedureForUsage>
+    </Method>
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExchangeScope.meth#XPDM"/>
+        <UsedProcedure href="ENORme_Procedures.proc#PhysicalResource_ExchangeXPDM_GetAllEntities"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExchangeScope.meth#XPDM2"/>
+        <UsedProcedure href="ENOVpe_Procedures.proc#VPMEditor_XPDM2_VPMReferenceCompletion"/>
+      </ProcedureForUsage>
+    </Method>
+  </Extension>
+  <Extension Name="Pool"
+             Uuid="e485bcec-1bcd-11e8-accf-0ed5f89f718b"
+             Abstract="No"
+             Discipline="Yes"
+             SuperName="Resource"
+             CAAExposition="L0"
+             Specializable="Yes"
+             CustomerExposition="Programmer">
+
+    <Property Name="XPGApplyDisciplineOnInstance" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELPLMRmKWDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="VPMInstance"/>
+    <Property Name="IconName" Value="I_DELRMPool"/>
+    <Property Name="3DIconName" Value="I_DELRMPool.cgr"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="Newable" Value="All_Offline_CAA"/>
+    <Property Name="Abbreviation" Value="rpl"/>
+
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Design"/>
+        <UsedProcedure href="ENORme_Procedures.proc#PhysicalResource_GetOneLevelEntitiesForDesign"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Channel"/>
+        <UsedProcedure href="ENORme_Procedures.proc#PhysicalResource_GetOneLevelEntitiesForChannel"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Review"/>
+        <UsedProcedure href="ENORme_Procedures.proc#PhysicalResource_GetOneLevelEntitiesForReview"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Remove"/>
+        <UsedProcedure href="ENOVpe_Procedures.proc#VPMEditor_Detach_VPMReferenceVPMRepReference"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#TransferSiteOwnership"/>
+        <UsedProcedure href="ENORme_Procedures.proc#Resource_TSO_References"/>
+      </ProcedureForUsage>
+    </Method>
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExchangeScope.meth#XPDM"/>
+        <UsedProcedure href="ENORme_Procedures.proc#PhysicalResource_ExchangeXPDM_GetAllEntities"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExchangeScope.meth#XPDM2"/>
+        <UsedProcedure href="ENOVpe_Procedures.proc#VPMEditor_XPDM2_VPMReferenceCompletion"/>
+      </ProcedureForUsage>
+    </Method>
+  </Extension>
+  
+  <Extension Name="Inspect"
+             Uuid="4e709f53-d71a-4092-998a-610979f9efad"
+             Abstract="No"
+             Discipline="Yes"
+             SuperName="Resource"
+             CAAExposition="L0"
+             Specializable="Yes"
+             CustomerExposition="Programmer">
+
+    <Property Name="XPGApplyDisciplineOnInstance" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELPLMRmKWDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="VPMInstance"/>
+    <Property Name="IconName" Value="I_DELRMInspectSystem"/>
+    <Property Name="3DIconName" Value="I_DELRMInspectSystem.cgr"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="Newable" Value="All_Offline_CAA"/>
+    <Property Name="Abbreviation" Value="rin"/>
+
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Design"/>
+        <UsedProcedure href="ENORme_Procedures.proc#PhysicalResource_GetOneLevelEntitiesForDesign"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Channel"/>
+        <UsedProcedure href="ENORme_Procedures.proc#PhysicalResource_GetOneLevelEntitiesForChannel"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Review"/>
+        <UsedProcedure href="ENORme_Procedures.proc#PhysicalResource_GetOneLevelEntitiesForReview"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Remove"/>
+        <UsedProcedure href="ENOVpe_Procedures.proc#VPMEditor_Detach_VPMReferenceVPMRepReference"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#TransferSiteOwnership"/>
+        <UsedProcedure href="ENORme_Procedures.proc#Resource_TSO_References"/>
+      </ProcedureForUsage>
+    </Method>
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExchangeScope.meth#XPDM"/>
+        <UsedProcedure href="ENORme_Procedures.proc#PhysicalResource_ExchangeXPDM_GetAllEntities"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExchangeScope.meth#XPDM2"/>
+        <UsedProcedure href="ENOVpe_Procedures.proc#VPMEditor_XPDM2_VPMReferenceCompletion"/>
+      </ProcedureForUsage>
+    </Method>
+  </Extension>
+
+  <Extension Name="Storage"
+             Uuid="1f588f04-285e-4afb-bd69-7c15e0bceb25"
+             Abstract="No"
+             Discipline="Yes"
+             SuperName="Resource"
+             CAAExposition="L0"
+             Specializable="Yes"
+             CustomerExposition="Programmer">
+
+    <Property Name="XPGApplyDisciplineOnInstance" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELPLMRmKWDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="VPMInstance"/>
+    <Property Name="IconName" Value="I_DELRMStorageSystem"/>
+    <Property Name="3DIconName" Value="I_DELRMStorageSystem.cgr"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="Newable" Value="All_Offline_CAA"/>
+    <Property Name="Abbreviation" Value="rst"/>
+
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Design"/>
+        <UsedProcedure href="ENORme_Procedures.proc#PhysicalResource_GetOneLevelEntitiesForDesign"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Channel"/>
+        <UsedProcedure href="ENORme_Procedures.proc#PhysicalResource_GetOneLevelEntitiesForChannel"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Review"/>
+        <UsedProcedure href="ENORme_Procedures.proc#PhysicalResource_GetOneLevelEntitiesForReview"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Remove"/>
+        <UsedProcedure href="ENOVpe_Procedures.proc#VPMEditor_Detach_VPMReferenceVPMRepReference"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#TransferSiteOwnership"/>
+        <UsedProcedure href="ENORme_Procedures.proc#Resource_TSO_References"/>
+      </ProcedureForUsage>
+    </Method>
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExchangeScope.meth#XPDM"/>
+        <UsedProcedure href="ENORme_Procedures.proc#PhysicalResource_ExchangeXPDM_GetAllEntities"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExchangeScope.meth#XPDM2"/>
+        <UsedProcedure href="ENOVpe_Procedures.proc#VPMEditor_XPDM2_VPMReferenceCompletion"/>
+      </ProcedureForUsage>
+    </Method>
+  </Extension>
+
+  <Extension Name="Worker"
+             Uuid="6fef6f56-40ac-4a8b-a0b0-cfc72e06477a"
+             Abstract="No"
+             Discipline="Yes"
+             SuperName="Resource"
+             CAAExposition="L0"
+             Specializable="Yes"
+             CustomerExposition="Programmer">
+
+    <Property Name="XPGApplyDisciplineOnInstance" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELPLMRmKWDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="VPMInstance"/>
+    <Property Name="IconName" Value="I_DELRMWorkerSystem"/>
+    <Property Name="3DIconName" Value="I_DELRMWorkerSystem.cgr"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="Newable" Value="All_Offline_CAA"/>
+    <Property Name="Abbreviation" Value="rwk"/>
+
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Design"/>
+        <UsedProcedure href="ENORme_Procedures.proc#PhysicalResource_GetOneLevelEntitiesForDesign"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Channel"/>
+        <UsedProcedure href="ENORme_Procedures.proc#PhysicalResource_GetOneLevelEntitiesForChannel"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Review"/>
+        <UsedProcedure href="ENORme_Procedures.proc#PhysicalResource_GetOneLevelEntitiesForReview"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Remove"/>
+        <UsedProcedure href="ENOVpe_Procedures.proc#VPMEditor_Detach_VPMReferenceVPMRepReference"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#TransferSiteOwnership"/>
+        <UsedProcedure href="ENORme_Procedures.proc#Resource_TSO_References"/>
+      </ProcedureForUsage>
+    </Method>
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExchangeScope.meth#XPDM"/>
+        <UsedProcedure href="ENORme_Procedures.proc#PhysicalResource_ExchangeXPDM_GetAllEntities"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExchangeScope.meth#XPDM2"/>
+        <UsedProcedure href="ENOVpe_Procedures.proc#VPMEditor_XPDM2_VPMReferenceCompletion"/>
+      </ProcedureForUsage>
+    </Method>
+  </Extension>
+
+  <Extension Name="Conveyor"
+             Uuid="3abd59ef-d886-4156-a5c7-9c95671c3480"
+             Abstract="No"
+             Discipline="Yes"
+             SuperName="Resource"
+             CAAExposition="L0"
+             Specializable="Yes"
+             CustomerExposition="Programmer">
+
+    <Property Name="XPGApplyDisciplineOnInstance" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELPLMRmKWDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="VPMInstance"/>
+    <Property Name="IconName" Value="I_DELRMConveyorSystem"/>
+    <Property Name="3DIconName" Value="I_DELRMConveyorSystem.cgr"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="Newable" Value="All_Offline_CAA"/>
+    <Property Name="Abbreviation" Value="rcv"/>
+
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Design"/>
+        <UsedProcedure href="ENORme_Procedures.proc#PhysicalResource_GetOneLevelEntitiesForDesign"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Channel"/>
+        <UsedProcedure href="ENORme_Procedures.proc#PhysicalResource_GetOneLevelEntitiesForChannel"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Review"/>
+        <UsedProcedure href="ENORme_Procedures.proc#PhysicalResource_GetOneLevelEntitiesForReview"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Remove"/>
+        <UsedProcedure href="ENOVpe_Procedures.proc#VPMEditor_Detach_VPMReferenceVPMRepReference"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#TransferSiteOwnership"/>
+        <UsedProcedure href="ENORme_Procedures.proc#Resource_TSO_References"/>
+      </ProcedureForUsage>
+    </Method>
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExchangeScope.meth#XPDM"/>
+        <UsedProcedure href="ENORme_Procedures.proc#PhysicalResource_ExchangeXPDM_GetAllEntities"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExchangeScope.meth#XPDM2"/>
+        <UsedProcedure href="ENOVpe_Procedures.proc#VPMEditor_XPDM2_VPMReferenceCompletion"/>
+      </ProcedureForUsage>
+    </Method>
+  </Extension>
+
+  <Extension Name="IndustrialMachine"
+             Uuid="FD4A48A1-C044-4687-87B6-96188D17EE3B"
+             Abstract="No"
+             Discipline="Yes"
+             SuperName="Resource"
+             CAAExposition="L0"
+             Specializable="Yes"
+             CustomerExposition="Programmer">
+
+    <Property Name="XPGApplyDisciplineOnInstance" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELPLMRmKWDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="VPMInstance"/>
+    <Property Name="IconName" Value="I_DELRMIndustrialMachineSystem"/>
+    <Property Name="3DIconName" Value="I_DELRMIndustrialMachineSystem.cgr"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="Newable" Value="All_Offline_CAA"/>
+    <Property Name="Abbreviation" Value="rim"/>
+
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Design"/>
+        <UsedProcedure href="ENORme_Procedures.proc#PhysicalResource_GetOneLevelEntitiesForDesign"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Channel"/>
+        <UsedProcedure href="ENORme_Procedures.proc#PhysicalResource_GetOneLevelEntitiesForChannel"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Review"/>
+        <UsedProcedure href="ENORme_Procedures.proc#PhysicalResource_GetOneLevelEntitiesForReview"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Remove"/>
+        <UsedProcedure href="ENOVpe_Procedures.proc#VPMEditor_Detach_VPMReferenceVPMRepReference"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#TransferSiteOwnership"/>
+        <UsedProcedure href="ENORme_Procedures.proc#Resource_TSO_References"/>
+      </ProcedureForUsage>
+    </Method>
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExchangeScope.meth#XPDM"/>
+        <UsedProcedure href="ENORme_Procedures.proc#PhysicalResource_ExchangeXPDM_GetAllEntities"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExchangeScope.meth#XPDM2"/>
+        <UsedProcedure href="ENOVpe_Procedures.proc#VPMEditor_XPDM2_VPMReferenceCompletion"/>
+      </ProcedureForUsage>
+    </Method>
+  </Extension>
+
+  <Extension Name="LogicController"
+             Uuid="3F79872B-8782-4b5d-8580-619EF762C848"
+             Abstract="No"
+             Discipline="Yes"
+             SuperName="Resource"
+             CAAExposition="L0"
+             Specializable="Yes"
+             CustomerExposition="Programmer">
+
+    <Property Name="XPGApplyDisciplineOnInstance" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELPLMRmKWDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="VPMInstance"/>
+    <Property Name="IconName" Value="I_DELRMLogicControllerSystem"/>
+    <Property Name="3DIconName" Value="I_DELRMLogicControllerSystem.cgr"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="Newable" Value="All_Offline_CAA"/>
+    <Property Name="Abbreviation" Value="rlc"/>
+
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Design"/>
+        <UsedProcedure href="ENORme_Procedures.proc#PhysicalResource_GetOneLevelEntitiesForDesign"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Channel"/>
+        <UsedProcedure href="ENORme_Procedures.proc#PhysicalResource_GetOneLevelEntitiesForChannel"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Review"/>
+        <UsedProcedure href="ENORme_Procedures.proc#PhysicalResource_GetOneLevelEntitiesForReview"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Remove"/>
+        <UsedProcedure href="ENOVpe_Procedures.proc#VPMEditor_Detach_VPMReferenceVPMRepReference"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#TransferSiteOwnership"/>
+        <UsedProcedure href="ENORme_Procedures.proc#Resource_TSO_References"/>
+      </ProcedureForUsage>
+    </Method>
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExchangeScope.meth#XPDM"/>
+        <UsedProcedure href="ENORme_Procedures.proc#PhysicalResource_ExchangeXPDM_GetAllEntities"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExchangeScope.meth#XPDM2"/>
+        <UsedProcedure href="ENOVpe_Procedures.proc#VPMEditor_XPDM2_VPMReferenceCompletion"/>
+      </ProcedureForUsage>
+    </Method>
+  </Extension>
+
+  <Extension Name="Sensor"
+             Uuid="49C373A2-FDDF-4608-BFA7-62C335327F59"
+             Abstract="No"
+             Discipline="Yes"
+             SuperName="Resource"
+             CAAExposition="L0"
+             Specializable="Yes"
+             CustomerExposition="Programmer">
+
+    <Property Name="XPGApplyDisciplineOnInstance" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELPLMRmKWDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="VPMInstance"/>
+    <Property Name="IconName" Value="I_DELRMSensorSystem"/>
+    <Property Name="3DIconName" Value="I_DELRMSensorSystem.cgr"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="Newable" Value="All_Offline_CAA"/>
+    <Property Name="Abbreviation" Value="rsn"/>
+
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Design"/>
+        <UsedProcedure href="ENORme_Procedures.proc#PhysicalResource_GetOneLevelEntitiesForDesign"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Channel"/>
+        <UsedProcedure href="ENORme_Procedures.proc#PhysicalResource_GetOneLevelEntitiesForChannel"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Review"/>
+        <UsedProcedure href="ENORme_Procedures.proc#PhysicalResource_GetOneLevelEntitiesForReview"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Remove"/>
+        <UsedProcedure href="ENOVpe_Procedures.proc#VPMEditor_Detach_VPMReferenceVPMRepReference"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#TransferSiteOwnership"/>
+        <UsedProcedure href="ENORme_Procedures.proc#Resource_TSO_References"/>
+      </ProcedureForUsage>
+    </Method>
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExchangeScope.meth#XPDM"/>
+        <UsedProcedure href="ENORme_Procedures.proc#PhysicalResource_ExchangeXPDM_GetAllEntities"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExchangeScope.meth#XPDM2"/>
+        <UsedProcedure href="ENOVpe_Procedures.proc#VPMEditor_XPDM2_VPMReferenceCompletion"/>
+      </ProcedureForUsage>
+    </Method>
+  </Extension>
+
+  <Extension Name="ResourceArea"
+             Uuid="6FCAA0BA-D240-4a0b-985A-07840D017201"
+             Abstract="No"
+             Discipline="Yes"
+             SuperName="Resource"
+             CAAExposition="L0"
+             Specializable="Yes"
+             CustomerExposition="Programmer">
+
+    <Property Name="KweDisciplineAttributeValue" Value="Area"/>
+    <Property Name="XPGApplyDisciplineOnInstance" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELPLMRmKWDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="VPMInstance"/>
+    <Property Name="IconName" Value="I_DELRMAreaSystem"/>
+    <Property Name="3DIconName" Value="I_DELRMAreaSystem.cgr"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="Newable" Value="All_Offline_CAA"/>
+    <Property Name="Abbreviation" Value="rar"/>
+
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Design"/>
+        <UsedProcedure href="ENORme_Procedures.proc#PhysicalResource_GetOneLevelEntitiesForDesign"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Channel"/>
+        <UsedProcedure href="ENORme_Procedures.proc#PhysicalResource_GetOneLevelEntitiesForChannel"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Review"/>
+        <UsedProcedure href="ENORme_Procedures.proc#PhysicalResource_GetOneLevelEntitiesForReview"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Remove"/>
+        <UsedProcedure href="ENOVpe_Procedures.proc#VPMEditor_Detach_VPMReferenceVPMRepReference"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#TransferSiteOwnership"/>
+        <UsedProcedure href="ENORme_Procedures.proc#Resource_TSO_References"/>
+      </ProcedureForUsage>
+    </Method>
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExchangeScope.meth#XPDM"/>
+        <UsedProcedure href="ENORme_Procedures.proc#PhysicalResource_ExchangeXPDM_GetAllEntities"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExchangeScope.meth#XPDM2"/>
+        <UsedProcedure href="ENOVpe_Procedures.proc#VPMEditor_XPDM2_VPMReferenceCompletion"/>
+      </ProcedureForUsage>
+    </Method>
+  </Extension>
+
+  <Extension Name="ResourceManufacturingSetup"
+             Uuid="8F49909D-8646-4799-895F-5938A40476F6"
+             Abstract="No"
+             Discipline="Yes"
+             SuperName="Resource"
+             CAAExposition="L0"
+             Specializable="Yes"
+             CustomerExposition="Programmer">
+
+    <Property Name="KweDisciplineAttributeValue" Value="ManufacturingSetup"/>
+    <Property Name="XPGApplyDisciplineOnInstance" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELPLMRmKWDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="VPMInstance"/>
+    <Property Name="IconName" Value="I_DELRMManufacturingSetupSystem"/>
+    <Property Name="3DIconName" Value="I_DELRMManufacturingSetupSystem.cgr"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="Newable" Value="All_Offline_CAA"/>
+    <Property Name="Abbreviation" Value="rms"/>
+
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Design"/>
+        <UsedProcedure href="ENORme_Procedures.proc#PhysicalResource_GetOneLevelEntitiesForDesign"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Channel"/>
+        <UsedProcedure href="ENORme_Procedures.proc#PhysicalResource_GetOneLevelEntitiesForChannel"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Review"/>
+        <UsedProcedure href="ENORme_Procedures.proc#PhysicalResource_GetOneLevelEntitiesForReview"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Remove"/>
+        <UsedProcedure href="ENOVpe_Procedures.proc#VPMEditor_Detach_VPMReferenceVPMRepReference"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#TransferSiteOwnership"/>
+        <UsedProcedure href="ENORme_Procedures.proc#Resource_TSO_References"/>
+      </ProcedureForUsage>
+    </Method>
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExchangeScope.meth#XPDM"/>
+        <UsedProcedure href="ENORme_Procedures.proc#PhysicalResource_ExchangeXPDM_GetAllEntities"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExchangeScope.meth#XPDM2"/>
+        <UsedProcedure href="ENOVpe_Procedures.proc#VPMEditor_XPDM2_VPMReferenceCompletion"/>
+      </ProcedureForUsage>
+    </Method>
+  </Extension>
+
+  <Extension Name="DELRmiPathway"
+             Uuid="BB5D279A-87E3-4E67-AA77-38DA92590F44"
+             Abstract="No"
+             Discipline="Yes"
+             SuperName="Resource"
+             CAAExposition="L0"
+             Specializable="Yes"
+             CustomerExposition="Programmer">
+
+    <Property Name="XPGApplyDisciplineOnInstance" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELPLMRmKWDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="VPMInstance"/>
+    <Property Name="IconName" Value="I_DELRMPathwaySystem"/>
+    <Property Name="3DIconName" Value="I_DELRMPathwaySystem.cgr"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="Newable" Value="Insert_Offline"/>
+    <Property Name="Abbreviation" Value="ptw"/>
+
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Design"/>
+        <UsedProcedure href="ENORme_Procedures.proc#PhysicalResource_GetOneLevelEntitiesForDesign"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Channel"/>
+        <UsedProcedure href="ENORme_Procedures.proc#PhysicalResource_GetOneLevelEntitiesForChannel"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Review"/>
+        <UsedProcedure href="ENORme_Procedures.proc#PhysicalResource_GetOneLevelEntitiesForReview"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Remove"/>
+        <UsedProcedure href="ENOVpe_Procedures.proc#VPMEditor_Detach_VPMReferenceVPMRepReference"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#TransferSiteOwnership"/>
+        <UsedProcedure href="ENORme_Procedures.proc#Resource_TSO_References"/>
+      </ProcedureForUsage>
+    </Method>
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExchangeScope.meth#XPDM"/>
+        <UsedProcedure href="ENORme_Procedures.proc#PhysicalResource_ExchangeXPDM_GetAllEntities"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExchangeScope.meth#XPDM2"/>
+        <UsedProcedure href="ENOVpe_Procedures.proc#VPMEditor_XPDM2_VPMReferenceCompletion"/>
+      </ProcedureForUsage>
+    </Method>
+  </Extension>
+
+ 
+  <!-- * VPMRepReference Specialisation                 * -->
+  <!-- ************************************************** -->
+
+  <Class Name="ParametricShape"
+         Uuid="83b8c2f5-0bf2-42a3-9dc5-df228e90732b"
+		     Abstract="No"
+			   Discipline="Yes"
+			   SuperName="VPMRepReference"
+		     Specializable="No"
+		     CustomerExtensible="No"
+		     CustomerExposition="Programmer"
+		     CreateInstName="VPMRepInstance">
+
+    <Property Name="IconName" Value="I_DELRMLSRParametricShape"/>
+    <Property Name="Searchable" Value="No"/>
+    <Property Name="Newable" Value="No"/>
+    <Property Name="IterationAvailability" Value="Yes"/>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+
+  <Class Name="SpaceReservation"
+         Uuid="d0dc37f5-5ffa-4ab8-b2fc-3704e4973ab8"
+		     Abstract="No"
+			   Discipline="Yes"
+			   SuperName="VPMRepReference"
+		     Specializable="No"
+		     CustomerExtensible="No"
+		     CustomerExposition="Programmer"
+		     CreateInstName="VPMRepInstance">
+
+    <Property Name="IconName" Value=" I_DNBMRLReserveSpace"/>
+    <Property Name="Searchable" Value="No"/>
+    <Property Name="Newable" Value="No"/>
+    <Property Name="IterationAvailability" Value="Yes"/>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+  <Class Name="Behavior"
+	       Uuid="810bffe1-534c-41c7-bbe1-fcc2d5d92414"
+		     Abstract="No"
+			   Discipline="Yes"
+			   SuperName="VPMRepReference"
+		     Specializable="No"
+		     CustomerExtensible="No"
+		     CustomerExposition="Programmer"
+		     CreateInstName="VPMRepInstance"
+         Abbreviation="bhv">
+
+    <Property Name="IconName" Value="I_DELBmBehaviorRep"/>
+    <Property Name="3DIconName" Value="I_DELBmBehaviorRep.cgr"/>
+    <Property Name="Searchable" Value="No"/>
+    <Property Name="Newable" Value="No"/>
+    <Property Name="IterationAvailability" Value="Yes"/>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+  <Class Name="FootPrint"
+         Uuid="57b4629a-58e6-4737-b362-d0e0d652a935"
+		     Abstract="No"
+			   Discipline="Yes"
+			   SuperName="VPMRepReference"
+		     Specializable="No"
+		     CustomerExtensible="No"
+		     CustomerExposition="Programmer"
+		     CreateInstName="VPMRepInstance">
+
+    <Property Name="IconName" Value="I_DELRMLSRFootPrint"/>
+    <Property Name="Searchable" Value="No"/>
+    <Property Name="Newable" Value="No"/>
+    <Property Name="IterationAvailability" Value="Yes"/>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+  <Class Name="SimulationLogic"
+	       Uuid="70733df6-0b2a-4c88-9156-cf1f2c1d9c7b"
+		     Abstract="No"
+			   Discipline="Yes"
+			   SuperName="VPMRepReference"
+		     Specializable="No"
+		     CustomerExtensible="No"
+		     CustomerExposition="Programmer"
+		     CreateInstName="VPMRepInstance"
+         Abbreviation="slc">
+
+    <Property Name="Searchable" Value="No"/>
+    <Property Name="Newable" Value="No"/>
+    <Property Name="IterationAvailability" Value="Yes"/>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+
+  <Class Name="CATANIMDISCIPLINE"
+	       Uuid="b2d20e0a-8d9a-495e-b00d-b5d8b493e5c7"
+		     Abstract="No"
+			   Discipline="Yes"
+			   SuperName="VPMRepReference"
+		     Specializable="No"
+		     CustomerExtensible="No"
+		     CustomerExposition="Programmer"
+		     CreateInstName="VPMRepInstance"
+         Abbreviation="anm">
+
+    <Property Name="IconName" Value="I_SimAnimation"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="Newable" Value="No"/>
+    <Property Name="IterationAvailability" Value="Yes"/>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+  <!-- * Resource Modeler Ports                         * -->
+  <!-- ************************************************** -->
+  <Class Name="DELMechPortExt_PLMPort"
+         Uuid="901304e6-5565-457a-baa9-26413a03f3ac"
+		     Abstract="No"
+			   Discipline="Yes"
+			   SuperName="VPMPort"
+		     Specializable="No"
+		     CustomerExtensible="No"
+		     CustomerExposition="Programmer">
+
+    <Property Name="IconName" Value="I_RMMechanicalPort"/>
+    <Property Name="MergedExtensionType" Value="PLMDELMechanicalPort"/>
+    <Property Name="Allow_V_Direction_Change" Value="Yes"/>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+  <Class Name="DELMechPortExt_TCP"
+         Uuid="ca550fc9-656a-4b85-b449-d77c351781d0"
+		     Abstract="No"
+			   Discipline="Yes"
+			   SuperName="DELMechPortExt_PLMPort"
+		     Specializable="No"
+		     CustomerExtensible="No"
+		     CustomerExposition="Programmer">
+
+    <Property Name="IconName" Value="I_RMMechanicalPort"/>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+
+  <Class Name="DELMechPortExt_Mount"
+	       Uuid="2bd3c8a1-5706-4b6c-b7f8-88003769e9f2"
+         Abstract="No"
+			   Discipline="Yes"
+			   SuperName="DELMechPortExt_PLMPort"
+		     Specializable="No"
+		     CustomerExtensible="No"
+		     CustomerExposition="Programmer">
+
+    <Property Name="IconName" Value="I_RMMechanicalPort"/>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+  <Class Name="DELMechPortExt_Base"
+         Uuid="c8d3b457-8287-409f-8045-3dc71e62a93e"
+         Abstract="No"
+			   Discipline="Yes"
+			   SuperName="DELMechPortExt_PLMPort"
+		     Specializable="No"
+		     CustomerExtensible="No"
+		     CustomerExposition="Programmer">
+
+    <Property Name="IconName" Value="I_RMMechanicalPort"/>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+  <Class Name="DELMechPortExt_Connector"
+         Uuid="4DFD4597-07AC-4265-8091-1768D0EE6F48"
+         Abstract="No"
+			   Discipline="Yes"
+			   SuperName="DELMechPortExt_PLMPort"
+		     Specializable="No"
+		     CustomerExtensible="No"
+		     CustomerExposition="Programmer">
+
+    <Property Name="IconName" Value="I_RMMechanicalPort"/>
+    <Property Name="TypeForDisciplineValuation" Value="DELMechPortExt_PLMPort"/>
+    <Property Name="GroupingType"               Value="DELMechPortExt_PLMPort"/>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+  <Class Name="DELMechPortExt_Locator"
+         Uuid="38CB1394-E6B1-4e35-A24F-7EF15449D863"
+         Abstract="No"
+			   Discipline="Yes"
+			   SuperName="DELMechPortExt_PLMPort"
+		     Specializable="No"
+		     CustomerExtensible="No"
+		     CustomerExposition="Programmer">
+
+    <Property Name="IconName" Value="I_RMMechanicalPort"/>
+    <Property Name="TypeForDisciplineValuation" Value="DELMechPortExt_PLMPort"/>
+    <Property Name="GroupingType"               Value="DELMechPortExt_PLMPort"/>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+  <Class Name="MfgResource_Tool"
+         Uuid="b4f86def-46eb-4ea7-b007-e5737f285668"
+         Abstract="No"
+			   Discipline="Yes"
+ 			   SuperName="DELMechPortExt_Mount"
+		     Specializable="No"
+		     CustomerExtensible="No"
+		     CustomerExposition="Programmer">
+    <Method  ImplementationType="None">
+      <RealizeMethodType  href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+  <Class Name="MfgResource_Workpiece"
+         Uuid="b09a165c-2a12-4da8-9f24-dfe613c37a7b"
+         Abstract="No"
+			   Discipline="Yes"
+ 			   SuperName="DELMechPortExt_Mount"
+		     Specializable="No"
+		     CustomerExtensible="No"
+		     CustomerExposition="Programmer">
+    <Method  ImplementationType="None">
+      <RealizeMethodType  href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+  <Class Name="MfgResource_MountHead"
+         Uuid="A0F78BCB-E3FC-4889-B03B-80F1FCF93E2E"
+         Abstract="No"
+			   Discipline="Yes"
+ 			   SuperName="DELMechPortExt_Mount"
+		     Specializable="No"
+		     CustomerExtensible="No"
+		     CustomerExposition="Programmer">
+    <Method  ImplementationType="None">
+      <RealizeMethodType  href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+  <Class Name="MfgResource_Head"
+         Uuid="5d8b7b94-da86-4bf8-950d-af31d2c1a8d9"
+         Abstract="No"
+			   Discipline="Yes"
+ 			   SuperName="DELMechPortExt_Base"
+		     Specializable="No"
+		     CustomerExtensible="No"
+		     CustomerExposition="Programmer">
+    <Method  ImplementationType="None">
+      <RealizeMethodType  href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+  <!-- * PLMDELControlPort (VPMPort) * -->
+  <!-- ************************************************** -->
+  <Extension Name="PLMDELControlPort"
+             Uuid="C78B640D-1A80-4eab-B98526BB191F5CBE"
+             ScopeNames="VPMPort"
+             CustomerExposition="Programmer">
+    <CAAComment>
+      <ShortRole>Control Port of a resource</ShortRole>
+      <Role>Control Port of a resource</Role>
+    </CAAComment>
+    <Simple Name="V_Type" Uuid="23D4F984-A906-4bdc-A66139AAB3C15FEB" Type="Integer" Protection="Free" CAAExposition="L0" DefaultValue="1">
+      <CAAComment>
+        <ShortRole>Format of control port from a list of formats</ShortRole>
+      </CAAComment>
+      <Property Name="RangeAsEnumName" Value="V_Type_PortEnum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="Integer;Boolean;Float;Double;Pure;String;Struct;Unknown"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+        <Equal>5</Equal>
+        <Equal>6</Equal>
+        <Equal>7</Equal>
+        <Equal>8</Equal>
+      </Range>
+    </Simple>
+    <Simple Name="V_Direction" Uuid="F773F8A1-BA0D-4632-B760420273732885" Type="Integer" Protection="Free" CAAExposition="L0" DefaultValue="1">
+      <CAAComment>
+        <ShortRole>Direction of control port from a list of directions</ShortRole>
+      </CAAComment>
+      <Property Name="RangeAsEnumName" Value="V_Direction_Enum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="In;Out;InOut"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+      </Range>
+    </Simple>
+  </Extension>
+
+  <Class Name="DELCtrlPortExt_PLMPort"
+         Uuid="ab695b8c-df81-42d9-a712-2bcb73f66982"
+         Abstract="No"
+			   Discipline="Yes"
+			   SuperName="VPMPort"
+		     Specializable="No"
+		     CustomerExtensible="No"
+		     CustomerExposition="Programmer">
+
+    <Property Name="IconName" Value="I_RMControlPort"/>
+    <Property Name="RelatedExtensionType" Value="PLMDELControlPort"/>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+
+  <!-- ************************************************** -->
+  <!-- * OBSOLETE DATA                                  * -->
+  <!-- ************************************************** -->
+
+  <!-- * used only in V1                                * -->
+  <!-- ************************************************** -->
+
+  <!-- * PLMDELResTyping (VPMReference)                 * -->
+  <!-- ************************************************** -->
+  <Extension Name="PLMDELResTyping"
+             Uuid="371F9E3E-CB42-4672-B929627A0E0B0E29"
+             ScopeNames="VPMReference"
+             CAAExposition="L1"
+             CustomerExposition="Programmer">
+    <CAAComment>
+      <ShortRole>Main Resource Typing Extension</ShortRole>
+      <Role>This extension defines main Resource characteristics, notably its family by means of its Main Type attribute. Becomes obsolete with Unicorn</Role>
+    </CAAComment>
+    <Simple Name="V_MainType" Uuid="71AA6E2E-2DC0-4f5e-AACE03603C2D7996" Type="Integer" Protection="Free" CAAExposition="L1" DefaultValue="1">
+      <CAAComment>
+        <ShortRole>Most important attribute of a resource, describing its main type from a given list</ShortRole>
+      </CAAComment>
+      <Property Name="RangeAsEnumName" Value="V_MaintType_Enum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="Organizational;Robot;Worker;NCMachine;Inspect;ToolDevice;Storage;Transport;Conveyor;ControlDevice;UserDefined;LogicController;Sensor;IndustrialMachine;Area;ManufacturingSetup;Pathway"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+        <Equal>5</Equal>
+        <Equal>6</Equal>
+        <Equal>7</Equal>
+        <Equal>8</Equal>
+        <Equal>9</Equal>
+        <Equal>10</Equal>
+        <Equal>11</Equal>
+        <Equal>12</Equal>
+        <Equal>13</Equal>
+        <Equal>14</Equal>
+        <Equal>15</Equal>
+        <Equal>16</Equal>
+        <Equal>17</Equal>
+      </Range>
+    </Simple>
+    <Simple Name="V_PrimaryType" Uuid="E1D48059-A50C-49d5-BDDD500743EF7DAC" Type="Integer" Protection="ExternalIN" CAAExposition="L0" DefaultValue="1">
+      <CAAComment>
+        <ShortRole>Primary Type of a Resource</ShortRole>
+      </CAAComment>
+      <Property Name="RangeAsEnumName" Value="V_PrimaryType_Enum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="Physical;Logical"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+      </Range>
+    </Simple>
+    <Simple Name="V_SubType"
+            Uuid="C2518D60-45D6-4120-8B170B79BD23FE20"
+            Type="String"
+            MaxLength="30"
+            MultiValuated="No"
+            Protection="Free"
+            Faceted="Yes"
+            CAAExposition="L0">
+      <Property Name = "SIXW" Value = "ds6w:kind"/>
+      <CAAComment>
+        <ShortRole>Subtype of a resource</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_Manufacturer"
+            Uuid="6C57342D-8B15-4431-855474B979470196"
+            Type="String" MaxLength="50"
+            MultiValuated="No"
+            Protection="Free"
+            Faceted="Yes"
+            CAAExposition="L0">
+      <Property Name = "SIXW" Value = "ds6w:manufacturer"/>
+      <CAAComment>
+        <ShortRole>Manufacturer description of a resource</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_Category"
+            Uuid="BAEA316D-1929-425a-83826F36FCC37765"
+            Type="String"
+            MaxLength="50"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"
+            Faceted="Yes">
+      <Property Name = "SIXW" Value = "ds6w:kind"/>
+      <CAAComment>
+        <ShortRole>Category description of a resource</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_MTBF"
+            Uuid="6091C981-83B0-4fdd-AE147D75B8AE4F54"
+            Type="Double"
+            MultiValuated="No"
+            Magnitude="TIME"
+            Protection="Free"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Mean Time Between Failures of a resource</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_MTTR"
+            Uuid="58B6C460-EE10-4116-A31A47B90EA445E8"
+            Type="Double"
+            MultiValuated="No"
+            Magnitude="TIME"
+            Protection="Free"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Mean Time To Repair of a resource</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_PurchaseCost"
+            Uuid="8AF14396-57DB-4ff6-A0D88C90BFBE21F3"
+            Type="Double"
+            MultiValuated="No"
+            Protection="Free"
+            Faceted="Yes"
+            CAAExposition="L0">
+      <Property Name = "SIXW" Value = "ds6w:purchaseCost"/>
+      <CAAComment>
+        <ShortRole>Purchase Cost of a resource</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_RepairCost"
+            Uuid="6882177F-6F80-4f4d-BC7021246DAFC6E5"
+            Type="Double"
+            MultiValuated="No"
+            Protection="Free"
+            Faceted="Yes"
+            CAAExposition="L0">
+      <Property Name = "SIXW" Value = "ds6w:repairCost"/>
+      <CAAComment>
+        <ShortRole>Repair Cost of a resource</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_MaintenanceCost"
+            Uuid="38C41F51-185F-4e91-873351FC95F300D6"
+            Type="Double"
+            MultiValuated="No"
+            Protection="Free"
+            Faceted="Yes"
+            CAAExposition="L0">
+      <Property Name = "SIXW" Value = "ds6w:maintenanceCost"/>
+      <CAAComment>
+        <ShortRole>Maintenance Cost of a resource</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_EnergyCost"
+            Uuid="F64B3608-FB7E-4fa3-9138622F6C25E951"
+            Type="Double"
+            MultiValuated="No"
+            Protection="Free"
+            Faceted="Yes"
+            CAAExposition="L0">
+      <Property Name = "SIXW" Value = "ds6w:energyCost"/>
+      <CAAComment>
+        <ShortRole>Energy Cost of a resource</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_ConsumableCost"
+            Uuid="549E7589-D2C9-4127-A1AFE4B4A325E15D"
+            Type="Double"
+            MultiValuated="No"
+            Protection="Free"
+            Faceted="Yes"
+            CAAExposition="L0">
+      <Property Name = "SIXW" Value = "ds6w:consumableCost"/>
+      <CAAComment>
+        <ShortRole>Consumable Cost of a resource</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_CycleTime"
+            Uuid="72A35F45-2EEA-48e0-917D22E0A359E635"
+            Type="Double"
+            MultiValuated="No"
+            Magnitude="TIME"
+            Protection="Free"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Cycle Time of a resource</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_CalculatedCycleTime"
+            Uuid="AEFF96F8-F584-42fb-AA34B238057D10BF"
+            Type="Double"
+            MultiValuated="No"
+            Magnitude="TIME"
+            Protection="Free"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Calculated Cycle Time of a resource</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_TargetedCycleTime"
+            Uuid="52F9D600-67CD-4de8-8B84FF4FD475AAE0"
+            Type="Double"
+            MultiValuated="No"
+            Magnitude="TIME"
+            Protection="Free"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Targeted Cycle Time of a resource</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_SetUpTime"
+            Uuid="459A6F21-7ECF-4306-91CC681FD836A0BD"
+            Type="Double"
+            MultiValuated="No"
+            Magnitude="TIME"
+            Protection="Free"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>SetUp Time of a resource</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_SetUpTimeReduced"
+            Uuid="F7CDAFF8-B7FE-48c2-9D2B308D51EE713B"
+            Type="Double"
+            MultiValuated="No"
+            Magnitude="TIME"
+            Protection="Free"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>SetUp Time Reduced of a resource</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_TargetCost"
+            Uuid="07B7D401-5A1A-4BA7-BAB0C4BA9C25ABF7"
+            Type="Double"
+            MultiValuated="No"
+            Protection="Free"
+            Faceted="Yes"
+            CAAExposition="L0">
+      <Property Name = "SIXW" Value = "ds6w:targetedCost"/>
+      <CAAComment>
+        <ShortRole>Target Cost of a resource</ShortRole>
+      </CAAComment>
+    </Simple>
+  </Extension>
+
+  <Extension Name="CloseTime"
+         Uuid="73fc1ee4-1bd2-11e8-accf-0ed5f89f718b"
+         ScopeNames="VPMReference"
+         Discipline="No"
+         Abstract="No"
+         Specializable="No"
+         CAAExposition="L0"
+         CustomerExposition="Programmer">
+
+	<Simple Name="V_StartCTDate"
+            Uuid="bdc05f5e-1bd2-11e8-accf-0ed5f89f718b"
+            Type="Date"
+            MultiValuated="Yes"
+            Protection="External"
+            CAAExposition="L0">
+    <Property Name="CreateAsDateTime" Value="Yes"/>
+    </Simple>
+	<Simple Name="V_EndCTDate"
+            Uuid="c34f9c8c-1bd2-11e8-accf-0ed5f89f718b"
+            Type="Date"
+            MultiValuated="Yes"
+            Protection="External"
+            CAAExposition="L0">
+    <Property Name="CreateAsDateTime" Value="Yes"/>
+    </Simple>
+	<Simple Name="V_CTDescription"
+            Uuid="3102b834-38a9-11e8-b467-0ed5f89f718b"
+            Type="String"
+            MultiValuated="Yes"
+            Protection="External"
+            CAAExposition="L0">
+    </Simple>
+  </Extension>
+  
+  <Extension Name="DELCapacityRscAbstract"
+            Uuid="d4078e14-59a7-11e8-9c2d-fa7ae01bbebc"
+			Discipline="No"
+			Abstract="Yes"
+			Specializable="No"
+			ScopeNames="VPMReference"
+			CAAExposition="L0"
+			CustomerExposition="Programmer">
+	<Simple Name="V_CapacityRscType" 
+			Uuid="d40790a8-59a7-11e8-9c2d-fa7ae01bbebc" 
+			Type="String" 
+			Protection="External" 
+			CAAExposition="L0" 
+			DefaultValue="Batch" 
+            MultiValuated="No">
+		<Range>
+			<Equal>Run</Equal>
+			<Equal>Batch</Equal>
+			<Equal>BatchWithPartialOpening</Equal>
+		</Range>
+	</Simple>
+  </Extension>
+  <Extension Name="DELCapacityRscEach"
+            Uuid="d40791e8-59a7-11e8-9c2d-fa7ae01bbebc"
+			Discipline="No"
+			SuperName="DELCapacityRscAbstract"
+			Abstract="No"
+			Specializable="No"
+			CAAExposition="L0"
+			CustomerExposition="Programmer">
+	<Simple Name="V_MinCapacity" 
+			Uuid="d4079314-59a7-11e8-9c2d-fa7ae01bbebc" 
+			Type="Integer" 
+			Protection="External" 
+			CAAExposition="L0" 
+			DefaultValue="1" 
+            MultiValuated="No">
+	</Simple>
+	<Simple Name="V_MaxCapacity" 
+			Uuid="d4079792-59a7-11e8-9c2d-fa7ae01bbebc" 
+			Type="Integer" 
+			Protection="External" 
+			CAAExposition="L0" 
+			DefaultValue="1" 
+            MultiValuated="No">
+	</Simple>
+  </Extension>
+  <Extension Name="DELCapacityRscWeight"
+            Uuid="d40798e6-59a7-11e8-9c2d-fa7ae01bbebc"
+			Discipline="No"
+			SuperName="DELCapacityRscAbstract"
+			Abstract="No"
+			Specializable="No"
+			CAAExposition="L0"
+			CustomerExposition="Programmer">
+	<Simple Name="V_MinCapacity" 
+			Uuid="d4079a1c-59a7-11e8-9c2d-fa7ae01bbebc" 
+			Type="Double" 
+			Protection="External" 
+			CAAExposition="L0" 
+			DefaultValue="1.0" 
+			Magnitude="MASS"
+            MultiValuated="No">
+	</Simple>
+	<Simple Name="V_MaxCapacity" 
+			Uuid="d4079b3e-59a7-11e8-9c2d-fa7ae01bbebc" 
+			Type="Double" 
+			Protection="External" 
+			CAAExposition="L0" 
+			DefaultValue="1.0" 
+			Magnitude="MASS"
+            MultiValuated="No">
+	</Simple>
+  </Extension>
+  <Extension Name="DELCapacityRscArea"
+            Uuid="d4079c60-59a7-11e8-9c2d-fa7ae01bbebc"
+			Discipline="No"
+			SuperName="DELCapacityRscAbstract"
+			Abstract="No"
+			Specializable="No"
+			CAAExposition="L0"
+			CustomerExposition="Programmer">
+	<Simple Name="V_MinCapacity" 
+			Uuid="d4079ddc-59a7-11e8-9c2d-fa7ae01bbebc" 
+			Type="Double" 
+			Protection="External" 
+			CAAExposition="L0" 
+			DefaultValue="1.0" 
+			Magnitude="AREA"
+            MultiValuated="No">
+	</Simple>
+	<Simple Name="V_MaxCapacity" 
+			Uuid="d407a14c-59a7-11e8-9c2d-fa7ae01bbebc" 
+			Type="Double" 
+			Protection="External" 
+			CAAExposition="L0" 
+			DefaultValue="1.0" 
+			Magnitude="AREA"
+            MultiValuated="No">
+	</Simple>
+  </Extension>
+  <Extension Name="DELCapacityRscLength"
+            Uuid="d407a28c-59a7-11e8-9c2d-fa7ae01bbebc"
+			Discipline="No"
+			SuperName="DELCapacityRscAbstract"
+			Abstract="No"
+			Specializable="No"
+			CAAExposition="L0"
+			CustomerExposition="Programmer">
+	<Simple Name="V_MinCapacity" 
+			Uuid="d407a3c2-59a7-11e8-9c2d-fa7ae01bbebc" 
+			Type="Double" 
+			Protection="External" 
+			CAAExposition="L0" 
+			DefaultValue="1.0" 
+			Magnitude="LENGTH"
+            MultiValuated="No">
+	</Simple>
+	<Simple Name="V_MaxCapacity" 
+			Uuid="d407a4ee-59a7-11e8-9c2d-fa7ae01bbebc" 
+			Type="Double" 
+			Protection="External" 
+			CAAExposition="L0" 
+			DefaultValue="1.0" 
+			Magnitude="LENGTH"
+            MultiValuated="No">
+	</Simple>
+  </Extension>
+  <Extension Name="DELCapacityRscVolume"
+            Uuid="d407a610-59a7-11e8-9c2d-fa7ae01bbebc"
+			Discipline="No"
+			SuperName="DELCapacityRscAbstract"
+			Abstract="No"
+			Specializable="No"
+			CAAExposition="L0"
+			CustomerExposition="Programmer">
+	<Simple Name="V_MinCapacity" 
+			Uuid="d407a73c-59a7-11e8-9c2d-fa7ae01bbebc" 
+			Type="Double" 
+			Protection="External" 
+			CAAExposition="L0" 
+			DefaultValue="1.0" 
+			Magnitude="VOLUME"
+            MultiValuated="No">
+	</Simple>
+	<Simple Name="V_MaxCapacity" 
+			Uuid="d407aa8e-59a7-11e8-9c2d-fa7ae01bbebc" 
+			Type="Double" 
+			Protection="External" 
+			CAAExposition="L0" 
+			DefaultValue="1.0" 
+			Magnitude="VOLUME"
+            MultiValuated="No">
+	</Simple>
+  </Extension>
+  
+  <!-- * PLMDELMechanicalPort (VPMPort) * -->
+  <!-- ************************************************** -->
+  <Extension Name="PLMDELMechanicalPort"
+             Uuid="568FC10A-5EB8-41bd-A19190A99F46428A"
+             ScopeNames="VPMPort"
+             CustomerExposition="Programmer">
+    <CAAComment>
+      <ShortRole>Mechanical Port of a resource</ShortRole>
+      <Role>Mechanical Port of a resource. Becomes obsolete with Unicorn.</Role>
+    </CAAComment>
+    <Simple Name="V_Type" Uuid="33BE9EE8-E775-4b46-A0FDEC6F67022DA8" Type="Integer" Protection="Free" CAAExposition="L0" DefaultValue="1">
+      <CAAComment>
+        <ShortRole>Type of mechanical port from a list of types</ShortRole>
+      </CAAComment>
+      <Property Name="RangeAsEnumName" Value="V_Type_MechPortEnum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="Base;Mount;ToolControlPoint;Connector;Locator"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+        <Equal>5</Equal>
+      </Range>
+    </Simple>
+  </Extension>
+
+  <!-- * not used today                     * -->
+  <!-- ************************************** -->
+  <Extension Name="LogicalOrganizational"
+             Uuid="f2f26e24-ad16-4e0c-9a8d-bd236bb51393"
+             Abstract="No"
+             Discipline="Yes"
+             ScopeNames="VPMReference"
+             CAAExposition="L0"
+             Specializable="No"
+             CustomerExposition="Programmer">
+
+    <CAAComment>
+      <ShortRole>Obsolete Data</ShortRole>
+    </CAAComment>
+
+    <Property Name="XPGApplyDisciplineOnInstance" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELPLMRmKWDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="VPMInstance"/>
+    <Property Name="Searchable" Value="No"/>
+    <Property Name="Newable" Value="No"/>
+
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Design"/>
+        <UsedProcedure href="ENORme_Procedures.proc#PhysicalResource_GetOneLevelEntitiesForDesign"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Channel"/>
+        <UsedProcedure href="ENORme_Procedures.proc#PhysicalResource_GetOneLevelEntitiesForChannel"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Review"/>
+        <UsedProcedure href="ENORme_Procedures.proc#PhysicalResource_GetOneLevelEntitiesForReview"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#TransferSiteOwnership"/>
+        <UsedProcedure href="ENORme_Procedures.proc#Resource_TSO_References"/>
+      </ProcedureForUsage>
+    </Method>
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExchangeScope.meth#XPDM"/>
+        <UsedProcedure href="ENORme_Procedures.proc#PhysicalResource_ExchangeXPDM_GetAllEntities"/>
+      </ProcedureForUsage>
+    </Method>
+  </Extension>
+
+  <Class Name="BehaviorSpecification"
+         Uuid="c3a657f5-7d8f-4ed1-a36d-e41e38cae8a5"
+		     Abstract="No"
+			   Discipline="Yes"
+			   SuperName="VPMRepReference"
+		     Specializable="No"
+		     CustomerExtensible="No"
+		     CustomerExposition="Programmer"
+		     CreateInstName="VPMRepInstance">
+
+    <CAAComment>
+      <ShortRole>Obsolete Data</ShortRole>
+    </CAAComment>
+
+    <Property Name="Searchable" Value="No"/>
+    <Property Name="Newable" Value="No"/>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+  <Class Name="LCMLibrary"
+         Uuid="66cab615-92ed-4ca1-96cb-320e37d4f6dd"
+		     Abstract="No"
+			   Discipline="Yes"
+         SuperName="RFLVPMLogicalRepReference"
+		     Specializable="No"
+		     CustomerExtensible="No"
+		     CustomerExposition="Programmer">
+
+    <CAAComment>
+      <ShortRole>Obsolete Data</ShortRole>
+    </CAAComment>
+
+    <Property Name="Searchable" Value="No"/>
+    <Property Name="Newable" Value="No"/>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+  <Class Name="Automation"
+	       Uuid="ae372e88-104f-451f-acf2-edb700f440af"
+		     Abstract="No"
+			   Discipline="Yes"
+			   SuperName="VPMRepReference"
+		     Specializable="No"
+		     CustomerExtensible="No"
+		     CustomerExposition="Programmer"
+		     CreateInstName="VPMRepInstance">
+
+    <CAAComment>
+      <ShortRole>Obsolete Data</ShortRole>
+    </CAAComment>
+
+    <Property Name="Searchable" Value="No"/>
+    <Property Name="Newable" Value="No"/>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+  <Class Name="Attachment"
+         Uuid="25f4864e-5515-499d-8815-1736f8cbea88"
+         Abstract="No"
+			   Discipline="Yes"
+			   SuperName="CATMCXMechanicalConnection"
+		     Specializable="No"
+		     CustomerExtensible="No"
+		     CustomerExposition="Programmer">
+
+    <CAAComment>
+      <ShortRole>Obsolete Data</ShortRole>
+    </CAAComment>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+  <Class Name="DELSysImplementLinksDiscipline"
+		     Uuid="ad5ecfda-7019-404d-aaf3-e5ccb3e9c1e0"
+         Abstract="No"
+			   Discipline="Yes"
+			   SuperName="PLMDELProdSysImplCnx"
+		     Specializable="No"
+		     CustomerExtensible="No"
+		     CustomerExposition="Programmer">
+
+    <!--<Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>-->
+  </Class>
+
+  <Class Name="DELSysSpecificationLinksDiscipline"
+		     Uuid="cd473f20-51c6-4a13-af87-de255cee82bc"
+         Abstract="No"
+			   Discipline="Yes"
+			   SuperName="PLMDELProdSysImplCnx"
+		     Specializable="No"
+		     CustomerExtensible="No"
+		     CustomerExposition="Programmer">
+
+    <!--<Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>-->
+  </Class>
+
+  <Class Name="DELResImplementLinksDiscipline"
+      Uuid="a4ab4840-3125-4def-a944-9c96b756b3a8"
+      Abstract="No"
+      Discipline="Yes"
+      SuperName="PLMDELImplCnx"
+      Specializable="No"
+      CustomerExtensible="No"
+      CustomerExposition="Programmer">
+
+    <CAAComment>
+      <ShortRole>Obsolete Data</ShortRole>
+    </CAAComment>
+
+    <!--<Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>-->
+  </Class>
+
+  <Class Name="DELResSpecificationLinksDiscipline"
+		     Uuid="424b942a-79e3-42e1-9213-0a36063f49f5"
+         Abstract="No"
+			   Discipline="Yes"
+			   SuperName="PLMDELImplCnx"
+		     Specializable="No"
+		     CustomerExtensible="No"
+		     CustomerExposition="Programmer">
+
+    <CAAComment>
+      <ShortRole>Obsolete Data</ShortRole>
+    </CAAComment>
+
+    <!--<Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>-->
+  </Class>
+
+
+
+</Package>

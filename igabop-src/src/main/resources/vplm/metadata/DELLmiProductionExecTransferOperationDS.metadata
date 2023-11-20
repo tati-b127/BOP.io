@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2009, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" Name="DELLmiProductionExecTransferOperationDS" Uuid="67ff9785-468f-4aea-9cf0-720b24b1d0c1" UseNames="DELLmiProductionExecTransferOperation" >
+<Property Name="OptionalInstallation" Value="Yes" /> 
+	<CAAComment>
+		<ShortRole>Standard DELMIA Execution Transfer Operation Package</ShortRole>
+		<Role>This package includes default customized DELMIA Execution Transfer Operation</Role>
+	</CAAComment>
+	<Comment>last update 2009-05-28</Comment>
+
+	<Class Name="DELLmiExecTransferOperationRefCusto" Uuid="10ee925e-0a36-4e1d-ae44-3678fb31c389" SuperName="DELLmiExecTransferOperationReference" >
+
+    <IdentifierSet Name="Identifier"
+        Uuid="bb70316a-6b12-4198-b5dd-e4083eccfb22"
+        IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755"
+        IdentifierNames="PLM_ExternalID V_version" />
+
+    <CAAComment>
+			<ShortRole>Standard DELMIA Execution Transfer Operation Reference</ShortRole>
+			<Role>Default customized DELMIA Execution Transfer Operation Reference</Role>
+		</CAAComment>
+	</Class>
+
+  <RelationClass Name="DELLmiExecTransferOperationInstCusto" Uuid="b9f361c9-dd9d-4101-9132-35bc9699fa1e" SuperName="DELLmiExecTransferOperationInstance"  >
+		<CAAComment>
+			<ShortRole>Standard DELMIA Execution Transfer Operation Instance</ShortRole>
+			<Role>Default customized DELMIA Execution Transfer Operation Instance</Role>
+		</CAAComment>		
+            <!-- ********************************************************* -->
+            <!-- * Overload(s) of PLMCoreInstance attributes. -->
+            <!-- ********************************************************* -->
+    <SubClause Name="to"   TargetName="DELLmiExecTransferOperationRefCusto"/>
+	</RelationClass>
+
+</Package>

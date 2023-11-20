@@ -1,0 +1,143 @@
+<?xml version="1.0" ?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2015, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" 
+    ModelerType="Top" 
+    BelongsToModeler="PRODUCT" 
+    Name="XCADAssembly"
+    Uuid="10622217-a32f-4801-95e9-e3fadc0bfa0e"
+    UseNames="PLMCORE PRODUCTCFG XCADModeler XCADModelAndItemsModeler"
+    CustomerExposition="Programmer">
+
+  <CAAComment>
+    <ShortRole>XCADAssembly Package</ShortRole>
+    <Role>This package includes all the entities and extensions involved in the XCADIN3DExperience project.</Role>
+  </CAAComment>
+
+  <!-- Class XCADAssemblyRepReference for XCADIN3DExperience -->
+  <Class Name="XCADAssemblyRepReference"
+      Uuid="1306c4e1-018b-43a9-a5f8-852b9c846408"
+      Abstract="No"
+      SuperName="PLMCoreRepReference"
+      CustomerExposition="ProgrammerOnly"
+      Searchable="No"
+      CreateInstName="XCADAssemblyRepInstance"
+      InstantiationOwnerTypes="VPMReference">
+
+    <Property Name="NewMajorRevisionAvailability"         Value="No"/>          <!-- supports Major revisionning      /Inheritance:Yes/CoreRepRef:Yes -->
+    <Property Name="NewMinorRevisionAvailability"         Value="No"/>          <!-- supports Minor revisionning      /Inheritance:Yes/CoreRepRef:No  -->
+    <Property Name="EvolutionAvailability"                Value="No"/>          <!-- supports mechanism of evolutions /Inheritance:Yes/CoreRepRef:Yes -->
+    <Property Name="IterationAvailability"                Value="No"/>          <!-- Iteration project                /Inheritance:Yes/CoreRepRef:No  -->
+    <Property Name="ChangeMaturityAvailability"           Value="No"/>          <!-- supports change maturity         /Inheritance:Yes/CoreRepRef:Yes -->
+    <Property Name="DuplicateAvailability"                Value="No"/>          <!-- supports duplication             /Inheritance:Yes/CoreRepRef:Yes -->
+    <Property Name="DeleteAvailability"                   Value="No"/>          <!-- supports delete                  /Inheritance:Yes/CoreRepRef:No  -->
+    <Property Name="LockUnlockAvailability"               Value="No"/>          <!-- supports lock/unlock             /Inheritance:Yes/CoreRepRef:Yes -->
+    <Property Name="TransferOwnershipAvailability"        Value="No"/>          <!-- supports transfer of ownership   /Inheritance:Yes/CoreRepRef:Yes -->
+    <Property Name="EditPropertiesAvailability"           Value="No"/>          <!-- supports edit properties         /Inheritance:Yes/CoreRepRef:Yes -->
+    <Property Name="SaveAsNewAvailability"                Value="No"/>          <!-- supports save as new             /Inheritance:Yes/CoreRepRef:Yes -->
+    <Property Name="ManageAccessAvailability"             Value="No"/>          <!-- supports manage access           /Inheritance:Yes/CoreRepRef:No  -->
+    <Property Name="ShareBetweenProjectsAvailability"     Value="No"/>          <!-- supports manage to be shared between projects/Inheritance:Yes/   -->
+    <Property Name="ChangeCollaborativeSpaceAvailability" Value="No"/>          <!-- supports to be changed of project/Inheritance:Yes/CoreRepRef:No  -->
+    <Property Name="InterchangeableMinors"                Value="No"/>          <!-- minor versions can be replaced by one another/Inheritance:Yes    -->
+    <Property Name="UniqueNamingRule"                     Value="No"/>          <!-- supports to have a unique key    /Inheritance:Yes                -->
+
+    <!-- PROCEDURES Declaration  -->
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    
+  </Class>
+
+    <!-- Class XCADAssemblyRepInstance for XCADIN3DExperience -->
+  <RelationClass Name="XCADAssemblyRepInstance"
+    Uuid="2dedfbe8-6f59-4f9f-a44f-816f83d6860a"
+    Abstract="No"
+    SuperName="PLMCoreRepInstance"
+    CustomerExposition="ProgrammerOnly">
+
+    <Property Name="NewMajorRevisionAvailability"         Value="No"/>    <!-- supports Major revisionning      /Inheritance:Yes/CoreRepInst:No  -->
+    <Property Name="NewMinorRevisionAvailability"         Value="No"/>    <!-- supports Minor revisionning      /Inheritance:Yes/CoreRepInst:No  -->
+    <Property Name="EvolutionAvailability"                Value="No"/>    <!-- supports mechanism of evolutions /Inheritance:Yes/CoreRepInst:No  -->
+    <Property Name="IterationAvailability"                Value="No"/>    <!-- Iteration project                /Inheritance:Yes/CoreRepInst:No  -->
+    <Property Name="ChangeMaturityAvailability"           Value="No"/>    <!-- supports change maturity         /Inheritance:Yes/CoreRepInst:No  -->
+    <Property Name="DuplicateAvailability"                Value="No"/>    <!-- supports duplication             /Inheritance:Yes/CoreRepInst:No  -->
+    <Property Name="DeleteAvailability"                   Value="No"/>    <!-- supports delete                  /Inheritance:Yes/CoreRepInst:Yes -->
+    <Property Name="LockUnlockAvailability"               Value="No"/>    <!-- supports lock/unlock             /Inheritance:Yes/CoreRepInst:Yes -->
+    <Property Name="TransferOwnershipAvailability"        Value="No"/>    <!-- supports transfer of ownership   /Inheritance:Yes/CoreRepInst:Yes -->
+    <Property Name="EditPropertiesAvailability"           Value="No"/>    <!-- supports edit properties         /Inheritance:Yes/CoreRepInst:Yes -->
+    <Property Name="SaveAsNewAvailability"                Value="No"/>    <!-- supports save as new             /Inheritance:Yes/CoreRepInst:No  -->
+    <Property Name="ManageAccessAvailability"             Value="No"/>    <!-- supports manage access           /Inheritance:Yes/CoreRepInst:No  -->
+    <Property Name="ShareBetweenProjectsAvailability"     Value="No"/>    <!-- supports manage to be shared between projects/Inheritance:Yes/:No -->
+    <Property Name="ChangeCollaborativeSpaceAvailability" Value="No"/>    <!-- supports to be changed of project/Inheritance:Yes/CoreRepInst:No  -->
+    <Property Name="InterchangeableMinors"                Value="No"/>    <!-- minor versions can be replaced by one another/Inheritance:Yes     -->
+    <Property Name="UniqueNamingRule"                     Value="No"/>    <!-- supports to have a unique key    /Inheritance:Yes                 -->
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+  </RelationClass>
+  
+  <!-- Extensions for XCADIN3DExperience -->
+  
+  <!-- Extension on Reference -->
+  <Extension Name="XCADExtension" 
+      Uuid="66ba650f-cf24-4bf8-904d-c89fa42ccad5"
+      CustomerExposition="Programmer"
+      ScopeNames="VPMReference;VPMRepReference;XCADAssemblyRepReference"
+      Searchable="Yes" >
+
+    <!-- Used to define XCAD origin -->
+    <Simple Name="V_CADOrigin"
+      Uuid="020da29e-bf9c-4bd1-ad0e-ce98c8836a52"
+      Type="String"
+      Protection="External"
+      MultiValuated="Yes"
+      UIAccess="ReadOnly" >
+    </Simple>
+  </Extension>
+  
+  <!-- Extension on Representation -->
+  <Extension Name="XCADRepExtension" 
+	  Uuid="f74dddd1-7abc-4dcb-a2e6-52e04b2b4d82"
+      CustomerExposition="Programmer"
+      ScopeNames="VPMRepReference;XCADAssemblyRepReference;XCADNonPSBaseRepReference;XCADModelRepReference"
+      Searchable="No" >
+  
+     <!-- The defined XCAD File Origin -->
+    <Simple Name="V_CADFileOrigin"
+      Uuid="22118826-bed2-4a01-a4ca-72504b665662"
+      Type="String"
+      Protection="External"
+      MultiValuated="No"
+      UIAccess="ReadOnly" >
+    </Simple>
+  
+  	<!-- The Product Structure Mapping Table -->
+  	<Simple Name="V_PSMappingTable"
+  	  Uuid="f906b590-924c-4b8d-867f-59e5954bb69c"
+  	  Type="Clob"
+  	  Protection="Internal"
+  	  UIAccess="ReadOnly" >
+  	</Simple>
+  </Extension>
+
+  <!-- ********************************************************** -->
+  <!-- FUNCTIONS Declarations : here are declared PLMQL Functions -->
+
+  <Function Name="XcadAssembly_ExpandVPMRefToXCADRepRepInst">
+    <Implementation Name="XcadAssembly_ExpandVPMRefToXCADRepRepInst" FileLocation="XcadAssembly_ExpandVPMRefToXCADRepRepInst.plmql" Language="PLMQL"/>
+    <Signature href="XCADAssemblySignature"/>
+  </Function>
+
+  <Signature id="XCADAssemblySignature">
+    <Parameter Name="InputIds" Lower="0" Upper="-1" Direction="in" MultiValuated="Yes" DataType="PLMId"/>
+    <Parameter Name="OutputIds" Lower="0" Upper="-1" Direction="out" MultiValuated="No" DataType="PLMRouteSet"/>
+  </Signature>
+
+  <!-- ********************************************************* -->
+  
+</Package>
+

@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" Name="ENOSTProdSysPunctualOperationDS" Uuid="4601e33d-1325-4731-83a9b8239d049709" UseNames="DELLmiProductionPunctualOperation" >
+	<CAAComment>
+		<ShortRole>PLM Customization of DELMIA Punctual Operation for SMB</ShortRole>
+		<Role>PLM Customization of DELMIA Punctual Operation for SMB</Role>
+	</CAAComment>
+	<Comment>last update 2008-11-25</Comment>
+
+	<Class Name="ENOSTPunctualOpReferenceCusto" Uuid="02322371-8ee4-4acf-a32b4995cd5eff08" SuperName="DELLmiPunctualOperationReference" SuperRef="0488e045-8eef-4844-b4e085d06adbcfc7"  >
+
+    <Simple Name="E_fromExternalId"
+            Uuid="4856ddf7-68d7-446b-9e2dbb3be1a733ec"
+            Alias="Definition"
+            Type="String"
+            MaxLength="256"
+            Mandatory="No"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"/>
+    <Simple Name="E_versionComment"
+            Uuid="3c1e2a1f-ebf8-4f43-9d3f57af2e1fb1af"
+            Alias="Version Comment"
+            Type="String"
+            MaxLength="256"
+            Mandatory="No"
+            MultiValuated="No"
+            Protection="Free"
+            ResetOnNewVersion="Yes"
+            ResetOnCloning="Yes"
+            CAAExposition="L0"/>
+    <IdentifierSet Name="E_identifier"
+                   Uuid="0589fd25-68e1-4cf7-9239558a5cbc7787"
+                   IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755"
+                   IdentifierNames="PLM_ExternalID V_version"/>
+
+    <CAAComment>
+			<ShortRole>PLM Customization of DELMIA Punctual Operation Reference for SMB</ShortRole>
+			<Role>PLM Customization of DELMIA Punctual Operation Reference for SMB</Role>
+		</CAAComment>
+	</Class>
+
+  <RelationClass Name="ENOSTPunctualOpInstanceCusto" Uuid="9b10041f-8586-4c6e-b854-d0affbc6bfb8" SuperName="DELLmiPunctualOperationInstance" SuperRef="26a8ea9e-c0c0-4bb7-978328e44ecb1fa6"  >
+		<CAAComment>
+			<ShortRole>PLM Customization of DELMIA Punctual Operation Instance for SMB</ShortRole>
+			<Role>PLM Customization of DELMIA Punctual Operation Instance for SMB</Role>
+		</CAAComment>		
+            <!-- ********************************************************* -->
+            <!-- * Overload(s) of PLMCoreInstance attributes. -->
+            <!-- ********************************************************* -->
+    <SubClause Name="to"   TargetName="ENOSTPunctualOpReferenceCusto"/>
+	</RelationClass>
+
+</Package>

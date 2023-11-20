@@ -1,0 +1,26 @@
+NAVIGATE     
+
+T0.PLMID
+ 
+
+FROM      
+
+PLMDmtDocument/PLMDMTDocument T0
+
+
+FROM_ROOTS[?1?]
+
+ON  (RELATION(
+
+FROM=DELAsmAssemblyModelCnx/DELAsmProcessCanUseCnx
+
+TO=PLMDmtDocument/PLMDMTDocument
+
+THROUGH=POINTSTO))
+
+
+
+ITER=1
+;
+
+

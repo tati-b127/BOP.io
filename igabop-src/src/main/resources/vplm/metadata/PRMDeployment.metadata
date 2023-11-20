@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2004, All rights reserved -->
+<Package xmlns="PLMDictionaryTop" ModelerType="Top"
+	Name="PRMDeployment" Uuid="38bca7e1-9a95-4ef0-89d5-632aded8fdd2"
+	Alias="PRMDeployment" UseProcedures="PRMDeploymentProcedure">
+</Package>

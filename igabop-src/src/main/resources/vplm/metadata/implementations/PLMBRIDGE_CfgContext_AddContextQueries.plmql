@@ -1,0 +1,15 @@
+NAVIGATE
+	T0.PLM_ExternalID,
+	T0.PLMID,
+	T1.PLM_ExternalID,
+	T1.PLMID 
+FROM
+	PLMConfigQuery/PLMCfgQuery T0,
+	PLMBRIDGE_CfgContext/PLMCfgContext T1
+FROM_ROOTS [?1?]
+ON ( RELATION(
+	FROM=PLMBRIDGE_CfgContext/PLMCfgContext 
+	TO=PLMConfigQuery/PLMCfgQuery
+	THROUGH=POINTSTO )
+WITH QUALITY_FILTER (ROLE=PLMCfgQueries))
+;

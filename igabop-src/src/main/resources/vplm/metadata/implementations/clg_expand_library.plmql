@@ -1,0 +1,23 @@
+EXPAND
+
+   	T0.PLMID, T1.PLMID, T2.PLMID, T3.PLMID, T4.PLMID, T5.PLMID, T6.PLMID,
+
+   	T0.PLM_ExternalID, T1.PLM_ExternalID, T2.PLM_ExternalID, T3.PLM_ExternalID, T4.PLM_ExternalID, T5.PLM_ExternalID, T6.PLM_ExternalID
+
+FROM
+
+   	ENOCLG_LIBRARY/ENOCLG_LibraryReference T0,
+
+   	ENOCLG_CLASS/ENOCLG_ClassReference T1,
+
+   	ENOCLG_CLASS/ENOCLG_ClassInstance T2,
+
+   	ENOCLG_CLASS/ENOCLG_KeywordValueRepresentation T3,
+
+   	ENOCLG_CLASS/ENOCLG_KeywordValueRepInstance T4,
+
+   	ENOCLG_KEYWORD/ENOCLG_KeywordReference T5,
+
+   	ENOCLG_KEYWORD/ENOCLG_KeywordInstance T6
+
+FROM_ROOTS [?1?] ;

@@ -1,0 +1,20 @@
+NAVIGATE     
+
+T0.PLMID, T1.PLMID, T2.PLMID, T3.PLMID, T4.PLMID, T5.PLMID  
+ 
+FROM        
+
+DELFmiFunctionalModel/DELFmiFunctionReference T0,
+DELFmiFunctionalModel/DELFmiFunctionInstance T1,
+DELLmiProductionSystem/DELLmiProductionSystemReference T2,
+DELLmiProductionAbstractOperationPPR/DELLmiPPROperationInstance T3,
+PLMCORE/PLMPort T4,
+DELLmiProductionSystem/DELLmiProductionSystemInstance T5
+
+FROM_ROOTS[?1?]
+
+ON 
+(
+	RELATION(FROM= RFLPLMImplementConnection/RFLPLMImplementConnection TO= DELFmiFunctionalModel/DELFmiFunctionReference,DELFmiFunctionalModel/DELFmiFunctionInstance,DELLmiProductionSystem/DELLmiProductionSystemReference,DELLmiProductionSystem/DELLmiProductionSystemInstance,DELLmiProductionAbstractOperationPPR/DELLmiPPROperationInstance,PLMCORE/PLMPort THROUGH=POINTSTO) WITH QUALITY_FILTER (ROLE=PLM_ImplementLink_Target AND CATEGORY=Reference3)
+)
+ITER=1;

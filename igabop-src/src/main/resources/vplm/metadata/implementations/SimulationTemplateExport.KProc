@@ -1,0 +1,67 @@
+#Prog SimulationTemplateExport( iPLMIDSet : #In PLMIDSet, oPLMIDSet : #Out PLMIDSet ) : VoidType
+{
+ let SimulationSet(PLMIDSet) 
+ let SimulationRoute (PLMRouteSet)
+ 
+ let SimulationContentSet(PLMIDSet)
+ 
+ let SimulationDataRoute(PLMRouteSet)
+ let TemplateInstructionsRoute (PLMRouteSet)
+ 
+ let ChildProductSet(PLMIDSet)
+ let ChildProductRoute(PLMRouteSet)
+ let ProductSet(PLMIDSet)
+ let PhySimulationSet(PLMIDSet)
+ let ReqSet(PLMIDSet) 
+ let logRefSet(PLMIDSet)
+ 
+ let DocumentSet(PLMIDSet)
+ 
+ let ContentSet(PLMIDSet)
+ 
+ let TemplateViewRoute(PLMRouteSet)
+ let TemplateViewSet(PLMIDSet)
+	
+/* get SIMULATIONS from simulation template */
+ SimulationRoute = ExecutePLMFunction("SimulationTemplateExpand", iPLMIDSet) 
+ SimulationSet = Ids(SimulationRoute)
+ 
+/* get template view objects */
+ TemplateViewRoute = ExecutePLMFunction("SimulationTemplateViewExpand", iPLMIDSet) 
+ TemplateViewSet = Ids(TemplateViewRoute)
+
+/* calling Simulation process Procedure*/
+ SimulationContentSet  =  ExecutePLMProcedure(  "SimulationProcessExport",  Restrict(SimulationSet, "Class/SIMULATIONS") ) 
+ 
+/* get Simulation Data from Simulation Template */
+ SimulationDataRoute = ExecutePLMFunction("SimulationTemplateDataExpand", iPLMIDSet)  
+ 
+/* get Template instructions from Simulation Template */
+ TemplateInstructionsRoute = ExecutePLMFunction("SimulationTemplateInstructionsExpand", iPLMIDSet)  
+ 
+ /* create content set */
+ ContentSet = Ids(SimulationDataRoute) + Ids(TemplateInstructionsRoute)
+ 
+/* expand to get it's children products */
+ ChildProductRoute = ExecutePLMFunction("PRODUCTCFG", "ProductCfg_AddChildrenProduct", Restrict(ContentSet, "PRODUCTCFG/VPMReference"))
+ ChildProductSet = Ids(ChildProductRoute)
+
+/* calling Product Procedure*/
+ProductSet  =  ExecutePLMProcedure(  "VPMEditor_GetAllRepresentations",  ChildProductSet ) 
+
+/* call expand on documents */
+ DocumentSet = ExecutePLMProcedure("DocumentCompletion", Restrict(ContentSet, "Class/DOCUMENTS"))
+ 
+/* call expand on requirements */
+ ReqSet = ExecutePLMProcedure("Rmt_Requirement_ExportCompletion", Restrict(ContentSet, "Class/Requirement"))
+ 
+ /* call expand on simulations */
+ PhySimulationSet = ExecutePLMProcedure("DefaultSimulationExport", Restrict(ContentSet, "SIMObjSimulationGeneric/SIMObjSimulationObjectGeneric"))
+ 
+ /* calling logical reference procedure */
+ logRefSet = ExecutePLMProcedure("Logical_ExportReference_Design", Restrict(ContentSet, "RFLVPMLogical/RFLVPMLogicalReference"))
+
+
+ oPLMIDSet = SimulationContentSet + SimulationSet + TemplateViewSet + ContentSet + DocumentSet + ChildProductSet + ProductSet + PhySimulationSet + ReqSet + logRefSet
+}
+

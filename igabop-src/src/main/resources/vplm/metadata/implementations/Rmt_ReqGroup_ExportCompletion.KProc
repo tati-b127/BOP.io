@@ -1,0 +1,35 @@
+#Prog Rmt_ReqGroup_ExportCompletion( iPLMIDSet : #In PLMIDSet, oPLMIDSet : #Out PLMIDSet ) : VoidType
+{
+let RsReqGroupsStruct         (PLMRouteSet)
+let RsReqGroupsContent        (PLMRouteSet)
+let IdsReqGroupsIn             (PLMIDSet)
+let IdsReqGroupsStruct         (PLMIDSet)
+let IdsReqGroupsAll            (PLMIDSet)
+let IdsContent                 (PLMIDSet)
+let IdsReqSpecs                (PLMIDSet)
+let IdsReqSpecsAndScope        (PLMIDSet)
+
+
+/* Get the reqgroups structure, meaning the whole hierarchy of reqgroups, sub-reqgroups and relations between them */
+IdsReqGroupsIn = Restrict( iPLMIDSet , "Class/Requirement Group" )
+RsReqGroupsStruct = ExecutePLMFunction( "Requirement", "rmt_nav_reqgroup_structure", IdsReqGroupsIn )
+IdsReqGroupsStruct = Ids(RsReqGroupsStruct)
+
+
+/* Isolate all the reqgroups of the structure, and get their pointed reqspecs, plus the relations between them and their reqgroup */
+IdsReqGroupsAll = Restrict( IdsReqGroupsStruct , "Class/Requirement Group" )
+RsReqGroupsContent = ExecutePLMFunction( "Requirement", "rmt_nav_reqgroup_children", IdsReqGroupsAll )
+IdsContent = Ids(RsReqGroupsContent)
+
+
+/* Complete procedure to export pointed reqspecs */
+IdsReqSpecs = Restrict( IdsContent , "Class/Requirement Specification" )
+IdsReqSpecsAndScope = ExecutePLMProcedure( "Rmt_ReqSpec_ExportCompletion", IdsReqSpecs )
+
+
+/* Provide back all that stuff */
+oPLMIDSet = iPLMIDSet
++ IdsReqGroupsStruct
++ IdsContent
++ IdsReqSpecsAndScope
+}

@@ -1,0 +1,17 @@
+EXPAND  
+  	T0.PLMID,T1.PLMID,T2.PLMID,T3.PLMID,T4.PLMID,T5.PLMID,T6.PLMID,T7.PLMID,T8.PLMID
+
+ FROM 
+ DELLmiProductionSystem/DELLmiProductionSystemReference T0,
+ DELLmiProductionSystem/DELLmiProductionSystemInstance T1,
+ DELLmiProductionOperation/DELLmiOperationReference T2,
+ DELLmiProductionOperation/DELLmiOperationReference T3,
+ DELLmiProductionCandidateResCnx/DELLmiCandidateResourcesCnx T4,
+ DELAsmAssemblyModelCnx/DELAsmProcessCanUseCnx T5,
+ DELLmiProductionMaterialPathCnx1/DELLmiMaterialPathCnxCust T6,
+ DELLmiProductionTimeConstraintCnx/DELLmiTimeConstraintCnx T7,
+ DELLmiProductionSystemIOPort/DELLmiProdSystemIOPort T8
+
+FROM_ROOTS  [?1?]
+
+;    

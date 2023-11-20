@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!-- edited with XMLSpy v2007 (http://www.altova.com) by DASSAULT SYSTEMES (DASSAULT SYSTEMES) -->
+<!-- ENOVIA DICTIONARY -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2007, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" CustomerExposition="Programmer" Name="CATMCXAssembly" Uuid="d76dbd11-b4db-4314-b4c1-31dc1072f0c5" UseNames="CATMCXAssemblyAbstract">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+  <Comment> Metadata historic :</Comment>
+  <Comment> Creation 18-04-2007 by SVV</Comment>
+  <Comment> Delivery 07-09-2007 by JPY</Comment>
+  <Comment> Delivery 02-09-2009 by JPY</Comment>
+  <Comment> Delivery 04-16-2012 by EWN</Comment>
+  <Comment> Delivery 08-28-2017 by WO4</Comment>   
+  <!--PLM Unified Mechanical Connection (derivation from abstract type MechanicalCNX)-->
+  <Class Name="CATMCXMechanicalConnection" Structured="Yes" CarryStreams="Yes" Uuid="8cac70b1-8d4d-4127-93a7-9a3b9f16512e" CustomerExposition="Programmer" SuperName="MechanicalCNX" Abstract="No">
+    <Simple Name="V_ConnectionType" Uuid="b1aa9ef4-cb40-4ba7-9a23-1265a5362264" Type="String" MultiValuated="No" MaxLength="40"  Protection="External" CAAExposition="L0"/>
+    <Simple Name="V_UpdateStatus" Uuid="514593d0-c017-45a4-a9e5-cf1bbc9d6fc9" Type="Integer" Protection="External" CAAExposition="L0" DefaultValue="1">
+      <Property Name="RangeAsEnumName" Value="CATMCXStatus"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="CATMCXStatus_unknown;CATMCXStatus_error;CATMCXStatus_notsatisfied;CATMCXStatus_satisfied"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+      </Range>
+    </Simple>
+    <Simple Name="V_Active" Uuid="1bb970d2-422a-4535-abfe-a29cc1b7a210" Type="Boolean" MultiValuated="No" Protection="External" CAAExposition="L0"/>
+    <Simple Name="V_ExtendedRole" Uuid="5471b1c8-6143-4705-85fd-997fb153f7b9" Type="String" MultiValuated="Yes" MaxLength="40"  CollectionType="List" Protection="External" CAAExposition="L0"/>
+    <!-- Permet de stocker un contexte de creation -->
+    <Simple Name="V_Context" Uuid="60D12080-4CF3-4305-B11B-C3B004C79143" DefaultValue="" Protection="Internal" Type="String" MaxLength="32" MultiValuated="No"/>	
+    <Property Name="IconName" Value="I_Constraint"/>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <!-- Behavior patterns: default values -->
+    <Property Name="LockUnlockAvailability" Value="No"/>
+  </Class>
+  <!-- PLMQL Functions -->
+  <Function Name="CATMCXAssembly_AddAllAggregatedMCX">
+    <Implementation Name="CATMCXAssembly_AddAllAggregatedMCX" FileLocation="CATMCXAssembly_AddAllAggregatedMCX.plmql" Language="PLMQL"/>
+    <Signature href="ENO_MCXExportSignature"/>
+  </Function>
+  <Signature id="ENO_MCXExportSignature">
+    <Parameter Name="InputIds" Upper="-1" Direction="in" MultiValuated="Yes" DataType="PLMId"/>
+    <Parameter Name="OutputIds" Upper="-1" Direction="out" MultiValuated="No" DataType="PLMRouteSet"/>
+  </Signature>
+
+</Package>

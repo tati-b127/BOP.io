@@ -1,0 +1,241 @@
+/*********************************************************************************************************************************/
+/* Export procedure for Physical Resource                                                                                        */
+/* --> Retrieves all agregated PLM objects (References, Ref Instances, Rep References, Rep Instances, Ports and Connections)     */
+/*********************************************************************************************************************************/
+#Prog PPRContext_GetAllEntitiesForOpen( iPLMIDSet : #In PLMIDSet, oPLMIDSet : #Out PLMIDSet ) : VoidType
+{
+	let PLMRouteSet1 (PLMRouteSet)
+	let PLMRouteSet4 (PLMRouteSet)	
+	let PLMRouteSet5 (PLMRouteSet)	
+	let PLMRouteSet6 (PLMRouteSet)	
+	let PLMRouteSet9 (PLMRouteSet)
+	let PLMRouteSet10 (PLMRouteSet)
+	let PLMRouteSet11 (PLMRouteSet)
+	let PLMRouteSet12 (PLMRouteSet)
+	let PLMRouteSet13 (PLMRouteSet)
+	let PLMRouteSet18 (PLMRouteSet)
+	let PLMRouteSet19 (PLMRouteSet)
+	let PLMRouteSet20 (PLMRouteSet)
+	let PLMRouteSet21 (PLMRouteSet)
+	let PLMRouteSet22 (PLMRouteSet)
+	let PLMRouteSet23 (PLMRouteSet)
+	let PLMRouteSet24 (PLMRouteSet)
+	let PLMRouteSet25 (PLMRouteSet)
+	let PLMRouteSetOutputs (PLMRouteSet)
+	let PLMRouteSetProcessCnxPort (PLMRouteSet)
+	let PLMRouteSetSystemCnxPort (PLMRouteSet)	
+	let PLMRouteSetA (PLMRouteSet)
+	
+	let PLMIDSet1 (PLMIDSet)
+	let PLMIDSet4 (PLMIDSet)
+	let PLMIDSet5 (PLMIDSet)
+	let PLMIDSet6 (PLMIDSet)
+	let PLMIDSet9 (PLMIDSet)
+	let PLMIDSet10 (PLMIDSet)
+	let PLMIDSet11 (PLMIDSet)
+	let PLMIDSet12 (PLMIDSet)
+	let PLMIDSet13 (PLMIDSet)
+	let PLMIDSet14 (PLMIDSet)
+	let PLMIDSet16 (PLMIDSet)
+	let PLMIDSet18 (PLMIDSet)
+	let PLMIDSet19 (PLMIDSet)
+	let PLMIDSet20 (PLMIDSet)
+	let PLMIDSet25 (PLMIDSet)
+	let PLMIDSetA (PLMIDSet)
+	let PLMIDSetD (PLMIDSet)
+	let PLMIDSetE (PLMIDSet)
+	let PLMIDSetH (PLMIDSet)
+	let PLMIDSetI (PLMIDSet)
+	let PLMIDSetJ (PLMIDSet)
+	let PLMIDSetOutputs (PLMIDSet)
+	let PLMIDProcessRefAndInst (PLMIDSet)
+	let PLMIDSystemRefAndInst (PLMIDSet)
+	let PLMIDSet_ConfigProcess (PLMIDSet)
+	let PLMIDSet_ConfigSystem (PLMIDSet)
+	let PLMIDProductRef (PLMIDSet)
+	let PLMIDProcessRef (PLMIDSet)
+	let PLMIDSystemRef (PLMIDSet)
+	let PLMIDSystemRoot (PLMIDSet)
+	let PLMIDSystemRootAndRef (PLMIDSet)
+	let PLMIDProductRepRef (PLMIDSet)
+	let PLMIDAcceptedPackCnx (PLMIDSet)
+	let PLMIDPrototypeCnx (PLMIDSet)
+	let PLMIDProcessCnxPort (PLMIDSet)
+	let PLMIDCapableResCnx (PLMIDSet)
+	let PLMIDPrereqMatCnx (PLMIDSet)
+	let PLMIDProductOutputs (PLMIDSet)
+	let PLMIDProductOutputsAndChildren (PLMIDSet)
+	let PLMIDRuleSetCnx (PLMIDSet)
+	let PLMIDSystemCnxPort (PLMIDSet)
+	let PLMIDCandidateCnx (PLMIDSet)
+	let PLMIDPPRContextPortCnx (PLMIDSet)
+	let PLMIDPPRContextCnx (PLMIDSet)
+	let PLMIDPPRContextProcessCnx (PLMIDSet)
+	let PLMIDPPRContextSystemCnx (PLMIDSet)
+	let PLMIDProcessRoot (PLMIDSet)
+	let PLMIDPrototypePcsCnx (PLMIDSet)
+	let PLMIDOutputCnx (PLMIDSet)
+	let PLMIDProcessSystemRef (PLMIDSet)
+	let PLMIDAssignmentFilterCnx (PLMIDSet)
+
+	let restrictedPLMIDSet (PLMIDSet)
+	restrictedPLMIDSet = Restrict(iPLMIDSet, "PRODUCTCFG/VPMReference")
+	
+	/*************************************************************************************************************/
+	/* Retrieves PLMIDs of aggregated objects for PRODUCTS and RESOURCE linked structures from PPR Context        */
+	/*************************************************************************************************************/  	
+	
+	/* Retrieves all aggregated references and ref. instances for PRODUCTS and RESOURCES */
+	PLMRouteSet1 = ExecutePLMFunction("PRODUCTCFG", "ProductCfg_AddChildrenProduct", restrictedPLMIDSet) 
+	
+	/* Retrieves all aggregated representations (references / instances) for PRODUCTS and RESOURCES */
+	PLMIDProductRef = Restrict(Ids(PLMRouteSet1), "PRODUCTCFG/VPMReference") + restrictedPLMIDSet
+	PLMIDSetD = ExecutePLMProcedure("VPMEditor_GetAllRepresentations", PLMIDProductRef)
+
+	/* Retrieves all aggregated connections for PRODUCTS and RESOURCES */
+	PLMRouteSet4 = ExecutePLMFunction("DELPPRContextModel", "ENOPcx_PPRContext_addAllConnections", PLMIDProductRef)
+	PLMIDPPRContextPortCnx = Ids(PLMRouteSet4)
+
+	/* Retrieves all accepted packaging reference for RESOURCES */
+	PLMIDAcceptedPackCnx = Restrict(PLMIDPPRContextPortCnx, "DELRmiAcceptedPackagingCnx/DELRmiAcceptedPackagingCnx")
+	PLMRouteSet10 = ExecutePLMFunction("DELPPRContextModel", "ENORsc_Resource_addAcceptedPackagings", PLMIDAcceptedPackCnx)
+	PLMIDSet10 = Ids(PLMRouteSet10,"all") 
+
+	/* Retrieves all prototype references for PRODUCTS */
+	PLMIDPrototypeCnx = Restrict(PLMIDPPRContextPortCnx, "PLMPrototypeCnx/PLMPrototypeInstantiationCnx")
+	PLMRouteSet11 = ExecutePLMFunction("DELPPRContextModel", "ENOPpr_PPRData_addPrototypesRefWithoutCnx", PLMIDPrototypeCnx)
+	PLMIDSet11 = Ids(PLMRouteSet11,"all") 
+
+	/* Get all VPMRepReference Behavior and SimulationLogic */
+	PLMIDProductRepRef = Restrict(PLMIDSetD, "PRODUCTCFG/VPMRepReference")
+	PLMRouteSet23 = ExecutePLMFunction("DELPPRContextModel", "ENORsc_Resource_addBehaviorLibraryReps", PLMIDProductRepRef )
+	PLMIDSetH = Restrict(Ids(PLMRouteSet23 ,"all"), "CATSysBehaviorLibrary/CATSysBehaviorLibRepReference") 
+
+	/* Get Behavior Lidraries */
+	PLMRouteSet24 = ExecutePLMFunction("CATSysBehaviorLibrary","CATSysBehaviorLibrary_GetRefLibFromRepLib",PLMIDSetH)
+	PLMIDSetI = Restrict(Ids(PLMRouteSet24 ,"all"), "CATSysBehaviorLibrary/CATSysBehaviorLibReference") 
+
+	/* Export Behavior Libraries */ 
+	PLMIDSetJ = ExecutePLMProcedure("SystemsBehavior_GetDependencies",PLMIDSetI)
+
+	/*************************************************************************************************************/
+	/* Retrieves PLMIDs of  PROCESSES and SYSTEMS roots                                  */
+	/*************************************************************************************************************/ 
+	PLMIDPPRContextProcessCnx = Restrict(PLMIDPPRContextPortCnx, "DELPPRContextModelProcessCnx/PLMDELPPRProcessCnx")
+	PLMIDPPRContextSystemCnx = Restrict(PLMIDPPRContextPortCnx, "DELPPRContextModelSystemCnx/PLMDELPPRSystemCnx") 	
+	PLMIDPPRContextCnx = PLMIDPPRContextProcessCnx + PLMIDPPRContextSystemCnx 	
+	PLMRouteSetA = ExecutePLMFunction("DELPPRContextModel", "ENOPcx_PPRContext_addAllConnectedObjects", PLMIDPPRContextCnx)
+	
+	/*************************************************************************************************************/
+	/* Retrieves PLMIDs of aggregated objects for PROCESSES linked structures                                    */
+	/*************************************************************************************************************/  	
+	
+	/* Retrieves PLMids of connected PROCESSES */
+	PLMIDSetA = Ids (PLMRouteSetA,"all")
+	PLMIDProcessRoot = Restrict(PLMIDSetA, "DELFmiFunctionalModel/DELFmiFunctionReference")
+	
+	/* Retrieves all Ref Rep Inst Rep Inst aggregated by PROCESSES Roots */
+	PLMRouteSet5 = ExecutePLMFunction("DELFmiFunctionalModel", "DELFmiFunctionalModel_addAllProcessRefInstRepRefRepInst", PLMIDProcessRoot)
+
+	/* Retrieves all Cnx Port aggregated by PROCESSES Roots */
+	PLMIDProcessRef = Restrict(Ids(PLMRouteSet5), "DELFmiFunctionalModel/DELFmiFunctionReference") + PLMIDProcessRoot
+	PLMRouteSetProcessCnxPort = ExecutePLMFunction("DELFmiFunctionalModel", "DELFmiFunctionalModel_addAllProcessCnxPortModelerAndAppli", PLMIDProcessRef)
+	PLMIDProcessCnxPort = Ids (PLMRouteSetProcessCnxPort,"all")
+
+	/* Retrieves Process Groups from PROCESSES */
+	/* done throught DELFmiFunctionalModel_addAllProcessCnxPortModelerAndAppli*/
+
+	/* Retrieves Product materialization pointed by DR Ports by PROCESSES */
+	PLMIDPrereqMatCnx = Restrict(PLMIDProcessCnxPort,"DELFmiFunctionalModelPrereqMatCnx/DELFmiProcessPrereqMaterializationCnx")
+	PLMRouteSet19 = ExecutePLMFunction("DELPPRContextModel", "ENOPcx_PPRContext_addProductsLinkedToProcessPorts", PLMIDPrereqMatCnx)
+
+	/* Export of outputProducts will be done through PRODUCT and RESOURCE management */
+	PLMIDProductOutputs = Restrict(Ids(PLMRouteSet19), "PRODUCTCFG/VPMReference")
+	PLMRouteSet20 = ExecutePLMFunction("PRODUCTCFG", "ProductCfg_AddChildrenProduct", PLMIDProductOutputs)
+	
+	/* Retrieves all aggregated representations (references / instances) for PRODUCTS and RESOURCES */
+	PLMIDProductOutputsAndChildren = Restrict(Ids(PLMRouteSet20), "PRODUCTCFG/VPMReference") + PLMIDProductOutputs
+	PLMIDSetE = ExecutePLMProcedure("VPMEditor_GetAllRepresentations", PLMIDProductOutputsAndChildren)
+
+	/* Retrieves all prototype references for PROCESSES */
+	PLMIDPrototypePcsCnx = Restrict(PLMIDProcessCnxPort, "PLMPrototypeCnx/PLMPrototypeInstantiationCnx")
+	PLMRouteSet12 = ExecutePLMFunction("DELPPRContextModel", "ENOPpr_PPRData_addPrototypesRefWithoutCnx", PLMIDPrototypePcsCnx)
+	PLMIDSet12 = Ids(PLMRouteSet12,"all")
+
+	/* Retrieves all Rule Sets references for PROCESSES */
+	PLMIDRuleSetCnx = Restrict(PLMIDProcessCnxPort, "PLMPropagationRuleSetCnx/PLMRuleSetPropagationCnx")
+	PLMRouteSet13 = ExecutePLMFunction("DELPPRContextModel", "ENOPcs_Process_addRuleSetsWithoutCnx", PLMIDRuleSetCnx)
+	PLMIDSet13 = Ids(PLMRouteSet13,"all")
+
+	/* Export Rule Sets references*/
+	PLMIDSet14 = ExecutePLMProcedure("Kwe_ExportRuleSet", Restrict(PLMIDSet13, "PLMCORE/PLMCoreReference"))
+	
+	/*Completes with configuration */
+	PLMIDProcessRefAndInst = Restrict(Ids(PLMRouteSet5), "PLMCORE/PLMCoreReference") + Restrict(Ids(PLMRouteSet5), "PLMCORE/PLMCoreInstance") + PLMIDProcessRoot	
+	PLMIDSet_ConfigProcess = ExecutePLMProcedure("Config_GetStructConfig", PLMIDProcessRefAndInst)
+	
+	/* Retrieves Assignment Filter connection */
+	PLMIDAssignmentFilterCnx = Restrict(PLMIDProcessCnxPort, "PLMAssignmentFilter/PLMAssignmentFilterCnx")
+
+	/*************************************************************************************************************/
+	/* Retrieves PLMIDs of aggregated objects for SYSTEMS linked structures                                      */
+	/*************************************************************************************************************/  	
+	
+	/* Retrieves PLMids of connected SYSTEMS */	
+	PLMIDSystemRoot = Restrict(PLMIDSetA, "DELLmiProductionSystem/DELLmiProductionSystemReference")
+	
+	/* Retrieves all Ref Inst Rep RepInst aggregated by SYSTEMS Roots */
+	PLMRouteSet6 = ExecutePLMFunction("DELLmiProductionSystemAbstract", "ENOPsm_ProductionSystem_addAllRefInstRepRefRepInst", PLMIDSystemRoot)
+	
+	/* Retrieves all Cnx and Ports aggregated by SYSTEMS Roots */
+	PLMIDSet6 = Ids (PLMRouteSet6,"all")
+	PLMIDSystemRef = Restrict(PLMIDSet6 , "PLMCORE/PLMCoreReference")
+	PLMIDSystemRootAndRef = PLMIDSystemRoot + PLMIDSystemRef
+	PLMRouteSetSystemCnxPort = ExecutePLMFunction("DELLmiProductionSystemAbstract", "ENOPsm_ProductionSystem_addAllCnxPort", PLMIDSystemRootAndRef)
+	PLMIDSystemCnxPort = Ids(PLMRouteSetSystemCnxPort,"all")
+
+	
+	/* Retrieves Candidate Resources from SYSTEMS References */
+	PLMIDCandidateCnx = Restrict(PLMIDSystemCnxPort , "DELLmiProductionCandidateResCnx/DELLmiCandidateResourcesCnx")
+	PLMRouteSet9 = ExecutePLMFunction("DELPPRContextModel", "ENOPsm_ProductionSystem_addCandidateResourcesScopeWithoutCnx", PLMIDCandidateCnx)
+	PLMIDSet9 = Ids(PLMRouteSet9, "all")
+
+	/* Retrieves all aggregated representations (references / instances) */
+	PLMIDSet16 = ExecutePLMProcedure("PhysicalResource_GetAllEntities", Restrict(PLMIDSet9, "PRODUCTCFG/VPMReference"))
+
+	/*Retrieves all outputs from System or Operation References */
+	PLMIDOutputCnx = Restrict(PLMIDSystemCnxPort , "DELLmiProductionSystemOutputCnxAbstract/DELLmiProductionSystemOutputCnxAbstract")
+	PLMRouteSetOutputs = ExecutePLMFunction("DELPPRContextModel", "ENOPsm_ProductionSystem_addOutputEntitiesWithoutCnx", PLMIDSystemRootAndRef)
+	PLMIDSetOutputs = Ids(PLMRouteSetOutputs ,"all")
+	
+	/*Completes with configuration */
+	PLMIDSystemRefAndInst = Restrict(Ids(PLMRouteSet6), "PLMCORE/PLMCoreReference") + Restrict(Ids(PLMRouteSet6), "PLMCORE/PLMCoreInstance") + PLMIDSystemRoot	
+	PLMIDSet_ConfigSystem = ExecutePLMProcedure("Config_GetStructConfig", PLMIDSystemRefAndInst)
+
+
+	/************************************/
+	/* COMMON PATTERNS					*/
+	/************************************/
+
+	/* Retrieves all attached documents for Systems, Operations, and ProcessWKI */
+	PLMIDProcessSystemRef = PLMIDProcessRef + PLMIDSystemRootAndRef
+	PLMRouteSet25 = ExecutePLMFunction("PLMDocConnection", "PLMDocConnection_retrieveAllDocumentsIncludingCBP", PLMIDProcessSystemRef)
+	PLMIDSet25 = Ids(PLMRouteSet25,"all")		
+
+	/* Retrieves Capable Resources Reference from PROCESSES adn SYSTEMS */
+	PLMIDCapableResCnx = Restrict(PLMIDProcessCnxPort,"DELAsmAssemblyModelCnx/DELAsmProcessCanUseCnx") + Restrict(PLMIDSystemCnxPort,"DELAsmAssemblyModelCnx/DELAsmProcessCanUseCnx")
+	PLMRouteSet18 = ExecutePLMFunction("DELPPRContextModel", "ENOPcs_Process_addCapableResourcesWithoutCnx", PLMIDCapableResCnx)
+
+	/**********************/
+	/* Returns all PLMIds */
+	/**********************/
+	
+	PLMIDSet1 = Ids(PLMRouteSet1,"all")
+	PLMIDSet4 = Ids(PLMRouteSet4,"all")
+	PLMIDSet5 = Ids(PLMRouteSet5,"all")
+	PLMIDSet18 = Ids(PLMRouteSet18,"all")
+	PLMIDSet19 = Ids(PLMRouteSet19,"all")
+	PLMIDSet20 = Ids(PLMRouteSet20,"all")
+
+oPLMIDSet = iPLMIDSet + PLMIDSet1 + PLMIDSetD + PLMIDSet4 + PLMIDSet5 + PLMIDSet6 + PLMIDSet18 + PLMIDSet19 + PLMIDSet20 + PLMIDSetE + PLMIDSet9 + PLMIDSet16 + PLMIDSet10 + PLMIDSet11 + PLMIDSet12 + PLMIDSet13 + PLMIDSet14 + PLMIDSetI + PLMIDSetJ + PLMIDSet25 + PLMIDSetOutputs + PLMIDProcessCnxPort + PLMIDSetA + PLMIDSystemCnxPort + PLMIDSet_ConfigProcess + PLMIDSet_ConfigSystem + PLMIDAssignmentFilterCnx 
+}

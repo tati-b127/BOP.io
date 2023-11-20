@@ -1,0 +1,15 @@
+NAVIGATE T0.physicalid, 
+T0.logicalid, 
+T0.majorid, 
+T0.type, 
+T0.name, 
+T1.physicalid, 
+T1.logicalid, 
+T1.majorid, 
+T1.type, 
+T1.name
+FROM Class/Part T0, RelationClass/Alternate T1 FROM_ROOTS  [?1?] 
+ON (RELATION (FROM=Class/Part TO=RelationClass/Alternate THROUGH=POINTEDBY) 
+WITH QUALITY_FILTER (CATEGORY=ISINSTANCEOF))
+THEN (RELATION (FROM=RelationClass/Alternate TO=Class/Part THROUGH=POINTSTO) WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY)) ITER=1;
+

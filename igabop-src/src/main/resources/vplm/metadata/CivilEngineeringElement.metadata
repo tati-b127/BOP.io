@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2012, All rights reserved -->
+
+<Package CustomerExposition = "Programmer" ModelerType = "Top" Name = "CivilEngineeringElement" UseNames = "AECKernel" Uuid = "7fd289e3-28f6-4a03-835f-e46526a0030b" xmlns = "PLMDictionaryUnified">
+  <Class Abstract = "Yes" CustomerExposition = "Programmer" Discipline = "Yes" Name = "CivilEngineeringElement" SuperName = "AecElement" Uuid = "ae2988e0-4b3c-424d-a632-ae0224e58ee8"/>
+  <Class Abstract = "Yes" CustomerExposition = "Programmer" Discipline = "Yes" Name = "CivilEngineeringElementType" SuperName = "AecObjectType" Uuid = "C3B95226-82CA-441B-9439-433E5D85C7DA"/>
+</Package>

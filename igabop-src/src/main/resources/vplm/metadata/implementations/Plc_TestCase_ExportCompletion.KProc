@@ -1,0 +1,47 @@
+#Prog Plc_TestCase_ExportCompletion( iPLMIDSet : #In PLMIDSet, oPLMIDSet : #Out PLMIDSet ) : VoidType
+{
+let RsSubTCs              (PLMRouteSet)
+/* let RsTEs                 (PLMRouteSet) */
+let RsDocsTC              (PLMRouteSet)
+/* let RsDocsTE              (PLMRouteSet) */
+let IdsTCs                  (PLMIDSet)
+let IdsAllTCsAndRels        (PLMIDSet)
+/* let IdsAllTEsAndRels        (PLMIDSet) */
+let IdsOnlyTCs              (PLMIDSet)
+/* let IdsOnlyTEs              (PLMIDSet) */
+let IdsDocs                 (PLMIDSet)
+let IdsOnlyDocs             (PLMIDSet)
+/* let IdsTestExecsAndScope    (PLMIDSet) */
+let IdsDocsAndScope         (PLMIDSet)
+
+
+/* Get the test cases, with their sub test cases */
+IdsTCs = Restrict( iPLMIDSet , "Class/Test Case" )
+RsSubTCs = ExecutePLMFunction( "TestCase", "plc_nav_tc_subs", IdsTCs )
+IdsAllTCsAndRels = Ids(RsSubTCs)
+IdsOnlyTCs = Restrict( IdsAllTCsAndRels , "Class/Test Case" )
+
+
+/* Get the test executions */
+/* RsTEs = ExecutePLMFunction( "TestCase", "plc_nav_tc_te", IdsOnlyTCs ) */
+/* IdsAllTEsAndRels = Ids(RsTEs) */
+/* IdsOnlyTEs = Restrict( IdsAllTEsAndRels , "Class/Test Execution" ) */
+/* IdsTestExecsAndScope = ExecutePLMProcedure( "Plc_TestExecution_ExportCompletion", IdsOnlyTEs ) */
+
+
+/* Get the reference documents of the all TCs (sub TCs included) */
+RsDocsTC = ExecutePLMFunction( "TestCase", "plc_nav_tc_docs", IdsOnlyTCs )
+/* RsDocsTE = ExecutePLMFunction( "TestCase", "plc_nav_te_docs", IdsOnlyTEs ) */
+IdsDocs = Ids(RsDocsTC) /* + Ids(RsDocsTE) */
+IdsOnlyDocs = Restrict( IdsDocs, "Class/DOCUMENTS" )
+IdsDocsAndScope = ExecutePLMProcedure( "DocumentCompletion", IdsOnlyDocs )
+
+
+/* Provide back all that stuff */
+oPLMIDSet = iPLMIDSet
++ IdsAllTCsAndRels
+/* + IdsAllTEsAndRels */
+/* + IdsTestExecsAndScope */
++ IdsDocs
++ IdsDocsAndScope
+}

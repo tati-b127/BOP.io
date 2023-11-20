@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2005, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" DataRDB_OID="ENODR_MAINTACT" Name="MaintenanceActionDS" Uuid="e1a4eb2b-8d89-4c75-b7d083c22f79479d" UseNames="PLMChgMaintenanceAction" >
+<Property Name="OptionalInstallation" Value="Yes" /> 
+	<CAAComment>
+		<ShortRole>Standard Maintenance Action Package</ShortRole>
+		<Role>This package includes the entities of the Standard Maintenance Action Reference and Standard Maintenance Child Action Instance - - these are default customized change entities</Role>
+	</CAAComment>
+	<Comment>last update 2006-12-05-09.00.00</Comment>
+	<!-- *************************************** -->
+	<!-- * PLMMaintActionCusto(PLMMaintenanceAction)   * -->
+	<!-- *************************************** -->
+	<Class Name="PLMMaintActionCusto" Uuid="d5d98bdc-e98c-40e1-8a33a850dfd9bf6f"     SuperName="PLMMaintenanceAction"   >
+		<CAAComment>
+			<ShortRole>Standard Maintenance Action Reference</ShortRole>
+			<Role>Standard Action Reference for Maintenance - - this is a default customized Maintenance Action</Role>
+		</CAAComment>
+    <IdentifierSet Name="Identifier" Uuid="49421c6d-5936-41dc-afda8bdcf923f71f" IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB" IdentifierNames="PLM_ExternalID"/>
+	</Class>
+	<!-- *************************************** -->
+	<!-- * PLMMaintChildActionCusto(PLMMaintChildAction)   * -->
+	<!-- *************************************** -->
+  <RelationClass Name="PLMMaintChildActionCusto" Uuid="ca182a1e-4f86-4934-ab8fb4d3cb2025b6"     SuperName="PLMMaintChildAction"   >
+    <CAAComment>
+      <ShortRole>Standard Maintenance Child Action Instance</ShortRole>
+      <Role>Standard Child Action Instance for Maintenance - this is a default customized Maintenance Child Action</Role>
+    </CAAComment>
+    <!--
+             *********************************************************
+             * Overload(s) of PLMCoreInstance attributes.
+             ********************************************************* -->
+    <SubClause Name="to"   TargetName="PLMMaintActionCusto"/>
+  </RelationClass>
+
+</Package>

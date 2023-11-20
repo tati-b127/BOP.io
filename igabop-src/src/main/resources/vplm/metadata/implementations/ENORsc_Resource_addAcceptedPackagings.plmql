@@ -1,0 +1,31 @@
+NAVIGATE     
+
+T0.PLMID, T1.PLMID
+ 
+FROM      
+
+PRODUCTCFG/VPMReference T0,
+DELFmiFunctionalModel/DELFmiFunctionReference T1
+
+FROM_ROOTS[?1?]
+
+ON ( RELATION(
+
+FROM=DELRmiAcceptedPackagingCnx/DELRmiAcceptedPackagingCnx
+
+TO=PLMCORE/PLMCoreReference
+
+THROUGH=POINTSTO) WITH QUALITY_FILTER (ROLE=DEL_LinkToPackagingObject))
+
+OR ( RELATION(
+
+FROM=DELRmiAcceptedPackagingCnx/DELRmiAcceptedPackagingCnx
+
+TO=PLMCORE/PLMCoreReference
+
+THROUGH=POINTSTO) WITH QUALITY_FILTER (ROLE=DEL_LinkToRecommendedPackagingObject))
+
+ITER = 1
+;
+
+

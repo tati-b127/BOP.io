@@ -1,0 +1,107 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY for Electrical Logical Editor, defining Pin Allocation connection -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, all rights reserved -->
+
+<!-- 
+   =========
+    Package
+   =========
+   xmlns :           Type of model defined. "PLMDictionaryTop", "PLMDictionaryAbstract", "Core", "Custo".
+   ModelerType :     Type of model defined. "Top", "Abstract", "Core", "Custo".  
+   Alias :           Other name for the object. To be removed.
+   UseNames :        Other dictionaries required to define class derivation or extension.
+   UseScopes :       Other dictionaries required to define relationships between entities.
+   ExpositionLevel : "CAA" for all RFLVPM dictonaries, none for FluidSystemsLogical.
+-->
+
+   <Package Name="PLMElectricalLogicalPinAllocation"
+      Uuid="c1c62968-1de6-43c9-96f9-10a7621cc9a2"
+      xmlns="PLMDictionaryUnified"
+      ModelerType="Top"
+      BelongsToModeler="PLMElectricalLogical"
+      UseNames="LPABSTRACT"
+	  CustomerExposition="None">
+
+     <CAAComment>
+         <ShortRole>Electrical Logical Pin Allocation Package</ShortRole>
+         <Role>This package describes the PLM Electrical Logical model of Pin Allocation connections on top of RFLVPMLogical Modeler.</Role>
+      </CAAComment>
+     <Comment>Initial creation : LOK JRI 2008-10-01</Comment>
+     <Comment>Creation mode to "Yes" for electrical connections in V6R2012x: ZTB Jun 2011</Comment>
+	 <Comment>[V6R2013x] New Typing project: ZTB Apr 2012</Comment>
+
+
+<!-- 
+   ============================
+    Pin Allocation (connection)
+   ============================
+-->
+      
+      <Class Name="PLMElecLogicalPinAllocation"
+         Uuid="479e95eb-be4b-4e37-ad86-d8b86c7a57a0"
+         SuperName="LPAbstractConnection"
+         Abstract="No"   OwnerTypes="RFLVPMLogicalReference"
+         CustomerExposition="None" >
+        <!-- OwnerTypes="RFLVPMLogicalReference"  Integrate this line if you want to declare the aggregation constraint -->
+
+        <Simple Name="V_Elec_SubType"
+            Uuid="2c6d4eff-9e12-46f9-bcad-591e4468f13f"
+            Type="String"
+            MaxLength="40"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0" />
+         <Simple Name="V_Elec_UserIdentifier"
+            Uuid="39def8f3-cd95-4534-ac14-e659a56c0243"
+            Type="String"
+            MaxLength="40"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0" />
+         <Simple Name="V_Elec_NetIdentifier"
+            Uuid="1a076d50-0fa7-4e83-a1fc-e59e56dda9a6"
+            Type="String"
+            MaxLength="40"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0" />
+         <Simple Name="V_Elec_WireIdentifier"
+            Uuid="9335237b-a540-46c6-bab2-dd41df2d86a6"
+            Type="String"
+            MaxLength="40"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0" />
+
+        <Path Name="V_Elec_From"
+		      Uuid="9196c1f6-1b7f-49b8-bbb5-3d19dd8214e0"
+            RoleName="EleLogical_AllocFrom"
+            Semantics="Reference7"  Orientation="Out"
+         		Type="SemanticRelation" AdaptativeToMinor="No"
+        		SynchroSensitivity="Last"
+		        RerouteOnEffectivityChange="No"
+            MultiValuated="No" />
+         <Path Name="V_Elec_To"
+            Uuid="5c652b01-af1a-4d09-8a33-567e0a1bbf28"
+            RoleName="ElelLogical_AllocTo"
+            Semantics="Reference"
+            MultiValuated="Yes"
+         		Type="SemanticRelation" AdaptativeToMinor="No"
+        		SynchroSensitivity="None"
+		        RerouteOnEffectivityChange="No"
+            Lower="0"
+            Upper="-1" />
+	     <Method ImplementationType="None">
+   	        <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+         </Method>
+      </Class>
+
+	   <Class Name="EleLogicalPinAllocation"
+			Uuid="4767ddbc-bc18-4ff0-bf9e-041d2159bfd0"
+			CustomerExposition="None"
+			SuperName="PLMElecLogicalPinAllocation"
+			Discipline="Yes">
+	   </Class>
+	   
+</Package>

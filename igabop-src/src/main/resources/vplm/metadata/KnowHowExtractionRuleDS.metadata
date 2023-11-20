@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2010, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" DataRDB_OID="ENODR_RULEC" Name="KnowHowExtractionRuleDS" Uuid="294A111E-59E5-4c02-A55F-CA77A6BAB360" UseNames="PLMKnowHowExtractionRule" Alias="KnowHow Extraction Rule Custo" >
+<Property Name="OptionalInstallation" Value="Yes" /> 
+	<Class Name="PLMExtractionRuleCusto" Uuid="D6434501-DF0A-420c-A16C-E45240FDEB76" Alias="PLMExtractionRuleCusto"       SuperRef="696AA002-8772-4ee9-8ED1-3DF7AE87FBF7" SuperName="PLMExtractionRule" >
+    <IdentifierSet Name="Identifier" Uuid="B0F2ABAA-E76E-4c61-9DAF-687213F5FE9A" 
+        IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755" 
+        IdentifierNames="PLM_ExternalID V_version"/>
+  </Class>
+</Package>

@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2005, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" Name="PLMWspSpecFilter" BelongsToModeler="PLMWspContext" Uuid="ec9c5a52-ea22-4c7f-b8c27d9a9371089f" UseNames="PLMWspContext" CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+  <CAAComment>
+		<ShortRole>Filter Specification Package</ShortRole>
+		<Role>This package includes specification object of Filter Model</Role>
+	</CAAComment>
+	<Comment>last update 2007-03-28-12.00.00</Comment>
+	<!-- *************************************** -->
+	<!-- *    PLMWspSpecPVS (PLMWspConnection) * -->
+	<!-- *************************************** -->
+	<Class Name="PLMWspSpecPVS" Uuid="7e2884af-d2c3-4af7-8138009cea1dd6b5" SuperName="PLMWspSpecConnection" Abstract="No" CustomerExposition="Programmer">
+		<CAAComment>
+			<ShortRole>Filter Specification object</ShortRole>
+			<Role>This object captures a filter definition aggregated under external Reference (Product, Process … )</Role>
+		</CAAComment>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope" />
+    </Method>
+    <Property Name="IconName" Value="I_PVSMain"/>
+    <Property Name="Searchable" Value="No"/>
+	</Class>
+
+  <!-- *************************************** -->
+  <!-- *    FUNCTIONS DECLARATIONS           * -->
+  <!-- *************************************** -->
+  <Function Name="PLMWspSpecFilter_RetrieveFilteredRoot">
+    <Implementation Name="PLMWspSpecFilter_RetrieveFilteredRoot" FileLocation="PLMWspSpecFilter_RetrieveFilteredRoot.plmql" Language="PLMQL"/>
+    <Signature href="PLMWspSpecFilterSignature"/>
+  </Function>
+  <Function Name="PLMWspSpecFilter_AddAllAggregatedSpecPVS">
+    <Implementation Name="PLMWspSpecFilter_AddAllAggregatedSpecPVS" FileLocation="PLMWspSpecFilter_AddAllAggregatedSpecPVS.plmql" Language="PLMQL"/>
+    <Signature href="PLMWspSpecFilterSignature"/>
+  </Function>
+
+  <Signature id="PLMWspSpecFilterSignature">
+    <Parameter Name="InputIds" Lower="0" Upper="-1" Direction="in" MultiValuated="Yes" DataType="PLMId"/>
+    <Parameter Name="OutputIds" Lower="0" Upper="-1" Direction="out" MultiValuated="No" DataType="PLMRouteSet"/>
+  </Signature>
+  
+</Package>

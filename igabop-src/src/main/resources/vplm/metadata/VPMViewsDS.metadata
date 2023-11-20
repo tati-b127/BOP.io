@@ -1,0 +1,126 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2005, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" DataRDB_OID="ENODR_VIEWASM" Name="VPMViewsDS"
+    Uuid="ebe302c9-d868-4298-98cb-499439401c73"
+    UseNames="PRODUCTCFG"
+    Alias="Virtual Product Views #2"
+    >
+
+<Property Name="OptionalInstallation" Value="Yes" /> 
+	<Comment>last update 2005-06-09-15.00.00</Comment>
+
+	<CAAComment>
+		<ShortRole>PLM Customization Education with extended identification mecanisms</ShortRole>
+		<Role>Provide Identification mechanism with View. It enables to create logical partition on identical id, but different way to look at it.</Role>
+	</CAAComment>
+
+  <Class Name="CAAVPMReferenceView"
+        Uuid="e82c6b44-8a07-4700-9147-02d595a06b16"
+        SuperName="VPMReference" SuperRef="6FBC0B4F-5F11-432F-A56B8EFC7001CA9B"
+        
+        
+        
+        Alias="VPM Reference View"        
+        
+                
+        
+        >
+
+        <Simple Name="E_viewName"
+            Uuid="9c564ccd-93d7-40fc-89b4-1bb6d03bf63c"
+            
+            Alias="ViewName"
+            
+            Type="String"
+            MaxLength="32"
+            Mandatory="Yes"
+            MultiValuated="No"
+            Protection="Free" 
+          />
+
+        <IdentifierSet Name="E_identifier"
+            Uuid="6fb46be7-f447-4f1b-8483-79775e33ffd7"
+            IdentifierNames="PLM_ExternalID E_viewName V_version"
+            IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9c564ccd-93d7-40fc-89b4-1bb6d03bf63c 9528ED8F-6280-43E0-AD67CCB0D32A0755"  
+         />
+  </Class>
+
+  <Class Name="CAAVPMRepresentationView"
+        Uuid="fc50180d-aa09-439a-8147-3026a55f491a"
+        SuperName="VPMRepReference" SuperRef="37776C3D-FDBE-492A-942EF11C983D20BF"
+        
+        
+                
+        
+                
+        
+        >
+
+        <Simple Name="E_viewName"
+            Uuid="3a87a84c-1d7c-46a2-aaf3-d49c474c9851"
+            
+            Alias="ViewName"
+            
+            Type="String"
+            MaxLength="32"
+            Mandatory="Yes"
+            MultiValuated="No" 
+            Protection="Free" 
+         />
+
+        <IdentifierSet Name="E_identifier"
+            Uuid="a9f56742-dc02-49e3-a23d-867ef50287ba"
+            IdentifierNames="PLM_ExternalID E_viewName V_version"
+            IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 3a87a84c-1d7c-46a2-aaf3-d49c474c9851 9528ED8F-6280-43E0-AD67CCB0D32A0755" 
+        />
+  </Class>
+
+  <Class Name="CAAVPMRefViewInstance"
+        Uuid="7623281c-8d3f-4d63-a296-86adbab57ff1"
+        SuperName="VPMInstance" SuperRef="5461A455-452A-451E-BB41AB43227613E7"
+        
+        
+        
+        
+               
+         
+        >
+  </Class>
+
+  <Class Name="CAAVPMRefViewConnection"
+        Uuid="5486edd2-6770-4b2d-a363-cfb80460e8e0"
+        SuperName="VPMConnection" SuperRef="A3EEFC65-FE2E-41D7-A68BB09BD9729DE9"
+        
+        
+        
+                
+        
+        >
+  </Class>
+
+  <Class Name="CAAVPMRefViewPort"
+        Uuid="c7ca0b61-16ec-4476-951a-bf1919f76b93"
+        SuperName="VPMPort" SuperRef="F15B80BD-1859-4A91-9E9A0B096C409A7B"
+        
+        
+        
+                
+        
+        >
+  </Class>
+
+  <Class Name="CAAVPMRepViewInstance"
+        Uuid="935836fd-493b-4fef-b6fa-65043674fe6a"
+        SuperName="VPMRepInstance" SuperRef="159B5B75-2D79-4B38-9235E23CE451CA62"
+        
+        
+        
+        
+                
+        
+        >
+  </Class>
+
+</Package>

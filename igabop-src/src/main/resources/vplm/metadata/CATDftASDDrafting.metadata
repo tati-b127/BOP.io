@@ -1,0 +1,275 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2013, All rights reserved -->
+
+<!-- =================================================================== -->
+<!-- Package defining the PLM types for AITAC application :              -->
+<!-- 'AITAC Smart Drawings' (ASD)                                        -->
+<!-- =================================================================== -->
+<Package xmlns="PLMDictionaryUnified" 
+         ModelerType="Top" 
+         CustomerExposition="Programmer" 
+         Name="CATDftASDDrafting" 
+	       UseNames="CATDraftingDiscipline" 
+	       Uuid="99FF2335-0268-46a5-B90C-00DD3FECD7B8" 
+	       BelongsToModeler="CATDraftingDiscipline">
+
+  <!-- =================================================================== -->
+  <!-- Class ASD Drawing : Specialization of the Drawing                   -->
+  <!-- =================================================================== -->
+
+  <Class Name="ASDDrawing"
+         Uuid="88BEDD10-3A19-473f-A79D-7DAE1DB6D59A"
+         CustomerExposition="Programmer"
+         SuperName="Drawing"
+         Discipline="Yes"
+         Specializable="Yes"
+         CustomerExtensible="No"
+         Searchable="Yes"
+         Abbreviation="adrw">
+
+    <Property Name="Newable" Value="All_Offline_CAA"/>
+    <Property Name="TypeForDisciplineValuation" Value="Drawing"/>
+    <Property Name="KweNew_ReturnedType" Value="VPMRepInstance"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATKBEDelegateInstanciationASDDrw"/>
+    <Property Name="GroupingType" Value="ASDDrawing"/>
+    
+    <Property Name="IconName" Value="I_VPMNavDrawing"/>
+    <Property Name="3DIconName" Value="DefaultDrawingNavrep.cgr"/>
+
+    <Simple
+      Name="ASDBundleName"
+      Uuid="8703F899-1ECF-4b62-BC61-648FA602AACA"
+      Type="String"
+      MultiValuated="No"
+      Protection="External">
+    </Simple>
+
+    <Simple
+      Name="ASDSheetName"
+      Uuid="E26FC7BA-BB69-44cb-BB92-B63A9519092A"
+      Type="String"
+      MultiValuated="No"
+      Protection="External">
+    </Simple>
+    
+    <Simple
+      Name="ASDTemplateName"
+      Uuid="841706ED-4310-4b7c-A2C9-54A6D926A3E5"
+      Type="String"
+      MultiValuated="No"
+      Protection="External">
+    </Simple>
+
+    <Simple
+      Name="ASDIsTemplate"
+      Uuid="8D9F5642-AECA-4dbc-BFC3-86F065E65DB8"
+      Type="Boolean"
+      MultiValuated="No"
+      Protection="External">
+    </Simple>
+
+    <Simple
+      Name="ASDStandard"
+      Uuid="BE2FF7B7-CA25-4c44-99AC-8FCE0FA5DBCD"
+      Type="String"
+      MultiValuated="No"
+      Protection="External">
+    </Simple>
+
+    <Simple
+      Name="ASDContinuation"
+      Uuid="294BE8A7-2F77-4a3a-9CF0-AA5CFEA7C767"
+      Type="Boolean"
+      MultiValuated="No"
+      Protection="Internal">
+    </Simple>
+
+    <Simple
+      Name="ASDIsBundle"
+      Uuid="C0C6A054-3339-45d7-86A5-987CE7266DD6"
+      Type="Boolean"
+      MultiValuated="No"
+      Protection="Internal">
+    </Simple>
+
+    <Simple
+      Name="ASDPrjLoc1"
+      Uuid="AAB03B16-E37A-4b54-9DCC-9A007AF1A5DE"
+      Type="String"
+      MultiValuated="No"
+      Protection="Internal">
+    </Simple>
+
+    <Simple
+      Name="ASDPrjLoc2"
+      Uuid="767C463B-EF43-4e5b-9F9A-A40F64BF85B6"
+      Type="String"
+      MultiValuated="No"
+      Protection="Internal">
+    </Simple>
+
+    <Simple
+      Name="ASDPrjLoc3"
+      Uuid="484B5686-A0CD-4d0d-B463-774BA5283C0D"
+      Type="String"
+      MultiValuated="No"
+      Protection="Internal">
+    </Simple>
+
+    <Simple
+      Name="ASDPrjLoc4"
+      Uuid="C4C6C34A-41F8-4426-83E6-239BA19BC70C"
+      Type="String"
+      MultiValuated="No"
+      Protection="Internal">
+    </Simple>
+
+    <Simple
+      Name="ASDPrjLoc5"
+      Uuid="8A3CC83B-F032-441c-8DEB-B225276975ED"
+      Type="String"
+      MultiValuated="No"
+      Protection="Internal">
+    </Simple>
+
+    <Simple
+      Name="ASDPrjLoc6"
+      Uuid="D1B7CFD6-C23E-4c09-8F75-7799A23CAEC9"
+      Type="String"
+      MultiValuated="No"
+      Protection="Internal">
+    </Simple>
+
+    <Simple
+      Name="ASDPrjLoc7"
+      Uuid="1051C9BD-4271-40f8-8765-230CECAD580F"
+      Type="String"
+      MultiValuated="No"
+      Protection="Internal">
+    </Simple>
+    
+    <Simple
+      Name="ASDPrjLoc8"
+      Uuid="3B39D24F-B337-4e59-9E91-F54AA77687A8"
+      Type="String"
+      MultiValuated="No"
+      Protection="Internal">
+    </Simple>
+    
+    
+  </Class>
+  
+  <!-- =================================================================== -->
+  <!-- Class ASD Drawing Template : Specialization of the Drawing          -->
+  <!-- =================================================================== -->
+
+  <Class Name="ASDDrawingTemplate"
+         Uuid="A068567B-CA4A-4654-90AA-72B55FF4A1DE"
+         CustomerExposition="Programmer"
+         SuperName="Drawing"
+         Discipline="Yes"
+         Specializable="Yes"
+         CustomerExtensible="No"
+         Searchable="Yes"
+         Abbreviation="adrwt">
+
+    <Property Name="Newable" Value="All_Offline_CAA"/>
+    <Property Name="TypeForDisciplineValuation" Value="Drawing"/>
+    <Property Name="KweNew_ReturnedType" Value="VPMRepInstance"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATKBEDelegateInstanciationASDDrwTemplate"/>
+    <Property Name="GroupingType" Value="ASDDrawingTemplate"/>
+
+    <Property Name="IconName" Value="I_VPMNavDrawing"/>
+    <Property Name="3DIconName" Value="DefaultDrawingNavrep.cgr"/>
+
+    <Simple
+      Name="ASDStandard"
+      Uuid="D52B1C5C-6D01-4fcb-8FEE-B22E97DEA102"
+      Type="String"
+      MultiValuated="No"
+      Protection="External">
+    </Simple>
+
+    <Simple
+      Name="ASDPrjTemplateLoc1"
+      Uuid="73F8AC6C-A9C3-4e79-8FDE-7E2AD7922DE1"
+      Type="String"
+      MultiValuated="No"
+      Protection="Internal">
+    </Simple>
+
+    <Simple
+      Name="ASDPrjTemplateLoc2"
+      Uuid="5F7744B3-0AA9-4374-98E6-E844FA2377DD"
+      Type="String"
+      MultiValuated="No"
+      Protection="Internal">
+    </Simple>
+
+    <Simple
+      Name="ASDPrjTemplateLoc3"
+      Uuid="4F0D185C-7C70-4e28-8237-7618683DA89E"
+      Type="String"
+      MultiValuated="No"
+      Protection="Internal">
+    </Simple>
+
+    <Simple
+      Name="ASDPrjTemplateLoc4"
+      Uuid="3A858AA8-2804-4e48-A564-A279A79DAC95"
+      Type="String"
+      MultiValuated="No"
+      Protection="Internal">
+    </Simple>
+
+    <Simple
+      Name="ASDPrjTemplateLoc5"
+      Uuid="6F219E93-6C78-4170-96CF-4164AC20E2B5"
+      Type="String"
+      MultiValuated="No"
+      Protection="Internal">
+    </Simple>
+
+    <Simple
+      Name="ASDPrjTemplateLoc6"
+      Uuid="EB05BFF8-E4F7-4a60-AFB4-3C6E7D579291"
+      Type="String"
+      MultiValuated="No"
+      Protection="Internal">
+    </Simple>
+
+    <Simple
+      Name="ASDPrjTemplateLoc7"
+      Uuid="897E66BC-FFFF-4d71-8B85-2250C10EBF98"
+      Type="String"
+      MultiValuated="No"
+      Protection="Internal">
+    </Simple>
+
+    <Simple
+      Name="ASDPrjTemplateLoc8"
+      Uuid="2BD5FA58-0646-49bf-87E1-0B7D164DB506"
+      Type="String"
+      MultiValuated="No"
+      Protection="Internal">
+    </Simple>
+
+
+  </Class>
+
+  <!-- =================================================================== -->
+  <!-- Extension ASD Drawing Extension : Extension of the Drawing          -->
+  <!-- =================================================================== -->
+
+  <Extension Name="ASDDrawingExtension"
+             Uuid="88B488F4-1D05-4658-BF9F-4E9B6D236622"
+             CustomerExposition="Programmer"
+             ScopeNames="Drawing"
+             Specializable="No"
+             Searchable="Yes">
+  </Extension>
+  
+
+
+</Package>

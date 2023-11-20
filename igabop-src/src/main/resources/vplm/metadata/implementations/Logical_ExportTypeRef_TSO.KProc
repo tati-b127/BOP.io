@@ -1,0 +1,20 @@
+#Prog Logical_ExportTypeRef_TSO (iPLMIDSet :  #In PLMIDSet,oPLMIDSet :  #Out PLMIDSet) : VoidType
+{
+  let InputPLMIDSetRestrictedToRefs(PLMIDSet)
+  let SetOfPLMRoutesForStructuredType(PLMRouteSet)
+  let SetOfPLMRoutesForImplementLinks(PLMRouteSet)
+  let SetOfPLMRoutesForDocuments(PLMRouteSet)
+
+  InputPLMIDSetRestrictedToRefs = Restrict(iPLMIDSet,"RFLVPMSystemType/RFLVPMSystemTypeReference")
+ 
+  /* Get the directly (level 1) aggregated objects (resp: F1T) */
+  SetOfPLMRoutesForStructuredType = ExecutePLMFunction("RFLVPMSystemType","RFLVPMSystemTypeReference_Aggregated1stLvlObjects",InputPLMIDSetRestrictedToRefs)
+   
+  /* Implement Link Connections associated to Logical System Types (resp F1T) */
+  SetOfPLMRoutesForImplementLinks = ExecutePLMFunction("RFLPLMImplementConnection","RFLPLMImplementConnection_AddAllImplementCnx",InputPLMIDSetRestrictedToRefs)
+
+  /* Add PLMDocConnections without documents pointed by these PLMDocConnections (resp:MUT)*/
+  SetOfPLMRoutesForDocuments = ExecutePLMFunction("PLMDocConnection","PLMDocConnection_retrieveAllConnections",InputPLMIDSetRestrictedToRefs)
+  
+  oPLMIDSet = iPLMIDSet + Ids(SetOfPLMRoutesForStructuredType) + Ids(SetOfPLMRoutesForImplementLinks) + Ids(SetOfPLMRoutesForDocuments)
+}

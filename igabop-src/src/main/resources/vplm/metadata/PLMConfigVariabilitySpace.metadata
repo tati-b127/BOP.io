@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2004, All rights reserved -->
+
+<!-- History
+    V6R2010 Added Procedures & Functions for Export
+-->
+
+<Package xmlns="PLMDictionaryTop" ModelerType="Top"  Name="PLMConfigVariabilitySpace"
+    Uuid="BA357FC0-DB7B-0000-02800311EC000000"
+    UseNames="PLMCORE"
+    BelongsToModeler="Configuration"
+   >
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+        <ShortRole>The Variability Space Configuration Component Metadata.</ShortRole>
+        <Role>This package includes all the entities of Variability Space Configuration Model.</Role>
+    </CAAComment>
+
+    <!-- **************************** -->
+    <!-- CLASS PLMCfgVariabilitySpace -->
+    <!-- **************************** -->
+
+    <Class Name="PLMCfgVariabilitySpace"
+        Uuid="BA357FC0-F2EF-0000-02800311EC000000"
+        SuperName="PLMCoreReference"
+        Abstract="No"
+        CustomerExposition="Programmer"
+         >
+       
+        <CAAComment>
+            <ShortRole>The variability space class.</ShortRole>
+            <Role>The variability space class.</Role>
+        </CAAComment>
+		
+        <!-- Properties -->
+		
+            <Property Name="Searchable" Value="No"/>
+        
+        <!-- Overloaded Attributes -->
+
+        <!-- New Attributes -->
+
+            <Simple Name="V_CfgKey"
+                Uuid="FF515994-C2B6-4247-966F71F6A30153E2"
+                Type="Binary"
+                MaxLength="16"
+                MultiValuated="No"
+                Protection="Internal">
+            </Simple>                 
+
+        <!-- Constraints -->
+
+            <!-- The (Name)=(PLM_ExternalID) identify a variability space-->
+            <IdentifierSet Name="Identifier"
+                           Uuid="32F63930-C88E-4deb-AA706152FF7414EC"
+                           IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB"
+                           IdentifierNames="PLM_ExternalID"/>  
+
+        <!-- *********************** -->
+        <!-- PROCEDURES Declaration  -->      
+        <!-- *********************** -->
+
+		<Method ImplementationType="Self">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+			<ProcedureForUsage>
+				<Usage href="ExportScope.meth#Channel"/>
+				<UsedProcedure href="ENOCfg_Procedures.proc#Configuration_GetFullVS"/>
+			</ProcedureForUsage>
+		</Method>
+		
+    </Class>
+
+    <!-- ********************** -->
+    <!-- FUNCTIONS Declarations -->
+    <!-- ********************** -->
+
+    <Function Name="PLMConfigVariabilitySpace_AddVariabilitySpaceFullContent">
+		<Implementation Name="PLMConfigVariabilitySpace_AddVariabilitySpaceFullContent" FileLocation="PLMConfigVariabilitySpace_AddVariabilitySpaceFullContent.plmql" Language="PLMQL"/>
+		<Signature href="PLMConfigVariabilitySpace_FuntionSignatureExport"/>
+    </Function>
+	
+    <Function Name="PLMConfigVariabilitySpace_AddVariabilitySpaceModel">
+		<Implementation Name="PLMConfigVariabilitySpace_AddVariabilitySpaceModel" FileLocation="PLMConfigVariabilitySpace_AddVariabilitySpaceModel.plmql" Language="PLMQL"/>
+		<Signature href="PLMConfigVariabilitySpace_FuntionSignatureExport"/>
+    </Function>
+	
+    <Function Name="PLMConfigVariabilitySpace_AddVariabilitySpaceContentProjections">
+		<Implementation Name="PLMConfigVariabilitySpace_AddVariabilitySpaceContentProjections" FileLocation="PLMConfigVariabilitySpace_AddVariabilitySpaceContentProjections.plmql" Language="PLMQL"/>
+		<Signature href="PLMConfigVariabilitySpace_FuntionSignatureExport"/>
+    </Function>
+	
+    <Signature id="PLMConfigVariabilitySpace_FuntionSignatureExport">
+		<Parameter Name="InputIds" Lower="0" Upper="-1" Direction="in" MultiValuated="Yes" DataType="PLMId"/>
+		<Parameter Name="OutputIds" Lower="0" Upper="-1" Direction="out" MultiValuated="No" DataType="PLMRouteSet"/>
+    </Signature>
+
+</Package>
+
+ 

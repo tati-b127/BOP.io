@@ -1,0 +1,16 @@
+#Prog SafetyReliabilitySource_ExportReview (iPLMIDSet :  #In PLMIDSet,oPLMIDSet :  #Out PLMIDSet) : VoidType
+{
+/*Declaring my local variable*/
+let PLMIDSet_RefLib(PLMIDSet)
+let FormulaIds(PLMIDSet)
+let FormulaRouteSet (PLMRouteSet)
+
+PLMIDSet_RefLib = Restrict(iPLMIDSet,"CATSafety/ReliabilitySource")
+
+
+/* Get the formula */
+FormulaRouteSet = ExecutePLMFunction("CATSafety", "CATSafety_GetReliabilitySourceFormula", PLMIDSet_RefLib)
+FormulaIds = Ids(FormulaRouteSet)
+
+oPLMIDSet = PLMIDSet_RefLib + FormulaIds
+}

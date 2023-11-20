@@ -1,0 +1,54 @@
+#Prog CATDistillerDiscipline_GetRepresentationsForReview (iPLMIDSet :  #In PLMIDSet,oPLMIDSet :  #Out PLMIDSet) : VoidType
+{
+
+
+let PLMRouteSet1(PLMRouteSet)
+let PLMRouteSet2(PLMRouteSet)
+let PLMRouteSet3(PLMRouteSet)
+let PLMRouteSet5(PLMRouteSet)
+let PLMRouteSet6(PLMRouteSet)
+let PLMRouteSet7(PLMRouteSet)
+let PLMRouteSet8(PLMRouteSet)
+
+let PLMIDSet2(PLMIDSet )
+let PLMIDSet3(PLMIDSet )
+let PLMIDSet4(PLMIDSet )
+let PLMIDSet5(PLMIDSet )
+
+let PLMIDSetRestricted(PLMIDSet)
+PLMIDSetRestricted = Restrict(iPLMIDSet, "PRODUCTCFG/VPMReference")
+
+/*Completes with 3DShape Representations and LPPrivateRep*/
+PLMRouteSet1 = ExecutePLMFunction("PRODUCTCFG", "ProductCfg_Add3DShapeOnly", PLMIDSetRestricted )
+
+
+/* Completes with Material*/
+PLMRouteSet2 = ExecutePLMFunction("CATMaterial", "mat_retrieveAllAppliedMaterial", PLMIDSetRestricted )
+PLMIDSet2 = Ids(PLMRouteSet2)
+
+PLMRouteSet3 = ExecutePLMFunction("CATMaterialRef", "mat_retrieveRenderingDomain",  Restrict(PLMIDSet2, "CATMaterialRef/CATMatReference"))
+PLMIDSet3 = Ids(PLMRouteSet3)
+
+/* getting all connections aggregated by the material*/
+PLMRouteSet5 = ExecutePLMFunction("CATMaterialRef", "rdg_retrieveTexture", Restrict(PLMIDSet3, "CATMaterialRef/MaterialDomain"))
+PLMIDSet5 = Ids(PLMRouteSet5)
+
+
+/* Completes with Rendering Rep */
+PLMRouteSet7 = ExecutePLMFunction("Rendering", "Rendering_AddRenderingRepresentations", PLMIDSetRestricted )
+
+
+/* Completes with Review Rep */
+PLMRouteSet6 = ExecutePLMFunction("DMUReviewDisciplines", "DMUReviewDisciplines_AddReview", Restrict( iPLMIDSet, "PRODUCTCFG/VPMReference"))
+
+
+
+/*Completes with CAT_Distiller_RepRef Representations*/
+PLMRouteSet8 = ExecutePLMFunction("CATDistillerDiscipline", "CATDistillerDiscipline_AddDstRepresentation", PLMIDSetRestricted )
+
+
+
+oPLMIDSet = iPLMIDSet + Ids(PLMRouteSet1)+ PLMIDSet2 +PLMIDSet3 + PLMIDSet5 + Ids(PLMRouteSet6) + Ids(PLMRouteSet7) +Ids(PLMRouteSet8)
+
+
+}

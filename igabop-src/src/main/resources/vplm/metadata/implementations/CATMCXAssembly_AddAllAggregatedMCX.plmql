@@ -1,0 +1,19 @@
+NAVIGATE   
+T0.PLMID, T1.PLMID, T2.PLMID 
+
+FROM 
+CATMCXAssembly/CATMCXMechanicalConnection T0, CATMCXIAssembly/CATMCXMechanicalConnectionInstance T1,
+PRODUCTCFG/VPMReference T2
+
+FROM_ROOTS[?1?]
+ON 	
+	(
+	RELATION
+		(
+		FROM=PRODUCTCFG/VPMReference 
+		TO=CATMCXAssembly/CATMCXMechanicalConnection, CATMCXIAssembly/CATMCXMechanicalConnectionInstance 
+		THROUGH=POINTEDBY
+		)
+ 	WITH QUALITY_FILTER	( CATEGORY=ISOWNEDBY ) 	
+	)
+; 

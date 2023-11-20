@@ -1,0 +1,25 @@
+NAVIGATE     
+
+T0.PLMID
+ 
+
+FROM      
+
+
+PLMKnowHowRuleSet/PLMRuleSet T0
+
+FROM_ROOTS[?1?]
+
+ON ( RELATION(
+
+FROM=PLMPropagationRuleSetCnx/PLMRuleSetPropagationCnx
+
+TO=PLMKnowHowRuleSet/PLMRuleSet
+
+THROUGH=POINTSTO) WITH QUALITY_FILTER (ROLE=PLM_LinkToRuleSetObject))
+
+ITER = 1;
+
+
+
+

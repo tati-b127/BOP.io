@@ -1,0 +1,36 @@
+<?xml version="1.0" ?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2012, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified"
+         Name="CATComponentsFamilyExplicit"
+         Uuid="6B57F0CA-36E7-4052-90BD-BE91AC190A5C"
+         ModelerType="Top"
+  	     CustomerExposition="Programmer"
+         UseNames="CATComponentsFamily"
+         BelongsToModeler="CATComponentsFamily" 
+         >
+
+  <CAAComment>
+    <ShortRole>Components Family Explicit package</ShortRole>
+    <Role>This package contains the sub types of ComponentsFamily dedicated for Explicit management</Role>
+  </CAAComment>
+
+  <!-- DISCIPLINES DECLARATIONS -->
+
+  <Class Name="CATComponentsFamilyExplicit"
+    Uuid="9FEC2ABC-2A43-40bc-B52E-F146E9B6BD3B"
+    CustomerExposition="Programmer"
+    Abstract="No" 
+    SuperName="CATComponentsFamilyReference"
+    Discipline="Yes"
+    Specializable="Yes"
+    Abbreviation="fly">
+    <Property Name="KweNew_InstanciationMethod" Value="CATKBEDelegateInstanciationCfy"/>
+    <Property Name="IconName"        Value="I_ComponentsFamilyExplicit"/>
+    <Property Name="Searchable"      Value="Yes"/>
+    <Property Name="Newable"         Value="New"/>
+  </Class>
+</Package>
+

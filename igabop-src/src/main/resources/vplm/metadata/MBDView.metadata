@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY FOR MBDView                 -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2014, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" 
+         ModelerType="Top" 
+         Name="MBDView" 
+         Uuid="F4CB5C26-817E-4D55-BAE4-9DB6FEB1BC33" 
+         UseNames="DIFModelerAbstractView"
+         BelongsToModeler="DIFModeler01"
+         CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <!-- ******************************************* -->
+  <!-- *  MBDView (PLMCoreReference)     * -->
+  <!-- ******************************************* -->
+  <Class Name="MBDView" 
+         Uuid="2C1CE116-0B8C-4E25-BF70-0F08225E19B4" 
+         Abstract="No" 
+         SuperName="DIFAbstractView"
+         Abbreviation="sqd"
+         CreateInstName="MBDViewInstance"
+         CustomerExposition="Programmer"
+         Specializable="Yes" 
+         DeleteAvailability="Yes">  
+  
+    <CAAComment>
+      <ShortRole>MBD View Object</ShortRole>
+      <Role>MBD View Object</Role>
+    </CAAComment>
+
+    <!-- PLM New UI/KWE Scripts New -->
+    <Property Name="KweNew_InstanciationMethod" Value="CATDifKBEDelegateInstanciation"/>
+
+    <!-- Icon and 3D Icon -->
+    <Property Name="IconName" Value="I_VPMNavDifView"/>
+
+    <!-- Collaborative Space Applicability -->
+    <Property Name="ShareBetweenProjectsAvailability" Value="Yes"/>
+
+    <!-- Export -->
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+  </Class>
+
+  <!-- *************************************************** -->
+  <!-- * MBDViewInstance (PLMCoreInstance)       * -->
+  <!-- *************************************************** -->
+  <RelationClass Name="MBDViewInstance" 
+         Uuid="A40D057E-1715-4C67-9509-994786BFF0D7" 
+         Abstract="No" 
+         SuperName="DIFAbstractViewInstance"
+         CustomerExposition="Programmer"
+         Specializable="Yes">
+
+    <CAAComment>
+      <ShortRole>MBD View Instance Object</ShortRole>
+      <Role>MBD View Instance Object</Role>
+    </CAAComment>
+
+    <!-- Configuration -->
+    <Property Name="Filtrable" Value="Yes"/>
+
+    <!-- PLM New UI/KWE Scripts New -->
+    <Property Name="KweNew_InstanciationMethod" Value="CATDifKBEDelegateInstanciation"/>
+
+    <!-- Icon and 3D Icon -->
+    <Property Name="IconName" Value="I_VPMNavDifView"/>
+
+    <!-- Export -->
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+    <SubClause Name="from"   TargetName="DIFSheet"/>
+    <SubClause Name="to"   TargetName="MBDView"/>
+    
+  </RelationClass>
+
+</Package>

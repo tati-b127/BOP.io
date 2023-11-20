@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR DELMIA Execution Production System Application -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2013, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified"
+         ModelerType="Top"
+         Name="DELLmiProductionAbstractOperationUPR"
+	       Uuid="C73FA091-2DB7-4924-B2E6-34C947C0381D"
+         BelongsToModeler="DELLmiProductionPlan"
+	       UseNames="DELLmiProductionOperation"
+         UseProcedures="PPR_Procedures"
+         CustomerExposition="Programmer">
+
+  <CAAComment>
+    <ShortRole>Abstract Execution Operation </ShortRole>
+    <Role>This package describes the Abstract Execution Operation model on top of DELLmiProductionOperation</Role>
+  </CAAComment>
+
+  <Comment>last update 2013-06-21</Comment>
+
+
+  <Class Name="DELLmiUPROperationReference"
+         Uuid="DC92BAF0-9655-448a-9F61-84211FF91F9B"
+         Abstract="Yes"
+         SuperName="DELLmiOperationReference"
+         CustomerExposition="Programmer"
+         Specializable="No"
+         CustomerExtensible="No"
+         CreateInstName="DELLmiUPROperationInstance"
+         >
+
+    <CAAComment>
+      <ShortRole>Abstract Execution Operation Reference</ShortRole>
+      <Role>Abstract Execution Operation Reference</Role>
+    </CAAComment>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+
+  </Class>
+
+
+
+  <RelationClass Name="DELLmiUPROperationInstance"
+		     Uuid="8FB02462-8B2E-4d13-B1EC-5A3C1FAEE10E"
+		     Abstract="Yes"
+         SuperName="DELLmiOperationInstance"
+         Specializable="No"
+         CustomerExtensible="No"
+         CustomerExposition="Programmer">
+
+    <CAAComment>
+      <ShortRole>Abstract Execution Operation Instance</ShortRole>
+      <Role>Abstract Execution Operation Instance</Role>
+    </CAAComment>
+
+    <SubClause Name="to"   TargetName="DELLmiUPROperationReference"/>
+
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#TransferSiteOwnership"/>
+        <UsedProcedure href="PPR_Procedures.proc#PPR_TSO_StandAlone"/>
+      </ProcedureForUsage>
+    </Method>
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+
+  </RelationClass>
+
+
+
+</Package>

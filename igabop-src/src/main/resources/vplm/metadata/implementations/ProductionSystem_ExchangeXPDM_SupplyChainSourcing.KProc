@@ -1,0 +1,74 @@
+#Prog ProductionSystem_ExchangeXPDM_SupplyChainSourcing (iPLMIDSet :  #In PLMIDSet,oPLMIDSet :  #Out PLMIDSet) : VoidType
+  {
+let PLMRouteSet1 (PLMRouteSet)
+let PLMRouteSet5 (PLMRouteSet)
+let PLMRouteSet6 (PLMRouteSet)
+let PLMRouteSet8 (PLMRouteSet)
+let PLMRouteSet10 (PLMRouteSet)
+let PLMRouteSet11 (PLMRouteSet)
+let PLMRouteSet_PlugRep (PLMRouteSet)
+let PLMRouteSet_SupplyChainSourcingLevel2 (PLMRouteSet)
+let PLMRouteSet_MaterialFlow (PLMRouteSet)
+let PLMRouteSetDRPorts  (PLMRouteSet)
+
+let PLMIDSet1 (PLMIDSet)
+let PLMIDSet1a (PLMIDSet)
+let PLMIDSet1b (PLMIDSet)
+let PLMIDSet5 (PLMIDSet)
+let PLMIDSet6 (PLMIDSet)
+let PLMIDSet8 (PLMIDSet)
+let PLMIDSet10 (PLMIDSet)
+let PLMIDSet11 (PLMIDSet)
+let PLMIDSet_PlugRep (PLMIDSet)
+let PLMIDSet_SupplyChainSourcingLevel2 (PLMIDSet)
+let PLMIDSet_TransferSystem (PLMIDSet)
+let PLMIDSet_MaterialFlow (PLMIDSet)
+let PLMIDSetProcessRef(PLMIDSet)
+let PLMIDSetDRPorts(PLMIDSet)
+
+/* Retrieves all entities aggregated by Systems or Operations Roots */
+PLMRouteSet1 = ExecutePLMFunction("DELLmiProductionSystemAbstract", "ENOPsm_ProductionSystem_addAllEntitiesOneLevel", Restrict(iPLMIDSet, "DELLmiProductionSystemAbstract/DELLmiAbstractProductionEntity"))
+PLMIDSet1 = Ids(PLMRouteSet1,"all")
+PLMIDSet1a = Restrict(iPLMIDSet, "DELLmiProductionSystemAbstract/DELLmiAbstractProductionEntity") + PLMIDSet1
+PLMIDSet1b = Restrict(iPLMIDSet, "DELLmiProductionSystem/DELLmiProductionSystemReference") + Restrict(PLMIDSet1, "DELLmiProductionSystem/DELLmiProductionSystemReference") 
+
+/* Retrieves Candidate Resources Scopes from System or Operation References */
+PLMRouteSet5 = ExecutePLMFunction("DELPPRContextModel", "ENOPsm_ProductionSystem_addCandidateResourcesScope", PLMIDSet1a )
+PLMIDSet5 = Ids(PLMRouteSet5,"all")
+
+/* Retrieves Candidate Resources from System or Operation References */
+PLMRouteSet6 = ExecutePLMFunction("DELPPRContextModel", "ENOPsm_ProductionSystem_addCandidateResources", PLMIDSet1a )
+PLMIDSet6 = Ids(PLMRouteSet6,"all")
+
+/* Retrieves all references and aggregating references from products instances*/
+PLMRouteSet11 = ExecutePLMFunction("DELPPRContextModel", "ENOPpr_PPRData_addRefAndAggregatingRef", Restrict(PLMIDSet6, "PRODUCTCFG/VPMInstance"))
+PLMIDSet11 = Ids(PLMRouteSet11,"all")
+
+PLMRouteSet_PlugRep = ExecutePLMFunction("DELLmiProductionSystemAbstract", "ENOPsm_ProductionSystem_addPlugRep", Restrict(iPLMIDSet, "DELLmiProductionSystemAbstract/DELLmiAbstractProductionEntity"))
+PLMIDSet_PlugRep = Ids(PLMRouteSet_PlugRep,"all")
+
+/* Retrieves Process Reference pointed by Plug Rep Reference */
+PLMRouteSet8 = ExecutePLMFunction("DELLmiProductionDocRep", "DELLmiProductionDocRep_addLinkToProcess", Restrict(PLMIDSet_PlugRep, "DELLmiProductionDocRep/DELLmiDocRepReference"))
+PLMIDSet8 =Restrict(Ids(PLMRouteSet8,"all") ,  "DELFmiFunctionalModel/DELFmiFunctionReference")
+
+PLMRouteSet_SupplyChainSourcingLevel2 = ExecutePLMFunction("DELLmiProductionSystemAbstract", "ENOPsm_ProductionSystem_addSupplyChainSourcingLevel2", PLMIDSet1b)
+PLMIDSet_SupplyChainSourcingLevel2 = Ids(PLMRouteSet_SupplyChainSourcingLevel2,"all")
+
+/* Get Material Flow between Transfer System and Transfer Operation */
+PLMIDSet_TransferSystem = Restrict(PLMIDSet1, "DELLmiProductionTransferSystem/DELLmiTransferSystemReference") 
+PLMRouteSet_MaterialFlow = ExecutePLMFunction("DELLmiProductionSystemAbstract", "ENOPsm_ProductionSystem_addMaterialFlow", PLMIDSet_TransferSystem)
+PLMIDSet_MaterialFlow = Ids(PLMRouteSet_MaterialFlow,"all")
+
+/* Retrieves Capable Resources from System or Operation References */
+PLMRouteSet10 = ExecutePLMFunction("DELPPRContextModel", "ENOPcs_Process_addCapableResources", PLMIDSet1a)
+PLMIDSet10 = Ids(PLMRouteSet10,"all")
+
+/*Retrieves the Data Requierement Ports for Process, to avoid creation of implicit DR Ports that will creates incoherence*/
+PLMIDSetProcessRef = PLMIDSet8
+PLMRouteSetDRPorts = ExecutePLMFunction("DELFmiFunctionalModel", "DELFmiFunctionModel_expandDRPorts", PLMIDSetProcessRef)
+PLMIDSetDRPorts = Ids(PLMRouteSetDRPorts,"all")
+
+
+oPLMIDSet = iPLMIDSet + PLMIDSet1 + PLMIDSet5 + PLMIDSet6 + PLMIDSet8 + PLMIDSet10 + PLMIDSet11 + PLMIDSet_PlugRep + PLMIDSet_SupplyChainSourcingLevel2 + PLMIDSet_MaterialFlow + PLMIDSetDRPorts
+
+}

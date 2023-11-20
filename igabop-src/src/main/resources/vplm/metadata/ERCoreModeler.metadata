@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2012, All rights reserved -->
+<!-- Modification 10/11/2014 for R418 level: some protections are changed from InternalRO to Internal and ExternalRO to External. Some SetOnlyOnce are added-->
+<Package xmlns="PLMDictionaryCore" Uuid="CBCD5768-9A3D-11E3-89043C970ECEA022" ModelerType="Core" CustomerExposition="Programmer" Name="ERCoreModeler">
+  <!-- Root type for all Objects -->
+  <Class Name="BusinessType" Uuid="DD18F81E-9A3D-11E3-89043C970ECEA022" Abstract="Yes" CustomerExposition="Programmer" InterchangeableMinors="No">
+    <!-- owner: adding uuid and CAAExposition  / adding 6W-->
+    <Simple Name="owner" Uuid="AD28A8F4-A779-4631-A4A766FE56835EBD" Faceted="Yes"  Type="String" MaxLength="128" Protection="External" CAAExposition="L0" ExtendedEnterprise="Yes">
+      <Property Name="SIXW" Value="ds6w:responsible"/>
+    </Simple>
+    <!-- project: adding uuid and CAAExposition  / adding 6W & Faceted-->
+    <Simple Name="project" Uuid="D36CFEB8-A7F5-4134-AB157531077822D2" Faceted="Yes"  Type="String"  MaxLength="128" Protection="External" CAAExposition="L0" ExtendedEnterprise="Yes">
+      <Property Name="SIXW" Value="ds6w:project"/>
+    </Simple>
+    <!-- organization: adding uuid and CAAExposition  / adding 6W & Faceted-->
+    <Simple Name="organization" Uuid="EE41BEB8-D935-46FD-AE27C98911CD9786" Faceted="Yes"  Type="String" MaxLength="128" Protection="External" CAAExposition="L0" ExtendedEnterprise="Yes">
+      <Property Name="SIXW" Value="ds6w:responsible"/>
+    </Simple>
+    <!-- revision: adding uuid and Faceted  / Protection from ExternalRO to External /  adding SetOnlyOnce -->
+    <Simple Name="revision" Uuid="98A2AD58-EAD8-461c-B45E-202492035B8F" Type="String" MaxLength="128" Protection="External" SetOnlyOnce="AtCreation" Faceted="Yes" ExtendedEnterprise="Yes"/>
+    <!-- originated: adding uuid and CAAExposition / protection External instead of ExternalRO / adding SetOnlyOnce-->
+    <Simple Name="originated" Uuid="6049B8B2-4244-4036-AA3F520DFDFD6324"  Type="Date"  Protection="External" SetOnlyOnce="AtCreation" CAAExposition="L1">
+      <Property Name="SIXW" Value="ds6w:created"/>
+    </Simple>
+    <!-- modified: adding uuid and CAAExposition / protection External instead of ExternalRO / adding 6W / ExtendedEnterprise modified to Yes-->
+    <Simple Name="modified" Uuid="35353313-929C-4853-ABEB8E1E598ACEF0" Type="Date"  Protection="External" CAAExposition="L1" ExtendedEnterprise="Yes">
+      <Property Name="SIXW" Value="ds6w:modified"/>
+    </Simple>
+    <Simple Name="reserved" Uuid="E174A69D-9A3D-11E3-89043C970ECEA022" Type="Boolean" Protection="External" ExtendedEnterprise="Yes" DoesNotChangeCEStamp="Yes"/>
+    <Simple Name="reservedby" Uuid="E366BF5D-9A3D-11E3-89043C970ECEA022" Type="String" MaxLength="128" Protection="External" ExtendedEnterprise="Yes" DoesNotChangeCEStamp="Yes"/>
+    <!-- current: adding uuid & faceted & CAAExposition / maxlength not reported / Protection from ExternalRO to External / adding 6W-->
+    <Simple Name="current" Uuid="F07E230E-E46B-4100-8E36410473E4A405" Type="String" MaxLength="128" Faceted="Yes" Protection="External" ExtendedEnterprise="Yes" CAAExposition="L1">
+      <Property Name="SIXW" Value="ds6w:status" />
+    </Simple>
+    <Simple Name="physicalid" Uuid="E567576C-9A3D-11E3-89043C970ECEA022" Type="String" Protection="Internal" ExtendedEnterprise="No">
+         <Property Name="IsBasic" Value="Yes"/>
+    </Simple>
+    <!-- logical id: adding set only once -->
+    <Simple Name="logicalid" Uuid="E74AA2BB-9A3D-11E3-89043C970ECEA022" Type="String" Protection="Internal" ExtendedEnterprise="No" SetOnlyOnce="AtCreation">
+         <Property Name="IsBasic" Value="Yes"/>
+    </Simple>
+    <!-- type: protection from Internal to InternalRO, Adding SetOnlyOnce -->
+    <Simple Name="type" Uuid="E7DC5F26-9A3D-11E3-89043C970ECEA022" Type="String" Protection="InternalRO" SetOnlyOnce="AtCreation" ExtendedEnterprise="No">
+         <Property Name="IsBasic" Value="Yes"/>
+    </Simple>
+    <Simple Name="name" Uuid="E85C40CC-9A3D-11E3-89043C970ECEA022" Type="String" MaxLength="128" Protection="Free" ExtendedEnterprise="No"/>
+    <Simple Name="ownership:organization" Uuid="E91D24BC-9A3D-11E3-89043C970ECEA022" Type="String" Protection="Internal" MultiValuated="Yes" ExtendedEnterprise="No">
+         <Property Name="IsBasic" Value="Yes"/>
+    </Simple>
+    <Simple Name="ownership:project" Uuid="E9B6D09B-9A3D-11E3-89043C970ECEA022" Type="String" Protection="Internal" MultiValuated="Yes" ExtendedEnterprise="No">
+         <Property Name="IsBasic" Value="Yes"/>
+    </Simple>
+    <Simple Name="ownership:project:parent" Uuid="EA555E9A-9A3D-11E3-89043C970ECEA022" Type="String" Protection="Internal" MultiValuated="Yes" ExtendedEnterprise="No">
+         <Property Name="IsBasic" Value="Yes"/>
+    </Simple>
+    <Simple Name="ownership:access" Uuid="EAEF318A-9A3D-11E3-89043C970ECEA022" Type="String" Protection="Internal" MultiValuated="Yes" ExtendedEnterprise="No">
+         <Property Name="IsBasic" Value="Yes"/>
+    </Simple>
+    <Simple Name="ownership:comment" Uuid="EBEAAEFA-9A3D-11E3-89043C970ECEA022" Type="String" Protection="Internal" MultiValuated="Yes" ExtendedEnterprise="No">
+         <Property Name="IsBasic" Value="Yes"/>
+    </Simple>
+    <Simple Name="ownership:businessobject" Uuid="EC670E19-9A3D-11E3-89043C970ECEA022" Type="String" Protection="Internal" MultiValuated="Yes" ExtendedEnterprise="No">
+         <Property Name="IsBasic" Value="Yes"/>
+    </Simple>
+    <Simple Name="ownership:relationship" Uuid="ECF4D2CA-9A3D-11E3-89043C970ECEA022" Type="String" Protection="Internal" MultiValuated="Yes" ExtendedEnterprise="No">
+         <Property Name="IsBasic" Value="Yes"/>
+    </Simple>
+    <Simple Name="format:file:store" Uuid="EDDEEAA8-9A3D-11E3-89043C970ECEA022" Type="String" Protection="Internal" MultiValuated="Yes" ExtendedEnterprise="Yes">
+         <Property Name="IsBasic" Value="Yes"/>
+    </Simple>
+    <Simple Name="format:file:format" Uuid="EF150198-9A3D-11E3-89043C970ECEA022" Type="String" Protection="Internal" MultiValuated="Yes" ExtendedEnterprise="No">
+         <Property Name="IsBasic" Value="Yes"/>
+    </Simple>
+    <Simple Name="format:file:name" Uuid="EF8CCCB9-9A3D-11E3-89043C970ECEA022" Type="String" Protection="Internal" MultiValuated="Yes" ExtendedEnterprise="Yes">
+         <Property Name="IsBasic" Value="Yes"/>
+    </Simple>
+    <Simple Name="format:file:modified" Uuid="EFF8628A-9A3D-11E3-89043C970ECEA022" Type="Date" Protection="Internal" MultiValuated="Yes" ExtendedEnterprise="No">
+         <Property Name="IsBasic" Value="Yes"/>
+    </Simple>
+    <Simple Name="current:signature" Uuid="F0688C59-9A3D-11E3-89043C970ECEA022" Type="String" Protection="Internal" MultiValuated="Yes" ExtendedEnterprise="Yes">
+         <Property Name="IsBasic" Value="Yes"/>
+    </Simple>
+    <Simple Name="cestamp" Uuid="F0E0CCAD-9A3D-11E3-89043C970ECEA022" Type="String" Protection="Internal" MultiValuated="No" ExtendedEnterprise="No">
+         <Property Name="IsBasic" Value="Yes"/>
+    </Simple>
+    <Simple Name="description" Uuid="F19C594A-9A3D-11E3-89043C970ECEA022" Type="String" Protection="Free" ExtendedEnterprise="No"/>
+    <Simple Name="locked" Uuid="F207A0F9-9A3D-11E3-89043C970ECEA022" Type="Boolean" Protection="External" ExtendedEnterprise="Yes"/>
+    <Simple Name="locker" Uuid="F269728A-9A3D-11E3-89043C970ECEA022" Type="String" MaxLength="128" Protection="External" ExtendedEnterprise="Yes"/>
+    <!-- updatestamp: adding uuid / maxlength not reported -->
+    <Simple Name="updatestamp" Uuid="32704B84-5F95-4cf2-B709-182933E3C3BC" Type="String" Protection="Internal" ExtendedEnterprise="No"/>
+    <Simple Name="revindex" Uuid="F33DDEFA-9A3D-11E3-89043C970ECEA022" Type="Integer" Protection="External" ExtendedEnterprise="No"/>
+    <!-- majorid: adding uuid  / adding SetOnlyOnce-->
+    <Simple Name="majorid" Uuid="FA65E245-E24C-4565-89B7-2C71B4FC06F1" Type="String"  Protection="Internal" SetOnlyOnce="AtCreation" ExtendedEnterprise="No">
+    </Simple>
+    <!-- isbestsofar: adding uuid and faceted l-->
+    <Simple Name="isbestsofar" Uuid="9C4E9F1A-9443-4aef-B2CD-BB5BC7EE0A4D" Faceted="Yes" Type="Boolean"  Protection="ExternalRO" ExtendedEnterprise="Yes">
+      <CAAComment>
+        <ShortRole>True if this minor version is the last published version in its minor family, or the last if no version is published in this family.</ShortRole>
+      </CAAComment>
+    </Simple>
+    <!-- minorrevision: adding uuid & faceted & CAAExposition / maxlength not reported / Protection from External to ExternalRO -->
+    <Simple Name="minorrevision" Uuid="834627F3-8C51-43f2-8CFF-0418354D90B8" Type="String" MaxLength="128" Protection="External" ExtendedEnterprise="Yes" />
+    <!-- majorrevision: adding uuid & faceted & CAAExposition / maxlength not reported / Protection from ExternalRO to External / Adding SetOnlyOnce -->
+    <Simple Name="majorrevision" Uuid="9528ED8F-6280-43E0-AD67CCB0D32A0755" Type="String" MaxLength="128" Protection="External" ExtendedEnterprise="Yes" SetOnlyOnce="AtCreation" CAAExposition="L1"/>
+    <!-- ispublished: adding uuid & default value -->
+    <Simple Name="ispublished" Uuid="7C8DE065-97CF-49e6-895A-95651A09F98E" Type="Boolean"  DefaultValue="false"  Protection="External" ExtendedEnterprise="No"/>
+    <!-- versionid: adding uuid / adding set only once-->
+    <Simple Name="versionid" Uuid="126B482E-C676-4c05-BF26-5182C53A64A8" Type="String" Protection="Internal" ExtendedEnterprise="No" SetOnlyOnce="AtCreation"  />
+    <!-- versionid: adding uuid and default value / adding set only once-->
+    <Simple Name="majororder" Uuid="DF8256FD-6229-4644-9A38-76446FA91146" Type="Integer" Protection="Internal"  DefaultValue="0" SetOnlyOnce="AtCreation"  ExtendedEnterprise="No" />
+    <!-- minororder: adding uuid & default value / adding set only once -->
+    <Simple Name="minororder" Uuid="9BE940CE-0D74-4e66-8C41-D6F7A4DF1612"  Type="Integer" Protection="Internal" ExtendedEnterprise="No" SetOnlyOnce="AtCreation" DefaultValue="0"/>
+    <Simple Name="interface" Uuid="F4456AA9-9A3D-11E3-89043C970ECEA022" Type="String" Protection="Internal" MultiValuated="Yes" ExtendedEnterprise="No"/>
+    <!-- policy: adding uuid & faceted & CAAExposition / Protection from ExternalRO to External -->
+    <Simple Name="policy" Uuid="DF030874-D2FE-43a8-B9A9-0A2560E4EC62" Faceted="Yes" Type="String" MaxLength="128" Protection="External" MultiValuated="No" ExtendedEnterprise="Yes" CAAExposition="L0"/>
+    <!-- Behavior patterns: default values -->
+    <Property Name="NewMajorRevisionAvailability" Value="Yes"/>
+    <Property Name="ChangeMaturityAvailability" Value="Yes"/>
+    <Property Name="DeleteAvailability" Value="Yes"/>
+    <Property Name="LockUnlockAvailability" Value="Yes"/>
+    <Property Name="TransferOwnershipAvailability" Value="Yes"/>
+    <Property Name="DuplicateAvailability" Value="Yes"/>
+    <Property Name="EditPropertiesAvailability" Value="Yes"/>
+    <Property Name="SaveAsNewAvailability" Value="Yes"/>
+    <Property Name="EvolutionAvailability" Value="Yes"/>
+    <Property Name="NewMinorRevisionAvailability"  Value="No"/>
+    <Property Name="ChangeCollaborativeSpaceAvailability"  Value="No"/>
+    <Property Name="ObjectNature" Value="Independent"/>
+    <Property Name="RelationNature"  Value="No"/>
+    <Property Name="IterationAvailability"  Value="No"/>
+    <Property Name="CarryPointers"  Value="No"/>
+    <Property Name="CarryStreams"  Value="No"/>
+    <Property Name="AggregatesComponents"  Value="Yes"/>
+    <Property Name="IsSynchronizable"  Value="No"/>
+    <Property Name="ShareBetweenProjectsAvailability"  Value="No"/>
+    <Property Name="ManageAccessAvailability"  Value="No"/>
+  </Class>
+  <!-- Root type for all relation objects -->
+  <RelationClass Name="RelationType" Abstract="Yes" CustomerExposition="Programmer" Uuid="059a2e04-5603-4eb9-a794-9cb507fa2173" >
+    <!-- owner: adding uuid / adding 6W-->
+    <Simple Name="owner" Uuid="8D229397-71D7-42ce-B80E-D6A937B81AE2" Faceted="Yes"  Type="String" MaxLength="128" Protection="External" ExtendedEnterprise="Yes">
+      <Property Name="SIXW" Value="ds6w:responsible"/>
+    </Simple>
+    <!-- organization: adding uuid / adding 6W & Faceted-->
+    <Simple Name="organization" Uuid="D364277E-76A6-4bfa-89EB-4C0E9DBA14A7" Faceted="Yes"  Type="String" MaxLength="128" Protection="External"  ExtendedEnterprise="Yes">
+      <Property Name="SIXW" Value="ds6w:responsible"/>
+    </Simple>
+    <!-- originated: adding uuid and CAAExposition / protection External instead of ExternalRO / adding 6W / Adding SetOnlyOnce-->
+    <Simple Name="originated" Uuid="942E1C96-09A8-4ee1-8CEB-40171FA428DA"  Type="Date"  Protection="External" >
+      <Property Name="SIXW" Value="ds6w:created"/>
+    </Simple>
+    <!-- project: adding uuid and CAAExposition  / adding 6W & Faceted-->
+    <Simple Name="project" Uuid="FA34B3B4-7373-4bfb-9CB2-7F280BF9AF91" Faceted="Yes"  Type="String"  MaxLength="128" Protection="External" CAAExposition="L0" ExtendedEnterprise="Yes">
+      <Property Name="SIXW" Value="ds6w:project"/>
+    </Simple>
+    <!-- modified: adding uuid and CAAExposition / protection External instead of ExternalRO / adding 6W / ExtendedEnterprise modified to Yes-->
+    <Simple Name="modified" Uuid="10395CDF-8BAF-4d9c-B0CE-36D130AA2C01" Type="Date"  Protection="External" ExtendedEnterprise="Yes">
+      <Property Name="SIXW" Value="ds6w:modified"/>
+    </Simple>
+    <Simple Name="reserved" Uuid="F70B7AA6-9A3D-11E3-89043C970ECEA022" Type="Boolean" Protection="External" ExtendedEnterprise="Yes" DoesNotChangeCEStamp="Yes"/>
+    <Simple Name="reservedby" Uuid="F7E53E69-9A3D-11E3-89043C970ECEA022" Type="String" MaxLength="128" Protection="External" ExtendedEnterprise="Yes" DoesNotChangeCEStamp="Yes"/>
+    <Simple Name="physicalid" Uuid="F85F2C78-9A3D-11E3-89043C970ECEA022" Type="String" Protection="Internal" ExtendedEnterprise="No">
+         <Property Name="IsBasic" Value="Yes"/>
+    </Simple>
+    <Simple Name="logicalid" Uuid="F8D968A9-9A3D-11E3-89043C970ECEA022" Type="String" Protection="Internal" ExtendedEnterprise="No">
+         <Property Name="IsBasic" Value="Yes"/>
+    </Simple>
+    <Simple Name="type" Uuid="F9585FE9-9A3D-11E3-89043C970ECEA022" Type="String" Protection="Internal" ExtendedEnterprise="No">
+         <Property Name="IsBasic" Value="Yes"/>
+    </Simple>
+    <Simple Name="name" Uuid="F9CAFAC8-9A3D-11E3-89043C970ECEA022" Type="String" Protection="Internal" ExtendedEnterprise="No"/>
+    <Simple Name="cestamp" Uuid="FA3E0ADA-9A3D-11E3-89043C970ECEA022" Type="String" Protection="Internal" MultiValuated="No" ExtendedEnterprise="No">
+         <Property Name="IsBasic" Value="Yes"/>
+    </Simple>
+     <Simple Name="updatestamp" Uuid="FAB05797-9A3D-11E3-89043C970ECEA022" Type="String" Protection="Internal" ExtendedEnterprise="No"/>
+    <Simple Name="majorid" Uuid="FB40B469-9A3D-11E3-89043C970ECEA022" Type="String" Protection="Internal" ExtendedEnterprise="No"/>
+    <Simple Name="interface" Uuid="FDE4BC97-9A3D-11E3-89043C970ECEA022" Type="String" Protection="Internal" MultiValuated="Yes" ExtendedEnterprise="No"/>
+    <!-- Behavior patterns: default values -->
+    <Property Name="NewMajorRevisionAvailability" Value="No"/>
+    <Property Name="ChangeMaturityAvailability" Value="No"/>
+    <Property Name="DeleteAvailability" Value="Yes"/>
+    <Property Name="LockUnlockAvailability" Value="Yes"/>
+    <Property Name="TransferOwnershipAvailability" Value="Yes"/>
+    <Property Name="DuplicateAvailability" Value="No"/>
+    <Property Name="EditPropertiesAvailability" Value="Yes"/>
+    <Property Name="SaveAsNewAvailability" Value="No"/>
+    <Property Name="EvolutionAvailability" Value="No"/>
+    <Property Name="NewMinorRevisionAvailability"  Value="No"/>
+    <Property Name="ObjectNature" Value="No"/>
+    <Property Name="RelationNature"  Value="Pointer"/>
+    <Property Name="IterationAvailability"  Value="No"/>
+    <Property Name="CarryPointers"  Value="No"/>
+    <Property Name="CarryStreams"  Value="No"/>
+    <Property Name="AggregatesComponents"  Value="No"/>
+    <Property Name="IsSynchronizable"  Value="No"/>
+    <Property Name="ChangeCollaborativeSpaceAvailability"  Value="No"/>
+    <Property Name="ShareBetweenProjectsAvailability"  Value="No"/>
+    <Property Name="ManageAccessAvailability"  Value="No"/>
+  </RelationClass>
+  <!-- *********************************************************** -->
+  <!-- *  PathType used by VPLM for all paths                    * -->
+  <!-- *********************************************************** -->
+  <PathType Name="PathType" Protection="External"   AdaptativeToMinor="No"  SynchroSensitivity="None"   RerouteOnEffectivityChange="No" Uuid="e74e4d00-8977-4d19-b89b-c250e11bb837" OwnerTypes="BusinessType;RelationType" Abstract="Yes">
+  </PathType>
+
+</Package>

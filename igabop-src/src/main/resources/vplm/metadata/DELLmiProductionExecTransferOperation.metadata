@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR DELMIA Production System Application -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2009, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" 
+         ModelerType="Top" 
+         Name="DELLmiProductionExecTransferOperation"
+	       Uuid="b2689040-8264-4781-83ac-2c4f7348f7fd"
+	       BelongsToModeler="DELLmiProductionPlan"
+         UseNames="DELLmiProductionOperationUPR"
+         CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>Execution Transfer Operation. OBSOLETE. Not used in current applications </ShortRole>
+    <Role>This package describes the Execution Transfer Operation model on top of DELLmiProductionOperationUPR</Role>
+  </CAAComment>
+
+  <Comment>last update 2008-05-25</Comment>
+  <Comment>last update 2013-06-21</Comment>
+
+  <Class Name="DELLmiExecTransferOperationReference"
+		     Uuid="eed8d0b0-5c86-47d0-9115-27ed8e216faf"
+     		 Abstract="No"
+         SuperName="DELLmiOperationUPRReference"
+         CustomerExposition="Programmer"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         CreateInstName="DELLmiExecTransferOperationInstance"
+         Abbreviation="wtop"
+         InstantiationOwnerTypes="DELLmiExecGeneralSystemReference;DELLmiExecTransfoSystemReference;DELLmiExecTransferSystemReference;DELLmiWorkOrderReference"
+         >
+    <!-- we want only support InstantiationOwnerTypes="DELLmiWorkOrderReference"-->
+    <!-- we keep all for historical reasons"-->
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELLmiExecOpDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELLmiExecTransferOperationInstance"/>
+    <Property Name="IconName" Value="I_PPRSeqExecTransfer"/>
+    <Property Name="3DIconName" Value="I_PPRSeqExecTransfer.cgr"/>
+    <Property Name="Newable" Value="Insert_CAA"/>
+    <Property Name="Searchable" Value="Yes"/>
+
+    <CAAComment>
+      <ShortRole>Execution Transfer Operation Reference.</ShortRole>
+      <Role>Execution Transfer Operation Reference. Specialization is not supported yet.</Role>
+    </CAAComment>
+
+    <Simple Name="V_Capacity"
+            Uuid="ee36ee13-24ac-4000-b7a3-ee50de514a3f"
+            Type="Integer"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Capacity is the maximum number of products that can be transferred by the system at any time..</ShortRole>
+      </CAAComment>
+    </Simple>
+
+      <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+
+
+  </Class>
+
+  <RelationClass Name="DELLmiExecTransferOperationInstance"
+		     Uuid="a071a2c2-064e-4ef0-b039-ed6f391f3aaf"
+		     Abstract="No"
+         SuperName="DELLmiOperationUPRInstance"
+         CustomerExposition="Programmer"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         >
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELLmiExecOpDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELLmiExecTransferOperationInstance"/>
+    
+    <CAAComment>
+      <ShortRole>Execution Transfer Operation Instance.</ShortRole>
+      <Role>Execution TransferOperation Instance. Specialization is not supported yet.</Role>
+    </CAAComment>
+
+    <Volatile Name="Reference" 
+              Uuid="FBE87843-D9EA-4c87-9190-CAB4D1C33ED2" 
+              Accessor="PLMModelerReferenceKweAttribute" 
+              TypeName="DELLmiExecTransferOperationReference" 
+              AccessMode="ReadOnly" />
+
+    <SubClause Name="to"   TargetName="DELLmiExecTransferOperationReference"/>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+<Method ImplementationType="None">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+
+
+  </RelationClass>
+
+</Package>

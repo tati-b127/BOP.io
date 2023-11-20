@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY FOR ActivityDiagram                 -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2014, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" 
+         ModelerType="Top" 
+         Name="DIFActivityDiagram" 
+         Uuid="931F3544-868C-428B-A8D9-3F5A62E16CE8" 
+         UseNames="DIFModelerAbstractView"
+         BelongsToModeler="DIFModeler01"
+         CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <!-- ******************************************* -->
+  <!-- *  ActivityDiagram (PLMCoreReference)      * -->
+  <!-- ******************************************* -->
+  <Class Name="ActivityDiagram" 
+         Uuid="CD464F40-5E41-4B65-BA37-8D0AE7A7C97A" 
+         Abstract="No" 
+         SuperName="DIFAbstractView"
+         Abbreviation="acd"
+         CreateInstName="ActivityDiagramInstance"
+         CustomerExposition="Programmer"
+         Specializable="Yes">  
+  
+    <CAAComment>
+      <ShortRole>Activity Diagram View Object</ShortRole>
+      <Role>Activity Diagram View Object</Role>
+    </CAAComment>
+
+    <!-- PLM New UI/KWE Scripts New -->
+    <Property Name="KweNew_InstanciationMethod" Value="CATDifKBEDelegateInstanciation"/>
+
+    <!-- Icon and 3D Icon -->
+    <Property Name="IconName" Value="I_FLE_ACT_VIEW"/>
+
+    <!-- Collaborative Space Applicability -->
+    <Property Name="ShareBetweenProjectsAvailability" Value="Yes"/>
+
+    <!-- Export -->
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Remove"/>
+        <UsedProcedure href="DIFpe_Procedures.proc#DIFModeler_ExportCompletion_DifAbstractView"/>
+      </ProcedureForUsage>
+
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#TransferSiteOwnership"/>
+        <UsedProcedure href="DIFpe_Procedures.proc#DIFModeler_ExportCompletion_DifAbstractView"/>
+      </ProcedureForUsage>
+    </Method>
+
+  </Class>
+
+  <!-- *************************************************** -->
+  <!-- * ActivityDiagramInstance (PLMCoreInstance)        * -->
+  <!-- *************************************************** -->
+  <RelationClass Name="ActivityDiagramInstance" 
+         Uuid="87833522-72FB-4EC2-8064-3CB12089B9E5" 
+         Abstract="No" 
+         SuperName="DIFAbstractViewInstance"
+         CustomerExposition="Programmer"
+         Specializable="Yes">
+
+    <CAAComment>
+      <ShortRole>Activity Diagram Instance Object</ShortRole>
+      <Role>Activity Diagram Instance Object</Role>
+    </CAAComment>
+
+    <!-- Configuration -->
+    <Property Name="Filtrable" Value="Yes"/>
+
+    <!-- PLM New UI/KWE Scripts New -->
+    <Property Name="KweNew_InstanciationMethod" Value="CATDifKBEDelegateInstanciation"/>
+
+    <!-- Icon and 3D Icon -->
+    <Property Name="IconName" Value="I_FLE_ACT_VIEW"/>
+
+    <!-- Export -->
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+
+    <SubClause Name="from"   TargetName="DIFSheet"/>
+    <SubClause Name="to"   TargetName="ActivityDiagram"/>
+    
+  </RelationClass>
+
+</Package>

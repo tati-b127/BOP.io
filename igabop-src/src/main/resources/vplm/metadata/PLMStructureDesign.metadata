@@ -1,0 +1,541 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" CustomerExposition="Programmer" Name="PLMStructureDesign" Uuid="F5834292-6A98-4bd0-9734-EFA852316973" UseNames="PRODUCTCFG">
+  <CAAComment>
+    <ShortRole>Structure Design Package</ShortRole>
+    <Role>This package describes Structure Design data.</Role>
+  </CAAComment>
+
+  <Comment>Created 2008-10-15 by GHR</Comment>
+  <Comment>Created 2009-01-29 by AWG:Export</Comment>
+  <Comment>Created 2009-06-12 by AWG:R208</Comment>
+  <Comment>Created 2011-02-23 by USV:R212</Comment>
+  <Comment>Created 2011-09-28 by CLT:R213 - Contour</Comment>
+  <Comment>2012-03-04 CLT - Unicorn + Exalead</Comment>
+  <Comment>2016-06-21 S95 - New attributes for Structure_Section, Editable V_StrThickness for StrPlate</Comment>
+  <Comment>2018-02-07 ssn13 - New extensions for Structure_Member(StrColumn, StrBeam)</Comment>
+
+  <Class Name="Structure_System"
+    Uuid="92b8394d-e195-4645-8a91-32caeca7a238"
+    Abstract="No"
+    CustomerExposition="Programmer"
+    SuperName="VPMReference"
+    Abbreviation="ssy"
+    Discipline="Yes"
+    Specializable="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATEStrStructureSystemDelegateInstanciation"/>
+    <Property Name="Newable" Value="All"/>
+    <Property Name="IconName" Value="I_StrSystem_PLMNew"/>
+    <Property Name="KweDisciplineAttributeValue" Value="Structure_System"/>
+    <Property Name="3DPartAvailability" Value="3DPartOnly"/>
+  </Class>
+
+  <Class Name="Structure_Design_Unit"
+    Uuid="92b8394d-e195-4645-8a91-32caeca7a239"
+    Abstract="No"
+    CustomerExposition="Programmer"
+    SuperName="VPMReference"
+    Abbreviation="sdu"
+    Discipline="Yes"
+    Specializable="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATEStrDelegateInstanciation"/>
+    <Property Name="Newable" Value="All"/>
+    <Property Name="IconName" Value="I_StrDUnit_PLMNew"/>
+    <Property Name="KweDisciplineAttributeValue" Value="Structure_Design_Unit"/>
+    <Property Name="3DPartAvailability" Value="ReferenceOnly"/>
+  </Class>
+
+  <Class Name="Structure_Panel"
+    Uuid="6a3a619c-a6d2-4d88-8daf-dc64631ca11c"
+    Abstract="No"
+    CustomerExposition="Programmer"
+    SuperName="VPMReference"
+    Abbreviation="spn"
+    Discipline="Yes"
+    Specializable="No"
+    CustomerExtensible="Yes">
+    <Property Name="IconName" Value="I_SddProductPanel"/>
+    <Property Name="3DPartAvailability" Value="UserChoice3DPartDefault"/>
+    <Property Name="KweDisciplineAttributeValue" Value="Structure_Panel"/>
+    <Simple Name="V_StrCategory" Type="String" Faceted="Yes" Uuid="58b16c2b-4502-48ee-99c1-ef181b18e5f8" MaxLength="40" Protection="External" CAAExposition="L0" MultiValuated="No">
+      <Property Name="SIXW" Value="ds6w:kind"/>
+      <CAAComment>
+        <ShortRole>Structure Category</ShortRole>
+        <Role>The category of the structure panel</Role>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_StrThickness" Type="Double" Faceted="Yes" Uuid="7eca9698-1308-40c7-950c-de033ddfe927" Magnitude="LENGTH" Protection="External" CAAExposition="L0" MultiValuated="No">
+      <Property Name="SIXW" Value="ds6w:thickness"/>
+      <CAAComment>
+        <ShortRole>Structure Thickness</ShortRole>
+        <Role>The thickness of the structure panel</Role>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_StrMaterial" Type="String" Faceted="Yes" Uuid="72445b75-a46c-4b28-9732-3c088125528d" MaxLength="100" Protection="External" CAAExposition="L0" MultiValuated="No">
+      <Property Name="SIXW" Value="ds6w:constituent"/>
+      <CAAComment>
+        <ShortRole>Structure Material</ShortRole>
+        <Role>The material of the structure panel</Role>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_StrSync_ID" Type="String" Uuid="5a2a981d-4016-438e-b5ba-10e78e30f24b" MaxLength="256" Protection="External" CAAExposition="L0" MultiValuated="No">
+      <CAAComment>
+        <ShortRole>Synchronization ID</ShortRole>
+        <Role>The synchronization ID of the structure panel</Role>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_StrPositionNumber" Type="String" Uuid="05754734-E892-4DE5-955F-A033BAC715BB" MaxLength="100" Protection="Free" CAAExposition="L0" MultiValuated="No">
+      <CAAComment>
+        <ShortRole>Position Number</ShortRole>
+        <Role>The position number of the structure panel</Role>
+      </CAAComment>
+    </Simple>
+  </Class>
+
+  <Class Name="Structure_Plate"
+    Uuid="92b8394d-e195-4645-8a91-32caeca7a23a"
+    Abstract="No"
+    CustomerExposition="Programmer"
+    SuperName="VPMReference"
+    Abbreviation="ssp"
+    Discipline="Yes"
+    Specializable="No"
+    CustomerExtensible="Yes">
+    <Property Name="IconName" Value="I_SddPlate"/>
+    <Property Name="KweDisciplineAttributeValue" Value="Structure_Plate"/>
+    <Property Name="MergedExtensionType" Value="StrPlate"/>
+    <Property Name="3DPartAvailability" Value="UserChoice3DPartDefault"/>
+    <Simple Name="V_StrCategory" Type="String" Faceted="Yes" Uuid="1C263857-59B7-4a0a-AFA9-D8EC28F71684" MaxLength="40" Protection="External" CAAExposition="L0" MultiValuated="No">
+      <Property Name="SIXW" Value="ds6w:kind"/>
+      <CAAComment>
+        <ShortRole>Structure Category</ShortRole>
+        <Role>The category of the structure plate</Role>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_StrThickness" Type="Double" Faceted="Yes" Uuid="7BC54445-D9FA-4612-B067-00DE5B01DA62" Magnitude="LENGTH" Protection="External" CAAExposition="L0" MultiValuated="No">
+      <Property Name="SIXW" Value="ds6w:thickness"/>
+      <CAAComment>
+        <ShortRole>Structure Thickness</ShortRole>
+        <Role>The thickness of the structure plate</Role>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_StrMaterial" Type="String" Faceted="Yes" Uuid="2C00DE77-D3B3-4da3-A233-E1ADA8C0CFA0" MaxLength="100" Protection="External" CAAExposition="L0" MultiValuated="No">
+      <Property Name="SIXW" Value="ds6w:constituent"/>
+      <CAAComment>
+        <ShortRole>Structure Material</ShortRole>
+        <Role>The material of the structure plate</Role>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_StrSync_ID" Type="String" Uuid="6CF95E9C-DAD5-46c7-AC1D-1F9A5F9969A3" MaxLength="256" Protection="External" CAAExposition="L0" MultiValuated="No">
+      <CAAComment>
+        <ShortRole>Synchronization ID</ShortRole>
+        <Role>The synchronization ID of the structure plate</Role>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_StrPositionNumber" Type="String" Uuid="A355689B-433A-4F41-8801-02F3CB5E9D2E" MaxLength="100" Protection="Free" CAAExposition="L0" MultiValuated="No">
+      <CAAComment>
+        <ShortRole>Position Number</ShortRole>
+        <Role>The position number of the structure plate</Role>
+      </CAAComment>
+    </Simple>
+  </Class>
+
+  <Class Name="Structure_Stiffener"
+    Uuid="92b8394d-e195-4645-8a91-32caeca7a23b"
+    Abstract="No"
+    CustomerExposition="Programmer"
+    SuperName="VPMReference"
+    Abbreviation="sst"
+    Discipline="Yes"
+    Specializable="No"
+    CustomerExtensible="Yes">
+    <Property Name="IconName" Value="I_SddSuperStiffener"/>
+    <Property Name="KweDisciplineAttributeValue" Value="Structure_Stiffener"/>
+    <Property Name="MergedExtensionType" Value="StrStiffener"/>
+    <Property Name="3DPartAvailability" Value="UserChoice3DPartDefault"/>
+    <Simple Name="V_StrCategory" Type="String" Faceted="Yes" Uuid="505ADDE2-6290-4cbc-9B4D-13364671AA90" MaxLength="40" Protection="External" CAAExposition="L0" MultiValuated="No">
+      <Property Name="SIXW" Value="ds6w:kind"/>
+      <CAAComment>
+        <ShortRole>Structure Category</ShortRole>
+        <Role>The category of the structure stiffener</Role>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_StrSection" Type="String" Faceted="Yes" Uuid="8995486C-906E-498b-93B9-BEFD0453E007" MaxLength="40" Protection="External" CAAExposition="L0" MultiValuated="No">
+      <Property Name="SIXW" Value="ds6w:constituent"/>
+      <CAAComment>
+        <ShortRole>Structure Section</ShortRole>
+        <Role>The section of the structure stiffener</Role>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_StrMaterial" Type="String" Faceted="Yes" Uuid="AE1191BD-DEAE-47c7-93FE-FBF472CEF614" MaxLength="100" Protection="External" CAAExposition="L0" MultiValuated="No">
+      <Property Name="SIXW" Value="ds6w:constituent"/>
+      <CAAComment>
+        <ShortRole>Structure Material</ShortRole>
+        <Role>The material of the structure stiffener</Role>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_StrSync_ID" Type="String" Uuid="D9F4177F-BED1-44df-AD7C-829CA5AE6465" MaxLength="256" Protection="External" CAAExposition="L0" MultiValuated="No">
+      <CAAComment>
+        <ShortRole>Synchronization ID</ShortRole>
+        <Role>The synchronization ID of the structure stiffener</Role>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_StrPositionNumber" Type="String" Uuid="3AF186D3-BFA0-4D08-A886-BC220E4CE18B" MaxLength="100" Protection="Free" CAAExposition="L0" MultiValuated="No">
+      <CAAComment>
+        <ShortRole>Position Number</ShortRole>
+        <Role>The position number of the structure stiffener</Role>
+      </CAAComment>
+    </Simple>
+  </Class>
+
+  <Class Name="Structure_StiffenerOnFreeEdge"
+    Uuid="92b8394d-e195-4645-8a91-32caeca7a23c"
+    Abstract="No"
+    CustomerExposition="Programmer"
+    SuperName="VPMReference"
+    Abbreviation="sfe"
+    Discipline="Yes"
+    Specializable="No"
+    CustomerExtensible="Yes">
+    <Property Name="IconName" Value="I_SddSuperStiffenerOnFreeEdge"/>
+    <Property Name="KweDisciplineAttributeValue" Value="Structure_StiffenerOnFreeEdge"/>
+    <Property Name="MergedExtensionType" Value="StrStiffenerOnFreeEdge"/>
+    <Property Name="3DPartAvailability" Value="UserChoice3DPartDefault"/>
+    <CAAComment>
+      <ShortRole>PLM Structure Stiffener on Free Edge Object</ShortRole>
+      <Role>PLM Structure Stiffener on Free Edge Object</Role>
+    </CAAComment>
+    <Simple Name="V_StrCategory" Type="String" Faceted="Yes" Uuid="5EE822BC-2C9B-40cb-A49E-BC457BD1FD00" MaxLength="40" Protection="External" CAAExposition="L0" MultiValuated="No">
+      <Property Name="SIXW" Value="ds6w:kind"/>
+      <CAAComment>
+        <ShortRole>Structure Category</ShortRole>
+        <Role>The category of the structure stiffener on free edge</Role>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_StrSection" Type="String" Faceted="Yes" Uuid="82306DD7-ACF9-48b4-BD52-33A314646086" MaxLength="40" Protection="External" CAAExposition="L0" MultiValuated="No">
+      <Property Name="SIXW" Value="ds6w:constituent"/>
+      <CAAComment>
+        <ShortRole>Structure Section</ShortRole>
+        <Role>The section of the structure stiffener on free edge</Role>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_StrMaterial" Type="String" Faceted="Yes" Uuid="F5E32588-2A1F-4f8e-86E0-FEF0AC1C000E" MaxLength="100" Protection="External" CAAExposition="L0" MultiValuated="No">
+      <Property Name="SIXW" Value="ds6w:constituent"/>
+      <CAAComment>
+        <ShortRole>Structure Material</ShortRole>
+        <Role>The material of the structure stiffener on free edge</Role>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_StrSync_ID" Type="String" Uuid="CFC1502F-F11B-41c3-B738-6CBE4B5906DD" MaxLength="256" Protection="External" CAAExposition="L0" MultiValuated="No">
+      <CAAComment>
+        <ShortRole>Synchronization ID</ShortRole>
+        <Role>The synchronization ID of the structure stiffener on free edge</Role>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_StrPositionNumber" Type="String" Uuid="DD9F1F41-67D5-4544-8D89-B6359FD04E40" MaxLength="100" Protection="Free" CAAExposition="L0" MultiValuated="No">
+      <CAAComment>
+        <ShortRole>Position Number</ShortRole>
+        <Role>The position number of the structure stiffener on free edge</Role>
+      </CAAComment>
+    </Simple>
+  </Class>
+
+  <Class Name="Structure_Member"
+    Uuid="92b8394d-e195-4645-8a91-32caeca7a23d"
+    Abstract="No"
+    CustomerExposition="Programmer"
+    SuperName="VPMReference"
+    Abbreviation="ssm"
+    Discipline="Yes"
+    Specializable="No"
+    CustomerExtensible="Yes">
+    <Property Name="IconName" Value="I_SddSuperBeam"/>
+    <Property Name="KweDisciplineAttributeValue" Value="Structure_Member"/>
+    <Property Name="MergedExtensionType" Value="StrMember"/>
+    <Property Name="3DPartAvailability" Value="UserChoice3DPartDefault"/>
+    <CAAComment>
+      <ShortRole>PLM Structure Member Object</ShortRole>
+      <Role>PLM Structure Member Object</Role>
+    </CAAComment>
+    <Simple Name="V_StrCategory" Type="String" Faceted="Yes" Uuid="7DBF9817-07FE-4bda-B1F1-3A9F892BD78A" MaxLength="40" Protection="External" CAAExposition="L0" MultiValuated="No">
+      <Property Name="SIXW" Value="ds6w:kind"/>
+      <CAAComment>
+        <ShortRole>Structure Category</ShortRole>
+        <Role>The category of the structure member</Role>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_StrSection" Type="String" Faceted="Yes" Uuid="BF894590-76F3-4328-AEE8-5B9E20E8B2D5" MaxLength="40" Protection="External" CAAExposition="L0" MultiValuated="No">
+      <Property Name="SIXW" Value="ds6w:constituent"/>
+      <CAAComment>
+        <ShortRole>Structure Section</ShortRole>
+        <Role>The section of the structure member</Role>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_StrMaterial" Type="String" Faceted="Yes" Uuid="8FC3B44B-3EDF-4925-B84F-F083A5BBBB21" MaxLength="100" Protection="External" CAAExposition="L0" MultiValuated="No">
+      <Property Name="SIXW" Value="ds6w:constituent"/>
+      <CAAComment>
+        <ShortRole>Structure Material</ShortRole>
+        <Role>The material of the structure member</Role>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_StrSync_ID" Type="String" Uuid="15811477-C0D9-427c-90F3-B1EFBED97472" MaxLength="256" Protection="External" CAAExposition="L0" MultiValuated="No">
+      <CAAComment>
+        <ShortRole>Synchronization ID</ShortRole>
+        <Role>The synchronization ID of the structure member</Role>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_StrPositionNumber" Type="String" Uuid="B515211E-B396-4DD5-BDEC-D06466650FCC" MaxLength="100" Protection="Free" CAAExposition="L0" MultiValuated="No">
+      <CAAComment>
+        <ShortRole>Position Number</ShortRole>
+        <Role>The position number of the structure member</Role>
+      </CAAComment>
+    </Simple>
+  </Class>
+
+  <Class Name="Structure_Section"
+    Uuid="92b8394d-e195-4645-8a91-32caeca7a23e"
+    Abstract="No"
+    CustomerExposition="Programmer"
+    SuperName="VPMReference"
+    Abbreviation="sse"
+    Discipline="Yes"
+    Specializable="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATEStrDelegateInstanciation"/>
+    <Property Name="Newable" Value="New"/>
+    <Property Name="IconName" Value="I_StrSection_PLMNew"/>
+    <Property Name="KweDisciplineAttributeValue" Value="Structure_Section"/>
+    <Property Name="3DPartAvailability" Value="3DPartOnly"/>
+    <Simple Name="V_StrStandard" Type="String" Faceted="Yes" Uuid="398DF2B7-77C6-4720-A46C-D8DA39ABBA85" MaxLength="255" Protection="Free" CAAExposition="L0" MultiValuated="No">
+      <CAAComment>
+        <ShortRole>Structure Section Standard</ShortRole>
+        <Role>The standard of Structure Section</Role>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_StrShape" Type="String" Faceted="Yes" Uuid="5859849F-8117-4919-B908-2781721CFA75" MaxLength="255" Protection="Free" CAAExposition="L0" MultiValuated="No">
+      <CAAComment>
+        <ShortRole>Structure Section Shape</ShortRole>
+        <Role>The shape of Structure Section</Role>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_StrSize" Type="String" Faceted="Yes" Uuid="8CEAD33E-45A0-4A52-AE6B-6E2231BC6220" MaxLength="255" Protection="Free" CAAExposition="L0" MultiValuated="No">
+      <CAAComment>
+        <ShortRole>Structure Section Size</ShortRole>
+        <Role>The size of Structure Section</Role>
+      </CAAComment>
+    </Simple>
+  </Class>
+
+  <Class Name="Structure_Opening"
+    Uuid="92b8394d-e195-4645-8a91-32caeca7a23f"
+    Abstract="No"
+    CustomerExposition="Programmer"
+    SuperName="VPMReference"
+    Abbreviation="sso"
+    Discipline="Yes"
+    Specializable="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATEStrDelegateInstanciation"/>
+    <Property Name="Newable" Value="New"/>
+    <Property Name="IconName" Value="I_StrOpening_PLMNew"/>
+    <Property Name="KweDisciplineAttributeValue" Value="Structure_Opening"/>
+    <Property Name="3DPartAvailability" Value="3DPartOnly"/>
+  </Class>
+
+  <Class Name="Structure_Endcut"
+    Uuid="92b8394d-e195-4645-8a91-32caeca7a240"
+    Abstract="No"
+    CustomerExposition="Programmer"
+    SuperName="VPMReference"
+    Abbreviation="ssc"
+    Discipline="Yes"
+    Specializable="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATEStrDelegateInstanciation"/>
+    <Property Name="Newable" Value="New"/>
+    <Property Name="IconName" Value="I_SddEndcutS"/>
+    <Property Name="KweDisciplineAttributeValue" Value="Structure_Endcut"/>
+    <Property Name="3DPartAvailability" Value="3DPartOnly"/>
+  </Class>
+
+  <Class Name="Structure_Slot"
+    Uuid="92b8394d-e195-4645-8a91-32caeca7a241"
+    Abstract="No"
+    CustomerExposition="Programmer"
+    SuperName="VPMReference"
+    Abbreviation="ssl"
+    Discipline="Yes"
+    Specializable="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATEStrDelegateInstanciation"/>
+    <Property Name="Newable" Value="New"/>
+    <Property Name="IconName" Value="I_StrSlot_PLMNew"/>
+    <Property Name="KweDisciplineAttributeValue" Value="Structure_Slot"/>
+    <Property Name="3DPartAvailability" Value="3DPartOnly"/>
+  </Class>
+
+  <Class Name="Structure_Contour"
+    Uuid="92b8394d-e195-4645-8a91-32caeca7a242"
+    Abstract="No"
+    CustomerExposition="Programmer"
+    SuperName="VPMReference"
+    Abbreviation="scr"
+    Discipline="Yes"
+    Specializable="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATEStrDelegateInstanciation"/>
+    <Property Name="Newable" Value="New"/>
+    <Property Name="IconName" Value="I_StrContour_PLMNew"/>
+    <Property Name="KweDisciplineAttributeValue" Value="Structure_Contour"/>
+    <Property Name="3DPartAvailability" Value="3DPartOnly"/>
+  </Class>
+
+  <Extension Name="StrPlate" Uuid="92b8394d-e195-4645-8a91-32caeca7a237" CustomerExposition="Programmer" CAAExposition="L0" Abstract="No" ScopeNames="VPMReference">
+    <CAAComment>
+      <ShortRole>PLM Structure Plate Object</ShortRole>
+      <Role>PLM Structure Plate Object</Role>
+    </CAAComment>
+    <Simple Name="V_StrCategory" Type="String" Uuid="f47c37c1-8481-4ec8-afa5-c7bdd09132f5" MaxLength="40" Protection="External" CAAExposition="L0" MultiValuated="No" Faceted="Yes">
+      <Property Name="SIXW" Value="ds6w:kind"/>
+      <CAAComment>
+        <ShortRole>Structure Category</ShortRole>
+        <Role>The category of the structure plate</Role>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_StrThickness" Type="Double" Uuid="6e724ba4-75c1-4ddf-980f-191994ba2c8f" Magnitude="LENGTH" Protection="Free" CAAExposition="L0" MultiValuated="No" Faceted="Yes">
+      <Property Name="SIXW" Value="ds6w:thickness"/>
+      <CAAComment>
+        <ShortRole>Structure Thickness</ShortRole>
+        <Role>The thickness of the structure plate</Role>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_StrMaterial" Type="String" Uuid="25a78c35-774c-43ba-bfab-ddf5f32a5cc4" MaxLength="100" Protection="External" CAAExposition="L0" MultiValuated="No" Faceted="Yes">
+      <Property Name="SIXW" Value="ds6w:constituent"/>
+      <CAAComment>
+        <ShortRole>Structure Material</ShortRole>
+        <Role>The material of the structure plate</Role>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_StrSync_ID" Type="String" Uuid="9870190a-35df-4aff-b6e5-fba6336af9ab" MaxLength="256" Protection="External" CAAExposition="L0" MultiValuated="No">
+      <CAAComment>
+        <ShortRole>Synchronization ID</ShortRole>
+        <Role>The synchronization ID of the structure plate</Role>
+      </CAAComment>
+    </Simple>
+  </Extension>
+
+  <Extension Name="StrStiffener" Uuid="947f6645-0f41-4dc2-abee-016247b98ce6" CustomerExposition="Programmer" CAAExposition="L0" Abstract="No" ScopeNames="VPMReference">
+    <CAAComment>
+      <ShortRole>PLM Structure Stiffener Object</ShortRole>
+      <Role>PLM Structure Stiffener Object</Role>
+    </CAAComment>
+    <Simple Name="V_StrCategory" Type="String" Uuid="2569188b-584c-4ecf-82a2-522ab2e2782b" MaxLength="40" Protection="External" CAAExposition="L0" MultiValuated="No" Faceted="Yes">
+      <Property Name="SIXW" Value="ds6w:kind"/>
+      <CAAComment>
+        <ShortRole>Structure Category</ShortRole>
+        <Role>The category of the structure stiffener</Role>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_StrSection" Type="String" Uuid="c814b56d-288c-4907-b2c6-a4a6e481fa26" MaxLength="40" Protection="External" CAAExposition="L0" MultiValuated="No" Faceted="Yes">
+      <Property Name="SIXW" Value="ds6w:constituent"/>
+      <CAAComment>
+        <ShortRole>Structure Section</ShortRole>
+        <Role>The section of the structure stiffener</Role>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_StrMaterial" Type="String" Uuid="3271d2f7-197b-4967-97f0-d7d6fc56ff86" MaxLength="100" Protection="External" CAAExposition="L0" MultiValuated="No" Faceted="Yes">
+      <Property Name="SIXW" Value="ds6w:constituent"/>
+      <CAAComment>
+        <ShortRole>Structure Material</ShortRole>
+        <Role>The material of the structure stiffener</Role>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_StrSync_ID" Type="String" Uuid="d6132d76-3830-4134-830a-fec9ec460d9c" MaxLength="256" Protection="External" CAAExposition="L0" MultiValuated="No">
+      <CAAComment>
+        <ShortRole>Synchronization ID</ShortRole>
+        <Role>The synchronization ID of the structure stiffener</Role>
+      </CAAComment>
+    </Simple>
+  </Extension>
+
+  <Extension Name="StrMember" Uuid="c5d12d8a-b3bf-4ad6-a94b-a4709568803b" CustomerExposition="Programmer" CAAExposition="L0" Abstract="No" ScopeNames="VPMReference">
+    <CAAComment>
+      <ShortRole>PLM Structure Member Object</ShortRole>
+      <Role>PLM Structure Member Object</Role>
+    </CAAComment>
+    <Simple Name="V_StrCategory" Type="String" Uuid="ff2298c1-1c99-43fb-a2bf-cadbcc62e9af" MaxLength="40" Protection="External" CAAExposition="L0" MultiValuated="No" Faceted="Yes">
+      <Property Name="SIXW" Value="ds6w:kind"/>
+      <CAAComment>
+        <ShortRole>Structure Category</ShortRole>
+        <Role>The category of the structure member</Role>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_StrSection" Type="String" Uuid="7c74944f-4d34-4adb-9a18-14507e18a41e" MaxLength="40" Protection="External" CAAExposition="L0" MultiValuated="No" Faceted="Yes">
+      <Property Name="SIXW" Value="ds6w:constituent"/>
+      <CAAComment>
+        <ShortRole>Structure Section</ShortRole>
+        <Role>The section of the structure member</Role>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_StrMaterial" Type="String" Uuid="cbd51084-ebe5-4099-a94d-5cb1404398a9" MaxLength="100" Protection="External" CAAExposition="L0" MultiValuated="No" Faceted="Yes">
+      <Property Name="SIXW" Value="ds6w:constituent"/>
+      <CAAComment>	
+        <ShortRole>Structure Material</ShortRole>
+        <Role>The material of the structure member</Role>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_StrSync_ID" Type="String" Uuid="cf69c46f-0367-4c78-a188-5556fc0e5924" MaxLength="256" Protection="External" CAAExposition="L0" MultiValuated="No">
+      <CAAComment>
+        <ShortRole>Synchronization ID</ShortRole>
+        <Role>The synchronization ID of the structure member</Role>
+      </CAAComment>
+    </Simple>
+  </Extension>
+  
+  <Extension Name="StrColumn" Uuid="94b01aec-5a95-4556-9753-434ee290527b" CustomerExposition="Programmer" CAAExposition="L0" Abstract="No" ScopeNames="VPMReference">
+    <CAAComment>
+      <ShortRole>PLM Structure Column Object</ShortRole>
+      <Role>PLM Structure Column Object</Role>
+    </CAAComment>
+  </Extension>
+  
+  <Extension Name="StrBeam" Uuid="a5bdec43-7ea5-4551-ab6b-451bb04940b0" CustomerExposition="Programmer" CAAExposition="L0" Abstract="No" ScopeNames="VPMReference">
+    <CAAComment>
+      <ShortRole>PLM Structure Beam Object</ShortRole>
+      <Role>PLM Structure Beam Object</Role>
+    </CAAComment>
+  </Extension>
+
+  <Extension Name="StrStiffenerOnFreeEdge" Uuid="eb228776-bff9-4f04-a104-4641f959bd0e" CustomerExposition="Programmer" CAAExposition="L0" Abstract="No" ScopeNames="VPMReference">
+    <CAAComment>
+      <ShortRole>PLM Structure Stiffener on Free Edge Object</ShortRole>
+      <Role>PLM Structure Stiffener on Free Edge Object</Role>
+    </CAAComment>
+    <Simple Name="V_StrCategory" Type="String" Uuid="7c9dee8b-77f5-4ae8-a1d8-ff29ede2df15" MaxLength="40" Protection="External" CAAExposition="L0" MultiValuated="No" Faceted="Yes">
+      <Property Name="SIXW" Value="ds6w:kind"/>
+      <CAAComment>
+        <ShortRole>Structure Category</ShortRole>
+        <Role>The category of the structure stiffener on free edge</Role>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_StrSection" Type="String" Uuid="7789a80e-5366-458a-9e0b-32fd0ab9b437" MaxLength="40" Protection="External" CAAExposition="L0" MultiValuated="No" Faceted="Yes">
+      <Property Name="SIXW" Value="ds6w:constituent"/>
+      <CAAComment>
+        <ShortRole>Structure Section</ShortRole>
+        <Role>The section of the structure stiffener on free edge</Role>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_StrMaterial" Type="String" Uuid="83b25749-4a5d-471f-8161-17b10c901b30" MaxLength="100" Protection="External" CAAExposition="L0" MultiValuated="No" Faceted="Yes">
+      <Property Name="SIXW" Value="ds6w:constituent"/>
+      <CAAComment>
+        <ShortRole>Structure Material</ShortRole>
+        <Role>The material of the structure stiffener on free edge</Role>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_StrSync_ID" Type="String" Uuid="7459c192-a719-4235-98ad-e43330867ebf" MaxLength="256" Protection="External" CAAExposition="L0" MultiValuated="No">
+      <CAAComment>
+        <ShortRole>Synchronization ID</ShortRole>
+        <Role>The synchronization ID of the structure stiffener on free edge</Role>
+      </CAAComment>
+    </Simple>
+  </Extension>
+
+
+</Package>

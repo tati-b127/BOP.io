@@ -1,0 +1,11 @@
+EXPAND
+    RefECA.PLMID, RefECA.PLM_ExternalID,
+    InstECA.PLMID, InstECA.PLM_ExternalID
+FROM
+    PLMChgActionBase/PLMActionBase RefECA,
+    PLMChgActionBase/PLMChildAction InstECA
+FROM_ROOTS [?1?]
+DEPTH=1;
+
+
+

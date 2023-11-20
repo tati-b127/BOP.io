@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2007 (http://www.altova.com) by DASSAULT SYSTEMES (DASSAULT SYSTEMES) -->
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" BelongsToModeler="PLMExp3DExperience" Name="PLMExpAbstract3DExperience" Uuid="1AAB831C-A539-455F-A766-D9B2269F60D8" UseNames="PLMCORE" CustomerExposition="Programmer">
+  <Class Name="Abstract3DExperienceObject" Uuid="CBA7F461-9972-41D6-BA2A-788754973974" Abstract="Yes" SuperName="PLMCoreRepReference" CustomerExposition="None">
+    <Property Name="IconName" Value="PLMExp3DExperience_tmpIcon"/>
+    
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Design"/>
+        <UsedProcedure href="Experience_Procedures.proc#ExperienceExport"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Channel"/>
+        <UsedProcedure href="Experience_Procedures.proc#ExperienceExport_Channel"/>
+      </ProcedureForUsage>
+    </Method>
+    
+  </Class>
+  
+  <!-- PLMQL FUNCTIONS Declarations -->
+  <Function Name="PLMExp_getERRelPointedExps">
+    <Implementation Name="PLMExp_getERRelPointedExps" FileLocation="PLMExp_getERRelPointedExps.plmql" Language="PLMQL"/>
+    <Signature href="Experience_ProcedureSignature"/>
+  </Function>
+  <Function Name="PLMExp_getSRPointedAssets">
+    <Implementation Name="PLMExp_getSRPointedAssets" FileLocation="PLMExp_getSRPointedAssets.plmql" Language="PLMQL"/>
+    <Signature href="Experience_ProcedureSignature"/>
+  </Function>
+  <Function Name="PLMExp_getSRPointedExps">
+    <Implementation Name="PLMExp_getSRPointedExps" FileLocation="PLMExp_getSRPointedExps.plmql" Language="PLMQL"/>
+    <Signature href="Experience_ProcedureSignature"/>
+  </Function>
+  <Signature id="Experience_ProcedureSignature">
+    <Parameter Name="InputIds" Lower="0" Upper="-1" Direction="in" MultiValuated="No" DataType="PLMId"/>
+    <Parameter Name="OutputIds" Lower="0" Upper="-1" Direction="out" MultiValuated="No" DataType="PLMRouteSet"/>
+  </Signature>
+</Package>

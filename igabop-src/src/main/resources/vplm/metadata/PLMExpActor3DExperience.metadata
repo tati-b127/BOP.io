@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2015, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" BelongsToModeler="PLMExp3DExperience" Name="PLMExpActor3DExperience"
+  Uuid="BB701CB3-B680-48B5-85E3-0C340CD17119"
+  UseNames="PLMExpAbstract3DExperience"
+  CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <Class Name="Actor3DExperience" 		
+					 Uuid="37BBC3D7-4964-4981-B5D5-5DB0DCA450C1" 
+					 Abstract="No" 
+					 SuperName="Abstract3DExperienceObject"		
+					 Abbreviation="actx"    
+					 CustomerExposition="Programmer">
+
+      <Property Name="NewMajorRevisionAvailability"  Value="Yes"/>
+      <Property Name="ChangeMaturityAvailability"    Value="Yes"/>
+      <Property Name="DeleteAvailability"            Value="Yes"/>
+      <Property Name="LockUnlockAvailability"        Value="Yes"/>
+      <Property Name="TransferOwnershipAvailability" Value="Yes"/>
+      <Property Name="DuplicateAvailability"         Value="Yes"/>
+      <Property Name="EditPropertiesAvailability"    Value="Yes"/>
+      <Property Name="SaveAsNewAvailability"         Value="Yes"/>
+      <Property Name="EvolutionAvailability"         Value="No"/>
+      <Property Name="NewMinorRevisionAvailability"  Value="No"/>
+      <Property Name="Searchable"                    Value="Yes"/>     
+      <Property Name="IconName"                      Value="I_Actor3DExp"/>
+      <Property Name="3DIconName"                    Value="CAT3DNav_Actor3DExp.cgr"/>
+      <Property Name="Configurable"                  Value="No" />
+      <Property Name="Filtrable"                     Value="No" />     
+			<Method ImplementationType="AsFather">
+				<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+			</Method>
+  </Class>
+  
+</Package>

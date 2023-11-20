@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2004, All rights reserved -->
+
+<!-- History
+    V6R2010 Added Procedures & Functions for Export
+-->
+
+<Package xmlns="PLMDictionaryTop" ModelerType="Top" DataRDB_OID="ENODR_CFG_SERIAL" Name="PLMConfigSerial"
+    Uuid="BA357FBE-F62A-0000-02800311EC000000"
+    UseNames="PLMCORE PLMConfigMilestone" UseScopes="PLMConfigVariabilitySpace"
+    BelongsToModeler="Configuration"
+    CustomerExposition="Programmer"
+   >
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+        <ShortRole>The Serial Configuration Component Metadata.</ShortRole>
+        <Role>This package includes all the entities of Serial Configuration Model.</Role>
+    </CAAComment>
+
+    <!-- ****************** -->
+    <!-- CLASS PLMCfgSerial -->
+    <!-- ****************** -->
+
+    <Class Name="PLMCfgSerial"
+        Uuid="BA357FBE-F62B-0000-02800311EC000000"
+        SuperName="PLMCoreReference"
+        Abstract="No"
+        CustomerExposition="Programmer"
+        >
+        
+        <CAAComment>
+            <ShortRole>The serial class.</ShortRole>
+            <Role>The serial class.</Role>
+        </CAAComment>
+
+        <!-- Properties -->
+		
+            <Property Name="Searchable" Value="No"/>
+			
+        <!-- Overloaded Attributes -->
+
+        <!-- New Attributes -->
+
+            <Simple Name="V_CfgKey"
+                Uuid="BA357FBE-F62C-0000-02800311EC000000"
+                Type="Binary"
+                MaxLength="16"
+                MultiValuated="No"
+                Protection="Internal">
+            </Simple>
+
+            <Simple Name="V_DomainA"
+                Uuid="BA357FBE-F62D-0000-02800311EC000000"
+                Type="Integer"
+                MultiValuated="No"
+                Protection="Internal">
+            </Simple>
+
+            <Simple Name="V_DomainB"
+                Uuid="BA357FBE-F62E-0000-02800311EC000000"
+                Type="Integer"
+                MultiValuated="No"
+                Protection="Internal">
+            </Simple>
+
+        <!-- Constraints -->
+
+            <!-- The (Name)=(PLM_ExternalID) identify a serial -->
+            <IdentifierSet Name="Identifier"
+                           Uuid="58F71092-ECA8-49fc-B6619542DC75D065"
+                           IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB"
+                           IdentifierNames="PLM_ExternalID"/>
+
+        <!-- *********************** -->
+        <!-- PROCEDURES Declaration  -->      
+        <!-- *********************** -->
+
+	  <Method ImplementationType="None">
+		<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+	  </Method>
+
+    </Class>
+
+    <!-- *********************** -->
+    <!-- CLASS PLMCfgSerialUsage -->
+    <!-- *********************** -->
+        
+    <RelationClass Name="PLMCfgSerialUsage"
+        Uuid="BA357FBF-E4AC-0000-02800311EC000000"
+        SuperName="PLMCoreInstance"
+        Abstract="No"
+        CustomerExposition="Programmer"
+        >
+        
+        <CAAComment>
+            <ShortRole>The serial instance class.</ShortRole>
+            <Role>The serial instance class.</Role>
+        </CAAComment>
+
+      <SubClause Name="from" TargetName="PLMCfgVariabilitySpace"/>
+      <SubClause Name="to"   TargetName="PLMCfgSerial"/>
+     
+        <!-- Constraints -->
+
+
+        <!-- *********************** -->
+        <!-- PROCEDURES Declaration  -->      
+        <!-- *********************** -->
+
+	  <Method ImplementationType="None">
+		<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+	  </Method>
+
+    </RelationClass>
+
+    <!-- *************************** -->
+    <!-- CLASS PLMCfgSerialMilestone -->
+    <!-- *************************** -->
+
+    <Class Name="PLMCfgSerialMilestone"
+        Uuid="BA357FBF-FC9D-0000-02800311EC000000"
+        SuperName="PLMCfgMilestone"
+        Abstract="No"
+        CustomerExposition="Programmer"
+        >
+      <!-- OwnerTypes="PLMCfgSerial"  Integrate this line if you want to declare the aggregation constraint-->
+
+      <CAAComment>
+            <ShortRole>The serial milestone class.</ShortRole>
+            <Role>The serial milestone class.</Role>
+        </CAAComment>
+        
+        <!-- Overloaded Attributes -->
+
+        <!-- New Attributes -->
+        
+        <!-- Constraints 
+
+            <ContextKey
+                 Name="contextual_id"
+                 Uuid="A6E46E9F-A86E-47fc-AA5E34AA5EF989A2"
+                 SimpleName="PLM_ExternalID"
+                 SimpleRef="86A2CB5C-4D50-4593-8489DF068C40FAAB"
+            /> -->
+
+        <!-- *********************** -->
+        <!-- PROCEDURES Declaration  -->      
+        <!-- *********************** -->
+
+	  <Method ImplementationType="None">
+		<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+	  </Method>
+
+    </Class>
+
+</Package>
+
+ 

@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<!--DASSAULT SYSTEMES (DASSAULT SYSTEMES) -->
+<!-- ENOVIA DICTIONARY -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" DataRDB_OID="ENODR_STMATREFD" Name="ENOSTMaterialDS" Uuid="bfa842fe-ae2b-4116-957d-0857b25bff7b" UseNames="CATMaterialRef" Alias="Material Reference Concretized">
+	<Comment>last update 2006-01-10-16.00.00</Comment>
+	<!--************************************************-->
+	<!--Material Reference DS Customization (derivated from Material Reference ) Concrete-->
+	<!--************************************************-->
+	<Class Name="ENOSTMatReferenceDS" Uuid="57a7979e-ec86-461b-a874-c6ad30640c2e" Alias="Material Reference DS Customization"   SuperName="CATMatReference" SuperRef="0BC080AF-0DE1-4997-BEA547CEBB4C84B2"    >
+    <!-- R206: contains identifier of object from which it is made from  -->
+    <!-- not exhanged between sites -->
+    <Simple Name="E_fromExternalId"
+    Uuid="aaa16e80-dbad-4f2b-b41e-b036d670d272"
+    Alias="Definition"
+    Type="String"
+    MaxLength="256"
+    Mandatory="No"
+    MultiValuated="No"
+    Protection="Free"
+  />
+
+    <!-- R206: contains Name comments  -->
+    <!-- not exhanged between sites -->
+    <Simple Name="E_versionComment"
+    Uuid="6eb43414-094d-4dbe-b443-8c408022233d"
+    Alias="Version Comment"
+    Type="String"
+    MaxLength="256"
+    Mandatory="No"
+    MultiValuated="No"
+    Protection="Free"
+    ResetOnNewVersion="Yes"
+    ResetOnCloning="Yes"
+  />
+    <!-- this strange identifier key does not contain V_version...not to support any versionning-->
+		<IdentifierSet Name="identifier" Uuid="f831014a-b82e-444f-a594-b44c43c5dc95" 
+                   IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB" 
+                   IdentifierNames="PLM_ExternalID"/>
+	</Class>
+	<Class Name="ENOSTMatDomainDS" Uuid="d91f0bf4-1c72-4e6d-ac1f-f66ed7f3a812" Alias="Material Reference Representation DS Customization"   SuperName="MaterialDomain" SuperRef="8718c808-5c46-4fdb-8a7d-07d8a4b6786c"     >
+   <!-- R206: contains identifier of object from which it is made from  -->
+    <!-- not exhanged between sites -->
+    <Simple Name="E_fromExternalId"
+    Uuid="d2f6f704-6973-46ea-8ba1-b0a60ac4c638"
+    Alias="Definition"
+    Type="String"
+    MaxLength="256"
+    Mandatory="No"
+    MultiValuated="No"
+    Protection="Free"
+    />
+    
+    <!-- R206: contains Name comments  -->
+    <!-- not exhanged between sites -->
+    <Simple Name="E_versionComment"
+    Uuid="518eddd6-2294-4596-be73-0111d735c2ba"
+    Alias="Version Comment"
+    Type="String"
+    MaxLength="256"
+    Mandatory="No"
+    MultiValuated="No"
+    Protection="Free"
+    ResetOnNewVersion="Yes"
+    ResetOnCloning="Yes"
+    />
+    
+    <!-- this identifier set is strange as it is not containing V_version, and V_MatApplicationIdent L0 is forbidden  -->
+    <!--IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 008f35b6-aacd-4783-889d-b337f810de32 53a506bc-6428-4cbc-8e97-c37dde03828f"-->
+    <!--IdentifierNames="PLM_ExternalID V_MatApplicationIdent V_MatDomain"-->
+
+    <IdentifierSet Name="identifier" Uuid="50e5d444-7e59-4404-9c23-ea621858cfd5"
+                   IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB"
+                   IdentifierNames="PLM_ExternalID"
+     />
+    </Class>
+  
+	<Class Name="ENOSTMatDomainInstanceDS" Uuid="2f715a26-858c-44b6-9a5c-e6e20d55677d" Alias="Material Reference Representation Instance DS Customization"   SuperName="MaterialDomainInstance" SuperRef="aeee2ad5-1230-4195-ab91-fee5852ca6a2"     />
+  <Class Name="ENOSTMatRefInstanceDS" Uuid="DA73A377-F703-46F0-A345-6586CBF1975A" Alias="Material Reference Instance DS Customization"   SuperName="CATMatRefInstance" SuperRef="A6A6BEE5-B0AA-43a2-BB2C-CEA0840E2F48"     />
+  
+</Package>

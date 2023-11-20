@@ -1,0 +1,224 @@
+<?xml version="1.0" ?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2004, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" Name="VPMDEC"
+    Uuid="d6ecb7db-7106-4c12-bd4e-00965e236891"
+    UseNames="PHYSICALABSTRACT PRODUCTDiscipline"
+    CustomerExposition="Programmer">
+
+  <CAAComment>
+    <ShortRole>DEC Package</ShortRole>
+    <Role>This package includes all the entities of DEC Model</Role>
+  </CAAComment>
+
+
+  <Class Name="VPMDECReference"
+      Uuid="bcc52444-8e43-4a87-904f-f301cf89a76c"
+      Abstract="Yes"
+      SuperName="PHYSICALAbstractReference"
+      CAAExposition="L1"
+	  CreateInstName="DEC_VPMHybridInstance"
+      CustomerExposition="Programmer" 
+      DeleteAvailability="No" 
+      NewMajorRevisionAvailability="No">
+
+    <!-- R210: Predefined Attributes forParametrization  -->
+    <Simple Name="V_IsFinalized"
+    Uuid="dd8131a4-d057-4d87-8387-1960434a0a56"
+    Type="String"
+    MaxLength="16"
+    MultiValuated="No"
+    Protection="Free"
+    CAAExposition="L0"
+        />
+
+    <Simple Name="E_XParamStr16A"
+        Uuid="f0ecc9a6-13ce-40bf-9079-9f91d9607618"
+        Type="String"
+        MaxLength="16"
+        MultiValuated="No"
+        Protection="Free"
+        CAAExposition="L0"
+        />
+
+    <Simple Name="E_XParamStr16B"
+        Uuid="c46a88e3-acd7-4f76-ab83-855bc552237a"
+        Type="String"
+        MaxLength="16"
+        MultiValuated="No"
+        Protection="Free"
+        CAAExposition="L0"
+        />
+
+    <Simple Name="E_XParamStr16C"
+        Uuid="b88f11ff-de2a-4aef-810b-9a20e338b71e"
+        Type="String"
+        MaxLength="16"
+        MultiValuated="No"
+        Protection="Free"
+        CAAExposition="L0"
+        />
+
+    <Simple Name="E_XParamStr40A"
+        Uuid="1488c652-4e1d-43c7-8923-d7c5069de792"
+        Type="String"
+        MaxLength="40"
+        MultiValuated="No"
+        Protection="Free"
+        CAAExposition="L0"
+        />
+
+    <Simple Name="E_XParamStr40B"
+        Uuid="fa4f196e-a932-4ce8-aa36-81593b42cddb"
+        Type="String"
+        MaxLength="40"
+        MultiValuated="No"
+        Protection="Free"
+        CAAExposition="L0"
+        />
+
+    <Simple Name="E_XParamStr80A"
+        Uuid="47786695-022a-499c-88ab-af04f6136258"
+        Type="String"
+        MaxLength="80"
+        MultiValuated="No"
+        Protection="Free"
+        CAAExposition="L0"
+        />
+
+    <Simple Name="E_XParamRealA"
+        Uuid="3651acc7-ea4a-407c-a380-008424294591"
+        Type="Double"
+        MultiValuated="No"
+        Protection="Free"
+        CAAExposition="L0"
+        />
+
+    <Simple Name="E_XParamRealB"
+        Uuid="19a801df-f170-435e-b7db-746e67162c18"
+        Type="Double"
+        MultiValuated="No"
+        Protection="Free"
+        CAAExposition="L0"
+        />
+
+    <!-- R212: Predefined Attributes for TEAM Parametrization  -->
+
+    <Simple Name="E_XParamStr16D"
+        Uuid="ed64085b-6f18-48fb-bc91-7fe0da5ffc01"
+        Type="String"
+        MaxLength="16"
+        MultiValuated="No"
+        Protection="Free"
+        CAAExposition="L0"
+        />
+
+    <Simple Name="E_XParamStr40C"
+        Uuid="0a4eaaba-ee43-4f12-99f7-e00eb5d828b9"
+        Type="String"
+        MaxLength="40"
+        MultiValuated="No"
+        Protection="Free"
+        CAAExposition="L0"
+        />
+
+    <Simple Name="E_XParamStr40D"
+        Uuid="16dd60d0-183e-4ca0-8a99-bad24f955fc0"
+        Type="String"
+        MaxLength="40"
+        MultiValuated="No"
+        Protection="Free"
+        CAAExposition="L0"
+        />
+
+    <Simple Name="E_XParamStr40E"
+        Uuid="c487d70e-600a-4e5e-a06b-c9de561d5019"
+        Type="String"
+        MaxLength="40"
+        MultiValuated="No"
+        Protection="Free"
+        CAAExposition="L0"
+        />
+
+    <Simple Name="E_XParamStr40F"
+        Uuid="c8e6dc2e-a217-4810-9fd7-dddd24cb82c6"
+        Type="String"
+        MaxLength="40"
+        MultiValuated="No"
+        Protection="Free"
+        CAAExposition="L0"
+        />
+
+    <Simple Name="E_XParamStr40G"
+        Uuid="3129ab1a-c029-4502-bb3e-cc9220be4954"
+        Type="String"
+        MaxLength="40"
+        MultiValuated="No"
+        Protection="Free"
+        CAAExposition="L0"
+        />
+
+    <Simple Name="E_XParamStr80B"
+        Uuid="f5d5170e-1d12-4fac-a140-a6bb34a8e0b9"
+        Type="String"
+        MaxLength="80"
+        MultiValuated="No"
+        Protection="Free"
+        CAAExposition="L0"
+        />
+
+    <Simple Name="E_XParamStr80C"
+        Uuid="ae9c9a55-b32b-4483-8e33-56a417a11a38"
+        Type="String"
+        MaxLength="80"
+        MultiValuated="No"
+        Protection="Free"
+        CAAExposition="L0"
+        />
+
+    <Simple Name="E_XParamRealC"
+        Uuid="e350ef12-4beb-467c-adc2-1588ffa4d80d"
+        Type="Double"
+        MultiValuated="No"
+        Protection="Free"
+        CAAExposition="L0"
+        />
+
+    <Simple Name="E_XParamRealD"
+        Uuid="a941dd72-1a18-4902-a248-2793edf526fb"
+        Type="Double"
+        MultiValuated="No"
+        Protection="Free"
+        CAAExposition="L0"
+        />
+
+    <Simple Name="E_XParamBoolA"
+Uuid="99257733-26ad-48c0-98d5-98236afd1631"
+        Type="Boolean"
+        MultiValuated="No"
+        Protection="Free"
+        CAAExposition="L0"
+        />
+
+    <Simple Name="E_XParamBoolB"
+Uuid="2af335df-142f-4753-9d9e-715954a0e479"
+        Type="Boolean"
+        MultiValuated="No"
+        Protection="Free"
+        CAAExposition="L0"
+        />
+    
+
+    <Property Name="DatabaseName" Value="MCAD Model"/>
+    <Property Name="Searchable"      Value="No"/>
+    
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+  </Class>
+
+</Package>
+

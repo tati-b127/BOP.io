@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY for Ens Specifications Editor -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2011, all rights reserved -->
+
+<!-- 
+   =========
+    Package
+   =========
+   xmlns :           Type of model defined. "PLMDictionaryTop", "PLMDictionaryAbstract", "Core", "Custo".
+   ModelerType :     Type of model defined. "Top", "Abstract", "Core", "Custo".  
+   Alias :           Other name for the object. To be removed.
+   UseNames :        Other dictionaries required to define class derivation or extension.
+   UseScopes :       Other dictionaries required to define relationships between entities.
+   ExpositionLevel : CustomerExposition   
+-->
+
+    <Package xmlns="PLMDictionaryUnified"             
+             CustomerExposition="Programmer"
+             ModelerType="Top"
+             Name="PLMEnsSpecTechnoTableFilter"
+             Uuid="8DF95295-8FCB-422c-B62C-4EF75837A432"
+             UseNames="PLMCORE">
+      <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+      <CAAComment>
+         <ShortRole>Ens Specifications Techno Table Package</ShortRole>
+         <Role>This package describes the technological table filter used in Ens Specifications model.</Role>
+      </CAAComment>
+      <Comment>Initial creation: PA GLY Feb 2011</Comment>
+      <Comment>Review for V6R2012: JLN PGT PYR DRL JLM SLI ASG LBH GLY Dec 2010</Comment>
+      <Comment>Ens technological table filters</Comment>
+
+ <!-- 
+   ===========================================================
+    EnsTechnologicalTableFilterRepReference (PLM RepReference)
+   ===========================================================
+-->
+      
+      <Class Name="EnsTechnologicalTableFilterRepReference"
+             Uuid="CFA414B8-D2B1-40ac-9F59-570B84F82953"
+             Abbreviation="ettfrep"
+             CustomerExposition="Programmer"
+             Abstract="No"
+             SuperName="PLMCoreRepReference"
+             Specializable="No"
+             CustomerExtensible="No"
+             CreateInstName="EnsTechnologicalTableFilterRepInstance">
+        <!-- 
+              MODIF PA DEB 10022012
+        -->
+        <Property Name="Searchable"      Value="No"/>
+        <!-- 
+              MODIF PA FIN 10022012
+        -->
+        <CAAComment>
+          <ShortRole>Ens technological table filter rep reference Object</ShortRole>
+          <Role>This Ens technological table filter rep reference object carries the definition of a technological table filter as an xml</Role>
+        </CAAComment>
+        
+        <Simple Name="V_SpecDescription" Uuid="0230D470-28B1-4d81-8F96-2502608F1EB0" Type="String" MultiValuated="No" MaxLength="100"  Protection="Free" CAAExposition="L0"/>
+        <CAAComment>
+          <ShortRole>Specification description</ShortRole>
+          <Role>Specification description</Role>
+        </CAAComment>
+
+        <Method ImplementationType="None">
+          <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+        </Method>        
+      </Class>
+
+ <!-- 
+   =========================================================
+    EnsTechnologicalTableFilterRepInstance (PLM RepInstance)
+   =========================================================
+-->
+
+      <RelationClass Name="EnsTechnologicalTableFilterRepInstance"
+             Uuid="F3D97FC7-02D0-41fb-8B54-4FF52FBEDBCB"
+             CustomerExposition="Programmer"
+             Abstract="No"
+             SuperName="PLMCoreRepInstance">
+        <CAAComment>
+          <ShortRole>Ens technological table rep instance Object</ShortRole>
+          <Role>Ens technological table rep instance Object</Role>
+        </CAAComment>
+        <SubClause Name="from"   TargetName="EnsTechnologicalTable"/>
+        <SubClause Name="to"   TargetName="EnsTechnologicalTableFilterRepReference"/>
+        <Method ImplementationType="None">
+          <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+        </Method>
+      </RelationClass>
+
+<!--
+   ========================================================== 
+   FUNCTIONS Declarations : here are declared PLMQL Functions ????   
+   ==========================================================
+ -->
+    </Package>
+
+
+

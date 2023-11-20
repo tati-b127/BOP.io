@@ -1,0 +1,12 @@
+#Prog Logical_ExportRepresentation_Design (iPLMIDSet :  #In PLMIDSet,oPLMIDSet :  #Out PLMIDSet) : VoidType
+{
+let PLMIDSetRep (PLMIDSet)
+let PLMRouteSet1(PLMRouteSet)
+
+PLMIDSetRep = Restrict(iPLMIDSet, "RFLVPMLogical3DRep/RFLVPMLogical3DRepReference")
+
+/* Completes with Ports on Reps */
+PLMRouteSet1 = ExecutePLMFunction("RFLVPMLogical3DRep", "RFLVPMLogical_AddLogicalPublications", PLMIDSetRep)
+
+oPLMIDSet = iPLMIDSet + PLMIDSetRep + Ids(PLMRouteSet1)
+}

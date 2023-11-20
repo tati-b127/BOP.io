@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2013, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" CustomerExposition="Programmer" ModelerType="Top" Name="PLMPrototypeTypePackage" Uuid="75a7287c-d871-42dd-8635-5ea487a78837" UseNames="PLMCORE" >
+	<CAAComment>
+		<ShortRole>Fake modelers</ShortRole>
+		<Role>This package includes the fake DELMIA Modeler</Role>
+	</CAAComment>
+	<Comment>last update 2013-03-17</Comment>
+	<!-- ******************************* -->
+	<!-- * PLMCheck (PLMCoreReference) * -->
+	<!-- ******************************* -->
+  <Extension Name="PPRPrototype"  CustomerExposition="ProgrammerOnly" Uuid="356719c7-a15c-413c-8de8-3438bd580f00" Abstract="Yes" ScopeNames="PLMCoreReference"  Searchable="No" >
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Extension>
+</Package>

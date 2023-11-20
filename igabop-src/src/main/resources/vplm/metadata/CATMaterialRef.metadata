@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2007 (http://www.altova.com) by DASSAULT SYSTEMES (DASSAULT SYSTEMES) -->
+<!-- ENOVIA DICTIONARY -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2004, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" 
+        ModelerType="Top" 
+        Name="CATMaterialRef" 
+        Uuid="9CD29FD8-3FB7-4107-AAEE3B0A82C7ABE7" 
+        UseNames="PLMCORE" 
+        CustomerExposition="Programmer"
+        UseProcedures="MAT_Procedures">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>This package includes all the entities of the Material and its domains</ShortRole>
+    <Role>This package includes all the entities of the Material and its domains</Role>
+  </CAAComment>
+
+  <Comment>last update 2006-01-10-16.00.00</Comment>
+
+  <!--************************************************-->
+  <!--Material Reference (derivated from PLMCoreReference) Abstract-->
+  <!--************************************************-->
+  <Class Name="CATMatReference" Uuid="0BC080AF-0DE1-4997-BEA547CEBB4C84B2" SuperName="PLMCoreReference" Abstract="No" CAAExposition="L1" CustomerExposition="Programmer" Abbreviation="mtr" DeleteAvailability="Yes" NewMajorRevisionAvailability="Yes">
+    <CAAComment>
+      <ShortRole>The Material</ShortRole>
+      <Role>The Material</Role>
+    </CAAComment>
+    <!--**********************************************-->
+    <!--Material Reference attributes-->
+    <!--**********************************************-->
+    <Property Name="DMCDerivable" Value="Yes" />
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Design"/>
+        <UsedProcedure href="MAT_Procedures.proc#MaterialReferenceExport"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Channel"/>
+        <UsedProcedure href="MAT_Procedures.proc#MaterialReferenceExport"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Remove"/>
+        <UsedProcedure href="MAT_Procedures.proc#MaterialReferenceDetach"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#TransferSiteOwnership"/>
+        <UsedProcedure href="MAT_Procedures.proc#MaterialReferenceTSO"/>
+      </ProcedureForUsage>
+    </Method>
+    <Simple Name="V_Density" Uuid="7390DDD0-817E-4cce-BAF70D0836D02EF0" Type="Double" MultiValuated="No" Protection="Free" CAAExposition="L0" Magnitude="DENSITY">
+      <Comment>estimated</Comment>
+    </Simple>
+    <Simple Name="V_Temperature" Uuid="E2CF32F8-4C3A-4c34-AA5E7D3694C4749F" Type="Double" MultiValuated="No" Protection="Internal">
+      <Comment/>
+    </Simple>
+    <Simple Name="V_Pressure" Uuid="15A6D789-B675-48ed-8A8A0BA4AE47AC39" Type="Double" MultiValuated="No" Protection="Internal">
+      <Comment/>
+    </Simple>
+    <Simple Name="V_Domains" Uuid="FE05D480-2665-4c68-98C3DF99CC4BEAA5" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0">
+      <Comment>for business ules</Comment>
+    </Simple>
+    <Simple Name="V_Group" Uuid="B77BD4A5-B2EA-4df8-86EC18E385907734" Type="String" MaxLength="50" MultiValuated="No" Protection="Free" CAAExposition="L0" Faceted="Yes">
+      <Property Name="SIXW" Value="ds6w:classification" />
+    </Simple>
+    <Simple Name="V_AlternateName" Uuid="530265FC-797A-48f9-96DEF39A1E0AF1FB" Type="String" MaxLength="50" MultiValuated="No" Protection="Free" CAAExposition="L1">
+      <CAAComment>
+        <ShortRole>detailed Name</ShortRole>
+        <Role>detailed Name</Role>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_Spec" Uuid="187CF791-A9C0-4717-BDC63AAAB943F4DF" Type="String" MaxLength="50" MultiValuated="No" Protection="External" CAAExposition="L0"/>
+    <Simple Name="V_Migration" Uuid="B91A1B15-D7A0-4aef-A57731B42C52D207" Type="Boolean" MultiValuated="No" Protection="Internal"/>
+    <Simple Name="V_ImpHashOpt" Uuid="33930F5C-89FD-4b33-B343-4BD27E0D4941" Type="String" MaxLength="100" MultiValuated="No" Protection="Internal" />
+  </Class>
+  <!-- FUNCTIONS Declarations : here are delcared PLMQL Functions -->
+  <Function Name="mat_retrieveCnx">
+    <Implementation Name="mat_retrieveCnx" FileLocation="mat_retrieveCnx.plmql" Language="PLMQL"/>
+    <Signature href="MatSignature"/>
+  </Function>
+  <Function Name="mat_retrieveDomains">
+    <Implementation Name="mat_retrieveDomains" FileLocation="mat_retrieveDomains.plmql" Language="PLMQL"/>
+    <Signature href="MatSignature"/>
+  </Function>
+  <Function Name="mat_retrieveRenderingDomain">
+    <Implementation Name="mat_retrieveRenderingDomain" FileLocation="mat_retrieveRenderingDomain.plmql" Language="PLMQL"/>
+    <Signature href="MatSignature"/>
+  </Function>
+  <Function Name="mat_retrieveCnxsAndDomainsFromMatRef">
+    <Implementation Name="mat_retrieveCnxsAndDomainsFromMatRef" FileLocation="mat_retrieveCnxsAndDomainsFromMatRef.plmql" Language="PLMQL"/>
+    <Signature href="MatSignature"/>
+  </Function>
+  <Function Name="rdg_retrieveTexture">
+    <Implementation Name="rdg_retrieveTexture" FileLocation="rdg_retrieveTexture.plmql" Language="PLMQL"/>
+    <Signature href="MatSignature"/>
+  </Function>
+  <Function Name="mat_retrieveMatRefFromVector">
+    <Implementation Name="mat_retrieveMatRefFromVector" FileLocation="mat_retrieveMatRefFromVector.plmql" Language="PLMQL"/>
+    <Signature href="MatSignature"/>
+  </Function>
+  <Signature id="MatSignature">
+    <Parameter Name="InputIds" Lower="0" Upper="-1" Direction="in" MultiValuated="No" DataType="PLMId"/>
+    <Parameter Name="OutputIds" Lower="0" Upper="-1" Direction="out" MultiValuated="No" DataType="PLMRouteSet"/>
+  </Signature>
+
+
+  <!--************************************************-->
+  <!--Material Reference Instance-->
+  <!--************************************************-->
+  <RelationClass Name="CATMatRefInstance" Uuid="A6A6BEE5-B0AA-43a2-BB2C-CEA0840E2F48" SuperName="PLMCoreInstance" Abstract="No" CAAExposition="L1" CustomerExposition="Programmer">
+    <Property Name="DMCDerivable" Value="Yes" />
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+    <SubClause Name="from" TargetName="CATMatReference"/>
+    <SubClause Name="to"   TargetName="CATMatReference"/>
+  </RelationClass>
+
+  
+  <!--*****************************************************-->
+  <!--Material Connection for Material References ( link to RepRef ) ( derivated from PLMConnection )-->
+  <!--*****************************************************-->
+  <Class Name="CATMatRefConnection" Uuid="04345DA1-8707-401d-8502EBCAA12D0F12" SuperName="PLMConnection" Abstract="No" CustomerExposition="Programmer">
+    
+    <!--*****************************************************-->
+    <!--Material Connection for Material Reference attributes-->
+    <!--****************************************************-->
+    <Simple Name="V_migrated" Uuid="0E44D0E0-A3EF-43c6-9B2832CFD82A20FE" Type="Boolean" MultiValuated="No" Protection="External" CAAExposition="L0"/>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Path Name="CATMatRefConnection_father" Uuid="17D3DB92-4C71-4b5e-92621A2879E46F2F"  MultiValuated="No" RoleName="CATMaterialRefCnxToFather" Semantics="Reference5" Type="SemanticRelation" AdaptativeToMinor="No" 		SynchroSensitivity="Last" 		RerouteOnEffectivityChange="No" Orientation="Out"/>
+    <Path Name="CATMatRefConnection_stream" Uuid="13B5EE0F-122B-461e-8C274AC798EAAB26"  MultiValuated="No" RoleName="CATMaterialRefCnxToStream" Semantics="Reference3" Type="SemanticRelation" AdaptativeToMinor="No" 		SynchroSensitivity="PathAndLast" 		RerouteOnEffectivityChange="No" Orientation="In"/>
+    <!-- Behavior patterns: default values -->
+    <Property Name="LockUnlockAvailability" Value="No"/>
+    <Property Name="TransferOwnershipAvailability" Value="No"/>
+  </Class>
+
+
+  <!--************************************************-->
+  <!--Material Representation Reference-->
+  <!--************************************************-->
+  <Class Name="MaterialDomain" Uuid="8718c808-5c46-4fdb-8a7d-07d8a4b6786c" SuperName="PLMCoreRepReference" Abstract="No" CAAExposition="L1" CustomerExposition="Programmer" CreateInstName="MaterialDomainInstance" Abbreviation="mtd" NewMajorRevisionAvailability="Yes" DeleteAvailability="Yes">
+    <CAAComment>
+      <ShortRole>Material Applicative Domain</ShortRole>
+      <Role>Material Applicative Domain</Role>
+    </CAAComment>
+
+    <!--*****************************************************-->
+    <!--Material Domain Representation attributs-->
+    <!--****************************************************-->
+    <Property Name="DMCDerivable" Value="Yes" />
+    <!-- Behavior patterns: default values -->
+    <Property Name="LockUnlockAvailability" Value="No"/>
+    <Property Name="TransferOwnershipAvailability" Value="No"/>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Simple Name="V_MatApplicationIdent" Uuid="008f35b6-aacd-4783-889d-b337f810de32" Type="String" MultiValuated="No" MaxLength="8" CAAExposition="L0" Protection="External"/>
+    <Simple Name="V_MatDomain" Uuid="53a506bc-6428-4cbc-8e97-c37dde03828f" Type="String" MultiValuated="No" MaxLength="64" CAAExposition="L1" Protection="External">
+      <CAAComment>
+        <ShortRole>Domain Identifier</ShortRole>
+        <Role>Domain Identifier</Role>
+      </CAAComment>
+    </Simple>
+  </Class>
+
+
+  <!--************************************************-->
+  <!--Material Domain Instance-->
+  <!--************************************************-->
+  <RelationClass Name="MaterialDomainInstance" Uuid="aeee2ad5-1230-4195-ab91-fee5852ca6a2" SuperName="PLMCoreRepInstance" Abstract="No" CAAExposition="L1" CustomerExposition="Programmer">
+    <Property Name="DMCDerivable" Value="Yes" />
+    <!-- Behavior patterns: default values -->
+    <Property Name="LockUnlockAvailability" Value="No"/>
+    <Property Name="TransferOwnershipAvailability" Value="No"/>
+    
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+    <SubClause Name="to"   TargetName="MaterialDomain"/>
+  </RelationClass>
+
+
+  <!--************************************************-->
+  <!--Material Port-->
+  <!--************************************************-->
+  <Class Name="CATMatPort" Uuid="3692CBB3-B7FC-4897-9FA1-5BE77D6C877D" SuperName="PLMPort" Abstract="No" CustomerExposition="Programmer" OwnerTypes="CATMatReference">
+    <!-- OwnerTypes="CATMatReference"  Integrate this line if you want to declare the aggregation constraint FB025717-36D4-4374-AC81946DBBD95BE4 -->
+
+    <Path Name="CATMatPort_ActiveMat" Uuid="647B63E5-88E0-4fc5-B04D-D9C25B032F5B"  MultiValuated="No"  RoleName="CATMatPort_ActiveMatLink" Semantics="Reference3" Type="SemanticRelation" AdaptativeToMinor="No"		SynchroSensitivity="PathAndLast"		RerouteOnEffectivityChange="No" Orientation="In"/>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+</Package>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2017, All rights reserved -->
+<Package
+	xmlns="PLMDictionaryUnified"
+	Name="CATSEVTestBench"
+	Uuid="36daa00a-49b5-46c1-81e3-d6ee27b5fce5"
+	UseNames="PLMCORE RFLVPMLogical"
+	CustomerExposition="Programmer"
+	ModelerType="Top"
+	Architecture="Web">
+  <Class
+		Uuid="ea1fb33c-7e59-46d5-b1a4-7962ec9190b9"
+		Name="SEVLogicalReference"
+		CustomerExposition="Programmer"
+		Discipline= "Yes"
+		SuperName="RFLVPMLogicalReference"        
+	    Abbreviation="sev">
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope" />
+    </Method>
+  </Class>
+
+  <Class
+		Name="SEVTestBenchRep"
+		Uuid="783f8c42-cdca-43ad-bed7-a3fe78eb946d"
+		SuperName="PLMCoreRepReference"
+		Discipline= "Yes"
+		CustomerExposition="ProgrammerOnly">
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope" />
+    </Method>
+  </Class>
+  <RelationClass
+		Name="SEVTestBenchRepInstance"
+		Uuid="54a41e48-9e62-4c05-b00a-4b8dfd6e2ea1"
+		CustomerExposition="ProgrammerOnly"
+		SuperName="PLMCoreRepInstance">
+    <SubClause Name="from"   TargetName="SEVLogicalReference"/>
+    <SubClause Name="to"   TargetName="SEVTestBenchRep"/>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope" />
+    </Method>
+  </RelationClass>
+</Package>

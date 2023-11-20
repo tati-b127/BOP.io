@@ -1,0 +1,42 @@
+#Prog ObjectTypeRepReferenceExport( iPLMIDSet : #In PLMIDSet, oPLMIDSet : #Out PLMIDSet ) : VoidType
+{
+  let PLMIDRepRefRouteSet (PLMRouteSet)
+  let PLMIDRepRefSet (PLMIDSet)
+  let PLMIDRefRouteSet (PLMRouteSet)
+  let PLMIDRefSet (PLMIDSet)
+  let PLMID3DPartRouteSet (PLMRouteSet)
+  let PLMID3DPartSet (PLMIDSet)
+  let PLMTemplateSet (PLMIDSet)
+  let PLMTemplateStructureSet (PLMIDSet)
+  let PSRootSet (PLMIDSet)
+  let PSRefRouteSet (PLMRouteSet)
+  let PSRefSet (PLMIDSet)
+  let PSRefSet2 (PLMIDSet)
+  let PSRepSet (PLMIDSet) 
+  
+  // Gets Representation references pointed by the Resource table (e.g. Icons, documentations, 3DShape containing UdF, drawings, PLMTemplate)
+  PLMIDRepRefRouteSet = ExecutePLMFunction("CATComponentBasedDesign", "CATComponentBasedDesign_NavigateKnowledgeRepRefToResourceTableRep", iPLMIDSet)
+  PLMIDRepRefSet = Ids(PLMIDRepRefRouteSet,"all")
+
+  PLMID3DPartRouteSet = ExecutePLMFunction("CATComponentBasedDesign", "CATComponentBasedDesign_Navigate3DShapeTo3DPart", PLMIDRepRefSet)
+  PLMID3DPartSet = Ids(PLMID3DPartRouteSet,"all")
+
+  // Gets References pointed by the Resource table
+  PLMIDRefRouteSet = ExecutePLMFunction("CATComponentBasedDesign", "CATComponentBasedDesign_NavigateKnowledgeRepRefToResourceTableRef", iPLMIDSet)
+  PLMIDRefSet = Ids(PLMIDRefRouteSet,"all")
+
+  // Gets PLMTemplate Structure
+  PLMTemplateSet = Restrict(PLMIDRepRefSet , "PLMKnowledgeTemplate/PLMTemplateRepReference")
+  PLMTemplateStructureSet = ExecutePLMProcedure( "Pkt_ExportTemplate", PLMTemplateSet ) 
+
+  // Gets Product Structure pointed by the Resource table (e.g. LOD5 3D Reference)
+  PSRootSet = Restrict(PLMIDRefSet, "PRODUCTCFG/VPMReference")
+            + Restrict(PLMID3DPartSet, "PRODUCTCFG/VPMReference")
+  PSRefRouteSet = ExecutePLMFunction("PRODUCTCFG", "ProductCfg_AddChildrenProduct", PSRootSet)
+  PSRefSet = Ids(PSRefRouteSet,"all")
+  PSRefSet2 = Restrict(PSRefSet, "PRODUCTCFG/VPMReference")
+            + Restrict(PSRefSet, "PRODUCTCFG/VPMRepReference")
+  PSRepSet = ExecutePLMProcedure("VPMEditor_GetAllRepresentations", PSRefSet2)
+  
+  oPLMIDSet = iPLMIDSet + PLMIDRepRefSet + PLMTemplateStructureSet + PSRefSet + PSRepSet
+}

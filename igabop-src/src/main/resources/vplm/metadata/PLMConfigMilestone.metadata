@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2004, All rights reserved -->
+
+<!-- History
+    V6R2010 Added Procedures & Functions for Export
+-->
+
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" Name="PLMConfigMilestone"
+    Uuid="47857406-478C-4B7D-AC6683C44164BAD3"
+    UseNames="PLMCORE"
+    BelongsToModeler="Configuration"
+    CustomerExposition="Programmer"
+   >
+
+    <CAAComment>
+        <ShortRole>The Milestone Configuration Component Metadata.</ShortRole>
+        <Role>This package includes all the entities of Milestone Configuration Model.</Role>
+    </CAAComment>   
+
+    <!-- ****************************** -->
+    <!-- ABSTRACT CLASS PLMCfgMilestone -->
+    <!-- ****************************** -->
+
+    <Class Name="PLMCfgMilestone"
+        Uuid="BA357FC1-B174-0000-02800311EC000000"
+        SuperName="PLMPort"
+        Abstract="Yes"
+        CustomerExposition="Programmer"
+        >
+        
+        <CAAComment>
+            <ShortRole>The milestone class.</ShortRole>
+            <Role>The milestone class.</Role>
+        </CAAComment>
+
+        <!-- Overloaded Attributes -->
+
+        <!-- New Attributes -->
+
+            <Simple Name="V_Value"
+                Uuid="BA357FC1-C8C3-0000-02800311EC000000"
+                Type="Integer"
+                MultiValuated="No"
+                PLMImpacting="Yes"
+                Protection="Internal">
+            </Simple>
+            
+        <!-- Constraints -->
+
+        <!-- *********************** -->
+        <!-- PROCEDURES Declaration  -->      
+        <!-- *********************** -->
+
+	  <Method ImplementationType="None">
+		<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+	  </Method>
+
+    </Class>
+
+</Package>
+
+ 

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2004, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" BelongsToModeler="ENOWSP_WORKSPACE" ModelerType="Top" Name="ENOWSP_WORKSPACE_SPEC" Uuid="2c6d51df-0f12-4f50-a385-437330bbd891" UseNames="PLMCORE" CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+  <CAAComment>
+		<ShortRole>ENOWSP_WORKSPACE_SPEC connects a workspace to its spec. </ShortRole>
+	</CAAComment>
+	<Class Name="ENOWSP_WorkspaceSpecCnx" Uuid="dc384edd-57a0-44eb-8fcb-74273091d89d" Abstract="No" SuperName="PLMConnection" CustomerExposition="Programmer">
+		<CAAComment>
+			<ShortRole>ENOWSP_WorkspaceSpecCnx is used to find the workspace spec from the workspace to edit it or during the sync and promote operations </ShortRole>
+		</CAAComment>
+		<Path Name="Specification" Uuid="a59afd30-375a-4b8f-93c6-24c300369433"  MultiValuated="No"  RoleName="WSP_Specification" Semantics="Reference2"  Protection="Internal"	Type="SemanticRelation" AdaptativeToMinor="No"		SynchroSensitivity="None"		RerouteOnEffectivityChange="No"/>
+
+    <Path Name="V_WSPSpecToRoot" Uuid="51b0bfd7-9642-42e9-8fee3fbb2f1bbe56" MultiValuated="No" RoleName="WSP_SpecToRoot" Semantics="Reference2"  Protection="Internal" Type="SemanticRelation" AdaptativeToMinor="No"		SynchroSensitivity="None"		RerouteOnEffectivityChange="No"/>
+    
+    <Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method> 
+	</Class>
+</Package>
+

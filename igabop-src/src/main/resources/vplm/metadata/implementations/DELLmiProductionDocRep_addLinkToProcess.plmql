@@ -1,0 +1,24 @@
+NAVIGATE     
+
+T0.PLM_ExternalID,
+T0.PLMID
+ 
+FROM      
+
+DELFmiFunctionalModel/DELFmiFunctionReference T0
+
+FROM_ROOTS[?1?]
+
+ON RELATION(
+
+FROM=DELLmiProductionDocRep/DELLmiDocRepReference 
+
+TO=DELFmiFunctionalModel/DELFmiFunctionReference 
+
+THROUGH=POINTSTO)
+
+;
+
+
+
+

@@ -1,0 +1,189 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR Functional Application -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo"  Name="ENOSTRFLPLMFunctionalDS"
+	Uuid="da35ce2a-0780-4bcb-9d53-cf45f1739484" 
+	UseNames="RFLPLMFunctional" 
+	>
+
+	<CAAComment>
+		<ShortRole>PLM Functional Customization for ENOVIA Team Engineering</ShortRole>
+		<Role>Used by Team Engineering</Role>
+	</CAAComment>
+	
+	<!-- **************************************************************** -->
+	<!-- *  ENOSTFunctionalReference (RFLPLMFunctionalReference) 	* -->
+	<!-- **************************************************************** -->
+
+	<Class Name="ENOSTFunctionalReference" 
+		Uuid="16798f55-7940-4c58-8188-07f2917e6968" 
+		SuperName="RFLPLMFunctionalReference" 
+		SuperRef="4baf5d55-289a-4680-b2abd513d7a0d2fb" 
+		>
+
+		<CAAComment>
+			<ShortRole>Customized PLM Function Reference Object</ShortRole>
+			<Role>Customized PLM Function Reference Object</Role>
+		</CAAComment>
+
+    <!-- R206: contains identifier of object from which it is made from  -->
+    <!-- not exhanged between sites -->
+    <Simple Name="E_fromExternalId"
+    Uuid="2910597a-f38d-4b45-9ea4-16aac6eb33d9"
+    Alias="Definition"
+    Type="String"
+    MaxLength="256"
+    Mandatory="No"
+    MultiValuated="No"
+    Protection="Free"
+    CAAExposition="L0"
+          />
+
+    <!-- R206: contains Name comments  -->
+    <!-- not exhanged between sites -->
+    <Simple Name="E_versionComment"
+    Uuid="a3c6c988-6a98-4b45-9ccc-de5e1478cbfc"
+    Alias="Version Comment"
+    Type="String"
+    MaxLength="256"
+    Mandatory="No"
+    MultiValuated="No"
+    Protection="Free"
+    CAAExposition="L0"
+    ResetOnNewVersion="Yes"
+    ResetOnCloning="Yes"
+              />
+    
+    <IdentifierSet Name="Identifier"
+            Uuid="1ee8dec2-5b4e-4582-9066-80069ef66266"
+            IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755"
+            IdentifierNames="PLM_ExternalID V_version" />
+            
+	</Class>
+
+	<!-- ************************************************************* -->
+	<!-- * ENOSTFunctionalInstance (RFLPLMFunctionalInstance) * -->
+	<!-- ************************************************************* -->
+
+	<Class Name="ENOSTFunctionalInstance" 
+		Uuid="39eea735-dbce-4257-bf87-d32c586a2e58" 
+
+		SuperName="RFLPLMFunctionalInstance" 
+		SuperRef="38804f9a-9a1f-4c4e-9e6a39e8f72bc3cc" 		 
+		>
+
+		<CAAComment>
+			<ShortRole>Customized PLM Function Instance Object</ShortRole>
+			<Role>Customized PLM Function Instance Object</Role>
+		</CAAComment>
+
+	</Class>
+
+	<!-- *************************************************************** -->
+	<!-- * ENOSTFunctionalConnector (RFLPLMFunctionalConnector) * -->
+	<!-- *************************************************************** -->
+
+	<Class Name="ENOSTFunctionalConnector" 
+		Uuid="613643a6-f6e0-4bfd-977a-3f6c1a9a3674"
+		 
+		SuperName="RFLPLMFunctionalConnector" 
+		SuperRef="de9b0140-dc42-4efa-8642d3dc72820ec3" 
+		>
+
+		<CAAComment>
+			<ShortRole>Customized PLM Functional Connector Object</ShortRole>
+			<Role>Customized PLM Functional Connector Object</Role>
+		</CAAComment>
+
+  </Class>
+
+	<!-- ***************************************************************** -->
+	<!-- * ENOSTFunctionalConnection (RFLPLMFunctionalConnection) * -->
+  <!-- ***************************************************************** -->
+
+  <Class Name="ENOSTFunctionalConnection"
+		Uuid="581ed762-2f0a-499e-b0f9-ab02bf2bbbd1"
+		 
+		SuperName="RFLPLMFunctionalConnection" 
+		SuperRef="77698fb6-4395-4b55-9e6240e9afd872c6" 
+		 
+		>
+
+		<CAAComment>
+			<ShortRole>Customized PLM Function Connection Object</ShortRole>
+			<Role>Customized PLM Function Connection Object</Role>
+		</CAAComment>
+	</Class>
+	
+	<!-- ********************************************************************** -->
+	<!-- *  ENOSTFunctionalRepReference (RFLPLMFunctionalRepReference) * -->
+	<!-- ********************************************************************** -->
+
+	<Class Name="ENOSTFunctionalRepReference" 
+		Uuid="3a8324bc-3692-43d9-bd34-b419e7526d35" 
+
+		SuperName="RFLPLMFunctionalRepReference" 
+		SuperRef="986a0879-a20a-4d28-89b4ae686df55627" 		 
+		>
+
+    <!-- R206: contains identifier of object from which it is made from  -->
+    <!-- not exhanged between sites -->
+    <Simple Name="E_fromExternalId"
+    Uuid="7e352bb7-a067-4876-aa2c-14f0264070b5"
+    Alias="Definition"
+    Type="String"
+    MaxLength="256"
+    Mandatory="No"
+    MultiValuated="No"
+    Protection="Free"
+    CAAExposition="L0"
+          />
+
+    <!-- R206: contains Name comments  -->
+    <!-- not exhanged between sites -->
+    <Simple Name="E_versionComment"
+    Uuid="7df8bab2-22a2-4532-8d36-a34158cdd981"
+    Alias="Version Comment"
+    Type="String"
+    MaxLength="256"
+    Mandatory="No"
+    MultiValuated="No"
+    Protection="Free"
+    CAAExposition="L0"
+    ResetOnNewVersion="Yes"
+    ResetOnCloning="Yes"
+              />
+    
+        <IdentifierSet Name="Identifier"
+            Uuid="be4e6b57-9fc3-4a42-be5c-3325b74e7f67"
+            IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755"
+            IdentifierNames="PLM_ExternalID V_version" />
+
+		<CAAComment>
+			<ShortRole>Customized PLM Functional Rep Reference Object</ShortRole>
+			<Role>Customized PLM Functional Rep Reference Object</Role>
+		</CAAComment>
+
+	</Class>
+
+	<!-- ******************************************************************** -->
+	<!-- *  ENOSTFunctionalRepInstance (RFLPLMFunctionalRepInstance) * -->
+  <!-- ******************************************************************** -->
+
+  <Class Name="ENOSTFunctionalRepInstance" 
+		Uuid="ff6e5901-926a-45b4-8237-3105e349fbd8" 
+
+		SuperName="RFLPLMFunctionalRepInstance" 
+		SuperRef="c7fd4815-3af5-49eb-84ca2c090b1fb2a3" 
+		 
+		>
+
+		<CAAComment>
+			<ShortRole>Customized PLM Logical Rep Reference Object</ShortRole>
+			<Role>Customized PLM Logical Rep Reference Object</Role>
+		</CAAComment>
+
+	</Class>
+
+</Package>

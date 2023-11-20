@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY FOR DIFStandard - Custo sample     -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2010, All rights reserved -->
+
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" Name="ENOSTDIFStandardDS"
+    Uuid="0DA3AD68-C07B-4D3F-A7BE-D730D9F19C86"
+    UseNames="DIFStandard">
+  <Property Name="OptionalInstallation" Value="No" />
+  <CAAComment>
+    <ShortRole>DIF Standard Rep - Custo OOTB Package</ShortRole>
+    <Role>This package describes a OOTB customization of DIF Standard Rep </Role>
+  </CAAComment>
+
+  <!-- ************************************************** -->
+  <!-- *  OOTB custo of DIFStandardRep(PLMCoreRepReference)* -->
+  <!-- ************************************************** -->
+
+  <Class Name="ENOSTDIFStandardRepDS"
+      Uuid="236A2969-AE64-4CAF-9E5C-EBC01AB818FE"
+      SuperName="DIFStandardRep"
+      SuperRef="C4CABA72-19C3-42d4-A8A8-B7C7161A7D81"
+      CAAExposition="L0">
+
+    <CAAComment>
+      <ShortRole>DIF Standard Rep</ShortRole>
+      <Role>Technical Drawings and Diagrams customization</Role>
+    </CAAComment>
+
+  <!-- R206: contains identifier of object from which it is made from  -->
+  <!-- not exhanged between sites -->
+  <Simple Name="E_fromExternalId"
+  Uuid="BD864C86-2530-4580-8F3D-4D750714CA78"
+  Alias="Definition"
+  Type="String"
+  MaxLength="255"
+  Mandatory="No"
+  MultiValuated="No"
+  CAAExposition="L0"
+  Protection="Free"
+  />
+
+  <!-- R206: contains Name comments  -->
+  <!-- not exhanged between sites -->
+  <Simple Name="E_versionComment"
+  Uuid="032E5F2C-2E6A-444F-9246-A74AAEF3B2AF"
+  Alias="Version Comment"
+  Type="String"
+  MaxLength="255"
+  Mandatory="No"
+  MultiValuated="No"
+  CAAExposition="L0"
+  Protection="Free"
+  ResetOnNewVersion="Yes"
+  ResetOnCloning="Yes"
+  />
+
+    <IdentifierSet Name="Identifier" 
+                   Uuid="051B4A30-855E-4443-99C3-B0C359477C70" 
+                   IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755" 
+                   IdentifierNames="PLM_ExternalID V_version"/> 
+  </Class>
+  
+</Package>

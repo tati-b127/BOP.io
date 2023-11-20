@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2009, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" Name="DELLmiProductionExecGeneralSystemDS" Uuid="af3b26e4-8443-4aa2-9d3c-89edc29c78a5" UseNames="DELLmiProductionExecGeneralSystem" >
+<Property Name="OptionalInstallation" Value="Yes" /> 
+	<CAAComment>
+		<ShortRole>Standard DELMIA Execution General System Package</ShortRole>
+		<Role>This package includes default customized DELMIA Execution General System Operation</Role>
+	</CAAComment>
+	<Comment>last update 2009-05-27</Comment>
+
+	<Class Name="DELLmiExecGeneralSystemRefCusto" Uuid="13f70d46-72eb-48bc-b968-e5091f9d1024" SuperName="DELLmiExecGeneralSystemReference">
+
+    <IdentifierSet Name="Identifier"
+        Uuid="56e8bbfe-b089-4348-a28a-8fc180e37cb3"
+        IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755"
+        IdentifierNames="PLM_ExternalID V_version" />
+
+    <CAAComment>
+			<ShortRole>Standard DELMIA Execution General System Reference</ShortRole>
+			<Role>Default customized DELMIA Execution General System Reference</Role>
+		</CAAComment>
+	</Class>
+
+  <RelationClass Name="DELLmiExecGeneralSystemInstCusto" Uuid="1f56f3d0-485d-4484-b8ed-e0ba902eb88a" SuperName="DELLmiExecGeneralSystemInstance"  >
+    <CAAComment>
+      <ShortRole>Standard DELMIA Execution General System Instance</ShortRole>
+      <Role>Default customized DELMIA Execution General System Instance</Role>
+    </CAAComment>
+    <!-- ********************************************************* -->
+    <!-- * Overload(s) of PLMCoreInstance attributes. -->
+    <!-- ********************************************************* -->
+    <SubClause Name="to"   TargetName="DELLmiExecGeneralSystemRefCusto"/>
+  </RelationClass>
+</Package>

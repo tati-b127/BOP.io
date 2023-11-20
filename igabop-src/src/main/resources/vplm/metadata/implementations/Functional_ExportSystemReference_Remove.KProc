@@ -1,0 +1,18 @@
+#Prog Functional_ExportSystemReference_Remove( iPLMIDSet : #In PLMIDSet, oPLMIDSet : #Out PLMIDSet ) : VoidType
+{
+  let InputPLMIDSetRestrictedToRefs(PLMIDSet)
+  let SetOfAggregatedFctRepRef(PLMRouteSet)
+  let SetOfPLMParameters(PLMRouteSet)
+
+  InputPLMIDSetRestrictedToRefs = Restrict(iPLMIDSet,"RFLPLMFunctional/RFLPLMFunctionalReference")
+ 
+  /* FL Connections, ports and instances (aggregated objects) are automatically removed */
+  
+  /* Get functional aggregated Rep. */
+  SetOfAggregatedFctRepRef = ExecutePLMFunction("RFLPLMFunctional","RFLPLMFunctionalReference_RepAggregated",InputPLMIDSetRestrictedToRefs)
+   
+  /* Get AGGREGATED PLMParameters (resp GMX)*/
+  SetOfPLMParameters = ExecutePLMFunction("PLMParameter", "PAR_nav_aggr_params", InputPLMIDSetRestrictedToRefs)
+  
+  oPLMIDSet = iPLMIDSet + Ids(SetOfAggregatedFctRepRef) + Ids(SetOfPLMParameters)
+}

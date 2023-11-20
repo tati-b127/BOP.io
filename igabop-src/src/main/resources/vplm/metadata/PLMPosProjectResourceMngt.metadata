@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2006, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" Name="PLMPosProjectResourceMngt" Uuid="22978D6E-B6A6-4EC1-9826086AE75D6C1A" UseNames="PLMPosResource" CustomerExposition="Programmer" >
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+  <UniqueKey Name="PLMPosProjectResourceMngtRefUK" Uuid="F7FEF3A4-6BE5-46d4-8584E24FEBA858EA" ClassName="PLMPosProjectResourceMngtRef" AttributeNames="PLM_ExternalID" />
+	<Class Name="PLMPosProjectResourceMngtRef"  Uuid="3E3F1D60-B8F3-1D3C-A1585DB991B48928" Abstract="No" SuperName="PLMPosResourceRef" CreateInstName="PLMPosProjectResourceMngtInst" CustomerExposition="Programmer" >
+    <Property Name="Searchable" Value="No"/>
+    <Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+	</Class>
+  <RelationClass Name="PLMPosProjectResourceMngtInst" Uuid="39C85468-4086-46E1-92F00CA502BF2131" Abstract="No" SuperName="PLMPosResourceInst" CustomerExposition="Programmer" >
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <SubClause Name="from"   TargetName="PLMPosResourceCoreRef"/>
+    <SubClause Name="to"   TargetName="PLMPosProjectResourceMngtRef"/>
+  </RelationClass>
+
+</Package>

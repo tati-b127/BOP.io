@@ -1,0 +1,119 @@
+<?xml version="1.0" ?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2004, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified"
+         Name="PLMKnowledgewareDiscipline"
+         Uuid="505004fe-e458-48fe-991f-6f698117f0f1"
+         ModelerType="Top"
+	       CustomerExposition="Programmer"
+         UseNames="DELFmiFunctionalModelSubRep DELLmiProductionDocRep PRODUCTCFG RFLPLMFunctionalSubRep RFLVPMLogicalSubRep"
+         >
+
+  <CAAComment>
+    <ShortRole>ProductStructure Package</ShortRole>
+    <Role>This package includes all the entities of ProductStructure Model</Role>
+  </CAAComment>
+
+  <!-- DISCIPLINES DECLARATIONS -->
+
+  <Class Name="Knowledgeware"
+    Uuid="bbab30f0-72b6-4ad3-9b67-7eb6d4657493"
+    CustomerExposition="Programmer"
+    Abstract="No"
+    SuperName="VPMRepReference"
+    Discipline="Yes"
+    Specializable="Yes" Abbreviation="kes" >
+    <Property Name="KweNew_InstanciationMethod" Value="CATKBEDelegateInstanciationKRep"/>
+    <Property Name="IconName"        Value="I_TPKWE"/>
+    <Property Name="Newable"         Value="Insert"/>
+  </Class>
+  <Class Name="KnowledgewareLogical"
+    Uuid="1153e752-f316-41f1-8d83-1eced9d5b586"
+    CustomerExposition="Programmer"
+    Abstract="No"
+    SuperName="LogicalDSContentRepReference"
+    Discipline="Yes"
+    Specializable="Yes" Abbreviation="kes" >
+    <Property Name="KweNew_InstanciationMethod" Value="CATKBEDelegateInstanciationKRep"/>
+    <Property Name="IconName"        Value="I_TPKWE"/>
+    <Property Name="Newable"         Value="Insert"/>
+  </Class>
+  <Class Name="KnowledgewareFunctional"
+    Uuid="78aa65e6-7f31-4913-bed5-ab5c689c9b8e"
+    CustomerExposition="Programmer"
+    Abstract="No"
+    SuperName= "FunctionalDSContentRepReference"
+    Discipline="Yes"
+    Specializable="Yes" Abbreviation="kes" >
+    <Property Name="KweNew_InstanciationMethod" Value="CATKBEDelegateInstanciationKRep"/>
+    <Property Name="IconName"        Value="I_TPKWE"/>
+    <Property Name="Newable"         Value="Insert"/>
+  </Class>
+  <Class Name="KnowledgewareProcess"
+  Uuid="fa377d47-979c-44e0-b6f3-7189b1b5c858"
+  CustomerExposition="Programmer"
+  Abstract="No"
+  SuperName= "DELFmiDSContentRepReference"
+  Discipline="Yes"
+  Specializable="Yes" Abbreviation="kes" >
+    <Property Name="KweNew_InstanciationMethod" Value="CATKBEDelegateInstanciationKRep"/>
+    <Property Name="IconName"        Value="I_TPKWE"/>
+    <Property Name="Newable"         Value="Insert"/>
+  </Class>
+  <Class Name="KnowledgewareProdSystem"
+  Uuid="3a8a902d-0f33-4e50-8a97-56adcd91fc92"
+  CustomerExposition="Programmer"
+  Abstract="No"
+  SuperName= "DELLmiDocRepReference"
+  Discipline="Yes"
+  Specializable="Yes" Abbreviation="kes" >
+    <Property Name="KweNew_InstanciationMethod" Value="CATKBEDelegateInstanciationKRep"/>
+    <Property Name="IconName"        Value="I_TPKWE"/>
+    <Property Name="Newable"         Value="Insert"/>
+  </Class>
+  <!-- For Solidworks: will enable to hide the Knowledge representation containing the product table -->
+  <Class Name="KnowledgewareHidden"
+    Uuid="05C4E32C-138D-4fec-9A1C-0188344D3813"
+    CustomerExposition="ProgrammerOnly"
+    Abstract="No"
+    SuperName="VPMRepReference"
+    Discipline="Yes" Abbreviation="kes" >
+    <Property Name="KweNew_InstanciationMethod" Value="CATKBEDelegateInstanciationKRep"/>
+    <Property Name="Searchable"        Value="No"/>
+  </Class>
+  <!-- ********************************************************* -->
+
+  <!-- FUNCTIONS Declarations : here are delcared PLMQL Functions -->
+
+  <Function Name="KwaDiscipline_AddPointedDesignTable">
+    <Implementation Name="KwaDiscipline_AddPointedDesignTable" FileLocation="KwaDiscipline_AddPointedDesignTable.plmql" Language="PLMQL"/>
+    <Signature href="KwaDtSignature"/>
+  </Function>
+
+  <Function Name="Kwa_navigate_arm_ref">
+    <Implementation Name="Kwa_navigate_arm_ref" FileLocation="Kwa_navigate_arm_ref.plmql" Language="PLMQL"/>
+    <Signature href="KwaDtSignature"/>
+  </Function>
+
+  <Function Name="Kwa_navigate_arm_repref">
+    <Implementation Name="Kwa_navigate_arm_repref" FileLocation="Kwa_navigate_arm_repref.plmql" Language="PLMQL"/>
+    <Signature href="KwaDtSignature"/>
+  </Function>
+
+  <Function Name="KWA_NavVPMRepToARMRefAndRep">
+    <Implementation Name="KWA_NavVPMRepToARMRefAndRep" FileLocation="KWA_NavVPMRepToARMRefAndRep.plmql" Language="PLMQL"/>
+    <Signature href="KwaDtSignature"/>
+  </Function>
+
+  <Signature id="KwaDtSignature">
+    <Parameter Name="InputIds" Lower="0" Upper="-1" Direction="in" MultiValuated="Yes" DataType="PLMId"/>
+    <Parameter Name="OutputIds" Lower="0" Upper="-1" Direction="out" MultiValuated="No" DataType="PLMRouteSet"/>
+  </Signature>
+
+  <!-- ********************************************************* -->
+
+
+</Package>
+

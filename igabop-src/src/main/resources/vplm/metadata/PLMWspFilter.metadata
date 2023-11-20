@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2005, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" Name="PLMWspFilter" BelongsToModeler="PLMWspContext" Uuid="c79fa16c-4bc8-4fc0-8f08c918e2444f00" UseNames="PLMWspContext" CustomerExposition="Programmer">
+	  <Property Name="FormerTypingLegacy" Value="Yes"/>
+<CAAComment>
+		<ShortRole>Filter Package</ShortRole>
+		<Role>This package includes base object of Filter Model</Role>
+	</CAAComment>
+	<Comment>last update 2007-03-29-12.00.00</Comment>
+	<!-- ***************************************** -->
+	<!-- *    PLMWspPVS (PLMWspReference) * -->
+	<!-- ***************************************** -->
+	<Class Name="PLMWspPVS" Uuid="2e890c3e-7406-452f-a0cac6b9918f8d3e" SuperName="PLMWspReference" Abstract="No" CustomerExposition="Programmer" DeleteAvailability="Yes">
+    <CAAComment>
+			<ShortRole>Filter object</ShortRole>
+			<Role>This object captures a filter definition</Role>
+		</CAAComment>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope" />
+    </Method>
+
+    <Property Name="KweNew_InstanciationMethod" Value="CATEWSPDelegateInstanciation"/>
+    <Property Name="Newable" Value="No"/>
+    <Property Name="IconName" Value="I_PVSMain"/>
+    <Property Name="3DIconName" Value="Filter.cgr"/>
+	</Class>
+
+  
+  <!-- *************************************** -->
+  <!-- *    FUNCTIONS DECLARATIONS           * -->
+  <!-- *************************************** -->
+  <Function Name="PLMWspFilter_RetrieveFilteredRoot">
+    <Implementation Name="PLMWspFilter_RetrieveFilteredRoot" FileLocation="PLMWspFilter_RetrieveFilteredRoot.plmql" Language="PLMQL"/>
+    <Signature href="PLMWspFilterSignature"/>
+  </Function>
+
+  <Signature id="PLMWspFilterSignature">
+    <Parameter Name="InputIds" Lower="0" Upper="-1" Direction="in" MultiValuated="Yes" DataType="PLMId"/>
+    <Parameter Name="OutputIds" Lower="0" Upper="-1" Direction="out" MultiValuated="No" DataType="PLMRouteSet"/>
+  </Signature>
+  
+</Package>

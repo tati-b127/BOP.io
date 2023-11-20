@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" DataRDB_OID="ENODR_PLMPIMIntC" Name="PLMPIMInterfereDS" Uuid="b7f1024f-33a9-4085-96e2-be2bcf144543" UseNames="PLMPIMInterfere">
+  <!-- ********************************************************************************** -->
+  <!-- *    PLMPIMMetricReferenceDS (->PLMPIMMetricReference)                           * -->
+  <!-- * explanations:                                                                  * -->
+  <!-- * you cannot customize  so Abstract="No"                                         * -->
+  <!-- ********************************************************************************** -->
+	<Class Name="PLMPIMMetricReferenceDS" 
+    Alias="Metric - Reference"
+    Uuid="6eade9ee-7955-440d-88a3-599637fa1535"
+    SuperName="PLMPIMMetricReference"
+    SuperRef="5353c53e-fa06-4c86-b5d1-9c38cd254247"
+  >
+    <!-- ________________________________________________________________________ -->
+    <!-- IdSet sur PLM_ExternalID et V_version (numéro unique généré,             -->
+    <!-- et attribut planqué la plupart du temps, ou tout le temps via les masks) -->
+    <!-- Display Name sur V_Name (ta règle de naming doit pouvoir s’implémenter)  -->
+    <!-- I m not satisfied of this solution because it is on the custo!!!         -->
+    <!-- ________________________________________________________________________ -->
+    <IdentifierSet Name="Identifier" Uuid="2aedf025-1ad5-4d59-bf75-e561afff4b1f" IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755" IdentifierNames="PLM_ExternalID V_version"/>
+    <!-- -->
+		<Comment>Representation instance to store clash specs on the Simulation object</Comment>
+	</Class>
+</Package>

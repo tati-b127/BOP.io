@@ -1,0 +1,40 @@
+#Prog SafetyFaultTreeElement_ExportChannel (iPLMIDSet :  #In PLMIDSet,oPLMIDSet :  #Out PLMIDSet) : VoidType
+  {/*Declaring my local variable*/
+let faultTreeElementIdSet(PLMIDSet)
+
+let functionalArchitectureIdSet(PLMIDSet)
+let logicalArchitectureIdSet(PLMIDSet)
+let architectureIdSet(PLMIDSet)
+
+let mainArchitectureRefRouteSet (PLMRouteSet)
+let mainArchitectureRefIdSet(PLMIDSet)
+
+let allFaultTreeElementRouteSet (PLMRouteSet)
+let allFaultTreeElementIdSet(PLMIDSet)
+
+let allFaultTreeElementContentRouteSet (PLMRouteSet)
+let allFaultTreeElementContentIdSet(PLMIDSet)
+
+faultTreeElementIdSet = Restrict(iPLMIDSet,"CATSafety/FaultTreeElement")
+
+/* Reverse navigation to the main architecture reference */
+mainArchitectureRefRouteSet = ExecutePLMFunction("CATSafety", "CATSafety_FaultTreeElementNavigationToArchitecture", faultTreeElementIdSet)
+mainArchitectureRefIdSet = Ids(mainArchitectureRefRouteSet)
+
+/* Get full architecture logical or functional */
+functionalArchitectureIdSet = ExecutePLMProcedure("Functional_ExportReference_Design",Restrict(mainArchitectureRefIdSet,"RFLPLMFunctional/RFLPLMFunctionalReference"))
+logicalArchitectureIdSet = ExecutePLMProcedure("Logical_ExportReference_Design",Restrict(mainArchitectureRefIdSet,"RFLVPMLogical/RFLVPMLogicalReference"))
+architectureIdSet = functionalArchitectureIdSet + logicalArchitectureIdSet
+
+/* From each reference get all safety objects */
+allFaultTreeElementRouteSet = ExecutePLMFunction("CATSafety", "CATSafety_ArchitectureNavigationToFaultTreeElement", architectureIdSet)
+allFaultTreeElementIdSet = Ids(allFaultTreeElementRouteSet)
+
+/* Expand FaultTreeElements */
+allFaultTreeElementContentRouteSet = ExecutePLMFunction("CATSafety", "CATSafety_ExpandFaultTreeElement", Restrict(allFaultTreeElementIdSet,"CATSafety/FaultTreeElement"))
+allFaultTreeElementContentIdSet = Ids(allFaultTreeElementContentRouteSet)
+
+
+/* Aggregate results */
+oPLMIDSet =   faultTreeElementIdSet + mainArchitectureRefIdSet + architectureIdSet + allFaultTreeElementIdSet + allFaultTreeElementContentIdSet 
+}

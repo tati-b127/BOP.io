@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2012, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" 
+         ModelerType="Top"
+         BelongsToModeler="DELFmiFunctionalModel"
+         Name="DELFmiFunctionalModelOutPrereqMatCnx"
+         Uuid="A2755FF3-350B-4B77-B3F5-2770D3B75628" 
+         UseNames="DELFmiFunctionalModelPrereqMatCnx"
+         CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>Process Functional Modeler</ShortRole>
+    <Role>"DELFmiFunctionalModelOutPrereqMatCnx" package describes Process Function Output Prerequisite Materialization Connection</Role>
+  </CAAComment>
+  
+	<Class Name="DELFmiProcessOutputPrereqMaterializationCnx"
+			Uuid="7D0DA422-E8C2-4D94-B7DC-E9E83E131B7B"
+			SuperName="DELFmiProcessPrereqMaterializationCnx"
+			Discipline="No"
+			CustomerExposition="Programmer"
+			CustomerExtensible="No"
+			Specializable="No"
+			Abstract="No"
+			> 
+			
+		<CAAComment>
+			<ShortRole>Defines Process Function Output Prerequisite Materialization Connection</ShortRole>
+			<Role>Also called Data Requirement Materialization. Materializes Data provided by Prerequisite Port OUT only.</Role>
+		</CAAComment>
+
+		<Property Name="IconName" Value="I_PLMFunctionPrereqMatConnection"/>
+
+		<Path Name="DELFmi_PrereqMaterialization_Filter_SR"
+			Uuid="CE12A919-0CED-474C-92B5-AC86396A2B81"
+			MultiValuated="No"
+      RoleName="DEL_IsFilteredBy"		
+      Type="SemanticRelation" AdaptativeToMinor="No"
+      SynchroSensitivity="None"
+      RerouteOnEffectivityChange="No"
+      Semantics="Reference"
+		/>
+
+		<Method ImplementationType="None">
+		  <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+	</Class>		
+</Package>

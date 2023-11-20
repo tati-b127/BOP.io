@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2015, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" BelongsToModeler="PLMExp3DExperience" Name="PLMExpBehavior3DExperience"
+  Uuid="D083BDE4-253E-4B90-83FB-838F754CC24C"
+  UseNames="PLMExpAbstract3DExperience"
+  CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <Class Name="Behavior3DExperience" 		
+					 Uuid="AB3F102E-944E-42B2-85E9-36FE547B0EC5" 
+					 Abstract="No" 
+					 SuperName="Abstract3DExperienceObject"		
+					 Abbreviation="bex"    
+					 CustomerExposition="Programmer">
+
+      <Property Name="NewMajorRevisionAvailability"  Value="Yes"/>
+      <Property Name="ChangeMaturityAvailability"    Value="Yes"/>
+      <Property Name="DeleteAvailability"            Value="Yes"/>
+      <Property Name="LockUnlockAvailability"        Value="Yes"/>
+      <Property Name="TransferOwnershipAvailability" Value="Yes"/>
+      <Property Name="DuplicateAvailability"         Value="Yes"/>
+      <Property Name="EditPropertiesAvailability"    Value="Yes"/>
+      <Property Name="SaveAsNewAvailability"         Value="Yes"/>
+      <Property Name="EvolutionAvailability"         Value="No"/>
+      <Property Name="NewMinorRevisionAvailability"  Value="No"/>
+      <Property Name="Searchable"                    Value="Yes"/>     
+      <Property Name="IconName"                      Value="I_Behavior3DExp"/>
+      <Property Name="3DIconName"                    Value="CAT3DNav_Behavior3DExp.cgr"/>
+      <Property Name="Configurable"                  Value="No" />
+      <Property Name="Filtrable"                     Value="No" />     
+    
+			<Method ImplementationType="AsFather">
+				<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+			</Method>
+  </Class>
+  
+</Package>

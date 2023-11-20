@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2005, All rights reserved -->
+<Package
+    xmlns="PLMDictionaryUnified"
+    ModelerType="Top"
+    Name="TagServicesResources"
+    Uuid="323D7D1E-38C6-4262-9C58-B00321FB2DCD"
+    UseProcedures="TagServicesResources"
+    CustomerExposition="None"
+    >
+</Package>

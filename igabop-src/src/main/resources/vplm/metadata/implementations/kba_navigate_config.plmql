@@ -1,0 +1,59 @@
+NAVIGATE
+
+   	T0.PLMID			, T1a.PLMID				, T1b.PLMID				, T2.PLMID ,
+   	T0.PLM_ExternalID	, T1a.PLM_ExternalID	, T1b.PLM_ExternalID	, T2.PLM_ExternalID
+
+FROM
+
+	PLMKbaAppliResourcesZip/PLMKbaAppliResourcesZip T0 ,
+
+	PLMKbaApplication/PLMKbaAppliPublishedDefinition T1a ,
+	PLMKbaAppliConfig/PLMKbaAppliConfigAggregationLinkToRZip T1b ,
+
+	PLMKbaAppliConfig/PLMKbaAppliConfiguration T2
+
+FROM_ROOTS
+
+	[?1?]
+
+ON
+
+(
+	(RELATION 
+		(FROM=PLMKbaAppliConfig/PLMKbaAppliConfiguration
+		 TO=PLMKbaApplication/PLMKbaAppliPublishedDefinition
+		 THROUGH=POINTEDBY
+		 )
+		 WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY)
+	)
+OR
+	(RELATION 
+		(FROM=PLMKbaAppliConfig/PLMKbaAppliConfiguration
+		 TO=PLMKbaAppliConfig/PLMKbaAppliConfigAggregationLinkToRZip
+		 THROUGH=POINTEDBY
+		 )
+		 WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY)
+	)
+)
+
+THEN
+
+(
+	(RELATION 
+		(FROM=PLMKbaApplication/PLMKbaAppliPublishedDefinition
+		 TO=PLMKbaAppliResourcesZip/PLMKbaAppliResourcesZip
+		 THROUGH=POINTSTO
+		 )
+		 WITH QUALITY_FILTER (CATEGORY=Reference2)
+	)
+OR
+	(RELATION 
+		(FROM=PLMKbaAppliConfig/PLMKbaAppliConfigAggregationLinkToRZip
+		 TO=PLMKbaAppliResourcesZip/PLMKbaAppliResourcesZip
+		 THROUGH=POINTSTO
+		 )
+		 WITH QUALITY_FILTER (CATEGORY=Composition)
+	)
+)
+
+ITER = 1 ;

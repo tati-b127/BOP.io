@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2004, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" 
+    ModelerType="Top" 
+    Name="VPMProtectedReps" 
+    Uuid="BBDC3ACB-E3BE-0000-0280030D7B000000"
+    UseNames="PRODUCTCFG" 
+    CustomerExposition="Programmer">
+ <!--   Alias="Dassault Systemes Protected Representations (TPs, etc) - *** MANDATORY / DO NOT DELETE ***" -->
+	
+
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+	<Class Name="VPMProtectedRep" 
+	    Uuid="92C5F18E-81F0-4823-9D3E-12ADCDED152A" 
+	    Abstract="No" 
+	    SuperName="VPMRepReference" 
+	    CustomerExposition="ProgrammerOnly">
+		
+    <Property Name="Searchable" Value="No"/>
+     
+		<Simple Name="V_Role" 
+		    Uuid="82BB4778-45E0-4152-BD77-AEC9BD5AE711" 
+		    Type="String" 
+		    MaxLength="80" 
+		    MultiValuated="No" 
+		    Protection="Free" 
+        CAAExposition="L0">
+        
+			<CAAComment>
+				<ShortRole>Role - application defined - role or name of TP. E.g: ycm230206_1522_tp1 </ShortRole>
+			</CAAComment>
+		</Simple>
+		
+		<Simple Name="V_Category" 
+		    Uuid="4EFE0542-7740-4D14-8B76-051AD489FD7D" 
+		    Type="String" 
+		    MaxLength="32" 
+		    MultiValuated="No" 
+		    Protection="Free" 
+        CAAExposition="L0">
+        
+			<CAAComment>
+				<ShortRole>Category, to pilot load, ccp, etc. It is an enum. E.g:  PLM_DEF_PROCESS</ShortRole>
+			</CAAComment>
+		</Simple>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    
+	</Class>
+
+
+  <RelationClass Name="VPMProtectedRepInstance" 
+	    Uuid="648CE169-8A60-4769-BC6B-CE0BBA35F2F7" 
+	    Abstract="No" 
+	    SuperName="VPMRepInstance"
+      CustomerExposition="ProgrammerOnly">
+
+    <Property Name="Searchable" Value="No"/>
+      
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>   
+       
+  </RelationClass>
+	    
+</Package>

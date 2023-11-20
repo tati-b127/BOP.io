@@ -1,0 +1,44 @@
+{
+  "properties": [
+    {
+      "name": "ematrix.server.host",
+      "type": "java.lang.String",
+      "description": "3dspace server host."
+    },
+    {
+      "name": "cas.client.filter.processes-url",
+      "type": "java.lang.String",
+      "description": "Relative url to be processed by CasAuthenticationFilter for authentication."
+    },
+    {
+      "name": "cas.client.filter.proxy-receptor-url",
+      "type": "java.lang.String",
+      "description": "Relative url to be processed by CasAuthenticationFilter for respond to proxy request from server."
+    },
+    {
+      "name": "cas.client.filter.proxy-callback-url",
+      "type": "java.lang.String",
+      "description": "Absolute url of proxy callback. Must be equal to absolute url of ${cas.client.filter.proxy-receptor-url}. It will be passed to cas server as 'pgtUrl' parameter."
+    },
+    {
+      "name": "cas.server.url-prefix",
+      "type": "java.lang.String",
+      "description": "Cas server base url."
+    },
+    {
+      "name": "cas.server.login-url",
+      "type": "java.lang.String",
+      "description": "Url for cas server login service."
+    },
+    {
+      "name": "service.host",
+      "type": "java.lang.String",
+      "description": "Host of current service."
+    },
+    {
+      "name": "service.url",
+      "type": "java.lang.String",
+      "description": "Url of current service. It will be passed to cas server as 'service' parameter."
+    }
+  ]
+}

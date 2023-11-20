@@ -1,0 +1,88 @@
+#Prog CATDistillerDiscipline_GetAllRepresentations (iPLMIDSet :  #In PLMIDSet,oPLMIDSet :  #Out PLMIDSet) : VoidType
+ {
+
+let PLMRouteSet1(PLMRouteSet)
+let PLMRouteSet2(PLMRouteSet)
+let PLMRouteSet5(PLMRouteSet)
+let PLMRouteSet6(PLMRouteSet)
+let PLMRouteSet7(PLMRouteSet)
+let PLMRouteSet8(PLMRouteSet)
+let PLMRouteSet9(PLMRouteSet)
+let PLMRouteSet10(PLMRouteSet)
+let PLMRouteSet11(PLMRouteSet)
+let PLMRouteSet13(PLMRouteSet)
+let PLMRouteSet14(PLMRouteSet)
+let PLMRouteSet16(PLMRouteSet)
+let RsImportedRulesets(PLMRouteSet)
+let RsRuleEntity(PLMRouteSet)
+
+let PLMIDSet1 (PLMIDSet)
+let PLMIDSet1Rep (PLMIDSet)
+let PLMIDSet6 (PLMIDSet )
+let PLMIDSet7(PLMIDSet ) 
+let PLMIDSet8(PLMIDSet )
+let PLMIDSet9(PLMIDSet ) 
+let IdsImportedRulesets(PLMIDSet ) 
+
+let PLMIDSetRestricted(PLMIDSet)
+let PLMIDSetRestrictedRep(PLMIDSet)
+PLMIDSetRestricted = Restrict(iPLMIDSet, "PRODUCTCFG/VPMReference")
+PLMIDSetRestrictedRep = Restrict(iPLMIDSet, "PRODUCTCFG/VPMRepReference")
+
+
+/*Completes with all Representations(except NavRep) and LPPrivateRep, VPMPorts and VPMConnections*/
+PLMRouteSet1 = ExecutePLMFunction("PRODUCTCFG", "ProductCfg_AddVPMRepsPortsAndConnections", PLMIDSetRestricted)
+PLMIDSet1 = Ids(PLMRouteSet1)
+PLMIDSet1Rep = PLMIDSetRestrictedRep + Restrict(PLMIDSet1, "PRODUCTCFG/VPMRepReference")
+
+/*Completes with PointedDesignTable */
+PLMRouteSet2 = ExecutePLMFunction("PLMKnowledgewareDiscipline", "KwaDiscipline_AddPointedDesignTable", PLMIDSet1Rep )
+
+/*Completes with Implement Link connections */
+PLMRouteSet5 = ExecutePLMFunction("RFLPLMImplementConnection", "RFLPLMImplementConnection_AddAllImplementCnx", PLMIDSetRestricted )
+
+/* Completes with Material*/
+PLMRouteSet6 = ExecutePLMFunction("CATMaterial", "mat_retrieveAllAppliedMaterial", PLMIDSetRestricted )
+PLMIDSet6 = Ids(PLMRouteSet6)
+
+PLMRouteSet7 = ExecutePLMFunction("CATMaterialRef", "mat_retrieveDomains",  Restrict(PLMIDSet6, "CATMaterialRef/CATMatReference"))
+PLMIDSet7= Ids(PLMRouteSet7)
+
+/* getting all connections aggregated by the material*/
+PLMRouteSet8 = ExecutePLMFunction("CATMaterialRef", "mat_retrieveCnx", Restrict(PLMIDSet6, "CATMaterialRef/CATMatReference"))
+PLMIDSet8 = Ids(PLMRouteSet8)
+
+/* getting all connections aggregated by the material*/
+PLMRouteSet9 = ExecutePLMFunction("CATMaterialRef", "rdg_retrieveTexture", Restrict(PLMIDSet7, "CATMaterialRef/MaterialDomain"))
+PLMIDSet9 = Ids(PLMRouteSet9)
+
+/*Completes with Document pointed by a FEM Rep */
+PLMRouteSet14 = ExecutePLMFunction("SIMObjSimulationGeneric", "sim_retrieveExternalDocumentfromFEMRep", PLMIDSet1Rep )
+
+
+/*Completes with Non Catia Document pointed by Rendering Rep */
+PLMRouteSet16 = ExecutePLMFunction("Rendering", "Rendering_AddExternalDocFromRenderingRep", PLMIDSet1Rep )
+
+
+/*Completes with Engineering Connections */
+PLMRouteSet10 = ExecutePLMFunction("CATMCXAssembly", "CATMCXAssembly_AddAllAggregatedMCX", PLMIDSetRestricted)
+
+/* Completes with Symmetry */
+PLMRouteSet11 = ExecutePLMFunction("CATAsmSymGeo", "CATAsmSymObj_AddAllSymObj", PLMIDSetRestricted)
+
+
+/*Completes with Documents Connections */
+PLMRouteSet13 = ExecutePLMFunction("PLMDocConnection", "PLMDocConnection_retrieveAllDocuments", PLMIDSetRestricted)
+
+
+/* Get imported rulesets */
+RsImportedRulesets = ExecutePLMFunction( "PLMKnowHowRuleSet", "kwe_navigate_ruleset", PLMIDSet1Rep )
+IdsImportedRulesets = Ids( RsImportedRulesets )
+
+/* Get rules entities */
+RsRuleEntity = ExecutePLMFunction( "PLMKnowHowRuleSet", "kwe_expand_rules", IdsImportedRulesets )
+
+
+oPLMIDSet = iPLMIDSet + PLMIDSet1+ Ids(PLMRouteSet2) + Ids(PLMRouteSet5)+ PLMIDSet6 +PLMIDSet7+ PLMIDSet8+ PLMIDSet9 + Ids(PLMRouteSet10)+ Ids(PLMRouteSet11) + Ids(PLMRouteSet13) + Ids(PLMRouteSet14) 
+		+Ids(PLMRouteSet16)	+Ids(RsRuleEntity)
+}

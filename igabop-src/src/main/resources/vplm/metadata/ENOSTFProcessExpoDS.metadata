@@ -1,0 +1,23 @@
+<?xml version="1.0"?> <!-- COPYRIGHT DASSAULT SYSTEMES 2004, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo"  Name="ENOSTFProcessExpoDS"
+      Uuid="8d7b462e-41bb-4874-833e-a5283e837950" 
+      UseNames="DELFmiFunctionalModelExpositionCnx1" 
+      >
+
+      <CAAComment>
+            <ShortRole>PLM Functional Customization for ENOVIA Team Engineering</ShortRole>
+            <Role>Used by Team Engineering</Role>
+      </CAAComment>
+      
+      <Class Name="ENOSTFProcessExpo"
+            Uuid="c93e81f1-c0d0-40c1-8c03-caa1decbaf44"
+            SuperName="DELFmiProcessExpositionCnxCust" 
+            SuperRef="749F1172-9EBD-41A7-8450-1411CD6CA7F8" 
+             >
+
+            <CAAComment>
+                  <ShortRole>Customized PLM Function Connection Object</ShortRole>
+                  <Role>Customized PLM Function Connection Object</Role>
+            </CAAComment>
+      </Class>
+</Package>

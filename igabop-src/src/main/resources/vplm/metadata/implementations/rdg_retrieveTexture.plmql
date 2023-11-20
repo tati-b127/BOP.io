@@ -1,0 +1,26 @@
+NAVIGATE
+
+    T0.PLM_ExternalID, T1.PLM_ExternalID, T0.PLMID, T1.PLMID, T2.physicalid, T2.logicalid, T2.type
+
+FROM 
+
+    CATMaterialRef/MaterialDomain T0,
+
+    PLMDmtDocument/PLMDMTDocument T1,
+
+    Class/DOCUMENTS T2
+
+FROM_ROOTS [?1?]
+
+ON
+
+((
+  RELATION(FROM=CATMaterialRef/MaterialDomain TO=PLMDmtDocument/PLMDMTDocument THROUGH=POINTSTO) 
+  WITH QUALITY_FILTER(ROLE=CATMaterialReferenceToTextureLink) OR (ROLE=CATMaterialReferenceToAssetLink) OR (ROLE=CATMaterialReferenceToReflectionLink) OR (ROLE=CATMaterialReferenceToShaderLink)
+)
+OR
+(
+  RELATION(FROM=CATMaterialRef/MaterialDomain TO=Class/DOCUMENTS THROUGH=POINTSTO) 
+  WITH QUALITY_FILTER(ROLE=CATMaterialReferenceToTextureLink) OR (ROLE=CATMaterialReferenceToAssetLink) OR (ROLE=CATMaterialReferenceToReflectionLink) OR (ROLE=CATMaterialReferenceToShaderLink)
+))
+;

@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2011, All rights reserved -->
+<Package xmlns="PLMDictionaryTop" ModelerType="Top" Name="XPGEventManagement" Uuid="C99F0A56-8BDB-48ed-955A-7AF2BAB3F003" UseProcedures="XPGProcedures">
+	<CAAComment>
+		<ShortRole>XPG Event Management Procedures</ShortRole>
+		<Role>This package includes the procedures for sending events from V6 to XPDM systems</Role>
+	</CAAComment>
+	<Comment>last update 2011-2-05-18.00.00</Comment>
+</Package>

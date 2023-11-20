@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2005, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" 
+    ModelerType="Top" 
+    Name="AssemblyPartSpec" 
+    Uuid="541a2199-fe8d-4160-87ba-d746a964e585" 
+    UseNames="PLMCORE" 
+    CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+		    <ShortRole>Filter Package</ShortRole>
+		    <Role>This package includes base object of Resolved Assembly Model</Role>
+	  </CAAComment>
+	  <Comment>last update 2014-02-07 </Comment>
+    <Comment>last update 2014-06-18  for no instance type mapping project</Comment>
+	  <!-- ************************************************ -->
+	  <!-- *    AssemblyPartSpecReference (PLMCoreReference)  * -->
+	  <!-- ************************************************ -->
+	  <Class Name="AssemblyPartSpecReference" 
+        Uuid="4d01e81d-2452-4f30-9baa-1ea5b37f144b" 
+        SuperName="PLMCoreReference" 
+        Abstract="No"
+        CustomerExposition="Programmer">
+    
+        <CAAComment>
+			      <ShortRole>Filter object</ShortRole>
+			      <Role>Base root object of the AssemblyPartSpec model. This object captures a filter definition</Role>
+		    </CAAComment>
+
+        <!-- ************************************************ -->
+        <!-- *    Specific attributes.                      * -->
+        <!-- ************************************************ -->
+        <Simple Name="V_short_desc" 
+            Uuid="51f0f5e7-95e8-431b-abc7-4e1915f259a1" 
+            Type="String" 
+            MaxLength="30" 
+            MultiValuated="No" 
+            Protection="Free" 
+            CAAExposition="L0">
+      
+            <CAAComment>
+                <ShortRole>Short description of the object</ShortRole>
+            </CAAComment>
+        </Simple>
+
+       <Simple Name="V_FilterCompiledForm"
+            Uuid="fb306c90-6c25-41fa-a6c8-fddd61cffe32"
+            Type="Binary"
+            MultiValuated="No"
+            Protection="Internal">
+          
+            <CAAComment>
+                <ShortRole>Compiled binary form of the associated filter. </ShortRole>
+            </CAAComment>
+       </Simple>
+      
+	  
+       <Simple Name="V_CustomCompiledForm"
+            Uuid="50ED58D8-E531-4179-8C07-28F9701F0BFA"
+            Type="Binary"
+            MultiValuated="No"
+            Protection="Internal">
+          
+            <CAAComment>
+                <ShortRole>Custom Compiled binary form of the associated filter. </ShortRole>
+            </CAAComment>
+       </Simple>
+	   
+       <Simple Name="V_FilterExpression"
+            Uuid="F5197099-FA08-4B75-98D8-A7B995181C4C"
+            Type="String"
+            MultiValuated="No"
+			      MaxLength="1024"
+            Protection="Free">
+          
+            <CAAComment>
+                <ShortRole>Textual form of filter expression. </ShortRole>
+            </CAAComment>
+       </Simple>	   
+	   
+       <Method ImplementationType="None">
+            <RealizeMethodType href="ExportScope.meth#ExportScope" />
+        </Method>
+
+        <!-- <Property Name="KweNew_InstanciationMethod" Value="CATEAssemblySpecRefDelegateInstanciation"/> -->
+        <!-- <Property Name="KweDisciplineAttributeValue" Value="Assembly"/> -->
+        <Property Name="Newable" Value="No"/>
+        <Property Name="Searchable" Value="No"/>
+        <Property Name="IconName" Value="I_EBOM_Part"/>
+        <Property Name="3DIconName" Value="I_EBOM_Part.cgr"/>
+	  </Class>
+
+    <!-- **************************************** -->
+    <!-- *    AssemblyPartSpecReference unique key  * -->
+    <!-- **************************************** -->
+    <UniqueKey Name="AssemblyPartSpecRef_Id"
+           Uuid="5e782ec0-5b21-41f9-b11a-b18996215aef"
+           ClassName="AssemblyPartSpecReference"
+           AttributeNames="PLM_ExternalID majorrevision minorrevision"/>
+ 
+</Package>
+

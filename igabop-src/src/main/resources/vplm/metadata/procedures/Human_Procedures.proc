@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<ProcedurePackage 
+  xmlns="PLMDictionaryProcedure"
+  Name="Human_Procedures">
+
+  <Procedure Name="Human_ExportHumanReps">
+    <Implementation Name="Human_ExportHumanReps" FileLocation="Human_ExportHumanReps.KProc" Language="EKL"/>
+    <Signature href="Human_ExportHumanReps_Signature"/>
+  </Procedure>  
+
+  <Signature id="Human_ExportHumanReps_Signature">
+    <Parameter Name="InputIds" Lower="0" Upper="-1" MultiValuated="Yes" Direction="in" DataType="PLMId" Order="1"/>
+    <Parameter Name="OutputIds" Lower="0" Upper="-1" MultiValuated="Yes" Direction="out" DataType="PLMId" Order="2"/>
+  </Signature>
+
+</ProcedurePackage>

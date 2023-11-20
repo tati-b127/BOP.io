@@ -1,0 +1,1617 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY for Electrical Logical Model -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2012, all rights reserved -->
+<!-- Package -->
+<Package Name="PLMElectricalLogical" Uuid="2009b74c-187b-41da-92b1-5204c8d85801" xmlns="PLMDictionaryUnified" ModelerType="Top" UseNames="LPABSTRACT RFLVPMLogical PLMEnsLogical" CustomerExposition="Programmer">
+  <CAAComment>
+    <ShortRole>Electrical Logical Package</ShortRole>
+    <Role>This package describes the PLM Electrical Logical model on top of RFLVPMLogical Modeler.</Role>
+  </CAAComment>
+  <Property Name="IconName" Value="I_ElectricalLogical"/>
+  <Comment>Initial creation by LOK JRI 2008-01-08</Comment>
+  <Comment>Modified R207 2008-10-08 by LOK Review</Comment>
+  <Comment>Modified R209 2009-11-11 by LOK Adding values for V_Elec_Type (Terminal and TerminalBoard)</Comment>
+  <Comment>Modified R211 2010-06-20 by LOK New extension PLMElecLogicalBusbar and new attribute for pin (V_Elec_NominalCurrent)</Comment>
+  <Comment>Modified R212 2011-02-22 by ZTB New extension PLMElecLogicalConductorInstance on LogicalInstance, New extension PLMElecLogicalCableGroup on LogicalReference, new attributes for Cable and NetGroup, new attributes for ConnectorPort</Comment>
+  <Comment>Modified R212 2011-06-15 by ZTB Creation mode to "Yes" for electrical connections</Comment>
+  <Comment>Modified R212 2011-07-20 by ZTB CustomerExposition from "Programmer" to "None"</Comment>
+  <Comment>Modified R214 2012-04-20 by ZTB ELE model change for new typing project</Comment>
+  <Comment>Modified R215 2012-11-08 by ZTB ELE model change for new typing project</Comment>
+  <!-- Electrical Logical Reference Entity -->
+  <Class Name="EleLogicalReferenceEntity" Uuid="0c803e46-f189-462a-8630-35b4c4a3ea72" Abstract="Yes" CustomerExposition="Programmer" SuperName="RFLVPMLogicalReference" Discipline="Yes">
+    <CAAComment>
+      <ShortRole>PLM Electrical Logical Reference Entity</ShortRole>
+      <Role>PLM Electrical Logical Reference Entity</Role>
+    </CAAComment>
+	<Simple Name="V_Elec_PredefinedPartType" Uuid="43f67fc6-d0a1-4cab-bdbb-5745c009642e" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	  <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+  </Class>
+  <Class Name="EleLogicalEquipment" Uuid="cbc928bc-a31a-422c-9b39-54e1cd34f276" CustomerExposition="None" SuperName="EleLogicalReferenceEntity" Discipline="Yes">
+    <Simple Name="V_Elec_SubType" Uuid="fa498926-c54f-4fc2-9cfd-863ddb3e2224" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_PredefinedPartNumber" Uuid="0d5b7a19-952b-44b3-ab11-4e1bfbbb8bbf" Type="String" MaxLength="40" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Volatile Name="V_Elec_NbConnectorPorts" Uuid="c3a2e2b3-fa19-421a-bed1-3a77eb5822e5" Accessor="CATElecLogicalCkeAttributes" TypeName="Integer" AccessMode="ReadOnly"/>
+    <Volatile Name="V_Elec_NbPins" Uuid="4a688f1a-3cae-44a8-9abc-87c7d3471ae7" Accessor="CATElecLogicalCkeAttributes" TypeName="Integer" AccessMode="ReadOnly"/>
+    <Volatile Name="V_Elec_Ports" Uuid="edf90f1a-39a8-460d-97ce-5e5af59f3221" Accessor="CATElecLogicalCkeAttributes" TypeName="List" AccessMode="ReadOnly"/>
+    <CAAComment>
+      <ShortRole>PLM Logical Electrical Equipment Object</ShortRole>
+      <Role>PLM Logical Electrical Equipment Object</Role>
+    </CAAComment>
+  </Class>
+  <Extension Name="PLMElecLogicalEquipment" Uuid="7c711095-2c23-4211-bde2-b6c8963c9419" ScopeNames="RFLVPMLogicalReference" CustomerExposition="None" CAAExposition="L0">
+    <Simple Name="V_Elec_SubType" Uuid="799feee1-6d45-4def-9595-aa7f200d427d" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_PredefinedPartNumber" Uuid="ee7cdc48-3dd1-42b4-9f97-a126474b0d67" Type="String" MaxLength="40" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Volatile Name="V_Elec_NbConnectorPorts" Uuid="fe735d20-5ac2-4041-87e7-5be6e6eb9f68" Accessor="CATElecLogicalCkeAttributes" TypeName="Integer" AccessMode="ReadOnly"/>
+    <Volatile Name="V_Elec_NbPins" Uuid="452e8833-949d-4960-b065-34e0f51f73d5" Accessor="CATElecLogicalCkeAttributes" TypeName="Integer" AccessMode="ReadOnly"/>
+    <Volatile Name="V_Elec_Ports" Uuid="a701cd34-9134-4770-814b-db4684cc7879" Accessor="CATElecLogicalCkeAttributes" TypeName="List" AccessMode="ReadOnly"/>
+    <CAAComment>
+      <ShortRole>PLM Logical Electrical Equipment Object</ShortRole>
+      <Role>PLM Logical Electrical Equipment Object</Role>
+    </CAAComment>
+  </Extension>
+  <!-- Electrical Logical Relay -->
+  <Class Name="EleLogicalRelay" Uuid="55c09784-d2f3-4835-9734-87a9632ac652" Abbreviation="lelerelay" CustomerExposition="Programmer" SuperName="EnsLogicalEquipment" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes" CreateInstName="EleLogicalRelayInst">
+    <Property Name="KweNew_InstanciationMethod" Value="CATEnsLogicalInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="EleLogicalRelayInst"/>
+    <Property  Name="Searchable" Value="Yes"/>
+    <Property Name="PQ_Attributes" Value="PLM_ExternalID V_description V_user"/>
+    <Property Name="IconName" Value="I_EleLogicalRelay"/>
+    <Property Name="Newable" Value="All"/>
+    <Property Name="OccurrenceType" Value="EleLogicalRelayOcc"/>
+    <Simple Name="V_Elec_NominalVoltage" Uuid="79aab389-18cb-45db-974a-4a3fc4304944" Type="Double" Magnitude="VOLTAGE" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	  <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_NominalCurrent" Uuid="71adc38f-dc96-4ac0-8be0-bb58edbb1ec3" Type="Double" Magnitude="COURANT" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	  <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_PoleNumber" Uuid="6e5f4ff6-c9b2-4623-a609-ad4ab2d19fe3" Type="Integer" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	  <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_AuxContactNumber" Uuid="ac9e44a4-941b-4bbc-8333-1bf5a3ea59b6" Type="Integer" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	  <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_CoilVoltage" Uuid="df414347-04c0-4380-bfbc-1b62c48dd637" Type="Double" Magnitude="VOLTAGE" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	  <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <CAAComment>
+      <ShortRole>Electrical Logical Relay</ShortRole>
+      <Role>Electrical Logical Relay</Role>
+    </CAAComment>
+  </Class>
+  <!-- Electrical Logical Component -->
+  <Class Name="EleLogicalComponent" Uuid="c6430da8-1614-4512-9ca3-39bc8ac6dd43" Abbreviation="lelecompo" CustomerExposition="Programmer" SuperName="EleLogicalReferenceEntity" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes" CreateInstName="EleLogicalComponentInst">
+    <CAAComment>
+      <ShortRole>Electrical Logical Component</ShortRole>
+      <Role>Electrical Logical Component</Role>
+    </CAAComment>
+    <Property Name="MergedExtensionType" Value="PLMElecLogicalComponent"/>
+    <Property Name="TypeForDisciplineValuation" Value="EleLogicalComponent"/>
+    <Property Name="GroupingType"               Value="EleLogicalComponent"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATElecLogicalInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="EleLogicalComponentInst"/>
+    <Property Name="Newable" Value="No"/>
+    <Property Name="IconName" Value="I_EleLogicalComponent"/>
+    <Property Name="OccurrenceType" Value="EleLogicalComponentOcc"/>
+    <Simple Name="V_Elec_SubType" Type="String" Uuid="81695264-0cc8-4ca7-9a35-9a8aa0bb0454" MaxLength="100" Protection="Free" CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <CAAComment>
+      <ShortRole>Subtype</ShortRole>
+      <Role>Subtype</Role>
+    </CAAComment>
+    <Simple Name="V_Elec_PredefinedPartNumber" Type="String" Uuid="4563bef2-79e7-4ae5-90f9-2a460b20c694" MaxLength="100" Protection="Free" CAAExposition="L0" MultiValuated="No">
+	  <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <CAAComment>
+      <ShortRole>Predefined Part Number</ShortRole>
+      <Role>Predefined Part Number</Role>
+    </CAAComment>
+  </Class>
+  <!-- Electrical Logical Component Extension -->
+  <Extension Name="PLMElecLogicalComponent" Uuid="98fee8cb-1b47-4199-8700-6f595da5433f" ScopeNames="RFLVPMLogicalReference" CustomerExposition="None" CAAExposition="L0">
+    <CAAComment>
+      <ShortRole>PLM Electrical Logical Component Extension</ShortRole>
+      <Role>PLM Electrical Logical Component Extension</Role>
+    </CAAComment>
+    <Property Name="OccurrenceType" Value="EleLogicalComponentOcc"/>
+    <Simple Name="V_Elec_SubType" Uuid="73d6e34a-67cd-4ce7-99a5-ec28745a609c" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0">
+      <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <CAAComment>
+      <ShortRole>Subtype</ShortRole>
+      <Role>Subtype</Role>
+    </CAAComment>
+    <Simple Name="V_Elec_PredefinedPartNumber" Uuid="7af75cea-a0d7-4103-ba9b-500c9a08c49f" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	  <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <CAAComment>
+      <ShortRole>Predefined Part Number</ShortRole>
+      <Role>Predefined Part Number</Role>
+    </CAAComment>
+    <Volatile Name="V_Elec_NbConnectorPorts" Uuid="297fef44-1b85-480c-98ea-1eb3db4addc2" Accessor="CATElecLogicalCkeAttributes" TypeName="Integer" AccessMode="ReadOnly"/>
+    <Volatile Name="V_Elec_NbPins" Uuid="30ff0a10-efe1-41bb-9f80-12475fb431aa" Accessor="CATElecLogicalCkeAttributes" TypeName="Integer" AccessMode="ReadOnly"/>
+    <Volatile Name="V_Elec_Ports" Uuid="f429685a-38c9-456c-a85f-b6ef268fc808" Accessor="CATElecLogicalCkeAttributes" TypeName="List" AccessMode="ReadOnly"/>
+  </Extension>
+  <!-- Electrical Logical Contact -->
+  <Class Name="EleLogicalContact" Uuid="ac62513b-ecd9-4490-b6f8-8093d85d1782" Abbreviation="lelecontact" CustomerExposition="Programmer" SuperName="EleLogicalComponent" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes" CreateInstName="EleLogicalContactInst">
+    <Property Name="KweNew_InstanciationMethod" Value="CATElecLogicalInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="EleLogicalContactInst"/>
+    <Property  Name="Searchable" Value="Yes"/>
+    <Property Name="PQ_Attributes" Value="PLM_ExternalID V_description V_user"/>
+    <Property Name="IconName" Value="I_EleLogicalContact"/>
+    <Property Name="Newable" Value="All"/>
+    <Property Name="OccurrenceType" Value="EleLogicalContactOcc"/>
+    <CAAComment>
+      <ShortRole>Electrical Logical Contact</ShortRole>
+      <Role>Electrical Logical Contact</Role>
+    </CAAComment>
+  </Class>
+  <!-- Electrical Logical Operating Device (Coil) -->
+  <Class Name="EleLogicalOperatingDevice" Uuid="95918f63-3ebb-4603-8b3f-58730fe645f7" Abbreviation="leleopdev" CustomerExposition="Programmer" SuperName="EleLogicalComponent" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes" CreateInstName="EleLogicalOperatingDeviceInst">
+    <Property Name="KweNew_InstanciationMethod" Value="CATElecLogicalInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="EleLogicalOperatingDeviceInst"/>
+    <Property  Name="Searchable" Value="Yes"/>
+    <Property Name="PQ_Attributes" Value="PLM_ExternalID V_description V_user"/>
+    <Property Name="IconName" Value="I_EleLogicalOperatingDevice"/>
+    <Property Name="Newable" Value="All"/>
+    <Property Name="OccurrenceType" Value="EleLogicalOperatingDeviceOcc"/>
+    <CAAComment>
+      <ShortRole>Electrical Logical Operating Device</ShortRole>
+      <Role>Electrical Logical Operating Device</Role>
+    </CAAComment>
+  </Class>
+  <!-- Electrical Logical Connector -->
+  <Class Name="EleLogicalConnectorComp" Uuid="e7fde081-5a0e-4da6-91e8-a867562a9bbc" Abstract="Yes" CustomerExposition="Programmer" SuperName="EleLogicalReferenceEntity" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes" CreateInstName="EleLogicalConnectorCompInst">
+    <CAAComment>
+      <ShortRole>PLM Electrical Logical Connector</ShortRole>
+      <Role>PLM Electrical Logical Connector</Role>
+    </CAAComment>
+    <Property Name="MergedExtensionType" Value="PLMElecLogicalConnector"/>
+    <Property Name="TypeForDisciplineValuation" Value="EleLogicalConnectorComp"/>
+    <Property Name="GroupingType"               Value="EleLogicalConnectorComp"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATElecLogicalInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="EleLogicalConnectorCompInst"/>
+    <Property Name="IconName" Value="I_EleLogicalConnector"/>
+    <Property Name="Newable" Value="All"/>
+    <Property Name="OccurrenceType" Value="EleLogicalConnectorOcc"/>
+    <Simple Name="V_Elec_SubType" Uuid="45004ed4-3d46-4365-a6f3-808cc8dd1a16" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0">
+      <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <CAAComment>
+      <ShortRole>Subtype</ShortRole>
+      <Role>Subtype</Role>
+    </CAAComment>
+    <Simple Name="V_Elec_Type" Uuid="8a4de294-0f47-47ef-8780-aee6ebffed04" Type="Integer" Protection="Internal" DefaultValue="1">
+      <Property Name="RangeAsEnumName" Value="V_Elec_Type_Connector"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="SingleConnector;ConnectorShell;Splice;ConnectorInterface;TerminalBoard"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+        <Equal>5</Equal>
+      </Range>
+      <CAAComment>
+        <ShortRole>Connector Classification</ShortRole>
+        <Role>Connector Classification</Role>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_Elec_PredefinedPartNumber" Uuid="f6d49b18-f155-43e3-868b-d8ee2e54ea0a" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	  <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <CAAComment>
+      <ShortRole>Predefined Part Number</ShortRole>
+      <Role>Predefined Part Number</Role>
+    </CAAComment>
+    <Volatile Name="V_Elec_NbConnectorPorts" Uuid="d7970c81-9097-41d8-9e7b-0a1130c9e3f4" Accessor="CATElecLogicalCkeAttributes" TypeName="Integer" AccessMode="ReadOnly"/>
+    <Volatile Name="V_Elec_NbPins" Uuid="fb3a2ca7-72c6-4a07-9ebb-9cd9d608a093" Accessor="CATElecLogicalCkeAttributes" TypeName="Integer" AccessMode="ReadOnly"/>
+    <Volatile Name="V_Elec_Ports" Uuid="bff95941-1d8c-4bf3-9e57-0e9283f32266" Accessor="CATElecLogicalCkeAttributes" TypeName="List" AccessMode="ReadOnly"/>
+  </Class>
+  <!-- Electrical Logical Connector Extension -->
+  <Extension Name="PLMElecLogicalConnector" Uuid="14f0b11f-660e-4799-8fa1-45629f378d4c" ScopeNames="RFLVPMLogicalReference" CustomerExposition="Programmer" CAAExposition="L0">
+    <CAAComment>
+      <ShortRole>PLM Electrical Logical Connector Extension</ShortRole>
+      <Role>PLM Electrical Logical Connector Extension</Role>
+    </CAAComment>
+    <Property Name="OccurrenceType" Value="EleLogicalConnectorOcc"/>
+    <Simple Name="V_Elec_SubType" Uuid="4f58df51-3075-4b7f-b34c-c3a83522fa0c" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0">
+      <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <CAAComment>
+      <ShortRole>Subtype</ShortRole>
+      <Role>Subtype</Role>
+    </CAAComment>
+    <Simple Name="V_Elec_Type" Uuid="ba6c18dd-928e-4481-a40b-019ca7bf042d" Type="Integer" Protection="External" CAAExposition="L0" DefaultValue="1">
+      <Property Name="RangeAsEnumName" Value="V_Elec_Type_Connector"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="SingleConnector;ConnectorShell;Splice;ConnectorInterface;TerminalBoard"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+        <Equal>5</Equal>
+      </Range>
+      <CAAComment>
+        <ShortRole>Connector Classification</ShortRole>
+        <Role>Connector Classification</Role>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_Elec_PredefinedPartNumber" Uuid="ea1420c7-5960-419f-ad66-f986f21ebfbf" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	  <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <CAAComment>
+      <ShortRole>Predefined Part Number</ShortRole>
+      <Role>Predefined Part Number</Role>
+    </CAAComment>
+    <Volatile Name="V_Elec_NbConnectorPorts" Uuid="7083b05b-7916-46cc-8870-73a9a95a5b73" Accessor="CATElecLogicalCkeAttributes" TypeName="Integer" AccessMode="ReadOnly"/>
+    <Volatile Name="V_Elec_NbPins" Uuid="6068aa8c-7042-4143-a681-17035dea59f3" Accessor="CATElecLogicalCkeAttributes" TypeName="Integer" AccessMode="ReadOnly"/>
+    <Volatile Name="V_Elec_Ports" Uuid="f1a61258-01d0-41b4-8fa4-a6db863fcb32" Accessor="CATElecLogicalCkeAttributes" TypeName="List" AccessMode="ReadOnly"/>
+  </Extension>
+  <!-- Electrical Logical Single Connector -->
+  <Class Name="EleLogicalSingleConnector" Uuid="7fb07576-7c9e-45ab-8fa6-988d0cbc7fd9" Abbreviation="lelesic" CustomerExposition="Programmer" SuperName="EleLogicalConnectorComp" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes" CreateInstName="EleLogicalSingleConnectorInst">
+    <CAAComment>
+      <ShortRole>PLM Electrical Logical Single Connector</ShortRole>
+      <Role>PLM Electrical Logical Single Connector</Role>
+    </CAAComment>
+    <Property Name="KweNew_InstanciationMethod" Value="CATElecLogicalInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="EleLogicalSingleConnectorInst"/>
+    <Property Name="IconName" Value="I_EleLogicalSingleConnector"/>
+    <Property Name="Newable" Value="All"/>
+    <Property Name="OccurrenceType" Value="EleLogicalSingleConnectorOcc"/>
+    <Simple Name="V_Elec_Style" Uuid="b14afeaa-93e9-4086-b9d2-3808642515be" Type="Integer" Protection="Free" CAAExposition="L0" DefaultValue="1">
+      <Property Name="RangeAsEnumName" Value="V_Elec_ConnectorPortStyle"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="None;Plug;Receptacle"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+      </Range>
+      <CAAComment>
+        <ShortRole>Connector Style</ShortRole>
+        <Role>Connector Style</Role>
+      </CAAComment>
+    </Simple>
+  </Class>
+  <!-- Electrical Logical Inline Connector -->
+  <Class Name="EleLogicalInlineConnector" Uuid="2f3ea81b-3df1-4ff4-b5ff-b8416235205c" Abbreviation="leledisc" CustomerExposition="Programmer" SuperName="EleLogicalConnectorComp" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes" CreateInstName="EleLogicalInlineConnectorInst">
+    <CAAComment>
+      <ShortRole>PLM Electrical Logical Inline Connector</ShortRole>
+      <Role>PLM Electrical Logical Inline Connector</Role>
+    </CAAComment>
+    <Property Name="KweNew_InstanciationMethod" Value="CATElecLogicalInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="EleLogicalInlineConnectorInst"/>
+    <Property Name="IconName" Value="I_EleLogicalInlineConnector"/>
+    <Property Name="Newable" Value="All"/>
+    <Property Name="OccurrenceType" Value="EleLogicalInlineConnectorOcc"/>
+  </Class>
+  <!-- Electrical Logical Shell Connector -->
+  <Class Name="EleLogicalShellConnector" Uuid="02a0aca7-a242-4bb7-a8ce-5722d896859e" Abbreviation="leleshell" CustomerExposition="Programmer" SuperName="EleLogicalConnectorComp" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes" CreateInstName="EleLogicalShellConnectorInst">
+    <CAAComment>
+      <ShortRole>PLM Electrical Logical Shell Connector</ShortRole>
+      <Role>PLM Electrical Logical Shell Connector</Role>
+    </CAAComment>
+    <Property Name="KweNew_InstanciationMethod" Value="CATElecLogicalInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="EleLogicalShellConnectorInst"/>
+    <Property Name="IconName" Value="I_EleLogicalShellConnector"/>
+    <Property Name="Newable" Value="All"/>
+    <Property Name="OccurrenceType" Value="EleLogicalShellConnectorOcc"/>
+  </Class>
+  <!-- Electrical Logical Splice -->
+  <Class Name="EleLogicalSplice" Uuid="1bc60967-a91d-495b-bf14-20316d97f0ac" Abbreviation="lelespl" CustomerExposition="Programmer" SuperName="EleLogicalConnectorComp" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes" CreateInstName="EleLogicalSpliceInst">
+    <CAAComment>
+      <ShortRole>PLM Electrical Logical Splice</ShortRole>
+      <Role>PLM Electrical Logical Splice</Role>
+    </CAAComment>
+    <Property Name="KweNew_InstanciationMethod" Value="CATElecLogicalInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="EleLogicalSpliceInst"/>
+    <Property Name="IconName" Value="I_EleLogicalSplice"/>
+    <Property Name="Newable" Value="All"/>
+    <Property Name="OccurrenceType" Value="EleLogicalSpliceOcc"/>
+  </Class>
+  <!-- Electrical Logical Terminal Board -->
+  <Class Name="EleLogicalTerminalBoard" Uuid="1033a2ca-f064-410f-a566-376eecb82e7f" Abbreviation="leletb" CustomerExposition="Programmer" SuperName="EleLogicalConnectorComp" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes" CreateInstName="EleLogicalTerminalBoardInst">
+    <CAAComment>
+      <ShortRole>PLM Electrical Logical Terminal Board</ShortRole>
+      <Role>PLM Electrical Logical Terminal Board</Role>
+    </CAAComment>
+    <Property Name="KweNew_InstanciationMethod" Value="CATElecLogicalInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="EleLogicalTerminalBoardInst"/>
+    <Property Name="IconName" Value="I_EleLogicalTerminalBoard"/>
+    <Property Name="Newable" Value="All"/>
+    <Property Name="OccurrenceType" Value="EleLogicalTerminalBoardOcc"/>
+  </Class>
+  <!-- Electrical Logical Busbar -->
+  <Class Name="EleLogicalBusbar" Uuid="c664abf1-6382-48fa-81ac-cbb0059cb1c3" Abbreviation="lelebb" CustomerExposition="Programmer" SuperName="EleLogicalReferenceEntity" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes" CreateInstName="EleLogicalBusbarInst">
+    <CAAComment>
+      <ShortRole>PLM Electrical Logical Busbar</ShortRole>
+      <Role>PLM Electrical Logical Busbar</Role>
+    </CAAComment>
+    <Property Name="MergedExtensionType" Value="PLMElecLogicalBusbar"/>
+    <Property Name="TypeForDisciplineValuation" Value="EleLogicalBusbar"/>
+    <Property Name="GroupingType"               Value="EleLogicalBusbar"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATElecLogicalInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="EleLogicalBusbarInst"/>
+    <Property Name="IconName" Value="I_EleLogicalBusbar"/>
+    <Property Name="Newable" Value="All"/>
+    <Property Name="OccurrenceType" Value="EleLogicalBusbarOcc"/>
+    <Simple Name="V_Elec_SubType" Uuid="a01acfc4-c54b-47c1-b9d3-9eb4c8c94c87" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0">
+      <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_NbConductors" Uuid="8a71e109-19b3-4a9d-953a-c9d10a1ad45a" Type="Integer" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	  <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_NominalCurrent" Uuid="3225c429-7614-4188-ad61-907172392de9" Type="Double" Magnitude="COURANT" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	  <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_NominalVoltage" Uuid="e9f561ff-292a-4d93-a2e1-a3474ac763ca" Type="Double" Magnitude="VOLTAGE" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	  <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_PredefinedPartNumber" Uuid="83b59848-80d2-4ece-9b59-ea0595b2d268" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	  <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Volatile Name="V_Elec_NbConnectorPorts" Uuid="732ae79f-7809-4be3-9e2b-87eee0b393ee" Accessor="CATElecLogicalCkeAttributes" TypeName="Integer" AccessMode="ReadOnly"/>
+    <Volatile Name="V_Elec_NbPins" Uuid="3d510957-56f3-4c02-aff5-7791961cb9c8" Accessor="CATElecLogicalCkeAttributes" TypeName="Integer" AccessMode="ReadOnly"/>
+    <Volatile Name="V_Elec_Ports" Uuid="a8dd4578-81a9-49e9-a5f9-765c4a726b84" Accessor="CATElecLogicalCkeAttributes" TypeName="List" AccessMode="ReadOnly"/>
+  </Class>
+  <!-- Electrical Logical Busbar Extension -->
+  <Extension Name="PLMElecLogicalBusbar" Uuid="e731e8cf-0b4e-42bc-bcf4-63972d8bcfc3" ScopeNames="RFLVPMLogicalReference" CustomerExposition="Programmer" CAAExposition="L0">
+    <CAAComment>
+      <ShortRole>PLM Electrical Logical Busbar Extension</ShortRole>
+      <Role>PLM Electrical Logical Busbar Extension</Role>
+    </CAAComment>
+    <Property Name="OccurrenceType" Value="EleLogicalBusbarOcc"/>
+    <Simple Name="V_Elec_SubType" Uuid="4cd67dad-21f0-44aa-a262-0f7fe5327ee2" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0">
+      <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_NbConductors" Uuid="2630cd0a-2c39-45ee-a58f-852b7ad57b27" Type="Integer" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	  <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_NominalCurrent" Uuid="2b331643-4e8d-4c23-b02d-bcd7100a07c4" Type="Double" Magnitude="COURANT" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	  <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_NominalVoltage" Uuid="21d53b9f-fdda-477d-afe5-76a97ac4525b" Type="Double" Magnitude="VOLTAGE" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	  <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_PredefinedPartNumber" Uuid="a19acae8-fb3b-48a4-9664-d419ee1fbdea" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	  <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Volatile Name="V_Elec_NbConnectorPorts" Uuid="21ac0d97-e577-462c-818c-bb9ae8ee711d" Accessor="CATElecLogicalCkeAttributes" TypeName="Integer" AccessMode="ReadOnly"/>
+    <Volatile Name="V_Elec_NbPins" Uuid="7d672519-987a-4878-bb1c-482f12b186bc" Accessor="CATElecLogicalCkeAttributes" TypeName="Integer" AccessMode="ReadOnly"/>
+    <Volatile Name="V_Elec_Ports" Uuid="665a6899-254f-4f6b-bfd9-3e9a6f564684" Accessor="CATElecLogicalCkeAttributes" TypeName="List" AccessMode="ReadOnly"/>
+  </Extension>
+  <!-- Electrical Logical Harness -->
+  <Class Name="EleLogicalHarness" Uuid="b105cf66-a757-483b-8271-aa9c6c01079b" Abbreviation="lelehar" CustomerExposition="Programmer" SuperName="EleLogicalReferenceEntity" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes" CreateInstName="EleLogicalHarnessInst">
+    <CAAComment>
+      <ShortRole>PLM Electrical Logical Harness</ShortRole>
+      <Role>PLM Electrical Logical Harness</Role>
+    </CAAComment>
+    <Property Name="MergedExtensionType" Value="PLMElecLogicalHarness"/>
+    <Property Name="TypeForDisciplineValuation" Value="EleLogicalHarness"/>
+    <Property Name="GroupingType"               Value="EleLogicalHarness"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATElecLogicalInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="EleLogicalHarnessInst"/>
+    <Property Name="IconName" Value="I_EleLogicalHarness"/>
+    <Property Name="Newable" Value="Insert"/>
+    <Property Name="OccurrenceType" Value="EleLogicalHarnessOcc"/>
+    <Simple Name="V_Elec_SubType" Uuid="d601f344-8bc2-4e0f-939f-5a7df7265304" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0">
+      <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_MaxWires" Uuid="23562ed0-ddd7-4f60-8a7a-53c80ce3dd65" Type="Integer" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	 <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_Weight" Uuid="5d38f360-adb0-493a-b181-682749fcb62a" Type="Double" Magnitude="MASS" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_DirectRouting" Uuid="d42f415d-7f5c-4032-a2ae-2c65a48ed4df" Type="Integer" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	  <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Volatile Name="V_Elec_Connectors" Uuid="bfe23701-ed6c-4195-a078-98a36e4917d0" Accessor="CATElecLogicalCkeAttributes" TypeName="List" AccessMode="ReadOnly"/>
+    <Volatile Name="V_Elec_Conductors" Uuid="e58a0341-c001-4d01-ac21-a550aea85e36" Accessor="CATElecLogicalCkeAttributes" TypeName="List" AccessMode="ReadOnly"/>
+  </Class>
+  <!-- Electrical Logical Harness Extension-->
+  <Extension Name="PLMElecLogicalHarness" Uuid="21363db8-cda7-4e0e-8bf5-49826d6f1b49" ScopeNames="RFLVPMLogicalReference" CustomerExposition="Programmer" CAAExposition="L0">
+    <CAAComment>
+      <ShortRole>PLM Electrical Logical Harness Extension</ShortRole>
+      <Role>PLM Electrical Logical Harness Extension</Role>
+    </CAAComment>
+    <Property Name="OccurrenceType" Value="EleLogicalHarnessOcc"/>
+    <Simple Name="V_Elec_SubType" Uuid="794654ca-5438-4489-a4a0-73e644b06116" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0">
+      <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_MaxWires" Uuid="b6ed2973-5a67-446b-a610-e146077884c8" Type="Integer" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	  <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_Weight" Uuid="d42b10ad-a8a2-4166-9bc7-4cafb18603e4" Type="Double" Magnitude="MASS" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_DirectRouting" Uuid="59cb6b54-1a9a-4eb5-98ae-ac1431348fc2" Type="Integer" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	  <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Volatile Name="V_Elec_Connectors" Uuid="97aed88a-f72b-4d0e-a894-e7240e316af9" Accessor="CATElecLogicalCkeAttributes" TypeName="List" AccessMode="ReadOnly"/>
+    <Volatile Name="V_Elec_Conductors" Uuid="8f9a5c97-26d1-4a45-a6d1-29fb488dc6a3" Accessor="CATElecLogicalCkeAttributes" TypeName="List" AccessMode="ReadOnly"/>
+  </Extension>
+  <!-- Electrical Logical Routable -->
+  <Class Name="EleLogicalRoutable" Uuid="dad95064-8931-4c95-98a8-8c6d6dca8f0e" Abstract="Yes" CustomerExposition="Programmer" SuperName="EleLogicalReferenceEntity" Discipline="Yes">
+    <CAAComment>
+      <ShortRole>PLM Electrical Logical Routable</ShortRole>
+      <Role>PLM Electrical Logical Routable</Role>
+    </CAAComment>
+    <Property Name="OccurrenceType" Value="EleLogicalRoutableOcc"/>
+  </Class>
+  <!-- Electrical Logical Net -->
+  <Class Name="EleLogicalNet" Uuid="a7ae6d97-7c03-4eea-8de4-0407903db0ea" Abbreviation="lelenet" CustomerExposition="Programmer" SuperName="EleLogicalRoutable" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes" CreateInstName="EleLogicalNetInst">
+    <CAAComment>
+      <ShortRole>PLM Electrical Logical Net</ShortRole>
+      <Role>PLM Electrical Logical Net</Role>
+    </CAAComment>
+    <Property Name="MergedExtensionType" Value="PLMElecLogicalNet"/>
+    <Property Name="TypeForDisciplineValuation" Value="EleLogicalNet"/>
+    <Property Name="GroupingType"               Value="EleLogicalNet"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATElecLogicalInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="EleLogicalNetInst"/>
+    <Property Name="IconName" Value="I_EleLogicalNet"/>
+    <Property Name="Newable" Value="Insert"/>
+    <Property Name="OccurrenceType" Value="EleLogicalNetOcc"/>
+    <Simple Name="V_Elec_SubType" Uuid="77077abb-f2f1-4feb-9967-15fc532b93a9" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0">
+      <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_Type" Uuid="e5aba334-f02c-450e-bf84-a5128f72399f" Type="String" MaxLength="40" MultiValuated="No" Protection="Internal"/>
+    <Simple Name="V_Elec_PredefinedPartNumber" Uuid="14c416fe-9434-4019-81c8-89d4e1d8bb8d" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	 <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_Gauge" Uuid="f288364b-c755-4748-bbfd-f519ee90c6d1" Type="String" MaxLength="40" MultiValuated="No" Protection="Free" CAAExposition="L0">
+      <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_ExternalDiameter" Uuid="2047ba47-441c-48dc-bfdf-6a692ab9aaf9" Type="Double" Magnitude="LENGTH" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_Section" Uuid="87193ab5-888e-4294-97e1-e0f7e1d224ed" Type="Double" Magnitude="AREA" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	  <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_RoutingPriority" Uuid="e6330a56-d524-4277-8a85-f7bc7578ca10" Type="Integer" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	  <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_Color" Uuid="ee25c1ce-bc4f-456b-9bec-980dddc70bca" Type="String" MaxLength="40" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	  <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+  </Class>
+  <!-- Electrical Logical Net Extension -->
+  <Extension Name="PLMElecLogicalNet" Uuid="8826fa14-5dcf-4ca1-94b1-2e1f435e347d" ScopeNames="RFLVPMLogicalReference" CustomerExposition="Programmer" CAAExposition="L0">
+    <CAAComment>
+      <ShortRole>PLM Electrical Logical Net Extension</ShortRole>
+      <Role>PLM Electrical Logical Net Extension</Role>
+    </CAAComment>
+    <Property Name="OccurrenceType" Value="EleLogicalNetOcc"/>
+    <Simple Name="V_Elec_SubType" Uuid="e68f1b08-7eca-4c66-aae1-11246595b53a" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0">
+      <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_Type" Uuid="71f92e32-5fac-45a7-a24b-d8ff11209f0d" Type="String" MaxLength="40" MultiValuated="No" Protection="Internal">
+	 <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_PredefinedPartNumber" Uuid="036ff23b-be70-4a50-933b-cc6ef59c3b5e" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	 <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_Gauge" Uuid="2c9f7022-b3ba-4ebd-b16f-4504c2aa844e" Type="String" MaxLength="40" MultiValuated="No" Protection="Free" CAAExposition="L0">
+      <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_ExternalDiameter" Uuid="2176083d-72dd-43a5-a3a2-3927326b04c9" Type="Double" Magnitude="LENGTH" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_Section" Uuid="a9af454b-6984-4399-8c4e-90d4c233757c" Type="Double" Magnitude="AREA" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	 <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_RoutingPriority" Uuid="65adc2a1-d2c6-412e-b94d-10dde7933c47" Type="Integer" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	 <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_Color" Uuid="2ea73546-bab0-4a01-9a6c-5e0e784220c4" Type="String" MaxLength="40" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	 <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+  </Extension>
+  <!-- Electrical Logical Net Group -->
+  <Class Name="EleLogicalNetGroup" Uuid="948e737f-89db-40c0-a88b-74534d6a4afc" Abbreviation="lelenetgrp" CustomerExposition="Programmer" SuperName="EleLogicalRoutable" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes" CreateInstName="EleLogicalNetGroupInst">
+    <CAAComment>
+      <ShortRole>PLM Electrical Logical Net Group</ShortRole>
+      <Role>PLM Electrical Logical Net Group</Role>
+    </CAAComment>
+    <Property Name="MergedExtensionType" Value="PLMElecLogicalNetGroup"/>
+    <Property Name="TypeForDisciplineValuation" Value="EleLogicalNetGroup"/>
+    <Property Name="GroupingType"               Value="EleLogicalNetGroup"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATElecLogicalInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="EleLogicalNetGroupInst"/>
+    <Property Name="IconName" Value="I_EleLogicalNetGroup"/>
+    <Property Name="Newable" Value="Insert"/>
+    <Property Name="OccurrenceType" Value="EleLogicalNetGroupOcc"/>
+    <Simple Name="V_Elec_SubType" Uuid="9436354b-55a4-44aa-a977-fb232bf17441" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0">
+      <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_Type" Uuid="37d3de8f-2c6c-4e15-9b80-b99672a035f4" Type="String" MaxLength="40" MultiValuated="No" Protection="Internal"/>
+    <Simple Name="V_Elec_PredefinedPartNumber" Uuid="4466d9bf-4aeb-4082-9bf4-cd7ff02aa659" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	 <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_Gauge" Uuid="0eaf95e7-a3ab-4031-bffb-92c4c6edb257" Type="String" MaxLength="40" MultiValuated="No" Protection="Free" CAAExposition="L0">
+      <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_ExternalDiameter" Uuid="87d778c2-be7b-4b05-aa1e-b757e46b20a0" Type="Double" Magnitude="LENGTH" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_Section" Uuid="93c6d96d-97ab-456d-9aef-b37da62f16f2" Type="Double" Magnitude="AREA" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	 <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_RoutingPriority" Uuid="488a17b2-5308-405d-8ce8-b4194297d52c" Type="Integer" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	 <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_Color" Uuid="535e092d-062d-4dca-973f-9c6b7c6d2da5" Type="String" MaxLength="40" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	 <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+  </Class>
+  <!-- Electrical Logical Net Group Extension -->
+  <Extension Name="PLMElecLogicalNetGroup" Uuid="63e59a67-c42b-4c48-b417-acd556f3e9a7" ScopeNames="RFLVPMLogicalReference" CustomerExposition="Programmer" CAAExposition="L0">
+    <CAAComment>
+      <ShortRole>PLM Electrical Logical Net Group Extension</ShortRole>
+      <Role>PLM Electrical Logical Net Group Extension</Role>
+    </CAAComment>
+    <Property Name="OccurrenceType" Value="EleLogicalNetGroupOcc"/>
+    <Simple Name="V_Elec_SubType" Uuid="228974b0-ca7b-4bb4-a88f-4d3c87bbcabd" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0">
+      <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_Type" Uuid="de5c959d-9859-434e-8676-a3963e3ba8fa" Type="String" MaxLength="40" MultiValuated="No" Protection="Internal"/>
+    <Simple Name="V_Elec_PredefinedPartNumber" Uuid="b9bb7036-984b-4520-9618-8287670cc64a" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	 <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_Gauge" Uuid="7c82c99e-4541-49be-ba72-0312413de780" Type="String" MaxLength="40" MultiValuated="No" Protection="Free" CAAExposition="L0">
+      <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_ExternalDiameter" Uuid="62d60ba0-a6c1-4220-9685-13b6c712860d" Type="Double" Magnitude="LENGTH" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_Section" Uuid="df7e72e2-7c71-414c-9ff6-7d5e2c03c522" Type="Double" Magnitude="AREA" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	 <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_RoutingPriority" Uuid="011b14ea-279f-43a9-8600-9157615bbc4a" Type="Integer" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	 <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_Color" Uuid="0a3a4403-79a2-4f0d-974a-f0bc14153167" Type="String" MaxLength="40" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	 <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+  </Extension>
+  <!-- Electrical Logical Conductor -->
+  <Class Name="EleLogicalConductor" Uuid="19bb1a5b-e7a6-42aa-8c90-309ef2d2b13c" Abstract="Yes" CustomerExposition="Programmer" SuperName="EleLogicalRoutable" Discipline="Yes">
+    <CAAComment>
+      <ShortRole>PLM Electrical Logical Conductor</ShortRole>
+      <Role>PLM Electrical Logical Conductor</Role>
+    </CAAComment>
+    <Property Name="OccurrenceType" Value="EleLogicalConductorOcc"/>
+  </Class>
+  <!-- Electrical Logical Wire -->
+  <Class Name="EleLogicalWire" Uuid="aae25ffb-7ea3-4e65-a9d9-09977e451597" Abbreviation="lelewire" CustomerExposition="Programmer" SuperName="EleLogicalConductor" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes" CreateInstName="EleLogicalWireInst">
+    <CAAComment>
+      <ShortRole>PLM Electrical Logical Wire</ShortRole>
+      <Role>PLM Electrical Logical Wire</Role>
+    </CAAComment>
+    <Property Name="MergedExtensionType" Value="PLMElecLogicalWire"/>
+    <Property Name="TypeForDisciplineValuation" Value="EleLogicalWire"/>
+    <Property Name="GroupingType"               Value="EleLogicalWire"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATElecLogicalInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="EleLogicalWireInst"/>
+    <Property Name="IconName" Value="I_EleLogicalWire"/>
+    <Property Name="Newable" Value="All"/>
+    <Property Name="OccurrenceType" Value="EleLogicalWireOcc"/>
+    <Simple Name="V_Elec_SubType" Uuid="f2952d9a-cb5b-426f-abf3-d5c4e6dc7ed1" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0">
+      <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_Type" Uuid="b817c269-1c4b-41f7-b8ff-b7f9c2807456" Type="String" MaxLength="40" MultiValuated="No" Protection="Internal"/>
+    <Simple Name="V_Elec_PredefinedPartNumber" Uuid="3a2d5b09-7445-417d-bed7-140a6d13f032" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	 <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_Gauge" Uuid="2a9d73f1-c34e-4178-946e-5781521fcb2a" Type="String" MaxLength="40" MultiValuated="No" Protection="Free" CAAExposition="L0">
+      <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_ExternalDiameter" Uuid="d412c096-04ee-4179-a589-ca5fab5c960e" Type="Double" Magnitude="LENGTH" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_BendRadius" Uuid="18638866-22b5-46a8-809e-8f5e23ce7b1f" Type="Double" Magnitude="LENGTH" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_Section" Uuid="2096bc3a-95bd-488a-bcac-d34bab4b32ab" Type="Double" Magnitude="AREA" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	 <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_LinearMass" Uuid="f1e2af63-6afa-4951-b594-4ca3bdcf9bd4" Type="Double" Magnitude="LINEMASS" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_Color" Uuid="9a0aa9af-d8bd-428b-98af-6a063828310e" Type="String" MaxLength="40" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	 <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_RoutingPriority" Uuid="6d5b5472-9806-4d6c-8b54-def5296fe3e8" Type="Integer" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	 <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Volatile Name="V_Elec_WirePort1" Uuid="0de561b4-82f6-44c6-9df6-d76d59dfb9a2" Accessor="CATElecLogicalCkeAttributes" TypeName="RFLVPMLogicalPort" AccessMode="ReadOnly"/>
+    <Volatile Name="V_Elec_WirePort2" Uuid="2d445a5e-a23f-4ebd-9b62-826a78a9a811" Accessor="CATElecLogicalCkeAttributes" TypeName="RFLVPMLogicalPort" AccessMode="ReadOnly"/>
+  </Class>
+  <!-- Electrical Logical Wire Extension -->
+  <Extension Name="PLMElecLogicalWire" Uuid="71bed273-9e1b-4497-9965-401c9cb12db4" ScopeNames="RFLVPMLogicalReference" CustomerExposition="Programmer" CAAExposition="L0">
+    <CAAComment>
+      <ShortRole>PLM Electrical Logical Wire Extension</ShortRole>
+      <Role>PLM Electrical Logical Wire Extension</Role>
+    </CAAComment>
+    <Property Name="OccurrenceType" Value="EleLogicalWireOcc"/>
+    <Simple Name="V_Elec_SubType" Uuid="16977bb8-bc0f-480d-93a3-284b656065b8" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0">
+      <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_Type" Uuid="9431f262-4cdf-468d-8281-2fe7cb8437ef" Type="String" MaxLength="40" MultiValuated="No" Protection="Internal"/>
+    <Simple Name="V_Elec_PredefinedPartNumber" Uuid="14bc65cb-e626-4a4b-b3f8-3bbcc040daa0" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	 <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_Gauge" Uuid="a56bb8b6-b27e-4d07-be74-a3974b0205f7" Type="String" MaxLength="40" MultiValuated="No" Protection="Free" CAAExposition="L0">
+      <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_ExternalDiameter" Uuid="bc3bb17c-9bb9-4c26-bdd8-3eba7542549f" Type="Double" Magnitude="LENGTH" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_BendRadius" Uuid="29f34ec0-dbcb-424a-baa9-2ebfb221bdb0" Type="Double" Magnitude="LENGTH" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_Section" Uuid="5ad8cb5b-5068-4648-86da-bfe6a881f424" Type="Double" Magnitude="AREA" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	 <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_LinearMass" Uuid="8ff3231f-82a8-43dd-a863-4de1f517ab5b" Type="Double" Magnitude="LINEMASS" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_Color" Uuid="c87a0868-d15f-4b42-8728-3a1c8f3adc2b" Type="String" MaxLength="40" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	 <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_RoutingPriority" Uuid="4f922794-2b40-4bd1-9dcc-397a01ca03d6" Type="Integer" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	 <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Volatile Name="V_Elec_WirePort1" Uuid="e3a29a49-dc55-46c9-9821-c81f39958517" Accessor="CATElecLogicalCkeAttributes" TypeName="RFLVPMLogicalPort" AccessMode="ReadOnly"/>
+    <Volatile Name="V_Elec_WirePort2" Uuid="2627caed-dcc7-4ebf-9dbd-7ae90d4a20e0" Accessor="CATElecLogicalCkeAttributes" TypeName="RFLVPMLogicalPort" AccessMode="ReadOnly"/>
+  </Extension>
+  <!-- Electrical Logical Wire Shield-->
+  <Class Name="EleLogicalWireShield" Uuid="6db1708f-b83e-45fa-86b6-5e7627570cb2" Abbreviation="lelewiresh" CustomerExposition="Programmer" SuperName="EleLogicalConductor" Discipline="Yes" Specializable="No" CustomerExtensible="Yes" CreateInstName="EleLogicalWireShieldInst">
+    <CAAComment>
+      <ShortRole>PLM Electrical Logical Wire Shield</ShortRole>
+      <Role>PLM Electrical Logical Wire Shield</Role>
+    </CAAComment>
+    <Property Name="MergedExtensionType" Value="PLMElecLogicalWireShield"/>
+    <Property Name="TypeForDisciplineValuation" Value="EleLogicalWireShield"/>
+    <Property Name="GroupingType"               Value="EleLogicalWireShield"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATElecLogicalInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="EleLogicalWireShieldInst"/>
+    <Property Name="IconName" Value="I_EleLogicalWireShield"/>
+    <Property Name="Newable" Value="Insert"/>
+    <Property Name="OccurrenceType" Value="EleLogicalWireShieldOcc"/>
+    <Simple Name="V_Elec_SubType" Uuid="b451eb15-7723-4f15-94cc-6fd9a572297f" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0">
+      <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_Gauge" Uuid="986c470f-cef0-40df-a0e5-80575559d617" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0">
+      <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_Section" Uuid="820daa0a-975c-4593-97a5-b5a4f317ab38" Type="Double" Magnitude="AREA" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	 <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+  </Class>
+  <!-- Electrical Logical Wire Shield Extension -->
+  <Extension Name="PLMElecLogicalWireShield" Uuid="20b2cfb7-4ff6-40a7-b3ff-625cd28524c5" ScopeNames="RFLVPMLogicalReference" CustomerExposition="Programmer" CAAExposition="L0">
+    <CAAComment>
+      <ShortRole>PLM Electrical Logical Wire Shield Extension</ShortRole>
+      <Role>PLM Electrical Logical Wire Shield Extension</Role>
+    </CAAComment>
+    <Property Name="OccurrenceType" Value="EleLogicalWireShieldOcc"/>
+    <Simple Name="V_Elec_SubType" Uuid="8f8e01c8-8044-4b2f-b926-83ab875a9673" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0">
+      <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_Gauge" Uuid="398b3af6-e6a0-4385-9aa2-96ce9d04dbc0" Type="String" MaxLength="40" MultiValuated="No" Protection="Free" CAAExposition="L0">
+      <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_Section" Uuid="5e2a8441-df59-4d23-9487-8ff8609c1d2c" Type="Double" Magnitude="AREA" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	 <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+  </Extension>
+  <!-- Electrical Logical Cable -->
+  <Class Name="EleLogicalCable" Uuid="541c55d7-8cbd-4e1e-941b-46b9baba5db6" Abbreviation="lelecable" CustomerExposition="Programmer" SuperName="EleLogicalConductor" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes" CreateInstName="EleLogicalCableInst">
+    <CAAComment>
+      <ShortRole>PLM Electrical Logical Cable</ShortRole>
+      <Role>PLM Electrical Logical Cable</Role>
+    </CAAComment>
+    <Property Name="MergedExtensionType" Value="PLMElecLogicalCable"/>
+    <Property Name="TypeForDisciplineValuation" Value="EleLogicalCable"/>
+    <Property Name="GroupingType"               Value="EleLogicalCable"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATElecLogicalInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="EleLogicalCableInst"/>
+    <Property Name="IconName" Value="I_EleLogicalCable"/>
+    <Property Name="Newable" Value="All"/>
+    <Property Name="OccurrenceType" Value="EleLogicalCableOcc"/>
+    <Simple Name="V_Elec_SubType" Uuid="391fd318-e517-46a3-a3da-3fdb28a65c45" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0">
+      <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_Type" Uuid="7cf9f1e2-e18f-47ca-bdf0-6627b1ba8a80" Type="String" MaxLength="40" MultiValuated="No" Protection="Internal"/>
+    <Simple Name="V_Elec_PredefinedPartNumber" Uuid="36a46e46-9663-43c5-903e-5dfb5ac9188f" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	 <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_Gauge" Uuid="565430d5-9102-4c5e-95f0-06d57ff8c209" Type="String" MaxLength="40" MultiValuated="No" Protection="Free" CAAExposition="L0">
+      <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_ExternalDiameter" Uuid="d89bd0ab-265a-4f96-ae3c-d70b1075996f" Type="Double" Magnitude="LENGTH" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_BendRadius" Uuid="fab1de59-96df-4ff9-a24e-5197aba35830" Type="Double" Magnitude="LENGTH" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_Section" Uuid="690d6333-c7c2-4c72-9b88-f003865bf4bc" Type="Double" Magnitude="AREA" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	 <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_LinearMass" Uuid="dd533f98-01a4-4939-914f-5f39e921fc17" Type="Double" Magnitude="LINEMASS" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_Color" Uuid="260a7261-2ab9-43b8-921e-d740c954f723" Type="String" MaxLength="40" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	 <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_RoutingPriority" Uuid="8a78bba6-3ad0-49e7-b5af-7e769b0963eb" Type="Integer" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	 <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_NbConductorsByGroup" Uuid="9ae1edad-2bb1-4992-824d-ff8979eb0489" Type="Integer" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	 <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_NbGroups" Uuid="3f5c9b7a-95b5-4f47-ae63-311da5441c68" Type="Integer" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	 <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_GroupsType" Uuid="fb809679-d19b-4236-ac20-6e2b0977f802" Type="String" MaxLength="40" MultiValuated="No" Protection="Free" CAAExposition="L0">
+      <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_ConductorsColors" Uuid="1e6274cb-7d99-4ec2-b48e-fefb44ad08ae" Type="String" MaxLength="40" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	 <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_ConductorsIdentifier" Uuid="2453f930-6c67-4cc4-b7f4-fc377b6a2122" Type="Integer" Protection="Free" CAAExposition="L0" DefaultValue="1">
+      <Property Name="RangeAsEnumName" Value="V_Elec_ConductorsIdentifier"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="Color;Order;Other"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+      </Range>
+    </Simple>
+  </Class>
+  <!-- Electrical Logical Cable Extension -->
+  <Extension Name="PLMElecLogicalCable" Uuid="c7465cf0-2131-4475-a0b9-971a86d746fd" ScopeNames="RFLVPMLogicalReference" CustomerExposition="Programmer" CAAExposition="L0">
+    <CAAComment>
+      <ShortRole>PLM Electrical Logical Cable Extension</ShortRole>
+      <Role>PLM Electrical Logical Cable Extension</Role>
+    </CAAComment>
+    <Property Name="OccurrenceType" Value="EleLogicalCableOcc"/>
+    <Simple Name="V_Elec_SubType" Uuid="2217b3f3-8bcd-45c7-b114-a46875ba5f7c" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0">
+      <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_Type" Uuid="a75aa1bf-7523-4c2c-a8b7-f6dc74d67fd6" Type="String" MaxLength="40" MultiValuated="No" Protection="Internal"/>
+    <Simple Name="V_ElecCable_Type" Uuid="e5968073-a604-4151-9f8e-2cd177614111" Type="Integer" Protection="External" CAAExposition="L0" DefaultValue="1">
+      <Property Name="RangeAsEnumName" Value="V_ElecCable_Type_Enum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="Cable;CableShielded;CableTwisted;CableTwistedShielded"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+      </Range>
+      <CAAComment>
+        <ShortRole>Cable Classification</ShortRole>
+        <Role>Cable Classification</Role>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_Elec_PredefinedPartNumber" Uuid="7240f5ca-0ce7-4b57-ad43-627ba9fca26e" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	 <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_Gauge" Uuid="91330233-48d3-490e-a91e-f404e3ddfdb9" Type="String" MaxLength="40" MultiValuated="No" Protection="Free" CAAExposition="L0">
+      <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_ExternalDiameter" Uuid="26dd8c6b-82f1-43ad-add6-f82fa0515030" Type="Double" Magnitude="LENGTH" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_BendRadius" Uuid="e4c4bf79-900c-40f6-ad13-3a3c79225fdb" Type="Double" Magnitude="LENGTH" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_Section" Uuid="fcaa1144-ae76-4d20-b0ed-950c0e2a1061" Type="Double" Magnitude="AREA" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	 <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_LinearMass" Uuid="8bfe0b63-e732-4362-b862-86772f1930b6" Type="Double" Magnitude="LINEMASS" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_Color" Uuid="6f57f74b-ddd4-4f41-944d-e5d2625c76ad" Type="String" MaxLength="40" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	 <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_RoutingPriority" Uuid="7c48ada3-91e5-431d-abd2-81c301dd95d9" Type="Integer" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	 <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_NbConductorsByGroup" Uuid="81c7453f-0b3f-454f-aeea-98e939119633" Type="Integer" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	 <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_NbGroups" Uuid="bd8273ca-8f60-4461-84ec-3f27684ef718" Type="Integer" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	 <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_GroupsType" Uuid="3a13d04e-dc4e-4af7-bf63-4efd2d804a30" Type="String" MaxLength="40" MultiValuated="No" Protection="Free" CAAExposition="L0">
+      <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_ConductorsColors" Uuid="bd2cb0b3-50b5-42f9-acb1-3e7e1712eb6c" Type="String" MaxLength="40" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	 <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_ConductorsIdentifier" Uuid="8e099572-f1fc-4081-8dca-120b9b5145aa" Type="Integer" Protection="Free" CAAExposition="L0" DefaultValue="1">
+      <Property Name="RangeAsEnumName" Value="V_Elec_ConductorsIdentifier"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="Color;Order;Other"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+      </Range>
+    </Simple>
+  </Extension>
+  <!-- Electrical Logical Cable Shielded -->
+  <Class Name="EleLogicalCableShielded" Uuid="780dc2ca-a03d-466f-9db1-27c247480211" Abbreviation="lelecablesh" CustomerExposition="Programmer" SuperName="EleLogicalCable" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes" CreateInstName="EleLogicalCableShieldedInst">
+    <CAAComment>
+      <ShortRole>PLM Electrical Logical Cable Shielded</ShortRole>
+      <Role>PLM Electrical Logical Cable Shielded</Role>
+    </CAAComment>
+    <Property Name="KweNew_InstanciationMethod" Value="CATElecLogicalInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="EleLogicalCableShieldedInst"/>
+    <Property Name="IconName" Value="I_EleLogicalCableShielded"/>
+    <Property Name="Newable" Value="All"/>
+    <Property Name="OccurrenceType" Value="EleLogicalCableShieldedOcc"/>
+  </Class>
+  <!-- Electrical Logical Cable Twisted -->
+  <Class Name="EleLogicalCableTwisted" Uuid="8ef9dbf7-0c77-4336-98f9-88f8db8657d0" Abbreviation="lelecabletw" CustomerExposition="Programmer" SuperName="EleLogicalCable" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes" CreateInstName="EleLogicalCableTwistedInst">
+    <CAAComment>
+      <ShortRole>PLM Electrical Logical Cable Twisted</ShortRole>
+      <Role>PLM Electrical Logical Cable Twisted</Role>
+    </CAAComment>
+    <Property Name="KweNew_InstanciationMethod" Value="CATElecLogicalInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="EleLogicalCableTwistedInst"/>
+    <Property Name="IconName" Value="I_EleLogicalCableTwisted"/>
+    <Property Name="Newable" Value="All"/>
+    <Property Name="OccurrenceType" Value="EleLogicalCableTwistedOcc"/>
+  </Class>
+  <!-- Electrical Logical Cable TwistedShielded -->
+  <Class Name="EleLogicalCableTwistedShielded" Uuid="c8ffa214-031a-4822-971d-3caba2e3ab18" Abbreviation="lelecablets" CustomerExposition="Programmer" SuperName="EleLogicalCable" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes" CreateInstName="EleLogicalCableTwistedShieldedInst">
+    <CAAComment>
+      <ShortRole>PLM Electrical Logical Cable Twisted Shielded</ShortRole>
+      <Role>PLM Electrical Logical Cable TwistedShielded</Role>
+    </CAAComment>
+    <Property Name="KweNew_InstanciationMethod" Value="CATElecLogicalInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="EleLogicalCableTwistedShieldedInst"/>
+    <Property Name="IconName" Value="I_EleLogicalCableTwistedShielded"/>
+    <Property Name="Newable" Value="All"/>
+    <Property Name="OccurrenceType" Value="EleLogicalCableTwistedShieldedOcc"/>
+  </Class>
+  <!-- Electrical Logical Over Shield -->
+  <Class Name="EleLogicalOverShield" Uuid="67b46d90-4744-4968-99b2-3d5817f08a5b" Abbreviation="leleoversh" CustomerExposition="Programmer" SuperName="EleLogicalConductor" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes" CreateInstName="EleLogicalOverShieldInst">
+    <CAAComment>
+      <ShortRole>PLM Electrical Logical Over Shield</ShortRole>
+      <Role>PLM Electrical Logical Over Shield</Role>
+    </CAAComment>
+    <Property Name="MergedExtensionType" Value="PLMElecLogicalOverShield"/>
+    <Property Name="TypeForDisciplineValuation" Value="EleLogicalOverShield"/>
+    <Property Name="GroupingType"               Value="EleLogicalOverShield"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATElecLogicalInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="EleLogicalOverShieldInst"/>
+    <Property Name="IconName" Value="I_EleLogicalOverShield"/>
+    <Property Name="Newable" Value="All"/>
+    <Property Name="OccurrenceType" Value="EleLogicalOverShieldOcc"/>
+    <Simple Name="V_Elec_SubType" Uuid="51341dd5-686c-4bc1-ae02-4b45cee8417d" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0">
+      <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_PredefinedPartNumber" Uuid="0b23efd2-97c1-4037-b0a1-10f72fe601ef" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	 <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_Gauge" Uuid="b7230449-2712-406f-88d8-9cd409712a36" Type="String" MaxLength="40" MultiValuated="No" Protection="Free" CAAExposition="L0">
+      <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_Section" Uuid="f0498f33-2b45-4761-9a1e-57e4efed39b8" Type="Double" Magnitude="AREA" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	 <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_LinearMass" Uuid="1e894a8e-624e-482c-8955-1436246e909b" Type="Double" Magnitude="LINEMASS" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+  </Class>
+  <!-- Electrical Logical Over Shield Extension -->
+  <Extension Name="PLMElecLogicalOverShield" Uuid="264cc0e1-1fcf-4886-b49e-18c88d0f43ad" ScopeNames="RFLVPMLogicalReference" CustomerExposition="Programmer" CAAExposition="L0">
+    <CAAComment>
+      <ShortRole>PLM Electrical Logical Over Shield Extension</ShortRole>
+      <Role>PLM Electrical Logical Over Shield Extension</Role>
+    </CAAComment>
+    <Property Name="OccurrenceType" Value="EleLogicalOverShieldOcc"/>
+    <Simple Name="V_Elec_SubType" Uuid="48a2f082-76cc-419c-b7df-7c27476ca88f" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0">
+      <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_PredefinedPartNumber" Uuid="a6c355d2-eb13-4fe0-8d6c-bd3abc294f24" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	 <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_Gauge" Uuid="e40eb663-e436-4efb-a6a8-22e9d0ade599" Type="String" MaxLength="40" MultiValuated="No" Protection="Free" CAAExposition="L0">
+      <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_Section" Uuid="482253d0-1aa6-4766-a4e3-c31c575cd3cb" Type="Double" Magnitude="AREA" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	 <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_LinearMass" Uuid="6deb78e6-040d-4c15-ad76-875901c1753d" Type="Double" Magnitude="LINEMASS" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+  </Extension>
+  <!-- Electrical Logical Power Cable -->
+  <Class Name="EleLogicalPowerCable" Uuid="db94b59b-9fc4-4226-8d59-96af5df6cfdc" Abbreviation="lelecablepw" CustomerExposition="Programmer" SuperName="EleLogicalConductor" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes" CreateInstName="EleLogicalPowerCableInst">
+    <CAAComment>
+      <ShortRole>PLM Electrical Logical Power Cable</ShortRole>
+      <Role>PLM Electrical Logical Power Cable</Role>
+    </CAAComment>
+    <Property Name="MergedExtensionType" Value="PLMElecLogicalPowerCable"/>
+    <Property Name="TypeForDisciplineValuation" Value="EleLogicalPowerCable"/>
+    <Property Name="GroupingType"               Value="EleLogicalPowerCable"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATElecLogicalInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="EleLogicalPowerCableInst"/>
+    <Property Name="IconName" Value="I_EleLogicalPowerCable"/>
+    <Property Name="Newable" Value="All"/>
+    <Property Name="OccurrenceType" Value="EleLogicalPowerCableOcc"/>
+    <Simple Name="V_Elec_SubType" Uuid="84fadf98-4305-44dd-b2fd-8471798fa18b" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0">
+      <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_PredefinedPartNumber" Uuid="a2984aac-aabb-4a1a-b419-4e4cd52c8d1c" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	 <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_Gauge" Uuid="cf77e63f-0c90-4d6a-a4bb-3ffe6c1c2f39" Type="String" MaxLength="40" MultiValuated="No" Protection="Free" CAAExposition="L0">
+      <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_Color" Uuid="bacc91e7-1740-4dc9-947d-77a742b61a46" Type="String" MaxLength="40" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	 <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_NbConductors" Uuid="8d4589d6-9513-4bb7-9adb-e8430381fe85" Type="Integer" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	 <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_Section" Uuid="fe7f4c50-5942-4664-ac7f-069d3f7f56b2" Type="Double" Magnitude="AREA" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	 <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_AdditionalConductorSection" Uuid="7432c4ae-7645-4eaa-84df-4c38ab9a56a7" Type="Double" Magnitude="AREA" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	 <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_BendRadius" Uuid="e8b83e3f-ed75-4c81-adc7-a5ecceb2098e" Type="Double" Magnitude="LENGTH" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_LinearMass" Uuid="223f0780-c0c9-467e-a321-72c229ff9933" Type="Double" Magnitude="LINEMASS" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_ExternalDiameter" Uuid="e13ebdeb-1d0c-4181-bd0b-43b2ef7dc4b3" Type="Double" Magnitude="LENGTH" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_ConductorsColors" Uuid="b27ef194-7288-425e-bbbc-0833b99bd6ce" Type="String" MaxLength="40" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	 <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_RoutingPriority" Uuid="aa440dc1-6410-4a51-9e87-b057df9b87ba" Type="Integer" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	 <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+
+  </Class>
+  <!-- Electrical Logical Power Cable Extension -->
+  <Extension Name="PLMElecLogicalPowerCable" Uuid="68d81e1e-676a-43b2-aba0-709d866e1ab7" ScopeNames="RFLVPMLogicalReference" CustomerExposition="Programmer" CAAExposition="L0">
+    <CAAComment>
+      <ShortRole>PLM Electrical Logical Power Cable Extension</ShortRole>
+      <Role>PLM Electrical Logical Power Cable Extension</Role>
+    </CAAComment>
+    <Property Name="OccurrenceType" Value="EleLogicalPowerCableOcc"/>
+    <Simple Name="V_Elec_SubType" Uuid="932d10b1-0f0c-47e7-9792-cda57e45fa0d" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0">
+      <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_PredefinedPartNumber" Uuid="03f436fc-5223-402f-8ca7-2024b320bafa" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	 <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_Gauge" Uuid="f8478acc-0e93-46a2-a9a6-1f8df4010c7f" Type="String" MaxLength="40" MultiValuated="No" Protection="Free" CAAExposition="L0">
+      <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_NbConductors" Uuid="ffa6f29c-e506-4d7f-bc76-ec9ec9439ee8" Type="Integer" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	 <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_Section" Uuid="6adff182-0c4d-454c-8829-7745c1e54bc6" Type="Double" Magnitude="AREA" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	 <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_AdditionalConductorSection" Uuid="7624ebc1-221b-4fce-8786-6d6c9291943c" Type="Double" Magnitude="AREA" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	 <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_BendRadius" Uuid="1aa6b8c4-c012-4736-b755-9e70ec1c2c6f" Type="Double" Magnitude="LENGTH" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_LinearMass" Uuid="040d2144-33ba-42eb-9ab2-9a177e2da980" Type="Double" Magnitude="LINEMASS" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_ExternalDiameter" Uuid="e98bdbae-d07b-4c66-b9dc-0752f747da74" Type="Double" Magnitude="LENGTH" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_Color" Uuid="020dcba3-e564-47d9-a908-7a1b7bcfc97a" Type="String" MaxLength="40" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	 <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_ConductorsColors" Uuid="52e9d234-cdab-472f-b135-c9301a5cb75b" Type="String" MaxLength="40" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	 <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_RoutingPriority" Uuid="bd12126b-5c76-4dc4-8b32-963fc9585960" Type="Integer" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	 <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+  </Extension>
+  <!-- Electrical Logical Coax Cable -->
+  <Class Name="EleLogicalCoaxCable" Uuid="7a506081-f97e-4d96-b881-7dd0ec5edb79" Abbreviation="lelecablecx" CustomerExposition="Programmer" SuperName="EleLogicalConductor" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes" CreateInstName="EleLogicalCoaxCableInst">
+    <CAAComment>
+      <ShortRole>PLM Electrical Logical Coax Cable</ShortRole>
+      <Role>PLM Electrical Logical Coax Cable</Role>
+    </CAAComment>
+    <Property Name="MergedExtensionType" Value="PLMElecLogicalCoaxCable"/>
+    <Property Name="TypeForDisciplineValuation" Value="EleLogicalCoaxCable"/>
+    <Property Name="GroupingType"               Value="EleLogicalCoaxCable"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATElecLogicalInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="EleLogicalCoaxCableInst"/>
+    <Property Name="IconName" Value="I_EleLogicalCoaxCable"/>
+    <Property Name="Newable" Value="All"/>
+    <Property Name="OccurrenceType" Value="EleLogicalCoaxCableOcc"/>
+    <Simple Name="V_Elec_SubType" Uuid="e197a98a-dbab-45cd-83b1-32a807c2fae6" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0">
+      <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_PredefinedPartNumber" Uuid="8dc7ee2c-df81-4179-94e4-5e871bd9383e" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	 <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_Gauge" Uuid="450dc082-f7cc-46e8-8727-f17997f872de" Type="String" MaxLength="40" MultiValuated="No" Protection="Free" CAAExposition="L0">
+      <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_Section" Uuid="fa817df0-7ecc-4372-8c7b-6fc590d99750" Type="Double" Magnitude="AREA" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	 <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_BendRadius" Uuid="2ee95ffa-5fe2-46ef-b6ed-136bc2602cf0" Type="Double" Magnitude="LENGTH" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_LinearMass" Uuid="9d9b7fcc-a74b-42bc-9819-6c23efc5757f" Type="Double" Magnitude="LINEMASS" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_ExternalDiameter" Uuid="8b101ed4-701b-458b-8f9a-7473b859f933" Type="Double" Magnitude="LENGTH" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_Color" Uuid="b504642d-ec06-4f92-8d1d-042b895b70df" Type="String" MaxLength="40" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	 <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_RoutingPriority" Uuid="866c0d6c-f1ca-4d8d-a4d6-83647cf778d4" Type="Integer" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	 <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+  </Class>
+  <!-- Electrical Logical Coax Cable Extension -->
+  <Extension Name="PLMElecLogicalCoaxCable" Uuid="53a03f13-fef6-4324-a8a6-4d3a1cf06fc6" ScopeNames="RFLVPMLogicalReference" CustomerExposition="Programmer" CAAExposition="L0">
+    <CAAComment>
+      <ShortRole>PLM Electrical Logical Power Cable Extension</ShortRole>
+      <Role>PLM Electrical Logical Power Cable Extension</Role>
+    </CAAComment>
+    <Property Name="OccurrenceType" Value="EleLogicalCoaxCableOcc"/>
+    <Simple Name="V_Elec_SubType" Uuid="12108ac8-ecb6-4565-9825-5b4b78eff8dd" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0">
+      <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_PredefinedPartNumber" Uuid="2b4c3d90-6305-4cec-a590-5db2f2befa36" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	 <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_Gauge" Uuid="05c71f3b-2683-498e-82ea-be39e43341b6" Type="String" MaxLength="40" MultiValuated="No" Protection="Free" CAAExposition="L0">
+      <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_Section" Uuid="7358ba1c-cdeb-4f6e-b3cb-36c35ac73ae4" Type="Double" Magnitude="AREA" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	 <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_BendRadius" Uuid="ed6069c8-e8b3-4ef2-a5c6-591ac104907b" Type="Double" Magnitude="LENGTH" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_LinearMass" Uuid="0f58bc7b-ca72-4777-8e4e-f0ab1bb76967" Type="Double" Magnitude="LINEMASS" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_ExternalDiameter" Uuid="aa3ca026-2598-4b96-9cd9-122ef3c6fe2c" Type="Double" Magnitude="LENGTH" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_Color" Uuid="4d03b0d4-c963-485f-a5cf-fab13669095a" Type="String" MaxLength="40" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	 <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_RoutingPriority" Uuid="89440bbb-63eb-4bbc-9b0d-7a5cd160b54e" Type="Integer" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	 <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+  </Extension>
+  <!-- Electrical Logical Cable Group -->
+  <Class Name="EleLogicalCableGroup" Uuid="9c7aa280-f407-4ee1-9daa-06bb8a15a42e" Abbreviation="lelecablegrp" CustomerExposition="Programmer" SuperName="EleLogicalConductor" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes" CreateInstName="EleLogicalCableGroupInst">
+    <CAAComment>
+      <ShortRole>PLM Electrical Logical Cable Group</ShortRole>
+      <Role>PLM Electrical Logical Cable Group</Role>
+    </CAAComment>
+    <Property Name="MergedExtensionType" Value="PLMElecLogicalCableGroup"/>
+    <Property Name="TypeForDisciplineValuation" Value="EleLogicalCableGroup"/>
+    <Property Name="GroupingType"               Value="EleLogicalCableGroup"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATElecLogicalInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="EleLogicalCableGroupInst"/>
+    <Property Name="IconName" Value="I_ElecLogicalCableGroup"/>
+    <Property Name="Newable" Value="Insert"/>
+    <Property Name="OccurrenceType" Value="EleLogicalCableGroupOcc"/>
+    <Simple Name="V_Elec_SubType" Uuid="5893437f-63f7-42d4-bb3a-85d8ef238c98" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0">
+      <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_Type" Uuid="a4ca8ee3-6c61-416d-a6f9-524041c41c98" Type="String" MaxLength="40" MultiValuated="No" Protection="Internal"/>
+    <Simple Name="V_Elec_Gauge" Uuid="11381ba7-1698-42d8-84ff-93e8a057fcb4" Type="String" MaxLength="40" MultiValuated="No" Protection="Free" CAAExposition="L0">
+      <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_Section" Uuid="bcfcfa12-a24a-483c-8e34-0acd53e8a6a9" Type="Double" Magnitude="AREA" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	 <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_NbConductorsByPole" Uuid="e495ff67-a110-420f-8c05-bf0ed2c26317" Type="Integer" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	 <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_NbPoles" Uuid="f946b238-7762-43ee-872c-f6f6dcf9de9d" Type="Integer" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	 <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_CableReference" Uuid="7011a37b-0418-44af-af14-fb07ae503688" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	 <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_NbNeutralConductors" Uuid="ccfd296e-39be-4b17-b8ad-9f82b7c80a0b" Type="Integer" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	 <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_NeutralCableReference" Uuid="e2aece30-c8c3-442e-9b46-b3e55833aebe" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	 <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_GroundCableReference" Uuid="175e26bd-4f3c-406e-92ee-6bbeec53dec8" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	 <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+  </Class>
+  <!-- Electrical Logical Cable Group Extension -->
+  <Extension Name="PLMElecLogicalCableGroup" Uuid="913a1184-3be1-479e-b55b-6fb1167a8c3a" ScopeNames="RFLVPMLogicalReference" CustomerExposition="Programmer" CAAExposition="L0">
+    <CAAComment>
+      <ShortRole>PLM Electrical Logical Cable Group Extension</ShortRole>
+      <Role>PLM Electrical Logical Cable Group Extension</Role>
+    </CAAComment>
+    <Property Name="OccurrenceType" Value="EleLogicalCableGroupOcc"/>
+    <Simple Name="V_Elec_SubType" Uuid="514ba1f1-48bc-4d7e-bbfc-4337e98d06f1" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0">
+      <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_Type" Uuid="3594dab8-10fd-4b1d-8965-962192b5dc31" Type="String" MaxLength="40" MultiValuated="No" Protection="Internal"/>
+    <Simple Name="V_Elec_Gauge" Uuid="794b151e-1bfd-401b-8d0a-dda0c76fe343" Type="String" MaxLength="40" MultiValuated="No" Protection="Free" CAAExposition="L0">
+      <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_Section" Uuid="e450a152-5bc0-469a-a561-8c9db7534c5d" Type="Double" Magnitude="AREA" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	 <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_NbConductorsByPole" Uuid="1f54cbaf-5c8b-45ec-8429-a2d5dbe1f9d1" Type="Integer" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	 <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_NbPoles" Uuid="5ffc7dcc-7af0-49cd-9944-e6f7e4585302" Type="Integer" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	 <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_CableReference" Uuid="d8093c1f-2be7-4a98-bb06-855d6d798538" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	 <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_NbNeutralConductors" Uuid="cc9fc483-620f-4f58-83c5-db38ca9cd4a7" Type="Integer" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	 <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_NeutralCableReference" Uuid="0fd066e0-a8e7-451a-b49f-900bfcefb9e8" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	 <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_GroundCableReference" Uuid="d3745acd-15ad-4275-b13f-c4b4578170b7" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	 <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+  </Extension>
+  <!-- *************************************************** -->
+  <!-- *          Electrical Logical Instances           * -->
+  <!-- *************************************************** -->
+  <!-- Electrical Logical Relay Instance -->
+  <RelationClass Name="EleLogicalRelayInst" Uuid="7ac9be4e-74d3-4678-a465-de4fd2732469" CustomerExposition="Programmer" SuperName="EnsLogicalEquipmentInst" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATElecLogicalInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="EleLogicalRelayInst"/>
+    <Property Name="IconName" Value="I_EleLogicalRelay"/>
+  </RelationClass>
+  <!-- Electrical Logical Instance Entity -->
+  <RelationClass Name="EleLogicalInstanceEntity" Uuid="f5fb1737-77e8-4059-872f-42e2d9f6598c" CustomerExposition="Programmer" Abstract="Yes" Discipline="Yes" SuperName="RFLVPMLogicalInstance">
+	<Simple Name="V_Elec_TagNumber" Uuid="cfc71b00-335e-4739-916a-011c31210837" Type="String"	MaxLength="100"	MultiValuated="No" Protection="Free" CAAExposition="L0" >
+	<Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+	</Simple> 
+	<Simple Name="V_Elec_PredefinedPartNumber" Uuid="71b21cc7-3a02-4cbe-b14d-0579e8839017" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	  <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>	
+	<Simple Name="V_Elec_PredefinedPartType" Uuid="56992c8c-d444-4a3d-81d6-96457593cb85" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	  <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+ </RelationClass>
+  <!-- Electrical Logical Connector Comp Instance -->
+  <RelationClass Name="EleLogicalConnectorCompInst" Uuid="a0febd9e-1d9a-4b42-9fcf-2930d863936b" CustomerExposition="Programmer" SuperName="EleLogicalInstanceEntity" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATElecLogicalInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="EleLogicalConnectorCompInst"/>
+    <Property Name="IconName" Value="I_EleLogicalConnectorComp"/>
+  </RelationClass>
+  <!-- Electrical Logical Single Connector Instance -->
+  <RelationClass Name="EleLogicalSingleConnectorInst" Uuid="bbf0bbf6-c1a4-40c7-b7e0-cfe84c79eed2" CustomerExposition="Programmer" SuperName="EleLogicalConnectorCompInst" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATElecLogicalInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="EleLogicalSingleConnectorInst"/>
+    <Property Name="IconName" Value="I_EleLogicalSingleConnector"/>
+  </RelationClass>
+  <!-- Electrical Logical Single Connector Instance -->
+  <RelationClass Name="EleLogicalInlineConnectorInst" Uuid="d4f04c35-cd04-4544-8f6e-54bb8b03b29a" CustomerExposition="Programmer" SuperName="EleLogicalConnectorCompInst" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATElecLogicalInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="EleLogicalInlineConnectorInst"/>
+    <Property Name="IconName" Value="I_EleLogicalInlineConnector"/>
+  </RelationClass>
+  <!-- Electrical Logical Shell Connector Instance -->
+  <RelationClass Name="EleLogicalShellConnectorInst" Uuid="044f2262-1b75-444d-a5ee-cd7a32212fd1" CustomerExposition="Programmer" SuperName="EleLogicalConnectorCompInst" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATElecLogicalInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="EleLogicalShellConnectorInst"/>
+    <Property Name="IconName" Value="I_EleLogicalShellConnector"/>
+  </RelationClass>
+  <!-- Electrical Logical Splice Instance -->
+  <RelationClass Name="EleLogicalSpliceInst" Uuid="ab3758e6-70c7-402f-9688-770571848088" CustomerExposition="Programmer" SuperName="EleLogicalConnectorCompInst" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATElecLogicalInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="EleLogicalSpliceInst"/>
+    <Property Name="IconName" Value="I_EleLogicalSplice"/>
+  </RelationClass>
+  <!-- Electrical Logical TerminalBoard Instance -->
+  <RelationClass Name="EleLogicalTerminalBoardInst" Uuid="d6a91175-b2b1-41ae-8203-975d50058439" CustomerExposition="Programmer" SuperName="EleLogicalConnectorCompInst" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATElecLogicalInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="EleLogicalTerminalBoardInst"/>
+    <Property Name="IconName" Value="I_EleLogicalTerminalBoard"/>
+  </RelationClass>
+  <!-- Electrical Logical Busbar Instance -->
+  <RelationClass Name="EleLogicalBusbarInst" Uuid="70f0dbae-6eb1-4c6e-b02e-78e0e05973fa" CustomerExposition="Programmer" SuperName="EleLogicalInstanceEntity" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATElecLogicalInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="EleLogicalBusbarInst"/>
+    <Property Name="IconName" Value="I_EleLogicalBusbar"/>
+  </RelationClass>
+  <!-- Electrical Logical Harness Instance -->
+  <RelationClass Name="EleLogicalHarnessInst" Uuid="f31d8fb0-27aa-4ecd-b7a2-7198e659ae18" CustomerExposition="Programmer" SuperName="EleLogicalInstanceEntity" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATElecLogicalInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="EleLogicalHarnessInst"/>
+    <Property Name="IconName" Value="I_EleLogicalHarness"/>
+  </RelationClass>
+  <!-- Electrical Logical Component Instance -->
+  <RelationClass Name="EleLogicalComponentInst" Uuid="7dfbcdf7-447c-4d48-927e-d8fbb95f8b65" CustomerExposition="Programmer" SuperName="EleLogicalInstanceEntity" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATElecLogicalInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="EleLogicalComponentInst"/>
+    <Property Name="IconName" Value="I_EleLogicalComponent"/>
+  </RelationClass>
+  <!-- Electrical Logical Contact Instance -->
+  <RelationClass Name="EleLogicalContactInst" Uuid="ed9d62a7-0bfd-468d-b471-e7354dda9759" CustomerExposition="Programmer" SuperName="EleLogicalComponentInst" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATElecLogicalInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="EleLogicalContactInst"/>
+    <Property Name="IconName" Value="I_EleLogicalContact"/>
+    <Simple Name="V_Elec_Order" Uuid="d63db166-e4c9-4161-96c0-4c6eb7359f61" Type="Integer" MultiValuated="No" Protection="External" CAAExposition="L0">
+	 <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+</RelationClass>
+  <!-- Electrical Logical Operating Device Instance -->
+  <RelationClass Name="EleLogicalOperatingDeviceInst" Uuid="42730bf9-1e34-48e2-8d50-b067860825c6" CustomerExposition="Programmer" SuperName="EleLogicalComponentInst" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATElecLogicalInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="EleLogicalOperatingDeviceInst"/>
+    <Property Name="IconName" Value="I_EleLogicalOperatingDevice"/>
+  </RelationClass>
+  <!-- Electrical Logical Routable Instance -->
+  <RelationClass Name="EleLogicalRoutableInst" Uuid="26ebf322-a976-4d6f-8cfe-f0f565679a76" CustomerExposition="Programmer" Abstract="Yes" SuperName="EleLogicalInstanceEntity" Discipline="Yes">
+    <Simple Name="V_Elec_Segregation" Uuid="79c0f71a-0236-49b9-81ab-3b1167c598e0" Type="String"	MaxLength="100"	MultiValuated="No" Protection="Free" CAAExposition="L0" >
+      <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_UserLength" Uuid="caa1cd21-fb71-4893-914d-19298973e06f" Type="Double" Magnitude="LENGTH" MultiValuated="No" Protection="Free" CAAExposition="L0" >
+      <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>   
+  </RelationClass>
+  <!-- Electrical Logical Net Instance -->
+  <RelationClass Name="EleLogicalNetInst" Uuid="fe3ab421-e113-4a68-9dba-c5be3c39e1b3" CustomerExposition="Programmer" SuperName="EleLogicalRoutableInst" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATElecLogicalInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="EleLogicalNetInst"/>
+    <Property Name="IconName" Value="I_EleLogicalNet"/>
+  </RelationClass>
+  <!-- Electrical Logical Net Group Instance -->
+  <RelationClass Name="EleLogicalNetGroupInst" Uuid="f824bae8-b9d4-4d0e-9b79-9a34d4276f95" CustomerExposition="Programmer" SuperName="EleLogicalRoutableInst" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATElecLogicalInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="EleLogicalNetGroupInst"/>
+    <Property Name="IconName" Value="I_EleLogicalNetGroup"/>
+  </RelationClass>
+  <!-- Electrical Logical Conductor Instance -->
+  <RelationClass Name="EleLogicalConductorInst" Uuid="8e3ca718-d822-4bb3-af64-77c118d844c0" CustomerExposition="Programmer" Abstract="Yes" SuperName="EleLogicalRoutableInst" Discipline="Yes">
+  </RelationClass>
+  <!-- Electrical Logical Wire Instance -->
+  <RelationClass Name="EleLogicalWireInst" Uuid="3e48c869-84a4-4d67-9b90-46e0b72966bb" CustomerExposition="Programmer" SuperName="EleLogicalConductorInst" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATElecLogicalInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="EleLogicalWireInst"/>
+    <Property Name="IconName" Value="I_EleLogicalWire"/>
+  </RelationClass>
+  <!-- Electrical Logical Wire Shield Instance -->
+  <RelationClass Name="EleLogicalWireShieldInst" Uuid="ea59ed9b-5573-4bb8-83aa-487cacc3877f" CustomerExposition="Programmer" SuperName="EleLogicalConductorInst" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATElecLogicalInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="EleLogicalWireShieldInst"/>
+    <Property Name="IconName" Value="I_EleLogicalWireShield"/>
+  </RelationClass>
+  <!-- Electrical Logical Cable Instance -->
+  <RelationClass Name="EleLogicalCableInst" Uuid="91ccbceb-bdb1-4379-be3d-c2c359ec8a1e" CustomerExposition="Programmer" SuperName="EleLogicalConductorInst" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATElecLogicalInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="EleLogicalCableInst"/>
+    <Property Name="IconName" Value="I_EleLogicalCable"/>
+  </RelationClass>
+  <!-- Electrical Logical Cable Shielded Instance -->
+  <RelationClass Name="EleLogicalCableShieldedInst" Uuid="503d3c51-fdd2-43f3-878f-5634265e5f2a" CustomerExposition="Programmer" SuperName="EleLogicalCableInst" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATElecLogicalInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="EleLogicalCableShieldedInst"/>
+    <Property Name="IconName" Value="I_EleLogicalCableShielded"/>
+  </RelationClass>
+  <!-- Electrical Logical Cable Twisted Instance -->
+  <RelationClass Name="EleLogicalCableTwistedInst" Uuid="800ffb1e-f94e-409b-8ab5-430a2337b611" CustomerExposition="Programmer" SuperName="EleLogicalCableInst" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATElecLogicalInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="EleLogicalCableTwistedInst"/>
+    <Property Name="IconName" Value="I_EleLogicalCableTwisted"/>
+  </RelationClass>
+  <!-- Electrical Logical Cable Twisted and Shielded Instance -->
+  <RelationClass Name="EleLogicalCableTwistedShieldedInst" Uuid="33fef40d-af65-4b4e-83d4-194697fa5230" CustomerExposition="Programmer" SuperName="EleLogicalCableInst" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATElecLogicalInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="EleLogicalCableTwistedShieldedInst"/>
+    <Property Name="IconName" Value="I_EleLogicalCableTwistedShielded"/>
+  </RelationClass>
+  <!-- Electrical Logical Over Shield Instance -->
+  <RelationClass Name="EleLogicalOverShieldInst" Uuid="19d482e1-2af2-4eef-b0a4-f0050ea38f3b" CustomerExposition="Programmer" SuperName="EleLogicalConductorInst" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATElecLogicalInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="EleLogicalOverShieldInst"/>
+    <Property Name="IconName" Value="I_EleLogicalOverShield"/>
+  </RelationClass>
+  <!-- Electrical Logical Power Cable Instance -->
+  <RelationClass Name="EleLogicalPowerCableInst" Uuid="bdf291d8-ab82-41cc-a088-4f2cc7c1514c" CustomerExposition="Programmer" SuperName="EleLogicalConductorInst" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATElecLogicalInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="EleLogicalPowerCableInst"/>
+    <Property Name="IconName" Value="I_EleLogicalPowerCable"/>
+  </RelationClass>
+  <!-- Electrical Logical Coax Cable Instance -->
+  <RelationClass Name="EleLogicalCoaxCableInst" Uuid="70d36eed-5b8e-4d87-b701-44bf024da69c" CustomerExposition="Programmer" SuperName="EleLogicalConductorInst" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATElecLogicalInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="EleLogicalCoaxCableInst"/>
+    <Property Name="IconName" Value="I_EleLogicalCoaxCable"/>
+  </RelationClass>
+  <!-- Electrical Logical Cable Group Instance -->
+  <RelationClass Name="EleLogicalCableGroupInst" Uuid="bc80a570-8b7e-429a-b5d1-ec471cfa79d1" CustomerExposition="Programmer" SuperName="EleLogicalConductorInst" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATElecLogicalInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="EleLogicalCableGroupInst"/>
+    <Property Name="IconName" Value="I_ElecLogicalCableGroup"/>
+  </RelationClass>
+  <!-- Electrical Logical Conductor Instance Extension -->
+  <Extension Name="PLMElecLogicalConductorInstance" Uuid="4253d9da-8c09-4c7a-ba3f-7a00102f71d9" ScopeNames="RFLVPMLogicalInstance" CustomerExposition="None" CAAExposition="L0">
+    <CAAComment>
+      <ShortRole>PLM Electrical Logical Conductor Extension</ShortRole>
+      <Role>PLM Electrical Logical Conductor Extension</Role>
+    </CAAComment>
+    <Simple Name="V_Elec_SubType" Uuid="72d9bc90-9a09-4907-9308-c82609ae8c9d" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0">
+      <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_Order" Uuid="4926ca5e-e794-4bed-ab97-a4ef4c879a42" Type="Integer" MultiValuated="No" Protection="External" CAAExposition="L0"/>
+    <Simple Name="V_Elec_Pole" Uuid="47f3ea19-7bce-4855-9069-49946cff08c9" Type="Integer" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+  </Extension>
+  <!-- Electrical Logical Port Entity -->
+  <Class Name="EleLogicalPortEntity" Uuid="f3dff227-932f-417a-ae07-b5100c2ba565" Abstract="Yes" CustomerExposition="Programmer" SuperName="RFLVPMLogicalPort" Discipline="Yes">
+    <CAAComment>
+      <ShortRole>PLM Electrical Logical Port Entity</ShortRole>
+      <Role>PLM Electrical Logical Port Entity</Role>
+    </CAAComment>
+  </Class>
+  <!-- Electrical Logical Pin -->
+  <Class Name="EleLogicalPin" Uuid="000cdfa6-13fe-4b24-96e3-50709c9f3b28" CustomerExposition="Programmer" SuperName="EleLogicalPortEntity" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes">
+    <CAAComment>
+      <ShortRole>PLM Electrical Logical Pin</ShortRole>
+      <Role>PLM Electrical Logical Pin</Role>
+    </CAAComment>
+    <Property Name="MergedExtensionType" Value="PLMElecLogicalPin"/>
+    <Property Name="TypeForDisciplineValuation" Value="EleLogicalPin"/>
+    <Property Name="GroupingType"               Value="EleLogicalPin"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATElecLogicalInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="RFLVPMLogicalPort"/>
+    <Property Name="IconName" Value="I_EleLogicalPin"/>
+    <Property Name="Newable" Value="Insert"/>
+    <Simple Name="V_Elec_SubType" Uuid="3198d1fd-c4bf-47dd-98f7-df7b1397132c" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0">
+      <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_Order" Uuid="4ae216ca-6e5b-4724-8263-17165bd6c45c" Type="Integer" MultiValuated="No" Protection="External" CAAExposition="L0"/>
+    <Simple Name="V_Elec_ContactGauge" Uuid="37bbca9c-fba6-4299-af09-f51bfcfc3d3e" Type="String" MaxLength="40" MultiValuated="No" Protection="Free" CAAExposition="L0">
+      <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_SepCode" Uuid="6f9708d7-c923-4d8f-9844-8a0392297c25" Type="String" MaxLength="40" MultiValuated="No" Protection="Free" CAAExposition="L0">
+		 <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_NominalSection" Uuid="d117a698-e3fd-41af-8579-e936811648f1" Type="Double" Magnitude="AREA" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	 <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_MinSection" Uuid="a49dfa8b-e83a-4dae-b078-850bbdcbb66e" Type="Double" Magnitude="AREA" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	 <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_MaxSection" Uuid="776ef837-621f-4cef-ac5b-abfa34795858" Type="Double" Magnitude="AREA" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	 <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_NominalCurrent" Uuid="b2a1117f-48bf-4ec2-b107-311a89233164" Type="Double" Magnitude="COURANT" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	 <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+	</Simple> 
+	<Simple Name="V_Elec_Signal" Uuid="5c31c4d5-58dd-4579-ad3a-776a29b12b1f" Type="String" MaxLength="40" MultiValuated="No" Protection="Free" CAAExposition="L0">
+		 <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Volatile Name="V_Elec_GroupOwner" Uuid="d2f35c14-9bc6-4d4f-879a-93585e6e0d51" Accessor="CATElecLogicalCkeAttributes" TypeName="RFLVPMLogicalPort" AccessMode="ReadOnly"/>
+  </Class>
+  <!-- Electrical Logical Pin Extension -->
+  <Extension Name="PLMElecLogicalPin" Uuid="a8819b14-f25c-4528-aafb-0d801d88f73e" ScopeNames="RFLVPMLogicalPort" CustomerExposition="Programmer" CAAExposition="L0">
+    <CAAComment>
+      <ShortRole>PLM Electrical Logical Pin Extension</ShortRole>
+      <Role>PLM Electrical Logical Pin Extension</Role>
+    </CAAComment>
+    <Simple Name="V_Elec_SubType" Uuid="009a5717-9d10-4720-ae13-89852983f50f" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0">
+      <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_Order" Uuid="bbaed3aa-5e63-4384-baa3-080594b62fa7" Type="Integer" MultiValuated="No" Protection="External" CAAExposition="L0"/>
+    <Simple Name="V_Elec_ContactGauge" Uuid="77d6a4dd-bd06-4a96-a21e-3d5a02a765e4" Type="String" MaxLength="40" MultiValuated="No" Protection="Free" CAAExposition="L0">
+      <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_SepCode" Uuid="98ea5d36-0ca1-4f2f-8fb5-737d5484ac67" Type="String" MaxLength="40" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_NominalSection" Uuid="bb8cc491-49d9-4935-95a9-85aef7490039" Type="Double" Magnitude="AREA" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	<Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_MinSection" Uuid="e62b9254-cbc0-4186-b40c-0b96ce77d97c" Type="Double" Magnitude="AREA" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	<Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_MaxSection" Uuid="d5c499d1-3a2f-4d61-a1b4-274cb2dd0c57" Type="Double" Magnitude="AREA" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	<Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_NominalCurrent" Uuid="503fa394-b6b3-42b2-9d56-c89a59200d14" Type="Double" Magnitude="COURANT" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Volatile Name="V_Elec_GroupOwner" Uuid="91735a66-38ac-4136-9e62-1a0b3479b233" Accessor="CATElecLogicalCkeAttributes" TypeName="RFLVPMLogicalPort" AccessMode="ReadOnly"/>
+  </Extension>
+  <!-- Electrical Logical Ground Pin -->
+  <Class Name="EleLogicalGroundPin" Uuid="0c48417d-4ffa-4b9f-be8d-2cb5ff64b37a" CustomerExposition="Programmer" SuperName="EleLogicalPortEntity" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes">
+    <CAAComment>
+      <ShortRole>PLM Electrical Logical Ground Pin</ShortRole>
+      <Role>PLM Electrical Logical Ground Pin</Role>
+    </CAAComment>
+    <Property Name="MergedExtensionType" Value="PLMElecLogicalGroundPin"/>
+    <Property Name="TypeForDisciplineValuation" Value="EleLogicalGroundPin"/>
+    <Property Name="GroupingType"               Value="EleLogicalGroundPin"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATElecLogicalInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="RFLVPMLogicalPort"/>
+    <Property Name="IconName" Value="I_EleLogicalGroundPin"/>
+    <Property Name="Newable" Value="Insert"/>
+    <Simple Name="V_Elec_SubType" Uuid="fdb26c11-9ddb-4c6e-a64e-00d9e856f51d" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0">
+      <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_Order" Uuid="49213a0a-f178-4280-ba7f-fb75194976b2" Type="Integer" MultiValuated="No" Protection="External" CAAExposition="L0"/>
+    <Simple Name="V_Elec_NominalSection" Uuid="e260e50c-bafb-45a0-807d-1c4f9a138fd1" Type="Double" Magnitude="AREA" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	<Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_MinSection" Uuid="f311b271-ca98-4e2b-9b2a-40950eaf2d47" Type="Double" Magnitude="AREA" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	<Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_MaxSection" Uuid="7cd1f942-cfc1-4804-85a0-5566339bcaf4" Type="Double" Magnitude="AREA" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	<Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+  </Class>
+  <!-- Electrical Logical Ground Pin Extension -->
+  <Extension Name="PLMElecLogicalGroundPin" Uuid="9ed5f1ab-7925-4717-888e-eb1314518e58" ScopeNames="RFLVPMLogicalPort" CustomerExposition="Programmer" CAAExposition="L0">
+    <CAAComment>
+      <ShortRole>PLM Electrical Logical Ground Pin Extension</ShortRole>
+      <Role>PLM Electrical Logical Ground Pin Extension</Role>
+    </CAAComment>
+    <Simple Name="V_Elec_SubType" Uuid="396c062e-a08e-4751-9516-71d8f2c5ae98" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0">
+      <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_Order" Uuid="74c169be-88a0-449b-af17-eaf02f621b3c" Type="Integer" MultiValuated="No" Protection="External" CAAExposition="L0"/>
+    <Simple Name="V_Elec_NominalSection" Uuid="c42c7ae7-bf4c-48ad-98e4-5347b3aedd95" Type="Double" Magnitude="AREA" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	<Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_MinSection" Uuid="dc55e890-c744-459f-82ef-802d29fcad10" Type="Double" Magnitude="AREA" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	<Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_MaxSection" Uuid="39d50b5b-f389-4f33-901e-d1868bf58a99" Type="Double" Magnitude="AREA" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	<Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+  </Extension>
+  <!-- Electrical Logical Connector Port -->
+  <Class Name="EleLogicalConnectorPort" Uuid="3228a143-8166-433e-a7e9-111cb1fef16c" CustomerExposition="Programmer" SuperName="EleLogicalPortEntity" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes">
+    <CAAComment>
+      <ShortRole>PLM Electrical Logical Connector Port</ShortRole>
+      <Role>PLM Electrical Logical Connector Port</Role>
+    </CAAComment>
+    <Property Name="MergedExtensionType" Value="PLMElecLogicalConnectorPort"/>
+    <Property Name="TypeForDisciplineValuation" Value="EleLogicalConnectorPort"/>
+    <Property Name="GroupingType"               Value="EleLogicalConnectorPort"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATElecLogicalInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="RFLVPMLogicalPort"/>
+    <Property Name="IconName" Value="I_EleLogicalConnectorPort"/>
+    <Simple Name="V_Elec_SubType" Uuid="dce5157b-a6b1-4171-b0ac-61c6f0683d87" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0">
+      <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_Type" Uuid="c98c09fb-6914-4eb5-b327-83bd7aee7bb0" Type="Integer" Protection="Internal" DefaultValue="1">
+      <Property Name="RangeAsEnumName" Value="V_Elec_Type_ConnectorPort"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="SingleConnector;ConnectorShell;Terminal"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+      </Range>
+    </Simple>
+    <Simple Name="V_Elec_PredefinedPartNumber" Uuid="9629176e-efe4-4394-b313-f2449e2adfb5" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	<Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_Order" Uuid="dae53697-8e4f-4164-9291-7f7e1513c4ce" Type="Integer" MultiValuated="No" Protection="External" CAAExposition="L0"/>
+    <Volatile Name="V_Elec_NbConnectorPorts" Uuid="e7753252-66aa-4620-b73c-ecbec44ab11f" Accessor="CATElecLogicalCkeAttributes" TypeName="Integer" AccessMode="ReadOnly"/>
+    <Volatile Name="V_Elec_NbPins" Uuid="175abb0f-d956-4ce4-a2cb-d2a93cda4f7c" Accessor="CATElecLogicalCkeAttributes" TypeName="Integer" AccessMode="ReadOnly"/>
+    <Volatile Name="V_Elec_GroupedPorts" Uuid="a8662f09-e568-46f1-8038-882f28e303c4" Accessor="CATElecLogicalCkeAttributes" TypeName="List" AccessMode="ReadWrite"/>
+    <Volatile Name="V_Elec_GroupOwner" Uuid="91f1f27a-255b-4130-879a-9741b93de3a7" Accessor="CATElecLogicalCkeAttributes" TypeName="RFLVPMLogicalPort" AccessMode="ReadOnly"/>
+  </Class>
+  <!-- Electrical Logical Connector Port Extension -->
+  <Extension Name="PLMElecLogicalConnectorPort" Uuid="6a383a7e-762f-41b7-9e56-6088b402e05c" ScopeNames="RFLVPMLogicalPort" CustomerExposition="Programmer" CAAExposition="L0">
+    <CAAComment>
+      <ShortRole>PLM Electrical Logical Connector Port Extension</ShortRole>
+      <Role>PLM Electrical LogicalConnector Port Extension</Role>
+    </CAAComment>
+    <Simple Name="V_Elec_SubType" Uuid="1b8d257c-10a1-40af-a0aa-be4b0140a1d2" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0">
+      <Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_Type" Uuid="c230aba7-0419-4a5c-9f50-b8e858e31752" Type="Integer" Protection="External" CAAExposition="L0" DefaultValue="1">
+      <Property Name="RangeAsEnumName" Value="V_Elec_Type_ConnectorPort"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="SingleConnector;ConnectorShell;Terminal"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+      </Range>
+    </Simple>
+    <Simple Name="V_Elec_PredefinedPartNumber" Uuid="512b7d9c-cb50-4a3c-9779-aa8e29d058c4" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0">
+	<Property Name="Controller" Value="CATElecLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_Elec_Order" Uuid="aa3cb766-96b4-407a-867e-410fd26fe3cb" Type="Integer" MultiValuated="No" Protection="External" CAAExposition="L0"/>
+    <Simple Name="V_Elec_Style" Uuid="e12879e7-1c88-48be-bdcd-9ef7de1c2fca" Type="Integer" Protection="Free" CAAExposition="L0" DefaultValue="1">
+      <Property Name="RangeAsEnumName" Value="V_Elec_ConnectorPortStyle"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="None;Plug;Receptacle"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+      </Range>
+      <CAAComment>
+        <ShortRole>Connector Port Style</ShortRole>
+        <Role>Connector Port Style</Role>
+      </CAAComment>
+    </Simple>
+    <Volatile Name="V_Elec_NbConnectorPorts" Uuid="c412247d-9d57-4ca7-b90f-f566e40df294" Accessor="CATElecLogicalCkeAttributes" TypeName="Integer" AccessMode="ReadOnly"/>
+    <Volatile Name="V_Elec_NbPins" Uuid="a68c78f6-32ba-47e5-88e6-c232ee63fe96" Accessor="CATElecLogicalCkeAttributes" TypeName="Integer" AccessMode="ReadOnly"/>
+    <Volatile Name="V_Elec_GroupedPorts" Uuid="2c6045fd-14e5-42a1-992b-6c535bc041b4" Accessor="CATElecLogicalCkeAttributes" TypeName="List" AccessMode="ReadWrite"/>
+    <Volatile Name="V_Elec_GroupOwner" Uuid="11cfe88b-bd52-4707-8d0a-86768bae6bb1" Accessor="CATElecLogicalCkeAttributes" TypeName="RFLVPMLogicalPort" AccessMode="ReadOnly"/>
+  </Extension>
+  <!-- Electrical Logical Single Connector Port -->
+  <Class Name="EleLogicalSingleConnectorPort" Uuid="7287e7f1-145b-41eb-90a7-81d8e26fdd98" CustomerExposition="Programmer" SuperName="EleLogicalConnectorPort" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATElecLogicalInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="RFLVPMLogicalPort"/>
+    <Property Name="IconName" Value="I_EleLogicalSingleConnectorPort"/>
+    <Property Name="Newable" Value="Insert"/>
+    <Simple Name="V_Elec_Style" Uuid="223e91d9-1d3c-4c0b-9b1d-96a1fb274c72" Type="Integer" Protection="Free" CAAExposition="L0" DefaultValue="1">
+      <Property Name="RangeAsEnumName" Value="V_Elec_ConnectorPortStyle"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="None;Plug;Receptacle"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+      </Range>
+      <CAAComment>
+        <ShortRole>Connector Port Style</ShortRole>
+        <Role>Connector Port Style</Role>
+      </CAAComment>
+    </Simple>
+  </Class>
+  <!-- Electrical Logical Shell Connector Port -->
+  <Class Name="EleLogicalShellConnectorPort" Uuid="7d4e718b-1586-4387-91c3-f90301702ea4" CustomerExposition="Programmer" SuperName="EleLogicalConnectorPort" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATElecLogicalInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="RFLVPMLogicalPort"/>
+    <Property Name="IconName" Value="I_EleLogicalShellConnectorPort"/>
+    <Property Name="Newable" Value="Insert"/>
+  </Class>
+  <!-- Electrical Logical Terminal -->
+  <Class Name="EleLogicalTerminal" Uuid="c9c707f4-6722-4ffd-8e36-887b6a477c01" CustomerExposition="Programmer" SuperName="EleLogicalConnectorPort" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATElecLogicalInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="RFLVPMLogicalPort"/>
+    <Property Name="IconName" Value="I_EleLogicalTerminal"/>
+    <Property Name="Newable" Value="Insert"/>
+  </Class>
+  <!-- Electrical Logical Ens Port One -->
+  <Class Name="EleLogicalEndPort1" Uuid="45ab2128-4703-4c7e-a2cb-7f523ba3fca0" CustomerExposition="Programmer" SuperName="EleLogicalPortEntity" Discipline="Yes">
+    <Property Name="TypeForDisciplineValuation" Value="EleLogicalEndPort1"/>
+    <Property Name="IconName" Value="I_EleLogicalEndPort1"/>
+  </Class>
+  <!-- Electrical Logical Ens Port Two  -->
+  <Class Name="EleLogicalEndPort2" Uuid="afa6c277-73c1-4698-9081-57836b323184" CustomerExposition="Programmer" SuperName="EleLogicalPortEntity" Discipline="Yes">
+    <Property Name="TypeForDisciplineValuation" Value="EleLogicalEndPort2"/>
+    <Property Name="IconName" Value="I_EleLogicalEndPort2"/>
+  </Class>
+  <!-- Electrical Logical Component Port  -->
+  <Class Name="EleLogicalComponentPort" Uuid="e3f40369-56d9-4713-90eb-e8b45c873743" CustomerExposition="Programmer" SuperName="EleLogicalPortEntity" Discipline="Yes" OwnerTypes="EleLogicalComponent">
+    <Property Name="TypeForDisciplineValuation" Value="EleLogicalComponentPort"/>
+    <Property Name="GroupingType"               Value="EleLogicalComponentPort"/>
+	 <Property Name="KweNew_InstanciationMethod" Value="CATElecLogicalInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="RFLVPMLogicalPort"/>
+    <Property Name="IconName" Value="I_EleLogicalComponentPort"/>
+	<Property Name="Newable" Value="Insert"/>
+    <!-- Owner of EleLogicalComponentPort only EleLogicalComponent (contact / operating device)-->
+    <!-- OwnerTypes="EleLogicalComponent"  Integrate this line if you want to declare the aggregation constraint -->
+  </Class>
+  <!-- 
+   ====================
+    Group (connection)
+   ====================
+-->
+  <Class Name="PLMEleGroup" Uuid="b2252f86-e893-4666-b082-3721f7679809" SuperName="LPAbstractConnection" Abstract="No" CustomerExposition="None"  OwnerTypes="EleLogicalComponent">
+    <Simple Name="V_LogicalSubType" Uuid="c8d57448-ecb9-4a65-b3df-7a1bf1ee48ea" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+  
+  
+    <Path Name="V_Elec_From" Uuid="6a0b70cc-c34a-4131-bf12-d0c8bb812d96"  RoleName="PLM_ElectricalLogical_From" Semantics="Reference7" MultiValuated="No" Type="SemanticRelation" AdaptativeToMinor="No"		SynchroSensitivity="Last"		RerouteOnEffectivityChange="No"  Orientation="Out"/>
+    <Path Name="V_Elec_To" Uuid="26f1578c-c617-48ca-8536-fab7e83daa3f"  RoleName="PLM_ElectricalLogical_To" Semantics="Reference" MultiValuated="Yes" Lower="0" Upper="-1" Type="SemanticRelation" AdaptativeToMinor="No"		SynchroSensitivity="None"		RerouteOnEffectivityChange="No"/>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+  <!-- 
+   ==============================
+    EleLogicalConductorGroup (connection)
+   ==============================
+-->
+  <Class Name="EleLogicalConductorGroup" Uuid="eba460e5-aa71-48e8-8e7c-6d8c3ad14006" CustomerExposition="None" SuperName="PLMEleGroup" Discipline="Yes">
+  </Class>
+  <!-- 
+   ==============================
+    EleLogicalConductorGroup (connection)
+   ==============================
+-->
+  <Class Name="EleLogicalConnectorGroup" Uuid="063ff18c-34cc-4ef2-989e-4c1e0f8ad8dd" CustomerExposition="None" SuperName="PLMEleGroup" Discipline="Yes">
+  </Class>
+  <!-- 
+   ==============================
+    Light conductor (connection)
+   ==============================
+-->
+  <Class Name="ElecLogicalLightNet" Uuid="7c484bc0-d61e-42af-a093-c851961b53b4" CustomerExposition="None" SuperName="RFLVPMLogicalConnection" Discipline="Yes">
+    <Simple Name="V_Elec_SubType" Uuid="ba58f803-0ab1-4e0b-83df-52aaeeb85a28" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_Gauge" Uuid="1f1ae53a-d7c8-4a20-8a7c-2cfd0fe48e24" Type="String" MaxLength="40" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_ExternalDiameter" Uuid="10d31299-ae86-4eb4-ac32-3187477d65f1" Type="Double" Magnitude="LENGTH" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_BendRadius" Uuid="88d8b986-e2be-4435-a7d5-7300e6183c65" Type="Double" Magnitude="LENGTH" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_Section" Uuid="50450104-39b6-47cc-9a7e-fc97ef454936" Type="Double" Magnitude="AREA" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+  </Class>
+  <Extension Name="PLMElecLogicalLightConductor" Uuid="399ba39d-35b3-42bc-9b05-2d49094193b9" ScopeNames="RFLVPMLogicalConnection" CustomerExposition="None" CAAExposition="L0">
+    <Simple Name="V_Elec_SubType" Uuid="348f143f-5d53-4bcc-8fbe-dcc06fb8a40e" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_Gauge" Uuid="3861b96c-e52a-4151-b238-818cd9a106c5" Type="String" MaxLength="40" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_ExternalDiameter" Uuid="82ab50b9-307f-422d-ae67-932229f1926b" Type="Double" Magnitude="LENGTH" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_BendRadius" Uuid="7835a476-cbf3-4587-9f61-e8e8ae99d2d9" Type="Double" Magnitude="LENGTH" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_Section" Uuid="201dc877-3a08-45f8-83e0-adbecc305529" Type="Double" Magnitude="AREA" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+  </Extension>
+  <!--
+   ========================================================== 
+   FUNCTIONS Declarations : here are declared PLMQL Functions
+   ==========================================================
+ -->
+  <Function Name="PLMElectricalLogical_AddEleCnx">
+    <Implementation Name="PLMElectricalLogical_AddEleCnx" FileLocation="PLMElectricalLogical_AddEleCnx.plmql" Language="PLMQL"/>
+    <Signature href="ELECnxSignature"/>
+  </Function>
+  <Signature id="ELECnxSignature">
+    <Parameter Name="InputIds" Lower="0" Upper="-1" Direction="in" MultiValuated="Yes" DataType="PLMId"/>
+    <Parameter Name="OutputIds" Lower="0" Upper="-1" Direction="out" MultiValuated="No" DataType="PLMRouteSet"/>
+  </Signature>
+
+</Package>

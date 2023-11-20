@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2004, All rights reserved -->
+
+<!-- History
+    V6R2010 Added Procedures & Functions for Export
+    V6R2011 Added Disciplines to distinct ECA and DesignWorkspace
+-->
+
+<Package xmlns="PLMDictionaryTop" ModelerType="Top" Name="PLMConfigNamedEffectivity" 
+    Uuid="BA357FBB-F1B8-0000-02800311EC000000" 
+    UseNames="PLMCORE PLMConfigExpression" UseScopes="PLMConfigVariabilitySpace" CustomerExposition="Programmer"
+    BelongsToModeler="Configuration"
+   >
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+		<ShortRole>The Named Effectivity Configuration Component Metadata.</ShortRole>
+		<Role>This package includes all the entities of Named Effectivity Configuration Model.</Role>
+    </CAAComment>
+
+    <!-- **************************** -->
+    <!-- CLASS PLMCfgNamedEffectivity -->
+    <!-- **************************** -->
+	
+    <Class Name="PLMCfgNamedEffectivity" 
+	    Uuid="BA357FBB-F1B9-0000-02800311EC000000" 
+	    SuperName="PLMCfgExpression" 
+	    Abstract="No" 
+		CustomerExposition="Programmer"
+        >
+	    
+        <CAAComment>
+            <ShortRole>The named effectivity.class</ShortRole>
+            <Role>The named effectivity.class</Role>
+        </CAAComment>
+		
+        <!-- Overloaded Attributes -->
+		
+        <!-- New Attributes -->
+
+		<Simple Name="V_Published" 
+		    Uuid="BA357FBB-F1BB-0000-02800311EC000000" 
+		    Type="Boolean" 
+		    MultiValuated="No" 
+		    PLMImpacting="Yes"
+		    Protection="External"
+		    CAAExposition="L0">
+		</Simple>
+		    
+		<Simple Name="V_CfgKey" 
+		    Uuid="BA357FBB-F1BC-0000-02800311EC000000" 
+		    Type="Binary" 
+		    MaxLength="16" 
+		    MultiValuated="No"  
+			Protection="Internal">
+		</Simple>
+
+		
+		<Path Name="V_VariabilitySpace" 
+		    Uuid="25B18766-71A0-47EC-9D00C94B42456DAF" 
+		    Lower="1" 
+		    Upper="1" 
+		    MultiValuated="Yes" 
+		    RoleName="PLMCfgVariabilitySpace" 		
+        Type="SemanticRelation" AdaptativeToMinor="No"
+		    SynchroSensitivity="None"
+		    RerouteOnEffectivityChange="No"
+		    Semantics="Reference"/>
+		    
+        <!-- Constraints 
+
+		<ContextKey
+		    Name="contextual_id"
+		    Uuid="6767978D-4715-4a91-99DE3D05B54B550D"
+		    SimpleName="PLM_ExternalID"
+		    /> -->
+
+			
+        <!-- *********************** -->
+        <!-- PROCEDURES Declaration  -->      
+        <!-- *********************** -->
+
+        <Method ImplementationType="None">
+            <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+        </Method>
+		
+    </Class>
+
+    <!-- ********************** -->
+    <!-- FUNCTIONS Declarations -->
+    <!-- ********************** -->
+
+    <Function Name="PLMConfigNamedEffectivity_AddNamedEffVariabilitySpace">
+        <Implementation Name="PLMConfigNamedEffectivity_AddNamedEffVariabilitySpace" FileLocation="PLMConfigNamedEffectivity_AddNamedEffVariabilitySpace.plmql" Language="PLMQL"/>
+        <Signature href="PLMConfigNamedEffectivity_FuntionSignatureExport"/>
+    </Function>
+	
+    <Signature id="PLMConfigNamedEffectivity_FuntionSignatureExport">
+        <Parameter Name="InputIds" Lower="0" Upper="-1" Direction="in" MultiValuated="Yes" DataType="PLMId"/>
+        <Parameter Name="OutputIds" Lower="0" Upper="-1" Direction="out" MultiValuated="No" DataType="PLMRouteSet"/>
+    </Signature>
+
+    <!-- ************************ -->
+    <!-- DISCIPLINES Declarations -->
+    <!-- ************************ -->
+
+    <!-- NamedEffectivity for ECA (Action) -->		
+    <Discipline Name="ECA"
+        Uuid="EE278ADA-CBA2-4740-B80BA0C97187470D"
+        CreationMode="Yes"
+		CustomerExposition="None"
+        TypeNames="PLMCfgNamedEffectivity">
+
+        <!-- *********************** -->
+        <!-- PROCEDURES Declaration  -->      
+        <!-- *********************** -->
+
+        <Method ImplementationType="None">
+            <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+        </Method>
+    </Discipline>
+
+    <!-- NamedEffectivity for DesignWorkspace -->		
+    <Discipline Name="WSP"
+        Uuid="F83DD93C-323A-49b7-9E15D5B996785323"
+        CreationMode="Yes"
+		CustomerExposition="None"
+        TypeNames="PLMCfgNamedEffectivity">
+
+        <!-- *********************** -->
+        <!-- PROCEDURES Declaration  -->      
+        <!-- *********************** -->
+
+        <Method ImplementationType="None">
+            <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+        </Method>
+    </Discipline>
+
+</Package>

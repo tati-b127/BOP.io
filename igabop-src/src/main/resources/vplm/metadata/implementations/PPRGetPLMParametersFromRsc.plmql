@@ -1,0 +1,21 @@
+NAVIGATE T0.physicalid, 
+T0.physicalid, 
+T0.logicalid, 
+T0.majorid, 
+T0.type, 
+T0.PLM_ExternalID, 
+T0.V_discipline,
+T1.physicalid, 
+T1.logicalid, 
+T1.majorid, 
+T1.type, 
+T1.name, 
+T2.physicalid, 
+T2.logicalid, 
+T2.majorid, 
+T2.type, 
+T2.name 
+FROM PRODUCTCFG/VPMReference T0, RelationClass/ParameterUsage T1, Class/PlmParameter T2 FROM_ROOTS  [?1?] 
+ON (RELATION (FROM=PRODUCTCFG/VPMReference TO=RelationClass/ParameterUsage THROUGH=POINTEDBY) 
+WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY))
+THEN (RELATION (FROM=RelationClass/ParameterUsage TO=Class/PlmParameter THROUGH=POINTSTO) WITH QUALITY_FILTER (CATEGORY=ISINSTANCEOF)) ITER=1;

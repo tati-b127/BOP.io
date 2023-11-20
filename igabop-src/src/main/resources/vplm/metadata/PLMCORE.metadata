@@ -1,0 +1,616 @@
+<?xml version="1.0" ?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2004, All rights reserved -->
+<!-- [chd:27.01.2015] migration Enum -> Range -->
+<!-- [chd:05.12.2014] je vire les tags obsoletes DefaultValueRef  -->
+<!-- [frh:06.11.2014] passage de v_discipline et v_CustoDiscipline a SetOnlyOnce="Later" -->
+<!-- [chd:04.03.2014] disparition definitive de Inverse, Unique et InterfaceImplementation -->
+<!-- [frh:04.03.2014] changement de hierarchie PLMInstance vers Relationship / Report des attributs de PLMEntity vers PLMInstance -->
+<!-- [frh:04.03.2014] suppression des attributs qui arrivent par la derivation / ajout de volatiles pour acceder aux anciens attributs mappes -->
+<!-- [frh:06.11.2014] passage de v_discipline et v_CustoDiscipline a SetOnlyOnce="Later" -->
+<!-- [frh:04.03.2014] les classes d'instance deviennent des relation class / les clauses to et from remplacent les relationships V_InstanceOf V_Owner -->
+<!-- [frh:04.03.2014] Suppression des V_SR, V_SRs, V_PathRelations mais conservation du V_Owner sur l'aggregation des ports et des connections. Il faudra s'en debarasser -->
+
+<Package xmlns="PLMDictionaryCore" Name="PLMCORE"
+    Uuid="8DEB3A6D-09AB-413C-AB985A101E7610A7"
+    UseNames="PLMABSTRACT ERCoreModeler RELATION"
+    CustomerExposition="Programmer"
+    ModelerType="Core"
+   >
+  <CAAComment> 
+    <ShortRole>PLM Core Model</ShortRole>
+    <Role>This package includes the basics entities reused by Work In Progress applications</Role>
+  </CAAComment>
+
+  <Class Name="PLMReference"
+      Uuid="D0D6EC3F-0FD3-4DFE-9F87340C127D611D"
+      CustomerExposition="None"
+      Abstract="Yes"
+      SuperName="PLMEntity"
+      DeleteAvailability="No"
+       >
+    <!-- Behavior patterns: default values -->
+    <Property Name="NewMajorRevisionAvailability"  Value="Yes"/>
+    <Property Name="ChangeMaturityAvailability"    Value="Yes"/>
+    <Property Name="LockUnlockAvailability"        Value="Yes"/>
+    <Property Name="TransferOwnershipAvailability" Value="Yes"/>
+    <Property Name="DuplicateAvailability"         Value="Yes"/>
+    <Property Name="EditPropertiesAvailability"    Value="Yes"/>
+    <Property Name="SaveAsNewAvailability"         Value="Yes"/>
+    <Property Name="EvolutionAvailability"         Value="Yes"/>
+    <Property Name="NewMinorRevisionAvailability"  Value="No"/>
+    <Property Name="ObjectNature"                  Value="Independent"/>
+    <Property Name="AggregatesComponents"          Value="Yes"/>
+    <CAAComment>
+      <ShortRole>Reference Objects</ShortRole>
+      <Role>Reference Objects</Role>
+    </CAAComment>
+
+    <Simple Name="V_hasConfigContext"
+        Uuid="7BE5C6C3-6C39-4296-95BFE44DB9AD69D8"
+        Type="Boolean"
+        MultiValuated="No"
+        DefaultValue="false"
+        Protection="Internal">
+      <CAAComment>
+        <ShortRole>Does this reference have a configuration context?</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_EffectivityKind"
+        Uuid="668b4700-5741-4114-be0a-31c7d3618447"
+        Type="Integer"
+        ResetOnNewVersion="No"
+        ResetOnCloning="No"
+        MultiValuated="No"
+        Protection="Internal">
+      <CAAComment>
+        <ShortRole>Define the allowed criteria inside aggregated Effectivities. </ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_ApplicabilityDate"
+        Uuid="81115785-3AC1-4F32-A582EA3FD7EF0E84"
+        Type="Date"
+        MultiValuated="No"
+        Protection="Free" CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Applicability Date</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_order"
+        Uuid="600151C5-EA86-4EF3-A26E602AB7993052"
+        Type="Integer"
+        MultiValuated="No"
+        Protection="Internal">
+      <CAAComment>
+        <ShortRole>Order of the Reference version</ShortRole>
+        <Role>The Version is computed, and cannot be modified.</Role>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_isLastVersion"
+        Uuid="BDAB0AA3-B637-0000-0280030D7B000000"
+        Type="Boolean"
+        MultiValuated="No"
+        Protection="External"
+        DefaultValue="true"
+        CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Is it the last Reference version?</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_VersionID"
+			Uuid="B5013275-6B7D-4CDA-AC381668375C277F"
+			Type="Binary"
+			MaxLength="16"
+			MultiValuated="No"
+      SetOnlyOnce="AtCreation"
+			Protection="Internal">
+      <CAAComment>
+        <ShortRole>Id of the version family</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_isVPLMControlled"
+        Uuid="3e0c3d27-fd4c-4b11-8d6d-881ec25cb49b"
+        Type="Boolean"
+        MultiValuated="No"
+        Protection="External"
+        DefaultValue="true"
+        CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Is the Reference controlled by VPLM ?</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_AuthorityControl"
+        Uuid="efcf7194-e3fd-462b-9018-709736e7b933"
+        Type="Boolean"
+        MultiValuated="No"
+        DefaultValue="false"
+        ResetOnNewVersion="No"
+        ResetOnCloning="Yes"
+        Protection="External">
+      <CAAComment>
+        <ShortRole>Is this reference managed under an Authority Control ?</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_ProjectApplicability"
+        Uuid="9B27891C-02E4-41d6-95C5-D1DB705A742A"
+        Type="String"
+        MultiValuated="Yes"
+        CollectionType="List"
+        ResetOnNewVersion="No"
+        ResetOnCloning="Yes"
+        Protection="External"
+        ExtendedEnterprise="Yes"
+        CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Deprecated V6R2014.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_DerivedFrom" Uuid="29A1F6D7-A325-4d58-A60D-E8D2C558180E" Type="Binary" MaxLength="16"  MultiValuated="No" Protection="Internal" SetOnlyOnce="AtCreation" ExtendedEnterprise="No">
+      <CAAComment>
+        <ShortRole>Physicalid of object it is derived from</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_isLastMinorVersion" Uuid="D282F7F7-CFEF-4c24-AEA8-FA2AC982A536" Type="Boolean" Protection="Internal" DefaultValue="true" ExtendedEnterprise="No">
+      <CAAComment>
+        <ShortRole>Is it the last Minor Version?</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <!-- * Bringing RACE attributes at core level, requested by RACE team  * -->
+    <Simple Name="V_fromExternalID" Uuid="A032722A-9424-4c6b-A633-5202F5DD08C8" Type="String"  MaxLength="256" MultiValuated="No"  Protection="Free" ExtendedEnterprise="Yes"/>
+    <Simple Name="V_versionComment" Uuid="AB15CB23-A9E3-4fbc-8AFC-3590BC84E5D0" Type="String" MaxLength="256"  MultiValuated="No" Protection="Free" ResetOnNewVersion="Yes" ResetOnCloning="Yes" ExtendedEnterprise="Yes"/>
+
+    <!-- Volatile computation of where a given object is instanciated * -->
+    <Volatile Name="InstantiatedBy" Uuid="ff4c0490-605a-11e0-80e3-0800200c9a66" Accessor="None"
+        TypeName="List" AccessMode="ReadOnly">
+      <Property Name="ServerAccessor" Value="com.dassault_systemes.EKLEngine.openings.lib.PLMEnt_Accessor"/>
+    </Volatile>
+    <!-- Volatile: don't know what it is... SRM?  -->
+    <Volatile Name="IsExported" Uuid="c9bad0b0-d26c-11e1-9b23-0800200c9a66" Accessor="None" TypeName="Boolean" AccessMode="ReadOnly">
+      <Property Name="ServerAccessor" Value="com.dassault_systemes.EKLEngine.srm.lib.PLMEnt_Accessor"/>
+    </Volatile>
+    <!-- V_maturity is in reality mapped to current  -->
+    <Volatile Name="V_maturity" Uuid="99CAEF9F-E8A7-4b1f-BDA6-D15403CD143B" AccessMode="ReadOnly" Accessor="CATCkePLMNavAttributeAccess"  TypeName="String">
+      <Property Name="ServerAccessor" Value="com.dassault_systemes.Knowledge_Procs.KweBasicsMapping"/>
+    </Volatile>
+    <!-- V_version is in reality mapped to majorrevision  -->
+    <Volatile Name="V_version" Uuid="D40DF4F2-3159-49ad-BB05-F9547FEAF13F" AccessMode="ReadWrite" Accessor="CATCkePLMNavAttributeAccess"  TypeName="String">
+      <Property Name="ServerAccessor" Value="com.dassault_systemes.Knowledge_Procs.KweBasicsMapping"/>
+    </Volatile>
+  </Class>
+
+  <Class Name="PLMCoreReference"
+      Uuid="1E96E1CF-EC6D-434B-84DEAF1B4A961990"
+      CustomerExposition="Programmer"
+      Abstract="Yes"
+      SuperName="PLMReference"
+       >
+    <Simple Name="V_isTerminal"
+        Uuid="0fde43ad-7638-44ce-a6af-3cd9ac5eb146"
+        Type="Boolean"
+        MultiValuated="No"
+      Protection="External"
+        CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Is this Reference Terminal ?</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_ChangeHistory"
+         Uuid="100f3fa4-23d6-4b52-80be-c8d205872554"
+         Type="Boolean"
+         MultiValuated="No"
+     ResetOnNewVersion="No"
+     ResetOnCloning="Yes"
+       Protection="External">
+      <CAAComment>
+        <ShortRole>Does this reference manage the Change History ?</ShortRole>
+      </CAAComment>
+    </Simple>
+
+  </Class>
+
+  <Class Name="PLMCoreRepReference"
+      Uuid="72165EB6-D6A6-4F59-9BCCFBD40A0BB919"
+      CustomerExposition="Programmer"
+      Abstract="Yes"
+      SuperName="PLMReference"
+       >
+    <Simple Name="V_isOnceInstantiable"
+        Uuid="B5B9009E-04A8-4EDD-85363DE7C827BBBE"
+        Type="Boolean"
+        MultiValuated="No"
+        Protection="Internal">
+      <CAAComment>
+        <ShortRole>Can we instantiate this representation more than once ?</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_markstamp"
+        Uuid="04C9C6E6-FD4E-43C2-87CC71423422C510"
+        Type="Integer"
+        MultiValuated="No"
+        Protection="Internal">
+      <CAAComment>
+        <ShortRole>Stamp of last CGR generation</ShortRole>
+      </CAAComment>
+    </Simple>
+    <!-- Volatile attribute to return aggregating reference  -->
+    <Volatile Name="AggregatingReference"
+                Uuid="1A2AC692-294B-42b9-9E26-B84F8AE8595A"
+                TypeName="PLMCoreReference"
+                Accessor="PLMModelerReferenceKweAttribute"
+                AccessMode="ReadOnly"
+			          >
+      <Property Name="ServerAccessor" Value="com.dassault_systemes.EKLEngine.openings.lib.PLMEnt_Accessor"/>
+    </Volatile>
+    <!-- Behavior pattern  -->
+    <Property Name="CarryPointers" Value="Yes"/>
+    <Property Name="CarryStreams" Value="One_At_Least"/>
+  </Class>
+
+  <RelationClass Name="PLMInstance"
+        Uuid="194574DC-5EF2-47FF-8ED219AAE28C5256"
+        CustomerExposition="None"
+        Abstract="Yes"
+        SuperName="RelationType"
+        DeleteAvailability="No"
+      >
+    <!-- Behavior pattern  -->
+    <Property Name="ObjectNature" Value="Instance"/>
+    <Property Name="RelationNature" Value="Instanciation"/>
+    <Property Name="NewMajorRevisionAvailability"  Value="No"/>
+    <Property Name="ChangeMaturityAvailability"    Value="No"/>
+    <Property Name="LockUnlockAvailability"        Value="Yes"/>
+    <Property Name="TransferOwnershipAvailability" Value="Yes"/>
+    <Property Name="DuplicateAvailability"         Value="No"/>
+    <Property Name="EditPropertiesAvailability"    Value="Yes"/>
+    <Property Name="SaveAsNewAvailability"         Value="No"/>
+    <Property Name="EvolutionAvailability"         Value="No"/>
+    <Property Name="NewMinorRevisionAvailability"  Value="No"/>
+    <Property Name="SortingChildrenInTree"         Value="V_TreeOrder"/>
+    <Property Name="IsSynchronizable" Value="Yes"/>
+    <CAAComment>
+      <ShortRole>Instance between two References</ShortRole>
+      <Role>Instance between two References</Role>
+    </CAAComment>
+
+    <!-- =======================================
+     Secured functions
+     ======================================= -->
+
+    
+     <SubClause Name="from" TargetName="PLMReference" cardinality="Many" minorrevision="none" clone="none" propagatemodify="No" propagateconnection="No" />
+    <SubClause Name="to"   TargetName="PLMReference" cardinality="Many" minorrevision="none" clone="none" propagatemodify="No" propagateconnection="No" />
+   
+    <Simple Name="V_TreeOrder"
+        Uuid="B980CA3B-5777-0000-0280030D7B000000"
+        Type="Double"
+        MultiValuated="No"
+        Protection="Internal">
+      <CAAComment>
+        <ShortRole>Remember the position of this instance relatively to others. Valuated by application.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_hasConfigEffectivity"
+        Uuid="E7ACDE87-94E9-4EAE-B4EF63487A2464C8"
+        Type="Boolean"
+        MultiValuated="No"
+        Protection="Internal">
+      <CAAComment>
+        <ShortRole>Does this instance have a configuration effectivity?</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_hasConfigStaticMapping"
+        Uuid="DEE9B92A-C5C1-4673-A431B7A0D077602B"
+        Type="Boolean"
+        MultiValuated="No"
+        Protection="Internal">
+      <CAAComment>
+        <ShortRole>Does this instance have a configuration static mapping?</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_isVPLMControlled"
+        Uuid="1d89c567-3e8e-48ed-a302-425073e1ce2b"
+        Type="Boolean"
+        MultiValuated="No"
+        Protection="External"
+        DefaultValue="true"
+        CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Is the Instance controlled by VPLM ?</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_EffectivityCompiledForm"
+        Uuid="836EDEDB-0000-23FA-4755532400014781"
+        Type="Binary"
+        MultiValuated="No"
+        Protection="Internal">
+      <CAAComment>
+        <ShortRole>Compiled binary form of the associated Effectivity. </ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="C_updatestamp" Uuid="372e1ef6-fab5-421b-86ff-f301e43dc36a"  Type="Integer"  MultiValuated="No" Protection="Internal">
+      <CAAComment>
+        <ShortRole>Deprecated : Synchronization stamp</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_Name" Uuid="15E7E416-F90D-4d94-9854-9D9580C3B30C"  Type="String" MaxLength="100"  MultiValuated="No" Protection="Free" CAAExposition="L1">
+      <CAAComment>
+        <ShortRole>Common naming support</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_isUptodate" Uuid="B5707BFF-8B79-414a-8306-5BA293878783" Type="Integer" Protection="Internal" DefaultValue="1">
+      <CAAComment>
+        <ShortRole>Internal persistency of Uptodate status</ShortRole>
+      </CAAComment>
+      <Property Name="RangeAsEnumName" Value="PLMABSTRACT.V_isUptodateEnum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="UpdateToDate;MustBeRebuilt;NotApplicable"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+      </Range>
+    </Simple>
+    <Simple Name="PLM_ExternalID" Uuid="DA1BEC36-F738-46e8-B89B-399AA7930EDF"  Type="String" MaxLength="100"  MultiValuated="No" Protection="Free" CAAExposition="L1">
+      <CAAComment>
+        <ShortRole>External Identification name</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_description" Uuid="D0E46209-91FF-4e5f-AEAC-19A481414881"  Type="String" MaxLength="256"  MultiValuated="No" Protection="Free" CAAExposition="L1">
+      <CAAComment>
+        <ShortRole>Description - free field</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_discipline" Uuid="505AE8DA-E086-49c6-B09D-81E702389F88" Faceted="Yes"  Type="String" MaxLength="40"  MultiValuated="No" Protection="External" CAAExposition="L1" DefaultValue="" SetOnlyOnce="Later">
+      <CAAComment>
+        <ShortRole>Discipline - e.g: mechanical, electrical</ShortRole>
+      </CAAComment>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Simple Name="V_usage" Uuid="8D242093-8297-4ce8-9DDC-B374B528A71F" Faceted="Yes" Type="String" MaxLength="40"  MultiValuated="No" Protection="External" CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Deprecated</ShortRole>
+      </CAAComment>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Simple Name="V_nature" Uuid="BBE18EF4-9A5A-455b-9B79-DBD89370654F" Type="Integer" Protection="External" CAAExposition="L1" DefaultValue="2">
+      <CAAComment>
+        <ShortRole>Nature of the object - enum { Specification, Definition, Representation }</ShortRole>
+      </CAAComment>
+      <Property Name="RangeAsEnumName" Value="PLMABSTRACT.V_NatureEnum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="Specification;Definition;Presentation"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+      </Range>
+    </Simple>
+    <Simple Name="V_sec_level" Uuid="BBD9A586-9E6B-44a7-BB0D-953AB225E1BB" MultiValuated="No"  Type="Integer" Protection="Free" CAAExposition="L0" DefaultValue="-1">
+    </Simple>
+    <Simple Name="V_CustoDiscipline" Uuid="C11A3381-7B04-43c6-B971-096F3491A14C" Faceted="Yes"   MultiValuated="No"  Type="String" MaxLength="100" Protection="External" CAAExposition="L0" SetOnlyOnce="Later">
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Simple Name="workspaceid" Uuid="D5734142-0962-4dd1-BC29-29D443021CA0" Type="Binary" MaxLength="16"  MultiValuated="No" Protection="Internal"  ExtendedEnterprise="Yes">
+      <CAAComment>
+        <ShortRole>Physicalid of workspace it belongs to</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Volatile Name="V_confidentiality" Uuid="1c44f8ea-87c2-4aae-b82f-620cc4ba38cd" Accessor="PLMPosAttributeAccess" TypeName="String" AccessMode="ReadWrite"/>
+    <Volatile Name="V_user" Uuid="668C5A26-CFDB-4063-B915-673FB210E2FD" AccessMode="ReadOnly" Accessor="CATCkePLMNavAttributeAccess"  TypeName="String">
+      <Property Name="ServerAccessor" Value="com.dassault_systemes.Knowledge_Procs.KweBasicsMapping"/>
+    </Volatile>
+    <Volatile Name="V_organization" Uuid="70E510C4-98F5-4bb9-BE3F-6B0679489D86" AccessMode="ReadOnly" Accessor="CATCkePLMNavAttributeAccess" TypeName="String">
+      <Property Name="ServerAccessor" Value="com.dassault_systemes.Knowledge_Procs.KweBasicsMapping"/>
+    </Volatile>
+    <Volatile Name="V_project" Uuid="27C176E7-92D6-4c6a-8E6E-5D4F78949102" AccessMode="ReadOnly" Accessor="CATCkePLMNavAttributeAccess"  TypeName="String">
+      <Property Name="ServerAccessor" Value="com.dassault_systemes.Knowledge_Procs.KweBasicsMapping"/>
+    </Volatile>
+    <Volatile Name="C_created" Uuid="1F88C52C-026C-4bad-A6D3-4BD64A14AEDD" AccessMode="ReadOnly" Accessor="CATCkePLMNavAttributeAccess" TypeName="Date">
+      <Property Name="ServerAccessor" Value="com.dassault_systemes.Knowledge_Procs.KweBasicsMapping"/>
+    </Volatile>
+    <Volatile Name="C_modified" Uuid="761E4F0B-AEAD-4ba7-B3CA-DE6D8E82FC77" AccessMode="ReadOnly" Accessor="CATCkePLMNavAttributeAccess"  TypeName="Date">
+      <Property Name="ServerAccessor" Value="com.dassault_systemes.Knowledge_Procs.KweBasicsMapping"/>
+    </Volatile>
+    <!-- ISSUE on reserved and reservedby. They correspond to LOCKSTATUS and LOCKUSER that are not described in dictionary...  -->
+    <Volatile Name="LOCKSTATUS" Uuid="216b588b-5a53-4e16-8f15-4004c382c358" AccessMode="ReadWrite" Accessor="CATCkePLMNavAttributeAccess"  TypeName="String">
+      <Property Name="ServerAccessor" Value="com.dassault_systemes.Knowledge_Procs.KweBasicsMapping"/>
+    </Volatile>
+    <Volatile Name="LOCKUSER" Uuid="4810f1b5-0a92-4791-bff7-0a11c3b009b1" AccessMode="ReadWrite" Accessor="CATCkePLMNavAttributeAccess" TypeName="String">
+      <Property Name="ServerAccessor" Value="com.dassault_systemes.Knowledge_Procs.KweBasicsMapping"/>
+    </Volatile>
+
+  </RelationClass>
+
+  <RelationClass Name="PLMCoreInstance"
+      Uuid="CE6C61ED-AA9E-45BE-A3BD3B22548CA8A6"
+      CustomerExposition="Programmer"
+      Abstract="Yes"
+      SuperName="PLMInstance"
+       >
+   </RelationClass>
+
+  <RelationClass Name="PLMCoreRepInstance"
+        Uuid="B5E3B8B6-38CC-4A19-8F0B082933FE7476"
+        CustomerExposition="Programmer"
+        Abstract="Yes"
+        SuperName="PLMInstance"
+       >
+
+  </RelationClass>
+
+  <Class Name="PLMConnection"
+      Uuid="B1B9B0AC-F027-0000-0280030D7B000000"
+      CustomerExposition="Programmer"
+      Abstract="Yes"
+      SuperName="PLMEntity"
+      DeleteAvailability="No"
+      Searchable="No"
+    >
+    <!-- Behavior pattern  -->
+    <Property Name="NewMajorRevisionAvailability"  Value="No"/>
+    <Property Name="ChangeMaturityAvailability"    Value="No"/>
+    <Property Name="LockUnlockAvailability"        Value="Yes"/>
+    <Property Name="TransferOwnershipAvailability" Value="Yes"/>
+    <Property Name="DuplicateAvailability"         Value="No"/>
+    <Property Name="EditPropertiesAvailability"    Value="Yes"/>
+    <Property Name="SaveAsNewAvailability"         Value="No"/>
+    <Property Name="EvolutionAvailability"         Value="No"/>
+    <Property Name="NewMinorRevisionAvailability"  Value="No"/>
+    <Property Name="SortingChildrenInTree"         Value="V_CnxTreeOrder"/>
+    <Property Name="ObjectNature" Value="Aggregated"/>
+    <Property Name="RelationNature" Value="Aggregator"/>
+    <Property Name="CarryPointers" Value="Yes"/>
+    <Property Name="CarryStreams" Value="No"/>
+    <CAAComment>
+      <ShortRole>PLM Connection Object</ShortRole>
+      <Role>PLM Connection Object</Role>
+    </CAAComment>
+      <!-- remis la temporairement pour ne pas perturber le generateur-->
+
+    <Relationship Name="V_Owner"
+        Uuid="80A337F5-008A-4A3D-99BADF21469A9BD7"
+        TargetName="PLMReference"
+        MultiValuated="No"
+        Semantics="Reference"
+        Scope="Internal">
+      <CAAComment>
+        <ShortRole>Link towards aggregating Reference</ShortRole>
+      </CAAComment>
+    </Relationship>
+
+
+    <Simple Name="V_isVPLMControlled"
+          Uuid="3da9cb91-7799-4982-a8ab-ae6e0e36cf0d"
+          Type="Boolean"
+          MultiValuated="No"
+          Protection="External"
+          DefaultValue="true"
+          CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Is the Connection controlled by VPLM ?</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_CnxTreeOrder"
+        Uuid="5309fc01-7afe-11e0-819a-0800200c9a66"
+        Type="Double"
+        MultiValuated="No"
+        Protection="Internal">
+      <CAAComment>
+        <ShortRole>Remember the position relatively to others. Valuated by application.</ShortRole>
+      </CAAComment>
+    </Simple>
+  </Class>
+
+  <Class Name="PLMPort"
+      Uuid="A99E5CF8-27C7-4135-A2D5F6A185831C16"
+      CustomerExposition="Programmer"
+      Abstract="Yes"
+      SuperName="PLMEntity"
+      DeleteAvailability="No"
+      Searchable="No"
+    >
+    <!-- Behavior pattern  -->
+    <Property Name="NewMajorRevisionAvailability"  Value="No"/>
+    <Property Name="ChangeMaturityAvailability"    Value="No"/>
+    <Property Name="LockUnlockAvailability"        Value="Yes"/>
+    <Property Name="TransferOwnershipAvailability" Value="Yes"/>
+    <Property Name="DuplicateAvailability"         Value="No"/>
+    <Property Name="EditPropertiesAvailability"    Value="Yes"/>
+    <Property Name="SaveAsNewAvailability"         Value="No"/>
+    <Property Name="EvolutionAvailability"         Value="No"/>
+    <Property Name="NewMinorRevisionAvailability"  Value="No"/>
+    <Property Name="SortingChildrenInTree"         Value="V_PortTreeOrder"/>
+    <Property Name="ObjectNature" Value="Aggregated"/>
+    <Property Name="RelationNature" Value="Aggregator"/>
+    <Property Name="CarryPointers" Value="Yes"/>
+
+    <CAAComment>
+      <ShortRole>PLM Port Object</ShortRole>
+      <Role>PLM Port Object</Role>
+    </CAAComment>
+
+
+    <Relationship Name="V_Owner"
+        Uuid="409714A3-BDD8-4640-81462A3475E69575"
+        TargetName="PLMReference"
+        MultiValuated="No"
+        Semantics="Reference"
+        Scope="Internal">
+      <CAAComment>
+        <ShortRole>Link towards aggregating Reference</ShortRole>
+      </CAAComment>
+    </Relationship>
+    <Simple Name="V_isVPLMControlled"
+        Uuid="0d5df106-c21f-437d-abfc-129214169a71"
+        Type="Boolean"
+        MultiValuated="No"
+        Protection="External"
+        DefaultValue="true"
+        CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Is the Port controlled by VPLM ?</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_PortTreeOrder"
+          Uuid="5309fc00-7afe-11e0-819a-0800200c9a66"
+          Type="Double"
+          MultiValuated="No"
+          Protection="Internal">
+      <CAAComment>
+        <ShortRole>Remember the position relatively to others. Valuated by application.</ShortRole>
+      </CAAComment>
+    </Simple>
+  </Class>
+  <!-- ****************************************************************************************************************************** -->
+  <!-- *  PathType used by VPLM for all paths: specific to Direct Acyclic Graph of instances, supports synchronization & reroute    * -->
+  <!-- ****************************************************************************************************************************** -->
+  <PathType Name="SemanticRelation" Protection="External"   AdaptativeToMinor="No"  SynchroSensitivity="None"   RerouteOnEffectivityChange="No" Uuid="dca57ae6-9dbc-47cb-adf5-a00019d22c48" OwnerTypes="BusinessType;RelationType" SuperName="PathType" TargetNames="BusinessType;RelationType">
+    <Simple   Name = "IDRel"            Type="Integer"  Protection="Internal" Uuid="1aad0757-433a-427c-ac56-832fa0063955"/>
+    <Simple   Name = "Role"             Type="Integer"  Protection="Internal" Uuid="0a519304-a4c7-411c-a8cc-2934258d1f93"/>   <!-- to be suppressed-->
+    <Simple   Name = "Semantics"        Type="Integer"   Protection="Internal" Uuid="e0ca3b6b-cf48-49e2-aa69-1e7df07c789b"/>  <!-- to be suppressed-->
+    <Simple   Name = "RoleSemantics"    Type="String"   Protection="InternalRO" Uuid="6be94de4-d149-4cd1-93e3-1a86cc48d543"/> <!-- to be suppressed-->
+    <Simple   Name = "AppIndex"         Type="Integer"  Protection="Internal" Uuid="5acd3532-7581-48ed-9459-60b13b17b948"/>
+    <Simple   Name = "PrivateData"      Type="String"   Protection="Internal" Uuid="b325c44f-6b3e-4b92-818e-adcfccc2f1c2"/>
+    <Simple   Name = "OutOfScopes"      Type="String"   Protection="Internal" Uuid="d195430a-bd2f-4d16-8044-15d6ba004a66"/>
+    <Simple   Name = "LastPIDAndRole"   Type="String"   Protection="Internal" Uuid="ae4334fe-6db7-11e5-83fb-3c970ecea022" DefaultValue="NA" />
+  </PathType>
+
+  <!-- *********************************************************** -->
+  <!-- *  SR on attributes : should extend SemanticRelation !!! not PLMEntity                                      * -->
+  <!-- *********************************************************** -->
+  <!-- <Extension Name="SRonAttribute" CustomerExposition="None" ScopeNames="SemanticRelation" Uuid="0faa42a7-268c-4f9b-8fcb-0d7e90769ba0">
+    <Simple   Name = "SyncDomain"       Type="String"   Protection="Internal" Uuid="d6ce93ef-58c5-46ae-a0bc-5b20949726e6"/>
+    <Simple   Name = "SyncSpec"         Type="String"   Protection="Internal" Uuid="63a4cb87-6adb-4998-8c87-4eed265f2163"/>
+    <Simple   Name = "SyncValue"        Type="String"   Protection="Internal" Uuid="6b4a939a-d4d1-488b-a73b-9449dd810755"/>
+  </Extension>
+-->
+
+  <!-- ************************************************************************************************************************************ -->
+  <!-- *  Extension on business objets to store features (MCX case) and portion of links to reference geometry/features (formerly CATLnk)     * -->
+  <!-- *********************************************************** -->
+  <Extension Name="PLMCorePrivateExtension" CustomerExposition="None" ScopeNames="BusinessType" Uuid="a1d63475-c484-4d18-b9af-8318d16f13f7">
+    <Simple   Name = "PrivateData"        Type="Binary"   MaxLength ="16000" Protection="Internal" Uuid="d8d509f7-b2ec-4f62-b674-90b51fdd81fb"/>
+  </Extension>
+  
+  <!-- ************************************************************************************************************************************ -->
+  <!-- *  Second Extension on business objets to store features (MCX case) and portion of links to reference geometry/features (formerly CATLnk)     * -->
+  <!-- *  Will replace the  PLMCorePrivateExtension    * -->
+  <!-- *********************************************************** -->
+  <Extension Name="PLMCoreStreamStorage" CustomerExposition="None" ScopeNames="BusinessType" Uuid="c02def9f-c622-4386-a130-5cca3e12289b">
+    <Simple   Name = "Stream"        Type="Clob"  Protection="Internal" Uuid="5413028a-c873-4c24-8d47-43859a9e0531"/>
+  </Extension>
+
+</Package>
+

@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2011, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" CustomerExposition="Programmer" BelongsToModeler="PLMKnowledgeReplay" ModelerType="Top" Name="PLMKnowledgeReplay" Uuid="B1FC9E2D-9469-4335-B3A2-4344574205C0" UseNames="PLMCORE" >
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+  <!-- ***************************************** -->
+     <!-- * PLMKweReplayRepReference (PLMCoreRepReference) * -->
+     <!-- ***************************************** -->
+     <Class Name="PLMKweReplayRepReference" CustomerExposition="Programmer" Uuid="4FDDD0A1-256C-44A3-B535-837FCC92DC2C"  CreateInstName="PLMKweReplayRepInstance" Abstract="No" SuperName="PLMCoreRepReference"  Specializable="No" >
+       <Property Name="Searchable"      Value="No"/>
+       <Property Name="Newable"         Value="No"/>
+       <CAAComment>
+             <ShortRole>Knowledgeware Replay specs reference</ShortRole>
+             <Role>Replay Specifications Representation Reference Object</Role>
+         </CAAComment>
+       <Method ImplementationType="Self">
+         <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+         <ProcedureForUsage>
+           <Usage href="ExportScope.meth#Design"/>
+           <UsedProcedure href="KWRpe_Procedures.proc#Kwe_ExportReplay"/>
+         </ProcedureForUsage>
+         <ProcedureForUsage>
+           <Usage href="ExportScope.meth#Channel"/>
+           <UsedProcedure href="KWRpe_Procedures.proc#Kwe_ExportReplay"/>
+         </ProcedureForUsage>
+		 <ProcedureForUsage>
+           <Usage href="ExportScope.meth#Remove"/>
+           <UsedProcedure href="KWRpe_Procedures.proc#Kwe_ExportReplay"/>
+         </ProcedureForUsage>
+		 <ProcedureForUsage>
+           <Usage href="ExportScope.meth#TransferSiteOwnership"/>
+           <UsedProcedure href="KWRpe_Procedures.proc#Kwe_ExportReplay"/>
+         </ProcedureForUsage>
+       </Method>
+     </Class>
+  <RelationClass Name="PLMKweReplayRepInstance" CustomerExposition="Programmer" Uuid="15F93AD4-3246-413A-9BDE-01A73C656909"  Abstract="No" SuperName="PLMCoreRepInstance" Specializable="No" >
+       <Property Name="Searchable"      Value="No"/>
+       <Property Name="Newable"         Value="No"/>
+       <CAAComment>
+             <ShortRole>Knowledgeware Replay specs instance</ShortRole>
+             <Role>Replay Specifications Representation Instance Object</Role>
+         </CAAComment>
+        <Method ImplementationType="None">
+          <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+        </Method>
+     </RelationClass>
+	
+  
+  <!-- ******************************* -->
+  <!-- FUNCTIONS Declarations : PLMQL  -->
+  <!-- ******************************* -->
+  <Function Name="kwe_navigate_replaygenobjs">
+    <Implementation Name="kwe_navigate_replaygenobjs" FileLocation="kwe_navigate_replaygenobjs.plmql" Language="PLMQL"/>
+    <Signature href="PLMKweReplaySignature"/>
+  </Function>
+  <Signature id="PLMKweReplaySignature">
+    <Parameter Name="InputIds" Lower="0" Upper="-1" Direction="in" MultiValuated="Yes" DataType="PLMId"/>
+    <Parameter Name="OutputIds" Lower="0" Upper="-1" Direction="out" MultiValuated="No" DataType="PLMRouteSet"/>
+  </Signature>
+</Package>

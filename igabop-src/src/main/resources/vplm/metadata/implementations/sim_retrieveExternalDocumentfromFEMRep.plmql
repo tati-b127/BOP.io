@@ -1,0 +1,27 @@
+NAVIGATE
+
+T1.PLM_ExternalID, T1.PLMID, 
+T2.physicalid, T2.logicalid, T2.type
+
+FROM
+
+PLMDmtDocument/PLMDMTDocument T1,
+ Class/DOCUMENTS T2
+
+
+FROM_ROOTS [?1?]
+
+ON ( RELATION(
+FROM= PRODUCTCFG/VPMRepReference
+TO= PLMDmtDocument/PLMDMTDocument
+THROUGH=POINTSTO )
+WITH QUALITY_FILTER(ROLE=SIM_ExternalDocument) OR (ROLE=SIM_FmtFEMRules) OR (ROLE=SIM_FmtFEMReport))
+
+OR ( RELATION(
+FROM= PRODUCTCFG/VPMRepReference
+TO= Class/DOCUMENTS
+THROUGH=POINTSTO )
+WITH QUALITY_FILTER(ROLE=SIM_ExternalDocument) OR (ROLE=SIM_FmtFEMRules) OR (ROLE=SIM_FmtFEMReport))
+
+
+;

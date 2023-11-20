@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" Name="ENOSTProdSysTransformationSystemDS" Uuid="1cebaf51-5f8b-45f6-8bf18c5cdc928817" UseNames="DELLmiProductionTransformationSystem" >
+	<CAAComment>
+		<ShortRole>PLM Customization of DELMIA Transformation System for SMB</ShortRole>
+		<Role>PLM Customization of DELMIA Transformation System for SMB</Role>
+	</CAAComment>
+	<Comment>last update 2008-11-25</Comment>
+
+	<Class Name="ENOSTTransformationSysReferenceCusto" Uuid="82e4ee50-9620-4777-8692bf35b831e035" SuperName="DELLmiTransformationSystemReference" SuperRef="78171a39-54a7-49cb-aec9-d2c31df4a9a4"  >
+
+    <Simple Name="E_fromExternalId"
+            Uuid="3ec882f7-c571-4eb6-ab9d5d863f19ac4c"
+            Alias="Definition"
+            Type="String"
+            MaxLength="256"
+            Mandatory="No"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"/>
+    <Simple Name="E_versionComment"
+            Uuid="1ae6d730-2a72-4197-afe9421c40a5ff05"
+            Alias="Version Comment"
+            Type="String"
+            MaxLength="256"
+            Mandatory="No"
+            MultiValuated="No"
+            Protection="Free"
+            ResetOnNewVersion="Yes"
+            ResetOnCloning="Yes"
+            CAAExposition="L0"/>
+    <IdentifierSet Name="E_identifier"
+                   Uuid="08eb57b0-4104-4ce2-81aba87b59023083"
+                   IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755"
+                   IdentifierNames="PLM_ExternalID V_version"/>
+
+    <CAAComment>
+			<ShortRole>PLM Customization of DELMIA Transformation System Reference for SMB</ShortRole>
+			<Role>PLM Customization of DELMIA Transformation System Reference for SMB</Role>
+		</CAAComment>
+	</Class>
+
+  <RelationClass Name="ENOSTTransformationSysInstanceCusto" Uuid="8413a19c-d1ed-4db3-a28db20efcf9d4b8" SuperName="DELLmiTransformationSystemInstance" SuperRef="38660fc8-93c9-44ce-a1569264aad8f3b4"  >
+		<CAAComment>
+			<ShortRole>PLM Customization of DELMIA Transformation System Instance for SMB</ShortRole>
+			<Role>PLM Customization of DELMIA Transformation System Instance for SMB</Role>
+		</CAAComment>		
+            <!-- ********************************************************* -->
+            <!-- * Overload(s) of PLMCoreInstance attributes. -->
+            <!-- ********************************************************* -->
+    <SubClause Name="to"   TargetName="ENOSTTransformationSysReferenceCusto"/>
+	</RelationClass>
+
+</Package>

@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2005, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" DataRDB_OID="ENODR_MFGACT" Name="ManufacturingActionDS" Uuid="adb1599b-f2ba-42c6-b3de3936793de955" UseNames="PLMChgManufacturingAction"  >
+<Property Name="OptionalInstallation" Value="Yes" /> 
+	<CAAComment>
+		<ShortRole>Standard Manufacturing Action Package</ShortRole>
+		<Role>This package includes the entities of the Standard Manufacturing Action Reference and Standard Manufacturing Child Action Instance -  - these are default customized change entities</Role>	
+	</CAAComment>
+	<Comment>last update 2006-12-05-09.00.00</Comment>
+	<!-- *************************************** -->
+	<!-- * PLMMfgActionCusto(PLMManufacturingAction)   * -->
+	<!-- *************************************** -->
+	<Class Name="PLMMfgActionCusto" Uuid="8eb7f59c-85b4-40ba-87ca8d215b4fba0a"     SuperName="PLMManufacturingAction"   >
+		<CAAComment>
+			<ShortRole>Standard Manufacturing Action Reference</ShortRole>
+			<Role>Standard Action Reference for Manufacturing - this is a default customized Manufacturing Action</Role>
+		</CAAComment>
+    <IdentifierSet Name="Identifier" Uuid="7b570f75-3d5a-41ea-90c70bfff4f185ca" IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB" IdentifierNames="PLM_ExternalID"/>
+	</Class>
+	<!-- *************************************** -->
+	<!-- * PLMMfgChildActionCusto(PLMMfgChildAction)   * -->
+	<!-- *************************************** -->
+  <RelationClass Name="PLMMfgChildActionCusto" Uuid="204655bf-f41e-47af-bbcd59a3d377c962"     SuperName="PLMMfgChildAction"   >
+    <CAAComment>
+      <ShortRole>Standard Manufacturing Child Action Instance</ShortRole>
+      <Role>Standard Child Action Instance for Manufacturing - this is a default customized Manufacturing Child Action</Role>
+    </CAAComment>
+    <!--
+             *********************************************************
+             * Overload(s) of PLMCoreInstance attributes.
+             ********************************************************* -->
+    <SubClause Name="to"   TargetName="PLMMfgActionCusto"/>
+  </RelationClass>
+
+</Package>

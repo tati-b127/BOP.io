@@ -1,0 +1,56 @@
+<?xml version="1.0" ?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2004, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" 
+	ModelerType="Top" 
+	Name="SynchroEBOMExtension"
+    Uuid="b57c8e1f-8904-466c-8347-b719b564b2be"
+    UseNames="PRODUCTCFG"
+	CustomerExposition="Programmer"
+    >
+
+    <CAAComment>
+        <Role>Extension dedicated to the VPM synchronization in CBP</Role>
+    </CAAComment>
+
+
+
+    <Extension Name="SynchroEBOMExt"
+        Uuid="05317561-fe21-4163-9939-a15cf8d962a6"
+        ScopeNames="VPMReference VPMInstance"
+	CAAExposition="L0"
+	CustomerExposition="Programmer"
+	>
+        
+	<Simple Name="V_InEBOMUser"
+            Uuid="6f178bae-5643-404f-a02a-86564d73a4e2"
+            Type="Boolean"
+            MultiValuated="No"
+	    DefaultValue="false"
+            Protection="External"
+	    CAAExposition="L0">
+            <CAAComment>
+                <ShortRole>Exclusion of the object of the EBOM for the user level</ShortRole>
+            </CAAComment>
+        </Simple>
+
+	<Simple Name="V_InEBOMApplicative"
+            Uuid="d1fb3ccd-f536-479c-945b-5caad813cb43"
+            Type="Boolean"
+            MultiValuated="No"
+            DefaultValue="true"
+            Protection="External"
+	    CAAExposition="L0">
+            <CAAComment>
+                <ShortRole>Exclusion of the object of the EBOM for the applicative level</ShortRole>
+            </CAAComment>
+        </Simple>
+        
+    </Extension>
+
+
+</Package>
+
+ 

@@ -1,0 +1,245 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY FOR DIFModeler03                    -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2010, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified"
+         ModelerType="Top"
+         Name="DIFModeler03"
+         Uuid="CC7D798C-6E10-4196-848D-821023AB74F3"
+         UseNames="DIFModelerAbstractView;DIFStandard;PLMCORE"
+         BelongsToModeler="DIFModeler01"
+         CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>DIF modeler Package (part 3)</ShortRole>
+    <Role>This package describes the DIF model built on top of PLM Core2</Role>
+  </CAAComment>
+
+  <Comment>last update 2012-03-27-14.00.00</Comment>
+
+  <!-- DIFModeler03 provides :                   -->
+  <!-- DIFViewStream         PLMCoreRepReference -->
+  <!-- DIFViewStreamInst     PLMCoreRepInstance  -->
+  <!-- DIFView               PLMCoreReference    -->
+  <!-- DIFViewInst           PLMCoreInstance     -->
+  <!-- DIFIsPresentationOf   PLMConnection       -->
+
+  <!-- ******************************************* -->
+  <!-- *  DIFView (PLMCoreReference)             * -->
+  <!-- ******************************************* -->
+  <Class Name="DIFView"
+         Uuid="55C74FDB-55A8-43B5-A0EB-664A5115E872"
+         Abstract="No"
+         SuperName="DIFAbstractView"
+         Abbreviation="vw"
+         CreateInstName="DIFViewInstance"
+         CustomerExposition="Programmer"
+         Specializable="Yes"
+         DeleteAvailability="Yes">
+
+    <CAAComment>
+      <ShortRole>DIF View Object</ShortRole>
+      <Role>DIF View Object</Role>
+    </CAAComment>
+
+    <!-- PLM New UI/KWE Scripts New -->
+    <Property Name="KweNew_InstanciationMethod" Value="CATDifKBEDelegateInstanciation"/>
+
+    <!-- Support old typing system -->
+    <Property Name="DMCDerivable" Value="Yes"/>
+
+    <!-- Icon and 3D Icon -->
+    <Property Name="IconName" Value="I_VPMNavDifView"/>
+
+    <!-- Collaborative Space Applicability -->
+    <Property Name="ShareBetweenProjectsAvailability" Value="Yes"/>
+
+    <!-- Export -->
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Remove"/>
+        <UsedProcedure href="DIFpe_Procedures.proc#DIFModeler_ExportCompletion_DifAbstractView"/>
+      </ProcedureForUsage>
+
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#TransferSiteOwnership"/>
+        <UsedProcedure href="DIFpe_Procedures.proc#DIFModeler_ExportCompletion_DifAbstractView"/>
+      </ProcedureForUsage>
+    </Method>
+
+  </Class>
+
+  <!-- ********************************************** -->
+  <!-- * DIFViewInstance (PLMCoreInstance)          * -->
+  <!-- ********************************************** -->
+  <RelationClass Name="DIFViewInstance"
+         Uuid="C1CE958D-2ACE-431C-A734-F15BCED42443"
+         Abstract="No"
+         SuperName="DIFAbstractViewInstance"
+         CustomerExposition="Programmer"
+         Specializable="Yes">
+
+    <CAAComment>
+      <ShortRole>DIF  View Instance Object</ShortRole>
+      <Role>DIF View Instance Object</Role>
+    </CAAComment>
+
+    <!-- Support old typing system -->
+    <Property Name="DMCDerivable" Value="Yes"/>
+
+    <!-- Configuration -->
+    <Property Name="Filtrable" Value="Yes"/>
+
+    <!-- PLM New UI/KWE Scripts New -->
+    <Property Name="KweNew_InstanciationMethod" Value="CATDifKBEDelegateInstanciation"/>
+
+    <!-- Icon and 3D Icon -->
+    <Property Name="IconName" Value="I_VPMNavDifView"/>
+
+    <!-- Export -->
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+       <SubClause Name="from"   TargetName="DIFSheet"/>
+    <SubClause Name="to"   TargetName="DIFView"/>
+
+  </RelationClass>
+
+  <!-- ***************************************** -->
+  <!-- * DIFViewStream (PLMCoreRepReference)   * -->
+  <!-- ***************************************** -->
+  <Class Name="DIFViewStream"
+         Uuid="9AC782D0-5BD8-4B9C-AADF-F8108D03ADD3"
+         Abstract="No"
+         CustomerExposition="None"
+         CreateInstName="DIFViewStreamInstance"
+         SuperName="PLMCoreRepReference"
+         NewMajorRevisionAvailability="No">
+
+    <CAAComment>
+      <ShortRole>DIF  View Representation Reference Object</ShortRole>
+      <Role>DIF View Representation Reference Object</Role>
+    </CAAComment>
+
+    <!-- PLM New UI/KWE Scripts New -->
+    <Property Name="KweNew_InstanciationMethod" Value="CATDifKBEDelegateInstanciation"/>
+
+    <!-- Advanced search -->
+    <Property Name="Searchable" Value="No"/>
+
+    <!-- Mandatory property because of CustomerExposition value (none) -->
+    <!-- Unique name for this "private" rep is not required            -->
+    <Property Name="UniqueNamingRule" Value="No"/>
+
+    <!-- Simples -->
+    <Simple Name="V_DIFStandardClass" Uuid="DA9857A7-D5C9-40FB-86B7-B4BFA0CB15B7" Type="Integer" Protection="Internal" DefaultValue="1">
+      <Property Name="RangeAsEnumName" Value="DIFStandard.DIFStandardClass"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="ISO;ASME;JIS"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+      </Range>
+    </Simple>
+
+    <Simple Name="V_DIFStandardVersion"
+            Uuid="85D47EA3-F783-43C0-AECE-EE66FD7DF251"
+            Type="Integer"
+            DefaultValue="0"
+            Protection="Internal"/>
+
+    <!-- R206: contains identifier of object from which it is made from  -->
+    <!-- not exhanged between sites -->
+    <Simple Name="E_fromExternalId"
+            Uuid="CD795074-16FD-468b-B389-E9A7D99EDB77"
+            Type="String"
+            MaxLength="255"
+            MultiValuated="No"
+            CAAExposition="L0"
+            Protection="Free"/>
+
+    <!-- R206: contains Name comments  -->
+    <!-- not exhanged between sites -->
+    <Simple Name="E_versionComment"
+            Uuid="5AB78485-BC61-469b-A66C-B48ED1FFF74C"
+            Type="String"
+            MaxLength="255"
+            MultiValuated="No"
+            CAAExposition="L0"
+            Protection="Free"
+            ResetOnNewVersion="Yes"
+            ResetOnCloning="Yes"/>
+
+    <!-- Export -->
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+  </Class>
+
+  <!-- ********************************************** -->
+  <!-- * DIFViewStreamInstance (PLMCoreRepInstance) * -->
+  <!-- ********************************************** -->
+  <RelationClass Name="DIFViewStreamInstance"
+         Uuid="7A77162A-A73F-470A-9B45-4FCABAE7161E"
+         Abstract="No"
+         CustomerExposition="None"
+         SuperName="PLMCoreRepInstance">
+
+    <CAAComment>
+      <ShortRole>DIF View Representation Instance Object</ShortRole>
+      <Role>DIF View Representation Instance Object</Role>
+    </CAAComment>
+
+    <!-- PLM New UI/KWE Scripts New -->
+    <Property Name="KweNew_InstanciationMethod" Value="CATDifKBEDelegateInstanciation"/>
+
+    <!-- Advanced search -->
+    <Property Name="Searchable" Value="No"/>
+
+    <!-- Export -->
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+    <SubClause Name="from"   TargetName="DIFAbstractView"/>
+    <SubClause Name="to"   TargetName="DIFViewStream"/>
+
+  </RelationClass>
+
+  <!-- ******************************************* -->
+  <!-- *  DIFIsAPresentationOf (PLMConnection)   * -->
+  <!-- ******************************************* -->
+  <Class Name="DIFIsAPresentationOf"
+         Uuid="F2A3819E-B730-42D2-8540-04FFD5D3E0B4"
+         Abstract="No"
+         CustomerExposition="Programmer"
+         SuperName="PLMConnection">
+
+    <Path Name="V_DIFIsAPresentationOf"
+                     Uuid="34A50065-6C61-445c-ADE3-144B511169E1"
+                     MultiValuated="No"
+                     RoleName="DIFIsAPresentationOf"
+                 		 Type="SemanticRelation" AdaptativeToMinor="No"
+                		 SynchroSensitivity="PathAndLast"
+		                 RerouteOnEffectivityChange="No" Orientation="In"
+                     Semantics="Reference3"/>
+
+    <CAAComment>
+      <ShortRole>DIF Connection IsAPresentationOf Object</ShortRole>
+      <Role>DIF Connection IsAPresentationOf Object</Role>
+    </CAAComment>
+
+    <!-- PLM New UI/KWE Scripts New -->
+    <Property Name="KweNew_InstanciationMethod" Value="CATDifKBEDelegateInstanciation"/>
+
+    <!-- Export -->
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+  </Class>
+
+</Package>

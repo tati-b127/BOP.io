@@ -1,0 +1,9 @@
+#Prog SafetyAssessment_ExportReview (iPLMIDSet :  #In PLMIDSet,oPLMIDSet :  #Out PLMIDSet) : VoidType
+  {/*Declaring my local variable*/
+let safetyAssessmentIdSet(PLMIDSet)
+
+safetyAssessmentIdSet = Restrict(iPLMIDSet,"CATSafety/SafetyAssessment")
+
+/* Aggregate results */
+oPLMIDSet =   safetyAssessmentIdSet
+}

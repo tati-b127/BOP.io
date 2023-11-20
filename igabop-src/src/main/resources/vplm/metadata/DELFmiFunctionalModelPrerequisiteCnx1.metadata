@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2006, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" 
+         ModelerType="Top" 
+         BelongsToModeler="DELFmiFunctionalModel"
+         Name="DELFmiFunctionalModelPrerequisiteCnx1"
+         Uuid="34A2A612-1880-4D0D-936F-F4337215733B"
+         UseNames="PLMCORE"
+         CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>Process Function Modeler</ShortRole>
+    <Role>"DELFmiFunctionalModelPrerequisiteCnx1" package describes Customizable Process Function Prerequisite Connection</Role>
+  </CAAComment>
+  
+    <Class Name="DELFmiProcessPrerequisiteCnxCust"
+        Uuid="BC8C3603-146A-429E-BC17-E1381A0B121E"
+        SuperName="PLMConnection"
+        CustomerExposition="Programmer"
+        CustomerExtensible="No"
+        Specializable="Yes"
+        Abstract="No" 
+        OwnerTypes="DELFmiFunctionReference"
+           >
+
+      <Property Name="DMCDerivable" Value="Yes"/>
+      <Property Name="Searchable" Value="No"/>
+
+      <CAAComment>
+        <ShortRole>Defines customizable Process Function Prerequisite Connection</ShortRole>
+        <Role>Also called "Data requirement"?. Connects processes through Ports. One process needs the output of another process as input (i.e. Data driven)</Role>
+      </CAAComment>
+      
+
+      <Path Name="PMX_TargetOutPortCust"
+          Uuid="6A2912AE-4A44-45C2-82B7-7F14F558D7AA"
+          MultiValuated="No"
+          RoleName="DELFmi_PrerequisiteCst_Target"		
+          Type="SemanticRelation" AdaptativeToMinor="Yes"
+      		SynchroSensitivity="PathAndLast"
+		      RerouteOnEffectivityChange="Yes" Orientation="In"
+          Semantics="Reference3"/>
+
+      <Path Name="PMX_TargetInPortCust"
+          Uuid="B413C49E-92E8-4AEB-9A2F-2D5DADFAC54E"
+          MultiValuated="No"
+          RoleName="DELFmi_PrerequisiteCst_Source"		
+          Type="SemanticRelation" AdaptativeToMinor="Yes"
+		      SynchroSensitivity="Last"
+		      RerouteOnEffectivityChange="Yes" Orientation="Out"
+          Semantics="Reference5"/>
+
+
+	<Method ImplementationType="None">
+		<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+	</Method>
+
+    </Class>
+</Package>

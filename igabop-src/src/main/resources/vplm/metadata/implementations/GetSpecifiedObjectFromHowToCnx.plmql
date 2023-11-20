@@ -1,0 +1,12 @@
+NAVIGATE 
+   T0.PLMID, T1.PLMID, T2.PLMID
+FROM
+  DELFmiFunctionalModel/DELFmiFunctionReference T0, 
+  DELLmiProductionSystem/DELLmiProductionSystemReference T1, 
+  DELLmiProductionOperation/DELLmiOperationReference T2
+FROM_ROOTS 
+  [?1?]
+ON 
+(RELATION(FROM=PLMRequirementSpecifyHowToCnxAbstract/PLMReqSpecifyHowToCnxAbstract TO=DELFmiFunctionalModel/DELFmiFunctionReference,DELLmiProductionSystem/DELLmiProductionSystemReference,DELLmiProductionOperation/DELLmiOperationReference  THROUGH=POINTSTO) WITH QUALITY_FILTER (ROLE=PLM_SpecifiedByReq AND CATEGORY=Reference5))
+
+ITER=1 ;

@@ -1,0 +1,50 @@
+NAVIGATE
+
+   	T1.PLMID ,			T2.PLMID ,
+   	T1.PLM_ExternalID ,	T2.PLM_ExternalID
+
+FROM
+
+	PLMKbaAppliComponent/PLMKbaAppliComponent T1,
+
+	PLMKbaAppliResourcesZip/PLMKbaAppliResourcesZip T2
+
+FROM_ROOTS
+
+	[?1?]
+
+ON
+
+	(RELATION 
+		(FROM=PLMKbaAppliComponent/PLMKbaAppliComponent
+		 TO=PLMKbaAppliComponent/PLMKbaAppliComponent
+		 THROUGH=POINTSTO
+		 )
+		 WITH QUALITY_FILTER (CATEGORY=Reference5 AND ROLE=PLMKba_ApplicativePrereqs)
+	)
+OR
+	(RELATION 
+		(FROM=PLMKbaAppliComponent/PLMKbaAppliComponent
+		 TO=PLMKbaAppliResourcesZip/PLMKbaAppliResourcesZip
+		 THROUGH=POINTSTO
+		 )
+		 WITH QUALITY_FILTER (CATEGORY=Reference5 AND ROLE=PLMKba_ApplicativePrereqs)
+	)
+OR
+	(RELATION 
+		(FROM=PLMKbaAppliComponent/PLMKbaAppliComponent
+		 TO=PLMKbaAppliComponent/PLMKbaAppliComponent
+		 THROUGH=POINTSTO
+		 )
+		 WITH QUALITY_FILTER (CATEGORY=Reference4 AND ROLE=PLMKba_ApplicativePrereqs)
+	)
+OR
+	(RELATION 
+		(FROM=PLMKbaAppliComponent/PLMKbaAppliComponent
+		 TO=PLMKbaAppliResourcesZip/PLMKbaAppliResourcesZip
+		 THROUGH=POINTSTO
+		 )
+		 WITH QUALITY_FILTER (CATEGORY=Reference4 AND ROLE=PLMKba_ApplicativePrereqs)
+	)
+
+ITER = 10 ;

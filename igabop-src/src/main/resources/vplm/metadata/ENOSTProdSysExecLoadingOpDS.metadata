@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2009, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" Name="ENOSTProdSysExecLoadingOpDS" Uuid="4c4eb714-30a1-471f-955b-a6ecae813f45" UseNames="DELLmiProductionExecLoadingOperation" >
+	<CAAComment>
+		<ShortRole>PLM Customization of DELMIA Execution Loading Operation for SMB</ShortRole>
+		<Role>PLM Customization of DELMIA Execution Loading Operation for SMB</Role>
+	</CAAComment>
+	<Comment>last update 2009-05-29</Comment>
+
+	<Class Name="ENOSTExecLoadingOpRefCusto" Uuid="d961efc9-9da0-40bf-8662-79a14d6a8c89" SuperName="DELLmiExecLoadingOperationReference" SuperRef="d0531a9d-d986-4ed6-99db-2e1b8890dcb6"  >
+
+    <Simple Name="E_fromExternalId"
+            Uuid="67523715-78f3-4847-9996-70f90c3be6c3"
+            Alias="Definition"
+            Type="String"
+            MaxLength="256"
+            Mandatory="No"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"/>
+    <Simple Name="E_versionComment"
+            Uuid="29f13dac-acf2-4fdc-8e59-e7bcf511f634"
+            Alias="Version Comment"
+            Type="String"
+            MaxLength="256"
+            Mandatory="No"
+            MultiValuated="No"
+            Protection="Free"
+            ResetOnNewVersion="Yes"
+            ResetOnCloning="Yes"
+            CAAExposition="L0"/>
+    <IdentifierSet Name="E_identifier"
+                   Uuid="5c98fb95-62f9-425b-99e4-19218a6f37e1"
+                   IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755"
+                   IdentifierNames="PLM_ExternalID V_version"/>
+
+    <CAAComment>
+			<ShortRole>PLM Customization of DELMIA Execution Loading Operation Reference for SMB</ShortRole>
+			<Role>PLM Customization of DELMIA Execution Loading Operation Reference for SMB</Role>
+		</CAAComment>
+	</Class>
+
+  <RelationClass Name="ENOSTExecLoadingOpInstCusto" Uuid="58db9792-5e31-40ea-8976-8e694c02788b" SuperName="DELLmiExecLoadingOperationInstance" SuperRef="541d8654-8810-4a06-8ba9-5b0569d53f6b"  >
+		<CAAComment>
+			<ShortRole>PLM Customization of DELMIA Execution Loading Operation Instance for SMB</ShortRole>
+			<Role>PLM Customization of DELMIA Execution Loading Operation Instance for SMB</Role>
+		</CAAComment>		
+            <!-- ********************************************************* -->
+            <!-- * Overload(s) of PLMCoreInstance attributes. -->
+            <!-- ********************************************************* -->
+    <SubClause Name="to"   TargetName="ENOSTExecLoadingOpRefCusto"/>
+	</RelationClass>
+
+</Package>

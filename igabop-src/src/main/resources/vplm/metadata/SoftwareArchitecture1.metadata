@@ -1,0 +1,115 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY for E/E Editor -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2012, all rights reserved -->
+
+<Package Name="SoftwareArchitecture1"
+    Uuid="6D2C499B-474A-4beb-B75F-73A2C7A56FE8"
+    xmlns="PLMDictionaryUnified"
+    ModelerType="Top"
+    BelongsToModeler="SoftwareArchitecture"
+	CustomerExposition="Programmer"
+	UseNames="RFLVPMSystemType RFLVPMSystemTypeExposition" >
+
+	<CAAComment>
+        <ShortRole>Software Architecture Package</ShortRole>
+        <Role>This package describes the PLM Software Architecture package on top of RFLVPMLogical Modeler.</Role>
+	</CAAComment>
+	<Comment>Initial creation: A58 Feb 2012</Comment>
+	<Property Name="OptionalInstallation" Value="Yes" /> 
+	
+<!-- ************************** -->
+<!-- EESenderReceiverInterface : RFLVPMSystemTypeReference -->
+<!-- ************************** -->
+	<Class 
+		Name="EESenderReceiverInterface"
+		Uuid="41C56395-1CA4-4106-AF07-AF28D6C775A5"
+		Abstract="No"
+		Specializable="Yes"
+		Discipline="Yes"
+		CustomerExposition="Programmer"
+		CustomerExtensible="Yes"
+		SuperName="RFLVPMSystemTypeReference"
+		CreateInstName="EEPortPrototype"
+		Abbreviation="eesri">
+		<Property Name="IconName" Value="EESenderReceiverInterface"/>
+		<Property Name="Newable" Value="All"/>
+		<Property Name="Searchable" Value="Yes"/>
+		<Property Name="Configurable" Value="Yes"/>
+		<Property Name="KweNew_InstanciationMethod" Value="CATELogDelegateInstanciation"/>
+	  <Property Name="KweNew_ReturnedType" Value="EEPortPrototype"/>
+		<Simple
+			Name="queueLength"
+			Uuid="44B3FD48-CBA5-41e4-B818-9C9EC64EDB0A"
+			Type="Integer"
+			DefaultValue="0"
+			MultiValuated="No"
+			Protection="ExternalIN">
+		</Simple>
+	</Class>
+
+  <!-- **************************************************** -->
+  <!-- *  EEPortPrototype :  RFLVPMSystemTypeExpositionInstance  * -->
+  <!-- **************************************************** -->
+	<RelationClass 
+		Name="EEPortPrototype"
+		Uuid="0A1E5335-3420-4ab7-8EAC-7AC6B07C3B9B"
+		Abstract="No"
+		Specializable="Yes"
+		CustomerExposition="Programmer"
+		CustomerExtensible="Yes"
+		Discipline="Yes"
+		SuperName="RFLVPMSystemTypeExpositionInstance">
+		<Property Name="IconName" Value="EEPortPrototype"/>
+		<Property Name="Newable" Value="Insert"/>
+		<Property Name="Searchable" Value="Yes"/>
+		<Property Name="Filtrable" Value="Yes"/>
+		<Property Name="KweNew_InstanciationMethod" Value="CATELogDelegateInstanciation"/>
+	   	<Property Name="KweNew_ReturnedType" Value="EEPortPrototype"/>
+	</RelationClass>
+<!-- **************************************************** -->
+<!-- *  EEVariableDataPrototype :  RFLVPMSystemTypeReference  * -->
+<!-- **************************************************** -->
+	<Class Name="EEVariableDataPrototype" 
+		Uuid="545AD1BE-A528-4d94-A540-24C05CB8E579"
+		SuperName="RFLVPMSystemTypeReference"
+		Specializable="Yes"
+		CustomerExposition="Programmer"
+		CustomerExtensible="Yes"
+		Discipline="Yes"
+		CreateInstName="RFLVPMSystemTypeInstance"
+		Abbreviation="eevd">
+		<CAAComment>
+			<ShortRole>DataElementPrototype and IRV</ShortRole>
+		</CAAComment>
+    <Property Name="IconName" Value="EEVariableDataPrototype"/>
+    <Property Name="Newable" Value="All"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="Filtrable" Value="Yes"/>
+		<Property Name="KweNew_InstanciationMethod" Value="CATELogDelegateInstanciation"/>
+	  <Property Name="KweNew_ReturnedType" Value="RFLVPMSystemTypeInstance"/>
+		<Simple
+			Name="dataType"
+			Uuid="04B03A7E-CAA3-4aa3-A54D-C4A8AD15F827"
+			Type="String"
+			MultiValuated="No"
+			Protection="ExternalIN">
+		</Simple>
+		<Simple
+			Name="initValue"
+			Uuid="9F9217BF-CD6F-447c-8B79-E35F9F3A6ED9"
+			Type="String"
+			DefaultValue="0"
+			MultiValuated="No"
+			Protection="ExternalIN">
+		</Simple>
+		<Simple
+			Name="isDeviceManagerMode"
+			Uuid="A5707993-9D3A-4160-95B1-2325F287830A"
+			Type="Boolean"
+			DefaultValue="false"
+			MultiValuated="No"
+			Protection="ExternalIN">
+		</Simple>
+	</Class>
+</Package>

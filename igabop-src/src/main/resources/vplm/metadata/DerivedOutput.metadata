@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2016, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" Name="DerivedOutput"
+	Uuid="9171a983-eb24-43ec-9798-caa278b87d6b"
+	UseNames="ERCoreModeler"
+	CustomerExposition="Programmer" 
+	Architecture="All"
+>
+	<Comment>last update 2016-12-06</Comment>
+
+	<Class Name="DerivedOutputEntity" 
+		Uuid="847d6a0c-4177-4ed0-887a-a1b46d87799e" 
+		Abstract="No" 
+		CustomerExposition="ProgrammerOnly"
+		SuperName="BusinessType" 
+		Specializable="No"
+		CustomerExtensible="No"
+		Searchable="No"
+		AggregatableTypes="None"
+		InstantiationOwnerTypes="PLMCoreRepReference"
+		KweNew_InstanciationMethod="CATKBEVPMDerivedOutputDelegateInstanciation"
+		ObjectNature="Aggregated">
+		
+		<Simple Name="DerivedOutputStreamManifest" Type="Clob" MultiValuated="No" Protection="Internal" Uuid="bceb353b-b1d0-40df-9025-c7cfcf43a02c"/>
+		
+		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+	</Class>
+	
+	<RelationClass Name="DerivedOutputRelationship" 
+		Uuid="6fc26a43-b856-4a90-b58d-40aad4f84558" 
+		Abstract="No" 
+		CustomerExposition="ProgrammerOnly"
+		SuperName="RelationType"
+		Specializable="No"
+		CustomerExtensible="No"
+		RelationNature="Aggregation"
+		>
+
+		<SubClause Name="from"   TargetName="PLMCoreRepReference"/>
+		<SubClause Name="to"   TargetName="DerivedOutputEntity"/>
+
+		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+	</RelationClass>
+
+</Package>

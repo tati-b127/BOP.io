@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2004, All rights reserved -->
+
+<!-- History
+    V6R2010 Added Procedures & Functions for Export
+-->
+
+<Package xmlns="PLMDictionaryTop" ModelerType="Top"  Name="PLMConfigDate"
+    Uuid="BA357FB9-A600-0000-02800311EC000000"
+    UseNames="PLMCORE PLMConfigMilestone" UseScopes="PLMConfigVariabilitySpace"
+    BelongsToModeler="Configuration"
+   >
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+        <ShortRole>The Date Configuration Component Metadata.</ShortRole>
+        <Role>This package includes all the entities of Date Configuration Model.</Role>
+    </CAAComment>
+
+    <!-- **************** -->
+    <!-- CLASS PLMCfgDate -->
+    <!-- **************** -->
+
+    <Class Name="PLMCfgDate"           CustomerExposition="Programmer"
+        Uuid="BA357FBA-BE59-0000-02800311EC000000"
+        SuperName="PLMCoreReference"
+        Abstract="No"
+        >
+        
+        <CAAComment>
+            <ShortRole>The date class.</ShortRole>
+            <Role>The date class.</Role>
+        </CAAComment>
+
+        <!-- Properties -->
+		
+            <Property Name="Searchable" Value="No"/>
+			
+        <!-- Overloaded Attributes -->
+
+        <!-- New Attributes -->
+
+            <Simple Name="V_CfgKey"
+                Uuid="BA357FBA-D631-0000-02800311EC000000"
+                Type="Binary"
+                MaxLength="16"
+                MultiValuated="No"
+                Protection="Internal">
+            </Simple>
+            
+            <Simple Name="V_DomainA"
+                Uuid="BA357FBA-ED72-0000-02800311EC000000"
+                Type="Integer"
+                MultiValuated="No"
+                Protection="Internal">
+            </Simple>
+
+            <Simple Name="V_DomainB"
+                Uuid="BA357FBA-ED73-0000-02800311EC000000"
+                Type="Integer"
+                MultiValuated="No"
+                Protection="Internal">
+            </Simple>
+
+        <!-- Constraints -->
+
+            <!-- The (Name)=(PLM_ExternalID) identify a date -->
+            <IdentifierSet Name="Identifier"
+                           Uuid="6336D7A0-C159-4314-B1875F4B4C229945"
+                           IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB"
+                           IdentifierNames="PLM_ExternalID"/>
+            
+        <!-- *********************** -->
+        <!-- PROCEDURES Declaration  -->      
+        <!-- *********************** -->
+
+	  <Method ImplementationType="None">
+		<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+	  </Method>
+
+    </Class>
+
+    <!-- ********************* -->
+    <!-- CLASS PLMCfgDateUsage -->
+    <!-- ********************* -->
+
+    <RelationClass Name="PLMCfgDateUsage"
+        Uuid="BA357FBA-ED76-0000-02800311EC000000"
+        SuperName="PLMCoreInstance"
+        Abstract="No"
+        CustomerExposition="Programmer"
+        >
+        
+        <CAAComment>
+            <ShortRole>The date instance class.</ShortRole>
+            <Role>The date instance class.</Role>
+        </CAAComment>
+        
+        <!-- Overloaded Attributes -->
+
+      <SubClause Name="from" TargetName="PLMCfgVariabilitySpace"/>
+      <SubClause Name="to"   TargetName="PLMCfgDate"/>
+      
+                
+        <!-- New Attributes -->
+
+        <!-- Constraints -->
+        
+
+        <!-- *********************** -->
+        <!-- PROCEDURES Declaration  -->      
+        <!-- *********************** -->
+
+	  <Method ImplementationType="None">
+		<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+	  </Method>
+
+    </RelationClass>
+
+    <!-- ************************* -->
+    <!-- CLASS PLMCfgDateMilestone -->
+    <!-- ************************* -->
+
+    <Class Name="PLMCfgDateMilestone"
+        Uuid="BA357FBA-ED79-0000-02800311EC000000"
+        SuperName="PLMCfgMilestone"
+        Abstract="No"
+        CustomerExposition="Programmer"
+        >
+      <!-- OwnerTypes="PLMCfgDate"  Integrate this line if you want to declare the aggregation constraint-->
+
+      <CAAComment>
+            <ShortRole>The date milestone class.</ShortRole>
+            <Role>The date milestone class.</Role>
+        </CAAComment>
+        
+        <!-- *********************** -->
+        <!-- PROCEDURES Declaration  -->      
+        <!-- *********************** -->
+
+	  <Method ImplementationType="None">
+		<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+	  </Method>
+
+    </Class>
+</Package>
+
+ 

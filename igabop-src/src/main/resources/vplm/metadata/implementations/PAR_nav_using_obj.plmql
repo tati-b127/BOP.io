@@ -1,0 +1,29 @@
+NAVIGATE
+   	T1.physicalid, T1.logicalid, T1.type, T1.name,
+	T2.PLMID, T2.PLM_ExternalID,
+	T3.physicalid, T3.logicalid, T3.type, T3.name
+
+FROM
+	Class/Requirement T1,
+	PLMCORE/PLMCoreReference T2,
+	Class/Part T3
+
+FROM_ROOTS
+	[?1?]
+
+ON (
+	RELATION (
+		FROM=Class/PARParameter
+		TO=RelationClass/ParameterUsage
+		THROUGH=POINTEDBY
+	) WITH QUALITY_FILTER (CATEGORY=ISINSTANCEOF)
+)
+THEN (
+	RELATION (
+		FROM=RelationClass/ParameterUsage
+		TO=Class/Requirement, Class/Part, PLMCORE/PLMCoreReference
+		THROUGH=POINTSTO
+	) WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY)
+)
+
+ITER = 1 ;

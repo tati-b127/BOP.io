@@ -1,0 +1,12 @@
+NAVIGATE
+T0.PLMID
+
+FROM
+DELLmiProductionTimeConstraintCnx/DELLmiTimeConstraintCnx T0
+
+FROM_ROOTS [?1?]
+ON
+(
+RELATION(FROM= PLMCORE/PLMCoreInstance TO= DELLmiProductionTimeConstraintCnx/DELLmiTimeConstraintCnx THROUGH=POINTEDBY) WITH QUALITY_FILTER (ROLE=DEL_LinkToConstrainedObject)
+)
+ITER=1;

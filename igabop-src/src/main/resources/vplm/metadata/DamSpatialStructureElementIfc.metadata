@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2012, All rights reserved -->
+
+<Package CustomerExposition = "Programmer" ModelerType = "Top" Name = "DamSpatialStructureElementIfc" UseNames = "AECCommonSpatialStructureElementIfc;DamSpatialStructureElement" Uuid = "DDDA0EBF-E299-4FC1-B4D0-71E3C10B8BE5" xmlns = "PLMDictionaryUnified">
+  <Extension CustomerExposition = "Programmer" Name = "IfcDam" ScopeNames = "Dam" Uuid = "27F32C2D-88D9-499A-AD22-E1BFB2F10400">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcDam_ObjectType" Protection = "Free" Type = "String" Uuid = "27F32C2D-88D9-499A-AD22-1ad52eb2ea5e"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcDam_LongName" Protection = "Free" Type = "String" Uuid = "27F32C2D-88D9-499A-AD22-47d2c9dc49ee"/>
+    <Simple CAAExposition = "L0" DefaultValue = "2" Name = "IfcDam_CompositionType" Protection = "Free" Type = "Integer" Uuid = "27F32C2D-88D9-499A-AD22-f65bd56122dd">
+      <Property Name = "RangeAsEnumName" Value = "AECCommonSpatialStructureElementIfc.IfcElementCompositionEnum"/>
+      <Property Name = "RangeAsEnumAuthorizedValues" Value = "COMPLEX;ELEMENT;PARTIAL"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+      </Range>
+    </Simple>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcDamPart" ScopeNames = "DamPart" Uuid = "C2C5E2D0-A5D0-432D-BDD0-BB89EECB119F">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcDamPart_ObjectType" Protection = "Free" Type = "String" Uuid = "C2C5E2D0-A5D0-432D-BDD0-1ad52eb2ea5e"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcDamPart_LongName" Protection = "Free" Type = "String" Uuid = "C2C5E2D0-A5D0-432D-BDD0-47d2c9dc49ee"/>
+    <Simple CAAExposition = "L0" DefaultValue = "2" Name = "IfcDamPart_CompositionType" Protection = "Free" Type = "Integer" Uuid = "C2C5E2D0-A5D0-432D-BDD0-f65bd56122dd">
+      <Property Name = "RangeAsEnumName" Value = "AECCommonSpatialStructureElementIfc.IfcElementCompositionEnum"/>
+      <Property Name = "RangeAsEnumAuthorizedValues" Value = "COMPLEX;ELEMENT;PARTIAL"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+      </Range>
+    </Simple>
+    <Simple CAAExposition = "L0" DefaultValue = "99" Name = "IfcDamPart_PredefinedType" Protection = "Free" Type = "Integer" Uuid = "4BC9F005-3B1B-4971-B14C-32B178B605C9">
+      <Property Name = "RangeAsEnumName" Value = "IfcDamPartTypeEnum"/>
+      <Property Name = "RangeAsEnumAuthorizedValues" Value = "USERDEFINED;NOTDEFINED"/>
+      <Range>
+        <Equal>98</Equal>
+        <Equal>99</Equal>
+      </Range>
+    </Simple>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcDamPartType" ScopeNames = "DamPartType" Uuid = "6E18957D-9169-47F8-A207-844236D3A46A">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcDamPartType_Tag" Protection = "Free" Type = "String" Uuid = "6E18957D-9169-47F8-A207-cc2a36316812"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcDamPartType_ElementType" Protection = "Free" Type = "String" Uuid = "6E18957D-9169-47F8-A207-d84421a52c4a"/>
+    <Simple CAAExposition = "L0" DefaultValue = "99" Name = "IfcDamPartType_PredefinedType" Protection = "Free" Type = "Integer" Uuid = "717EDC59-C9DF-4921-B286-A4ACCB2BC1D8">
+      <Property Name = "RangeAsEnumName" Value = "IfcDamPartTypeEnum"/>
+      <Property Name = "RangeAsEnumAuthorizedValues" Value = "USERDEFINED;NOTDEFINED"/>
+      <Range>
+        <Equal>98</Equal>
+        <Equal>99</Equal>
+      </Range>
+    </Simple>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcQto_DS_DamBaseQuantities" ScopeNames = "Dam DamType" Uuid = "486788A8-BEF9-4B71-ADFA-59125799D21A">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcQto_DS_DamBaseQuantities_MethodOfMeasurement" Protection = "Free" Type = "String" Uuid = "486788A8-BEF9-4B71-ADFA-14b1550b5f09"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcQto_DS_DamBaseQuantities_Height" Protection = "Free" Type = "Double" Uuid = "1E8094ED-54E8-41A4-AC32-BFA82D1AE6E0"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcQto_DS_DamBaseQuantities_Length" Protection = "Free" Type = "Double" Uuid = "5835B227-9B79-414C-9E93-937E967FC75F"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcQto_DS_DamBaseQuantities_Width" Protection = "Free" Type = "Double" Uuid = "CC5CC000-C700-4A6D-A00E-3CAC0920AFE1"/>
+    <Simple CAAExposition = "L0" Magnitude = "AREA" Name = "IfcQto_DS_DamBaseQuantities_GrossSurfaceArea" Protection = "Free" Type = "Double" Uuid = "749E70C2-408A-4B8F-A2FD-7A37A6499C72"/>
+    <Simple CAAExposition = "L0" Magnitude = "AREA" Name = "IfcQto_DS_DamBaseQuantities_NetSurfaceArea" Protection = "Free" Type = "Double" Uuid = "391BEB1D-9AB1-46A5-88DD-F79361503E19"/>
+    <Simple CAAExposition = "L0" Magnitude = "VOLUME" Name = "IfcQto_DS_DamBaseQuantities_GrossVolume" Protection = "Free" Type = "Double" Uuid = "7A47966A-E45F-41A5-B62D-2C1A803907CD"/>
+    <Simple CAAExposition = "L0" Magnitude = "VOLUME" Name = "IfcQto_DS_DamBaseQuantities_NetVolume" Protection = "Free" Type = "Double" Uuid = "2A3EEAB4-237C-4527-98E6-D63904BE7390"/>
+    <Simple CAAExposition = "L0" Magnitude = "MASS" Name = "IfcQto_DS_DamBaseQuantities_GrossWeight" Protection = "Free" Type = "Double" Uuid = "560CD493-5616-4E42-BCCB-015D4EA2795B"/>
+    <Simple CAAExposition = "L0" Magnitude = "MASS" Name = "IfcQto_DS_DamBaseQuantities_NetWeight" Protection = "Free" Type = "Double" Uuid = "374405E1-27CD-4E11-9653-9FE6AA4A45EA"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcQto_DS_DamOtherSpatialStructureElementBaseQuantities" ScopeNames = "DamOtherSpatialStructureElement DamOtherSpatialStructureElementType" Uuid = "E515A281-95B0-490A-9E47-CC5B6A90B747">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcQto_DS_DamOtherSpatialStructureElementBaseQuantities_MethodOfMeasurement" Protection = "Free" Type = "String" Uuid = "E515A281-95B0-490A-9E47-14b1550b5f09"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcQto_DS_DamOtherSpatialStructureElementBaseQuantities_Height" Protection = "Free" Type = "Double" Uuid = "6972879E-ACBB-47E2-97B7-FBF978243DFB"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcQto_DS_DamOtherSpatialStructureElementBaseQuantities_Length" Protection = "Free" Type = "Double" Uuid = "69C4E478-AB4D-440F-9AA4-FDF6561AA256"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcQto_DS_DamOtherSpatialStructureElementBaseQuantities_Width" Protection = "Free" Type = "Double" Uuid = "9A76204C-4D54-4869-B6C3-4AD85D7A547A"/>
+    <Simple CAAExposition = "L0" Magnitude = "AREA" Name = "IfcQto_DS_DamOtherSpatialStructureElementBaseQuantities_GrossSurfaceArea" Protection = "Free" Type = "Double" Uuid = "B2097C16-DDEC-490C-913E-8D1EFB80D715"/>
+    <Simple CAAExposition = "L0" Magnitude = "AREA" Name = "IfcQto_DS_DamOtherSpatialStructureElementBaseQuantities_NetSurfaceArea" Protection = "Free" Type = "Double" Uuid = "E4F5B954-2A75-4D8E-834C-F2211B9BE169"/>
+    <Simple CAAExposition = "L0" Magnitude = "VOLUME" Name = "IfcQto_DS_DamOtherSpatialStructureElementBaseQuantities_GrossVolume" Protection = "Free" Type = "Double" Uuid = "9D163EA9-1360-4E38-BCDD-EF253256DBD0"/>
+    <Simple CAAExposition = "L0" Magnitude = "VOLUME" Name = "IfcQto_DS_DamOtherSpatialStructureElementBaseQuantities_NetVolume" Protection = "Free" Type = "Double" Uuid = "8291202B-AF37-4CFF-BF60-EACDBC238EBA"/>
+    <Simple CAAExposition = "L0" Magnitude = "MASS" Name = "IfcQto_DS_DamOtherSpatialStructureElementBaseQuantities_GrossWeight" Protection = "Free" Type = "Double" Uuid = "4AB0FC49-2A46-46D0-9EBA-37F5A83B856F"/>
+    <Simple CAAExposition = "L0" Magnitude = "MASS" Name = "IfcQto_DS_DamOtherSpatialStructureElementBaseQuantities_NetWeight" Protection = "Free" Type = "Double" Uuid = "E68D28CC-795B-43AD-B19D-F2AA861C5C5E"/>
+  </Extension>
+</Package>

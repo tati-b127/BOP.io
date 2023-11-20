@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR DELMIA Production System Application -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2009, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" 
+         ModelerType="Top" 
+         Name="DELLmiProductionExecTransfoSystem"
+	       Uuid="26c24f6d-f7a1-45bb-9bd6-c4352091812a"
+	       UseNames="DELLmiProductionSystemUPR"
+         UseProcedures="ENOEps_Procedures ENOPsm_Procedures"
+         CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>Execution Transformation System Model</ShortRole>
+    <Role>This package describes the Execution Transformation System model on top of DELLmiProductionSystemUPR</Role>
+  </CAAComment>
+
+  <Comment>last update 2013-06-18</Comment>
+
+  <Class Name="DELLmiExecTransfoSystemReference"
+		     Uuid="960ad18a-4da4-4a97-aab3-2d9f7d183ea0"
+	     	 Abstract="No"
+         SuperName="DELLmiUPRSystemReference"
+         CustomerExposition="Programmer"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         CreateInstName="DELLmiExecTransfoSystemInstance"
+         Abbreviation="etr"
+         InstantiationOwnerTypes="DELLmiExecGeneralSystemReference;DELLmiExecTransfoSystemReference"
+         AggregatableTypes="DELLmiExecGeneralSystemReference;DELLmiExecTransfoSystemReference;DELLmiExecStorageSystemReference;DELLmiExecTransferSystemReference;DELLmiOperationUPRReference">
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELMPProdSystemAdvDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELLmiExecTransfoSystemInstance"/>
+    <Property Name="IconName" Value="I_UPRTransformationSystem"/>
+    <Property Name="3DIconName" Value="I_UPRTransformationSystem.cgr"/>
+    <Property Name="Newable" Value="No"/>
+    <Property Name="Searchable" Value="Yes"/>
+
+    <CAAComment>
+      <ShortRole>Execution Transformation System Reference</ShortRole>
+      <Role>Execution Transformation System Reference. Specialization is not supported yet.</Role>
+    </CAAComment>
+
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Design"/>
+        <UsedProcedure href="ENOEps_Procedures.proc#ProductionExecSystem_GetAllEntities"/>
+      </ProcedureForUsage>
+    </Method>
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExchangeScope.meth#XPDM"/>
+        <UsedProcedure href="ENOPsm_Procedures.proc#ProductionExecSystem_ExchangeXPDM_GetAllEntities"/>
+      </ProcedureForUsage>
+    </Method>
+
+  </Class>
+
+  <RelationClass Name="DELLmiExecTransfoSystemInstance"
+	     	 Uuid="bfeb79f9-2ce5-4cd5-a94c-feb9d5ff8afe"
+		     Abstract="No"
+         SuperName="DELLmiUPRSystemInstance"
+         CustomerExposition="Programmer"
+         Specializable="Yes"
+         CustomerExtensible="Yes">
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELMPProdSystemAdvDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELLmiExecTransfoSystemInstance"/>
+    
+    <CAAComment>
+      <ShortRole>Execution Transformation System Instance</ShortRole>
+      <Role>Execution Transformation System Instance. Specialization is not supported yet.</Role>
+    </CAAComment>
+
+    <Volatile Name="Reference" Uuid="0FFFF719-57DA-4a45-9157-1D309ACB76D3" Accessor="PLMModelerReferenceKweAttribute" TypeName="DELLmiExecTransfoSystemReference" AccessMode="ReadOnly" />
+
+    <SubClause Name="to"   TargetName="DELLmiExecTransfoSystemReference"/>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+	<Method ImplementationType="None">
+	<RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+	</Method>     
+
+  </RelationClass>
+
+</Package>

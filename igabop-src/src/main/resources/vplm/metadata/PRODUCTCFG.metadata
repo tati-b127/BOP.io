@@ -1,0 +1,455 @@
+<?xml version="1.0" ?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2004, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" 
+    ModelerType="Top" 
+    BelongsToModeler="PRODUCT" 
+    Name="PRODUCTCFG"
+    Uuid="67605232-7D0E-44C0-960B30ECFC0DB637"
+    UseNames="PHYSICALABSTRACT"
+    UseProcedures="ENOVpe_Procedures"
+    CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>ProductStructure Package</ShortRole>
+    <Role>This package includes all the entities of ProductStructure Model</Role>
+  </CAAComment>
+
+  <Class Name="VPMReference"
+      Uuid="6FBC0B4F-5F11-432F-A56B8EFC7001CA9B" 
+      Abstract="No"
+      SuperName="PHYSICALAbstractReference"
+      CustomerExposition="Programmer"
+      CAAExposition="L1"
+      Abbreviation="prd"           
+      CreateInstName="VPMInstance"
+      Specializable="Yes"
+      CustomerExtensible="Yes">
+      
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATKBEVPMReferenceDelegateInstanciation"/>
+	  <Property Name="KweNew_ReturnedType" Value="VPMInstance"/>
+    <Property Name="Newable" Value="All_Offline_CAA"/>
+    <Property Name="AggregatableTypes" Value="VPMRepReference;VPMReference;VPMDECReference;VPMPort;VPMConnection;PARParameter"/>
+    <Property Name="Configurable" Value="Yes"/>
+    <Property Name="ChangeManagementSupport" Value="Yes"/>
+    <Property Name="ChangeManagementReferential" Value="Yes"/>   
+    <Property Name="ChangeManagementContext" Value="Yes"/>      
+    <Property Name="IconName" Value="I_VPMNavProduct"/> <!-- Icons : keep consistent with Icons_PRODUCT.CATRsc -->
+    <Property Name="3DIconName" Value="CAT3DNav_BSMInstance.cgr"/> <!-- Icons : keep consistent with Icons_PRODUCT.CATRsc -->
+    <Property Name="ShareBetweenProjectsAvailability" Value="Yes"/> <!-- Collaborative Space Applicability -->
+    <Property Name="NewMinorRevisionAvailability" Value="Yes"/>
+    <Property Name="3DPartAvailability" Value="UserChoiceReferenceDefault"/> <!-- 3DPart Typing -->
+		
+    <!-- PROCEDURES Declaration  -->
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Review"/>
+        <UsedProcedure href="ENOVpe_Procedures.proc#VPMEditor_GetRepresentationsForReview"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Design"/>
+        <UsedProcedure href="ENOVpe_Procedures.proc#VPMEditor_GetAllRepresentations"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Channel"/>
+        <UsedProcedure href="ENOVpe_Procedures.proc#VPMEditor_GetChannelCompletionOnReference"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Review_V6"/>
+        <UsedProcedure href="ENOVpe_Procedures.proc#VPMEditor_GetRepresentationsForReview_V6"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Remove"/>
+        <UsedProcedure href="ENOVpe_Procedures.proc#VPMEditor_Detach_VPMReferenceVPMRepReference"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#TransferSiteOwnership"/>
+        <UsedProcedure href="ENOVpe_Procedures.proc#VPMEditor_TSO_VPMReferenceVPMRepReference"/>
+      </ProcedureForUsage>
+    </Method>
+    <!-- XPDM exchange -->
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExchangeScope.meth#XPDM"/>
+        <UsedProcedure href="ENOVpe_Procedures.proc#VPMEditor_GetExchangeCompletionOnReference"/>
+      </ProcedureForUsage>      
+      <ProcedureForUsage>
+        <Usage href="ExchangeScope.meth#XPDM2"/>
+        <UsedProcedure href="ENOVpe_Procedures.proc#VPMEditor_XPDM2_VPMReferenceCompletion"/>
+      </ProcedureForUsage>      
+    </Method>
+  </Class>
+
+  <RelationClass Name="VPMInstance"
+      Uuid="5461A455-452A-451E-BB41AB43227613E7"
+      Abstract="No"
+      SuperName="PHYSICALAbstractInstance"
+      CustomerExposition="Programmer"
+      CAAExposition="L1"
+      Specializable="Yes"
+      CustomerExtensible="Yes">
+      
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATKBEDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="VPMInstance"/>
+
+    <Property Name="Filtrable" Value="Yes"/>
+    <Property Name="Searchable" Value="No"/>
+    
+    <!-- Icons : keep consistent with Icons_PRODUCT.CATRsc -->
+    <Property Name="IconName" Value="I_VPMNavProduct"/> 
+    <SubClause Name="from" TargetName="VPMReference"/>
+    <SubClause Name="to" TargetName="PHYSICALAbstractReference"/>
+   
+    <Volatile Name="Reference" Uuid="7d719958-419b-486f-95a8-edae6ca1031f" Accessor="PLMModelerReferenceKweAttribute" TypeName="VPMReference" AccessMode="ReadOnly">
+			<Property Name="ServerAccessor" Value="com.dassault_systemes.vplm.modelerBaseNav.services.PLMInstance_Reference_Accessor"/>
+		</Volatile>
+    <Volatile Name="FixedStatus" Uuid="a44b0968-4190-4868-97e1-e325785904b7" Accessor="PLMModelerFixedStatusKweAttribute"  TypeName="Boolean" AccessMode="ReadWrite"> 
+      <Property Name="ServerAccessor" Value="com.dassault_systemes.vplm.productAuthoring.implementation.FixedStatus_Accessor"/>
+    </Volatile>
+
+    <!-- Path declaration for PGP PMR -->
+    <Path Name="PathPGPPMRInstanceToOccurrence"
+        Uuid="322DF616-2152-4E11-A117-B81343D5BB0C"
+        MultiValuated="Yes"
+        RoleName="PGPPMRInstanceToOccurrence"	Type="SemanticRelation" AdaptativeToMinor="Yes"
+		    SynchroSensitivity="None"
+		    RerouteOnEffectivityChange="No" Orientation="Neutral"
+        Semantics="Reference2"/>
+
+    <!-- PROCEDURES Declaration 3DXML / Channel (ExportScope)-->
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Remove"/>
+        <UsedProcedure href="ENOVpe_Procedures.proc#VPMEditor_Detach_VPMInstance"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#TransferSiteOwnership"/>
+        <UsedProcedure href="ENOVpe_Procedures.proc#VPMEditor_TSO_VPMInstance"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Channel"/>
+        <UsedProcedure href="ENOVpe_Procedures.proc#VPMEditor_GetChannelCompletionOnInstance"/>
+      </ProcedureForUsage>
+    </Method>
+  </RelationClass>
+  
+  <Class Name="VPMRepReference"
+      Uuid="37776C3D-FDBE-492A-942EF11C983D20BF"
+      Abstract="No"
+      SuperName="PHYSICALAbstract3DRepReference"
+      CustomerExposition="Programmer"
+      Abbreviation="rep"     
+      CAAExposition="L1"
+      CreateInstName="VPMRepInstance"
+      CustomerExtensible="No" 
+      NewMinorRevisionAvailability="Yes">
+      
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="ChangeManagementSupport" Value="Yes"/>
+    <Property Name="ChangeManagementReferential" Value="Yes"/>   
+    <Property Name="ChangeManagementContext" Value="Yes"/>     
+    
+    <!-- Icons : keep consistent with Icons_PRODUCT.CATRsc -->
+    <Property Name="IconName" Value="I_VPMNavProductDocument"/> 
+    <Property Name="3DIconName" Value="CAT3DNav_BSMRepInstance.cgr"/>
+    <Property Name="IterationAvailability" Value="Yes"/> <!-- Iteration project/Inheritance:Yes/CoreRepRef:No -->
+    <Property Name="ShareBetweenProjectsAvailability" Value="Yes"/> <!-- Collaborative Space Applicability -->
+		
+    <!-- PROCEDURES Declaration  -->
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Review"/>
+        <UsedProcedure href="ENOVpe_Procedures.proc#VPMEditor_GetRepresentationsForReview"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Design"/>
+        <UsedProcedure href="ENOVpe_Procedures.proc#VPMEditor_GetAllRepresentations"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Channel"/>
+        <UsedProcedure href="ENOVpe_Procedures.proc#VPMEditor_GetChannelCompletionOnReference"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Review_V6"/>
+        <UsedProcedure href="ENOVpe_Procedures.proc#VPMEditor_GetRepresentationsForReview_V6"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Remove"/>
+        <UsedProcedure href="ENOVpe_Procedures.proc#VPMEditor_Detach_VPMReferenceVPMRepReference"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#TransferSiteOwnership"/>
+        <UsedProcedure href="ENOVpe_Procedures.proc#VPMEditor_TSO_VPMReferenceVPMRepReference"/>
+      </ProcedureForUsage>
+    </Method>
+    
+    <!-- XPDM exchange -->
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExchangeScope.meth#XPDM"/>
+        <UsedProcedure href="ENOVpe_Procedures.proc#VPMEditor_GetAllRepresentations"/>
+      </ProcedureForUsage>
+    </Method>
+  </Class>
+
+  <RelationClass Name="VPMRepInstance"
+
+      Uuid="159B5B75-2D79-4B38-9235E23CE451CA62"
+      Abstract="No"
+      SuperName="PHYSICALAbstract3DRepInstance"
+      CustomerExposition="Programmer"
+      CAAExposition="L1"
+      Specializable="Yes"
+      CustomerExtensible="No">
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATKBEDelegateInstanciation"/>
+    
+    <Property Name="Searchable" Value="No"/>
+    <Simple Name="V_Qualification"
+                                Uuid="78207b05-599a-46cc-bc7b-df15ec59eff1"
+                                Type="String"
+                                MaxLength="1024"
+                                MultiValuated="No"
+                                DefaultValue=""
+                                Protection="ExternalIN"
+								CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Qualifies the RepInstance for MultiRep usage</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <SubClause Name="from" TargetName="VPMReference"/>
+    <SubClause Name="to" TargetName="VPMRepReference"/>
+
+    <Volatile Name="Reference" Uuid="e81895cf-aecf-44e9-b708-f0da8e9a5267" Accessor="PLMModelerReferenceKweAttribute" TypeName="VPMRepReference" AccessMode="ReadOnly" />
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+    </RelationClass>
+
+  
+  <Class Name="VPMPort"
+      Uuid="F15B80BD-1859-4A91-9E9A0B096C409A7B"
+      Abstract="No"
+      SuperName="PHYSICALAbstractPort"
+      CustomerExposition="Programmer"
+      Specializable="Yes"
+      CustomerExtensible="No">
+      
+    <Property Name="DMCDerivable" Value="Yes"/>
+   	<Property Name="KweNew_InstanciationMethod" Value="CATKBEPublicationDelegateInstanciation"/>
+    
+    <Property Name="Newable" Value="Insert_Offline"/>
+    <Property Name="Searchable" Value="No"/>
+    
+    <!-- Icons : keep consistent with Icons_PRODUCT.CATRsc -->
+    <Property Name="IconName" Value="I_PLMPort"/> 
+    
+    <!-- Behavior patterns: default values -->
+    <Property Name="LockUnlockAvailability" Value="No"/>
+    <Property Name="TransferOwnershipAvailability" Value="No"/>
+
+    <!--    <ContextKey
+        Name="context_key"
+             Uuid="49C5F60D-17D8-4133-8F9C-4DEF6D3FED61"
+             SimpleName="V_FunctionalName"/> -->
+
+    <!-- ********************************************************* -->
+    <!-- * Path declaration for 3DXML and PLMCoreClient -->
+    <!-- ********************************************************* -->
+    <Path Name="_Pointed"
+        Uuid="4eded178-4312-46ec-9e41-6f886d4a22bf"
+        MultiValuated="No"
+        RoleName="Publish"
+      	Type="SemanticRelation" AdaptativeToMinor="Yes"
+		    SynchroSensitivity="PathAndLast"
+		    RerouteOnEffectivityChange="No"
+                      Orientation="In"
+        Semantics="Reference3"/>
+    
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+  <Class Name="VPMConnection"
+      Uuid="A3EEFC65-FE2E-41D7-A68BB09BD9729DE9"
+      Abstract="No"
+      SuperName="PHYSICALAbstractConnection"
+      CustomerExposition="Programmer">
+       
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="Searchable" Value="No"/>
+    
+    <!-- Icons : keep consistent with Icons_PRODUCT.CATRsc -->
+    <Property Name="IconName" Value="I_Constraint"/> 
+
+    <Path Name="_Context"
+        Uuid="CF4C3935-1C92-4612-BDD6-1184C8F7C1CE"
+        MultiValuated="No"
+        RoleName="Context"
+     		Type="SemanticRelation" AdaptativeToMinor="No"
+		    SynchroSensitivity="PathAndLast"
+		    RerouteOnEffectivityChange="No" Orientation="In"
+        Semantics="Reference3"/>
+
+    <Path Name="_Input"
+        Uuid="4BD797F7-0573-4e53-AC0E-C69DBE698AB6"
+        MultiValuated="No"
+        RoleName="Input"
+        Type="SemanticRelation" AdaptativeToMinor="No"
+		    SynchroSensitivity="PathAndLast"
+		    RerouteOnEffectivityChange="No" Orientation="In"
+        Semantics="Reference3"/>
+    
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+  </Class>
+
+  <Extension Name="VPMContextualLink"
+       Uuid="B80C7CEA-4C4C-0000-02800310F7000000"
+       ScopeNames="VPMConnection"
+       CustomerExposition="None">
+  </Extension>
+
+  <!-- ********************************************************* -->
+
+  <!-- FUNCTIONS Declarations : here are delcared PLMQL Functions -->
+
+  <Function Name="ProductCfg_Add3DShapeOnly">
+    <Implementation Name="ProductCfg_Add3DShapeOnly" FileLocation="ProductCfg_Add3DShapeOnly.plmql" Language="PLMQL"/>
+    <Signature href="ENOProductSignature"/>
+  </Function>
+
+  <Function Name="ProductCfg_AddChildrenProduct">
+    <Implementation Name="ProductCfg_AddChildrenProduct" FileLocation="ProductCfg_AddChildrenProduct.plmql" Language="PLMQL"/>
+    <Signature href="ENOProductSignature"/>
+  </Function>
+
+  <Function Name="ProductCfg_AddLPPrivateRep">
+    <Implementation Name="ProductCfg_AddLPPrivateRep" FileLocation="ProductCfg_AddLPPrivateRep.plmql" Language="PLMQL"/>
+    <Signature href="ENOProductSignature"/>
+  </Function>
+
+  <Function Name="ProductCfg_AddPGPRep">
+    <Implementation Name="ProductCfg_AddPGPRep" FileLocation="ProductCfg_AddPGPRep.plmql" Language="PLMQL"/>
+    <Signature href="ENOProductSignature"/>
+  </Function>
+
+  <Function Name="ProductCfg_AddVPMPorts">
+    <Implementation Name="ProductCfg_AddVPMPorts" FileLocation="ProductCfg_AddVPMPorts.plmql" Language="PLMQL"/>
+    <Signature href="ENOProductSignature"/>
+  </Function>
+
+  <Function Name="ProductCfg_AddAllRepresentations">
+    <Implementation Name="ProductCfg_AddAllRepresentations" FileLocation="ProductCfg_AddAllRepresentations.plmql" Language="PLMQL"/>
+    <Signature href="ENOProductSignature"/>
+  </Function>
+
+  <Function Name="ProductCfg_AddVPMConnections">
+    <Implementation Name="ProductCfg_AddVPMConnections" FileLocation="ProductCfg_AddVPMConnections.plmql" Language="PLMQL"/>
+    <Signature href="ENOProductSignature"/>
+  </Function>
+
+  <Function Name="ProductCfg_AddAggregatingReference">
+    <Implementation Name="ProductCfg_AddAggregatingReference" FileLocation="ProductCfg_AddAggregatingReference.plmql" Language="PLMQL"/>
+    <Signature href="ENOProductSignature"/>
+  </Function>
+
+  <Function Name="ProductCfg_AddReferenceOfInstance">
+    <Implementation Name="ProductCfg_AddReferenceOfInstance" FileLocation="ProductCfg_AddReferenceOfInstance.plmql" Language="PLMQL"/>
+    <Signature href="ENOProductSignature"/>
+  </Function>
+
+  <Function Name="ProductCfg_Add3DPartReference">
+    <Implementation Name="ProductCfg_Add3DPartReference" FileLocation="ProductCfg_Add3DPartReference.plmql" Language="PLMQL"/>
+    <Signature href="ENOProductSignature"/>
+  </Function>
+  
+  <Function Name="ProductCfg_Add3DPartRepresentation">
+    <Implementation Name="ProductCfg_Add3DPartRepresentation" FileLocation="ProductCfg_Add3DPartRepresentation.plmql" Language="PLMQL"/>
+    <Signature href="ENOProductSignature"/>
+  </Function>
+
+  <Function Name="ProductCfg_AddVPMPortsAndConnections">
+    <Implementation Name="ProductCfg_AddVPMPortsAndConnections" FileLocation="ProductCfg_AddVPMPortsAndConnections.plmql" Language="PLMQL"/>
+    <Signature href="ENOProductSignature"/>
+  </Function>
+
+  <Function Name="ProductCfg_AddVPMRepsPortsAndConnections">
+    <Implementation Name="ProductCfg_AddVPMRepsPortsAndConnections" FileLocation="ProductCfg_AddVPMRepsPortsAndConnections.plmql" Language="PLMQL"/>
+    <Signature href="ENOProductSignature"/>
+  </Function>
+
+  <Function Name="ProductCfg_AddVPMRepsPortsAndConnections_PLMChannel">
+    <Implementation Name="ProductCfg_AddVPMRepsPortsAndConnections_PLMChannel" FileLocation="ProductCfg_AddVPMRepsPortsAndConnections_PLMChannel.plmql" Language="PLMQL"/>
+    <Signature href="ENOProductSignature"/>
+  </Function>
+
+  <Function Name="ProductCfg_AddLPPrivateRepForReference">
+    <Implementation Name="ProductCfg_AddLPPrivateRepForReference" FileLocation="ProductCfg_AddLPPrivateRepForReference.plmql" Language="PLMQL"/>
+    <Signature href="ENOProductSignature"/>
+  </Function>
+
+  <Function Name="ProductCfg_AddLPPrivateRepForInstance">
+    <Implementation Name="ProductCfg_AddLPPrivateRepForInstance" FileLocation="ProductCfg_AddLPPrivateRepForInstance.plmql" Language="PLMQL"/>
+    <Signature href="ENOProductSignature"/>
+  </Function>
+  
+  <Function Name="ProductCfg_Decorate_AllReps">
+    <Implementation Name="ProductCfg_Decorate_AllReps" FileLocation="ProductCfg_Decorate_AllReps.plmql" Language="PLMQL"/>
+    <Signature href="ENOProductSignature"/>
+  </Function>
+  
+  <Function Name="ProductCfg_ExpandVPMRefToVPMRep">
+    <Implementation Name="ProductCfg_ExpandVPMRefToVPMRep" FileLocation="ProductCfg_ExpandVPMRefToVPMRep.plmql" Language="PLMQL"/>
+    <Signature href="ENOProductSignature"/>
+  </Function>
+
+  <Function Name="ProductCfg_ExpandVPMRefToPRepVPMPortAppCnx">
+    <Implementation Name="ProductCfg_ExpandVPMRefToPRepVPMPortAppCnx" FileLocation="ProductCfg_ExpandVPMRefToPRepVPMPortAppCnx.plmql" Language="PLMQL"/>
+    <Signature href="ENOProductSignature"/>
+  </Function>
+
+  <Function Name="ProductCfg_NavVPMRepToFemAndRenderingDoc">
+    <Implementation Name="ProductCfg_NavVPMRepToFemAndRenderingDoc" FileLocation="ProductCfg_NavVPMRepToFemAndRenderingDoc.plmql" Language="PLMQL"/>
+    <Signature href="ENOProductSignature"/>
+  </Function>
+	
+  <Function Name="ProductCfg_ExpandVPMRefToAggregatedVPMRep">
+    <Implementation Name="ProductCfg_ExpandVPMRefToAggregatedVPMRep" FileLocation="ProductCfg_ExpandVPMRefToAggregatedVPMRep.plmql" Language="PLMQL"/>
+    <Signature href="ENOProductSignature"/>
+  </Function>
+	
+  <Function Name="ProductCfg_ExpandVPMRefToPRepVPMPort">
+    <Implementation Name="ProductCfg_ExpandVPMRefToPRepVPMPort" FileLocation="ProductCfg_ExpandVPMRefToPRepVPMPort.plmql" Language="PLMQL"/>
+    <Signature href="ENOProductSignature"/>
+  </Function>
+  
+  <Signature id="ENOProductSignature">
+    <Parameter Name="InputIds" Lower="0" Upper="-1" Direction="in" MultiValuated="Yes" DataType="PLMId"/>
+    <Parameter Name="OutputIds" Lower="0" Upper="-1" Direction="out" MultiValuated="No" DataType="PLMRouteSet"/>
+  </Signature>
+  <!-- ********************************************************* -->
+
+
+  <!-- ********************************************************* -->
+
+
+</Package>
+

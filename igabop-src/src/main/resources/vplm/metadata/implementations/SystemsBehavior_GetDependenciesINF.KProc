@@ -1,0 +1,53 @@
+#Prog SystemsBehavior_GetDependenciesINF (iPLMIDSet :  #In PLMIDSet,oPLMIDSet :  #Out PLMIDSet) : VoidType
+  {
+/*Local Variables Declaration*/
+let PLMIDSet_RefLibsInInput(PLMIDSet)
+let PLMIDSet_RefLibsInInputNonFiltered(PLMIDSet)
+
+let PLMRouteSet_AllObjUnderInputLibsRef(PLMRouteSet)
+let PLMIDSet_AllObjUnderInputLibsRef(PLMIDSet)
+let PLMIDSet_LibsRepRefInstantiatedUnderInputLibsRef(PLMIDSet)
+
+let PLMIDSet_LibsRepRefDependencyOfInputLibsRep(PLMIDSet)
+let PLMRouteSet_LibsRepRefDependencyOfInputLibsRep(PLMRouteSet)
+
+let PLMRouteSet_AllObjOfLibsRefToExport(PLMRouteSet)
+let PLMIDSet_AllObjOfLibsRefToExport(PLMIDSet)
+
+let PLMRouteSet_FilteredLibsRefToExport(PLMRouteSet)
+let PLMIDSet_FilteredLibsRefToExport(PLMIDSet)
+
+let PLMIDSet_PointedLibsRefToExportToo(PLMIDSet)
+
+let PLMRouteSet_AllLibRef_LibRepRef_LibRepInst_ToExport(PLMRouteSet)
+
+/*Procedure can be call on RepLibrary or F/L Rep with Behavior Discipline
+But we doesn't want that  RepLibrary or F/L Rep can be an export Entry Point
+So input object or filter to exclusively treat RefLibrary*/
+PLMIDSet_RefLibsInInput = Restrict(iPLMIDSet,"CATSysBehaviorLibrary/CATSysBehaviorLibReference")
+
+/*Get All mono-instantiated Lib Rep under LibRef (note that RefLib and RepInstLib are return)*/
+PLMRouteSet_AllObjUnderInputLibsRef =  ExecutePLMFunction("CATSysBehaviorLibrary","CATSysBehaviorLibrary_GetAllMonoInstRepLibOfRefLib",PLMIDSet_RefLibsInInput)
+PLMIDSet_AllObjUnderInputLibsRef = Ids(PLMRouteSet_AllObjUnderInputLibsRef)
+PLMIDSet_LibsRepRefInstantiatedUnderInputLibsRef = Restrict(PLMIDSet_AllObjUnderInputLibsRef ,"CATSysBehaviorLibrary/CATSysBehaviorLibRepReference")
+
+/*Search for All pointed RepLibrary (depth recursion defined by ITER in CATSysBehaviorLibrary_GetRepLibDependancy PLMQL Function*/
+PLMRouteSet_LibsRepRefDependencyOfInputLibsRep = ExecutePLMFunction("CATSysBehaviorLibrary","CATSysBehaviorLibrary_GetRepLibDependancy",PLMIDSet_LibsRepRefInstantiatedUnderInputLibsRef)
+PLMIDSet_LibsRepRefDependencyOfInputLibsRep = Ids(PLMRouteSet_LibsRepRefDependencyOfInputLibsRep)
+
+/*Retrieve all the Reference Library of used Lib Rep Ref*/
+PLMRouteSet_AllObjOfLibsRefToExport = ExecutePLMFunction("CATSysBehaviorLibrary","CATSysBehaviorLibrary_GetRefLibFromRepLib",PLMIDSet_LibsRepRefDependencyOfInputLibsRep)
+PLMIDSet_AllObjOfLibsRefToExport = Ids(PLMRouteSet_AllObjOfLibsRefToExport)
+PLMIDSet_PointedLibsRefToExportToo = Restrict(PLMIDSet_AllObjOfLibsRefToExport,"CATSysBehaviorLibrary/CATSysBehaviorLibReference")
+
+/* Adding non filtered entries */
+PLMIDSet_FilteredLibsRefToExport = PLMIDSet_RefLibsInInput + PLMIDSet_PointedLibsRefToExportToo
+
+/*Get All LibRepInst and LibRepInst to export with LibRef*/ 
+/* PLMRouteSet_AllLibRef_LibRepRef_LibRepInst_ToExport =  ExecutePLMFunction("CATSysBehaviorLibrary","CATSysBehaviorLibrary_GetAllMonoInstRepLibOfRefLib",PLMIDSet_FilteredLibsRefToExport)*/
+PLMRouteSet_AllLibRef_LibRepRef_LibRepInst_ToExport =  ExecutePLMFunction("CATSysBehaviorLibrary","CATSysBehaviorLibrary_GetAllMonoInstRepLibOfRefLib",PLMIDSet_FilteredLibsRefToExport)
+
+/*return All Ref Library, inputs + pointed by inputs*/
+oPLMIDSet = Ids(PLMRouteSet_AllLibRef_LibRepRef_LibRepInst_ToExport)
+}
+

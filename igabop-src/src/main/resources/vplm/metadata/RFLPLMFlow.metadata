@@ -1,0 +1,134 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR RFL System Type -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2006, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" BelongsToModeler="RFLPLMFunctional" Name="RFLPLMFlow"
+	Uuid="0fa14b90-1891-40d8-bbea81fcfc75e963"
+	UseNames="RFLPLMFlowAbstract RFLPLMFunctionalAbstract RFLPLMFlowExposition"
+  UseProcedures="ENOFct_Procedures"
+  CustomerExposition="Programmer"
+>
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <Comment>last update 2011-11-24</Comment>
+
+  <!-- *********************************************************** -->
+  <!-- *  RFLPLMFlowReference (PLMFunctionalAbstractReference)   * -->
+  <!-- *********************************************************** -->
+
+  <Class Name="RFLPLMFlowReference"
+	Uuid="d3dd2633-1363-4260-b970455285915fef"
+	CustomerExposition="Programmer"
+	CustomerExtensible="Yes"
+	Specializable="Yes"
+	Abstract="No"
+	SuperName="RFLPLMFunctionalAbstractReference"
+	CreateInstName="RFLPLMFlowInstance;RFLPLMFlowExpositionInstance"
+	Abbreviation="flow">
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEFctDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="RFLPLMFlowInstance"/>
+    <Property Name="Newable" Value="Insert_CAA" />
+    <Property Name="IconName" Value="I_RFLPLMFlow"/>
+    <Property Name="3DIconName" Value="CAT3DNav_Flow.cgr"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="ChangeManagementSupport" Value="Yes"/>
+    <Property Name="AggregatableTypes" Value="RFLPLMFlowReference"/>
+    <Property Name="InstantiationOwnerTypes" Value="RFLPLMFunctionalReference;RFLPLMFlowReference;RFLPLMFunctionalCommunicationReference"/>
+    <Property Name="ShareBetweenProjectsAvailability" Value="Yes"/>
+    <!-- Collaborative Space Applicability -->
+
+    <Simple Name="V_Category" Uuid="42c5843b-127b-4e70-b287e7d35cd4d5d1" Type="Integer" Protection="ExternalIN" CAAExposition="L0" DefaultValue="1" Faceted="Yes">
+      <Property Name="SIXW" Value="ds6w:kind"/>
+      <Property Name="RangeAsEnumName" Value="V_CategoryEnum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="Data;Control"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+      </Range>
+    </Simple>
+
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Design"/>
+        <UsedProcedure href="ENOFct_Procedures.proc#Functional_ExportFlow_Design"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Channel"/>
+        <UsedProcedure href="ENOFct_Procedures.proc#Functional_ExportFlow_PLMChannel"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Remove"/>
+        <UsedProcedure href="ENOFct_Procedures.proc#Functional_ExportFlowRef_Remove"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#TransferSiteOwnership"/>
+        <UsedProcedure href="ENOFct_Procedures.proc#Functional_ExportFlowRef_TSO"/>
+      </ProcedureForUsage>
+    </Method>
+  </Class>
+
+  <!-- ******************************************************* -->
+  <!-- * RFLPLMFlowInstance (FunctionalAbstractFlowInstance) * -->
+  <!-- ******************************************************* -->
+
+  <RelationClass Name="RFLPLMFlowInstance"
+		Uuid="f1f206a2-f891-4c43-9f8c54a68aa104f4"
+		 
+    CustomerExposition="Programmer"
+    CustomerExtensible="Yes"
+    Specializable="Yes"
+		Abstract="No"
+		SuperName="FunctionalAbstractFlowInstance">
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEFctDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="RFLPLMFlowInstance"/>
+    <Property Name="Searchable" Value="No"/>
+
+    <SubClause Name="from" TargetName="RFLPLMFunctionalAbstractReference"/>
+    <SubClause Name="to"   TargetName="RFLPLMFlowReference"/>
+
+
+    <Volatile Name="Reference" Uuid="561a8b91-13f6-4c4b-a18f-8d2682c7ce62" Accessor="PLMModelerReferenceKweAttribute" TypeName="RFLPLMFlowReference" AccessMode="ReadOnly">
+      <Property Name="ServerAccessor" Value="com.dassault_systemes.vplm.modelerBaseNav.services.PLMInstance_Reference_Accessor"/>
+    </Volatile>
+
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+	  <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Remove"/>
+        <UsedProcedure href="ENOFct_Procedures.proc#Functional_ExportFlowInst_Remove"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#TransferSiteOwnership"/>
+        <UsedProcedure href="ENOFct_Procedures.proc#Functional_ExportFlowInst_TSO"/>
+      </ProcedureForUsage>
+    </Method>
+
+  </RelationClass>
+
+  <!-- **************************************************** -->
+  <!-- * Declaration of functions                           -->
+  <!-- **************************************************** -->
+
+  <Function Name="RFLPLMFlow_Expand">
+    <Implementation Name="RFLPLMFlow_Expand" FileLocation="RFLPLMFlow_Expand.plmql" Language="PLMQL"/>
+    <Signature href="ENOFctFlowSignature"/>
+  </Function>
+  
+  <Function Name="RFLPLMFlowReference_Aggregated1stLvlObjects">
+    <Implementation Name="RFLPLMFlowReference_Aggregated1stLvlObjects" FileLocation="RFLPLMFlowReference_Aggregated1stLvlObjects.plmql" Language="PLMQL"/>
+    <Signature href="ENOFctFlowSignature"/>
+  </Function>
+
+  <Signature id="ENOFctFlowSignature">
+    <Parameter Name="InputIds" Lower="0" Upper="-1" Direction="in" MultiValuated="Yes" DataType="PLMId"/>
+    <Parameter Name="OutputIds" Lower="0" Upper="-1" Direction="out" MultiValuated="No" DataType="PLMRouteSet"/>
+  </Signature>
+
+  <!-- ********************************************************* -->
+
+</Package>

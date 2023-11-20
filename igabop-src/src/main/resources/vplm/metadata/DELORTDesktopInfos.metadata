@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR DELMIA Production System Application -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified"
+         ModelerType="Top"
+         Name="DELORTDesktopInfos"
+	       Uuid="284D6037-3361-49b2-95E2-0DFBE561A568"
+         BelongsToModeler="DELLmiProductionOperationUPR"
+	       UseNames="ERCoreModeler"
+         CustomerExposition="None"
+         Architecture="Web">
+
+  <CAAComment>
+    <ShortRole>ORTEMS Desktop info model </ShortRole>
+    <Role>This package describes the ORTEMS Desktop info model</Role>
+  </CAAComment>
+
+ 
+  <RelationClass Name="DELORTDesktopInfo"
+		     Uuid="37D48B93-C927-47d6-9B01-620370CCE385"
+		     Abstract="No"
+    		 SuperName="RelationType"
+         CustomerExposition="Programmer"
+         Specializable="No"
+		     CustomerExtensible="No"
+         DeleteAvailability="No">
+
+    <Property Name="LockUnlockAvailability"    Value="No"/>
+    <Property Name="TransferOwnerShipAvailability"    Value="No"/>
+    <Property Name="EditPropertiesAvailability"    Value="No"/>
+    <Property Name="SaveAsNewAvailability"    Value="No"/>
+    <Property Name="ChangeManagementSupport"    Value="No"/>
+    <Property Name="ChangeManagementReferential"    Value="No"/>
+    <Property Name="ChangeManagementContext"    Value="No"/>
+    <Property Name="Configurable"    Value="No"/>
+    <Property Name="NewMinorRevisionAvailability"    Value="No"/>
+    <Property Name="NewMajorRevisionAvailability"    Value="No"/>
+    <Property Name="EvolutionAvailability"    Value="No"/>
+    <Property Name="IterationAvailability"    Value="No"/>
+    <Property Name="ManageAccessAvailability"    Value="No"/>
+    <Property Name="ShareBetweenProjectsAvailability"    Value="No"/>
+    <Property Name="DupplicateAvailability"    Value="Yes"/>
+    <Property Name="ChangeMaturityAvailability"    Value="No"/>
+    
+    <SubClause Name="to"   TargetName="DELSProductionPlanAbstract"/>
+    <SubClause Name="from"   TargetName="DELSProductionPlanAbstract"/>
+
+    <Simple Name="V_DesktopName"
+        Uuid="6E456C9C-8C7D-4af2-A5DB-A79E733069BF"
+        Type="String"
+        DefaultValue="Default"
+        MaxLength="100"
+        MultiValuated="No"
+        Protection="External"
+        ResetOnCloning="Yes"
+        ResetOnNewVersion="Yes">
+    </Simple>
+
+    <Simple Name="V_IsShared"
+        Uuid="32409545-EC2B-46e2-88C0-982BCBE47866"
+        Type="Boolean"
+        DefaultValue="false"
+        MultiValuated="No"
+        Protection="External"
+        ResetOnCloning="Yes"
+        ResetOnNewVersion="Yes">
+    </Simple>
+
+    <Simple Name="V_DesktopSettings"
+        Uuid="6D49E34E-3511-42a4-97FB-0BD14896F3A3"
+        Type="Clob"
+        MultiValuated="No"
+        Protection="Internal"
+        ResetOnCloning="Yes"
+        ResetOnNewVersion="Yes">
+    </Simple>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+
+
+  </RelationClass>
+
+</Package>

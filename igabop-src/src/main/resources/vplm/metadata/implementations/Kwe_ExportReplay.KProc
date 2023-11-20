@@ -1,0 +1,28 @@
+#Prog Kwe_ExportReplay( iPLMIDSet : #In PLMIDSet, oPLMIDSet : #Out PLMIDSet ) : VoidType
+{
+let RsGenerativeObjects (PLMRouteSet)
+let IdsGenerativeObjects (PLMIDSet)
+let IdsGenObjsPLMTemplate (PLMIDSet)
+let IdsGenObjsKML (PLMIDSet)
+let IdsCompletedGenObjsPLMTemplate (PLMIDSet)
+let IdsCompletedGenObjsKML (PLMIDSet)
+
+/* Get related entities (only the generative object is concerned) */
+RsGenerativeObjects = ExecutePLMFunction( "PLMKnowledgeReplayRepReference", "kwe_navigate_replaygenobjs", iPLMIDSet )
+IdsGenerativeObjects = Ids(RsGenerativeObjects)
+
+/* Calling completion for the generative objects */
+/* We handle PLM Templates and KML objects */
+IdsGenObjsPLMTemplate = Restrict(IdsGenerativeObjects,"PLMKnowledgeTemplate/PLMTemplateRepReference")
+IdsGenObjsKML = Restrict(IdsGenerativeObjects,"PLMKbaAppliComponent/PLMKbaAppliComponent")
+
+IdsCompletedGenObjsPLMTemplate = ExecutePLMProcedure( "Pkt_ExportTemplate", IdsGenObjsPLMTemplate )
+IdsCompletedGenObjsKML = ExecutePLMProcedure( "Kba_ExportAppComp", IdsGenObjsKML )
+
+
+/* Provide back all that stuff */
+oPLMIDSet = iPLMIDSet 
+          + IdsCompletedGenObjsPLMTemplate
+		  + IdsCompletedGenObjsKML
+
+}

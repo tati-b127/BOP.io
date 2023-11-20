@@ -1,0 +1,722 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY for Ens Specifications Editor -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2012, all rights reserved -->
+<!-- MODIF PA DEB 27/08/2014 : BelongsToModeler="PLMPiping_EngSpecification" added to package : MODIF PA FIN 27/08/2014 -->
+
+<!-- 
+   =========
+    Package
+   =========
+ -->
+<!-- MODIF PA DEB 27/08/2014 -->
+<Package xmlns="PLMDictionaryUnified" CustomerExposition="Programmer" ModelerType="Top" BelongsToModeler="PLMPiping_EngSpecification"
+         Name="PLMPiping_EngSpecification" Uuid="7cc5729b-7bb4-457c-a021-a0a473e4008c" UseNames="PLMEnsSpecTechnoTable PLMEnsSpecPartsFilter PLMEnsSpecSpecification PLMEnsSpecCnxLogicalToSpecBase PLMEnsEngSpecification" >
+<!-- MODIF PA FIN 27/08/2014 -->
+
+  <CAAComment>
+    <ShortRole>Piping Engineering Specification Package</ShortRole>
+    <Role>This package describes the Engineering Specification objects for Piping Application.</Role>
+  </CAAComment>
+  <Comment>Initial creation: ADZ GLY Jun 2012</Comment>
+  <Comment>[V6R2014] 2012-11-12 ADZ GLY Additional TechnoTables, Filters and Specifications</Comment>
+  <Comment>[V6R2014] 2012-11-21 ADZ Add PipCntnLogToSpec Clas</Comment>
+  <Comment>[V6R2014] 2012-11-22 ADZ Modify "IconName" Value on all Classes</Comment>
+  <Comment>[V6R2014] 2013-02-11 ADZ Add missing PipCompatibilityRuleTable class</Comment>
+  <Comment>[V6R2015x] 2014-04-07 ADZ Add Property Name="Controller" Value="CATPipEngAttController" on V_Standard, V_Fluid, V_FluidCategory attributes of PipingEntityFilter, PipSpecification classes</Comment>
+  <Comment>[V6R2015x] 2014-05-27 ADZ Add PipDirectionalLengthTable, PipAutomatedOffsetTable classes</Comment>
+  <Comment>[V6R2015x] 2014-06-10 ADZ Add PipAvailableBendAngleTable class</Comment>
+  <Comment>[V6R2015x] 2014-07-02 ADZ Add Property Name="ProposedInDataSetup"</Comment>
+  <Comment>[V6R2016x] 2015-03-20 ADZ Add PipConnectionTechnoTable, PipConnectionTechnoFilter classes</Comment>
+  <Comment>[V6R2016x] 2015-07-07 ADZ Add missing PipReducerRuleTable class</Comment>
+
+  <!--
+   ==================================================================================================
+   Reference Tables : MODIF PA 14/12/2012 : Discipline="Yes" for all eng spec specialized references
+   ==================================================================================================
+-->
+  <!--[V6R2014] DEPRECATED DON'T USE-->
+  <Class Name="EnsStandardTable" Uuid="3be98cc5-a0b9-456c-906a-1cdebedda547" CustomerExposition="Programmer" Abstract="No"
+         SuperName="EnsTechnologicalTable" Discipline="Yes" CreateInstName="EnsTechnologicalTableInstance">
+  <!--<Class Name="EnsStandardTable" Uuid="3be98cc5-a0b9-456c-906a-1cdebedda547" CustomerExposition="Programmer" Abstract="No"
+         SuperName="EnsTechnologicalTable" Discipline="Yes" CustomerExtensible="Yes" CreateInstName="EnsTechnologicalTableInstance">
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="IconName"                    Value="I_PipingEngSpec_Table"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsTechnologicalTableInstance"/>-->
+    <CAAComment>
+      <ShortRole>Standard Table</ShortRole>
+      <Role>Standard Table</Role>
+    </CAAComment>
+  </Class>
+
+  <!--[V6R2014] DEPRECATED DON'T USE-->
+  <!--<Class Name="PipTechnoTable2" Uuid="2e639ef0-09fe-412a-bba3-32f27813775a" CustomerExposition="Programmer" Abstract="Yes" SuperName="EnsTechnologicalTable" Discipline="Yes" >
+    <CAAComment>
+      <ShortRole>Piping Techno Table 2</ShortRole>
+      <Role>Piping Table 2</Role>
+    </CAAComment>
+    <Simple Name="V_Standard" Uuid="679e4d44-c950-457b-8274-2cdc845293d6" Type="String" MultiValuated="No" MaxLength="100" Protection="Free" CAAExposition="L0"/>
+  </Class>-->
+
+  <!--<Class Name="PipTechnoTable3" Uuid="c92c0520-9a50-4c83-998c-8f0866ea25fa" CustomerExposition="Programmer" Abstract="Yes" SuperName="Ens_TechnoTable2" Discipline="Yes" >
+    <CAAComment>
+      <ShortRole>Piping Techno Table 3</ShortRole>
+      <Role>Piping Techno Table 3</Role>
+    </CAAComment>
+    <Simple Name="V_MaxTemperature"  Uuid="4bb5ae2f-f420-4a5d-9315-21fa8d38cf7b" Type="Double" Magnitude="TEMPRTRE" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_MinTemperature"  Uuid="1d017150-7780-4f51-9f83-91c9a4c0d2d8" Type="Double" Magnitude="TEMPRTRE" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+  </Class>-->
+
+  <Class Name="PipTechnoTable4" Uuid="6c5fd875-481c-4a13-99f2-ca81b6e687c0" CustomerExposition="Programmer" Abstract="Yes" SuperName="Ens_TechnoTable4" Discipline="Yes" >
+  <!--<Class Name="PipTechnoTable4" Uuid="6c5fd875-481c-4a13-99f2-ca81b6e687c0" CustomerExposition="Programmer" Abstract="Yes" SuperName="PipTechnoTable3" Discipline="Yes" >-->
+    <CAAComment>
+      <ShortRole>Piping Techno Table 4</ShortRole>
+      <Role>Piping Techno Table 4</Role>
+    </CAAComment>
+    <Simple Name="V_MaxPressure"     Uuid="e1218b3a-5caf-49b5-8ce5-fe39fa452f52" Type="Double" Magnitude="PRESSURE" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_MinPressure"     Uuid="319a9634-5aab-47ad-a32d-2205331f8a12" Type="Double" Magnitude="PRESSURE" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+  </Class>
+
+  <!--[V6R2014] DEPRECATED DON'T USE-->
+  <Class Name="PipMaterialCategoryTable" Uuid="72becf04-c9b2-49a8-9ff9-29854287a285" CustomerExposition="Programmer" Abstract="No"
+         SuperName="Ens_TechnoTable2" Discipline="Yes" CreateInstName="EnsTechnologicalTableInstance">
+  <!--<Class Name="PipMaterialCategoryTable" Uuid="72becf04-c9b2-49a8-9ff9-29854287a285" CustomerExposition="Programmer" Abstract="No"
+         SuperName="PipTechnoTable2" Discipline="Yes" CustomerExtensible="Yes" CreateInstName="EnsTechnologicalTableInstance">
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="IconName"                    Value="I_PipingEngSpec_Table"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsTechnologicalTableInstance"/>-->
+    <CAAComment>
+      <ShortRole>Piping Material Category Table</ShortRole>
+      <Role>Piping Material Category Table</Role>
+    </CAAComment>
+  </Class>
+
+  <!--[V6R2014] DEPRECATED DON'T USE-->
+  <Class Name="PipMaterialTable" Uuid="a6fc8165-e425-4a53-b603-1f46548521f3" CustomerExposition="Programmer" Abstract="No"
+         SuperName="Ens_TechnoTable2" Discipline="Yes" CreateInstName="EnsTechnologicalTableInstance">
+  <!--<Class Name="PipMaterialTable" Uuid="a6fc8165-e425-4a53-b603-1f46548521f3" CustomerExposition="Programmer" Abstract="No"
+         SuperName="PipTechnoTable2" Discipline="Yes" CustomerExtensible="Yes" CreateInstName="EnsTechnologicalTableInstance">
+    <Property Name="IconName"                    Value="I_PipingEngSpec_Table"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsTechnologicalTableInstance"/>-->
+    <CAAComment>
+      <ShortRole>Piping Material Table</ShortRole>
+      <Role>Piping Material Table</Role>
+    </CAAComment>
+  </Class>
+
+  <!--[V6R2014] DEPRECATED DON'T USE-->
+  <!--<Class Name="PipFluidCategoryTable" Uuid="819948b4-c6cc-44e0-9297-6778f3358fbe" CustomerExposition="Programmer" Abstract="No"
+         SuperName="PipTechnoTable2" Discipline="Yes" CreateInstName="EnsTechnologicalTableInstance">
+  --><!--<Class Name="PipFluidCategoryTable" Uuid="819948b4-c6cc-44e0-9297-6778f3358fbe" CustomerExposition="Programmer" Abstract="No"
+         SuperName="PipTechnoTable2" Discipline="Yes" CustomerExtensible="Yes" CreateInstName="EnsTechnologicalTableInstance">--><!--
+    --><!--<Property Name="IconName"                    Value="I_PipingEngSpec_Table"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsTechnologicalTableInstance"/>--><!--
+    <CAAComment>
+      <ShortRole>Piping Fluid Category Table</ShortRole>
+      <Role>Piping Fluid Category Table</Role>
+    </CAAComment>
+  </Class>-->
+
+  <!--[V6R2014] DEPRECATED DON'T USE-->
+  <!--<Class Name="PipFluidTable" Uuid="03463ae0-328f-4a49-a33c-97d4b916bbbf" CustomerExposition="Programmer" Abstract="No"
+         SuperName="PipTechnoTable2" Discipline="Yes" CreateInstName="EnsTechnologicalTableInstance">
+  --><!--<Class Name="PipFluidTable" Uuid="03463ae0-328f-4a49-a33c-97d4b916bbbf" CustomerExposition="Programmer" Abstract="No"
+         SuperName="PipTechnoTable2" Discipline="Yes" CustomerExtensible="Yes" CreateInstName="EnsTechnologicalTableInstance">--><!--
+    --><!--<Property Name="IconName"                    Value="I_PipingEngSpec_Table"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsTechnologicalTableInstance"/>--><!--
+    <CAAComment>
+      <ShortRole>Piping Fluid Table</ShortRole>
+      <Role>Piping Fluid Table</Role>
+    </CAAComment>
+  </Class>-->
+
+  <Class Name="PipNominalSizeTable" Uuid="c3ca1234-234b-41ff-ad06-d7b121e9a340" Abbreviation="pipnst" CustomerExposition="Programmer" Abstract="No"
+         SuperName="Ens_TechnoTable2" Discipline="Yes" CustomerExtensible="Yes" CreateInstName="EnsTechnologicalTableInstance">
+  <!--<Class Name="PipNominalSizeTable" Uuid="c3ca1234-234b-41ff-ad06-d7b121e9a340" CustomerExposition="Programmer" Abstract="No"
+         SuperName="PipTechnoTable2" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes" CreateInstName="EnsTechnologicalTableInstance">-->
+    <Property Name="IconName"                    Value="I_PipingEngSpec_Table"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsTechnologicalTableInstance"/>
+    <Property Name="ProposedInDataSetup"         Value="Yes"/>
+    <CAAComment>
+      <ShortRole>Piping Nominal Size Table</ShortRole>
+      <Role>Piping Nominal Size Table</Role>
+    </CAAComment>
+  </Class>
+
+  <Class Name="PipOutsideDiameterTable" Uuid="41709b59-018e-43a9-9efb-8c8ed2764918" Abbreviation="pipodt" CustomerExposition="Programmer" Abstract="No"
+         SuperName="Ens_TechnoTable2" Discipline="Yes" CustomerExtensible="Yes" CreateInstName="EnsTechnologicalTableInstance">
+  <!--<Class Name="PipOutsideDiameterTable" Uuid="41709b59-018e-43a9-9efb-8c8ed2764918" CustomerExposition="Programmer" Abstract="No"
+         SuperName="PipTechnoTable2" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes" CreateInstName="EnsTechnologicalTableInstance">-->
+    <Property Name="IconName"                    Value="I_PipingEngSpec_Table"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsTechnologicalTableInstance"/>
+    <CAAComment>
+      <ShortRole>Piping Outside Diameter Table</ShortRole>
+      <Role>Piping Outside Diameter Table</Role>
+    </CAAComment>
+  </Class>
+
+  <!--<Class Name="PipWallThicknessTable" Uuid="d2bfe47b-aac5-4984-bd36-6a8fd45ad391" CustomerExposition="Programmer" Abstract="No"
+         SuperName="Ens_TechnoTable2" Discipline="Yes" CustomerExtensible="Yes" CreateInstName="EnsTechnologicalTableInstance">
+  --><!--<Class Name="PipWallThicknessTable" Uuid="d2bfe47b-aac5-4984-bd36-6a8fd45ad391" CustomerExposition="Programmer" Abstract="No"
+         SuperName="Ens_TechnoTable2" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes" CreateInstName="EnsTechnologicalTableInstance">--><!--
+    <Property Name="IconName"                    Value="I_PipingEngSpec_Table"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsTechnologicalTableInstance"/>
+    <CAAComment>
+      <ShortRole>Piping Wall Thickness Table</ShortRole>
+      <Role>Piping Wall Thickness Table</Role>
+    </CAAComment>
+  </Class>-->
+
+  <Class Name="PipReferenceDimensionTable" Uuid="9743210a-9f3d-47f4-9166-cc1b1c396013" Abbreviation="piprdt" CustomerExposition="Programmer" Abstract="No"
+         SuperName="Ens_TechnoTable2" Discipline="Yes" CustomerExtensible="Yes" CreateInstName="EnsTechnologicalTableInstance">
+  <!--<Class Name="PipReferenceDimensionTable" Uuid="9743210a-9f3d-47f4-9166-cc1b1c396013" CustomerExposition="Programmer" Abstract="No"
+         SuperName="Ens_TechnoTable2" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes" CreateInstName="EnsTechnologicalTableInstance">-->
+    <Property Name="IconName"                    Value="I_PipingEngSpec_Table"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsTechnologicalTableInstance"/>
+    <Property Name="ProposedInDataSetup"         Value="Yes"/>
+    <CAAComment>
+      <ShortRole>Piping Reference Dimension Table</ShortRole>
+      <Role>Piping Reference Dimension Table</Role>
+    </CAAComment>
+  </Class>
+
+  <!--[V6R2014] DEPRECATED DON'T USE-->
+  <!--<Class Name="PipEndStyleTable" Uuid="7923d90c-a050-4074-84e6-b3797ced7b51" CustomerExposition="Programmer" Abstract="No"
+         SuperName="PipTechnoTable2" Discipline="Yes" CreateInstName="EnsTechnologicalTableInstance">
+  --><!--<Class Name="PipEndStyleTable" Uuid="7923d90c-a050-4074-84e6-b3797ced7b51" CustomerExposition="Programmer" Abstract="No"
+         SuperName="PipTechnoTable2" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes" CreateInstName="EnsTechnologicalTableInstance">--><!--
+    --><!--<Property Name="IconName"                    Value="I_PipingEngSpec_Table"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsTechnologicalTableInstance"/>--><!--
+    <CAAComment>
+      <ShortRole>Piping End Style Table</ShortRole>
+      <Role>Piping End Style Table</Role>
+    </CAAComment>
+  </Class>-->
+
+  <Class Name="PipRatingTable" Uuid="8371623a-203b-4e4a-8c46-ff60b5b2fefd" Abbreviation="piprt" CustomerExposition="Programmer" Abstract="No"
+         SuperName="Ens_TechnoTable2" Discipline="Yes" CustomerExtensible="Yes" CreateInstName="EnsTechnologicalTableInstance">
+  <!--<Class Name="PipRatingTable" Uuid="8371623a-203b-4e4a-8c46-ff60b5b2fefd" CustomerExposition="Programmer" Abstract="No"
+         SuperName="Ens_TechnoTable2" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes" CreateInstName="EnsTechnologicalTableInstance">-->
+    <Property Name="IconName"                    Value="I_PipingEngSpec_Table"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsTechnologicalTableInstance"/>
+    <Property Name="ProposedInDataSetup"         Value="Yes"/>
+    <CAAComment>
+      <ShortRole>Piping Rating Table</ShortRole>
+      <Role>Piping Rating Table</Role>
+    </CAAComment>
+  </Class>
+
+  <Class Name="PipNominalBendRadiusTable" Uuid="47a90465-e787-4f9a-a6a1-abdf77d7b4a7" Abbreviation="pipnbrt" CustomerExposition="Programmer" Abstract="No"
+         SuperName="Ens_TechnoTable2" Discipline="Yes" CustomerExtensible="Yes" CreateInstName="EnsTechnologicalTableInstance">
+  <!--<Class Name="PipNominalBendRadiusTable" Uuid="47a90465-e787-4f9a-a6a1-abdf77d7b4a7" CustomerExposition="Programmer" Abstract="No"
+         SuperName="Ens_TechnoTable2" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes" CreateInstName="EnsTechnologicalTableInstance">-->
+    <Property Name="IconName"                    Value="I_PipingEngSpec_Table"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsTechnologicalTableInstance"/>
+    <CAAComment>
+      <ShortRole>Piping Nominal Bend Radius Table</ShortRole>
+      <Role>Piping Nominal Bend Radius Table</Role>
+    </CAAComment>
+  </Class>
+
+  <Class Name="PipBendDiameterTable" Uuid="a761a3c4-fa19-44df-bf73-e1a32d860daf" Abbreviation="pipbdt" CustomerExposition="Programmer" Abstract="No"
+         SuperName="Ens_TechnoTable2" Discipline="Yes" CustomerExtensible="Yes" CreateInstName="EnsTechnologicalTableInstance">
+  <!--<Class Name="PipBendDiameterTable" Uuid="a761a3c4-fa19-44df-bf73-e1a32d860daf" CustomerExposition="Programmer" Abstract="No"
+         SuperName="Ens_TechnoTable2" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes" CreateInstName="EnsTechnologicalTableInstance">-->
+    <Property Name="IconName"                    Value="I_PipingEngSpec_Table"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsTechnologicalTableInstance"/>
+    <CAAComment>
+      <ShortRole>Piping Bend Diameter Table</ShortRole>
+      <Role>Piping Nominal Bend Diameter Table</Role>
+    </CAAComment>
+  </Class>
+
+  <Class Name="PipSpoolRuleTable" Uuid="75353b74-9d63-4d9a-9f56-ff2e628b7ce9" Abbreviation="pipsrt" CustomerExposition="Programmer" Abstract="No"
+       SuperName="Ens_TechnoTable2" Discipline="Yes" CustomerExtensible="Yes" CreateInstName="EnsTechnologicalTableInstance">
+    <Property Name="IconName"                    Value="I_PipingEngSpec_Table"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsTechnologicalTableInstance"/>
+    <CAAComment>
+      <ShortRole>Piping Spool Rule Table</ShortRole>
+      <Role>Piping Spool Rule Table</Role>
+    </CAAComment>
+  </Class>
+
+  <Class Name="PipAvailableBendAngleTable" Uuid="9e67caa7-74a9-481a-8805-a9ce046a2ef9" Abbreviation="pipabat" CustomerExposition="Programmer" Abstract="No" SuperName="Ens_TechnoTable2" Discipline="Yes" CustomerExtensible="Yes" CreateInstName="EnsTechnologicalTableInstance">
+    <Property Name="IconName"                    Value="I_PipingEngSpec_Table"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsTechnologicalTableInstance"/>
+  </Class>
+  
+  <!--[V6R2014] DEPRECATED DON'T USE-->
+  <!--<Class Name="PipPartSubTypeTable" Uuid="6ef2e4a4-3b5d-4515-a593-f653ee42fbaa" CustomerExposition="Programmer" Abstract="No"
+         SuperName="PipTechnoTable2" Discipline="Yes" CreateInstName="EnsTechnologicalTableInstance">
+  --><!--<Class Name="PipPartSubTypeTable" Uuid="6ef2e4a4-3b5d-4515-a593-f653ee42fbaa" CustomerExposition="Programmer" Abstract="No"
+         SuperName="PipTechnoTable2" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes" CreateInstName="EnsTechnologicalTableInstance">--><!--
+    --><!--<Property Name="IconName"                    Value="I_PipingEngSpec_Table"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsTechnologicalTableInstance"/>--><!--
+    <CAAComment>
+      <ShortRole>Piping Part SubType Table</ShortRole>
+      <Role>Piping Part SubType Table</Role>
+    </CAAComment>
+  </Class>-->
+
+  <!--[V6R2014] DEPRECATED DON'T USE-->
+  <!--<Class Name="PipLogicalPartSubTypeTable" Uuid="7ce222ec-79cb-4813-89bd-52320a22a11f" CustomerExposition="Programmer" Abstract="No"
+         SuperName="PipTechnoTable2" Discipline="Yes" CreateInstName="EnsTechnologicalTableInstance">
+  --><!--<Class Name="PipLogicalPartSubTypeTable" Uuid="7ce222ec-79cb-4813-89bd-52320a22a11f" CustomerExposition="Programmer" Abstract="No"
+         SuperName="PipTechnoTable2" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes" CreateInstName="EnsTechnologicalTableInstance">--><!--
+    --><!--<Property Name="IconName"                    Value="I_PipingEngSpec_Table"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsTechnologicalTableInstance"/>--><!--
+    <CAAComment>
+      <ShortRole>Piping Logical Part SubType Table</ShortRole>
+      <Role>Piping Logical Part SubType Table</Role>
+    </CAAComment>
+  </Class>-->
+
+  <!--[V6R2014] DEPRECATED DON'T USE-->
+  <!--<Class Name="PipMappingPartSubTypeTable" Uuid="07f81a87-9364-46e1-ae58-dc60ab5f5c75" CustomerExposition="Programmer" Abstract="No"
+         SuperName="PipTechnoTable2" Discipline="Yes" CreateInstName="EnsTechnologicalTableInstance">
+  --><!--<Class Name="PipMappingPartSubTypeTable" Uuid="07f81a87-9364-46e1-ae58-dc60ab5f5c75" CustomerExposition="Programmer" Abstract="No"
+         SuperName="PipTechnoTable2" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes" CreateInstName="EnsTechnologicalTableInstance">--><!--
+    --><!--<Property Name="IconName"                    Value="I_PipingEngSpec_Table"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsTechnologicalTableInstance"/>--><!--
+    <CAAComment>
+      <ShortRole>Piping Mapping Part SubType Table</ShortRole>
+      <Role>Piping Mapping Part SubType Table</Role>
+    </CAAComment>
+  </Class>-->
+
+  <!--[V6R2014] DEPRECATED DON'T USE-->
+  <!--<Class Name="PipCustomerTable" Uuid="e233aedd-9399-4d94-bdb2-ef0f5b93686c" CustomerExposition="Programmer" Abstract="No"
+         SuperName="PipTechnoTable2" Discipline="Yes" CreateInstName="EnsTechnologicalTableInstance">
+  --><!--<Class Name="PipCustomerTable" Uuid="e233aedd-9399-4d94-bdb2-ef0f5b93686c" CustomerExposition="Programmer" Abstract="No"
+         SuperName="PipTechnoTable2" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes" CreateInstName="EnsTechnologicalTableInstance">--><!--
+    --><!--<Property Name="IconName"                    Value="I_PipingEngSpec_Table"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsTechnologicalTableInstance"/>--><!--
+    <CAAComment>
+      <ShortRole>Piping Customer Table</ShortRole>
+      <Role>Piping Customer Table</Role>
+    </CAAComment>
+  </Class>-->
+
+  <!--[V6R2014] DEPRECATED DON'T USE-->
+  <!--<Class Name="PipMinimumTangentLengthTable" Uuid="6fd60c10-9aed-44d6-8ed2-89777965a534" CustomerExposition="Programmer" Abstract="No"
+            SuperName="EnsTechnologicalTable" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes" CreateInstName="EnsTechnologicalTableInstance">
+       <Property Name="IconName"                    Value="I_PipingEngSpec_Table"/>
+       <Property Name="Searchable"                  Value="Yes"/>
+       <Property Name="Newable"                     Value="All"/>
+       <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+       <Property Name="KweNew_ReturnedType"         Value="EnsTechnologicalTableInstance"/>
+       <CAAComment>
+         <ShortRole>[V6R2014] DEPRECATED DON'T USE</ShortRole>
+         <Role>[V6R2014] DEPRECATED DON'T USE</Role>
+       </CAAComment>
+     </Class>-->
+
+  <Class Name="PipMinimumStraightLengthTable" Uuid="59d29b2e-7a49-43d8-b365-c107a1bcd640" Abbreviation="pipmslt" CustomerExposition="Programmer" Abstract="No"
+         SuperName="PipTechnoTable4" Discipline="Yes" CustomerExtensible="Yes" CreateInstName="EnsTechnologicalTableInstance">
+  <!--<Class Name="PipMinimumStraightLengthTable" Uuid="59d29b2e-7a49-43d8-b365-c107a1bcd640" CustomerExposition="Programmer" Abstract="No"
+         SuperName="PipTechnoTable4" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes" CreateInstName="EnsTechnologicalTableInstance">-->
+    <Property Name="IconName"                    Value="I_PipingEngSpec_Table"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsTechnologicalTableInstance"/>
+    <CAAComment>
+      <ShortRole>Piping Minimum Straight Length Table</ShortRole>
+      <Role>Piping Minimum Straight Length Table</Role>
+    </CAAComment>
+  </Class>
+
+  <Class Name="PipTurnRuleTable" Uuid="7a52627f-c336-48c3-8667-137e7345cc19" Abbreviation="piptrt" CustomerExposition="Programmer" Abstract="No"
+       SuperName="PipTechnoTable4" Discipline="Yes" CustomerExtensible="Yes" CreateInstName="EnsTechnologicalTableInstance">
+    <Property Name="IconName"                    Value="I_PipingEngSpec_Table"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsTechnologicalTableInstance"/>
+    <CAAComment>
+      <ShortRole>Piping Turn Rule Table</ShortRole>
+      <Role>Piping Turn Rule Table</Role>
+    </CAAComment>
+  </Class>
+
+  <Class Name="PipAutomaticPartRuleTable" Uuid="51b61a03-9755-4a11-b553-e62f43cfef82" Abbreviation="pipaprt" CustomerExposition="Programmer" Abstract="No"
+     SuperName="PipTechnoTable4" Discipline="Yes" CustomerExtensible="Yes" CreateInstName="EnsTechnologicalTableInstance">
+    <Property Name="IconName"                    Value="I_PipingEngSpec_Table"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsTechnologicalTableInstance"/>
+    <CAAComment>
+      <ShortRole>Piping Automatic Part Rule Table</ShortRole>
+      <Role>Piping Automatic Part Rule Table</Role>
+    </CAAComment>
+  </Class>
+
+  <Class Name="PipBranchingRuleTable" Uuid="79d7a1a8-7038-4dab-8980-e521da96d1c4" Abbreviation="pipbrart" CustomerExposition="Programmer" Abstract="No"
+   SuperName="PipTechnoTable4" Discipline="Yes" CustomerExtensible="Yes" CreateInstName="EnsTechnologicalTableInstance">
+    <Property Name="IconName"                    Value="I_PipingEngSpec_Table"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsTechnologicalTableInstance"/>
+    <CAAComment>
+      <ShortRole>Piping Branching Rule Table</ShortRole>
+      <Role>Piping Branching Rule Table</Role>
+    </CAAComment>
+  </Class>
+
+  <Class Name="PipCompatibilityRuleTable" Uuid="488c3e0b-b249-46f6-ae11-274118829037" Abbreviation="pipcrt" CustomerExposition="Programmer" Abstract="No"
+   SuperName="PipTechnoTable4" Discipline="Yes" CustomerExtensible="Yes" CreateInstName="EnsTechnologicalTableInstance">
+    <Property Name="IconName"                    Value="I_PipingEngSpec_Table"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsTechnologicalTableInstance"/>
+    <CAAComment>
+      <ShortRole>Piping Compatibility Rule Table</ShortRole>
+      <Role>Piping Compatibility Rule Table</Role>
+    </CAAComment>
+  </Class>
+
+  <Class Name="PipRigidPipeFabEndStyleTable" Uuid="4ba51544-f801-40df-a160-2b3f3795031a" Abbreviation="piprpfest" CustomerExposition="Programmer" Abstract="No"
+ SuperName="PipTechnoTable4" Discipline="Yes" CustomerExtensible="Yes" CreateInstName="EnsTechnologicalTableInstance">
+    <Property Name="IconName"                    Value="I_PipingEngSpec_Table"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsTechnologicalTableInstance"/>
+    <CAAComment>
+      <ShortRole>Piping Rigid Pipe Fabrication End Style Table</ShortRole>
+      <Role>Piping Rigid Pipe Fabrication End Style Table</Role>
+    </CAAComment>
+  </Class>
+
+  <Class Name="PipFlexPipeFabEndStyleTable" Uuid="fe080c47-31c4-40ad-902d-ce7c81d3d455" Abbreviation="pipfpfest" CustomerExposition="Programmer" Abstract="No"
+ SuperName="PipTechnoTable4" Discipline="Yes" CustomerExtensible="Yes" CreateInstName="EnsTechnologicalTableInstance">
+    <Property Name="IconName"                    Value="I_PipingEngSpec_Table"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsTechnologicalTableInstance"/>
+    <CAAComment>
+      <ShortRole>Piping Flexible Pipe Fabrication End Style Table</ShortRole>
+      <Role>Piping Flexible Pipe Fabrication End Style Table</Role>
+    </CAAComment>
+  </Class>
+
+  <Class Name="PipBendingRuleTable" Uuid="84bef7bd-92b1-46ff-acaa-bbf31749aedd" Abbreviation="pipbenrt" CustomerExposition="Programmer" Abstract="No"
+ SuperName="PipTechnoTable4" Discipline="Yes" CustomerExtensible="Yes" CreateInstName="EnsTechnologicalTableInstance">
+    <Property Name="IconName"                    Value="I_PipingEngSpec_Table"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsTechnologicalTableInstance"/>
+    <CAAComment>
+      <ShortRole>Piping Bending Rule Table</ShortRole>
+      <Role>Piping Bending Rule Table</Role>
+    </CAAComment>
+  </Class>
+
+  <Class Name="PipReducerRuleTable" Uuid="d81a9fcd-c23e-4a2b-a0df-7147d6d4554e" Abbreviation="piprrt" CustomerExposition="Programmer" Abstract="No"
+       SuperName="PipTechnoTable4" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes" CreateInstName="EnsTechnologicalTableInstance">
+    <Property Name="IconName"                    Value="I_PipingEngSpec_Table"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsTechnologicalTableInstance"/>
+  </Class>
+  
+  <Class Name="PipCustomerAdvancedTable" Uuid="c9e99c99-f616-4626-86e7-9ac00f88d884" Abbreviation="pipcat" CustomerExposition="Programmer" Abstract="No"
+         SuperName="PipTechnoTable4" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes" CreateInstName="EnsTechnologicalTableInstance">
+    <Property Name="IconName"                    Value="I_PipingEngSpec_Table"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsTechnologicalTableInstance"/>
+    <CAAComment>
+      <ShortRole>Piping Customer Advanced Table</ShortRole>
+      <Role>Piping Minimum Customer Advanced Table</Role>
+    </CAAComment>
+  </Class>
+
+  <!--[V6R2014] DEPRECATED DON'T USE-->
+  <!--<Class Name="EnsInsulationTypeTable" Uuid="08a47287-1a07-4e07-80c5-e97133d45b04" CustomerExposition="Programmer" Abstract="No"
+         SuperName="PipTechnoTable2" Discipline="Yes" CreateInstName="EnsTechnologicalTableInstance">
+  --><!--<Class Name="EnsInsulationTypeTable" Uuid="08a47287-1a07-4e07-80c5-e97133d45b04" CustomerExposition="Programmer" Abstract="No"
+         SuperName="PipTechnoTable2" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes" CreateInstName="EnsTechnologicalTableInstance">--><!--
+    --><!--<Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="IconName"                    Value="I_PipingEngSpec_Table"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsTechnologicalTableInstance"/>--><!--
+    <CAAComment>
+      <ShortRole>Piping Insulation Type Table</ShortRole>
+      <Role>Piping Insulation Type Table</Role>
+    </CAAComment>
+  </Class>-->
+
+  <Class Name="PipInsulationDimensionTable" Uuid="89cfe52a-299a-4834-a3ac-5fd02354c845" Abbreviation="pipidt" CustomerExposition="Programmer" Abstract="No"
+         SuperName="Ens_TechnoTable3" Discipline="Yes" CustomerExtensible="Yes" CreateInstName="EnsTechnologicalTableInstance">
+  <!--<Class Name="EnsInsulationDimensionTable" Uuid="89cfe52a-299a-4834-a3ac-5fd02354c845" CustomerExposition="Programmer" Abstract="No"
+         SuperName="PipTechnoTable3" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes" CreateInstName="EnsTechnologicalTableInstance">-->
+    <Property Name="IconName"                    Value="I_PipingEngSpec_Table"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsTechnologicalTableInstance"/>
+    <CAAComment>
+      <ShortRole>Piping Insulation Dimension Table</ShortRole>
+      <Role>Piping Insulation Dimension Table</Role>
+    </CAAComment>
+  </Class>
+
+  <Class Name="PipDirectionalLengthTable" Uuid="ad21f308-bd3e-4c7d-a552-1db075324ec7" Abbreviation="pipdlt" CustomerExposition="Programmer" Abstract="No"
+       SuperName="PipTechnoTable4" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes" CreateInstName="EnsTechnologicalTableInstance">
+    <Property Name="IconName"                    Value="I_PipingEngSpec_Table"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsTechnologicalTableInstance"/>
+  </Class>
+
+  <Class Name="PipAutomatedOffsetTable" Uuid="19450c9e-db87-4757-b00a-658067b883bd" Abbreviation="pipaot" CustomerExposition="Programmer" Abstract="No"
+     SuperName="PipTechnoTable4" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes" CreateInstName="EnsTechnologicalTableInstance">
+    <Property Name="IconName"                    Value="I_PipingEngSpec_Table"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsTechnologicalTableInstance"/>
+  </Class>
+
+  <Class Name="PipConnectionTechnoTable" Uuid="a5193db6-6788-4b90-b291-dbc8662c5d4d" Abbreviation="pipctt" CustomerExposition="Programmer" Abstract="No"
+   SuperName="PipTechnoTable4" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes" CreateInstName="EnsTechnologicalTableInstance">
+    <Property Name="IconName"                    Value="I_PipingEngSpec_Table"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsTechnologicalTableInstance"/>
+  </Class>
+  
+  <!--
+     ===================================================
+     Reference Filters
+     ===================================================
+     -->
+  <Class Name="PipingEntityFilter" Uuid="d9c34139-22f8-4973-858d-060464447f17" CustomerExposition="Programmer" Abstract="Yes"
+         SuperName="EnsFilter" Discipline="Yes" CustomerExtensible="Yes" CreateInstName="EnsFilterInstance">
+    <Property Name="IconName"                    Value="I_PipingEngSpec_Filter"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+
+    <Simple Name="V_Standard"        Uuid="83cc9375-4117-40b8-962e-7afbd6fd698c" Type="String" MultiValuated="No" MaxLength="100" Protection="Free" CAAExposition="L0"><Property Name="Controller" Value="CATPipEngAttController"/></Simple>
+    <Simple Name="V_MaxTemperature"  Uuid="5db9637f-f051-41a7-b0ba-999908eb6199" Type="Double" Magnitude="TEMPRTRE" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_MinTemperature"  Uuid="fcc5dc39-786e-496d-980a-3e74c604872e" Type="Double" Magnitude="TEMPRTRE" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_MaxPressure"     Uuid="ec07e82b-4767-48f4-9bad-f3d8c933777f" Type="Double" Magnitude="PRESSURE" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_MinPressure"     Uuid="f04d2995-d405-4034-9805-abea53131f27" Type="Double" Magnitude="PRESSURE" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Fluid"           Uuid="ec01d7d0-ce73-4d08-934d-b4ab5e6c7046" Type="String" MultiValuated="No" MaxLength="100" Protection="Free" CAAExposition="L0"><Property Name="Controller" Value="CATPipEngAttController"/></Simple>
+    <Simple Name="V_FluidCategory"   Uuid="29ace9c2-664b-42e4-a4e1-19a12430b50c" Type="String" MultiValuated="No" MaxLength="100" Protection="Free" CAAExposition="L0"><Property Name="Controller" Value="CATPipEngAttController"/></Simple>
+  </Class>
+
+  <Class Name="PipPartFilter" Uuid="0111a566-dc57-452c-a90f-60e5696ecffe" Abbreviation="pippf" CustomerExposition="Programmer" Abstract="No"
+         SuperName="PipingEntityFilter" Discipline="Yes" CustomerExtensible="Yes" CreateInstName="EnsFilterInstance">
+  <!--<Class Name="PipPartFilter" Uuid="0111a566-dc57-452c-a90f-60e5696ecffe" CustomerExposition="Programmer" Abstract="No"
+         SuperName="PipingEntityFilter" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes" CreateInstName="EnsFilterInstance">-->
+    <Property Name="IconName"                    Value="I_PipingEngSpec_Filter"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsFilterInstance"/>
+    <CAAComment>
+      <ShortRole>Piping Part Filter</ShortRole>
+      <Role>Piping Part Filter</Role>
+    </CAAComment>
+  </Class>
+
+  <Class Name="PipRigidPipeFilter" Uuid="d5a6c27f-c4b8-4991-b223-530e95a25afc" Abbreviation="piprpf" CustomerExposition="Programmer" Abstract="No"
+    SuperName="PipingEntityFilter" Discipline="Yes" CustomerExtensible="Yes" CreateInstName="EnsFilterInstance">
+  <!--<Class Name="PipRigidPipeFilter" Uuid="d5a6c27f-c4b8-4991-b223-530e95a25afc" CustomerExposition="Programmer" Abstract="No"
+    SuperName="PipingEntityFilter" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes" CreateInstName="EnsFilterInstance">-->
+    <Property Name="IconName"                    Value="I_PipingEngSpec_Filter"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsFilterInstance"/>
+    <CAAComment>
+      <ShortRole>Piping Rigid Pipe Filter</ShortRole>
+      <Role>Piping Rigid Pipe Filter</Role>
+    </CAAComment>
+  </Class>
+
+  <Class Name="PipFlexiblePipeFilter" Uuid="45dd57ff-08fa-41b9-a7cf-1e2c1a2da2f1" Abbreviation="pipfpf" CustomerExposition="Programmer" Abstract="No"
+         SuperName="PipingEntityFilter" Discipline="Yes" CustomerExtensible="Yes" CreateInstName="EnsFilterInstance">
+  <!--<Class Name="PipFlexiblePipeFilter" Uuid="45dd57ff-08fa-41b9-a7cf-1e2c1a2da2f1" CustomerExposition="Programmer" Abstract="No"
+         SuperName="PipingEntityFilter" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes" CreateInstName="EnsFilterInstance">-->
+    <Property Name="IconName"                    Value="I_PipingEngSpec_Filter"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsFilterInstance"/>
+    <CAAComment>
+      <ShortRole>Piping Flexible Pipe Filter</ShortRole>
+      <Role>Piping Flexible Pipe Filter</Role>
+    </CAAComment>
+  </Class>
+
+  <Class Name="PipConnectionTechnoFilter" Uuid="76a34bd6-d39e-4126-a205-161e3730f8a0" Abbreviation="pipctf" CustomerExposition="Programmer" Abstract="No"
+       SuperName="PipingEntityFilter" Discipline="Yes" CustomerExtensible="Yes" CreateInstName="EnsFilterInstance">
+    <Property Name="IconName"                    Value="I_PipingEngSpec_Filter"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsFilterInstance"/>
+  </Class>
+  
+  <Class Name="PipInsulationFilter" Uuid="cfec82b2-0aee-4c9a-bb71-4150778c293a" Abbreviation="pipif" CustomerExposition="Programmer" Abstract="No"
+    SuperName="Ens_AbstractFilter" Discipline="Yes" CustomerExtensible="Yes" CreateInstName="EnsFilterInstance">
+  <!--<Class Name="PipInsulationFilter" Uuid="cfec82b2-0aee-4c9a-bb71-4150778c293a" CustomerExposition="Programmer" Abstract="No"
+    SuperName="EnsFilter" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes" CreateInstName="EnsFilterInstance">-->
+    <Property Name="IconName"                    Value="I_PipingEngSpec_Filter"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsFilterInstance"/>
+    <CAAComment>
+      <ShortRole>Piping Insulation Filter</ShortRole>
+      <Role>Piping Insulation Filter</Role>
+    </CAAComment>
+    <!--<Simple Name="V_Standard"        Uuid="bf81b5c8-a4cd-4e17-bd4c-3ec1a1a7007b" Type="String" MultiValuated="No" MaxLength="100" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_MaxTemperature"  Uuid="15393576-3a68-482e-8207-cd09ef32739b" Type="Double" Magnitude="TEMPRTRE" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_MinTemperature"  Uuid="28d2d671-6f64-4d1b-9f0a-2f9cb0a8590e" Type="Double" Magnitude="TEMPRTRE" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Fluid"           Uuid="585ab5d5-9367-46d8-9dce-e9d3ad3ab072" Type="String" MultiValuated="No" MaxLength="100" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_FluidCategory"   Uuid="8a0352cb-89af-44f9-8085-ba71de82e133" Type="String" MultiValuated="No" MaxLength="100" Protection="Free" CAAExposition="L0"/>-->
+  </Class>
+
+  <!--
+     ===================================================
+     Reference Specifications
+     ===================================================
+     -->
+  <Class Name="PipSpecification" Uuid="b0dfd929-eb54-4d45-89b9-f04df3b615dd" Abbreviation="pips" CustomerExposition="Programmer" Abstract="No"
+         SuperName="EnsSpecification" Discipline="Yes" CustomerExtensible="Yes">
+  <!--<Class Name="PipSpecification" Uuid="b0dfd929-eb54-4d45-89b9-f04df3b615dd" CustomerExposition="Programmer" Abstract="No"
+         SuperName="EnsSpecification" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes">-->
+    <Property Name="IconName"                    Value="I_PipingEngSpec_Spec"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="New"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="ProposedInDataSetup"         Value="Yes"/>
+    
+    <Simple Name="V_Standard"        Uuid="d3cb2e35-2e82-424c-9dd8-373b2f03d641" Type="String" MultiValuated="No" MaxLength="100" Protection="Free" CAAExposition="L0"><Property Name="Controller" Value="CATPipEngAttController"/></Simple>
+    <Simple Name="V_MaxTemperature"  Uuid="0fd58360-c890-44ef-a9cc-bb4302ba2ddf" Type="Double" Magnitude="TEMPRTRE" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_MinTemperature"  Uuid="4b64feb0-845f-4d4c-8307-d3433e3bae08" Type="Double" Magnitude="TEMPRTRE" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_MaxPressure"     Uuid="590ca44a-8b17-4e59-b864-8256ead7fa86" Type="Double" Magnitude="PRESSURE" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_MinPressure"     Uuid="15839c47-6b5b-45fb-a293-683785821802" Type="Double" Magnitude="PRESSURE" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Fluid"           Uuid="5928559c-8385-434f-a849-a252c4c0e8c4" Type="String" MultiValuated="No" MaxLength="100" Protection="Free" CAAExposition="L0"><Property Name="Controller" Value="CATPipEngAttController"/></Simple>
+    <Simple Name="V_FluidCategory"   Uuid="d72fe9e9-23c5-44b6-a0f4-eac0c3ea2450" Type="String" MultiValuated="No" MaxLength="100" Protection="Free" CAAExposition="L0"><Property Name="Controller" Value="CATPipEngAttController"/></Simple>
+  </Class>
+
+  <!-- MODIF PA DEB 05/01/2015 -->
+  <Class Name="PipCustomerAdditionalSpec" Uuid="C453EAE1-8AB4-45CE-B4CD-262DC3BFE544" Abbreviation="pipcas" CustomerExposition="Programmer" Abstract="No"
+         SuperName="CustomerAdditionalSpec" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes">
+    <Property Name="IconName"                    Value="I_PipingEngSpec_CustomerAdditionalSpec"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="New"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="ProposedInDataSetup"         Value="Yes"/>
+    <CAAComment>
+      <ShortRole>Piping Customer Additional Spec</ShortRole>
+      <Role>Piping Customer Additional Spec</Role>
+    </CAAComment>
+  </Class>
+  <!-- MODIF PA FIN 05/01/2015 -->
+
+  <!--[V6R2014] DEPRECATED DON'T USE-->
+  <!--<Class Name="EnsInsulationSpecification" Uuid="fc6fbbc0-9261-4e91-a549-82fce4ebc108" CustomerExposition="Programmer" Abstract="No"
+    SuperName="EnsSpecification" Discipline="Yes">
+  --><!--<Class Name="EnsInsulationSpecification" Uuid="fc6fbbc0-9261-4e91-a549-82fce4ebc108" CustomerExposition="Programmer" Abstract="No"
+    SuperName="EnsSpecification" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes">--><!--
+    --><!--<Property Name="IconName"                    Value="I_PipingEngSpec_Spec"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="New"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>--><!--
+    <CAAComment>
+      <ShortRole>Piping Insulation Specification</ShortRole>
+      <Role>Piping Insulation Specification</Role>
+    </CAAComment>
+    <Simple Name="V_Standard"        Uuid="93110111-1e27-489b-a1f2-024261b556ed" Type="String" MultiValuated="No" MaxLength="100" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_MaxTemperature"  Uuid="37646fa9-6450-4c45-b3fa-27932ceeb6d7" Type="Double" Magnitude="TEMPRTRE" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_MinTemperature"  Uuid="c9962166-38c0-478e-87b0-fdf73489c5d2" Type="Double" Magnitude="TEMPRTRE" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Fluid"           Uuid="e29fd899-b1e9-4582-872e-00796f0944cd" Type="String" MultiValuated="No" MaxLength="100" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_FluidCategory"   Uuid="267669b0-fbb7-4039-bdd2-9d99e3547512" Type="String" MultiValuated="No" MaxLength="100" Protection="Free" CAAExposition="L0"/>
+  </Class>-->
+
+  <!--
+     ===================================================
+     Connection Spec Logical Line
+     ===================================================
+     -->
+  <Class Name="PipCntnLogToSpec" Uuid="ab0ccf8a-37d1-4026-80b7-5e0b5099d070" Abstract="No" SuperName="EnsSpecCnxLogicalToSpecBase" CustomerExposition="Programmer">
+    <CAAComment>
+      <ShortRole>Piping Logical Line to Spec connection</ShortRole>
+      <Role>Piping Logical Line to Spec connection</Role>
+    </CAAComment>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+</Package>

@@ -1,0 +1,327 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2017, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" Name="DEL3DLeanModel"
+    Uuid="429A97E5-7451-406F-9E88-900AA34D0AA9"
+    CustomerExposition="Programmer"
+    Architecture="Web"
+    UseNames="ERCoreModeler"
+    >
+    <Comment>last update 2018-07-10</Comment>
+    <!-- Attributes types
+    Boolean
+    Integer
+    Double
+    String
+    Date
+    Clob
+-->
+<!-- Business Objects - Level 0 -->
+<Class Name="DEL3DL_Abstract_Element"
+    Uuid="343EABB2-41CA-4967-BD76-8F65C0622BE8"
+    Abstract="Yes"
+    CustomerExposition="Programmer"
+    SuperName="BusinessType"
+    Searchable="No">
+
+    <Simple Name="V_DEL3DL_Data"        Type="Clob"   Protection="Internal"   Uuid="B041CFB4-BE5C-4F67-AF81-3157AEDF0A30"/>
+    <Method ImplementationType="None">
+        <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+</Class>
+
+<!-- Business Objects - Level 1 -->
+<Class Name="DEL3DL_Abstract_Static"
+    Uuid="C616B41D-FE43-4D48-BB7D-816548EAA8EB"
+    Abstract="Yes"
+    CustomerExposition="Programmer"
+    SuperName="DEL3DL_Abstract_Element"
+    Searchable="No">
+
+    <Simple Name="V_DEL3DL_Title"       Type="String"   Protection="ExternalIN" Uuid="20F19615-4382-4470-B9CF-344809791542"/>
+    <Method ImplementationType="None">
+        <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+</Class>
+
+<Class Name="DEL3DL_Abstract_Floatable"
+    Uuid="49294FBC-9A56-4B32-88E7-CB17DC6D5DB8"
+    Abstract="Yes"
+    CustomerExposition="Programmer"
+    SuperName="DEL3DL_Abstract_Element"
+    Searchable="No">
+    <Method ImplementationType="None">
+        <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+</Class>
+
+<!-- Business Objects - Level 2 -->
+<Class Name="DEL3DL_Abstract_Leanget"
+    Uuid="E27B65C9-9072-459E-A6CA-1C4877E8D446"
+    Abstract="Yes"
+    CustomerExposition="Programmer"
+    SuperName="DEL3DL_Abstract_Static"
+    Searchable="No">
+
+    <!-- FIXME To be deleted V_DEL3DL_Period -->
+    <Simple Name="V_DEL3DL_Period"      Type="Integer"  Protection="ExternalIN" Uuid="465EEDE7-815C-484A-B48A-094C43CF6FD6"/>
+    <!-- FIXME To be deleted V_DEL3DL_Description -->
+    <Simple Name="V_DEL3DL_Description" Type="String"   Protection="ExternalIN" Uuid="33650031-C106-4DBC-A8E8-B68ADCD9BCBE"/>
+    <!-- FIXME To be deleted V_DEL3DL_State -->
+    <Simple Name="V_DEL3DL_State"       Type="String"   Protection="Internal"   Uuid="806C7B76-9785-4A36-AC96-82510E868B76"/>
+    <Simple Name="V_DEL3DL_Preferences" Type="Clob"   Protection="Internal"   Uuid="7230A80B-EAA5-4C8E-B359-BCB4B944BABF"/>
+    <Method ImplementationType="None">
+        <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+</Class>
+
+<Class Name="DEL3DL_Page"
+    Uuid="189A3A69-4A74-411E-B7CF-68F992F0F920"
+    Abstract="No"
+    CustomerExposition="Programmer"
+    SuperName="DEL3DL_Abstract_Static"
+    Searchable="No">
+
+    <Simple Name="V_DEL3DL_Grid_Size_X" Type="Double"   Protection="Internal"   Uuid="7B81D3DD-9177-4160-A33D-EFDD8CF9FE72"/>
+    <Simple Name="V_DEL3DL_Grid_Size_Y" Type="Double"   Protection="Internal"   Uuid="FFCA0B5A-FB76-49EE-BD1E-3D514EDFCBDF"/>
+    <Method ImplementationType="None">
+        <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+</Class>
+
+<Class Name="DEL3DL_Session"
+    Uuid="A907ABE8-C3B8-4C93-ACF8-7469959134E5"
+    Abstract="No"
+    CustomerExposition="Programmer"
+    SuperName="DEL3DL_Abstract_Static"
+    Searchable="Yes">
+    <Method ImplementationType="None">
+        <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+</Class>
+
+<Class Name="DEL3DL_Sticker"
+    Uuid="F3C2E352-9ECC-4723-A5C6-917D0F460ABD"
+    Abstract="No"
+    CustomerExposition="Programmer"
+    SuperName="DEL3DL_Abstract_Floatable"
+    Searchable="No">
+    <Method ImplementationType="None">
+        <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+</Class>
+
+<Class Name="DEL3DL_Sticky_Note"
+    Uuid="08ED212D-E856-4EB8-B401-AF764F6D232D"
+    Abstract="No"
+    CustomerExposition="Programmer"
+    SuperName="DEL3DL_Abstract_Floatable"
+    Searchable="Yes">
+
+    <!-- FIXME To be changed to V_DEL3DL_Draw_Data, Clob -->
+    <Simple Name="V_DEL3DL_Sketch_Image"      Type="Clob"   Protection="Internal"   Uuid="88297136-6004-40C5-BDAA-6634A3858498"/>
+    <Simple Name="V_DEL3DL_Category"          Type="String"   Protection="Internal"   Uuid="B9A62F2E-75C1-4D56-92C5-27F1BE009A8E"/>
+    <Simple Name="V_DEL3DL_Background_Color"  Type="String"   Protection="Internal"   Uuid="86B76B46-4AD5-42F5-BC0F-7F651EE46065"/>
+    <Method ImplementationType="None">
+        <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+</Class>
+
+<Class Name="DEL3DL_Sticky_Member"
+    Uuid="E55A8A81-A767-4E9C-A5F8-AF303F9A3A7B"
+    Abstract="No"
+    CustomerExposition="Programmer"
+    SuperName="DEL3DL_Abstract_Floatable"
+    Searchable="No">
+    <Method ImplementationType="None">
+        <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+</Class>
+
+<!-- Business Objects - Level 3 - Leangets -->
+<Class Name="DEL3DL_Team"
+    Uuid="8E2EB593-E25C-41BD-B16A-153DC00667E8"
+    Abstract="No"
+    CustomerExposition="Programmer"
+    SuperName="DEL3DL_Abstract_Leanget"
+    Searchable="No">
+    <Method ImplementationType="None">
+        <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+</Class>
+
+<Class Name="DEL3DL_Team_Pad"
+    Uuid="825BE69D-E1BA-40CE-A8DE-F0E40EB33A2D"
+    Abstract="No"
+    CustomerExposition="Programmer"
+    SuperName="DEL3DL_Page"
+    Searchable="No">
+    <Method ImplementationType="None">
+        <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+</Class>
+
+<Class Name="DEL3DL_Sketch"
+    Uuid="CB32D163-03C6-48B9-BE53-CE7C97CA73E3"
+    Abstract="No"
+    CustomerExposition="Programmer"
+    SuperName="DEL3DL_Abstract_Leanget"
+    Searchable="No">
+
+    <Simple Name="V_DEL3DL_Draw_Data"      Type="Clob"   Protection="Internal"   Uuid="63a8c504-df5d-4fef-bfaf-3a10d6ebc1d5"/>
+    <Method ImplementationType="None">
+        <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+</Class>
+
+<Class Name="DEL3DL_Custom"
+    Uuid="5ab637a6-f317-4dea-aaad-a56542eb3c0a"
+    Abstract="No"
+    CustomerExposition="Programmer"
+    SuperName="DEL3DL_Abstract_Leanget"
+    Searchable="No">
+    <Method ImplementationType="None">
+        <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+</Class>
+
+<Class Name="DEL3DL_Action_Log"
+    Uuid="C60ACCF8-BDCA-4938-8F02-07F787DB95AB"
+    Abstract="No"
+    CustomerExposition="Programmer"
+    SuperName="DEL3DL_Abstract_Leanget"
+    Searchable="No">
+    <Method ImplementationType="None">
+        <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+</Class>
+
+<Class Name="DEL3DL_Issue_Log"
+    Uuid="8566ED6E-5D0B-4515-8AF8-7D7430FB5F02"
+    Abstract="No"
+    CustomerExposition="Programmer"
+    SuperName="DEL3DL_Abstract_Leanget"
+    Searchable="No">
+    <Method ImplementationType="None">
+        <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+</Class>
+
+<Class Name="DEL3DL_Safety"
+    Uuid="d6d4924c-7c01-463b-a090-11304c40d8bd"
+    Abstract="No"
+    CustomerExposition="Programmer"
+    SuperName="DEL3DL_Abstract_Leanget"
+    Searchable="No">
+    <Method ImplementationType="None">
+        <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+</Class>
+
+<Class Name="DEL3DL_Web_Viewer"
+    Uuid="96051C37-0225-48EA-A79B-1F5D12F8CFEB"
+    Abstract="No"
+    CustomerExposition="Programmer"
+    SuperName="DEL3DL_Abstract_Leanget"
+    Searchable="No">
+
+    <Simple Name="V_DEL3DL_Url"      Type="String"   Protection="Internal"   Uuid="34677345-8b15-4c0d-8d9a-a8c00cfa96e7"/>
+    <Method ImplementationType="None">
+        <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+</Class>
+
+<Class Name="DEL3DL_5S_FollowUp"
+    Uuid="70C68699-3A23-4652-8BB9-691A1EF3E646"
+    Abstract="No"
+    CustomerExposition="Programmer"
+    SuperName="DEL3DL_Abstract_Leanget"
+    Searchable="No">
+    <Method ImplementationType="None">
+        <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+</Class>
+
+<Class Name="DEL3DL_EHS_Cross"
+    Uuid="17EDDF8D-1881-42D1-B5B8-EF8229F3C600"
+    Abstract="No"
+    CustomerExposition="Programmer"
+    SuperName="DEL3DL_Abstract_Leanget"
+    Searchable="No">
+    <Method ImplementationType="None">
+        <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+</Class>
+
+<Class Name="DEL3DL_Tip_Of_The_Day"
+    Uuid="BF5AD314-83CD-4CB6-ACDC-6518E715D965"
+    Abstract="No"
+    CustomerExposition="Programmer"
+    SuperName="DEL3DL_Abstract_Leanget"
+    Searchable="No">
+
+    <Simple Name="V_DEL3DL_Url"      Type="String"   Protection="Internal"   Uuid="f8058447-0cc3-4a7d-8e5d-352b67a823aa"/>
+    <Method ImplementationType="None">
+        <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+</Class>
+
+<Class Name="DEL3DL_KPI"
+    Uuid="8989C780-1AF3-4468-BFEA-915EEBFC6F73"
+    Abstract="No"
+    CustomerExposition="Programmer"
+    SuperName="DEL3DL_Abstract_Leanget"
+    Searchable="No">
+
+    <Simple Name="V_DEL3DL_X_Axis_Title"      Type="String"   Protection="Internal"   Uuid="022ee351-bffe-4fc9-9cba-54a0abaf75c8"/>
+    <Simple Name="V_DEL3DL_Y_Axis_Title"      Type="String"   Protection="Internal"   Uuid="90a8694d-424a-4375-93d2-a823ed5e7558"/>
+    <Simple Name="V_DEL3DL_Y_Axis_Min"        Type="Double"   Protection="Internal"   Uuid="39591477-a56f-494b-a320-2942b67153e0"/>
+    <Simple Name="V_DEL3DL_Y_Axis_Max"        Type="Double"   Protection="Internal"   Uuid="52c41e8c-e095-4f46-ab79-9ede6725a140"/>
+    <Simple Name="V_DEL3DL_Target"            Type="Double"   Protection="Internal"   Uuid="3569d6e4-cbb5-4e28-ad67-a9f271d51cfc"/>
+    <Simple Name="V_DEL3DL_Round_Value"       Type="Double"   Protection="Internal"   Uuid="f48cd758-60af-41a4-a2f4-c8dcde6c7bf1"/>
+    <Simple Name="V_DEL3DL_Work_Week"         Type="String"   Protection="Internal"   Uuid="2ea5e3a3-edfc-4877-8abf-62faab62408c"/>
+    <Simple Name="V_DEL3DL_Above_Color"       Type="String"   Protection="Internal"   Uuid="f170b958-6e84-4fca-a11c-54f313fdae9a"/>
+    <Simple Name="V_DEL3DL_Below_Color"       Type="String"   Protection="Internal"   Uuid="c57077c7-ecd3-47ab-bdd0-0e36ce3a42ba"/>
+    <Method ImplementationType="None">
+        <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+</Class>
+
+<!-- Relationships -->
+<RelationClass Name="DEL3DL_Coord"
+    Uuid="DDFBFB18-49A3-4420-B3FF-0769B8E41338"
+    Abstract="No"
+    CustomerExposition="Programmer"
+    SuperName="RelationType">
+
+    <SubClause Name="from"  TargetName="DEL3DL_Abstract_Element"/>
+    <SubClause Name="to"    TargetName="DEL3DL_Abstract_Element"/>
+
+    <Simple Name="V_DEL3DL_X"       Type="Double"   Protection="Internal"   Uuid="95816EA2-5732-4AC2-9019-ED88672EA4D5"/>
+    <Simple Name="V_DEL3DL_Y"       Type="Double"   Protection="Internal"   Uuid="82AA0733-2E47-459B-B9AB-898E5DB5DF29"/>
+    <Simple Name="V_DEL3DL_Size_X"  Type="Double"   Protection="Internal"   Uuid="283E6038-2C0C-4953-8186-B363A99ABC8B"/>
+    <Simple Name="V_DEL3DL_Size_Y"  Type="Double"   Protection="Internal"   Uuid="A0BEC1CD-A0BD-41C4-9338-0BACFE4E43A3"/>
+    <Simple Name="V_DEL3DL_Angle"   Type="Double"   Protection="Internal"   Uuid="26cffa79-da35-4e47-8bab-aedc65261379"/>
+    <Simple Name="V_DEL3DL_Data"    Type="Clob"     Protection="Internal"   Uuid="59F06495-2A37-4632-8B43-01292BB63C88"/>
+
+    <Method ImplementationType="None">
+        <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+</RelationClass>
+
+<RelationClass Name="DEL3DL_Link"
+    Uuid="5A0A503A-08BD-428E-BCE9-790940316918"
+    Abstract="No"
+    CustomerExposition="Programmer"
+    SuperName="RelationType">
+
+    <SubClause Name="from" TargetName="BusinessType"/>
+    <SubClause Name="to" TargetName="BusinessType"/>
+
+    <Simple Name="V_DEL3DL_Data"  Type="Clob"   Protection="Internal"   Uuid="05027091-70b7-4622-ade6-4eb0be59a15e"/>
+
+    <Method ImplementationType="None">
+        <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+</RelationClass>
+
+</Package>

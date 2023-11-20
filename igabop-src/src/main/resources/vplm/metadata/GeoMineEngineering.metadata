@@ -1,0 +1,56 @@
+<?xml version="1.0" ?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2015, All rights reserved -->
+<Package CustomerExposition="Programmer" ModelerType="Top" Name="GeoMineEngineering" UseNames="AECKernel" Uuid="035E5279-0FA2-41CC-8A7D-2A5B6DD31A9A" xmlns="PLMDictionaryUnified">
+  <Class Abstract="Yes" CustomerExposition="Programmer" Discipline="Yes" Name="GeoMineEngineeringSSE" SuperName="AecSpatialStructureElement" Uuid="10d402e1-bdcb-4f17-851a-3f6428485369">
+    <CAAComment>
+      <Role>Parent object for GEOVIA Mine Engineering SSE elements.</Role>
+    </CAAComment>
+  </Class>
+  <Class Abbreviation="msp" CustomerExposition="Programmer" Discipline="Yes" Name="GeoMineStope" SuperName="GeoStopeSSE" Uuid="5dcbee65-1759-4c16-b762-4fb37db93c4c">
+    <Property Name="IconName" Value="I_GeoMineStope"/>
+    <Property Name="3DIconName" Value="I_GeoMineStope.cgr"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEAECDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="VPMInstance"/>
+    <Property Name="Newable" Value="All_Offline_CAA"/>
+    <Property Name="InstantiationOwnerTypes" Value="PPRContext;GeoUndergroundSpace;GeoUndergroundMine"/>
+    <Property Name="3DPartAvailability" Value="UserChoiceReferenceDefault"/>
+    <CAAComment>
+      <Role>GEOVIA Underground Stope Object</Role>
+    </CAAComment>
+  </Class>
+  <Class Abstract="Yes" CustomerExposition="Programmer" Discipline="Yes" Name="GeoMineUndergroundSSE" SuperName="GeoMineEngineeringSSE" Uuid="98999000-d877-4675-b985-00eaeaa2ad30">
+    <CAAComment>
+      <Role>Parent object for GEOVIA Underground Mine Engineering SSE elements.</Role>
+    </CAAComment>
+  </Class>
+  <Class Abstract="Yes" CustomerExposition="Programmer" Discipline="Yes" Name="GeoStopeSSE" SuperName="GeoMineUndergroundSSE" Uuid="906c0c92-0640-4847-9c11-0a14a4d60919">
+    <Property Name="GroupingType" Value="GeoStopeSSE"/>
+    <CAAComment>
+      <Role>Parent object for GEOVIA Mine Stope SSE elements.</Role>
+    </CAAComment>
+  </Class>
+  <Class Abbreviation="umn" CustomerExposition="Programmer" Discipline="Yes" Name="GeoUndergroundMine" SuperName="GeoMineUndergroundSSE" Uuid="648e540c-3445-4316-bd72-f5f1c889c90e">
+    <Property Name="IconName" Value="I_GeoUndergroundMine"/>
+    <Property Name="3DIconName" Value="I_GeoUndergroundMine.cgr"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEAECDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="VPMInstance"/>
+    <Property Name="Newable" Value="All_Offline_CAA"/>
+    <Property Name="InstantiationOwnerTypes" Value="PPRContext;AecSite;GeoUndergroundMine"/>
+    <Property Name="3DPartAvailability" Value="UserChoiceReferenceDefault"/>
+    <CAAComment>
+      <Role>GEOVIA Underground Mine Object</Role>
+    </CAAComment>
+  </Class>
+  <Class Abbreviation="usp" CustomerExposition="Programmer" Discipline="Yes" Name="GeoUndergroundSpace" Specializable="Yes" SuperName="GeoMineUndergroundSSE" Uuid="d6c338a5-2b98-47bd-afb3-7bdc656ef23b">
+    <Property Name="IconName" Value="I_GeoUndergroundSpace"/>
+    <Property Name="3DIconName" Value="I_GeoUndergroundSpace.cgr"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEAECDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="VPMInstance"/>
+    <Property Name="Newable" Value="All_Offline_CAA"/>
+    <Property Name="InstantiationOwnerTypes" Value="PPRContext;GeoUndergroundSpace;GeoUndergroundMine"/>
+    <Property Name="3DPartAvailability" Value="UserChoiceReferenceDefault"/>
+    <CAAComment>
+      <Role>GEOVIA Underground Space Object</Role>
+    </CAAComment>
+  </Class>
+</Package>

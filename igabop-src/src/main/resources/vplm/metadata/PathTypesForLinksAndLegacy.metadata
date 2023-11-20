@@ -1,0 +1,320 @@
+<?xml version="1.0" ?>
+<!-- CONTAINS THE DEFINITION OF PATH TYPES THAT ARE USED BY SPECSMODELER LINKS-->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2014, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified"
+Name="PathTypesForLinksAndLegacy"
+Uuid="6447131C-3C86-412f-A6CB-3CB94B710A6E"
+ModelerType="Top"
+CustomerExposition="None"
+UseNames="PLMCORE"
+>
+
+
+<PathType
+     Name="Default_Reference"
+     Uuid="c7cc3cd9-ce59-11e4-aa0c3c970ecea022"
+     SuperName="SemanticRelation"    AdaptativeToMinor="No"
+     SynchroSensitivity="None"
+     RerouteOnEffectivityChange="No" Protection="External"
+/>
+
+<PathType
+     Name="Default_Reference3" Orientation="In"
+     Uuid="ca7a5769-ce59-11e4-aa0c3c970ecea022"
+     SuperName="SemanticRelation"    AdaptativeToMinor="No"
+     SynchroSensitivity="PathAndLast"
+     RerouteOnEffectivityChange="No" Protection="External"
+/>
+  <PathType
+     Name="Input_Reference3" Orientation="In"
+     Uuid="ca7d8bce-ce59-11e4-aa0c3c970ecea022"
+     SuperName="SemanticRelation"    AdaptativeToMinor="No"
+     SynchroSensitivity="PathAndLast"
+     RerouteOnEffectivityChange="No" Protection="External"
+/>
+
+  <PathType
+     Name="PLM_ImplementLink_Target_Reference3" Orientation="In"
+     Uuid="ca80c033-ce59-11e4-aa0c3c970ecea022"
+     SuperName="SemanticRelation"    AdaptativeToMinor="No"
+     SynchroSensitivity="PathAndLast"
+     RerouteOnEffectivityChange="No" Protection="External"
+/>
+
+  <PathType
+     Name="PLM_ImplementLink_Source_Reference5" Orientation="Out"
+     Uuid="ca83a676-ce59-11e4-aa0c3c970ecea022"
+     SuperName="SemanticRelation"    AdaptativeToMinor="No"
+     SynchroSensitivity="Last"
+     RerouteOnEffectivityChange="Yes" Protection="External"
+/>
+  <PathType
+     Name="Publish_Reference3" Orientation="In"
+     Uuid="ca86b3ca-ce59-11e4-aa0c3c970ecea022"
+     SuperName="SemanticRelation"    AdaptativeToMinor="Yes"
+     SynchroSensitivity="PathAndLast"
+     RerouteOnEffectivityChange="No" Protection="External"
+/>
+
+  <PathType
+     Name="DEL_LinkFromActivitytoState_Reference5" Orientation="Out"
+     Uuid="ca89c11e-ce59-11e4-aa0c3c970ecea022"
+     SuperName="SemanticRelation"    AdaptativeToMinor="No"
+     SynchroSensitivity="Last"
+     RerouteOnEffectivityChange="No" Protection="External"
+/>
+
+  <PathType
+     Name="Context_Reference3" Orientation="In"
+     Uuid="ca8cce72-ce59-11e4-aa0c3c970ecea022"
+     SuperName="SemanticRelation"    AdaptativeToMinor="No"
+     SynchroSensitivity="PathAndLast"
+     RerouteOnEffectivityChange="No" Protection="External"
+/>
+  <PathType
+     Name="Import_Reference2"
+     Uuid="ca8fb4b5-ce59-11e4-aa0c3c970ecea022"
+     SuperName="SemanticRelation"    AdaptativeToMinor="No"
+     SynchroSensitivity="None"
+     RerouteOnEffectivityChange="Yes" Protection="Internal"
+/>
+  <PathType
+     Name="Import_Reference3" Orientation="In"
+     Uuid="ca92c209-ce59-11e4-aa0c3c970ecea022"
+     SuperName="SemanticRelation"    AdaptativeToMinor="No"
+     SynchroSensitivity="PathAndLast"
+     RerouteOnEffectivityChange="Yes" Protection="External"
+/>
+  <PathType
+     Name="PLM_AgnosticLink_Source_Reference7" Orientation="Out"
+     Uuid="ca95cf5d-ce59-11e4-aa0c3c970ecea022"
+     SuperName="SemanticRelation"    AdaptativeToMinor="No"
+     SynchroSensitivity="Last"
+     RerouteOnEffectivityChange="No" Protection="External"
+/>
+
+  <PathType
+     Name="PLM_AgnosticLink_Target_Reference"
+     Uuid="cabe6707-ce59-11e4-aa0c3c970ecea022"
+     SuperName="SemanticRelation"    AdaptativeToMinor="No"
+     SynchroSensitivity="None"
+     RerouteOnEffectivityChange="No" Protection="External"
+/>
+
+
+  <PathType
+     Name="RFL_LogMap_PLMPort_Reference6" Orientation="InOut"
+     Uuid="cac1745b-ce59-11e4-aa0c3c970ecea022"
+     SuperName="SemanticRelation"    AdaptativeToMinor="No"
+     SynchroSensitivity="PathAndLast"
+     RerouteOnEffectivityChange="No" Protection="External"
+/>
+
+  <PathType
+     Name="RFL_LogMap_RepPort_Reference6" Orientation="InOut"
+     Uuid="cac45a9e-ce59-11e4-aa0c3c970ecea022"
+     SuperName="SemanticRelation"    AdaptativeToMinor="No"
+     SynchroSensitivity="PathAndLast"
+     RerouteOnEffectivityChange="No" Protection="External"
+/>
+
+  <PathType
+     Name="RFL_LogMap_RepModel_Reference"
+     Uuid="cac719d0-ce59-11e4-aa0c3c970ecea022"
+     SuperName="SemanticRelation"    AdaptativeToMinor="No"
+     SynchroSensitivity="None"
+     RerouteOnEffectivityChange="No" Protection="External"
+/>
+  <PathType
+     Name="PLM_AllocationLink_From_Reference4" Orientation="In"
+     Uuid="caca0013-ce59-11e4-aa0c3c970ecea022"
+     SuperName="SemanticRelation"    AdaptativeToMinor="No"
+     SynchroSensitivity="Last"
+     RerouteOnEffectivityChange="No" Protection="External"
+/>
+
+  <PathType
+     Name="PLM_AllocationLink_To_Reference"
+     Uuid="cacce656-ce59-11e4-aa0c3c970ecea022"
+     SuperName="SemanticRelation"    AdaptativeToMinor="No"
+     SynchroSensitivity="None"
+     RerouteOnEffectivityChange="No" Protection="External"
+/>
+  <PathType
+     Name="AsmSym_RefInst_Reference2"
+     Uuid="cba91b29-ce59-11e4-aa0c3c970ecea022"
+     SuperName="SemanticRelation"    AdaptativeToMinor="Yes"
+     SynchroSensitivity="None"
+     RerouteOnEffectivityChange="Yes" Protection="Internal"
+/>
+
+  <PathType
+     Name="AsmSym_SymInst_Reference2"
+     Uuid="cbac016c-ce59-11e4-aa0c3c970ecea022"
+     SuperName="SemanticRelation"    AdaptativeToMinor="Yes"
+     SynchroSensitivity="None"
+     RerouteOnEffectivityChange="Yes" Protection="Internal"
+/>
+
+  <PathType
+     Name="AsmSym_ProductRef_Reference2"
+     Uuid="cbaf0ec0-ce59-11e4-aa0c3c970ecea022"
+     SuperName="SemanticRelation"    AdaptativeToMinor="Yes"
+     SynchroSensitivity="None"
+     RerouteOnEffectivityChange="No" Protection="Internal"
+/>
+
+  <PathType
+     Name="AsmSym_ProductSym_Reference2"
+     Uuid="cbb1f503-ce59-11e4-aa0c3c970ecea022"
+     SuperName="SemanticRelation"    AdaptativeToMinor="Yes"
+     SynchroSensitivity="None"
+     RerouteOnEffectivityChange="No" Protection="Internal"
+/>
+  <PathType
+     Name="AsmSym_PlaneImpactedIn_Reference3" Orientation="In"
+     Uuid="cbb4db46-ce59-11e4-aa0c3c970ecea022"
+     SuperName="SemanticRelation"    AdaptativeToMinor="No"
+     SynchroSensitivity="PathAndLast"
+     RerouteOnEffectivityChange="No" Protection="External"
+/>
+
+  <PathType
+     Name="DMU_Context_Reference"
+     Uuid="cbb7c189-ce59-11e4-aa0c3c970ecea022"
+     SuperName="SemanticRelation"    AdaptativeToMinor="No"
+     SynchroSensitivity="None"
+     RerouteOnEffectivityChange="No" Protection="External"
+/>
+
+  <PathType
+     Name="WSPPvsRoot_Reference"
+     Uuid="cbbaa7cc-ce59-11e4-aa0c3c970ecea022"
+     SuperName="SemanticRelation"    AdaptativeToMinor="No"
+     SynchroSensitivity="None"
+     RerouteOnEffectivityChange="No" Protection="External"
+/>
+
+  <PathType
+     Name="WSPPvsToPLMEntitySpec_Reference2"
+     Uuid="cbbd8e0f-ce59-11e4-aa0c3c970ecea022"
+     SuperName="SemanticRelation"    AdaptativeToMinor="No"
+     SynchroSensitivity="None"
+     RerouteOnEffectivityChange="No" Protection="Internal"
+/>
+
+  <PathType
+     Name="WSPPvsConnectionToReference_Reference"
+     Uuid="cbc09b63-ce59-11e4-aa0c3c970ecea022"
+     SuperName="SemanticRelation"    AdaptativeToMinor="No"
+     SynchroSensitivity="None"
+     RerouteOnEffectivityChange="No" Protection="External"
+/>
+
+  <PathType
+     Name="PLM_PPRContextLink_Process_Reference4" Orientation="In"
+     Uuid="cbc381a6-ce59-11e4-aa0c3c970ecea022"
+     SuperName="SemanticRelation"    AdaptativeToMinor="No"
+     SynchroSensitivity="Last"
+     RerouteOnEffectivityChange="No" Protection="External"
+/>
+
+  <PathType
+     Name="PLM_PPRContextLink_System_Reference4" Orientation="In"
+     Uuid="cbc68efa-ce59-11e4-aa0c3c970ecea022"
+     SuperName="SemanticRelation"    AdaptativeToMinor="No"
+     SynchroSensitivity="Last"
+     RerouteOnEffectivityChange="No" Protection="External"
+/>
+  <PathType
+     Name="DEL_ControlSignal_Reference6" Orientation="InOut"
+     Uuid="cbc9753d-ce59-11e4-aa0c3c970ecea022"
+     SuperName="SemanticRelation"    AdaptativeToMinor="No"
+     SynchroSensitivity="PathAndLast"
+     RerouteOnEffectivityChange="No" Protection="External"
+/>
+
+  <PathType
+     Name="DEL_LinkToWithObjects_Reference"
+     Uuid="cbcc5b80-ce59-11e4-aa0c3c970ecea022"
+     SuperName="SemanticRelation"    AdaptativeToMinor="No"
+     SynchroSensitivity="None"
+     RerouteOnEffectivityChange="No" Protection="External"
+/>
+
+  <PathType
+     Name="DEL_LinkToWhereObject_Reference"
+     Uuid="cbcf41c3-ce59-11e4-aa0c3c970ecea022"
+     SuperName="SemanticRelation"    AdaptativeToMinor="No"
+     SynchroSensitivity="None"
+     RerouteOnEffectivityChange="No" Protection="External"
+/>
+  <PathType
+     Name="CATMaterialToReferenceLink_Reference3" Orientation="In"
+     Uuid="cbd27628-ce59-11e4-aa0c3c970ecea022"
+     SuperName="SemanticRelation"    AdaptativeToMinor="No"
+     SynchroSensitivity="PathAndLast"
+     RerouteOnEffectivityChange="No" Protection="External"
+/>
+
+  <PathType
+     Name="CATMaterialMadeOfLink_Reference5" Orientation="Out"
+     Uuid="cbd5355a-ce59-11e4-aa0c3c970ecea022"
+     SuperName="SemanticRelation"    AdaptativeToMinor="No"
+     SynchroSensitivity="Last"
+     RerouteOnEffectivityChange="No" Protection="External"
+/>
+
+  <PathType
+     Name="CATMaterialDressByLink_Reference5" Orientation="Out"
+     Uuid="cd3e929a-ce59-11e4-aa0c3c970ecea022"
+     SuperName="SemanticRelation"    AdaptativeToMinor="No"
+     SynchroSensitivity="Last"
+     RerouteOnEffectivityChange="No" Protection="External"
+/>
+  <PathType
+     Name="DmtDocument_Reference"
+     Uuid="cd4178dd-ce59-11e4-aa0c3c970ecea022"
+     SuperName="SemanticRelation"    AdaptativeToMinor="No"
+     SynchroSensitivity="None"
+     RerouteOnEffectivityChange="No" Protection="External"
+/> 
+
+  <PathType
+   Name="SIM_SimulatedProduct_Reference3" Orientation="In"
+   Uuid="cd445f20-ce59-11e4-aa0c3c970ecea022"
+   SuperName="SemanticRelation"    AdaptativeToMinor="No"
+   SynchroSensitivity="PathAndLast"
+   RerouteOnEffectivityChange="No" Protection="External"
+/>
+  <PathType
+    Name="PortAssignment_Reference3" 
+    Uuid="cd476c74-ce59-11e4-aa0c3c970ecea022"
+    SuperName="SemanticRelation"    AdaptativeToMinor="No"
+    SynchroSensitivity="PathAndLast"
+    RerouteOnEffectivityChange="No"
+    Protection="External" Orientation="In"
+  />
+  <PathType
+    Name="CFG_ExpressionRuleCriteria_Reference"
+    Uuid="ce944049-ce59-11e4-aa0c3c970ecea022"
+    SuperName="SemanticRelation"    AdaptativeToMinor="No"
+    SynchroSensitivity="None"
+    RerouteOnEffectivityChange="No"
+    Protection="External"
+  />
+  <PathType
+    Name="CFG_ExpressionDefaultCriteria_Reference"
+    Uuid="cf1f93ea-ce59-11e4-aa0c3c970ecea022"
+    SuperName="SemanticRelation"    AdaptativeToMinor="No"
+    SynchroSensitivity="None"
+    RerouteOnEffectivityChange="No"
+    Protection="External"
+  />
+
+
+</Package>
+
+
+

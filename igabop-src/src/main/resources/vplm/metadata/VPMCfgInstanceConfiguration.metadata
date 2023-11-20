@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2011, All rights reserved -->
+
+<!-- History
+    V6R2012x Created
+-->
+
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" Name="VPMCfgInstanceConfiguration"
+    Uuid="87F5EEE2-6021-46a4-9EB0745BE387D9AB"
+    UseNames="PLMCORE"
+    BelongsToModeler="Configuration"
+    CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+        <ShortRole>The Usage Configuration Metadata.</ShortRole>
+        <Role>This package includes the entity VPMCfgInstanceConfiguration for configuration applied on sub assembly definition.</Role>
+    </CAAComment>
+
+    <!-- ********************************* -->
+    <!-- Class VPMCfgInstanceConfiguration -->
+    <!-- ********************************* -->
+
+    <Class Name="VPMCfgInstanceConfiguration"
+        Uuid="FAA5F95A-E46F-419e-B51B45F6D0F5FC50"
+        SuperName="PLMConnection"
+        Abstract="No"
+    		CustomerExposition="Programmer"
+		    Specializable="No"
+		    CustomerExtensible="No">
+		
+        <CAAComment>
+            <ShortRole>The VPMCfgInstanceConfiguration.class</ShortRole>
+            <Role>The VPMCfgInstanceConfiguration.class</Role>
+        </CAAComment>
+        
+        <!-- **************************** -->
+        <!-- Path declaration -->
+        <!-- **************************** -->
+
+		<Path Name="V_SelectedConfiguration"
+			Uuid="361ADBD1-74C1-429b-91C7EFB96D7579E6"
+			MultiValuated="No"
+    RoleName="CFG_SelectedConfiguration"
+  Type="SemanticRelation" AdaptativeToMinor="No"
+  SynchroSensitivity="Last"
+RerouteOnEffectivityChange="No" Orientation="In"
+			Semantics="Reference4"/>
+			
+		<Path Name="V_ConfiguredInstance"
+			Uuid="7BD03082-BBA6-4d2e-8A0B7960E1ED1C85"
+			MultiValuated="No"
+    RoleName="CFG_ConfiguredInstance"
+  Type="SemanticRelation" AdaptativeToMinor="No"
+  SynchroSensitivity="Last"
+RerouteOnEffectivityChange="No" Orientation="Out"
+			Semantics="Reference7"/>
+
+        <!-- ********************** -->
+        <!-- Procedures Declaration -->      
+        <!-- ********************** -->
+
+        <Method ImplementationType="None">
+	        <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+        </Method>
+        
+    </Class>
+
+    <!-- ********************** -->
+    <!-- FUNCTIONS Declarations -->
+    <!-- ********************** -->
+
+    <Function Name="VPMCfgInstanceConfiguration_AddInstanceConfigurationFromInstance">
+		<Implementation Name="VPMCfgInstanceConfiguration_AddInstanceConfigurationFromInstance" FileLocation="VPMCfgInstanceConfiguration_AddInstanceConfigurationFromInstance.plmql" Language="PLMQL"/>
+		<Signature href="VPMCfgInstanceConfiguration_FuntionSignatureExport"/>
+    </Function>
+	
+    <Signature id="VPMCfgInstanceConfiguration_FuntionSignatureExport">
+		<Parameter Name="InputIds" Lower="0" Upper="-1" Direction="in" MultiValuated="Yes" DataType="PLMId"/>
+		<Parameter Name="OutputIds" Lower="0" Upper="-1" Direction="out" MultiValuated="No" DataType="PLMRouteSet"/>
+    </Signature>
+	
+</Package>
+

@@ -1,0 +1,12 @@
+NAVIGATE
+   T0.PLMID, T1.PLMID,
+   T0.PLM_ExternalID, T1.PLM_ExternalID
+FROM
+   RFLPLMFunctional/RFLPLMFunctionalConnector T0,
+   RFLPLMFlow/RFLPLMFlowInstance T1
+FROM_ROOTS [?1?]
+ON 
+RELATION (FROM=RFLPLMFunctionalCommunication/RFLPLMFunctionalCommunicationReference TO=RFLPLMFunctional/RFLPLMFunctionalConnector,
+   RFLPLMFlow/RFLPLMFlowInstance   THROUGH=POINTEDBY)
+WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY)
+ITER=1;

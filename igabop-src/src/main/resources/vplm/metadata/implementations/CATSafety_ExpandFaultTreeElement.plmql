@@ -1,0 +1,14 @@
+EXPAND
+T1.PLMID, T2.PLMID, T3.PLMID, T5.PLMID, T6.PLMID, T7.PLMID, T8.PLMID, T9.PLMID
+FROM 
+	CATSafetyFaultTreeAnalysis/FaultTreeElementGraphicalRep T1,
+	CATSafetyFaultTreeAnalysis/FaultTreeElementGraphicalRepInstance T2,
+	CATSafetyFaultTreeAnalysis/FaultTreeElementStandsFor T3,
+	CATSafetyFaultTreeAnalysis/FaultTreeElementDSFContext T5,
+	CATSafetyFaultTreeAnalysis/FaultTreeElementReuseContext T6,
+	PLMCORE/PLMCoreReference T7,
+	PLMCORE/PLMCoreInstance T8,
+	CATSafetyFaultTreeAnalysis/FaultTreeElementChild T9
+
+FROM_ROOTS [?1?]
+DEPTH=1;

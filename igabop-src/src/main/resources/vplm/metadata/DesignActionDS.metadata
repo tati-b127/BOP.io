@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2005, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" DataRDB_OID="ENODR_DESIGN" Name="DesignActionDS" Uuid="46d23dde-946d-4dc5-b15f9b91fbb00b28" UseNames="PLMChgDesignAction" Alias="Standard Design Actions" >
+<Property Name="OptionalInstallation" Value="Yes" /> 
+	<CAAComment>
+		<ShortRole>Standard Design Action Package</ShortRole>
+		<Role>This package includes the entities of the Standard Design Action Reference and Standard Design Child Action Instance - these are default customized change entities</Role>
+	</CAAComment>
+	<Comment>last update 2006-12-05-09.00.00</Comment>
+	<!-- *************************************** -->
+	<!-- * PLMDesignActionCusto(PLMDesignAction)   * -->
+	<!-- *************************************** -->
+	<Class Name="PLMDesignActionCusto" Uuid="9acab73d-9117-417e-aeeb5aa147a5815e"     SuperName="PLMDesignAction" SuperRef="b8d1ec6a-d1b7-0000-020a100536000000"  >
+		<CAAComment>
+			<ShortRole>Standard Design Action Reference</ShortRole>
+			<Role>Standard Action Reference for Design - this is a default customized Design Action</Role>
+		</CAAComment>
+    <IdentifierSet Name="Identifier" Uuid="b2590a3d-01c7-4b54-9168083b5c7e2be8" IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB" IdentifierNames="PLM_ExternalID"/>
+	</Class>
+	<!-- *************************************** -->
+	<!-- * PLMDesignChildActionCusto(PLMDesignChildAction)   * -->
+	<!-- *************************************** -->
+  <RelationClass Name="PLMDesignChildActionCusto" Uuid="d56b9001-8955-401c-837a-85df2cfb0ab8"     SuperName="PLMDesignChildAction" SuperRef="bea5189c-3790-4a45-be88a49ef2296876"  >
+		<CAAComment>
+			<ShortRole>Standard Design Child Action Instance</ShortRole>
+			<Role>Standard Child Action Instance for Design - this is a default customized Design Child Action</Role>
+		</CAAComment>
+		<!--
+             *********************************************************
+             * Overload(s) of PLMCoreInstance attributes.
+             ********************************************************* -->
+    <SubClause Name="to"   TargetName="PLMDesignActionCusto"/>
+
+  </RelationClass>
+
+</Package>

@@ -1,0 +1,101 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified"
+         ModelerType="Top"
+         Name="DELRmiShiftModel"
+         Uuid="99777530-1c8e-11e8-accf-0ed5f89f718b"
+         BelongsToModeler="DELRmiResourceModel"
+         UseNames="PLMCORE"
+         CustomerExposition="Programmer">
+	<CAAComment>
+		<ShortRole/>
+		<Role/>
+	</CAAComment>
+
+	<Class Name="DELRmiCycleReferenceAbstract"
+		Uuid="155799aa-1c8f-11e8-accf-0ed5f89f718b"
+		Abstract="Yes"
+		Discipline="No"
+		SuperName="PLMCoreReference"
+		Specializable="No"
+		CustomerExtensible="No"
+		CustomerExposition="Programmer">
+
+		<Property Name="Searchable" Value="No"/>
+		<Property Name="Newable" Value="No"/>
+		
+		<Property Name="ChangeMaturityAvailability" Value="Yes"/>
+		<Property Name="DeleteAvailability" Value="Yes"/>
+		<Property Name="LockUnlockAvailability" Value="Yes"/>
+		<Property Name="TransferOwnerShipAvailability" Value="Yes"/>
+		<Property Name="EditPropertiesAvailability" Value="Yes"/>
+		<Property Name="SaveAsNewAvailability" Value="Yes"/>
+		<Property Name="ChangeManagementSupport" Value="Yes"/>
+    <Property Name="ChangeManagementReferential"    Value="Yes"/>
+    <Property Name="ChangeManagementContext"    Value="Yes"/>
+    <Property Name="Configurable" Value="No"/>
+		<Property Name="NewMinorRevisionAvailability" Value="No"/>
+		<Property Name="NewMajorRevisionAvailability" Value="Yes"/>
+		<Property Name="EvolutionAvailability" Value="Yes"/>
+		<Property Name="IterationAvailability" Value="No"/>
+		<Property Name="ManageAccessAvailability" Value="Yes"/>
+		<Property Name="ShareBetweenProjectsAvailability" Value="Yes"/>
+		<Property Name="DupplicateAvailability" Value="Yes"/>
+		
+		<!--- attributes as clob -->
+		<Simple Name="V_ShiftData"
+			Uuid="61a6bb3e-1bd0-11e8-accf-0ed5f89f718b"
+			Type="Clob"
+			Protection="Internal"
+			MultiValuated="No">
+		</Simple>
+		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+	</Class>
+	
+	<Class Name="DELRmiCycleReference"
+		Uuid="dd52f8e6-1c8f-11e8-accf-0ed5f89f718b"
+		Abstract="No"
+		Discipline="No"
+		SuperName="DELRmiCycleReferenceAbstract"
+		Specializable="No"
+		CustomerExtensible="No"
+		CustomerExposition="Programmer">
+
+		<Property Name="IconName" Value="I_DELRMCycle"/>
+		<Property Name="3DIconName" Value="I_DELRMCycle.cgr"/>
+		<Property Name="Searchable" Value="Yes"/>
+		<Property Name="Newable" Value="All_CAA"/>
+		<Property Name="Abbreviation" Value="cyc"/>
+		
+		<Property Name="KweNew_InstanciationMethod" Value="DELRmiCycleDelegateInstanciation"/>
+		<Property Name="KweNew_ReturnedType" Value="None"/>
+		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+	</Class>
+	
+	<Class Name="DELRmiShiftReference"
+		Uuid="f984ff76-1bce-11e8-accf-0ed5f89f718b"
+		Abstract="No"
+		Discipline="Yes"
+		SuperName="DELRmiCycleReferenceAbstract"
+		Specializable="No"
+		CustomerExtensible="No"
+		CustomerExposition="Programmer">
+
+		<Property Name="IconName" Value="I_DELRMShift"/>
+		<Property Name="3DIconName" Value="I_DELRMShift.cgr"/>
+		<Property Name="Searchable" Value="Yes"/>
+		<Property Name="Newable" Value="All_CAA"/>
+		<Property Name="Abbreviation" Value="shf"/>
+		
+		<Property Name="KweNew_InstanciationMethod" Value="DELRmiCycleDelegateInstanciation"/>
+		<Property Name="KweNew_ReturnedType" Value="None"/>
+		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+	</Class>
+</Package>

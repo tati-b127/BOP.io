@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR RFL System Type Custo 1-->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2006, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo"
+  Name="ENOSTRFLVPMSystemTypeDS"
+	Uuid="216643c5-8dd2-42eb-bd6f-69c1399a056c" 
+	UseNames="RFLVPMSystemType" 
+	>
+
+	<CAAComment>
+		<ShortRole>PLM RFL System Type Custo Package</ShortRole>
+		<Role>PLM RFL System Type Custo Package</Role>
+	</CAAComment>
+	
+	<Comment>last update 2007-09-15</Comment>
+	
+    <!-- ***************************************************************** -->
+	<!-- *  ENOSTSystemTypeReference (RFLVPMSystemTypeReference)  * -->
+    <!-- ***************************************************************** -->
+
+    <Class Name="ENOSTSystemTypeReference"
+      Uuid="ecf37100-dad5-4bde-9f37-90cef321dec8" 
+
+		SuperName="RFLVPMSystemTypeReference" 
+		SuperRef="ff8fb607-a2ec-4caf-a9d9-b534fe559b0f" 
+		 
+		>
+
+      <!-- R206: contains identifier of object from which it is made from  -->
+      <!-- not exhanged between sites -->
+      <Simple Name="E_fromExternalId"
+      Uuid="4315d32f-6523-4b97-81ad-0ee50c4ba568"
+      Alias="Definition"
+      Type="String"
+      MaxLength="256"
+      Mandatory="No"
+      MultiValuated="No"
+      Protection="Free"
+      CAAExposition="L0"
+          />
+
+      <!-- R206: contains Name comments  -->
+      <!-- not exhanged between sites -->
+      <Simple Name="E_versionComment"
+      Uuid="eb7b17b9-cdb8-4d39-a328-1452038c3c3e"
+      Alias="Version Comment"
+      Type="String"
+      MaxLength="256"
+      Mandatory="No"
+      MultiValuated="No"
+      Protection="Free"
+      CAAExposition="L0"
+      ResetOnNewVersion="Yes"
+      ResetOnCloning="Yes"
+              />
+
+      <IdentifierSet Name="Identifier"
+            Uuid="a319671c-a926-429e-bfa4-904fce686f10"
+            IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755"
+            IdentifierNames="PLM_ExternalID V_version" />
+
+	</Class>
+
+	<!-- ************************************************************* -->
+	<!-- * ENOSTSystemTypeInstance (RFLVPMSystemTypeInstance) * -->
+  <!-- ************************************************************* -->
+
+  <Class Name="ENOSTSystemTypeInstance"
+		Uuid="f1dc781c-6250-488a-8301-84b4344a9a45" 
+
+		SuperName="RFLVPMSystemTypeInstance" 
+		SuperRef="aa6657c3-9fc2-4990-86a7-22bdd6931f38" 		 
+		>
+	</Class>
+
+</Package>

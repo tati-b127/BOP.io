@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR Validation Application Custo-->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2007, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" DataRDB_OID="ENODR_STRVAL" Name="ENOSTValidationReviewDS" Uuid="d5dba938-2695-4bca-ae0e-3f2948a3afed" 
+         UseNames="DMUValidationReview" UseScopes="EXPERIMENT_ENUMS">
+	<CAAComment>
+		<ShortRole>Validation Presentation Modeler Customization Package</ShortRole>
+		<Role>This package describes a Customization of Validation Presentation modeler for Team Engineering</Role>
+	</CAAComment>
+	<Comment>Creation 2008-06-14 DRL</Comment>
+	
+	<Class Name="ENOSTValidationReviewReferenceDS" Uuid="434a69d4-0f12-44e6-9a79-1fb26ddfdf46" SuperName="DMUValidationReviewReference" SuperRef="7b2ef30e-4e0a-474d-ad304cea43f40693" >
+
+    <!-- R206: contains identifier of object from which it is made from  -->
+    <!-- not exhanged between sites -->
+    <Simple Name="E_fromExternalId"
+    Uuid="e2e76d16-3adf-4cd5-876c-3053709588d4"
+    Alias="Definition"
+    Type="String"
+    MaxLength="256"
+    Mandatory="No"
+    MultiValuated="No"
+    Protection="Free"
+  />
+
+    <!-- R206: contains Name comments  -->
+    <!-- not exhanged between sites -->
+    <Simple Name="E_versionComment"
+    Uuid="d78f5bdf-0de9-4243-ad5e-f84bc38ba9f1"
+    Alias="Version Comment"
+    Type="String"
+    MaxLength="256"
+    Mandatory="No"
+    MultiValuated="No"
+    Protection="Free"
+    ResetOnNewVersion="Yes"
+    ResetOnCloning="Yes"
+  />
+    <IdentifierSet Name="Identifier" Uuid="f42bf14a-07b6-4211-8646-a309dfef5349" IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755" IdentifierNames="PLM_ExternalID V_version"/>
+	</Class>
+	
+	<Class Name="ENOSTValidationReviewInstanceDS" Uuid="6a9de4d8-7af7-44a0-9936-4d013c0af1ad" SuperName="DMUValidationReviewInstance" SuperRef="dcd77a05-8ca6-4f88-acfd8929bb578f7f" >
+	</Class>
+</Package>

@@ -1,0 +1,67 @@
+#Prog SimulationOpen_GenerativeStress (iPLMIDSet :  #In PLMIDSet,oPLMIDSet :  #Out PLMIDSet) : VoidType
+  {
+let IdsCategoriesAndSo(PLMIDSet)
+let IdsProductStructure(PLMIDSet)
+let IdsExtDoc(PLMIDSet)
+let IdsSimuRep(PLMIDSet)
+let IdsProdAndChildren(PLMIDSet)
+let IdsPublishResult(PLMIDSet)
+let IdsSetModel (PLMIDSet) 
+let IdsMatRefandDomainfromFEMRep(PLMIDSet) 
+
+let RouteSetCategoriesAndSo (PLMRouteSet)
+let RouteSetModel (PLMRouteSet)
+let RouteSetExtDoc (PLMRouteSet)
+let RouteSimuRep (PLMRouteSet)
+let RouteSetProdAndChildren (PLMRouteSet)
+let RoutePublishResult (PLMRouteSet)
+let RouteMatRefandDomainfromFEMRep(PLMRouteSet)
+ 
+
+
+
+/* getting categories + so */
+RouteSetCategoriesAndSo = ExecutePLMFunction("SIMObjSimulationGeneric", "sim_retrieveCategories", iPLMIDSet)
+IdsCategoriesAndSo = Ids( RouteSetCategoriesAndSo)
+
+/* getting External documents from SO or\and from Categories */
+ RouteSetExtDoc = ExecutePLMFunction("PLMDocConnection", "PLMDocConnection_retrieveAllDocuments", IdsCategoriesAndSo)
+IdsExtDoc = Ids(RouteSetExtDoc)
+
+
+/* getting system connection + product */
+RouteSetModel = ExecutePLMFunction("SIMObjSimulationGeneric", "sim_addSimulatedModel", Restrict(IdsCategoriesAndSo, "SIMObjSimulationCategoryAndProdCnx/SIMObjSimulationCategoryReference"))
+IdsSetModel =   Ids(RouteSetModel)
+
+
+/*getting Product and Children from Product*/
+RouteSetProdAndChildren = ExecutePLMFunction("PRODUCTCFG", "ProductCfg_AddChildrenProduct",   Restrict(Ids(RouteSetModel, "last"), "PRODUCTCFG/VPMReference"))
+IdsProdAndChildren = Ids(RouteSetProdAndChildren)
+
+
+
+/* calling Product Procedure*/
+IdsProductStructure  =  ExecutePLMProcedure(  "VPMEditor_OpenCompletionOnReference",  IdsProdAndChildren ) 
+
+
+ /*getting Material Reference and MatDomain from FEM rep under Product*/
+RouteMatRefandDomainfromFEMRep = ExecutePLMFunction("SIMObjSimulationGeneric", "sim_retrieveMatRefandDomainfromFEMRep", Restrict(IdsProductStructure, "PRODUCTCFG/VPMRepReference"))
+IdsMatRefandDomainfromFEMRep = Ids(RouteMatRefandDomainfromFEMRep)
+
+
+/* getting simu rep under category Scenario*/
+RouteSimuRep = ExecutePLMFunction("SIMObjSimulationGeneric", "sim_retrieveSimuRep", Restrict(IdsCategoriesAndSo, "SIMObjSimulationCategoryAndProdCnx/SIMObjSimulationCategoryReference"))
+IdsSimuRep = Ids(RouteSimuRep)
+
+ 
+
+/* getting publish result connection*/
+ RoutePublishResult  = ExecutePLMFunction("SIMObjSimulationGeneric", "sim_addPublishResultCnxForOpen", Restrict(IdsCategoriesAndSo, "SIMObjSimulationCategoryAndProdCnx/SIMObjSimulationCategoryReference"))
+ IdsPublishResult = Ids(RoutePublishResult)
+ 
+ 
+
+
+oPLMIDSet = IdsCategoriesAndSo + IdsExtDoc + IdsSetModel + IdsProdAndChildren + IdsProductStructure + IdsMatRefandDomainfromFEMRep + IdsSimuRep + IdsPublishResult 
+
+}

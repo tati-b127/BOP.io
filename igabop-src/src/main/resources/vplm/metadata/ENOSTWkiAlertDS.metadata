@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" Name="ENOSTWkiAlertDS" Uuid="1aad3ce5-0ee8-4b2c-a31857de127db9b0" UseNames="DELWkiAlert" >
+	<CAAComment>
+		<ShortRole>PLM Customization of DELMIA Work Instruction Alert for SMB</ShortRole>
+		<Role>PLM Customization of DELMIA Work Instruction Alert for SMB</Role>
+	</CAAComment>
+	<Comment>last update 2010-07-01</Comment>
+
+	<Class Name="ENOSTWkiAlertReferenceCusto" Uuid="fec9e4ed-4aec-4b53-95ab24d10a155edc" SuperName="DELWkiAlertReference" SuperRef="677fb193-a969-4378-8ffba884b14c3e02"  >
+
+    <Simple Name="E_fromExternalId"
+            Uuid="7dfcc99f-563a-4056-80d921bdba46bf82"
+            Alias="Definition"
+            Type="String"
+            MaxLength="256"
+            Mandatory="No"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"/>
+    <Simple Name="E_versionComment"
+            Uuid="61d53fd1-df62-4c93-b50f78bcd9bdacf4"
+            Alias="Version Comment"
+            Type="String"
+            MaxLength="256"
+            Mandatory="No"
+            MultiValuated="No"
+            Protection="Free"
+            ResetOnNewVersion="Yes"
+            ResetOnCloning="Yes"
+            CAAExposition="L0"/>
+    <IdentifierSet Name="E_identifier"
+                   Uuid="82db8310-2b55-4bb0-aae757d6f862de42"
+                   IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755"
+                   IdentifierNames="PLM_ExternalID V_version"/>
+
+    <CAAComment>
+			<ShortRole>PLM Customization of DELMIA DELMIA Work Instruction Alert Reference for SMB</ShortRole>
+			<Role>PLM Customization of DELMIA DELMIA Work Instruction Alert Reference for SMB</Role>
+		</CAAComment>
+	</Class>
+
+  <RelationClass Name="ENOSTWkiAlertInstanceCusto" Uuid="24e33062-3f3a-4ad8-83e2c18d916acf9a" SuperName="DELWkiAlertInstance" SuperRef="0217def4-9028-4843-a2071330e2621e7f"  >
+    <CAAComment>
+      <ShortRole>PLM Customization of DELMIA Work Instruction Alert Instance for SMB</ShortRole>
+      <Role>PLM Customization of DELMIA Work Instruction Alert Instance for SMB</Role>
+    </CAAComment>
+    <!-- ********************************************************* -->
+    <!-- * Overload(s) of PLMCoreInstance attributes. -->
+    <!-- ********************************************************* -->
+    <SubClause Name="to"   TargetName="ENOSTWkiAlertReferenceCusto"/>
+  </RelationClass>
+
+</Package>

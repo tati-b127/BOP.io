@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2012, All rights reserved -->
+<!-- Metadata for ODT. It is a specialization of PRODUCT package -->
+<!-- Do not modify this metadata. You must update it when the following mql is updated :
+The corresponding MQL is VPMDictionaryODT\CNext.internal\reffiles\DBMS\ddl\DICTestCustoProduct2.mql 
+ -->
+<Package
+     xmlns="PLMDictionaryUnified"
+     ModelerType="Top"
+     CustomerExposition="Programmer"
+     Name="PLMStructureInsulation"
+     Uuid="F4492464-6166-440D-ACAE-CBEC6FE33AD6"
+     UseNames="PLMInsulation"
+     BelongsToModeler="PLMStructureInsulation">
+  <CAAComment>
+    <ShortRole>Structure Insulation Design Package</ShortRole>
+    <Role>This package describes Structure Insulation Design data.</Role>
+  </CAAComment>
+
+  <Comment>Initial Creation: 2015-12-23 </Comment>
+
+  <Class Name="InsPanelInsulation"
+      Uuid="7C27BBD2-096D-455A-8D91-6FD069E1B165"
+      Abbreviation="panelIns"
+      CustomerExposition="Programmer"
+      SuperName="InsSurfaceInsulation"
+      Discipline="Yes"
+      CustomerExtensible="Yes">
+    <Property Name="TypeForDisciplineValuation"   Value="InsPanelInsulation"/>
+    <Property Name="KweDisciplineAttributeValue"  Value="InsPanelInsulation"/>
+    <Property Name="Newable"                      Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"   Value="CATEInsInsulationDelegateInstanciation"/>
+    <Property Name="IconName"                     Value="I_PLM_StrPanelInsulation"/>
+	<Property Name="3DIconName"                   Value="I_PLM_StrPanelInsulation.cgr"/>
+  </Class>
+
+  <Class Name="InsStiffenerInsulation"
+      Uuid="6DB4742F-EBFA-45F6-ABD1-8DF69FB2B5D6"
+      Abbreviation="stfIns"
+      CustomerExposition="Programmer"
+      SuperName="InsProfileInsulation"
+      Discipline="Yes"
+      CustomerExtensible="Yes">
+    <Property Name="TypeForDisciplineValuation"   Value="InsStiffenerInsulation"/>
+    <Property Name="KweDisciplineAttributeValue"  Value="InsStiffenerInsulation"/>
+    <Property Name="Newable"                      Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"   Value="CATEInsInsulationDelegateInstanciation"/>
+    <Property Name="IconName"                     Value="I_PLM_StrStiffenerInsulation"/>
+	<Property Name="3DIconName"                   Value="I_PLM_StrStiffenerInsulation.cgr"/>
+  </Class>
+
+  <Class Name="InsMemberInsulation"
+    Uuid="5605EA44-2C25-4A0E-8EF6-E64CB3250CDE"
+    Abbreviation="memIns"
+    CustomerExposition="Programmer"
+    SuperName="InsProfileInsulation"
+    Discipline="Yes"
+    CustomerExtensible="Yes">
+    <Property Name="TypeForDisciplineValuation"   Value="InsMemberInsulation"/>
+    <Property Name="KweDisciplineAttributeValue"  Value="InsMemberInsulation"/>
+    <Property Name="Newable"                      Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"   Value="CATEInsInsulationDelegateInstanciation"/>
+    <Property Name="IconName"                     Value="I_PLM_StrMemberInsulation"/>
+	<Property Name="3DIconName"                   Value="I_PLM_StrMemberInsulation.cgr"/>
+  </Class>
+</Package>

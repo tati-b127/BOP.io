@@ -1,0 +1,11 @@
+NAVIGATE
+T0.PLM_ExternalID, 
+T0.PLMID
+FROM
+RFLPLMFunctionalContract/RFLPLMFunctionalContract T0
+FROM_ROOTS [?1?]
+ON
+(
+RELATION(FROM= RFLPLMFlowExposition/RFLPLMFlowExpositionInstance TO= RFLPLMFunctionalContract/RFLPLMFunctionalContract THROUGH=POINTSTO) WITH QUALITY_FILTER (ROLE=ContractImplement AND CATEGORY=Reference)
+)
+ITER=1;

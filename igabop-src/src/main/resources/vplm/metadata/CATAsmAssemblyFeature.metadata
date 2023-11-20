@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2004, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" Name="CATAsmAssemblyFeature" CustomerExposition="Programmer" Uuid="b2d06ee1-3d44-4129-a5d67b989a5cd0d6" UseNames="PRODUCTCFG">
+  <Comment>Initial creation in R1.X+3: 2007-09-19</Comment>
+  <Comment>Discipline declaration in R1.X+3: 2008-03-07</Comment>
+  <Comment>New Typing, EWN : 04-16-2012</Comment>
+	
+  <Extension Name="CATAsmAssemblyFeaturePort" CustomerExposition="Programmer" Uuid="2ca0aa65-c921-4652-883a84777f8a30b3" ScopeNames="VPMPort">
+    <Simple Name="V_SpecType" Type="String" Uuid="ed4a20f3-8411-4f66-ad26a7da916c5563" MaxLength="40" Protection="External" CAAExposition="L0" MultiValuated="No"/>
+    <Simple Name="V_AsmFunctionalRole" Type="String" Uuid="0631f803-e6f9-4dd0-b4ad351e6b9ccfbf" MaxLength="40" Protection="External" CAAExposition="L0" MultiValuated="No"/>
+  </Extension>
+	
+  <Class Name="AssemblyFeatureSmartPort" Uuid="98ce09f4-d592-4d61-a64b-49f3da95ea57" Abbreviation="afp" SuperName="VPMPort" Discipline="Yes" Abstract="No" CustomerExposition="Programmer" >
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+  <Class Name="AssemblyHoleSmartPort" Uuid="8be70776-d3dd-4e97-ae66-d4f5fba198ba" SuperName="VPMPort" Discipline="Yes" Abstract="No" CustomerExposition="Programmer" >
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+  <Class Name="AssemblyFeature" Uuid="e1b1794b-145a-4cf1-96e2-3556df4dd027" SuperName="VPMPort" Discipline="Yes" Abstract="No" CustomerExposition="Programmer" >
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+</Package>

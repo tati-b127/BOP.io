@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY for E/E Editor -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2012, all rights reserved -->
+
+<Package Name="EmbeddedCommunications"
+	Uuid="24BAE6A3-C453-4b87-9985-742D0B2CA4F5"
+	xmlns="PLMDictionaryUnified"
+	ModelerType="Top"
+	CustomerExposition="Programmer"
+	BelongsToModeler="EmbeddedCommunications"
+	UseNames="RFLVPMLogical RFLVPMSystemType" >
+
+	<CAAComment>
+		<ShortRole>Embedded Communications Package</ShortRole>
+		<Role>This package describes the PLM Embedded Communications package on top of RFLVPMLogical Modeler. For E/E Workbench</Role>
+	</CAAComment>
+	<Comment>Initial creation: A58 Apr 2013</Comment>
+	<Property Name="OptionalInstallation" Value="Yes" />
+	
+<!-- ************************** -->
+<!-- EEMatrix : RFLVPMLogicalReference -->
+<!-- ************************** -->
+	<Class 
+		Name="EEMatrix"
+		Uuid="BDF0534D-64D7-45ef-82B7-B47EFAC805CB"
+		Abstract="No"
+		Specializable="Yes"
+		CustomerExposition="Programmer"
+		CustomerExtensible="Yes"
+		Discipline="Yes"
+		SuperName="RFLVPMLogicalReference"
+		InstantiationOwnerTypes="None"
+		CreateInstName="RFLVPMLogicalInstance"
+		Abbreviation="eemtx">
+		<Property Name="IconName" Value="EEMatrix"/>
+		<Property Name="Newable" Value="All"/>
+		<Property Name="Searchable" Value="Yes"/>
+		<Property Name="Configurable" Value="Yes"/>
+		<Property Name="KweNew_InstanciationMethod" Value="CATELogDelegateInstanciation"/>
+	   	<Property Name="KweNew_ReturnedType" Value="RFLVPMLogicalInstance"/>
+		<Simple Name="protocol"
+			Uuid="0A361962-F318-408E-A2C3-797B85CDA0B1" 
+			Protection="Free"
+			Type="Integer"
+			DefaultValue="1">
+			<Property Name="RangeAsEnumName" Value="MatrixProtocolEnum"/>
+			<Property Name="RangeAsEnumAuthorizedValues" Value="CAN;LIN;FlexRay;Ethernet;Other"/>
+			<Range>
+				<Equal>1</Equal>
+				<Equal>2</Equal>
+				<Equal>3</Equal>
+				<Equal>4</Equal>
+				<Equal>5</Equal>
+			</Range>
+		</Simple>
+	</Class>
+<!-- ************************** -->
+<!-- EESystemSignal : RFLVPMLogicalReference -->
+<!-- ************************** -->
+	<Class 
+		Name="EESystemSignal"
+		Uuid="C9DF15CC-FA8D-41ca-B7A3-8459A690BACA"
+		Abstract="No"
+		Specializable="Yes"
+		CustomerExposition="Programmer"
+		CustomerExtensible="Yes"
+		Discipline="Yes"
+		SuperName="RFLVPMLogicalReference"
+		InstantiationOwnerTypes="EESystemSignal"
+		CreateInstName="RFLVPMLogicalInstance"
+		Abbreviation="eessi">
+		<Property Name="IconName" Value="EESystemSignal"/>
+		<Property Name="Newable" Value="All"/>
+		<Property Name="Searchable" Value="Yes"/>
+		<Property Name="Configurable" Value="Yes"/>
+		<Property Name="KweNew_InstanciationMethod" Value="CATELogDelegateInstanciation"/>
+	   	<Property Name="KweNew_ReturnedType" Value="RFLVPMLogicalInstance"/>
+	</Class>
+<!-- **************************************************** -->
+<!-- *  EEMatrixRepresentation :  RFLVPMLogicalRepReference  * -->
+<!-- **************************************************** -->
+	<Class Name="EEMatrixRepresentation" 
+		Uuid="6EBF67C8-E348-4d28-BC12-F222241A9F42" 
+		SuperName="RFLVPMLogicalRepReference" 
+		Specializable="Yes"
+		CreateInstName="RFLVPMLogicalRepInstance"
+		CustomerExposition="Programmer"
+		InstantiationOwnerTypes="EEMatrix"
+		Discipline="Yes"
+		Abbreviation="eemxr">
+		<CAAComment>
+			<ShortRole>Communication Matrix Rep Reference Object</ShortRole>
+			<Role>Communication Matrix Rep Reference Object</Role>
+		</CAAComment>
+		<Property Name="KweNew_InstanciationMethod" Value="CATELogDelegateInstanciation"/>
+	   	<Property Name="KweNew_ReturnedType" Value="RFLVPMLogicalRepInstance"/>
+	</Class>
+</Package>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2007 (http://www.altova.com) by DASSAULT SYSTEMES (DASSAULT SYSTEMES) -->
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" DataRDB_OID="ENODR_STSIMGEN" Name="ENOSTSimulationGenericDS" Uuid="e29a3fa3-82ce-44dd-8a29-1365b38783cd" UseNames="SIMObjSimulationGeneric" UseScopes="EXPERIMENT_ENUMS">
+  <CAAComment>
+    <ShortRole>Simulation Modeler Customization Package</ShortRole>
+    <Role>This package describes a Customization of Simulation modeler for Team Engineering</Role>
+  </CAAComment>
+  <Comment>Creation 2008-06-14 DRL</Comment>
+  <Class Name="ENOSTSimulationGenericRepReferenceDS" Uuid="626dd5b5-0803-4993-94ac-b6f37d0f7047" SuperName="SIMObjSimulationRepReferenceGeneric">
+    <Property Name="Searchable" Value="No"/>
+    <!-- R207: contains experiment status -->
+    <!-- should be exhanged between sites, but currently not -->
+    <Simple Name="E_experimentStatus" Uuid="bd492a06-5d7d-4c6d-a6d5-f1d4fab11988" Type="Integer" Protection="Free" CAAExposition="L0" DefaultValue="1" ResetOnCloning="Yes" ResetOnNewVersion="Yes">
+      <Property Name="RangeAsEnumName" Value="EXPERIMENT_ENUMS.ExperimentStatusEnum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="ExperimentStatusEnum_Undefined;ExperimentStatusEnum_Failed;ExperimentStatusEnum_Balancing;ExperimentStatusEnum_Passed"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+      </Range>
+    </Simple>
+    <!-- R206: contains identifier of object from which it is made from  -->
+    <!-- not exhanged between sites -->
+    <Simple Name="E_fromExternalId" Uuid="4d2b96fe-ea20-4a94-af8b-0e6d32bf431e" Type="String" MaxLength="256" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <!-- R206: contains Name comments  -->
+    <!-- not exhanged between sites -->
+    <Simple Name="E_versionComment" Uuid="33ae89dd-f1ad-4efa-88bb-1db2ecb5fb80" Type="String" MaxLength="256" MultiValuated="No" Protection="Free" CAAExposition="L0" ResetOnNewVersion="Yes" ResetOnCloning="Yes"/>
+    <IdentifierSet Name="Identifier" Uuid="af0398ef-a2b5-4591-87e7-9358ab8294a2" IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755" IdentifierNames="PLM_ExternalID V_version"/>
+  </Class>
+  <Class Name="ENOSTSimulationGenericRepInstanceDS" Uuid="c7a7db86-aa85-4141-9998-51a6065f2ac0" SuperName="SIMObjSimulationRepInstanceGeneric" >
+    <Property Name="Searchable" Value="No"/>
+  </Class>
+  <Class Name="ENOSTSimulationGenericConnectionDS" Uuid="a49fe85a-c98d-4d52-8299-b85728b84c1f" SuperName="SIMObjSimulationConnectionGeneric" >
+    <Property Name="Searchable" Value="No"/>
+  </Class>
+  <Class Name="ENOSTSimulationGenericObjectDS" Uuid="ca30de28-8b69-495b-91a6-bfdf14a3b158" SuperName="SIMObjSimulationObjectGeneric" >
+    <Property Name="Searchable" Value="Yes"/>
+    <!-- R206: contains identifier of object from which it is made from  -->
+    <!-- not exhanged between sites -->
+    <Simple Name="E_fromExternalId" Uuid="0954c4f0-b80a-4c4f-bb90-866a9b628f59" Type="String" MaxLength="256" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <!-- R206: contains Name comments  -->
+    <!-- not exhanged between sites -->
+    <Simple Name="E_versionComment" Uuid="db26f8ed-3a59-4bf6-b372-cda025ac0306" Type="String" MaxLength="256" MultiValuated="No" Protection="Free" CAAExposition="L0" ResetOnNewVersion="Yes" ResetOnCloning="Yes"/>
+    <IdentifierSet Name="Identifier" Uuid="4597a813-09b1-48c2-8c01-6f7d33a94ba4" IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755" IdentifierNames="PLM_ExternalID V_version"/>
+  </Class>
+</Package>

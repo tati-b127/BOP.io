@@ -1,0 +1,124 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR DELMIA Production System Application -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2009, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified"
+         ModelerType="Top"
+         Name="DELLmiProductionExecTransferSystem"
+	       Uuid="e829eabc-68ee-4e8d-9234-af9f0c13b957"
+	       UseNames="DELLmiProductionSystemUPR DELLmiProductionTransferSystem"
+         UseProcedures="ENOEps_Procedures ENOPsm_Procedures"
+         CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>Execution Transfer System Model</ShortRole>
+    <Role>This package describes the Execution Transfer System model on top of DELLmiProductionSystemUPR</Role>
+  </CAAComment>
+
+  <Comment>last update 2013-06-18</Comment>
+
+  <Class Name="DELLmiExecTransferSystemReference"
+		     Uuid="f3d8697b-6761-40ad-bacb-a8a8d8ba34ee"
+		     Abstract="No"
+         SuperName="DELLmiUPRSystemReference"
+         CustomerExposition="Programmer"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         CreateInstName="DELLmiExecTransferSystemInstance"
+         Abbreviation="ets"
+         InstantiationOwnerTypes="DELLmiExecGeneralSystemReference;DELLmiExecTransfoSystemReference"
+         AggregatableTypes="DELLmiExecTransferOperationReference;DELLmiExecInterruptOperationReference">
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELMPProdSystemAdvDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELLmiExecTransferSystemInstance"/>
+    <Property Name="IconName" Value="I_UPRTransferSystem"/>
+    <Property Name="3DIconName" Value="I_UPRTransferSystem.cgr"/>
+    <Property Name="Newable" Value="No"/>
+    <Property Name="Searchable" Value="Yes"/>
+
+    <CAAComment>
+      <ShortRole>Execution Transfer System Reference</ShortRole>
+      <Role>Execution Transfer System Reference. Specialization is not supported yet.</Role>
+    </CAAComment>
+
+    <Simple Name="V_EstimatedDistance"
+		        Uuid="AF6F67C4-1C1C-49c2-940F-AAACE6BED7AA"
+		        Type="Double"
+		        Magnitude="LENGTH"
+		        DefaultValue="0.0"
+		        MultiValuated="No"
+		        ResetOnCloning="No"
+		        ResetOnNewVersion="No"
+		        Protection="Free"
+            Faceted="Yes"
+		        CAAExposition="L0">
+      <Property Name="SIXW" Value="ds6w:distance"/>
+
+      <CAAComment>
+        <ShortRole>Defines estimated distance of Transport.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_TransferMode" Uuid="3E17D956-294E-46f4-B2C6-66ADB955483F" Type="Integer" Protection="Free" CAAExposition="L0" DefaultValue="1" Faceted="Yes" ResetOnCloning="No" ResetOnNewVersion="No">
+      <Property Name="RangeAsEnumName" Value="DELLmiProductionTransferSystem.V_TransferMode_Enum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="Continuous;Batch"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+      </Range>
+      <CAAComment>
+        <ShortRole>Defines the transfer mode of the Transfer System. It can be continuous or by Batch. In Batch mode the Batch size is defined by the V_Capacity of the Transfer Operation.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Design"/>
+        <UsedProcedure href="ENOEps_Procedures.proc#ProductionExecSystem_GetAllEntities"/>
+      </ProcedureForUsage>
+    </Method>
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExchangeScope.meth#XPDM"/>
+        <UsedProcedure href="ENOPsm_Procedures.proc#ProductionExecSystem_ExchangeXPDM_GetAllEntities"/>
+      </ProcedureForUsage>
+    </Method>
+
+  </Class>
+
+  <RelationClass Name="DELLmiExecTransferSystemInstance"
+		     Uuid="cdfb66fc-3cc4-4249-97ce-8f8f832c3537"
+		     Abstract="No"
+         SuperName="DELLmiUPRSystemInstance"
+         CustomerExposition="Programmer"
+         Specializable="Yes"
+         CustomerExtensible="Yes">
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELMPProdSystemAdvDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELLmiExecTransferSystemInstance"/>
+
+    <CAAComment>
+      <ShortRole>Execution Transfer System Instance</ShortRole>
+      <Role>Execution Transfer System Instance. Specialization is not supported yet.</Role>
+    </CAAComment>
+
+    <Volatile Name="Reference" Uuid="A886630B-DCEB-4f40-8336-3C67C8945F05" Accessor="PLMModelerReferenceKweAttribute" TypeName="DELLmiExecTransferSystemReference" AccessMode="ReadOnly" />
+
+    <SubClause Name="to"   TargetName="DELLmiExecTransferSystemReference"/>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+
+  </RelationClass>
+
+
+</Package>

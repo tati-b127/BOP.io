@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+<MethodPackage xmlns="PLMDictionaryMethod" Name="ExchangeScope">
+  <MethodType id="ExchangeScope">
+    <Usage id="XPDM" Name="XPDM"/>
+    <Usage id="StandAlone" Name="StandAlone"/>
+    <Usage id="AllLevelNoRsc" Name="AllLevelNoRsc"/>
+    <Usage id="SupplyChainSourcing" Name="SupplyChainSourcing"/>
+    <Usage id="ManufacturedProductOneLevel" Name="ManufacturedProductOneLevel"/>
+    <Usage id="ManufacturedProductAllLevel" Name="ManufacturedProductAllLevel"/>
+    <Usage id="GetAllEntitiesWithRootRscScope" Name="GetAllEntitiesWithRootRscScope"/>
+    <Usage id="XPDM2" Name="XPDM2"/>
+    <Usage id="Execution" Name="Execution"/>
+    <Usage id="XPDM2_MBOMWithoutProcess" Name="XPDM2_MBOMWithoutProcess"/>
+    <Signature href="SignatureExchangeScope"/>
+  </MethodType>
+
+  <Signature id="SignatureExchangeScope">
+    <Parameter Name="InputIds" Lower="0" Upper="-1" Direction="in" DataType="PLMId" MultiValuated="Yes"/>
+    <Parameter Name="OutputIds" Lower="0" Upper="-1" Direction="out" DataType="PLMId" MultiValuated="Yes"/>
+  </Signature>
+</MethodPackage>

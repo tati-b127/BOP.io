@@ -1,0 +1,118 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR DELMIA Production System Application -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified"
+         ModelerType="Top"
+         Name="DELLmiProductionTransformationSystem"
+	       Uuid="1d2efb36-38a0-4cd2-999b933c5d48b9e6"
+         BelongsToModeler="DELLmiProductionSystem"
+	       UseNames="DELLmiProductionSystemPPR"
+         UseProcedures="ENOPsm_Procedures"
+         CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>PLM DELMIA Transformation System </ShortRole>
+    <Role>This package describes the PLM DELMIA Transformation System model on top of DELLmiProductionSystemPPR</Role>
+  </CAAComment>
+
+  <Comment>last update 2012-01-20</Comment>
+
+  <Class Name="DELLmiTransformationSystemReference"
+		     Uuid="78171a39-54a7-49cb-aec9-d2c31df4a9a4"
+		     Abstract="No"
+         SuperName="DELLmiPPRSystemReference"
+         CustomerExposition="Programmer"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         CreateInstName="DELLmiTransformationSystemInstance"
+         Abbreviation="trs"
+         InstantiationOwnerTypes="DELLmiGeneralSystemReference;DELLmiTransformationSystemReference"
+         >
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELMPProdSystemAdvDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELLmiTransformationSystemInstance"/>
+    <Property Name="IconName" Value="I_PPRTransformationSystem"/>
+    <Property Name="3DIconName" Value="I_PPRTransformationSystem.cgr"/>
+    <Property Name="Newable" Value="All_CAA"/>
+    <Property Name="Searchable" Value="Yes"/>
+
+    <CAAComment>
+      <ShortRole>PLM DELMIA Transformation System Reference</ShortRole>
+      <Role>PLM DELMIA Transformation System Reference</Role>
+    </CAAComment>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExchangeScope.meth#XPDM"/>
+        <UsedProcedure href="ENOPsm_Procedures.proc#ProductionSystem_ExchangeXPDM_GetAllEntities"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExchangeScope.meth#StandAlone"/>
+        <UsedProcedure href="ENOPsm_Procedures.proc#ProductionSystem_ExchangeXPDM_StandAlone"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExchangeScope.meth#AllLevelNoRsc"/>
+        <UsedProcedure href="ENOPsm_Procedures.proc#ProductionSystem_ExchangeXPDM_AllLevelNoRsc"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExchangeScope.meth#SupplyChainSourcing"/>
+        <UsedProcedure href="ENOPsm_Procedures.proc#ProductionSystem_ExchangeXPDM_SupplyChainSourcing"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExchangeScope.meth#GetAllEntitiesWithRootRscScope"/>
+        <UsedProcedure href="ENOPsm_Procedures.proc#ProductionSystem_ExchangeXPDM_GetAllEntitiesWithRootRscScope"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExchangeScope.meth#XPDM2"/>
+        <UsedProcedure href="ENOPsm_Procedures.proc#ProductionSystem_ExchangeXPDM_XPDM2"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExchangeScope.meth#Execution"/>
+        <UsedProcedure href="ENOPsm_Procedures.proc#ProductionSystem_ExchangeXPDM_Execution"/>
+      </ProcedureForUsage>
+    </Method>
+
+  </Class>
+
+  <RelationClass Name="DELLmiTransformationSystemInstance"
+		     Uuid="38660fc8-93c9-44ce-a1569264aad8f3b4"
+		     Abstract="No"
+         SuperName="DELLmiPPRSystemInstance"
+         CustomerExposition="Programmer"
+         Specializable="Yes"
+         CustomerExtensible="Yes">
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELMPProdSystemAdvDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELLmiTransformationSystemInstance"/>
+
+    <CAAComment>
+      <ShortRole>PLM DELMIA Transformation System Instance. Specialization is not supported yet.</ShortRole>
+      <Role>PLM DELMIA Transformation System Instance</Role>
+    </CAAComment>
+
+    <Volatile Name="Reference"
+              Uuid="0928FCBD-9AD5-4edb-B34D-70E0784B74FA"
+              Accessor="PLMModelerReferenceKweAttribute"
+              TypeName="DELLmiTransformationSystemReference"
+              AccessMode="ReadOnly" />
+
+    <SubClause Name="to"   TargetName="DELLmiTransformationSystemReference"/>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+
+  </RelationClass>
+
+</Package>

@@ -1,0 +1,127 @@
+#Prog Process_TSO_References (iPLMIDSet :  #In PLMIDSet,oPLMIDSet :  #Out PLMIDSet) : VoidType
+  {
+let PLMRouteSetPortsAndCnx (PLMRouteSet)
+let PLMRouteSetCapableDocuments (PLMRouteSet)
+let PLMRouteSetCandidateDocuments (PLMRouteSet)
+let PLMRouteSetAttachedDocCnx (PLMRouteSet)
+let PLMRouteSetProducts (PLMRouteSet)
+let PLMRouteSetSerial (PLMRouteSet)
+let PLMRouteSetWhereResource (PLMRouteSet)
+let PLMRouteSetWhoResource (PLMRouteSet)
+let PLMRouteSetTCRel (PLMRouteSet)
+let PLMRouteSetOutputs (PLMRouteSet)
+
+let PLMIDSetSystemRef (PLMIDSet)
+let PLMIDSetOpInst (PLMIDSet)
+let PLMIDSetAllRef (PLMIDSet)
+let PLMIDSetSystemRefOpInst (PLMIDSet)
+let PLMIDAllRef (PLMIDSet)
+let PLMIDSetPortsAndCnx (PLMIDSet)
+let PLMIDSetIOPorts (PLMIDSet)
+let PLMIDSetCandidateCnx (PLMIDSet)
+let PLMIDSetTimeCstCnx (PLMIDSet)
+let PLMIDSetFlowCnx (PLMIDSet)
+let PLMIDSetIOCnx (PLMIDSet)
+let PLMIDSetCapableCnx (PLMIDSet)
+let PLMIDSetCapableDocuments (PLMIDSet)
+let PLMIDSetImplementedCnx (PLMIDSet)
+let PLMIDSetOutputCnx (PLMIDSet)
+let PLMIDSetHowToCnx (PLMIDSet)
+let PLMIDSetCandidateDocuments (PLMIDSet)
+let PLMIDSetAttachedDocCnx (PLMIDSet)
+let PLMIDSetProducts (PLMIDSet)
+let PLMIDSetProductStructure (PLMIDSet)
+let PLMIDSetProductRef (PLMIDSet)
+let PLMIDSetProductRefrep (PLMIDSet)
+let PLMIDSetTSORef (PLMIDSet)
+let PLMIDSetProductInst (PLMIDSet)
+let PLMIDSetTSOInst (PLMIDSet)
+let PLMIDWOAndExecHeaderOpRef (PLMIDSet)
+let PLMIDExecRef (PLMIDSet)
+let PLMIDExecOp (PLMIDSet)
+let PLMIDSerial (PLMIDSet)
+let PLMIDWhereResource (PLMIDSet)
+let PLMIDWhoResource (PLMIDSet)
+let PLMIDTCRel (PLMIDSet)
+let PLMIDSetOutputs (PLMIDSet)
+let PLMIDSetHistoRefCnx  (PLMIDSet)
+
+PLMIDSetSystemRef = Restrict(iPLMIDSet, "DELLmiProductionSystemPPR/DELLmiPPRSystemReference")
+PLMIDSetOpInst = Restrict(iPLMIDSet, "DELLmiProductionOperationPPR/DELLmiOperationPPRInstance")
+PLMIDSetAllRef = Restrict(iPLMIDSet, "DELLmiProductionSystemAbstract/DELLmiAbstractProductionEntity")
+PLMIDSetSystemRefOpInst = PLMIDSetSystemRef + PLMIDSetOpInst
+PLMIDAllRef = Restrict(iPLMIDSet, "PLMCORE/PLMCoreReference")
+PLMIDWOAndExecHeaderOpRef = Restrict(iPLMIDSet, "DELLmiWorkOrder/DELLmiWorkOrderReference") + Restrict(iPLMIDSet, "DELLmiProductionExecHeaderOperation/DELLmiExecHeaderOperationReference")
+PLMIDExecRef = Restrict(iPLMIDSet, "DELLmiProductionPlan/DELLmiProductionPlanReference") + Restrict(iPLMIDSet, "DELLmiWorkOrder/DELLmiWorkOrderReference") + Restrict(iPLMIDSet, "DELLmiProductionExecHeaderOperation/DELLmiExecHeaderOperationReference")
+PLMIDExecOp = Restrict(iPLMIDSet, "DELLmiProductionExecHeaderOperation/DELLmiExecHeaderOperationReference")
+
+/* Retrieve all Ports and Cnx except implement Cnx from Reference*/
+PLMRouteSetPortsAndCnx  = ExecutePLMFunction("DELLmiProductionSystemAbstract", "ENOPsm_ProductionSystem_addAllPortsRepInstAndCnx", PLMIDSetAllRef)
+PLMIDSetPortsAndCnx = Ids(PLMRouteSetPortsAndCnx,"all")
+PLMIDSetIOPorts = Restrict(PLMIDSetPortsAndCnx, "DELLmiProductionSystemIOPort/DELLmiProdSystemIOPort")
+PLMIDSetCandidateCnx = Restrict(PLMIDSetPortsAndCnx, "DELLmiProductionCandidateResCnx/DELLmiCandidateResourcesCnx")
+PLMIDSetTimeCstCnx = Restrict(PLMIDSetPortsAndCnx, "DELLmiProductionTimeConstraintCnx/DELLmiTimeConstraintCnx") 
+PLMIDSetFlowCnx = Restrict(PLMIDSetPortsAndCnx, "DELLmiProductionMaterialPathCnx1/DELLmiMaterialPathCnxCust") 
+PLMIDSetIOCnx = Restrict(PLMIDSetPortsAndCnx, "DELLmiProductionSystemIOCnx/DELLmiProductionSystemIOCnx")
+PLMIDSetCapableCnx = Restrict(PLMIDSetPortsAndCnx, "DELAsmAssemblyModelCnx/DELAsmProcessCanUseCnx")
+PLMIDSetOutputCnx = Restrict(PLMIDSetPortsAndCnx, "DELLmiProductionSystemOutputCnxAbstract/DELLmiProductionSystemOutputCnxAbstract")
+PLMIDSetHowToCnx = Restrict(PLMIDSetPortsAndCnx, "PLMRequirementSpecifyHowToCnxAbstract/PLMReqSpecifyHowToCnxAbstract")
+PLMIDSetImplementedCnx = Restrict(PLMIDSetPortsAndCnx, "RFLPLMImplementConnection/RFLPLMImplementConnection")
+PLMIDSetHistoRefCnx = Restrict(PLMIDSetPortsAndCnx, "PLMHistorizationCnx/PLMHistoLinkCnx")
+
+/* Retrieves documents From Capable resource connections */
+PLMRouteSetCapableDocuments = ExecutePLMFunction("DELAsmAssemblyModelCnx", "DELAsmAssemblyModelCnx_addAllDocuments", PLMIDSetCapableCnx)
+PLMIDSetCapableDocuments = Ids(PLMRouteSetCapableDocuments,"all")
+
+/* Retrieves documents From Candidate resource connections */
+PLMRouteSetCandidateDocuments = ExecutePLMFunction("DELLmiProductionSystemAbstract", "ENOPsm_CandidateResourceCnx_addAllDocuments", PLMIDSetCandidateCnx)
+PLMIDSetCandidateDocuments = Ids(PLMRouteSetCandidateDocuments,"all")
+
+/* Add PLMDocConnections without documents pointed by these PLMDocConnections*/
+PLMRouteSetAttachedDocCnx = ExecutePLMFunction("PLMDocConnection","PLMDocConnection_retrieveAllConnections",PLMIDAllRef)
+PLMIDSetAttachedDocCnx = Ids(PLMRouteSetAttachedDocCnx,"all")
+
+/*Retrieves all outputs from System or Operation References */
+PLMRouteSetOutputs = ExecutePLMFunction("DELPPRContextModel", "ENOPsm_ProductionSystem_addOutputEntitiesWithoutCnx", PLMIDSetOutputCnx)
+PLMIDSetOutputs = Ids(PLMRouteSetOutputs ,"all")
+
+/* Retrieves all aggregated references and ref. instances for PRODUCTS and RESOURCES */
+PLMRouteSetProducts = ExecutePLMFunction("PRODUCTCFG", "ProductCfg_AddChildrenProduct", Restrict(PLMIDSetOutputs, "PRODUCTCFG/VPMReference"))
+PLMIDSetProducts = Ids(PLMRouteSetProducts,"all")
+PLMIDSetProductRef = Restrict(PLMIDSetProducts, "PRODUCTCFG/VPMReference")
+	
+/* Retrieves all aggregated representations (references / instances) for PRODUCTS and RESOURCES */
+PLMIDSetProductStructure = ExecutePLMProcedure("VPMEditor_GetAllRepresentations", PLMIDSetProductRef)
+
+/* get Product Ref and Rep  and execute TSO procedure*/
+PLMIDSetProductRefrep = Restrict(PLMIDSetProducts, "PRODUCTCFG/VPMReference") + Restrict(PLMIDSetProductStructure, "PRODUCTCFG/VPMReference") + Restrict(PLMIDSetProductStructure, "PRODUCTCFG/VPMRepReference")
+PLMIDSetTSORef = ExecutePLMProcedure("VPMEditor_TSO_VPMReferenceVPMRepReference", PLMIDSetProductRefrep)
+
+/* get Product Instance and rep inst and execute TSO procedure*/
+PLMIDSetProductInst = Restrict(PLMIDSetProducts, "PRODUCTCFG/VPMInstance") + Restrict(PLMIDSetProductStructure, "PRODUCTCFG/VPMInstance") + Restrict(PLMIDSetProductStructure, "PRODUCTCFG/VPMRepInstance")
+PLMIDSetTSOInst = ExecutePLMProcedure("VPMEditor_TSO_VPMInstance", PLMIDSetProductInst)
+
+/* Retrieve all Serialize relation from system and operation reference */
+PLMRouteSetSerial = ExecutePLMFunction("DELLmiProductionSystemAbstract", "ENOPsm_ProductionSystem_addSerializedFromRelation", PLMIDWOAndExecHeaderOpRef)
+PLMIDSerial = Ids(PLMRouteSetSerial)
+
+/* Retrieve all where resource relation from execution references (Production Plan, Work Order, Exec Header operation) */
+PLMRouteSetWhereResource = ExecutePLMFunction("DELLmiProductionSystemAbstract", "ENOPsm_WorkOrder_addWhereResourceRelation", PLMIDExecRef)
+PLMIDWhereResource = Ids(PLMRouteSetWhereResource)
+
+/* Retrieve all who resource relation from execution operation references (Exec Header operation) */
+PLMRouteSetWhoResource = ExecutePLMFunction("DELLmiProductionSystemAbstract", "ENOPsm_WorkOrder_addWhoResourceRelation", PLMIDExecOp)
+PLMIDWhoResource = Ids(PLMRouteSetWhoResource)
+
+/* Retrieve all time constraint relation from execution operation references (Exec Header operation) */
+PLMRouteSetTCRel = ExecutePLMFunction("DELLmiProductionSystemAbstract", "ENOPsm_WorkOrder_addTimeConstraintRelation", PLMIDExecOp)
+PLMIDTCRel = Ids(PLMRouteSetTCRel)
+
+/* Retrieve all candidate resource Cnx relation from execution operation references (Exec Header operation) */
+/* PLMIDWhoResourceRel = Restrict(PLMIDWhoResource,"RelationClass/UPR_LinkToWhoResource") */
+/* PLMRouteSetCandidateResCnx = ExecutePLMFunction("DELLmiProductionSystemAbstract", "ENOPsm_WorkOrder_addCandidateResourceCnxRelation", PLMIDWhoResourceRel) */
+/* PLMIDCandidateResCnx = Ids(PLMRouteSetCandidateResCnx) */
+
+oPLMIDSet = iPLMIDSet + PLMIDSetIOPorts + PLMIDSetCapableCnx + PLMIDSetCapableDocuments + PLMIDSetCandidateCnx + PLMIDSetCandidateDocuments + PLMIDSetTimeCstCnx + PLMIDSetFlowCnx + PLMIDSetIOCnx + PLMIDSetOutputCnx + PLMIDSetHowToCnx + PLMIDSetImplementedCnx + PLMIDSetAttachedDocCnx + PLMIDSetOutputs + PLMIDSetProductRefrep + PLMIDSetTSORef + PLMIDSetProductInst + PLMIDSetTSOInst + PLMIDSerial + PLMIDWhereResource + PLMIDWhoResource + PLMIDTCRel + PLMIDSetHistoRefCnx
+
+}

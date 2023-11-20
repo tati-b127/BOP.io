@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<ProcedurePackage 
+	xmlns="PLMDictionaryProcedure"
+	Name="PRGProcAttach">
+
+	<Procedure Name="ProgramCentralProcAttach">
+		<Implementation Name="invoke" FileLocation="com.dassault_systemes.vplm.modeler.dmt.implementation.ProgramCentralProcAttach" Language="JAVA"/>
+		<Signature href="ProgramCentralProcAttach_sign"/>
+	</Procedure>
+	
+	<Signature id="ProgramCentralProcAttach_sign">
+		<Parameter Name="inInfos" MultiValuated="Yes" Direction="in" Order="1" DataType="String"/>
+		<Parameter Name="inIDs" MultiValuated="Yes" Direction="in" Order="2" DataType="String"/>
+		<Parameter Name="outString" MultiValuated="No" Direction="out" Order="1" DataType="String"/>
+		<Parameter Name="outIDs" MultiValuated="Yes" Direction="out" Order="2" DataType="PLMId"/>
+	</Signature>
+		
+</ProcedurePackage>

@@ -1,0 +1,16 @@
+#Prog VPMEditor_Detach_VPMInstance (iPLMIDSet :  #In PLMIDSet,oPLMIDSet :  #Out PLMIDSet) : VoidType
+{ 
+  let rsRelatedPrivateReps(PLMRouteSet)
+
+  let idsInstances (PLMIDSet)
+  let idsConfig (PLMIDSet)
+
+  /*Completes with all PrivateRep pointing a VPMInstance*/
+  idsInstances = Restrict(iPLMIDSet, "PRODUCTCFG/VPMInstance")
+  rsRelatedPrivateReps = ExecutePLMFunction("PRODUCTCFG", "ProductCfg_AddLPPrivateRepForInstance", idsInstances)
+
+  /*Completes with configuration */
+  idsConfig = ExecutePLMProcedure("Config_GetStructConfig", idsInstances)
+
+  oPLMIDSet = iPLMIDSet + Ids(rsRelatedPrivateReps)+ idsConfig
+}

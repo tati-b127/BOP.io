@@ -1,0 +1,112 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR RFLP IMPLEMENT CONNECTION -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2006, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" 
+         ModelerType="Top" 
+         BelongsToModeler="RFLPLMImplementConnection" 
+         Name="RFLPLMImplementConnection" 
+	       Uuid="9cb83dbc-cf29-4e44-af4ad2c189c3ff15" 
+	       UseNames="PLMCORE"
+         CustomerExposition="Programmer"
+>
+
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+	<CAAComment>
+		<ShortRole>PLM Implement Connection Package</ShortRole>
+		<Role>This package describes the PLM Implement Connection</Role>
+	</CAAComment>
+	
+	<Comment>last update 2007-11-25</Comment>
+	
+	<!-- ************************************************************* -->
+	<!-- * RFLPLMImplementConnection (RFLPLMConnection)              * -->
+	<!-- ************************************************************* -->
+	
+	<Class Name="RFLPLMImplementConnection" 
+		Uuid="cf34b262-d0e6-4e99-a2ca1bcd717d9b78" 
+		 
+    CustomerExposition="Programmer"
+    CustomerExtensible="Yes"
+    Specializable="Yes"		 
+		Abstract="No" 
+			 
+		SuperName="PLMConnection">
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="PLMEILDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="RFLPLMImplementConnection"/>
+    <Property Name="Newable" Value="Insert" />
+    <Property Name="IconName" Value="I_RFLPLMImplementConnection"/>
+    <Property Name="Searchable" Value="No"/>
+		
+        <!-- *********************************************************
+             * Define Owner 
+             ********************************************************* -->
+
+	    <Path Name="V_RFLPLMImplementSources"
+			Uuid="7e76e9ca-a78a-42f8-bfe58e0b5fb50112"
+			MultiValuated="No"
+			RoleName="PLM_ImplementLink_Source"				Type="SemanticRelation" AdaptativeToMinor="No"
+		SynchroSensitivity="Last"
+  RerouteOnEffectivityChange="Yes" Orientation="Out"
+			Semantics="Reference5"
+      />
+			
+		<Path Name="V_RFLPLMImplementTargets"
+			Uuid="897e8c8a-cb38-4cfb-bb03fc226acefe3e"
+			MultiValuated="No"
+			RoleName="PLM_ImplementLink_Target"				Type="SemanticRelation" AdaptativeToMinor="No"
+		SynchroSensitivity="PathAndLast"
+  RerouteOnEffectivityChange="No" Orientation="In"
+			Semantics="Reference3"
+      />	
+
+          <Method ImplementationType="None">
+              <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+          </Method>
+
+	</Class>	
+
+  <!-- **************************************************** -->
+  <!-- * Declaration of functions                           -->
+  <!-- **************************************************** -->
+
+    <Function Name="RFLPLMImplementConnection_AddAllImplementCnx">
+        <Implementation Name="RFLPLMImplementConnection_AddAllImplementCnx" FileLocation="RFLPLMImplementConnection_AddAllImplementCnx.plmql" Language="PLMQL"/>
+        <Signature href="ENOImplLinkSignature"/>
+    </Function>
+
+  <Function Name="RFLPLMImplementConnection_AddAllImplementedComponents">
+        <Implementation Name="RFLPLMImplementConnection_AddAllImplementedComponents" FileLocation="RFLPLMImplementConnection_AddAllImplementedComponents.plmql" Language="PLMQL"/>
+        <Signature href="ENOImplLinkSignature"/>
+    </Function>
+
+  <Function Name="RFLPLMImplementConnection_AddAllFctImplementedComponents">
+    <Implementation Name="RFLPLMImplementConnection_AddAllFctImplementedComponents" FileLocation="RFLPLMImplementConnection_AddAllFctImplementedComponents.plmql" Language="PLMQL"/>
+    <Signature href="ENOImplLinkSignature"/>
+  </Function>
+
+  <Function Name="RFLPLMImplementConnection_AddAllReqImplementedComponents">
+    <Implementation Name="RFLPLMImplementConnection_AddAllReqImplementedComponents" FileLocation="RFLPLMImplementConnection_AddAllReqImplementedComponents.plmql" Language="PLMQL"/>
+    <Signature href="ENOImplLinkSignature"/>
+  </Function>
+  
+  <Function Name="RFLPLMImplementConnection_AddAllImplementingComponents">
+        <Implementation Name="RFLPLMImplementConnection_AddAllImplementingComponents" FileLocation="RFLPLMImplementConnection_AddAllImplementingComponents.plmql" Language="PLMQL"/>
+        <Signature href="ENOImplLinkSignature"/>
+    </Function>
+
+  <Function Name="RFLPLMImplementConnection_AddAllImplementCnxByNav">
+    <Implementation Name="RFLPLMImplementConnection_AddAllImplementCnxByNav" FileLocation="RFLPLMImplementConnection_AddAllImplementCnxByNav.plmql" Language="PLMQL"/>
+    <Signature href="ENOImplLinkSignature"/>
+  </Function>
+
+  <Signature id="ENOImplLinkSignature">
+        <Parameter Name="InputIds" Lower="0" Upper="-1" Direction="in" MultiValuated="Yes" DataType="PLMId"/>
+        <Parameter Name="OutputIds" Lower="0" Upper="-1" Direction="out" MultiValuated="No" DataType="PLMRouteSet"/>
+    </Signature>
+
+  <!-- ********************************************************* -->
+	        
+</Package>

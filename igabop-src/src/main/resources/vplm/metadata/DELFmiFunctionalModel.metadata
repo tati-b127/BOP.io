@@ -1,0 +1,506 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2006, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" 
+         ModelerType="Top"
+         BelongsToModeler="DELFmiFunctionalModel" 
+         Name="DELFmiFunctionalModel" 
+         CustomerExposition="Programmer" 
+         Uuid="4ee50667-d347-48e4-8757-69d8f592fab9" 
+         UseNames="PLMCORE"
+         UseProcedures="SLMPPRDuplicateProcedure WipMidProcedure PPR_Procedures"
+>
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>Process Function Modeler</ShortRole>
+    <Role>"DELFmiFunctionalModel" package describes Process Function Reference, Instance, RepReference, RepInstance</Role>
+  </CAAComment>
+
+  <!-- ************************************************** -->
+  <!-- *  DELFmiFunctionReference         * -->
+  <!-- ************************************************** -->
+
+  <Class Name="DELFmiFunctionReference" Uuid="2305046a-74cb-4358-9a73-03938f6884c0"
+         CustomerExposition="Programmer"
+         CustomerExtensible="No"
+         Specializable="Yes"
+         Abstract="No"
+         SuperName="PLMCoreReference"
+         CAAExposition="L1"
+         CreateInstName="DELFmiFunctionInstance"
+         Abbreviation="prcs" 
+         DeleteAvailability="Yes"
+         >
+    
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="NoMethod"/>
+    <Property Name="Configurable" Value="Yes"/>
+    <Property Name="ChangeManagementSupport" Value="Yes"/>
+    <Property Name="ChangeManagementReferential" Value="Yes"/>
+    <Property Name="ChangeManagementContext" Value="Yes"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="IconName" Value="I_FunctionDef"/>
+    <Property Name="3DIconName" Value="Default3DProcessRep.cgr"/>
+    <Property Name="NewMinorRevisionAvailability" Value="Yes"/>
+    <Property Name="AggregatableTypes" Value="PARParameter"/>
+    
+    <CAAComment>
+      <ShortRole>Process Function Reference gives a definition of a type of transformation</ShortRole>
+      <Role>Process Function Reference gives a definition of a type of transformation to achieve (i.e. Intent)</Role>
+    </CAAComment>
+
+    <Simple Name="V_EstimatedTime"            
+            Uuid="8ffebbeb-7fbb-4281-a562-2d610b737817"
+            Type="Double"
+            Magnitude="TIME"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L1"
+            >
+      <CAAComment>
+        <ShortRole>Defines estimated time of execution. Can be used as specification to roughly review the process flow.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_ThroughPutTime"
+            Uuid="efcc708f-4157-42b9-b36d-3d94f23cb71a"
+            Type="Double"
+            Magnitude="TIME"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"
+            >
+      <CAAComment>
+        <ShortRole>Defines time of the critical path considering the precedence/prerequisite constraints between aggregated process instances.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_AnalysedTime"
+            Uuid="1d625d78-0d79-4f9d-86d0-bda4585df72d"
+            Type="Double"
+            Magnitude="TIME"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"
+            >
+      <CAAComment>
+        <ShortRole>Defines time of execution calculated after time analysis.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+  </Class>
+
+  <!-- ************************************************** -->
+  <!-- *  DELFmiFunctionInstance        * -->
+  <!-- ************************************************** -->
+
+  <RelationClass Name="DELFmiFunctionInstance" Uuid="3ffedace-6447-413b-8cb5-84ced69ad1c4"
+         CustomerExposition="Programmer"
+         CustomerExtensible="Yes"
+         Specializable="No"
+         Abstract="No"
+         SuperName="PLMCoreInstance"
+         CAAExposition="L1"
+         >
+    
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="Filtrable" Value="Yes"/>
+    <Property Name="Searchable" Value="No"/>
+    
+    <CAAComment>
+      <ShortRole>Usage of a Process Reference in the context of another Process Function Reference</ShortRole>
+      <Role>Process Function Instance defines the usage of a Process Function Reference in the context of another Process Function Reference</Role>
+    </CAAComment>
+
+    <SubClause Name="from" TargetName="DELFmiFunctionReference"/>
+    <SubClause Name="to"   TargetName="DELFmiFunctionReference"/>
+
+
+    <Volatile Name="Reference" Uuid="b0c0a216-def5-4de5-83d9-1e6e51e8f3ba"
+              Accessor="PLMModelerReferenceKweAttribute"
+              TypeName="DELFmiFunctionReference"
+              AccessMode="ReadOnly"
+    >
+	  <Property Name="ServerAccessor" Value="com.dassault_systemes.EKLEngine.openings.lib.PLMEnt_Accessor"/>
+	</Volatile>
+
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+       <ProcedureForUsage>
+        <Usage href="ExportScope.meth#TransferSiteOwnership"/>
+        <UsedProcedure href="PPR_Procedures.proc#PPR_TSO_StandAlone"/>
+      </ProcedureForUsage>
+    </Method>
+
+    <!-- ************************************************** -->
+    <!-- *  DEPRECATED : DO NOT USE        * -->
+    <!-- ************************************************** -->
+
+    <Simple Name="V_2DXPosition" Uuid="6ea12298-7aaa-411a-9745-a637c13a2af4"
+            Type="Double" MultiValuated="No" Protection="Internal">
+      <CAAComment>
+        <ShortRole>Deprecated</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_2DYPosition" Uuid="40178751-2d7f-4005-a048-2457f8d67fa3"
+            Type="Double" MultiValuated="No" Protection="Internal">
+      <CAAComment>
+        <ShortRole>Deprecated</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Path Name="ManufacturingItemImplementLink" 
+                     Uuid="40547840-6D3B-49fb-AEA6-CA184D256423" 
+                     MultiValuated="Yes" 
+                     RoleName="PLM_ImplementLink_Target"
+                     SynchroSensitivity="PathAndLast"
+                     Type="SemanticRelation" AdaptativeToMinor="No"
+		                 RerouteOnEffectivityChange="No"
+                      Orientation="In"
+                     Semantics="Reference3"/>
+					 
+	<Path Name="LinkToPrimaryPart" 
+                     Uuid="1be48a79-3157-4b1f-9fb6-e7050c8f7287" 
+                     MultiValuated="No" 
+                     RoleName="DELLinkToPrimaryPart"
+                     SynchroSensitivity="Last"
+                     Type="SemanticRelation"
+                     AdaptativeToMinor="No"
+                     RerouteOnEffectivityChange="No"
+                     Orientation="In"
+                     Semantics="Reference4"/>
+    
+    <Path Name="DELIsSerializedFrom"
+             Uuid="B7EB39FC-3B03-4a37-BF63-D2FFE0697DFD"
+             MultiValuated="No"
+             RoleName="DEL_IsSerializedFrom"
+             SynchroSensitivity="PathAndLast"
+             Type="SemanticRelation"
+             AdaptativeToMinor="No"
+             RerouteOnEffectivityChange="No"
+             Orientation="In"
+             Semantics="Reference3"/>
+
+  </RelationClass>
+
+  <Extension Name="ProcessInstanceSet_Ext"
+             CustomerExposition="Programmer"
+             Uuid="FB94FD86-AF5A-45c0-A7A1-1423BBED1353"
+             ScopeNames="DELFmiFunctionInstance"
+             CAAExposition="L1">
+
+    <Simple Name="V_DiscreteQuantity"
+         Uuid="CD63FF02-6FD7-4f37-8306-0C3ABBB5A06D"
+         Type="Integer"
+         MultiValuated="No"
+         Protection="External"
+         CAAExposition="L1"
+         DefaultValue="1">
+      <CAAComment>
+        <ShortRole>Defines unidentified discrete quantity</ShortRole>
+
+      </CAAComment>
+    </Simple>
+    <CAAComment>
+      <ShortRole>Process Instance Set extension</ShortRole>
+    </CAAComment>
+  </Extension>
+
+
+  <Extension Name="ProcessInstanceContinuous_Ext"
+             CustomerExposition="Programmer"
+             Uuid="9C9A7622-2BA6-4911-9379-F4BF8E5C5CDA"
+             ScopeNames="DELFmiFunctionInstance"
+             CAAExposition="L1">
+
+    <Simple Name="V_UsageContCoeff"
+         Uuid="7CF82682-28E8-4b27-B34B-61CD350E21F2"
+         Type="Double"
+         MultiValuated="No"
+         Protection="External"
+         CAAExposition="L1"
+         DefaultValue="1.0">
+      <CAAComment>
+        <ShortRole>Defines usage continuous coefficient</ShortRole>
+      </CAAComment>
+
+    </Simple>
+    <CAAComment>
+      <ShortRole>Process Instance Continuos extension</ShortRole>
+    </CAAComment>
+  </Extension>
+
+  <!-- ************************************************** -->
+  <!-- *  DELFmiFunctionRepresentationReference         * -->
+  <!-- ************************************************** -->
+
+  <Class Name="DELFmiFunctionRepresentationReference" Uuid="38c21e05-f2d3-4b56-9e66-1fd11c0e718e"
+         CustomerExposition="Programmer"
+         CustomerExtensible="No"
+         Specializable="No"
+         Abstract="No"
+         SuperName="PLMCoreRepReference"
+         CreateInstName="DELFmiFunctionRepresentationInstance" 
+         NewMinorRevisionAvailability="Yes"
+         >
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="IconName" Value="I_FunctionDef"/>
+    <Property Name="IterationAvailability" Value="Yes"/>
+
+    <CAAComment>
+      <ShortRole>Process Function Representation Reference allows to store not exposed data.</ShortRole>
+      <Role>Process Function Representation Reference allows to store not exposed PLM data such as applicative data, UI layout data</Role>
+    </CAAComment>
+
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#TransferSiteOwnership"/>
+        <UsedProcedure href="PPR_Procedures.proc#PPR_TSO_StandAlone"/>
+      </ProcedureForUsage>
+    </Method>
+
+  </Class>
+
+  <!-- ************************************************** -->
+  <!-- *  DELFmiFunctionRepresentationInstance          * -->
+  <!-- ************************************************** -->
+
+  <RelationClass Name="DELFmiFunctionRepresentationInstance" Uuid="603abcfe-f607-43f8-ac34-37bafed653bf"
+         CustomerExposition="Programmer"
+         CustomerExtensible="No"
+         Specializable="No"
+         Abstract="No"
+         SuperName="PLMCoreRepInstance"
+         >
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="Searchable" Value="No"/>
+
+    <CAAComment>
+      <ShortRole>Defines Process Function Representation Instance</ShortRole>
+      <Role>Defines the usage of a Process Function Representation Reference in the context of a Process Function Reference</Role>
+    </CAAComment>
+
+    <SubClause Name="from" TargetName="DELFmiFunctionReference"/>
+    <SubClause Name="to"   TargetName="DELFmiFunctionRepresentationReference"/>
+    
+    <Volatile Name="Reference" Uuid="e1b299c9-62b4-417b-8bb0-30dbb2547f43"
+              Accessor="PLMModelerReferenceKweAttribute"
+              TypeName="DELFmiFunctionRepresentationReference"
+              AccessMode="ReadOnly"
+    >
+	  <Property Name="ServerAccessor" Value="com.dassault_systemes.EKLEngine.openings.lib.PLMEnt_Accessor"/>
+	</Volatile>
+
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#TransferSiteOwnership"/>
+        <UsedProcedure href="PPR_Procedures.proc#PPR_TSO_StandAlone"/>
+      </ProcedureForUsage>
+    </Method>
+
+  </RelationClass>
+
+  <!-- ***************************************************** -->
+  <!-- *  Extensions for DELFmiContinuousFunctionReference * -->
+  <!-- ***************************************************** -->
+
+  <Extension Name="DELFmiContQuantity_Length"
+             Uuid="94873A9A-06B5-4861-B91E-522B1EF0892D"
+             ScopeNames="DELFmiFunctionReference;DELFmiFunctionInstance"
+             CAAExposition="L1"
+             Specializable="No"
+             CustomerExposition="Programmer"
+             >
+
+    <Simple Name="V_ContQuantity"
+            Uuid="0AD87E40-122F-4a2e-99CA-F1CA53284169"
+            Type="Double"
+            Magnitude="LENGTH"
+            MultiValuated="No"
+            Protection="External"
+            CAAExposition="L1"
+            DefaultValue="1.0"
+            >
+      <CAAComment>
+        <ShortRole>Defines Length Consumed</ShortRole>
+      </CAAComment>
+    </Simple>
+    <CAAComment>
+      <ShortRole>Continuous Length Quantity Extension</ShortRole>
+    </CAAComment>
+  </Extension>
+
+  <Extension Name="DELFmiContQuantity_Area"
+             Uuid="86439FF5-054D-4c01-B90B-49251B90DB67"
+             ScopeNames="DELFmiFunctionReference;DELFmiFunctionInstance"
+             CAAExposition="L1"
+             Specializable="No"
+             CustomerExposition="Programmer"
+             >
+
+    <Simple Name="V_ContQuantity"
+            Uuid="149F0F0F-A6FD-4484-BF8B-9CCD533DA869"
+            Type="Double"
+            Magnitude="AREA"
+            MultiValuated="No"
+            Protection="External"
+            CAAExposition="L1"
+            DefaultValue="1.0"
+            >
+      <CAAComment>
+        <ShortRole>Defines Area Consumed</ShortRole>
+      </CAAComment>
+    </Simple>
+    <CAAComment>
+      <ShortRole>Continuous Area Quantity Extension</ShortRole>
+    </CAAComment>
+  </Extension>
+
+  <Extension Name="DELFmiContQuantity_Volume"
+             Uuid="C5DC5059-ADDC-4902-B88D-E909CD11E7D0"
+             ScopeNames="DELFmiFunctionReference;DELFmiFunctionInstance"
+             CAAExposition="L1"
+             Specializable="No"
+             CustomerExposition="Programmer"
+             >
+
+    <Simple Name="V_ContQuantity"
+            Uuid="B1334C8A-8856-46d9-8394-A10391C80097"
+            Type="Double"
+            Magnitude="VOLUME"
+            MultiValuated="No"
+            Protection="External"
+            CAAExposition="L1"
+            DefaultValue="1.0"
+            >
+      <CAAComment>
+        <ShortRole>Defines Volume Consumed</ShortRole>
+      </CAAComment>
+    </Simple>
+    <CAAComment>
+      <ShortRole>Continuous Volume Quantity Extension</ShortRole>
+    </CAAComment>
+  </Extension>
+
+  <Extension Name="DELFmiContQuantity_Mass"
+             Uuid="31E23AB9-E2AB-47c8-9EEF-4C47452CB7A0"
+             ScopeNames="DELFmiFunctionReference;DELFmiFunctionInstance"
+             CAAExposition="L1"
+             Specializable="No"
+             CustomerExposition="Programmer"
+             >
+
+    <Simple Name="V_ContQuantity"
+            Uuid="B3422763-50A6-4a91-B87A-8E2781D958D0"
+            Type="Double"
+            Magnitude="MASS"
+            MultiValuated="No"
+            Protection="External"
+            CAAExposition="L1"
+            DefaultValue="1.0"
+            >
+      <CAAComment>
+        <ShortRole>Defines Mass Consumed</ShortRole>
+      </CAAComment>
+    </Simple>
+    <CAAComment>
+      <ShortRole>Continuous Mass Quantity Extension</ShortRole>
+    </CAAComment>
+  </Extension>
+  
+  
+
+
+  <!-- FUNCTIONS Declarations : here are delcared PLMQL Functions -->
+
+  <Function Name="DELFmiFunctionalModel_addAllProcessEntities">
+    <Implementation Name="DELFmiFunctionalModel_addAllProcessEntities" FileLocation="DELFmiFunctionalModel_addAllProcessEntities.plmql" Language="PLMQL"/>
+    <Signature href="ENOFpm_Process_Signature"/>
+  </Function>
+
+  <Function Name="DELFmiFunctionalModel_addAllProcessEntitiesOneLevel">
+    <Implementation Name="DELFmiFunctionalModel_addAllProcessEntitiesOneLevel" FileLocation="DELFmiFunctionalModel_addAllProcessEntitiesOneLevel.plmql" Language="PLMQL"/>
+    <Signature href="ENOFpm_Process_Signature"/>
+  </Function>
+
+  <Function Name="DELFmiFunctionalModel_addAllProcessRefInstRepRefRepInst">
+    <Implementation Name="DELFmiFunctionalModel_addAllProcessRefInstRepRefRepInst" FileLocation="DELFmiFunctionalModel_addAllProcessRefInstRepRefRepInst.plmql" Language="PLMQL"/>
+    <Signature href="ENOFpm_Process_Signature"/>
+  </Function>
+
+  <Function Name="DELFmiFunctionalModel_addAllProcessCnxPortModelerAndAppli">
+    <Implementation Name="DELFmiFunctionalModel_addAllProcessCnxPortModelerAndAppli" FileLocation="DELFmiFunctionalModel_addAllProcessCnxPortModelerAndAppli.plmql" Language="PLMQL"/>
+    <Signature href="ENOFpm_Process_Signature"/>
+  </Function>
+
+  <Function Name="DELFmiFunctionModel_expandDRandPrecedencePorts">
+    <Implementation Name="DELFmiFunctionModel_expandDRandPrecedencePorts" FileLocation="DELFmiFunctionModel_expandDRandPrecedencePorts.plmql" Language="PLMQL"/>
+    <Signature href="ENOFpm_Process_Signature"/>
+  </Function>
+
+  <Function Name="DELFmiFunctionModel_addPrecedenceCnxFromSourcePort">
+    <Implementation Name="DELFmiFunctionModel_addPrecedenceCnxFromSourcePort" FileLocation="DELFmiFunctionModel_addPrecedenceCnxFromSourcePort.plmql" Language="PLMQL"/>
+    <Signature href="ENOFpm_Process_Signature"/>
+  </Function>
+
+  <Function Name="DELFmiFunctionModel_addCnxFromDRPort">
+    <Implementation Name="DELFmiFunctionModel_addCnxFromDRPort" FileLocation="DELFmiFunctionModel_addCnxFromDRPort.plmql" Language="PLMQL"/>
+    <Signature href="ENOFpm_Process_Signature"/>
+  </Function>
+
+  <Function Name="DELFmiFunctionalModel_expandPortsAndCnx">
+    <Implementation Name="DELFmiFunctionalModel_expandPortsAndCnx" FileLocation="DELFmiFunctionalModel_expandPortsAndCnx.plmql" Language="PLMQL"/>
+    <Signature href="ENOFpm_Process_Signature"/>
+  </Function>
+
+  <Function Name="DELFmiFunctionModel_expandDRPorts">
+    <Implementation Name="DELFmiFunctionModel_expandDRPorts" FileLocation="DELFmiFunctionModel_expandDRPorts.plmql" Language="PLMQL"/>
+    <Signature href="ENOFpm_Process_Signature"/>
+  </Function>
+
+  <Function Name="DELFmiFunctionReference_SystemScopes">
+    <Implementation Name="DELFmiFunctionReference_SystemScopes" FileLocation="DELFmiFunctionReference_SystemScopes.plmql" Language="PLMQL"/>
+    <Signature href="ENOFpm_Process_Signature"/>
+  </Function>
+
+  <Function Name="DELFmiFunctionReference_addImplementingOpFromRFLPCnx">
+    <Implementation Name="DELFmiFunctionReference_addImplementingOpFromRFLPCnx" FileLocation="DELFmiFunctionReference_addImplementingOpFromRFLPCnx.plmql" Language="PLMQL"/>
+    <Signature href="ENOFpm_Process_Signature"/>
+  </Function>
+
+  <Function Name="DELFmiFunctionModel_addDRCnxFromDRPort">
+    <Implementation Name="DELFmiFunctionModel_addDRCnxFromDRPort" FileLocation="DELFmiFunctionModel_addDRCnxFromDRPort.plmql" Language="PLMQL"/>
+    <Signature href="ENOFpm_Process_Signature"/>
+  </Function>
+  
+    <Function Name="DELFmiFunctionalModel_addPortsAndCnxExceptImplCnx">
+      <Implementation Name="DELFmiFunctionalModel_addPortsAndCnxExceptImplCnx" FileLocation="DELFmiFunctionalModel_addPortsAndCnxExceptImplCnx.plmql" Language="PLMQL"/>
+      <Signature href="ENOFpm_Process_Signature"/>
+    </Function>
+  
+    <Function Name="DELFmiFunctionalModel_addPortsRepInstAndCnxExceptImplCnx">
+      <Implementation Name="DELFmiFunctionalModel_addPortsRepInstAndCnxExceptImplCnx" FileLocation="DELFmiFunctionalModel_addPortsRepInstAndCnxExceptImplCnx.plmql" Language="PLMQL"/>
+      <Signature href="ENOFpm_Process_Signature"/>
+    </Function>
+  
+    <Function Name="DELFmiFunctionModel_AddImplementingCnx">
+      <Implementation Name="DELFmiFunctionModel_AddImplementingCnx" FileLocation="DELFmiFunctionModel_AddImplementingCnx.plmql" Language="PLMQL"/>
+      <Signature href="ENOFpm_Process_Signature"/>
+    </Function>
+
+    <Signature id="ENOFpm_Process_Signature">
+    <Parameter Name="InputIds" Lower="0" Upper="-1" Direction="in" MultiValuated="Yes" DataType="PLMId"/>
+    <Parameter Name="OutputIds" Lower="0" Upper="-1" Direction="out" MultiValuated="No" DataType="PLMRouteSet"/>
+  </Signature>
+
+</Package>

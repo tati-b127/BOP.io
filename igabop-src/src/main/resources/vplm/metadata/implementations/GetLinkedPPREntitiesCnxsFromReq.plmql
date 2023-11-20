@@ -1,0 +1,19 @@
+NAVIGATE 
+   T3.PLMID 
+FROM
+  PLMRequirementSpecifyHowToCnx/PLMReqSpecifyHowToCnx T3
+FROM_ROOTS 
+  [?1?]
+ON 
+( 
+ (RELATION(FROM=Class/Requirement TO=PLMRequirementSpecifyHowToCnx/PLMReqSpecifyHowToCnx THROUGH=POINTEDBY) WITH QUALITY_FILTER (ROLE=PLM_SpecifyingReq AND CATEGORY=Reference3))
+ OR 
+ (RELATION(FROM="Class/Requirement Specification" TO=PLMRequirementSpecifyHowToCnx/PLMReqSpecifyHowToCnx THROUGH=POINTEDBY) WITH QUALITY_FILTER (ROLE=PLM_SpecifyingReq AND CATEGORY=Reference3))
+ OR  
+ (RELATION(FROM="Class/Requirement Group" TO=PLMRequirementSpecifyHowToCnx/PLMReqSpecifyHowToCnx THROUGH=POINTEDBY) WITH QUALITY_FILTER (ROLE=PLM_SpecifyingReq AND CATEGORY=Reference3))
+ OR  
+ (RELATION(FROM=Class/Chapter TO=PLMRequirementSpecifyHowToCnx/PLMReqSpecifyHowToCnx THROUGH=POINTEDBY) WITH QUALITY_FILTER (ROLE=PLM_SpecifyingReq AND CATEGORY=Reference3))
+ OR  
+ (RELATION(FROM=Class/Comment TO=PLMRequirementSpecifyHowToCnx/PLMReqSpecifyHowToCnx THROUGH=POINTEDBY) WITH QUALITY_FILTER (ROLE=PLM_SpecifyingReq AND CATEGORY=Reference3))
+) 
+ITER=1 ;    

@@ -1,0 +1,25 @@
+<?xml version="1.0" ?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2013, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" Name="PLMPosAdminTable" Uuid="563ECDC7-BE33-4E94-B1391CFD39AEF307" UseNames="PLMPosAbstractTable" CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+  <Class Name="PLMPosAdminTableRef" Uuid="3773F686-8994-4F48-A5905C69CEF5D01C" Abstract="No" SuperName="PLMPosAbstractTableRef" CreateInstName="PLMPosAdminTableInst" CustomerExposition="Programmer" Specializable="No" >
+		<Property Name="Searchable" Value="No"/>
+		<Property Name="DMCDerivable" Value="No"/>
+		<Property Name="UniqueNamingRule" Value="No"/>
+		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+		<Simple Name="V_row_value" Uuid="96FFA780-551A-45D4-ACF2787116168F6D" MultiValuated="No" Type="String" MaxLength="256" PLMImpacting="No" Protection="Free" CAAExposition="L0"/>
+		<Simple Name="V_row_type"  Uuid="0C83A6C7-5BBC-4275-9287918E6346FC00" MultiValuated="No" Type="String" MaxLength="16"  PLMImpacting="No" Protection="Free" CAAExposition="L0"/>
+		<Simple Name="V_row_order" Uuid="18FA289A-D71D-4A28-9196F5D575D92439" MultiValuated="No" Type="Integer"                PLMImpacting="No" Protection="Free" CAAExposition="L0"/>
+	</Class>
+	<RelationClass Name="PLMPosAdminTableInst" Uuid="6800243C-9456-41EB-9A128C02DBFCF98C" Abstract="No" SuperName="PLMPosAbstractTableInst" CustomerExposition="Programmer" Specializable="No" >
+		<Property Name="DMCDerivable" Value="No"/>
+		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+	</RelationClass>
+</Package>

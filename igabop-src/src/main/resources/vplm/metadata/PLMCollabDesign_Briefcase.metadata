@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2007, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top"  Name="PLMCollabDesign_Briefcase" Uuid="4afab90d-c767-457a-b53ca21e254cf23e" UseNames="PLMCORE" CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+  <Comment>last update 2007-03-07-16.00.00</Comment>
+  <!-- ***************************************** -->
+  <!-- CCD BriefCase Elements -->
+  <!-- ***************************************** -->
+  <Class Name="PLMCCDBriefcaseReference" Uuid="efd2b1e5-9b6a-4fc6-894965690a75778b" Abstract="No" SuperName="PLMCoreReference"  CustomerExposition="Programmer">
+	  <Simple Name="V_Description" Uuid="d4a6bb47-842f-4162-90f5-b3e626183dad" Type="String" MultiValuated="No"  MaxLength="100"  Protection="External" CAAExposition="L0"/>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+  <RelationClass Name="PLMCCDBriefcaseInstance" Uuid="ebcd2066-c7d0-4aa2-867f23262af84bdd" Abstract="No"  SuperName="PLMCoreInstance" CustomerExposition="Programmer" >
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </RelationClass>
+  <Class Name="PLMCCDBriefcaseRepReference" Uuid="ed0ffba0-9739-4fa8-b97e-51f9de308873" Abstract="No"   SuperName="PLMCoreRepReference" CustomerExposition="Programmer">
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+  <RelationClass Name="PLMCCDBriefcaseRepInstance" Uuid="ccedd236-a9c1-4f26-9c3b-7a1c5473d751" Abstract="No"   SuperName="PLMCoreRepInstance" CustomerExposition="Programmer">
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </RelationClass>
+</Package>

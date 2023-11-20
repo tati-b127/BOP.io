@@ -1,0 +1,108 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2006, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" 
+         ModelerType="Top" 
+         BelongsToModeler="DELFmiFunctionalModel" 
+         Name="DELFmiFunctionalModelImplementCnx"
+	       Uuid="7F283827-708F-45CE-BB6D9ED8574DDAD3"
+	       UseNames="PLMCORE"
+         CustomerExposition="Programmer"
+	>
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+      	<ShortRole>Process Function Modeler</ShortRole>
+      	<Role>"DELFmiFunctionalModelImplementCnx" package describes Process Function Implement Link Connection</Role>
+    </CAAComment>
+
+    <Class Name="DELFmiProcessImplementCnx"
+        Uuid="783BCEED-EA7A-4BC0-92FD150FE86426BC"
+        CustomerExposition="Programmer"
+        CustomerExtensible="No"
+        Specializable="No"
+        Abstract="No"
+        SuperName="PLMConnection"
+        CAAExposition="L1"
+        OwnerTypes="DELFmiFunctionReference"
+           >
+
+      <Property Name="IconName" Value="I_PLMFunctionConnection2"/>      
+
+      <CAAComment>
+	      	<ShortRole>Defines Process Function Implement Link Connection</ShortRole>
+        		<Role>Connects the feature to either process reference or process instance that realizes the transformation</Role>
+      	</CAAComment>
+      
+        	<!-- ********************************************************* -->
+        	<!-- * Path declaration for 3DXML and PLMCoreClient -->
+        	<!-- ********************************************************* -->
+
+      	<Path Name="PMX_ImplementLinkTarget" Uuid="2E5C2BDF-8459-4059-B0D1F052DC684E9D"
+          		MultiValuated="Yes"
+          		RoleName="PLM_ImplementLink_Target"
+          		Semantics="Reference3"
+           		Type="SemanticRelation" AdaptativeToMinor="No"
+                          Orientation="In"
+        		  SynchroSensitivity="PathAndLast"
+		          RerouteOnEffectivityChange="No"
+		/>
+
+      	<Path Name="PMX_ImplementLinkSource" Uuid="2AA42FB1-AFA1-4053-B0DA54295388E1B9"
+          		MultiValuated="No"
+          		RoleName="PLM_ImplementLink_Source"
+              Type="SemanticRelation" AdaptativeToMinor="No"
+          		SynchroSensitivity="Last"
+                          Orientation="Out"
+		          RerouteOnEffectivityChange="Yes"
+          		Semantics="Reference5"
+		/>
+
+        <!-- ********************************************************* -->
+        <!-- * To specify aggregating object                           -->
+        <!-- ********************************************************* -->
+      <!-- OwnerTypes="DELFmiFunctionReference"  Integrate this line if you want to declare the aggregation constraint -->
+
+      <Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+	</Class>
+
+  <!-- FUNCTIONS Declarations : here are delcared PLMQL Functions -->
+
+  <Function Name="DELFmiFunctionModelImplCnx_AddAllImplementedComponents">
+    <Implementation Name="DELFmiFunctionModelImplCnx_AddAllImplementedComponents" FileLocation="DELFmiFunctionModelImplCnx_AddAllImplementedComponents.plmql" Language="PLMQL"/>
+    <Signature href="ENOFctProcessImplLinkSignature"/>
+  </Function>
+
+  <Function Name="DELFmiFunctionModelImplCnx_AddAllImplementingComponents">
+    <Implementation Name="DELFmiFunctionModelImplCnx_AddAllImplementingComponents" FileLocation="DELFmiFunctionModelImplCnx_AddAllImplementingComponents.plmql" Language="PLMQL"/>
+    <Signature href="ENOFctProcessImplLinkSignature"/>
+  </Function>
+
+  <Function Name="DELFmiFunctionModelImplCnx_AddAllImplementedComponentsFromCnx">
+    <Implementation Name="DELFmiFunctionModelImplCnx_AddAllImplementedComponentsFromCnx" FileLocation="DELFmiFunctionModelImplCnx_AddAllImplementedComponentsFromCnx.plmql" Language="PLMQL"/>
+    <Signature href="ENOFctProcessImplLinkSignature"/>
+  </Function>
+
+  <Function Name="DELFmiFunctionModelImplCnx_AddAllImplementedComponentsFromSR">
+    <Implementation Name="DELFmiFunctionModelImplCnx_AddAllImplementedComponentsFromSR" FileLocation="DELFmiFunctionModelImplCnx_AddAllImplementedComponentsFromSR.plmql" Language="PLMQL"/>
+    <Signature href="ENOFctProcessImplLinkSignature"/>
+  </Function>
+
+  <Function Name="DELFmiFunctionModelImplCnx_AddAllImplementedComponentsIncludingEBOM">
+    <Implementation Name="DELFmiFunctionModelImplCnx_AddAllImplementedComponentsIncludingEBOM" FileLocation="DELFmiFunctionModelImplCnx_AddAllImplementedComponentsIncludingEBOM.plmql" Language="PLMQL"/>
+    <Signature href="ENOFctProcessImplLinkSignature"/>
+  </Function>
+
+  <Function Name="DELFmiFunctionModelImplCnx_AddAllImplementedScopeEBOM">
+    <Implementation Name="DELFmiFunctionModelImplCnx_AddAllImplementedScopeEBOM" FileLocation="DELFmiFunctionModelImplCnx_AddAllImplementedScopeEBOM.plmql" Language="PLMQL"/>
+    <Signature href="ENOFctProcessImplLinkSignature"/>
+  </Function>
+
+  <Signature id="ENOFctProcessImplLinkSignature">
+    <Parameter Name="InputIds" Lower="0" Upper="-1" Direction="in" MultiValuated="Yes" DataType="PLMId"/>
+    <Parameter Name="OutputIds" Lower="0" Upper="-1" Direction="out" MultiValuated="No" DataType="PLMRouteSet"/>
+  </Signature>
+
+</Package>

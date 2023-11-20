@@ -1,0 +1,67 @@
+# Required variables
+# NEXUS_USER - user name to nexus repo to resolve java dependencies
+# NEXUS_PASS - user pass to nexus repo to resolve java dependencies
+# NPM_PROXY_REPO - npm registry to resolve js dependencies
+# NPM_TOKEN - token to npm registry to resolve js dependencies
+
+stages:
+  - build
+  - package
+variables:
+  GRADLE_OPTS: "-Dorg.gradle.daemon=false"
+
+build_without_licensing:
+  stage: build
+  script: gradle --build-cache build -PexcludeLicense
+  image: gradle:6.8.1-jdk8-openj9
+  only:
+    changes:
+      - .gitlab-ci.yml
+      - src/main/**/*
+      - build.gradle
+
+build_with_licensing:
+  stage: build
+  script: gradle --build-cache build
+  image: gradle:6.8.1-jdk11-openj9
+  only:
+    changes:
+      - .gitlab-ci.yml
+      - src/main/**/*
+      - build.gradle
+
+build_front:
+  stage: build
+  image: node:14.15.4-alpine3.10
+  only:
+    changes:
+      - .gitlab-ci.yml
+      - src/js/**/*
+  before_script:
+    - cd src/js
+    - node preInstallCiCd
+  script:
+    - npm install
+    - npm run build -- --disableBuildCache=true
+
+package_without_licensing:
+  stage: package
+  when: manual
+  image: v1690117/gradle-node:jdk8-node10
+  artifacts:
+    paths:
+      - releasePackage
+    expire_in: 4 hours
+  script:
+    - cd src/js
+    - node preInstallCiCd
+    - npm install
+    - npm run build
+    - cp -R dist/ ../main/resources/static
+    - cd ../..
+    - gradle jar -PexcludeLicense
+    - gradle bootJar -PexcludeLicense
+    - mkdir releasePackage
+    - cp -R build/libs/ releasePackage
+    - cp -R IGABOP.exe releasePackage
+    - cp -R IGABOP.xml releasePackage

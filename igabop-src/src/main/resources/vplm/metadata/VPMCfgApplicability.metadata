@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2011, All rights reserved -->
+
+<!-- History
+    V6R2012x Created
+-->
+
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" Name="VPMCfgApplicability"
+    Uuid="557ED318-2849-4174-A515ABFA7E882A74"
+    UseNames="VPMCfgCoreExpression"
+    BelongsToModeler="Configuration"
+    CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>The Configuration Applicability Metadata.</ShortRole>
+    <Role>This package includes the entity VPMCfgApplicability for change management support.</Role>
+  </CAAComment>
+
+  <!-- ************************* -->
+  <!-- Class VPMCfgApplicability -->
+  <!-- ************************* -->
+
+  <Class Name="VPMCfgApplicability"
+    Uuid="5610F241-306F-4a19-B507FFBCBD4ED9B6"
+    SuperName="VPMCfgCoreExpression"
+    Abstract="No"
+  CustomerExposition="Programmer">
+
+    <CAAComment>
+      <ShortRole>The VPMCfgApplicability.class</ShortRole>
+      <Role>The VPMCfgApplicability.class</Role>
+    </CAAComment>
+
+    <!-- ********************** -->
+    <!-- Attributes declaration -->
+    <!-- ********************** -->
+
+    <Simple Name="V_PublicationStatus" Uuid="8EF3F926-A649-42b4-9E08DD21E1B498BE" Type="Integer" Protection="External" CAAExposition="L0" DefaultValue="1" PLMImpacting="Yes">
+      <Property Name="RangeAsEnumName" Value="VPMCfgPublicationStatus"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="UNPUBLISHED;VALIDATED;REJECTED"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+      </Range>
+    </Simple>
+
+    <Simple Name="V_CompiledExpression"
+        Uuid="4DD20689-435B-40ed-A9736018ACED20CC"
+        Type="Binary"
+        MaxLength="1048576"
+        MultiValuated="No"
+        PLMImpacting="Yes"
+        Protection="Internal">
+    </Simple>
+
+    <!-- ********************** -->
+    <!-- Procedures declaration -->
+    <!-- ********************** -->
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+  </Class>
+
+
+  <!-- ********************** -->
+  <!-- FUNCTIONS Declarations -->
+  <!-- ********************** -->
+
+  <Function Name="VPMCfgApplicability_AddModelsFromApplicability">
+    <Implementation Name="VPMCfgApplicability_AddModelsFromApplicability" FileLocation="VPMCfgApplicability_AddModelsFromApplicability.plmql" Language="PLMQL"/>
+    <Signature href="VPMCfgApplicability_FuntionSignatureExport"/>
+  </Function>
+
+  <Signature id="VPMCfgApplicability_FuntionSignatureExport">
+    <Parameter Name="InputIds" Lower="0" Upper="-1" Direction="in" MultiValuated="Yes" DataType="PLMId"/>
+    <Parameter Name="OutputIds" Lower="0" Upper="-1" Direction="out" MultiValuated="No" DataType="PLMRouteSet"/>
+  </Signature>
+
+</Package>

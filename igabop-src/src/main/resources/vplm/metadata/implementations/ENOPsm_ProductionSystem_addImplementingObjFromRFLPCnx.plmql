@@ -1,0 +1,12 @@
+NAVIGATE T0.PLMID, T1.PLMID 
+FROM 
+DELLmiProductionOperation/DELLmiOperationInstance T0,
+DELLmiProductionSystem/DELLmiProductionSystemInstance T1 
+FROM_ROOTS [?1?] 
+ON  ((RELATION(FROM=RFLPLMImplementConnection/RFLPLMImplementConnection TO=DELLmiProductionOperationPPR/DELLmiOperationPPRInstance THROUGH=POINTSTO)
+WITH QUALITY_FILTER (ROLE=PLM_ImplementLink_Source AND CATEGORY=Reference5) )
+OR
+(RELATION(FROM=RFLPLMImplementConnection/RFLPLMImplementConnection TO=DELLmiProductionSystemPPR/DELLmiPPRSystemInstance THROUGH=POINTSTO)
+WITH QUALITY_FILTER (ROLE=PLM_ImplementLink_Source AND CATEGORY=Reference5)
+))
+ITER=1 ;

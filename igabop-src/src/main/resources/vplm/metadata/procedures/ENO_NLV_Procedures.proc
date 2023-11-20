@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<ProcedurePackage
+    xmlns="PLMDictionaryProcedure"
+    Name="ENO_NLV_Procedures">
+
+	<Procedure Name="NLV_GetItem">
+		<Implementation Name="NLV_GetItem" FileLocation="NLV_GetItem.KProc" Language="EKL"/>
+		<Signature href="ENO_NLV_ProcedureSignatureExport"/>
+	</Procedure>
+
+	<Signature id="ENO_NLV_ProcedureSignatureExport">
+		<Parameter Name="InputIds" Lower="0" Upper="-1" MultiValuated="Yes" Direction="in" DataType="PLMId"/>
+		<Parameter Name="OutputIds" Lower="0" Upper="-1" MultiValuated="Yes" Direction="out" DataType="PLMId"/>
+	</Signature>
+</ProcedurePackage>

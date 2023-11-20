@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2004, All rights reserved -->
+<Package
+	xmlns="PLMDictionaryUnified"
+	ModelerType="Top"
+	Name="CATBioSystems"
+	CustomerExposition="Programmer"
+	Uuid="ee294170-0c12-11df-8a39-0800200c9a66"
+	UseNames="RFLVPMLogical" >
+
+  <Comment>This package describes the CATIA BioSystems dictionary resources</Comment>
+  <Comment>Creation 2010-01-28 LJE</Comment>
+
+
+  <Class Name="BioSystems"
+         Uuid="abff4730-0c13-11df-8a39-0800200c9a66"
+         Abstract="No"
+         SuperName="RFLVPMLogicalRepReference"
+         CustomerExposition="Programmer"
+         Discipline="Yes"
+         Specializable="Yes"
+         CustomerExtensible="No"
+         CAAExposition="L0">
+    <Property Name="KweNew_InstanciationMethod" Value="CATBioSysBsePLMNew"/>
+    <Property Name="RelatedExtensionType" Value="BSEPathwayExtension"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="Newable" Value="New"/>
+    <Property Name="IconName" Value="I_BioSystems"/>
+    <Property Name="NewMinorRevisionAvailability"  Value="Yes"/>
+    <Property Name="Configurable" Value="No" />
+    <Property Name="Filtrable" Value="No" />
+    <Property Name="Abbreviation" Value="pw"/>
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Design"/>
+        <UsedProcedure href="CATBioSystems_Procedures.proc#CATBioSystemsExport"/>
+      </ProcedureForUsage>
+    </Method>
+  </Class>
+
+  <Extension
+      Name="BSEPathwayExtension"
+      Uuid="a2ca2ed0-0c15-11df-8a39-0800200c9a66"
+      ScopeNames="RFLVPMLogicalRepReference"
+      CustomerExposition="Programmer">
+
+    <!-- An enumerated attribute that states whether a pathway was curated, not curated, or if that information is not available. -->
+    <Simple Name="CurationStatus" Uuid="fa0735e0-0c14-11df-8a39-0800200c9a66" Type="Integer" Protection="Free" CAAExposition="L0" DefaultValue="1" Faceted="No">
+      <Property Name="RangeAsEnumName" Value="CurationStatusEnum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="Unknown;Curated;Not Curated"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+      </Range>
+    </Simple>
+
+    <!-- A string that contains the name of the data source the pathway was obtained from. -->
+    <Simple
+          Name="PathwayOrigin"
+          Uuid="000d91a0-0c15-11df-8a39-0800200c9a66"
+          Type="String"
+          Faceted="No"
+          MultiValuated="No"
+          Protection="Free"
+          CAAExposition="L0" />
+
+
+    <!-- A string that contains the names of the potential therapeutical areas a pathway could be involved in. -->
+    <Simple
+         Name="TherapeuticalAreas"
+         Uuid="9b0225e0-0c15-11df-8a39-0800200c9a66"
+         Type="String"
+         Faceted="No"
+         MultiValuated="Yes"
+         CollectionType="Set"
+         Protection="Free"
+         CAAExposition="L0">
+    </Simple>
+
+  </Extension>
+
+</Package>

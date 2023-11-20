@@ -1,0 +1,19 @@
+EXPAND  
+  	T0.PLMID, T1.PLMID, 
+	T8.PLMID, 
+	T10.PLMID, 
+	T17.PLMID 
+	
+	
+
+ FROM 
+	DELLmiProductionSystem/DELLmiProductionSystemReference T0, DELLmiProductionSystem/DELLmiProductionSystemInstance T1,
+	DELLmiProductionSystemIOPort/DELLmiProdSystemIOPort T8, 
+	DELLmiProductionCandidateResCnx/DELLmiCandidateResourcesCnx T10, 
+	DELLmiProductionMaterialPathCnx1/DELLmiMaterialPathCnxCust T17
+	
+	
+
+FROM_ROOTS  [?1?]
+DEPTH=1
+;    

@@ -1,0 +1,10 @@
+EXPAND
+     T0.PLM_ExternalID, T1.PLM_ExternalID, 
+     T0.PLMID, T1.PLMID
+FROM
+      PLMEnsSpecTechnoTable/EnsTechnologicalTableRepInstance T0,
+      PLMEnsSpecTechnoTable/EnsTechnologicalTableRepReference T1
+
+FROM_ROOTS[?1?]
+DEPTH=1;
+

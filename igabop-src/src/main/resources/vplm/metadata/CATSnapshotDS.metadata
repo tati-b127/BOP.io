@@ -1,0 +1,37 @@
+<?xml version="1.0" ?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2011, All rights reserved -->
+
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" Name="CATSnapshotDS"
+    Uuid="1973B8AC-2957-48e1-9FFF-96F6BCC7A571"
+    UseNames="CATSnapshot">
+
+<Property Name="OptionalInstallation" Value="Yes" /> 
+  <CAAComment>
+    <ShortRole>CATIA System Snapshot DS standard customization Package</ShortRole>
+    <Role>This package includes DS default customization of the CATIA System Snapshot model</Role>
+  </CAAComment>
+
+  <Class Name="SnapshotReferenceDS"
+      Uuid="C6E7E670-FAE6-40ee-98A9-BE28B07E4CFF"
+      SuperName="SnapshotReference"
+      SuperRef="7D953BDF-D66C-4d94-A11E-C3CAF7379650"
+      CAAExposition="L0">
+
+    <IdentifierSet Name="Identifier"
+            Uuid="0902A520-597B-4991-9554-B916001C41CF"
+            IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755"
+            IdentifierNames="PLM_ExternalID V_version" />
+	</Class>
+
+  <!-- ********************************************************* -->
+  <!-- FUNCTIONS Declarations : here are delcared PLMQL Functions -->
+
+  <!-- ********************************************************* -->
+
+  <!-- DISCIPLINES DECLARATIONS -->
+
+  <!-- ********************************************************* -->
+</Package>
+

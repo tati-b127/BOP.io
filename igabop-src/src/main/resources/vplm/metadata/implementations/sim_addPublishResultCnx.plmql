@@ -1,0 +1,39 @@
+NAVIGATE
+
+     T0.PLM_ExternalID,T1.PLM_ExternalID,T2.PLM_ExternalID,T3.PLM_ExternalID, 
+     T0.PLMID,T1.PLMID,T2.PLMID,T3.PLMID 
+
+FROM 
+
+     SIMObjSimulationPublishedResultCnx/SIMObjectSimulationPublishedResultCnx T0,
+
+     PRODUCTCFG/VPMRepReference   T1,
+     
+     PLMDmtDocument/PLMDMTDocument T2,
+
+	 RFLVPMLogical/RFLVPMLogicalRepReference T3
+
+FROM_ROOTS [?1?]
+
+ON ( RELATION(
+
+     FROM=SIMObjSimulationCategoryAndProdCnx/SIMObjSimulationCategoryReference
+
+     TO=SIMObjSimulationPublishedResultCnx/SIMObjectSimulationPublishedResultCnx
+
+     THROUGH=POINTEDBY )
+
+WITH QUALITY_FILTER(CATEGORY=ISOWNEDBY))
+
+THEN (RELATION(
+
+FROM=SIMObjSimulationPublishedResultCnx/SIMObjectSimulationPublishedResultCnx
+
+TO= PRODUCTCFG/VPMRepReference, PLMDmtDocument/PLMDMTDocument, RFLVPMLogical/RFLVPMLogicalRepReference
+
+THROUGH=POINTSTO))
+
+ 
+; 
+
+

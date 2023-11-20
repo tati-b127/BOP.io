@@ -1,0 +1,82 @@
+NAVIGATE
+
+	T0.PLMID , T0.PLM_ExternalID,
+	T1.physicalid , T1.logicalid , T1.type,
+   	T2.physicalid , T2.logicalid , T2.type, T2.name,
+	T3.physicalid , T3.logicalid , T3.type,
+   	T4.physicalid , T4.logicalid , T4.type, T4.name,
+	T5.physicalid , T5.logicalid , T5.type,
+   	T6.PLMID, T6.PLM_ExternalID
+
+FROM
+
+	PLMResourceSetRep/PLMResourceSetRepReference T0,
+	RelationClass/PLMResourceSet2SubItem T1,
+	Class/PLMResourceSetSubItem T2,
+	RelationClass/PLMResourceSetSubItem2CriterionValue T3,
+	Class/PLMResourceSetSubItemCriterionValue T4,
+	RelationClass/PLMResourceSetSubItemResource T5,
+	PLMCORE/PLMCoreReference T6
+
+FROM_ROOTS
+
+	[?1?]
+
+ON RELATION(FROM=PLMResourceSetRep/PLMResourceSetRepReference
+			 TO=RelationClass/PLMResourceSet2SubItem
+			 THROUGH=POINTEDBY
+			 )
+			 WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY)
+THEN RELATION(FROM=RelationClass/PLMResourceSet2SubItem
+			 TO=Class/PLMResourceSetSubItem
+			 THROUGH=POINTSTO
+			 )
+			 WITH QUALITY_FILTER (CATEGORY=ISINSTANCEOF)
+THEN
+(
+	(
+		(
+			(RELATION 
+				(FROM=Class/PLMResourceSetSubItem
+				TO=RelationClass/PLMResourceSetSubItem2CriterionValue
+				THROUGH=POINTEDBY
+				)
+				WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY)
+			)
+		)
+		THEN
+		(
+			(RELATION 
+				(FROM=RelationClass/PLMResourceSetSubItem2CriterionValue
+				TO=Class/PLMResourceSetSubItemCriterionValue
+				THROUGH=POINTSTO
+				)
+				WITH QUALITY_FILTER (CATEGORY=ISINSTANCEOF)
+			)
+		)
+	)
+	OR
+	(
+		(
+			(RELATION 
+				(FROM=Class/PLMResourceSetSubItem
+				TO=RelationClass/PLMResourceSetSubItemResource
+				THROUGH=POINTEDBY
+				)
+				WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY)
+			)
+		)
+		THEN
+		(
+			(RELATION 
+				(FROM=RelationClass/PLMResourceSetSubItemResource
+				TO=PLMCORE/PLMCoreReference
+				THROUGH=POINTSTO
+				)
+				WITH QUALITY_FILTER (CATEGORY=ISINSTANCEOF)
+			)
+		)
+	)
+)
+
+ITER = 2 ;

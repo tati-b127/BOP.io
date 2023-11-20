@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR Logical System Type -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2011, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" BelongsToModeler="RFLVPMLogical" Name="RFLVPMSystemTypeExposition"
+	Uuid="DFBDE4F0-2A52-46e2-8381-618C40511263"
+	UseNames="RFLVPMSystemTypeAbstract"
+  CustomerExposition="Programmer"
+>
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <Comment>last update 2011-10-11</Comment>
+
+  <!-- ************************************************* -->
+  <!-- * RFLVPMSystemTypeExpositionInstance (LogicalAbstractSystemTypeInstance) * -->
+  <!-- ************************************************* -->
+  <RelationClass Name="RFLVPMSystemTypeExpositionInstance"
+		Uuid="4CE3D40A-D59D-4402-ACC5-5C08A706B7FA"
+    CustomerExtensible="Yes"
+    CustomerExposition="Programmer"
+    Specializable="Yes"
+    Abstract="No"
+		SuperName="LogicalAbstractSystemTypeInstance"
+		>
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATELogDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="RFLVPMSystemTypeExpositionInstance"/>
+
+
+    <SubClause Name="from"   TargetName="LPAbstractReference"/>
+    <SubClause Name="to"   TargetName="RFLVPMSystemTypeReference"/>
+
+
+    <Simple Name="V_Direction" Uuid="2B2E4B86-2FD6-4d5c-AF96-AB77C460DC34" Type="Integer" Protection="ExternalIN" CAAExposition="L1" DefaultValue="2" PLMImpacting="Yes" Faceted="Yes">
+      <CAAComment>
+        <ShortRole>Direction of the System Type Exposition instance (In, Out, InOut or NoDirection)</ShortRole>
+      </CAAComment>
+      <Property Name="SIXW" Value="ds6w:technology"/>
+      <Property Name="RangeAsEnumName" Value="LPABSTRACT.V_LPPortDirectionEnum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="In;Out;InOut;NoDirection"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+      </Range>
+    </Simple>
+
+    <Volatile Name="Reference" Uuid="C00DB098-A6B2-4c65-920B-A9AA1E575383" Accessor="PLMModelerReferenceKweAttribute" TypeName="RFLVPMSystemTypeReference" AccessMode="ReadOnly" >
+      <Property Name="ServerAccessor" Value="com.dassault_systemes.vplm.modelerBaseNav.services.PLMInstance_Reference_Accessor"/>
+    </Volatile>
+
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+	  <ProcedureForUsage>
+	    <Usage href="ExportScope.meth#Remove"/>
+        <UsedProcedure href="ENOLog_Procedures.proc#Logical_ExportTypeExpoInst_Remove"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#TransferSiteOwnership"/>
+        <UsedProcedure href="ENOLog_Procedures.proc#Logical_ExportTypeExpoInst_TSO"/>
+      </ProcedureForUsage>
+    </Method>
+  </RelationClass>
+
+  <!-- **************************************************** -->
+  <!-- * Declaration of functions                           -->
+  <!-- **************************************************** -->
+
+  <!-- **************************************************** -->
+
+</Package>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" DataRDB_OID="ENODR_SIMITFDC" Name="SIMItfInterferenceDS" Uuid="4627d102-3cc0-4d40-b6025de60578b7e3" UseNames="SIMItfInterference">
+  <Property Name="OptionalInstallation" Value="Yes" />
+  <Class Name="SIMItfInterferenceDS" Uuid="fe4c622c-ed49-4c47-a41029b3c7487094"       SuperName="SIMItfInterference">
+    <Simple Name="V_Itf_Quant1"
+            Uuid="9f823576-82d7-0000-0280030b52000000"
+            Protection="Free"
+            Type="Double"
+            CAAExposition="L0"
+            Magnitude="LENGTH">
+      <Comment>Distance of penetration (if clash) else distance</Comment>
+    </Simple>
+    <Simple Name="V_Itf_Quant2"
+            Uuid="b1915044-59c3-4cf4-99526546600b85fa"
+            Protection="Free"
+            Type="Double"
+            CAAExposition="L0"
+            Magnitude="LENGTH">
+      <Comment>Error on the DoP due, for example, to tessellation</Comment>
+    </Simple>
+    <Simple Name="V_ItfCusto_Relevancy" Uuid="6b70611c-27d0-42a1-96d34bb9c049e5e5" Type="Integer" Protection="Free" CAAExposition="L0" DefaultValue="1">
+      <Comment>Stores the relevancy of this interference</Comment>
+      <Property Name="RangeAsEnumName" Value="SIMItfInterferenceDSRelevancyEnum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="Not_Analyzed;Relevant;Irrelevant"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+      </Range>
+    </Simple>
+    <Comment>Default customization for the SIMItfInterference object</Comment>
+  </Class>
+  <Class Name="SIMItfSimulationDS" Uuid="ea21122c-d40b-4454-b6d234b1b6125cbe"       SuperName="SIMItfSimulation">
+    <Comment>Default customization for the SIMItfSimulation object</Comment>
+    <IdentifierSet Name="Identifier" Uuid="4e513b55-61ba-4896-b1e7e48b12c12a50" IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755" IdentifierNames="PLM_ExternalID V_version"/>
+  </Class>
+  <Comment>Default customization for interference objects</Comment>
+</Package>

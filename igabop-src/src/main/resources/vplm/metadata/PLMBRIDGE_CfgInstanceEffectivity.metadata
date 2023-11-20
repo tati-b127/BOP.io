@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2005, All rights reserved -->
+
+<!-- History
+    V6R2010 Added Procedures & Functions for Export
+-->
+
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top"  Name="PLMBRIDGE_CfgInstanceEffectivity"
+    Uuid="B93F3006-115D-0000-0280030D7B000000"
+    UseNames="PLMCORE"
+    BelongsToModeler="Configuration"
+    CustomerExposition="Programmer"
+   >
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+        <ShortRole>The Configuration Bridge Metadata (2/3).</ShortRole>
+        <Role>This package includes the entity PLMCfgInstanceEffectivity.</Role>
+    </CAAComment>
+
+    <!-- ******************************* -->
+    <!-- CLASS PLMCfgInstanceEffectivity -->
+    <!-- ******************************* -->
+
+    <Class Name="PLMCfgInstanceEffectivity"
+        Uuid="B93F3100-8741-0000-0280030D7B000000"
+        SuperName="PLMConnection"
+        Abstract="No"
+        CustomerExposition="Programmer"
+        >
+
+        <CAAComment>
+            <ShortRole>The PLMCfgInstanceEffectivity.class</ShortRole>
+            <Role>The PLMCfgInstanceEffectivity.class</Role>
+        </CAAComment>
+        
+
+		<Path Name="_CfgEffectivity"
+			Uuid="8543cc1d-151f-42f7-a63b-d9d5862c10bf"
+			MultiValuated="No"
+    RoleName="PLMCfgEffectivity"		Type="SemanticRelation" AdaptativeToMinor="No"
+  SynchroSensitivity="Last"
+RerouteOnEffectivityChange="No" Orientation="In"
+    Semantics="Reference4"/>
+		<Path Name="_ConfiguredInstance"
+			Uuid="a1ae7e1c-c922-4a21-860e-15e5eb17c0b8"
+			MultiValuated="No"
+    RoleName="PLMConfiguredInstance"		Type="SemanticRelation" AdaptativeToMinor="No"
+  SynchroSensitivity="Last"
+RerouteOnEffectivityChange="No" Orientation="Out"
+    Semantics="Reference7"/>         
+
+        <!-- *********************** -->
+        <!-- PROCEDURES Declaration  -->      
+        <!-- *********************** -->
+
+	  <Method ImplementationType="None">
+		<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+	  </Method>
+        
+    </Class>
+
+</Package>
+

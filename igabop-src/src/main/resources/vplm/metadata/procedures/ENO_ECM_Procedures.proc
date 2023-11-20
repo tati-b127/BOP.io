@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+<ProcedurePackage
+    xmlns="PLMDictionaryProcedure"
+    Name="ENO_ECM_Procedures">
+
+	<Procedure Name="ECM_3DXML_ExportCA">
+		<Implementation Name="ECM_3DXML_ExportCA" FileLocation="ECM_3DXML_ExportCA.KProc" Language="EKL"/>
+		<Signature href="ENO_ECM_ProcedureSignatureExport"/>
+	</Procedure>
+	
+	<Procedure Name="ECM_xPDM_ExportCA">
+		<Implementation Name="ECM_xPDM_ExportCA" FileLocation="ECM_xPDM_ExportCA.KProc" Language="EKL"/>
+		<Signature href="ENO_ECM_ProcedureSignatureExport"/>
+	</Procedure>
+
+	<Signature id="ENO_ECM_ProcedureSignatureExport">
+		<Parameter Name="InputIds" Lower="0" Upper="-1" MultiValuated="Yes" Direction="in" DataType="PLMId"/>
+		<Parameter Name="OutputIds" Lower="0" Upper="-1" MultiValuated="Yes" Direction="out" DataType="PLMId"/>
+	</Signature>
+</ProcedurePackage>

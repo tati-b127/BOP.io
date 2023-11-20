@@ -1,0 +1,54 @@
+NAVIGATE
+
+	T0.logicalid		, T1.logicalid			, T2.logicalid ,
+   	T0.physicalid		, T1.physicalid			, T2.physicalid ,	
+   	T0.type				, T1.type				, T2.type
+
+FROM
+
+	Class/DOCUMENTS T0 ,
+
+	"RelationClass/Active Version" T1 ,
+
+	"RelationClass/Latest Version" T2
+
+FROM_ROOTS
+
+	[?1?]
+
+ON
+((
+	RELATION 
+		(FROM=Class/DOCUMENTS 
+		 TO="RelationClass/Active Version"
+		 THROUGH=POINTEDBY
+		 )
+		 WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY)
+
+THEN
+	RELATION 
+		(FROM="RelationClass/Active Version"
+		 TO=Class/DOCUMENTS 
+		 THROUGH=POINTSTO
+		 )
+		 WITH QUALITY_FILTER (CATEGORY=ISINSTANCEOF)
+)
+OR
+(
+	RELATION 
+		(FROM=Class/DOCUMENTS 
+		 TO="RelationClass/Latest Version"
+		 THROUGH=POINTEDBY
+		 )
+		 WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY)
+
+THEN
+	RELATION 
+		(FROM="RelationClass/Latest Version"
+		 TO=Class/DOCUMENTS 
+		 THROUGH=POINTSTO
+		 )
+		 WITH QUALITY_FILTER (CATEGORY=ISINSTANCEOF)
+))
+	
+ITER = 1 ;

@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2005, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" Name="PLMWspQuery" BelongsToModeler="PLMWspContext" Uuid="7015ba63-be62-44bc-9f4f678d045834ca" UseNames="PLMWspContext" CustomerExposition="Programmer">
+	  <Property Name="FormerTypingLegacy" Value="Yes"/>
+<CAAComment>
+		<ShortRole>Query Package</ShortRole>
+		<Role>This package includes base object of Query Model</Role>
+	</CAAComment>
+	<Comment>last update 2007-03-29-12.00.00</Comment>
+	<!-- ***************************************** -->
+	<!-- *    PLMWspQuery (PLMWspReference)      * -->
+  <!-- ***************************************** -->
+  <Class Name="PLMWspQuery" Uuid="5a6673c3-2cdc-4d5d-a738e84d79552646" SuperName="PLMWspReference" Abstract="No" CustomerExposition="Programmer" DeleteAvailability="Yes">
+    <CAAComment>
+			<ShortRole>Query object</ShortRole>
+			<Role>This object captures a query definition</Role>
+		</CAAComment>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope" />
+    </Method>
+
+    <Property Name="KweNew_InstanciationMethod" Value="CATEWSPDelegateInstanciation"/>
+    <Property Name="Newable" Value="No"/>
+    <Property Name="IconName" Value="I_QueryMain"/>
+    <Property Name="3DIconName" Value="Query.cgr"/>
+	</Class>
+
+</Package>

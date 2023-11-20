@@ -1,0 +1,51 @@
+<?xml version="1.0" ?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2014, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" 
+    ModelerType="Top"  
+    BelongsToModeler="ParameterPort" 
+    Name="ParameterPort"
+    Uuid="2994FE0F-29CB-498A-BAA3-64922CFB175D"
+    UseNames="PLMCORE"
+    CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+  <CAAComment>
+    <ShortRole>ParameterPort</ShortRole>
+    <Role>This package includes ParameterPort to publish kwe Parameter</Role>
+  </CAAComment>
+  
+  <Class Name="ParameterPort"
+      Uuid="9B012C9C-8D0A-47AB-9D38-7FD769901AF1"
+      Abstract="No"
+      SuperName="PLMPort"
+      CustomerExposition="Programmer"
+      Specializable="No"
+      CustomerExtensible="No">
+      
+    <Property Name="DMCDerivable" Value="No"/>
+    <Property Name="Searchable" Value="No"/>
+    <Property Name="DeleteAvailability" Value="Yes"/>
+    <Property Name="IconName" Value="I_PLMParameter"/>
+
+    <Path Name="ParameterAssignment" 
+        Uuid="0B76A0DA-C5A0-408F-A9CD-231100F47C92"
+        MultiValuated="No"
+      	Type="SemanticRelation" AdaptativeToMinor="No"
+		    SynchroSensitivity="PathAndLast"
+		    RerouteOnEffectivityChange="No"
+        Protection="External"
+        RoleName="ParameterAssignment"
+        Semantics="Reference3"
+        Orientation="In"/>
+    
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+
+
+</Package>
+

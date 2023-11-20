@@ -1,0 +1,249 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR DELMIA Sample size and frequency extensions -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2018, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified"
+	ModelerType="Top"
+	Name="DELExtSampleSizeAndFrequency"
+	Uuid="6A4028E4-6EEA-11E8-ADC0-FA7AE01BBEBC"
+	CustomerExposition="Programmer"
+	UseNames="DELWkiDataCollectPlan">
+
+	<CAAComment>
+		<ShortRole>PLM DELMIA Sample size and frequency extensions</ShortRole>
+		<Role>This package describes the PLM DELMIA Sample size and frequency extensions</Role>
+	</CAAComment>
+
+	<Comment>last update 2018-06-13</Comment>
+	
+	<!--- Sample Size -->
+	<Extension Name="DELExtSampleSizeAbstract"
+		CustomerExposition="Programmer"
+		Abstract="Yes"
+		Uuid="6A4029FC-6EEA-11E8-ADC0-FA7AE01BBEBC"
+		ScopeNames="PLMSpecifyHowToCollectDataCnx"
+		Specializable="Yes">
+	</Extension>
+	
+	<Extension Name="DELExtSampleSizeDiscrete"
+		CustomerExposition="Programmer"
+		Abstract="No"
+		Uuid="6A402B14-6EEA-11E8-ADC0-FA7AE01BBEBC"
+		SuperName="DELExtSampleSizeAbstract"
+		Specializable="No">
+
+		<Simple Name="V_SampleSize"
+			Uuid="6A403384-6EEA-11E8-ADC0-FA7AE01BBEBC"
+			Type="Integer"
+			MultiValuated="No"
+			Protection="External"
+			CAAExposition="L0"
+			DefaultValue="1">
+		</Simple>
+	</Extension>
+	
+	<Extension Name="DELExtSampleSizeVolume"
+		CustomerExposition="Programmer"
+		Abstract="No"
+		Uuid="6A402C36-6EEA-11E8-ADC0-FA7AE01BBEBC"
+		SuperName="DELExtSampleSizeAbstract"
+		Specializable="No">
+
+		<Simple Name="V_SampleSize"
+			Uuid="6A4034BA-6EEA-11E8-ADC0-FA7AE01BBEBC"
+			Type="Double"
+			Magnitude="VOLUME"
+			MultiValuated="No"
+			Protection="External"
+			CAAExposition="L0"
+			DefaultValue="1.0">
+		</Simple>
+	</Extension>
+	
+	<Extension Name="DELExtSampleSizeArea"
+		CustomerExposition="Programmer"
+		Abstract="No"
+		Uuid="6A403028-6EEA-11E8-ADC0-FA7AE01BBEBC"
+		SuperName="DELExtSampleSizeAbstract"
+		Specializable="No">
+
+		<Simple Name="V_SampleSize"
+			Uuid="6A4035DC-6EEA-11E8-ADC0-FA7AE01BBEBC"
+			Type="Double"
+			Magnitude="AREA"
+			MultiValuated="No"
+			Protection="External"
+			CAAExposition="L0"
+			DefaultValue="1.0">
+		</Simple>
+	</Extension>
+	
+	<Extension Name="DELExtSampleSizeLength"
+		CustomerExposition="Programmer"
+		Abstract="No"
+		Uuid="6A403154-6EEA-11E8-ADC0-FA7AE01BBEBC"
+		SuperName="DELExtSampleSizeAbstract"
+		Specializable="No">
+
+		<Simple Name="V_SampleSize"
+			Uuid="FB6F45C0-753E-11E8-ADC0-FA7AE01BBEBC"
+			Type="Double"
+			Magnitude="LENGTH"
+			MultiValuated="No"
+			Protection="External"
+			CAAExposition="L0"
+			DefaultValue="1.0">
+		</Simple>
+	</Extension>
+	
+	<Extension Name="DELExtSampleSizeMass"
+		CustomerExposition="Programmer"
+		Abstract="No"
+		Uuid="6A40326C-6EEA-11E8-ADC0-FA7AE01BBEBC"
+		SuperName="DELExtSampleSizeAbstract"
+		Specializable="No">
+
+		<Simple Name="V_SampleSize"
+			Uuid="FB6F4B6A-753E-11E8-ADC0-FA7AE01BBEBC"
+			Type="Double"
+			Magnitude="MASS"
+			MultiValuated="No"
+			Protection="External"
+			CAAExposition="L0"
+			DefaultValue="1.0">
+		</Simple>
+	</Extension>
+	
+	<!--- Sample Frequency -->
+	<Extension Name="DELExtSampleFrequencyAbstract"
+		CustomerExposition="Programmer"
+		Abstract="Yes"
+		Uuid="FB6F4CDC-753E-11E8-ADC0-FA7AE01BBEBC"
+		ScopeNames="PLMSpecifyHowToCollectDataCnx"
+		Specializable="Yes">
+	</Extension>
+	
+	<Extension Name="DELExtSampleFrequencyInteger"
+		CustomerExposition="Programmer"
+		Abstract="No"
+		Uuid="FB6F4DFE-753E-11E8-ADC0-FA7AE01BBEBC"
+		SuperName="DELExtSampleFrequencyAbstract"
+		Specializable="No">
+
+		<Simple Name="V_SampleFrequency"
+			Uuid="FB6F4F20-753E-11E8-ADC0-FA7AE01BBEBC"
+			Type="Integer"
+			MultiValuated="No"
+			Protection="External"
+			CAAExposition="L0"
+			DefaultValue="1">
+		</Simple>
+	</Extension>
+	
+	<Extension Name="DELExtSampleFrequencyEvent"
+		CustomerExposition="Programmer"
+		Abstract="No"
+		Uuid="FB6F5038-753E-11E8-ADC0-FA7AE01BBEBC"
+		SuperName="DELExtSampleFrequencyAbstract"
+		Specializable="No">
+
+		<Simple Name="V_SampleFrequency"
+			Uuid="FB6F515A-753E-11E8-ADC0-FA7AE01BBEBC"
+			Type="String"
+			MultiValuated="No"
+			Protection="External"
+			CAAExposition="L0">
+		</Simple>
+	</Extension>
+	
+	<Extension Name="DELExtSampleFrequencyTime"
+		CustomerExposition="Programmer"
+		Abstract="No"
+		Uuid="FB6F5542-753E-11E8-ADC0-FA7AE01BBEBC"
+		SuperName="DELExtSampleFrequencyAbstract"
+		Specializable="No">
+
+		<Simple Name="V_SampleFrequency"
+			Uuid="FB6F56A0-753E-11E8-ADC0-FA7AE01BBEBC"
+			Type="Double"
+			Magnitude="TIME"
+			MultiValuated="No"
+			Protection="External"
+			CAAExposition="L0"
+			DefaultValue="10.0">
+		</Simple>
+	</Extension>
+	
+	<Extension Name="DELExtSampleFrequencyVolume"
+		CustomerExposition="Programmer"
+		Abstract="No"
+		Uuid="FB6F581C-753E-11E8-ADC0-FA7AE01BBEBC"
+		SuperName="DELExtSampleFrequencyAbstract"
+		Specializable="No">
+
+		<Simple Name="V_SampleFrequency"
+			Uuid="FB6F5948-753E-11E8-ADC0-FA7AE01BBEBC"
+			Type="Double"
+			Magnitude="VOLUME"
+			MultiValuated="No"
+			Protection="External"
+			CAAExposition="L0"
+			DefaultValue="1.0">
+		</Simple>
+	</Extension>
+	
+	<Extension Name="DELExtSampleFrequencyArea"
+		CustomerExposition="Programmer"
+		Abstract="No"
+		Uuid="FB6F5A6A-753E-11E8-ADC0-FA7AE01BBEBC"
+		SuperName="DELExtSampleFrequencyAbstract"
+		Specializable="No">
+
+		<Simple Name="V_SampleFrequency"
+			Uuid="FB6F5B82-753E-11E8-ADC0-FA7AE01BBEBC"
+			Type="Double"
+			Magnitude="AREA"
+			MultiValuated="No"
+			Protection="External"
+			CAAExposition="L0"
+			DefaultValue="1.0">
+		</Simple>
+	</Extension>
+	
+	<Extension Name="DELExtSampleFrequencyLength"
+		CustomerExposition="Programmer"
+		Abstract="No"
+		Uuid="FB6F5C9A-753E-11E8-ADC0-FA7AE01BBEBC"
+		SuperName="DELExtSampleFrequencyAbstract"
+		Specializable="No">
+
+		<Simple Name="V_SampleFrequency"
+			Uuid="FB6F6000-753E-11E8-ADC0-FA7AE01BBEBC"
+			Type="Double"
+			Magnitude="LENGTH"
+			MultiValuated="No"
+			Protection="External"
+			CAAExposition="L0"
+			DefaultValue="1.0">
+		</Simple>
+	</Extension>
+	
+	<Extension Name="DELExtSampleFrequencyMass"
+		CustomerExposition="Programmer"
+		Abstract="No"
+		Uuid="FB6F612C-753E-11E8-ADC0-FA7AE01BBEBC"
+		SuperName="DELExtSampleFrequencyAbstract"
+		Specializable="No">
+
+		<Simple Name="V_SampleFrequency"
+			Uuid="FB6F624E-753E-11E8-ADC0-FA7AE01BBEBC"
+			Type="Double"
+			Magnitude="MASS"
+			MultiValuated="No"
+			Protection="External"
+			CAAExposition="L0"
+			DefaultValue="1.0">
+		</Simple>
+	</Extension>
+	
+</Package>

@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR RFL System Type -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2014, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" Name="UnifiedTypingMigration" 
+	Uuid="ee038842-0bf5-4e57-9ef5-9de369871c7e" 
+	UseNames="PLMABSTRACT;PLMCORE" 
+  CustomerExposition="None"         
+>
+		
+	
+	<!-- *********************************************************** -->
+	<!-- *  FormerTypingV5Data applyable on any object                 * -->
+	<!-- *********************************************************** -->
+  <Extension Name="FormerTypingV5Data"
+             CustomerExposition="None"
+             Uuid="63332168-b08e-488d-baa6-9ff628ca1cc4"
+             ScopeNames="PLMEntity;PLMInstance">
+    <CAAComment>
+      <ShortRole>Extension that can be put on an object to indicate that it requires a unified typing migration</ShortRole>
+    </CAAComment>
+    <!-- contains the target type (in unified typing) -->
+    <Simple Name="TargetType"
+       Uuid="e5db0d17-7de5-439f-b221-c3c90a5fe7af"
+       Type="String"
+       Protection="Internal">
+    </Simple>
+    <!-- contains the status of the data: 0=to migrate, 1=failed -->
+    <Simple Name="State"
+       Uuid="4a21c645-b7d0-4418-b30c-bd3f71d327a9"
+       Type="Integer"
+       Protection="Internal"
+       DefaultValue="0">
+    </Simple>
+  </Extension>
+
+</Package>

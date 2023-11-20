@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<!-- edited with XMLSpy v2007 (http://www.altova.com) by DASSAULT SYSTEMES (DASSAULT SYSTEMES) -->
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2006, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" CustomerExposition="Programmer" Name="PLMEquipmentsAndSystemsDictionary" Uuid="836BA102-0000-5CBB-45094E0A000BC421" UseNames="PRODUCTCFG">
+
+  <Comment>[V6R2016x] 2015-04-14 ADZ Add SectionRoutingPort class</Comment>
+  
+  <!-- Extensions V1 -->
+  <Extension Name="PLMEnsRefEquipment" Uuid="836BA102-0000-5CBE-45094E12000681A9" CustomerExposition="Programmer"  ScopeNames="VPMReference">
+    <Simple Name="V_Ens_SubType" Uuid="836BA102-0000-5CC1-45094E1900015CEF" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+  </Extension>
+  
+  <Extension Name="PLMEnsRefSupport" Uuid="836BA102-0000-5CC4-45094E1F0004E3AC" CustomerExposition="Programmer" ScopeNames="VPMReference">
+    <Simple Name="V_Ens_SubType" Uuid="836BA102-0000-5CC7-45094E2700019DA0" Type="String" MaxLength="100" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Ens_SupportType" Uuid="F17C0034-934B-4686-A443-4C789E7CCB3F" Type="String" MaxLength="40" MultiValuated="No" Protection="External" CAAExposition="L0"/>
+  </Extension>
+  
+   <!-- Extensions V2 -->
+  <Extension Name="SharedEquipmentPart" Discipline="Yes" Specializable="Yes"  Uuid="5FA02229-CE5C-435e-8A5A-449BC12A4721" CustomerExposition="Programmer" ScopeNames="VPMReference">
+    <Simple Name="V_Ens_SubType" Uuid="F097AA1C-E146-42df-80C1-4846F21AFA5C" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Property Name="IconName" Value="I_PLMEnsRefEquipment"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="MergedExtensionType" Value="PLMEnsRefEquipment"/>
+    <Property Name="OccurrenceType" Value="SharedEquipmentPartOccurrence"/>
+  </Extension>
+  
+   <Extension Name="SharedSupportPart" Discipline="Yes" Specializable="Yes"  Uuid="7ED458A1-9E0F-49da-9561-3BFD94AD20FD" CustomerExposition="Programmer" ScopeNames="VPMReference">
+    <Simple Name="V_Ens_SubType" Uuid="CCDBA03D-AC86-4acc-B645-107F93479429" Type="String" MaxLength="100" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Ens_SupportType" Uuid="474ABD7C-F4CF-4e68-BB0C-5B41D66357A7" Type="String" MaxLength="40" MultiValuated="No" Protection="External" CAAExposition="L0"/>  
+    <Property Name="IconName" Value="I_PLMEnsRefSupport"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="MergedExtensionType"  Value="PLMEnsRefSupport"/>
+    <Property Name="OccurrenceType" Value="SharedSupportPartOccurrence"/>
+  </Extension>
+  
+  <Class Name="SectionRoutingPort"
+         Uuid="cba2c2d8-ff77-4cc5-98e3-de07c58836a0"
+         CustomerExposition="Programmer"
+         SuperName="VPMPort"
+         Discipline="Yes">
+
+    <Property Name="Allow_V_Direction_Change" Value="No"/>
+    <Property Name="IconName" Value="I_PLMEnsSupport_Port"/>
+
+    <Simple Name="V_Shape" Uuid="0187d7af-3de3-41ba-aac0-4bb59c1b291e" Type="Integer" Protection="External" CAAExposition="L0" DefaultValue="1">
+      <Property Name="RangeAsEnumName" Value="V_SupportShape_Enum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="Circle;Rectangle"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+      </Range>
+    </Simple>
+    <Simple Name="V_Height" Type="Double" Uuid="afa8ff2b-b80e-4d14-ac12-e1f926f7763f" Magnitude="LENGTH" Protection="External" CAAExposition="L0" MultiValuated="No" DefaultValue="0"/>
+    <Simple Name="V_Width"  Type="Double" Uuid="d2a42dd3-dd55-4f9d-adca-f9d37d3117af" Magnitude="LENGTH" Protection="External" CAAExposition="L0" MultiValuated="No" DefaultValue="0"/>
+    <Simple Name="V_Depth"  Type="Double" Uuid="a5270a1b-aeeb-4936-83a8-068cb8c1d585" Magnitude="LENGTH" Protection="External" CAAExposition="L0" MultiValuated="No" DefaultValue="0"/>
+    <Simple Name="V_SectionArrangement" Uuid="3a581d24-deb2-4963-99de-879c2d8fe4c6" Type="Integer" Protection="External" CAAExposition="L0" DefaultValue="1">
+      <Property Name="RangeAsEnumName" Value="V_SectionArrangement_Enum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="Standard;Retainer"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+      </Range>
+    </Simple>
+  </Class>
+  
+</Package>

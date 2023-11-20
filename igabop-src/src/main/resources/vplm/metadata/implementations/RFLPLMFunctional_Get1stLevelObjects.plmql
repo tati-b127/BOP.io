@@ -1,0 +1,16 @@
+EXPAND
+
+T0.PLMID, T1.PLMID, T2.PLMID, T3.PLMID, T4.PLMID, T5.PLMID, T6.PLMID
+
+FROM
+RFLPLMFunctional/RFLPLMFunctionalConnector T0,
+RFLPLMFunctional/RFLPLMFunctionalConnection T1,
+RFLPLMFunctional/RFLPLMFunctionalRepReference T2,
+RFLPLMFunctional/RFLPLMFunctionalRepInstance T3,
+RFLPLMFlow/RFLPLMFlowReference T4,
+RFLPLMFlow/RFLPLMFlowInstance T5,
+RFLPLMFlowExposition/RFLPLMFlowExpositionInstance T6
+
+FROM_ROOTS [?1?]
+
+DEPTH=1;

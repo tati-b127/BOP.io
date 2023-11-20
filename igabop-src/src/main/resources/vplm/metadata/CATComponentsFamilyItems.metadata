@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY FOR ComponentsFamily Application -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2007, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" CustomerExposition="Programmer" ModelerType="Top"  Name="CATComponentsFamilyItems" Uuid="4caa07fa-0a5c-4401-bc95-770ea8e8fdce" UseNames="PLMCORE PRODUCTCFG"
+  BelongsToModeler="CATComponentsFamily"
+ >
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+  <CAAComment>
+    <ShortRole>Components Family Items Modeler Package</ShortRole>
+    <Role>This package contains meta datas of components family items</Role>
+  </CAAComment>
+  <Comment>Creation 2007-07-12</Comment>
+
+  <!-- **************************************** -->
+  <!-- * Components Family Connection to solved items (PLMConnection) * -->
+  <!-- **************************************** -->
+  <Class Name="CATComponentsFamilyProxyToElement" CustomerExposition="Programmer"  Uuid="EB94D6EA-A3AB-4b88-99FA-A99C48CFEFBE"  Abstract="No" SuperName="PLMConnection"  >
+    <!-- * Per latest specs, derivation of PLMConnection is now authorized * -->
+    <CAAComment>
+      <ShortRole>Connection to the components family items solved models</ShortRole>
+      <Role>Connection to the components family items solved models</Role>
+    </CAAComment>
+    <Simple Name="V_CharacteristicsValues" Uuid="f0bf905a-7701-41fd-9b3c-e736b67fe4d8" Protection="Internal" Type="String"  MultiValuated="Yes"  CollectionType="List"  PLMImpacting="No"/>
+    <Simple Name="V_ItemIndex" Uuid="c673c0a2-945c-4075-8b0a-c59cb477a868" Protection="Internal"  Type="Integer" PLMImpacting="No"/>
+    <Simple Name="V_ItemEvolutionMode" Uuid="a110e196-97f3-47c7-992a-b6d11a7572e7" Protection="Internal"  Type="Integer" PLMImpacting="No"/>
+    <Simple Name="V_ItemStatus" Uuid="bd1ce9de-7244-4a9a-bcf4-f449c8b8a2cb" Type="Integer" Protection="Internal" DefaultValue="1">
+      <Property Name="RangeAsEnumName" Value="CATComponentsFamilyItemStatus"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="CATComponentsFamilyItemStatusNotSolved;CATComponentsFamilyItemStatusOutOfDate;CATComponentsFamilyItemStatusSolved;CATComponentsFamilyItemStatusUpdateKO"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+      </Range>
+    </Simple>
+    <Path Name="CATComponentsFamilyItem" Uuid="99BA58E1-140C-429b-8C83-8D212B0A6BA9"  MultiValuated="No" RoleName="Default"  Semantics="Reference" Type="SemanticRelation" AdaptativeToMinor="No"		SynchroSensitivity="None"		RerouteOnEffectivityChange="No"/>
+    <Path Name="CATComponentsFamilyItemOldVersion" Uuid="e3b4bdea-4536-439d-9781-b757cf6a802a"  MultiValuated="Yes" RoleName="Default"  Semantics="Reference" Type="SemanticRelation" AdaptativeToMinor="No"		SynchroSensitivity="None"		RerouteOnEffectivityChange="No" />
+    <Path Name="CATComponentsFamilyItem2" Uuid="a15b021b-27e1-4fe2-8688-9d87067d7012"  MultiValuated="No" RoleName="CFY_Item"  Semantics="Reference" Type="SemanticRelation" AdaptativeToMinor="No"		SynchroSensitivity="None"		RerouteOnEffectivityChange="No"/>
+    <Path Name="CATComponentsFamilyItemOldVersion2" Uuid="595d3d99-a04d-4a41-980e-88d55d0369a8" MultiValuated="Yes" RoleName="CFY_OldVersions"  Semantics="Reference" Type="SemanticRelation" AdaptativeToMinor="No" 		SynchroSensitivity="None"		RerouteOnEffectivityChange="No"/>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+  <!-- *************************************** -->
+  <!-- * Components Family Extension on solved items (PLMExtension) * -->
+  <!-- *************************************** -->
+  <Extension
+    Name="CATComponentsFamilyExtensionOnElement"
+    Uuid="bc5de27f-2597-4b97-9369-2515a529d3ad"
+    CustomerExposition="Programmer"
+    ScopeNames="VPMReference"
+   >
+    <!-- CAAExposition="L0"|"L1" PHB: projection in 3DXML or not? -->
+    <!-- -->
+    <!-- CAA_Derivable="No" PHB: obsolete? -->
+    <CAAComment>
+      <ShortRole>Components family extension on the  the components family items solved models</ShortRole>
+      <Role>Components family extension on the  the components family items solved models</Role>
+    </CAAComment>
+    <Simple
+      Name="V_CharacteristicsValues"
+      Uuid="dacef183-f44e-403a-abac-a48f177db07a"
+      Protection="External"
+      Type="String"
+      MultiValuated="Yes"
+      CollectionType="List"
+  CAAExposition="L0" />
+    <Simple
+      Name="V_Family"
+      Uuid="cbba4428-fba2-4ee5-a308-5819179d7627"
+      Protection="External"
+      Type="String"
+      MaxLength="80"
+      CAAExposition="L0"
+      Faceted="Yes">
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Simple
+      Name="V_GenericVersion"
+      Uuid="f2c03207-0cd8-4e5b-b20f-86128b6e6034"
+      Protection="External"
+      Type="String"
+      MaxLength="80"
+  CAAExposition="L0"/>
+  </Extension>
+</Package>
+
+

@@ -1,0 +1,115 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR DELMIA Production System Application -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified"
+         ModelerType="Top"
+         Name="DELLmiProductionSinkOperation"
+         Uuid="0a244ab6-f21b-416e-96aa989c76c9591a"
+         BelongsToModeler="DELLmiProductionSystem"
+	       UseNames="DELLmiProductionOperationPPR"
+         CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>PLM DELMIA Sink Operation </ShortRole>
+    <Role>This package describes the PLM DELMIA Sink Operation model on top of DELLmiProductionOperationPPR</Role>
+  </CAAComment>
+
+  <Comment>last update 2012-01-20</Comment>
+
+  <Class Name="DELLmiSinkOperationReference"
+		     Uuid="96ba2f4a-024b-41aa-9342f4c6200e78c2"
+		     Abstract="No"
+         SuperName="DELLmiOperationPPRReference"
+         CustomerExposition="Programmer"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         CreateInstName="DELLmiSinkOperationInstance"
+         Abbreviation="sko"
+         InstantiationOwnerTypes="SinkSystem"
+         >
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELMPProdSystemAdvDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELLmiSinkOperationInstance"/>
+    <Property Name="IconName" Value="I_PPRSeqSink"/>
+    <Property Name="3DIconName" Value="I_PPRSeqSink.cgr"/>
+    <Property Name="Newable" Value="Insert_CAA"/>
+    <Property Name="Searchable" Value="Yes"/>
+
+    <CAAComment>
+      <ShortRole>PLM DELMIA Sink Operation Reference</ShortRole>
+      <Role>PLM DELMIA Sink Operation Reference</Role>
+    </CAAComment>
+
+    <Simple Name="V_InitialStock"
+            Uuid="917ac087-3cd2-4eac-8ee3016d5916fa7e"
+            Type="Integer"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0">
+    </Simple>
+
+    <Simple Name="V_Proportion"
+            Uuid="ce15b1b5-9f0e-4099-b53e94a803d4b637"
+            Type="Double"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0">
+    </Simple>
+
+    <Simple Name="V_Lot"
+            Uuid="c9babd69-2d19-4b5e-88a67b55584019c9"
+            Type="Integer"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0">
+    </Simple>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+
+
+  </Class>
+
+  <RelationClass Name="DELLmiSinkOperationInstance"
+		     Uuid="8501b774-6d6d-4747-9855137aeeef4768"
+		     Abstract="No"
+         SuperName="DELLmiOperationPPRInstance"
+         CustomerExposition="Programmer"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         >
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELMPProdSystemAdvDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELLmiSinkOperationInstance"/>
+
+    <CAAComment>
+      <ShortRole>PLM DELMIA Sink Operation Instance. Specialization is not supported yet.</ShortRole>
+      <Role>PLM DELMIA SinkOperation Instance</Role>
+    </CAAComment>
+
+    <Volatile Name="Reference"
+              Uuid="DF7A1648-62C4-445d-9F12-A2A0148887A8"
+              Accessor="PLMModelerReferenceKweAttribute"
+              TypeName="DELLmiSinkOperationReference"
+              AccessMode="ReadOnly" />
+
+    <SubClause Name="to"   TargetName="DELLmiSinkOperationReference"/>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+
+  </RelationClass>
+
+</Package>

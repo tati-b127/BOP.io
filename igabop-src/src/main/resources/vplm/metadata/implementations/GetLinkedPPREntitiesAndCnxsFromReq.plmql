@@ -1,0 +1,27 @@
+NAVIGATE 
+   T0.PLMID, T1.PLMID, T2.PLMID, T3.PLMID
+ 
+FROM
+  DELFmiFunctionalModel/DELFmiFunctionReference T0, 
+  DELLmiProductionSystem/DELLmiProductionSystemReference T1, 
+  DELLmiProductionOperation/DELLmiOperationReference T2, 
+  PLMRequirementSpecifyHowToCnx/PLMReqSpecifyHowToCnx T3
+FROM_ROOTS 
+  [?1?]
+ON 
+( 
+ (RELATION(FROM=Class/Requirement TO=PLMRequirementSpecifyHowToCnx/PLMReqSpecifyHowToCnx THROUGH=POINTEDBY) WITH QUALITY_FILTER (ROLE=PLM_SpecifyingReq AND CATEGORY=Reference3))
+ OR 
+ (RELATION(FROM="Class/Requirement Specification" TO=PLMRequirementSpecifyHowToCnx/PLMReqSpecifyHowToCnx THROUGH=POINTEDBY) WITH QUALITY_FILTER (ROLE=PLM_SpecifyingReq AND CATEGORY=Reference3))
+ OR  
+ (RELATION(FROM="Class/Requirement Group" TO=PLMRequirementSpecifyHowToCnx/PLMReqSpecifyHowToCnx THROUGH=POINTEDBY) WITH QUALITY_FILTER (ROLE=PLM_SpecifyingReq AND CATEGORY=Reference3))
+ OR  
+ (RELATION(FROM=Class/Chapter TO=PLMRequirementSpecifyHowToCnx/PLMReqSpecifyHowToCnx THROUGH=POINTEDBY) WITH QUALITY_FILTER (ROLE=PLM_SpecifyingReq AND CATEGORY=Reference3))
+ OR  
+ (RELATION(FROM=Class/Comment TO=PLMRequirementSpecifyHowToCnx/PLMReqSpecifyHowToCnx THROUGH=POINTEDBY) WITH QUALITY_FILTER (ROLE=PLM_SpecifyingReq AND CATEGORY=Reference3))
+) 
+THEN 
+(
+(RELATION(FROM=PLMRequirementSpecifyHowToCnx/PLMReqSpecifyHowToCnx TO=DELFmiFunctionalModel/DELFmiFunctionReference,DELLmiProductionSystem/DELLmiProductionSystemReference,DELLmiProductionOperation/DELLmiOperationReference  THROUGH=POINTSTO) WITH QUALITY_FILTER (ROLE=PLM_SpecifiedByReq AND CATEGORY=Reference5))
+)
+ITER=1 ;  

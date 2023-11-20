@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+
+<Package xmlns="PLMDictionaryTop" ModelerType="Top" Name="PLMRETokenEmissionOperation" Uuid="a4b57fdc-6132-4352-8896-a5ccc07410d9"  UseNames="PLMRETokenTransferOperation">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <!-- ****************************** -->
+<!-- PLMRETokenEmissionOperation    -->
+<!-- ****************************** -->
+
+
+<Class Name="PLMRETokenEmissionOperation" Uuid="16a9883e-fcd8-4104-ac93-f299fe5e4ee1"  SuperName="PLMRETokenTransferOperation" CAAExposition="L0">
+<Property Name="Searchable" Value="No"/>
+<Method ImplementationType="None">
+<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+</Method>
+<!-- Transfer operation emission status : pending | waiting | finished -->
+<Simple Name="V_EmissionStep" Uuid="e6ef4128-14b4-44b1-8ff6-728e1bfbae39"   MultiValuated="No" Type="String" MaxLength="60"  Protection="Internal"/>
+<!-- successful | cancelled | refused | (failure) -->
+<Simple Name="V_EmissionStatus" Uuid="e639306e-7047-4726-afed-e07cefdd676e"  MultiValuated="No" Type="String" MaxLength="60"   Protection="Internal"/>
+<IdentifierSet Name="Identifier" Uuid="7aa8b666-b99a-4349-9b10-7a9f12acd9ef" IdentifierNames="V_OperationId" IdentifierUuids="9f921798-63eb-429b-8baf-4f6fb81befd3" />
+</Class>
+
+
+</Package>
+

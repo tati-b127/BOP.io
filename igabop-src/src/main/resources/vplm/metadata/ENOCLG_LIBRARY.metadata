@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2006, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified"  ModelerType="Top" Name="ENOCLG_LIBRARY" Uuid="1eb106b1-4ada-4727-8c1c-3fc0340d470a" UseNames="ENOFLD_ABSTRACT_ROOT" UseProcedures="LIBProcAttach" CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+  <CAAComment>
+    <ShortRole>Library Package</ShortRole>
+    <Role>This package includes Library Model</Role>
+  </CAAComment>
+  <Comment>last update 2007-12-04-00.00.00</Comment>
+  <!-- ************************************************************************************************************************ -->
+  <!-- * ENOCLG_CatalogReference(PLMCoreReference) : concrete library class, available in PLM New, CAA derivable, searchable, * -->
+  <!-- ************************************************************************************************************************ -->
+  <Class Name="ENOCLG_LibraryReference" Uuid="d9ac6dca-27b6-4150-9e6f-e8583a86fcbd"  Abstract="No" SuperName="ENOFLD_AbstractRootReference" Abbreviation="clg" CustomerExposition="Programmer" Specializable="Yes">
+    <CAAComment>
+      <ShortRole>Library Reference</ShortRole>
+      <Role>Library Reference</Role>
+    </CAAComment>
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="KnlgLibraryNewFactory"/>
+    <Property Name="Newable" Value="New"/>
+    <Property Name="IconName" Value="I_CatalogCatalog"/>
+    <Property Name="3DIconName" Value="Catalog_3DNAVREP.cgr"/>
+    <Property Name="DeleteAvailability" Value="Yes"/>
+    <Property Name="Searchable" Value="Yes"/>
+
+    <!-- ********************************************************* -->
+    <!-- * Elementary Catalog attributes                         * -->
+    <!-- ********************************************************* -->
+    <Simple Name="V_CESSynchro" Uuid="3813172d-d23b-4937-89a7-0c2df459fc10" Type="String" MaxLength="45" Protection="Internal"  MultiValuated="No"/>
+
+    <Simple Name="V_AuthoringProfile" Uuid="1571b7ae-fa2c-482b-b3d6-c5c4bb047f8b"  Type="Integer"
+	Protection="External"  MultiValuated="No" CAAExposition="L0" ResetOnCloning="Yes" DefaultValue="0"/>
+
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Design"/>
+        <UsedProcedure href="PLMCatalog_Procedures.proc#Clg_ExportCatalog"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Channel"/>
+        <UsedProcedure href="PLMCatalog_Procedures.proc#Clg_ExportCatalog"/>
+      </ProcedureForUsage>
+    </Method>
+  </Class>
+
+
+
+  <!-- ******************************* -->
+  <!-- FUNCTIONS Declarations : PLMQL  -->
+  <Function Name="clg_expand_library">
+    <Implementation Name="clg_expand_library" FileLocation="clg_expand_library.plmql" Language="PLMQL"/>
+    <Signature href="ClgLibFuncSignature"/>
+  </Function>
+  <Function Name="clg_navigate_reference">
+    <Implementation Name="clg_navigate_reference" FileLocation="clg_navigate_reference.plmql" Language="PLMQL"/>
+    <Signature href="ClgLibFuncSignature"/>
+  </Function>
+
+  <Signature id="ClgLibFuncSignature">
+    <Parameter Name="InputIds" Lower="0" Upper="-1" Direction="in" MultiValuated="Yes" DataType="PLMId"/>
+    <Parameter Name="OutputIds" Lower="0" Upper="-1" Direction="out" MultiValuated="No" DataType="PLMRouteSet"/>
+  </Signature>
+  <!-- ******************************* -->
+</Package>

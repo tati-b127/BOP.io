@@ -1,0 +1,9 @@
+NAVIGATE
+   T0.PLMID
+FROM
+   RFLPLMFunctional/RFLPLMFunctionalConnector T0
+FROM_ROOTS [?1?]
+ON 
+RELATION (FROM=RFLPLMFunctionalCommunication/RFLPLMFunctionalCommunicationReference TO=RFLPLMFunctional/RFLPLMFunctionalConnector   THROUGH=POINTEDBY)
+WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY)
+ITER=1;

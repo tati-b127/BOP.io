@@ -1,0 +1,8 @@
+start transaction;
+
+exec prog MxUpdate --path /usr/PLM/IGABOP/dbschema --update -a * --compile;
+compile prog IGABOP*;
+
+mod type DerivedOutputEntity add trigger checkin action emxTriggerManager input 'TypeDerivedOutputEntityCheckinAction';
+
+commit transaction;

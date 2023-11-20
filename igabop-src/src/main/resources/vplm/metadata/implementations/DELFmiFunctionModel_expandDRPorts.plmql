@@ -1,0 +1,8 @@
+EXPAND
+T0.PLMID
+
+FROM
+DELFmiFunctionalModelPrerequisitePort/DELFmiProcessPrerequisitePort T0
+
+FROM_ROOTS [?1?]
+DEPTH=1;

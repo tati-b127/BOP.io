@@ -1,0 +1,126 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR DELMIA Production System Application -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2009, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" 
+         ModelerType="Top" 
+         Name="DELLmiProductionExecSinkOperation"
+	       Uuid="aef1b8fc-c917-4a0a-b0a8-ac50442636d2"
+	       UseNames="DELLmiProductionOperationUPR"
+         CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>Execution Sink Operation. OBSOLETE. Not used in current applications </ShortRole>
+    <Role>This package describes the Execution Sink Operation model on top of DELLmiProductionOperationUPR</Role>
+  </CAAComment>
+
+  <Comment>last update 2009-05-25</Comment>
+  <Comment>last update 2013-06-21</Comment>
+
+  <Class Name="DELLmiExecSinkOperationReference"
+		     Uuid="23e94ebb-07c8-4041-8e88-6a60f9a0a429"
+		     Abstract="No"
+         SuperName="DELLmiOperationUPRReference"
+         CustomerExposition="Programmer"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         CreateInstName="DELLmiExecSinkOperationInstance"
+         Abbreviation="wkop"
+         InstantiationOwnerTypes="ExecSinkSystem"
+         >
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELLmiExecOpDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELLmiExecSinkOperationInstance"/>
+    <Property Name="IconName" Value="I_PPRSeqExecSink"/>
+    <Property Name="3DIconName" Value="I_PPRSeqExecSink.cgr"/>
+    <Property Name="Newable" Value="No"/>
+    <Property Name="Searchable" Value="Yes"/>
+
+    <CAAComment>
+      <ShortRole>Execution Sink Operation Reference.</ShortRole>
+      <Role>Execution Sink Operation Reference. Specialization is not supported yet.</Role>
+    </CAAComment>
+
+	  <Simple Name="V_InitialStock" 
+            Uuid="d1db1916-30c2-4505-b815-fcf477437f9e" 
+            Type="Integer"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"
+            DefaultValue="0">
+      <CAAComment>
+        <ShortRole>This defines the numbers of parts that are already present in the system when the Simulation begins. The default is zero.</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_Proportion"
+            Uuid="ec305bd6-ebab-4645-96fe-8df79fd5ff39"
+          Type="Double"
+          MultiValuated="No"
+          Protection="Free"
+          CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>This defines the proportions of each product accepted by the Sink.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_Lot"
+            Uuid="19ab4bc9-0b02-44cc-86ee-d909e98c540f"
+            Type="Integer"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>It is number of products accepted at a time.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+
+
+
+  </Class>
+
+  <RelationClass Name="DELLmiExecSinkOperationInstance"
+		     Uuid="a86740f7-623a-44cb-9eac-105c3e119dae"
+		     Abstract="No"
+         SuperName="DELLmiOperationUPRInstance"
+         CustomerExposition="Programmer"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         >
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELMPProdSystemAdvDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELLmiExecSinkOperationInstance"/>
+    
+    <CAAComment>
+      <ShortRole>Execution Sink Operation Instance</ShortRole>
+      <Role>Execution Sink Operation Instance. Specialization is not supported yet.</Role>
+    </CAAComment>
+
+    <Volatile Name="Reference" 
+              Uuid="7AB67D37-3134-4ce7-AFED-D945125FCA81"
+              Accessor="PLMModelerReferenceKweAttribute" 
+              TypeName="DELLmiExecSinkOperationReference" 
+              AccessMode="ReadOnly" />
+
+    <SubClause Name="to"   TargetName="DELLmiExecSinkOperationReference"/>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+<Method ImplementationType="None">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+
+
+  </RelationClass>
+
+</Package>

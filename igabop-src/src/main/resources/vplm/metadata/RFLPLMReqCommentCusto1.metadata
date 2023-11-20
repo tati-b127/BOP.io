@@ -1,0 +1,125 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR RFL Requirement Application Custo 1-->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2006, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" DataRDB_OID="ENODR_RFLRCmtC1" Name="RFLPLMReqCommentCusto1"
+	Uuid="f49ae7eb-ce58-4ba4-83134135102eb644" 
+	UseNames="RFLPLMReqComment" 
+	Alias="PLM RFL Requirement Comment Model Customization 1" 
+>
+	
+<Property Name="OptionalInstallation" Value="Yes" /> 
+	<CAAComment>
+		<ShortRole>PLM Requirement Comment Customization 1 Package</ShortRole>
+		<Role>This package describes a Customization of PLM Requirement model</Role>
+	</CAAComment>
+	
+	<Comment>last update 2006-08-10-19.00.00</Comment>
+	
+	<!-- ****************************************** -->
+	<!-- *  RFLPLMRequirementCusto1 (RFLPLMRequirement) * -->
+	<!-- ****************************************** -->
+	
+	
+	<Class Name="RFLPLMReqCommentReferenceCusto1" 
+		Alias="RFLPLMReqCommentReferenceCusto1" 
+		Uuid="d4866ef0-7a82-41b6-8cf576e4c7c24993"
+		 
+		 
+  SuperName="RFLPLMReqCommentReference" 
+	SuperRef="1dc1e56d-7247-4ead-b3e47139594b8435"
+		>
+
+		<CAAComment>
+			<ShortRole>Customized PLM Requirement Comment Reference Object</ShortRole>
+			<Role>Customized PLM Requirement Comment Reference Object</Role>
+		</CAAComment>
+		
+	    <IdentifierSet Name="Identifier"
+            Uuid="334b76c7-5011-4213-9f0c5adaa847bc30"
+            IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755"
+            IdentifierNames="PLM_ExternalID V_version" />	
+            
+	</Class>
+
+	<!-- ********************************************************* -->
+	<!-- * RFLPLMReqCommentInstanceCusto1 (RFLPLMRequirementInstance) * -->
+	<!-- ********************************************************* -->
+
+	<Class Name="RFLPLMReqCommentInstanceCusto1" 
+		Alias="RFLPLMReqCommentInstanceCusto1" 
+		Uuid="51ef5c7b-407d-456d-a80dd80f3dba98e4" 
+		 
+		 
+		 
+		 
+		SuperName="RFLPLMReqCommentInstance" 
+		SuperRef="0993ba14-bbbb-4756-80435f5ba5099f40" 
+		 
+		>
+
+		<CAAComment>
+			<ShortRole>Customized PLM Requirement Comment Instance Object</ShortRole>
+			<Role>Customized PLM Requirement Comment Instance Object</Role>
+		</CAAComment>
+	</Class>
+
+	<!-- ************************************************* -->
+	<!-- * RFLPLMReqCommentPortCusto1 (RFLPLMRequirementPort) * -->
+	<!-- ************************************************* -->
+
+
+	<!-- ************************************************************* -->
+	<!-- * RFLPLMReqCommentConnectionCusto1 (RFLPLMRequirementConnection) * -->
+	<!-- ************************************************************* -->
+
+   <!-- **************************************************** -->
+    <!-- * RFLPLMReqCommentRepReferenceCusto1 (PLMCoreRepReference) * -->
+    <!-- **************************************************** -->
+
+    <Class Name="RFLPLMReqCommentRepReferenceCusto1"
+    	Alias="RFLPLMReqCommentRepReferenceCusto1" 
+        Uuid="c8c61249-b5f5-488c-b83087ff388f963a"
+        
+        
+        
+        
+        SuperName="RFLPLMReqCommentRepReference"
+        SuperRef="fa99efaa-d4d1-4d1e-94372b4e2d867711"
+        
+        >
+        
+	    <IdentifierSet Name="Identifier"
+            Uuid="6233166b-2852-45fa-9cbafb6f5262c42c"
+            IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755"
+            IdentifierNames="PLM_ExternalID V_version" />	
+
+		<CAAComment>
+			<ShortRole>Customized PLM Requirement Comment Rep Reference Custo1 Object</ShortRole>
+			<Role>Customized PLM Requirement Comment Rep Reference Custo1 Object</Role>
+		</CAAComment>
+      </Class>
+      
+    <!-- ************************************************** -->
+    <!-- * RFLPLMReqCommentRepInstanceCusto1 (PLMCoreRepInstance) * -->
+    <!-- ************************************************** -->
+
+    <Class Name="RFLPLMReqCommentRepInstanceCusto1"
+    	  Alias="RFLPLMReqCommentRepInstanceCusto1" 
+        Uuid="3eb41a29-96ae-48bb-abf36251953970df"
+        
+        
+        
+        
+        SuperName="RFLPLMReqCommentRepInstance"
+        SuperRef="84c0a770-7fba-426a-8501846f062c94ce"
+        
+        >
+
+		<CAAComment>
+			<ShortRole>Customized PLM Requirement Comment Rep Instance Custo1 Object</ShortRole>
+			<Role>Customized PLM Requirement Comment Rep Instance Custo1 Object</Role>
+		</CAAComment>        
+        
+    </Class>        
+</Package>

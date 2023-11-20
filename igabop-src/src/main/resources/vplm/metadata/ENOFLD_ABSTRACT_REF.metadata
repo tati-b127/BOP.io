@@ -1,0 +1,137 @@
+<?xml version="1.0" ?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2006, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" BelongsToModeler="Folder" Name="ENOFLD_ABSTRACT_REF"
+    Uuid="7d585f1c-d376-486a-9485-637030b14be3"
+    UseNames="PLMCORE ENOFLD_CORE"
+	  CustomerExposition="Programmer"
+   >
+
+    <CAAComment>
+        <ShortRole>Abstract FolderRef Package</ShortRole>
+        <Role>This package includes all the entities of Abstract non-Root Folder Model</Role>
+    </CAAComment>
+
+    <Comment>last update 2006-11-16-00.00.00</Comment>
+
+    <!-- ********************************************************** -->
+    <!-- * ENOFLD_AbstractReference(PLMCoreReference) : abstract  * -->
+    <!-- ********************************************************** -->
+
+    <Class Name="ENOFLD_AbstractReference"
+        Uuid="5aa0633f-012c-474e-b1d2-ab20b4fa5c8e"
+        CustomerExposition="Programmer"
+        Abstract="Yes"
+        SuperName="ENOFLD_CoreReference" 
+        NewMajorRevisionAvailability="No">
+      <Property Name="Searchable" Value="No"/>
+
+	 <CAAComment>
+	    <ShortRole>Abstract Non-Root Folder</ShortRole>
+	    <Role>Abstract Non-Root Folder</Role>
+	 </CAAComment>
+
+       <!-- ********************************************************* -->
+       <!-- * Elementary Folder attributes                          * -->
+       <!-- ********************************************************* -->
+
+         <Simple Name="V_IdFather"
+            Uuid="d9650bec-ad89-41d2-8fbc-e34426c1cc93"
+            Type="String"
+            MaxLength="32"
+            MultiValuated="No"
+            Protection="Internal">
+
+	 	<CAAComment>
+	    		<ShortRole>Internal Identifier of father folder</ShortRole>
+	 	</CAAComment>
+        </Simple>
+
+        <Simple Name="V_IdNamingSpace"
+            Uuid="75142b3b-9cdd-48f4-b1e7-33d7945c4d53"
+            Type="String"
+            MaxLength="32"
+            MultiValuated="No"
+            Protection="External" CAAExposition="L0">
+
+	 	<CAAComment>
+	    		<ShortRole>Internal Identifier of naming space of that Abstract non-Root Folder. This attribute should used as part of the identifier set, when creating a customization.</ShortRole>
+	 	</CAAComment>
+        </Simple>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+    </Class>
+
+    <!-- ********************************************** -->
+    <!-- * ENOFLD_AbstractInstance(PLMCoreInstance)     * -->
+    <!-- ********************************************** -->
+
+  <RelationClass Name="ENOFLD_AbstractInstance"
+        Uuid="83ae841e-f582-4a38-8b8b-41de468e3b74"
+        CustomerExposition="Programmer"
+        Abstract="Yes"
+        SuperName="PLMCoreInstance">
+
+	 <CAAComment>
+	    <ShortRole>Abstract Instance between a Folder and another Folder</ShortRole>
+	    <Role>Abstract Instance between a Folder and another Folder</Role>
+	 </CAAComment>
+
+
+       <!-- ********************************************************* -->
+       <!-- * Overload(s) of PLMCoreInstance attributes.            * -->
+       <!-- ********************************************************* -->
+
+      <SubClause Name="from"   TargetName="ENOFLD_CoreReference"/>
+      <SubClause Name="to"   TargetName="ENOFLD_AbstractReference"/>
+
+      <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+    </RelationClass>
+
+    <!-- ******************************************** -->
+    <!-- * ENOFLD_AbstractConnection(PLMConnection) * -->
+    <!-- ******************************************** -->
+
+    <Class Name="ENOFLD_AbstractConnection" 
+		Uuid="053a703e-818b-4f59-a58b-358701407e60" 
+		CustomerExposition="Programmer" 
+		Abstract="Yes" 
+    OwnerTypes="ENOFLD_AbstractReference"
+		SuperName="PLMConnection">
+      <!-- OwnerTypes="ENOFLD_AbstractReference"  Integrate this line if you want to declare the aggregation constraint -->
+
+      <CAAComment>
+			<ShortRole>Abstract Folder Connection Object</ShortRole>
+			<Role>Abstract Folder Connection Object to link an Abstract non-Root Folder to any PLMReference</Role>
+		</CAAComment>
+	
+       <!-- ********************************************************* -->
+       <!-- * Overload(s) of PLMConnection attributes.              * -->
+       <!-- ********************************************************* -->
+
+
+
+      <!-- Only PLMCoreReference can be pointed by a ENOFLD_AbstractConnection -->
+        <Path Name="FolderToReference" 
+            Uuid="30b40e3f-ca86-4e5e-b5b4-23dc2dc35829" 
+            RoleName="ENOFLD_Folder" 
+            MultiValuated="No" 		
+            Type="SemanticRelation" AdaptativeToMinor="No"
+		        SynchroSensitivity="None"
+		        RerouteOnEffectivityChange="No" Protection="Internal"
+            Semantics="Reference2"/>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+    </Class>
+
+</Package>

@@ -1,0 +1,874 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" CustomerExposition="Programmer"
+         Name="PLMPiping" Uuid="8f1842b6-3357-4695-9d616a4110299a51"
+         UseNames="PRODUCTCFG">
+  <Property Name="IconName" Value="I_PLMPiping"/>
+  <CAAComment>
+    <ShortRole>Piping/Tubing Physical Design Package</ShortRole>
+    <Role>This package describes Piping/Tubing physical design data on top of physical modeler.</Role>
+  </CAAComment>
+
+  <Comment>Initial creation: 2006-09-14</Comment>
+  <Comment>Modified in R1.X+2: 2007-04-03</Comment>
+  <Comment>Modified in R1.X+3: 2007-11-20</Comment>
+  <Comment>Modified in R1.X+4: 2008-02-08</Comment>
+  <Comment>Modified R207 2008-09-12 AWG EndStyle2 and Discipline</Comment>
+  <Comment>Modified R207 2008-10-07 AWG remove EndStyle2</Comment>
+  <Comment>Modified R207 2008-11-17 AWG V_SubPartType CAAExposition</Comment>
+  <Comment>Modified R207 2009-01-16 AWG Piping_Spool discipline</Comment>
+  <Comment>Modified R207 2009-01-29 AWG Export</Comment>
+  <Comment>Modified R207 2009-03-31 AWG CAAComment</Comment>
+  <Comment>Modified R207 2009-05-11 AWG R208</Comment>
+  <Comment>Modified R207 2009-06-12 AWG R208 MaterialName/PipRigidPipe Volatiles</Comment>
+  <Comment>Modified R213 2012-01-04 ADZ Export 3DVIA. RI 084667V6R2013</Comment>
+  <Comment>Modified R214 2012-03-07 ADZ New Typing</Comment>
+  <Comment>Modified R214 2012-06-05 ADZ KweNew_InstanciationMethod property added on Piping_Part</Comment>
+  <Comment>Modified R214 2012-07-25 ADZ Add Piping_Part (any type)</Comment>
+  <Comment>Modified R214 2012-07-27 ADZ Add CustomerExtensible=Yes on Piping_Part</Comment>
+  <Comment>Modified R214 2012-08-01 ADZ Add Piping_PartV1 (any type)</Comment>
+  <Comment>[V6R2013x] 2012-10-23 ADZ Add Property Name="Newable" Value="All" on Piping_PartV2</Comment>
+  <Comment>[V6R2014] 2012-11-19 ADZ Remove useless 'ExportScope' with ImplementationType 'AsFather' </Comment>
+  <Comment>[V6R2014] 2012-11-26 ADZ Add OccurrenceType property on Piping_Part and Piping_Pipe classes</Comment>
+  <Comment>[V6R2014] 2012-12-03 ADZ Add OccurrenceType property on Piping_Spool class</Comment>
+  <Comment>[V6R2014] 2012-12-13 ADZ Add Piping_Instrument class</Comment>
+  <Comment>[V6R2014] 2012-12-20 ADZ Fix BelongsToModeler as per PGT request</Comment>
+  <Comment>[V6R2014] 2012-12-20 ADZ Modify Property Name="Newable" Value="All" on Piping_Rigid_Pipe and Piping_Flexible_Pipe</Comment>
+  <Comment>[V6R2014] 2013-03-26 ADZ Add Piping_PipeXPort class and PipXPort extension</Comment>
+  <Comment>[V6R2014] 2013-04-30 ADZ Add Property Name="Controller" Value="CATPipAttributeController" on attributes</Comment>
+  <Comment>[V6R2014] 2013-05-14 ADZ Protection="Free" for "V_OutsideDiameter", "V_WallThickness" and "V_Linearweight" attributes of "Piping_Pipe" class</Comment>
+  <Comment>[V6R2014] 2013-05-14 ADZ Protection="Free" for "V_Linearweight" attribute of "PipRigidPipe" and "PipFlexiblePipe" extensions</Comment>
+  <Comment>[V6R2014] 2013-06-03 ADZ Fix invalid discipline value for "Piping_PipeXPort" class</Comment>
+  <Comment>[V6R2014] 2013-06-05 ADZ Remove Property Name="Controller" Value="CATPipAttributeController" on "V_Linearweight" attributes</Comment>
+  <Comment>[V6R2014x] 2013-09-24 ADZ Add Property Name="3DPartAvailability" Value="3DPartOnly" on Piping_Entity class</Comment>
+  <Comment>[V6R2014x] 2013-11-07 ADZ Add Property Name="3DPartAvailability" Value="ReferenceOnly" on Piping_Spool class</Comment>
+  <Comment>[V6R2015x] 2014-03-24 ADZ Add Property Name="Allow_V_Direction_Change" Value="Yes" on Piping_Port and Piping_PipeXPort classes</Comment>
+  <Comment>[V6R2015x] 2014-03-24 ADZ on PLMDictionaryCheck.sh request. 'ScopeRefs' is a deprecated tag. It MUST now be removed</Comment>
+  <Comment>[V6R2015x] 2014-04-07 ADZ Change V_SubPartType attribute protection to Free on Piping_PartV2 class</Comment>
+  <Comment>[V6R2015x] 2014-04-07 ADZ Add Property Name="Controller" Value="CATPipAttributeController" on Piping_PartV2 V_SubPartType attribute</Comment>
+  <Comment>[V6R2015x] 2014-05-15 ADZ Add IconName and 3DIconName properties on Piping_Port and Piping_PipeXPort classes</Comment>
+  <Comment>[V6R2015x] 2014-05-21 ADZ Add Piping_*_Inst classes</Comment>
+  <Comment>[V6R2015x] 2014-05-21 ADZ Replace VPMInstance to Piping_*_Inst in CreateInstName and KweNew_ReturnedType properties of Piping_* (VPMReference) classes</Comment>
+  <Comment>[V6R2015x] 2014-05-26 ADZ Add V_InstanciationRule attribute on Piping_Entity class</Comment>
+  <Comment>[V6R2015x] 2014-05-26 ADZ Add V_ReferenceMode attribute on Piping_Entity_Inst class</Comment>
+  <Comment>[V6R2015x] 2014-05-26 ADZ Add V_BendAngle, V_ReferenceBendAngle, V_BendRadius attributes on Piping_Elbow class</Comment>
+  <Comment>[V6R2015x] 2014-06-10 ADZ Add V_BendAngle (ExternalIN), V_ReferenceBendAngle (Free) Property Name="Controller" Value="CATPipAttributeController"</Comment>
+  <Comment>[V6R2015x] 2014-06-11 ADZ Add V_ReferenceBendAngle (Free) Property Name="Controller" Value="CATHvaAttributeController" on Piping_Tee and Piping_Olet</Comment>
+  <Comment>[V6R2015x] 2014-07-02 ADZ Remove CreateInstName on all instance classes</Comment>
+  <Comment>[V6R2015x] 2014-11-10 ADZ V_BendAngle and V_ReferenceBendAngle DefaultValue to 0"</Comment>
+  <Comment>[V6R2016x] 2015-02-03 CHD Enum->Reange migration</Comment>
+  <Comment>[V6R2016x] 2015-02-27 ADZ Move 3DPartAvailability Property from 3DPartOnly to UserChoice3DPartDefault for Piping_Entity class</Comment>
+  <Comment>[V6R2016x] 2015-03-19 ADZ New Loss Coefficient Attribute on Piping_Part class</Comment>
+  <Comment>[V6R2017x] 2016-03-25 ADZ Add V_ReferenceBendRadius on Piping_Flexible_Pipe class</Comment>
+  <Comment>[V6R2017x] 2016-03-31 ADZ Add Piping_BoldsAndNuts extension on Piping_Part and Piping_OutOfSpec extension on Piping_Entity_Inst</Comment>
+  <Comment>[V6R2017x] 2016-04-03 ADZ Remove Piping_BoldsAndNuts extension and add Piping_BoltedPort class</Comment>
+  <Comment>[V6R2017x] 2016-06-06 ADZ Dedicated .cgr for classes</Comment>
+  <Comment>[V6R2017x] 2016-08-16 ADZ Modify Piping_PartV2 class. Change Abstract="Yes" to "No" and add Property Name="NewableForSubTypesOnly" Value="Yes"</Comment>
+
+  <Class Name="Piping_Entity"
+       Uuid="c4c2500b-ceab-4231-bd4a-7e51c3966f58"
+       Abbreviation="pipent"
+       Abstract="Yes"
+       CustomerExposition="Programmer"
+       SuperName="VPMReference"
+       Discipline="Yes">
+
+    <Property Name="Configurable"            Value="Yes"/>
+    <Property Name="ChangeManagementSupport" Value="Yes"/>
+    <!--<Property Name="3DPartAvailability"      Value="3DPartOnly"/>-->
+    <Property Name="3DPartAvailability"      Value="UserChoice3DPartDefault" />
+
+    <Simple Name="V_PartType"           Type="String" Uuid="8990341d-06a1-473e-823e-61776166e1a5" MaxLength="40"  Protection="External"   CAAExposition="L0" MultiValuated="No"/>
+    <Simple Name="V_NominalSize"        Type="String" Uuid="a76dbabe-645a-445f-b6ab-d8addde66d69" MaxLength="80"  Protection="Free"       CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" Value="CATPipAttributeController"/>
+    </Simple>
+    <Simple Name="V_EndStyle"           Type="String" Uuid="6c262173-f680-4903-ae97-faa199c78ecc" MaxLength="180" Protection="Free"       CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" Value="CATPipAttributeController"/>
+    </Simple>
+    <Simple Name="V_Rating"             Type="String" Uuid="764455f1-78d0-4145-adc8-2fac670a8771" MaxLength="180" Protection="Free"       CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" Value="CATPipAttributeController"/>
+    </Simple>
+    <Simple Name="V_Standard"           Type="String" Uuid="43988738-c537-4f2a-af13-ab70aee0e3b7" MaxLength="80"  Protection="Free"       CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" Value="CATPipAttributeController"/>
+    </Simple>
+    <Simple Name="V_MaterialName"       Type="String" Uuid="48312c05-b518-4891-9ce0-d144aa9ab5df" MaxLength="100" Protection="Free"       CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" Value="CATPipAttributeController"/>
+    </Simple>
+    <Simple Name="V_InstanciationRule" Uuid="625342a2-4f7e-4046-a345-22ae7af2b8b8" Type="Integer" Protection="ExternalIN" CAAExposition="L0" DefaultValue="1">
+      <Property Name="RangeAsEnumName" Value="Piping_InstanciationRule_Enum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="ReuseReference;NewReference;ReuseOrNewReference"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+      </Range>
+    </Simple>
+  </Class>
+
+  <Class Name="Piping_Part"
+         Uuid="fe030d20-8257-4a38-8ed4-ffdc013b4d03"
+         Abbreviation="pipprt"
+         Abstract="Yes"
+         CustomerExposition="Programmer"
+         SuperName="Piping_Entity"
+         Discipline="Yes"
+         CreateInstName="Piping_Part_Inst">
+
+    <Property Name="MergedExtensionType"        Value="PipPart"/>
+    <Property Name="TypeForDisciplineValuation" Value="Piping_Part"/>
+    <Property Name="GroupingType"               Value="Piping_Part"/>
+    <Property Name="KweNew_ReturnedType"        Value="Piping_Part_Inst"/>
+    <Property Name="Newable"                    Value="All"/>
+    <Property Name="IconName"                   Value="I_PLMPiping_Part"/>
+    <Property Name="3DIconName"                 Value="V_PLMPiping_Part.cgr"/>
+    <Property Name="OccurrenceType"             Value="Piping_Part_Occurrence"/>
+
+    <Simple Name="V_LossCoefficientK" Type="Double" Uuid="ad07deb5-9f5b-493a-a3b1-fd2f9dd35fc8" Protection="Free" CAAExposition="L0" MultiValuated="No"></Simple>
+    
+  </Class>
+  
+  <Class Name="Piping_PartV1"
+         Uuid="052543a0-ada8-47cd-894d-4165fa35e617"
+         Abbreviation="pipmisc"
+         CustomerExposition="Programmer"
+         SuperName="Piping_Part"
+         Discipline="Yes"
+         CustomerExtensible="Yes"
+         CreateInstName="Piping_PartV1_Inst">
+
+    <Property Name="KweNew_InstanciationMethod" Value="CATEPipDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="Piping_PartV1_Inst"/>
+    <Property Name="Newable"                    Value="All"/>
+    <Property Name="IconName"                   Value="I_PLMPiping_Part"/>
+    <Property Name="3DIconName"                 Value="V_PLMPiping_PartV1.cgr"/>
+
+    <Simple Name="V_SubPartType" Type="String" Uuid="d7caff62-b55b-4a9d-a89c-068b82bea84e" MaxLength="100" Protection="Free" CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" Value="CATPipAttributeController"/>
+    </Simple>
+
+  </Class>
+
+  <Class Name="Piping_PartV2"
+         Uuid="570058d9-d381-4e2d-aac7-b5956ac097f6"
+         Abstract="No"
+         CustomerExposition="Programmer"
+         SuperName="Piping_Part"
+         Discipline="Yes"
+         Specializable="Yes"
+         CreateInstName="Piping_PartV2_Inst">
+
+    <Property Name="KweNew_InstanciationMethod" Value="CATEPipDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="Piping_PartV2_Inst"/>
+    <Property Name="Newable"                    Value="All"/>
+    <Property Name="NewableForSubTypesOnly"     Value="Yes"/>
+
+    <Simple Name="V_SubPartType" Type="String" Uuid="c0f11ced-d0a6-416f-83cb-c459f7e949b4" MaxLength="100" Protection="Free" CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" Value="CATPipAttributeController"/>
+    </Simple>
+
+  </Class>
+
+  <Class Name="Piping_Cap"
+         Uuid="98809675-ee66-4324-8678-d9b30c248d23"
+         Abbreviation="pipcap"
+         CustomerExposition="Programmer"
+         SuperName="Piping_PartV2"
+         Discipline="Yes"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         CreateInstName="Piping_Cap_Inst">
+
+    <Property Name="KweNew_InstanciationMethod" Value="CATEPipDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="Piping_Cap_Inst"/>
+    <Property Name="Newable"                    Value="All"/>
+    <Property Name="IconName"                   Value="I_PLMPiping_Cap"/>
+    <Property Name="3DIconName"                 Value="V_PLMPiping_Cap.cgr"/>
+
+  </Class>
+
+  <Class Name="Piping_Coupling"
+         Uuid="9370ba96-e567-433b-acfe-e98a17f16f94"
+         Abbreviation="pipcpl"
+         CustomerExposition="Programmer"
+         SuperName="Piping_PartV2"
+         Discipline="Yes"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         CreateInstName="Piping_Coupling_Inst">
+
+    <Property Name="KweNew_InstanciationMethod" Value="CATEPipDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="Piping_Coupling_Inst"/>
+    <Property Name="Newable"                    Value="All"/>
+    <Property Name="IconName"                   Value="I_PLMPiping_Coupling"/>
+    <Property Name="3DIconName"                 Value="V_PLMPiping_Coupling.cgr"/>
+
+  </Class>
+
+  <Class Name="Piping_Cross"
+         Uuid="49942fcd-cce6-4270-bf8c-ded26d2715df"
+         Abbreviation="pipcro"
+         CustomerExposition="Programmer"
+         SuperName="Piping_PartV2"
+         Discipline="Yes"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         CreateInstName="Piping_Cross_Inst">
+
+    <Property Name="KweNew_InstanciationMethod" Value="CATEPipDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="Piping_Cross_Inst"/>
+    <Property Name="Newable"                    Value="All"/>
+    <Property Name="IconName"                   Value="I_PLMPiping_Cross"/>
+    <Property Name="3DIconName"                 Value="V_PLMPiping_Cross.cgr"/>
+
+  </Class>
+
+  <Class Name="Piping_Elbow"
+         Uuid="c1599c9b-77ce-43f6-baf4-5c790a962e0a"
+         Abbreviation="pipelb"
+         CustomerExposition="Programmer"
+         SuperName="Piping_PartV2"
+         Discipline="Yes"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         CreateInstName="Piping_Elbow_Inst">
+
+    <Property Name="KweNew_InstanciationMethod" Value="CATEPipDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="Piping_Elbow_Inst"/>
+    <Property Name="Newable"                    Value="All"/>
+    <Property Name="IconName"                   Value="I_PLMPiping_Elbow"/>
+    <Property Name="3DIconName"                 Value="V_PLMPiping_Elbow.cgr"/>
+
+    <Simple Name="V_BendAngle"          Type="Double" Uuid="bca01690-31f7-40f4-bbb4-74f395135220" Magnitude="ANGLE"  Protection="ExternalIN" CAAExposition="L0" MultiValuated="No" DefaultValue="0">
+      <Property Name="Controller" Value="CATPipAttributeController"/>
+    </Simple>
+    <Simple Name="V_ReferenceBendAngle" Type="Double" Uuid="d6f3e67f-001a-4f24-aa05-78f7d840d55a" Magnitude="ANGLE"  Protection="Free"       CAAExposition="L0" MultiValuated="No" DefaultValue="0">
+      <Property Name="Controller" Value="CATPipAttributeController"/>
+    </Simple>
+    <Simple Name="V_BendRadius"         Type="Double" Uuid="e1c4b7fe-54cd-48f8-a74f-8fdcdd68b26b" Magnitude="LENGTH" Protection="Free"       CAAExposition="L0" MultiValuated="No"/>
+
+  </Class>
+
+  <Class Name="Piping_Flange"
+         Uuid="540aba4a-3ad9-488c-a6c0-3ba2b8e971d0"
+         Abbreviation="pipflg"
+         CustomerExposition="Programmer"
+         SuperName="Piping_PartV2"
+         Discipline="Yes"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         CreateInstName="Piping_Flange_Inst">
+
+    <Property Name="KweNew_InstanciationMethod" Value="CATEPipDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="Piping_Flange_Inst"/>
+    <Property Name="Newable"                    Value="All"/>
+    <Property Name="IconName"                   Value="I_PLMPiping_Flange"/>
+    <Property Name="3DIconName"                 Value="V_PLMPiping_Flange.cgr"/>
+
+  </Class>
+
+  <Class Name="Piping_Gasket"
+         Uuid="7f99f6f3-d438-4f8a-a9bf-7bfcaac64c21"
+         Abbreviation="pipgsk"
+         CustomerExposition="Programmer"
+         SuperName="Piping_PartV2"
+         Discipline="Yes"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         CreateInstName="Piping_Gasket_Inst">
+
+    <Property Name="KweNew_InstanciationMethod" Value="CATEPipDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="Piping_Gasket_Inst"/>
+    <Property Name="Newable"                    Value="All"/>
+    <Property Name="IconName"                   Value="I_PLMPiping_Gasket"/>
+    <Property Name="3DIconName"                 Value="V_PLMPiping_Gasket.cgr"/>
+
+  </Class>
+
+  <Class Name="Piping_Instrument"
+         Uuid="87b33ac1-3b08-4e23-909b-e000d3209e33"
+         Abbreviation="pipinst"
+         CustomerExposition="Programmer"
+         SuperName="Piping_PartV2"
+         Discipline="Yes"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         CreateInstName="Piping_Instrument_Inst">
+
+    <Property Name="KweNew_InstanciationMethod" Value="CATEPipDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="Piping_Instrument_Inst"/>
+    <Property Name="Newable"                    Value="All"/>
+    <Property Name="IconName"                   Value="I_PLMPiping_Instrument"/>
+    <Property Name="3DIconName"                 Value="V_PLMPiping_Instrument.cgr"/>
+
+  </Class>
+
+  <Class Name="Piping_Olet"
+         Uuid="1b279cd8-2fc2-4ba6-925b-10fb1160f896"
+         Abbreviation="pipolet"
+         CustomerExposition="Programmer"
+         SuperName="Piping_PartV2"
+         Discipline="Yes"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         CreateInstName="Piping_Olet_Inst">
+
+    <Property Name="KweNew_InstanciationMethod" Value="CATEPipDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="Piping_Olet_Inst"/>
+    <Property Name="Newable"                    Value="All"/>
+    <Property Name="IconName"                   Value="I_PLMPiping_Olet"/>
+    <Property Name="3DIconName"                 Value="V_PLMPiping_Olet.cgr"/>
+
+    <Simple Name="V_ReferenceBendAngle" Type="Double" Uuid="a1365a95-7997-4d72-b255-8a4eae42f76f" Magnitude="ANGLE"  Protection="Free"       CAAExposition="L0" MultiValuated="No" DefaultValue="0">
+      <Property Name="Controller" Value="CATPipAttributeController"/>
+    </Simple>
+
+  </Class>
+
+  <Class Name="Piping_Reducer"
+         Uuid="df28ebdd-f92a-4fcc-8e5f-a1dd806ddb81"
+         Abbreviation="pipred"
+         CustomerExposition="Programmer"
+         SuperName="Piping_PartV2"
+         Discipline="Yes"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         CreateInstName="Piping_Reducer_Inst">
+
+    <Property Name="KweNew_InstanciationMethod" Value="CATEPipDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="Piping_Reducer_Inst"/>
+    <Property Name="Newable"                    Value="All"/>
+    <Property Name="IconName"                   Value="I_PLMPiping_Reducer"/>
+    <Property Name="3DIconName"                 Value="V_PLMPiping_Reducer.cgr"/>
+
+  </Class>
+
+  <Class Name="Piping_Tee"
+         Uuid="0eec568f-f899-4b16-b98f-53ef4a284c0c"
+         Abbreviation="piptee"
+         CustomerExposition="Programmer"
+         SuperName="Piping_PartV2"
+         Discipline="Yes"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         CreateInstName="Piping_Tee_Inst">
+
+    <Property Name="KweNew_InstanciationMethod" Value="CATEPipDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="Piping_Tee_Inst"/>
+    <Property Name="Newable"                    Value="All"/>
+    <Property Name="IconName"                   Value="I_PLMPiping_Tee"/>
+    <Property Name="3DIconName"                 Value="V_PLMPiping_Tee.cgr"/>
+
+    <Simple Name="V_ReferenceBendAngle" Type="Double" Uuid="87ec297c-fdae-4c74-8c16-5fbb84063d60" Magnitude="ANGLE"  Protection="Free"       CAAExposition="L0" MultiValuated="No" DefaultValue="0">
+      <Property Name="Controller" Value="CATPipAttributeController"/>
+    </Simple>
+
+  </Class>
+
+  <Class Name="Piping_Union"
+         Uuid="d85aa99f-e6f9-42a4-b177-191974288134"
+         Abbreviation="pipuni"
+         CustomerExposition="Programmer"
+         SuperName="Piping_PartV2"
+         Discipline="Yes"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         CreateInstName="Piping_Union_Inst">
+
+    <Property Name="KweNew_InstanciationMethod" Value="CATEPipDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="Piping_Union_Inst"/>
+    <Property Name="Newable"                    Value="All"/>
+    <Property Name="IconName"                   Value="I_PLMPiping_Union"/>
+    <Property Name="3DIconName"                 Value="V_PLMPiping_Union.cgr"/>
+
+  </Class>
+
+  <Class Name="Piping_Valve"
+         Uuid="fcdf5edd-bcd9-4b1c-9d79-f6d8ed2344d2"
+         Abbreviation="pipvlv"
+         CustomerExposition="Programmer"
+         SuperName="Piping_PartV2"
+         Discipline="Yes"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         CreateInstName="Piping_Valve_Inst">
+
+    <Property Name="KweNew_InstanciationMethod" Value="CATEPipDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="Piping_Valve_Inst"/>
+    <Property Name="Newable"                    Value="All"/>
+    <Property Name="IconName"                   Value="I_PLMPiping_Valve"/>
+    <Property Name="3DIconName"                 Value="V_PLMPiping_Valve.cgr"/>
+
+  </Class>
+
+  <Class Name="Piping_Pipe"
+         Uuid="2809869c-671d-42cb-adb9-3ff891d4218b"
+         Abstract="Yes"
+         CustomerExposition="Programmer"
+         SuperName="Piping_Entity"
+         Discipline="Yes">
+
+    <Property Name="OccurrenceType"             Value="Piping_Pipe_Occurrence"/>
+
+    <Simple Name="V_OutsideDiameter"  Type="Double" Uuid="ccf02bbe-7ee6-42dc-a3e1-5e623beea5bf" Magnitude="LENGTH"    Protection="Free"     CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" Value="CATPipAttributeController"/>
+    </Simple>
+    <Simple Name="V_WallThickness"    Type="Double" Uuid="e6d92e07-f30f-4ea0-aa88-a1b68467dd07" Magnitude="LENGTH"    Protection="Free"     CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" Value="CATPipAttributeController"/>
+    </Simple>
+    <Simple Name="V_Length"           Type="Double" Uuid="cf7ada6e-3e6d-4b8b-b2d8-a2dbe0de2ef6" Magnitude="LENGTH"    Protection="External" CAAExposition="L0" MultiValuated="No"/>
+    <Simple Name="V_Linearweight"     Type="Double" Uuid="9071902d-1438-4a89-b3dc-9e5d32e2e4fa" Magnitude="LINEMASS"  Protection="Free"     CAAExposition="L0" MultiValuated="No"/>
+
+  </Class>
+
+  <Class Name="Piping_Rigid_Pipe"
+         Uuid="509845c6-e25b-4626-835d-66a57fbd248b"
+         Abbreviation="pippipe"
+         CustomerExposition="Programmer"
+         SuperName="Piping_Pipe"
+         Discipline="Yes"
+         CustomerExtensible="Yes"
+         CreateInstName="Piping_Rigid_Pipe_Inst">
+
+    <Property Name="MergedExtensionType"        Value="PipPart;PipRigidPipe"/>
+    <Property Name="TypeForDisciplineValuation" Value="Piping_Rigid_Pipe"/>
+    <Property Name="GroupingType"               Value="Piping_Rigid_Pipe"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEPipDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="Piping_Rigid_Pipe_Inst"/>
+    <Property Name="IconName"                   Value="I_PLMPipRigidPipe"/>
+    <Property Name="3DIconName"                 Value="V_PLMPiping_Rigid_Pipe.cgr"/>
+    <Property Name="Newable"                    Value="All"/>
+
+    <Simple Name="V_NominalBendRadius" Type="String" Uuid="697d3231-c1dd-415e-a5d3-7976c44464fc" MaxLength="40" Protection="External" CAAExposition="L0" MultiValuated="No"/>
+
+    <Volatile Name="V_NodePositions"          Uuid="e69bfbc1-85a0-4779-8890-3cdd40060af4" Accessor="CATPipKweAttrAccess" TypeName="List" AccessMode="ReadOnly"/>
+    <Volatile Name="V_NodeBendRadii"          Uuid="57d5945d-0206-4eba-bdce-b957be35ae30" Accessor="CATPipKweAttrAccess" TypeName="List" AccessMode="ReadOnly"/>
+    <Volatile Name="V_NodeBendAngles"         Uuid="1f062bc1-9ef8-49ed-a3fe-ecd24a6ff593" Accessor="CATPipKweAttrAccess" TypeName="List" AccessMode="ReadOnly"/>
+    <Volatile Name="V_SegmentStraightLengths" Uuid="ee28e02f-0122-43d8-a336-3ea541052693" Accessor="CATPipKweAttrAccess" TypeName="List" AccessMode="ReadOnly"/>
+
+  </Class>
+
+  <Class Name="Piping_Flexible_Pipe"
+         Uuid="06cea81b-5c23-4104-b284-65dcce71e9dc"
+         Abbreviation="pipflex"
+         CustomerExposition="Programmer"
+         SuperName="Piping_Pipe"
+         Discipline="Yes"
+         CustomerExtensible="Yes"
+         CreateInstName="Piping_Flexible_Pipe_Inst">
+
+    <Property Name="MergedExtensionType"        Value="PipPart;PipFlexiblePipe"/>
+    <Property Name="TypeForDisciplineValuation" Value="Piping_Flexible_Pipe"/>
+    <Property Name="GroupingType"               Value="Piping_Flexible_Pipe"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEPipDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="Piping_Flexible_Pipe_Inst"/>
+    <Property Name="IconName"                   Value="I_PLMPipFlexiblePipe"/>
+    <Property Name="3DIconName"                 Value="V_PLMPiping_Flexible_Pipe.cgr"/>
+    <Property Name="Newable"                    Value="All"/>
+
+    <Simple Name="V_OperatingTemperature" Type="Double" Uuid="889239b1-eb05-491f-88f5-205c4670c66e" Magnitude="TEMPRTRE" Protection="External" CAAExposition="L0" MultiValuated="No"/>
+    <Simple Name="V_OperatingPressure"    Type="Double" Uuid="0daf665d-84ec-49db-9a8c-37b3635db4ec" Magnitude="PRESSURE" Protection="External" CAAExposition="L0" MultiValuated="No"/>
+    <Simple Name="V_ReferenceBendRadius"  Type="Double" Uuid="9e867639-97bc-4ceb-b61e-1bc96a59fff8" Magnitude="LENGTH" Protection="External" CAAExposition="L0" MultiValuated="No" DefaultValue="0"/>
+
+  </Class>
+
+  <Class Name="Piping_Spool"
+       Uuid="c7aefb58-7c19-4108-8528-efc97d00aaba"
+       Abbreviation="pipspo"
+       CustomerExposition="Programmer"
+       SuperName="VPMReference"
+       Discipline="Yes"
+       CustomerExtensible="Yes"
+       CreateInstName="Piping_Spool_Inst">
+
+    <Property Name="TypeForDisciplineValuation" Value="Piping_Spool"/>
+    <Property Name="GroupingType"               Value="Piping_Spool"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEPipDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="Piping_Spool_Inst"/>
+    <Property Name="IconName"                   Value="I_PLMPiping_Spool"/>
+    <Property Name="3DIconName"                 Value="V_PLMPiping_Spool.cgr"/>
+    <Property Name="Newable"                    Value="Insert"/>
+    <Property Name="Configurable"               Value="Yes"/>
+    <Property Name="ChangeManagementSupport"    Value="Yes"/>
+    <Property Name="3DPartAvailability"         Value="ReferenceOnly"/>
+    <Property Name="OccurrenceType"             Value="Piping_Spool_Occurrence"/>
+
+  </Class>
+
+  <RelationClass Name="Piping_Entity_Inst"
+       Uuid="bf87b1b0-0be1-47d9-b959-288cffed9f0e"
+       Abstract="Yes"
+       CustomerExposition="Programmer"
+       SuperName="VPMInstance"
+       Discipline="Yes">
+
+    <Simple Name="V_ReferenceMode" Uuid="35cfc433-80f5-4771-a2e7-a3003715f597" Type="Integer" Protection="External" CAAExposition="L0" DefaultValue="1">
+      <Property Name="RangeAsEnumName" Value="Piping_ReferenceMode_Enum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="Reuse;NewFrom"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+      </Range>
+    </Simple>
+
+  </RelationClass>
+
+  <Extension Name="Piping_OutOfSpec" Uuid="c5f950d2-bf07-4aca-bae5-293c313b369d" ScopeNames="Piping_Entity_Inst"
+             CustomerExposition="Programmer" CAAExposition="L0">
+    <Simple Name="V_Piping_Spec" Uuid="22efb537-c108-47ea-9eb2-95436039ad4d"
+            Type="String" MaxLength="40" Protection="External"
+            CAAExposition="L0" MultiValuated="No"/>
+    <Simple Name="V_Additional_Spec" Uuid="f37c736c-26d2-4dac-bcb3-a4633a378b5e"
+            Type="String" MaxLength="40" Protection="External"
+            CAAExposition="L0" MultiValuated="Yes"/>
+  </Extension>
+  
+  <RelationClass Name="Piping_Part_Inst"
+         Uuid="cfcbb57c-2786-4e24-838b-9932cfef78ce"
+         Abstract="Yes"
+         CustomerExposition="Programmer"
+         SuperName="Piping_Entity_Inst"
+         Discipline="Yes">
+  </RelationClass>
+
+  <RelationClass Name="Piping_PartV1_Inst"
+         Uuid="5603ec11-8c8d-470a-83f5-5eb84021144f"
+         CustomerExposition="Programmer"
+         SuperName="Piping_Part_Inst"
+         Discipline="Yes"
+         CustomerExtensible="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATEPipDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="Piping_PartV1_Inst"/>
+    <Property Name="IconName"                   Value="I_PLMPiping_Part"/>
+  </RelationClass>
+
+  <RelationClass Name="Piping_PartV2_Inst"
+         Uuid="29aa1108-47ce-4a79-990f-513014a38a32"
+         Abstract="No"
+         CustomerExposition="Programmer"
+         SuperName="Piping_Part_Inst"
+         Discipline="Yes"
+         Specializable="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATEPipDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="Piping_PartV2_Inst"/>
+    <Property Name="IconName"                   Value="I_PLMPiping_Part"/>
+  </RelationClass>
+
+  <RelationClass Name="Piping_Cap_Inst"
+         Uuid="b55d7e5e-4829-4959-b879-0ebf75e05873"
+         CustomerExposition="Programmer"
+         SuperName="Piping_PartV2_Inst"
+         Discipline="Yes"
+         Specializable="Yes"
+         CustomerExtensible="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATEPipDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="Piping_Cap_Inst"/>
+    <Property Name="IconName"                   Value="I_PLMPiping_Cap"/>
+  </RelationClass>
+
+  <RelationClass Name="Piping_Coupling_Inst"
+         Uuid="d1cb0566-3515-41d3-89b0-5733b4961acf"
+         CustomerExposition="Programmer"
+         SuperName="Piping_PartV2_Inst"
+         Discipline="Yes"
+         Specializable="Yes"
+         CustomerExtensible="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATEPipDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="Piping_Coupling_Inst"/>
+    <Property Name="IconName"                   Value="I_PLMPiping_Coupling"/>
+  </RelationClass>
+
+  <RelationClass Name="Piping_Cross_Inst"
+         Uuid="d6e7151d-78ba-4a06-a6c5-1b02eda67acc"
+         CustomerExposition="Programmer"
+         SuperName="Piping_PartV2_Inst"
+         Discipline="Yes"
+         Specializable="Yes"
+         CustomerExtensible="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATEPipDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="Piping_Cross_Inst"/>
+    <Property Name="IconName"                   Value="I_PLMPiping_Cross"/>
+  </RelationClass>
+
+  <RelationClass Name="Piping_Elbow_Inst"
+         Uuid="d52299c1-6b58-4892-9b58-828542899fcf"
+         CustomerExposition="Programmer"
+         SuperName="Piping_PartV2_Inst"
+         Discipline="Yes"
+         Specializable="Yes"
+         CustomerExtensible="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATEPipDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="Piping_Elbow_Inst"/>
+    <Property Name="IconName"                   Value="I_PLMPiping_Elbow"/>
+  </RelationClass>
+
+  <RelationClass Name="Piping_Flange_Inst"
+         Uuid="11f02a12-abe0-47dd-9e39-995a60563e1a"
+         CustomerExposition="Programmer"
+         SuperName="Piping_PartV2_Inst"
+         Discipline="Yes"
+         Specializable="Yes"
+         CustomerExtensible="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATEPipDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="Piping_Flange_Inst"/>
+    <Property Name="IconName"                   Value="I_PLMPiping_Flange"/>
+  </RelationClass>
+
+  <RelationClass Name="Piping_Gasket_Inst"
+         Uuid="87fbc26a-2acf-40c1-91f4-66e782591486"
+         CustomerExposition="Programmer"
+         SuperName="Piping_PartV2_Inst"
+         Discipline="Yes"
+         Specializable="Yes"
+         CustomerExtensible="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATEPipDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="Piping_Gasket_Inst"/>
+    <Property Name="IconName"                   Value="I_PLMPiping_Gasket"/>
+  </RelationClass>
+
+  <RelationClass Name="Piping_Instrument_Inst"
+         Uuid="d389ef1e-383f-49c4-9dd0-949ac0f7dfde"
+         CustomerExposition="Programmer"
+         SuperName="Piping_PartV2_Inst"
+         Discipline="Yes"
+         Specializable="Yes"
+         CustomerExtensible="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATEPipDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="Piping_Instrument_Inst"/>
+    <Property Name="IconName"                   Value="I_PLMPiping_Instrument"/>
+  </RelationClass>
+
+  <RelationClass Name="Piping_Olet_Inst"
+         Uuid="6d2fddc4-c81c-4aa5-8055-4b7984914a25"
+         CustomerExposition="Programmer"
+         SuperName="Piping_PartV2_Inst"
+         Discipline="Yes"
+         Specializable="Yes"
+         CustomerExtensible="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATEPipDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="Piping_Olet_Inst"/>
+    <Property Name="IconName"                   Value="I_PLMPiping_Olet"/>
+  </RelationClass>
+
+  <RelationClass Name="Piping_Reducer_Inst"
+         Uuid="9dae9fe0-4ce6-4dd5-8065-3b00ad2e8b2e"
+         CustomerExposition="Programmer"
+         SuperName="Piping_PartV2_Inst"
+         Discipline="Yes"
+         Specializable="Yes"
+         CustomerExtensible="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATEPipDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="Piping_Reducer_Inst"/>
+    <Property Name="IconName"                   Value="I_PLMPiping_Reducer"/>
+  </RelationClass>
+
+  <RelationClass Name="Piping_Tee_Inst"
+         Uuid="447c0feb-87fe-4af9-8bc0-f745ecfb15e1"
+         CustomerExposition="Programmer"
+         SuperName="Piping_PartV2_Inst"
+         Discipline="Yes"
+         Specializable="Yes"
+         CustomerExtensible="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATEPipDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="Piping_Tee_Inst"/>
+    <Property Name="IconName"                   Value="I_PLMPiping_Tee"/>
+  </RelationClass>
+
+  <RelationClass Name="Piping_Union_Inst"
+         Uuid="af7e43ed-e7c7-42df-bf16-b3044c8051b9"
+         CustomerExposition="Programmer"
+         SuperName="Piping_PartV2_Inst"
+         Discipline="Yes"
+         Specializable="Yes"
+         CustomerExtensible="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATEPipDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="Piping_Union_Inst"/>
+    <Property Name="IconName"                   Value="I_PLMPiping_Union"/>
+  </RelationClass>
+
+  <RelationClass Name="Piping_Valve_Inst"
+         Uuid="967fe693-a79b-4847-bd9c-3af62728fbad"
+         CustomerExposition="Programmer"
+         SuperName="Piping_PartV2_Inst"
+         Discipline="Yes"
+         Specializable="Yes"
+         CustomerExtensible="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATEPipDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="Piping_Valve_Inst"/>
+    <Property Name="IconName"                   Value="I_PLMPiping_Valve"/>
+  </RelationClass>
+
+  <RelationClass Name="Piping_Pipe_Inst"
+         Uuid="a677e0e6-b231-4821-9e8e-8c92c5b9b520"
+         Abstract="Yes"
+         CustomerExposition="Programmer"
+         SuperName="Piping_Entity_Inst"
+         Discipline="Yes">
+  </RelationClass>
+
+  <RelationClass Name="Piping_Rigid_Pipe_Inst"
+         Uuid="7fe9f408-4745-486f-8be7-9b85ec51c441"
+         CustomerExposition="Programmer"
+         SuperName="Piping_Pipe_Inst"
+         Discipline="Yes"
+         CustomerExtensible="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATEPipDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="Piping_Rigid_Pipe_Inst"/>
+    <Property Name="IconName"                   Value="I_PLMPipRigidPipe"/>
+  </RelationClass>
+
+  <RelationClass Name="Piping_Flexible_Pipe_Inst"
+         Uuid="b7298a5a-8c47-4c62-9d79-72cd9055ca1d"
+         CustomerExposition="Programmer"
+         SuperName="Piping_Pipe_Inst"
+         Discipline="Yes"
+         CustomerExtensible="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATEPipDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="Piping_Flexible_Pipe_Inst"/>
+    <Property Name="IconName"                   Value="I_PLMPipFlexiblePipe"/>
+  </RelationClass>
+
+  <RelationClass Name="Piping_Spool_Inst"
+     Uuid="5609facb-09a8-4e30-a638-58d6311c3510"
+     CustomerExposition="Programmer"
+     SuperName="VPMInstance"
+     Discipline="Yes"
+     CustomerExtensible="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATEPipDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="Piping_Spool_Inst"/>
+    <Property Name="IconName"                   Value="I_PLMPiping_Spool"/>
+  </RelationClass>
+
+  <Class Name="Piping_Port"
+         Uuid="ceeadd2b-f6d2-4556-9550-cc47c764f37b"
+         CustomerExposition="Programmer"
+         SuperName="VPMPort"
+         Discipline="Yes">
+
+    <Property Name="MergedExtensionType"        Value="PipPort"/>
+    <Property Name="TypeForDisciplineValuation" Value="Piping_Port"/>
+    <Property Name="Allow_V_Direction_Change"   Value="Yes"/>
+    <Property Name="IconName"                   Value="I_PLMPiping_Port"/>
+    <Property Name="3DIconName"                 Value="V_PLMPiping_Port.cgr"/>
+
+    <Simple Name="V_NominalSize"      Type="String" Uuid="185df181-fee0-4c87-a1c9-18fa0663e866" MaxLength="40"      Protection="External" CAAExposition="L0" MultiValuated="No"/>
+    <Simple Name="V_EndStyle"         Type="String" Uuid="33968d7e-1ac1-4a53-8dec-dbd271004ca6" MaxLength="40"      Protection="External" CAAExposition="L0" MultiValuated="No"/>
+    <Simple Name="V_Rating"           Type="String" Uuid="1ac23e11-e595-41a1-811b-3b7a3c44e5df" MaxLength="40"      Protection="External" CAAExposition="L0" MultiValuated="No"/>
+    <Simple Name="V_Standard"         Type="String" Uuid="2775bf6d-4365-43ab-982c-d4073fefb9bd" MaxLength="40"      Protection="External" CAAExposition="L0" MultiValuated="No"/>
+    <Simple Name="V_OutsideDiameter"  Type="Double" Uuid="96b1de03-6c89-4a72-b1ee-3f212cf7ffe6" Magnitude="LENGTH"  Protection="External" CAAExposition="L0" MultiValuated="No"/>
+    <Simple Name="V_WallThickness"    Type="Double" Uuid="032ad896-d1fb-400c-837b-dd34460d73af" Magnitude="LENGTH"  Protection="External" CAAExposition="L0" MultiValuated="No"/>
+    <Simple Name="V_SubType"          Type="String" Uuid="c766a74c-c8da-47e6-b698-559d6f1881ec" MaxLength="80"      Protection="External" CAAExposition="L0" MultiValuated="No"/>
+
+  </Class>
+
+  <Class Name="Piping_BoltedPort" Uuid="c3fe6354-e501-40ee-94a3-e62ba4f8029f" CustomerExposition="Programmer" SuperName="Piping_Port" Discipline="Yes">
+
+    <Simple Name="V_Hole_Number"       Uuid="0edc17b7-39be-479b-929d-b803029c8f7b" Type="Integer" Protection="Free" CAAExposition="L0" DefaultValue="0" MultiValuated="No"/>
+    <Simple Name="V_Hole_Diameter"     Uuid="d5d435e6-cbb1-4399-9579-86f3f9e6cefa" Type="Double"  Protection="Free" CAAExposition="L0" DefaultValue="0" MultiValuated="No" Magnitude="LENGTH"/>
+    <Simple Name="V_FaceToFace_Length" Uuid="23340e37-f391-4a49-9b14-1b5f04eb2ded" Type="Double"  Protection="Free" CAAExposition="L0" DefaultValue="0" MultiValuated="No" Magnitude="LENGTH"/>
+    
+  </Class>
+  
+  <Class Name="Piping_PipeXPort"
+         Uuid="3bd239a0-ed7f-4a2b-a3b4-73131e9df5da"
+         CustomerExposition="Programmer"
+         SuperName="VPMPort"
+         Discipline="Yes">
+
+    <Property Name="MergedExtensionType"        Value="PipXPort"/>
+    <Property Name="TypeForDisciplineValuation" Value="Piping_PipeXPort"/>
+    <Property Name="Allow_V_Direction_Change"   Value="Yes"/>
+    <Property Name="IconName"                   Value="I_PLMPiping_Port"/>
+    <Property Name="3DIconName"                 Value="V_PLMPiping_Port.cgr"/>
+
+    <Simple Name="V_EndStyle" Type="String" Uuid="9e8dd236-5403-4240-af17-38d7818bf691" MaxLength="40" Protection="External" CAAExposition="L0" MultiValuated="No"/>
+
+  </Class>
+
+  <Extension Name="PipPart"
+             Uuid="4d0fcf5f-c5c3-4fb0-88556f1259ec0057"
+             CustomerExposition="Programmer"
+             CAAExposition="L0"
+             ScopeNames="VPMReference">
+
+    <Simple Name="V_PartType"         Type="String" Uuid="ae5838b5-4156-4465-94a880cd5f214051"  MaxLength="40"      Protection="External" CAAExposition="L0" MultiValuated="No"/>
+    <Simple Name="V_SubPartType"      Type="String" Uuid="217ce50c-2cca-4c49-ba1e53ea82f8f324"  MaxLength="100"     Protection="Free"     CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" Value="CATPipAttributeController"/>
+    </Simple>
+    <Simple Name="V_NominalSize"      Type="String" Uuid="9c907372-34ab-4f70-9a17482674c00593"  MaxLength="80"      Protection="Free"     CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" Value="CATPipAttributeController"/>
+    </Simple>
+    <Simple Name="V_EndStyle"         Type="String" Uuid="75e74a56-1e1e-4378-864b34f30d0888a4"  MaxLength="180"     Protection="Free"     CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" Value="CATPipAttributeController"/>
+    </Simple>
+    <Simple Name="V_Rating"           Type="String" Uuid="7afa5471-a2cc-46f5-948332160498df3d"  MaxLength="180"     Protection="Free"     CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" Value="CATPipAttributeController"/>
+    </Simple>
+    <Simple Name="V_Standard"         Type="String" Uuid="d9f565f8-19be-49e4-9f08266d99b1c4bc"  MaxLength="80"      Protection="Free"     CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" Value="CATPipAttributeController"/>
+    </Simple>
+    <Simple Name="V_MaterialName"     Type="String" Uuid="006b687b-d71c-4909-80a5-b795ca01cd20" MaxLength="100"     Protection="Free"     CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" Value="CATPipAttributeController"/>
+    </Simple>
+    <Simple Name="V_OutsideDiameter"  Type="Double" Uuid="e5cff80c-9b67-4500-a3accc99c77dab38"  Magnitude="LENGTH"  Protection="Free"     CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" Value="CATPipAttributeController"/>
+    </Simple>
+    <Simple Name="V_WallThickness"    Type="Double" Uuid="0773447a-28f3-4bad-b026796e49336f07"  Magnitude="LENGTH"  Protection="Free"     CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" Value="CATPipAttributeController"/>
+    </Simple>
+
+  </Extension>
+
+  <Extension Name="PipRigidPipe"
+             Uuid="8d0ab3bc-fa48-44b5-80ce63a5cc36efdd"
+             CustomerExposition="Programmer"
+             CAAExposition="L0"
+             ScopeNames="VPMReference">
+
+    <Simple Name="V_NominalBendRadius"  Type="String" Uuid="04adbdbe-5588-45ca-9716e81ffb43a05e" MaxLength="40"       Protection="External" CAAExposition="L0" MultiValuated="No"/>
+    <Simple Name="V_Length"             Type="Double" Uuid="6659f61f-1f99-4437-bc4a2b802af29bec" Magnitude="LENGTH"   Protection="External" CAAExposition="L0" MultiValuated="No"/>
+    <Simple Name="V_Linearweight"       Type="Double" Uuid="bc2a4258-7d6e-4995-ad106c6eda411cd1" Magnitude="LINEMASS" Protection="Free"     CAAExposition="L0" MultiValuated="No"/>
+
+    <Volatile Name="V_NodePositions"          Uuid="6f0ee526-dd47-4f78-852d-1dc2bff7d9c7" Accessor="CATPipKweAttrAccess" TypeName="List" AccessMode="ReadOnly"/>
+    <Volatile Name="V_NodeBendRadii"          Uuid="c2734a61-ee14-483d-8f4c-89a471fe24a9" Accessor="CATPipKweAttrAccess" TypeName="List" AccessMode="ReadOnly"/>
+    <Volatile Name="V_NodeBendAngles"         Uuid="e767f24e-aeaf-4956-9cb4-82e6a4a9c02b" Accessor="CATPipKweAttrAccess" TypeName="List" AccessMode="ReadOnly"/>
+    <Volatile Name="V_SegmentStraightLengths" Uuid="76d06344-52a9-4301-9e2b-b7af871f72a1" Accessor="CATPipKweAttrAccess" TypeName="List" AccessMode="ReadOnly"/>
+
+  </Extension>
+
+  <Extension Name="PipFlexiblePipe"
+             Uuid="0492ab35-9fda-40d0-a3de2080aeba5efc"
+             CustomerExposition="Programmer"
+             CAAExposition="L0"
+             ScopeNames="VPMReference">
+
+    <Simple Name="V_Length"               Type="Double" Uuid="643d6fe0-ee71-4b31-b4d04b1d2e0cb4f1" Magnitude="LENGTH"   Protection="External" CAAExposition="L0" MultiValuated="No"/>
+    <Simple Name="V_Linearweight"         Type="Double" Uuid="e93ef7be-39c3-447d-acb7ab6c000ea55d" Magnitude="LINEMASS" Protection="Free"     CAAExposition="L0" MultiValuated="No"/>
+    <Simple Name="V_OperatingTemperature" Type="Double" Uuid="297ac127-4e9f-42c4-80b91591179356f0" Magnitude="TEMPRTRE" Protection="External" CAAExposition="L0" MultiValuated="No"/>
+    <Simple Name="V_OperatingPressure"    Type="Double" Uuid="0f3b0ab0-4c61-4234-bec8cf3832848a07" Magnitude="PRESSURE" Protection="External" CAAExposition="L0" MultiValuated="No"/>
+
+  </Extension>
+
+  <Extension Name="PipPort"
+             Uuid="786e1196-7716-4eed-8311d584d8746e8b"
+             CustomerExposition="Programmer"
+             CAAExposition="L0"
+             ScopeNames="VPMPort">
+
+    <Simple Name="V_NominalSize"      Type="String" Uuid="a43c09b5-4831-4a3b-bd0c5393f1df55ad" MaxLength="40"     Protection="External" CAAExposition="L0" MultiValuated="No"/>
+    <Simple Name="V_EndStyle"         Type="String" Uuid="af04a032-9890-4cdc-a380a19d8183bcd9" MaxLength="40"     Protection="External" CAAExposition="L0" MultiValuated="No"/>
+    <Simple Name="V_Rating"           Type="String" Uuid="9f39ff4c-4447-4b81-b7b5a7c2677f6757" MaxLength="40"     Protection="External" CAAExposition="L0" MultiValuated="No"/>
+    <Simple Name="V_Standard"         Type="String" Uuid="36f3d97e-1dff-4e3e-ad2cd06eafa2fafa" MaxLength="40"     Protection="External" CAAExposition="L0" MultiValuated="No"/>
+    <Simple Name="V_OutsideDiameter"  Type="Double" Uuid="dd9ae129-d4a5-4bab-9753fd2cc60eed46" Magnitude="LENGTH" Protection="External" CAAExposition="L0" MultiValuated="No"/>
+    <Simple Name="V_WallThickness"    Type="Double" Uuid="7f044ed0-6546-4f85-bfd76a40e939f05a" Magnitude="LENGTH" Protection="External" CAAExposition="L0" MultiValuated="No"/>
+    <Simple Name="V_SubType"          Type="String" Uuid="80364f0d-ee2f-497b-a9b79052296770a1" MaxLength="80"     Protection="External" CAAExposition="L0" MultiValuated="No"/>
+
+  </Extension>
+
+  <Extension Name="PipXPort" Uuid="67150d99-54bc-496a-88e2-e2459231ac8b" CustomerExposition="Programmer" CAAExposition="L0" ScopeNames="VPMPort">
+
+    <Simple Name="V_EndStyle" Type="String" Uuid="6de57df9-ddb0-4a3b-a656-c5c09b7b37f7" MaxLength="40" Protection="External" CAAExposition="L0" MultiValuated="No"/>
+
+  </Extension>
+
+</Package>

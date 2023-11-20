@@ -1,0 +1,23 @@
+NAVIGATE
+
+ T0.PLM_ExternalID,  T1.PLM_ExternalID , T0.PLMID,  T1.PLMID 
+
+FROM 
+
+     PRODUCTCFG/VPMRepReference T0,
+     
+     PLMDmtDocument/PLMDMTDocument T1
+
+FROM_ROOTS [?1?]
+
+ON ( RELATION(
+
+     FROM= PRODUCTCFG/VPMRepReference
+
+     TO= PLMDmtDocument/PLMDMTDocument
+
+     THROUGH=POINTSTO )
+     
+WITH QUALITY_FILTER(ROLE=CATMaterialReferenceToTextureLink) OR (ROLE=CATMaterialReferenceToAssetLink) OR (ROLE=CATStkImageLink) OR (ROLE=CATLightIESLink))
+
+; 

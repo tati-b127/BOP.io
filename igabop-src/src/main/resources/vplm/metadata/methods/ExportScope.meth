@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+<MethodPackage 
+	xmlns="PLMDictionaryMethod"
+	Name="ExportScope">
+
+	<MethodType id="ExportScope">
+		<Usage id="Review" Name="Review"/>
+		<Usage id="Design" Name="Design"/>
+		<Usage id="Channel" Name="Channel"/>
+		<Usage id="TransferSiteOwnership" Name="TransferSiteOwnership"/>
+		<Usage id="Review_V6" Name="Review_V6"/>
+		<Usage id="Remove" Name="Remove"/>
+		<Signature href="SignatureExportScope"/>
+	</MethodType>
+	
+	<Signature id="SignatureExportScope">
+		<Parameter Name="InputIds" Lower="0" Upper="-1" Direction="in" DataType="PLMId" MultiValuated="Yes"/>
+		<Parameter Name="OutputIds" Lower="0" Upper="-1" Direction="out" DataType="PLMId" MultiValuated="Yes"/>
+	</Signature>	
+	
+</MethodPackage>

@@ -1,0 +1,109 @@
+<?xml version="1.0" ?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2007, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" Name="LPABSTRACT3DREP"
+    Uuid="53dc8283-42e1-4c26-a92a494b1fcb2038"
+    UseNames="LPABSTRACT" 
+	CustomerExposition="None" 
+   >
+
+    <CAAComment>
+        <ShortRole>Common package for 3D Representations in Logical and Physical Models</ShortRole>
+        <Role>This package includes the common entities for 3D Representations in Logical and Physical Models</Role>
+    </CAAComment>
+
+
+
+
+  <RelationClass Name="LPAbstract3DRepInstance"
+        Uuid="c3d46c4d-686c-48a4-a1fa1658382ab10d"
+        Abstract="Yes"
+        SuperName="LPAbstractRepInstance" 
+		CustomerExposition="None"        
+       >
+	   
+		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+    </RelationClass>
+        
+        
+    <Class Name="LPAbstract3DRepReference"
+        Uuid="9a84afd5-4c6b-473e-a456e5737bde0aff"
+        Abstract="Yes"
+        SuperName="LPAbstractRepReference"
+        CustomerExposition="None"
+        DeleteAvailability="Yes"
+       >
+
+
+        <Simple Name="V_volume_x1"
+            Uuid="1C71E508-78B7-4109-92BAD932716A7391"
+            Type="Double"
+            MultiValuated="No"
+            Protection="Internal">
+            <CAAComment>
+                <ShortRole>The x coordinate of the first point of the bounding volume</ShortRole>
+            </CAAComment>
+        </Simple>
+
+        <Simple Name="V_volume_y1"
+            Uuid="1C5B9F19-607A-466B-AF4AD13E3ED5EC39"
+            Type="Double"
+            MultiValuated="No"
+            Protection="Internal">
+            <CAAComment>
+                <ShortRole>The y coordinate of the first point of the bounding volume</ShortRole>
+            </CAAComment>
+        </Simple>
+
+        <Simple Name="V_volume_z1"
+            Uuid="51177C80-4BE3-4C12-A332CF5C3FC128FF"
+            Type="Double"
+            MultiValuated="No"
+            Protection="Internal">
+            <CAAComment>
+                <ShortRole>The z coordinate of the first point of the bounding volume</ShortRole>
+            </CAAComment>
+        </Simple>
+
+        <Simple Name="V_volume_x2"
+            Uuid="11BA6DCA-AA51-4AAE-BBF363D5F25CBB26"
+            Type="Double"
+            MultiValuated="No"
+            Protection="Internal">
+            <CAAComment>
+                <ShortRole>The x coordinate of the second point of the bounding volume</ShortRole>
+            </CAAComment>
+        </Simple>
+
+        <Simple Name="V_volume_y2"
+            Uuid="A4D0840B-7C3F-4199-BA2CDFF8ABA53B0B"
+            Type="Double"
+            MultiValuated="No"
+            Protection="Internal">
+            <CAAComment>
+                <ShortRole>The y coordinate of the second point of the bounding volume</ShortRole>
+            </CAAComment>
+        </Simple>
+
+        <Simple Name="V_volume_z2"
+            Uuid="A3F325D9-2D29-4938-81D0ABA376D4A5C2"
+            Type="Double"
+            MultiValuated="No"
+            Protection="Internal">
+            <CAAComment>
+                <ShortRole>The z coordinate of the second point of the bounding volume</ShortRole>
+            </CAAComment>
+        </Simple>
+
+		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+    </Class>        
+    
+    
+</Package>
+

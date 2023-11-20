@@ -1,0 +1,26 @@
+NAVIGATE
+
+   	T0.PLMID			, T1.PLMID			, T2.PLMID			,
+   	T0.PLM_ExternalID	, T1.PLM_ExternalID	, T2.PLM_ExternalID
+
+FROM
+
+	CATComponentsFamily/CATComponentsFamilyReference T0 ,
+
+	CATComponentsFamily/CATComponentsFamilyGenericConnection T1 ,
+
+	PLMCORE/PLMCoreReference T2
+
+FROM_ROOTS
+
+	[?1?]
+
+ON
+
+	(RELATION (FROM=CATComponentsFamily/CATComponentsFamilyReference TO=CATComponentsFamily/CATComponentsFamilyGenericConnection THROUGH=POINTEDBY) WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY) )
+
+THEN
+
+	(RELATION (FROM=CATComponentsFamily/CATComponentsFamilyGenericConnection TO=PLMCORE/PLMCoreReference  THROUGH=POINTSTO) WITH QUALITY_FILTER (CATEGORY=Reference) )
+
+ITER = 1 ;

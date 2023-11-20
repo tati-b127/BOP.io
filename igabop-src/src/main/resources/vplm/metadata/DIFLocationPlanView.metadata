@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY Location Plan modeler               -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2017, All rights reserved -->
+
+ <!-- ***************************************************** -->
+ <!-- *             Location Plan Modeler                 * -->
+ <!-- *                                                   * -->
+ <!-- *    DIFModeler specialization                      * -->
+ <!-- *                                                   * -->
+ <!-- *    Model objects :                                * -->
+ <!-- *            LocationPlanView           28/07/2017  * -->
+ <!-- *            LocationPlanViewInstance   28/07/2017  * -->
+ <!-- ***************************************************** -->
+
+<Package xmlns="PLMDictionaryUnified"
+         ModelerType="Top"
+         Name="DIFLocationPlanView"
+         Uuid="B24EA9FA-243C-4412-B36F-D21DC711BC30"
+         UseNames="DIFModelerAbstractView"
+         BelongsToModeler="DIFModeler01"
+         CustomerExposition="Programmer">
+         
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <!-- ******************************** -->
+  <!-- *  LocationPlanView            * -->
+  <!-- ******************************** -->
+   
+  <!-- ******************************** -->
+  <!-- *  PLMCoreReference            * -->
+  <!-- *        DifAbstactView        * -->
+  <!-- *            LocationPlanView  * -->
+  <!-- ******************************** -->
+  
+  <Class Name="LocationPlanView"
+         Uuid="304286A9-37D6-4B0E-AEAA-67364ED32A92"
+         Abstract="No"
+         SuperName="DIFAbstractView"
+         Abbreviation="lpv"
+         CreateInstName="LocationPlanViewInstance"
+         CustomerExposition="Programmer"
+         Specializable="Yes"
+         DeleteAvailability="Yes">  
+  
+    <CAAComment>
+      <ShortRole>Location Plan View Object</ShortRole>
+      <Role>Location Plan View Object</Role>
+    </CAAComment>
+
+    <!-- PLM New UI/KWE Scripts New -->
+    <Property Name="KweNew_InstanciationMethod" Value="CATDifKBEDelegateInstanciation"/>
+
+    <!-- Icon  -->
+    <Property Name="IconName" Value="I_Location_Plan_View"/>
+
+    <!-- Collaborative Space Applicability -->
+    <Property Name="ShareBetweenProjectsAvailability" Value="Yes"/>
+
+    <!-- Export -->
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+  </Class>
+
+  
+  <!-- **************************************** -->
+  <!-- *  LocationPlanViewInstance            * -->
+  <!-- **************************************** -->
+   
+  <!-- **************************************** -->
+  <!-- *  PLMCoreInstance                     * -->
+  <!-- *        DifAbstactViewInstance        * -->
+  <!-- *            LocationPlanViewInstance  * -->
+  <!-- **************************************** -->
+  
+  <RelationClass Name="LocationPlanViewInstance"
+                 Uuid="0B779C92-9F5A-43A6-B0F6-BF56B99CC864"
+                 Abstract="No" SuperName="DIFAbstractViewInstance"
+                 CustomerExposition="Programmer"
+                 Specializable="Yes">
+
+    <CAAComment>
+      <ShortRole>Location Plan View Instance Object</ShortRole>
+      <Role>Location Plan View Instance Object</Role>
+    </CAAComment>
+
+    <!-- Configuration -->
+    <Property Name="Filtrable" Value="Yes"/>
+
+    <!-- PLM New UI/KWE Scripts New -->
+    <Property Name="KweNew_InstanciationMethod" Value="CATDifKBEDelegateInstanciation"/>
+
+    <!-- Icon -->
+    <Property Name="IconName" Value="I_Location_Plan_View"/>
+
+    <!-- Export -->
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+     
+    <SubClause Name="from"   TargetName="DIFSheet"/>
+    <SubClause Name="to"   TargetName="LocationPlanView"/>
+ 
+ 
+  </RelationClass>
+
+</Package>

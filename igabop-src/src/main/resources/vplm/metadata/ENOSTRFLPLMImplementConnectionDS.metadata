@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR RFLP IMPLEMENT CONNECTION DS -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2007, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo"  Name="ENOSTRFLPLMImplementConnectionDS"
+	Uuid="92b06eb3-9c54-4bd0-8f56-04db32961805" 
+	UseNames="RFLPLMImplementConnection" 
+	>
+	
+	<CAAComment>
+		<ShortRole>PLM Implement Connection DS Package</ShortRole>
+		<Role>This package describes a Customization of the PLM Implement Connection</Role>
+	</CAAComment>
+	
+	<Comment>last update 2007-10-11</Comment>
+	
+	<!-- *************************************************************************** -->
+	<!-- * ENOSTImplementConnection (RFLPLMLogicalConnection)              * -->
+  <!-- *************************************************************************** -->
+
+  <Class Name="ENOSTImplementConnection" 
+		Uuid="79491294-8122-4692-9175-911de58e9f83" 
+		 
+		SuperName="RFLPLMImplementConnection" 
+		SuperRef="cf34b262-d0e6-4e99-a2ca1bcd717d9b78" >
+	</Class>	
+	        
+</Package>

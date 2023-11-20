@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2012, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified"
+         ModelerType="Top"
+         Name="DELRmiResourceSignalModel"
+         Uuid="AA952971-332B-41e0-80E8-97D3406A0635"
+         UseNames="DELRmiResourceModelCnx"
+         CustomerExposition="Programmer">
+  <CAAComment>
+    <ShortRole>Resource Signal Modeler Package</ShortRole>
+    <Role>This package includes all the base entities of the Resource Signal Modeler.Obsolete Data.</Role>
+  </CAAComment>
+  <Comment>Resource Modeler Message Catalog</Comment>
+
+
+
+  <!-- ************************************************** -->
+  <!-- * OBSOLETE DATA                                  * -->
+  <!-- ************************************************** -->
+
+  <Class Name="DELSignalsDiscipline"
+          Uuid="8d45c97f-7e33-4b78-a608-20d6a808faaf"
+          Abstract="No"
+          Discipline="Yes"
+          SuperName="PLMDELCnx"
+          Specializable="No"
+          CustomerExtensible="No"
+          CustomerExposition="Programmer">
+
+    <CAAComment>
+      <ShortRole>Obsolete Data</ShortRole>
+    </CAAComment>
+
+    <!--<Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>-->
+
+  </Class>
+
+
+</Package>

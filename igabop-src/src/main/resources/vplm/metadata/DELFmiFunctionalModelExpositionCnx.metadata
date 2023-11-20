@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2006, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" 
+         BelongsToModeler="DELFmiFunctionalModel"
+         Name="DELFmiFunctionalModelExpositionCnx"
+         Uuid="29B49EEC-9BAB-4635-90FB0915EDBCE04F"
+         UseNames="PLMCORE"
+         CustomerExposition="Programmer"
+         >
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>Functional Process Modeler</ShortRole>
+    <Role>"DELFmiFunctionalModelExpositionCnx" package describes Functional Process Exposition Connection</Role>
+  </CAAComment>
+  
+    <Class Name="DELFmiProcessExpositionCnx"
+        Uuid="38E65A29-9203-46c0-A49D6E7C94E1DD85"
+        
+        CustomerExposition="Programmer"
+        CustomerExtensible="No"
+        Specializable="No"           
+        Abstract="No"
+        SuperName="PLMConnection"   
+        OwnerTypes="DELFmiFunctionReference"
+        >
+
+      <Property Name="Searchable" Value="No"/>
+
+      <CAAComment>
+        <ShortRole>Defines Functional Process Exposition Connection</ShortRole>
+      </CAAComment>
+      
+        <!-- *********************************************** -->
+        <!-- *  declaration for PLMCoreClient -->
+        <!-- *********************************************** -->
+
+      <Path Name="PMX_Exposition_Target"
+          Uuid="17C84CB6-6199-4963-9EB6-A96D1916728E"
+          MultiValuated="No"
+          RoleName="DELFmi_ExpositionCnx_Target"		
+          Type="SemanticRelation" AdaptativeToMinor="No"
+		      SynchroSensitivity="PathAndLast"
+		      RerouteOnEffectivityChange="Yes" Orientation="In"
+          Semantics="Reference3"
+	/>
+          <!-- OwnerTypes="DELFmiFunctionReference"  Integrate this line if you want to declare the aggregation constraint-->
+
+      <Path Name="PMX_Exposition_Source"
+          Uuid="7011F1AE-9203-424a-AF7F-B6C5DBFFF90B"
+          MultiValuated="No"
+          RoleName="DELFmi_ExpositionCnx_Source"		
+          Type="SemanticRelation" AdaptativeToMinor="Yes"
+		      SynchroSensitivity="Last"
+		      RerouteOnEffectivityChange="No" Orientation="Out"
+          Semantics="Reference5"
+	/>
+
+
+      <Method ImplementationType="None">
+		<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+	</Method>
+
+    </Class>
+</Package>

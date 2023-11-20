@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2004, All rights reserved -->
+
+
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" DataRDB_OID="ENODR_STDOC" Name="ENOSTDocumentDS" 
+	Uuid="959a2123-fc78-485b-9c7f-a975e5e9afc9" 
+	UseNames="PLMDmtDocument"
+	Alias="Document Model for Team Engineering">
+	<CAAComment>
+		<ShortRole>Document Model Document for Team Engineering. </ShortRole>
+	</CAAComment>
+
+<Class Name="ENOSTDocument_DocDS" 
+	Uuid="16e94ec9-aca7-44c6-962a-d48dcb918581"
+	 
+	SuperName="PLMDMTDocument" 
+	SuperRef="B52D96F8-6F7B-46EC-AE39607835733DFC" 
+	>
+
+  <CAAComment>
+     <ShortRole>Document support for Team Engineering</ShortRole>
+  </CAAComment>
+
+  <!-- R206: contains identifier of object from which it is made from  -->
+  <!-- not exhanged between sites -->
+  <Simple Name="E_fromExternalId"
+  Uuid="d38f1fb2-41f4-4f66-a2c4-c9a74bf4983f"
+  Alias="Definition"
+  Type="String"
+  MaxLength="256"
+  Mandatory="No"
+  MultiValuated="No"
+  Protection="Free"
+  />
+
+  <!-- R206: contains Name comments  -->
+  <!-- not exhanged between sites -->
+  <Simple Name="E_versionComment"
+  Uuid="4aefabad-b9b2-4524-82bf-05a4163a5a8f"
+  Alias="Version Comment"
+  Type="String"
+  MaxLength="256"
+  Mandatory="No"
+  MultiValuated="No"
+  Protection="Free"
+  ResetOnNewVersion="Yes"
+  ResetOnCloning="Yes"
+  />  
+  <IdentifierSet Name="Identifier"
+            Uuid="c30a6b32-5d75-4ff1-8887-c212db283e56"
+            IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755"
+            IdentifierNames="PLM_ExternalID V_version" />
+
+
+</Class>
+
+</Package>

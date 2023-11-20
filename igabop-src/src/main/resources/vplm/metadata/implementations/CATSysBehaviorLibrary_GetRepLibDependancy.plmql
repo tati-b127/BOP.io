@@ -1,0 +1,1 @@
+NAVIGATE T0.PLM_ExternalID,T0.PLMID FROM CATSysBehaviorLibrary/CATSysBehaviorLibRepReference T0 FROM_ROOTS[?1?] ON(RELATION(FROM=CATSysBehaviorLibrary/CATSysBehaviorLibRepReference TO=CATSysBehaviorLibrary/CATSysBehaviorLibRepReference THROUGH=POINTSTO) WITH QUALITY_FILTER (ROLE=BCM_Instantiate) OR (ROLE=BCM_Extend) OR (ROLE=DEL_LinkFromLibToRepRef)) ITER=10; 

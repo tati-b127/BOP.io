@@ -1,0 +1,35 @@
+#Prog Rmt_Chapter_ExportCompletion( iPLMIDSet : #In PLMIDSet, oPLMIDSet : #Out PLMIDSet ) : VoidType
+{
+let RsChaptersStruct         (PLMRouteSet)
+let RsChaptersChildren       (PLMRouteSet)
+let IdsChaptersIn             (PLMIDSet)
+let IdsChaptersStruct         (PLMIDSet)
+let IdsChaptersAll            (PLMIDSet)
+let IdsChildren               (PLMIDSet)
+let IdsReqs                   (PLMIDSet)
+let IdsReqsAndScope           (PLMIDSet)
+
+
+/* Get the chapters structure, meaning the whole hierarchy of chapters, sub-chapters and relations between them */
+IdsChaptersIn = Restrict( iPLMIDSet , "Class/Chapter" )
+RsChaptersStruct = ExecutePLMFunction( "Requirement", "rmt_nav_chapter_structure", IdsChaptersIn )
+IdsChaptersStruct = Ids(RsChaptersStruct)
+
+
+/* Isolate all the chapters of the structure, and get their pointed reqs and comments, plus the relations between them and their chapter */
+IdsChaptersAll = Restrict( IdsChaptersStruct , "Class/Chapter" )
+RsChaptersChildren = ExecutePLMFunction( "Requirement", "rmt_nav_chapter_children", IdsChaptersAll )
+IdsChildren = Ids(RsChaptersChildren)
+
+
+/* Complete procedure to export pointed reqs */
+IdsReqs = Restrict( IdsChildren , "Class/Requirement" )
+IdsReqsAndScope = ExecutePLMProcedure( "Rmt_Requirement_ExportCompletion", IdsReqs )
+
+
+/* Provide back all that stuff */
+oPLMIDSet = iPLMIDSet
++ IdsChaptersStruct
++ IdsChildren
++ IdsReqsAndScope
+}

@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR DELMIA Production System Application -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified"
+         ModelerType="Top"
+         Name="DELLmiProductionPunctualOperation"
+	       Uuid="51eee96d-413b-4b2c-ae2bb5d03eb92fcd"
+         BelongsToModeler="DELLmiProductionSystem"
+       	 UseNames="DELLmiProductionOperationPPR"
+         CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>PLM DELMIA Punctual Operation </ShortRole>
+    <Role>This package describes the PLM DELMIA Punctual Operation model on top of DELLmiProductionOperationPPR</Role>
+  </CAAComment>
+
+  <Comment>last update 2012-01-20</Comment>
+
+  <Class Name="DELLmiPunctualOperationReference"
+     		 Uuid="0488e045-8eef-4844-b4e085d06adbcfc7"
+ 		     Abstract="No"
+         SuperName="DELLmiOperationPPRReference"
+         CustomerExposition="Programmer"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         CreateInstName="DELLmiPunctualOperationInstance"
+         Abbreviation="pop"
+         InstantiationOwnerTypes="DELLmiGeneralSystemReference;DELLmiWorkPlanSystemReference;DELLmiTransformationSystemReference;DELLmiGeneralOperationReference;DELLmiInterruptOperationReference;DELLmiHeaderOperationReference;DELLmiExecHeaderOperationReference"
+         >
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELMPProdSystemAdvDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELLmiPunctualOperationInstance"/>
+    <Property Name="IconName" Value="I_PPRSeqPointFastening"/>
+    <Property Name="3DIconName" Value="I_PPRSeqPointFastening.cgr"/>
+    <Property Name="Newable" Value="Insert_CAA"/>
+    <Property Name="Searchable" Value="Yes"/>
+
+    <CAAComment>
+      <ShortRole>PLM DELMIA Punctual Operation Reference</ShortRole>
+      <Role>PLM DELMIA Punctual Operation Reference</Role>
+    </CAAComment>
+
+    <Simple Name="V_TimePerFastening"
+            Uuid="65b52ca5-1cd7-4763-94e986e240b2381c"
+            Type="Double"
+            MultiValuated="No"
+            Magnitude="TIME"
+            Protection="Free"
+            DefaultValue="1.0"
+            CAAExposition="L0">
+    </Simple>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+
+
+  </Class>
+
+  <RelationClass Name="DELLmiPunctualOperationInstance"
+		     Uuid="26a8ea9e-c0c0-4bb7-978328e44ecb1fa6"
+		     Abstract="No"
+         SuperName="DELLmiOperationPPRInstance"
+         CustomerExposition="Programmer"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         >
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELMPProdSystemAdvDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELLmiPunctualOperationInstance"/>
+
+    <CAAComment>
+      <ShortRole>PLM DELMIA Punctual Operation Instance. Specialization is not supported yet.</ShortRole>
+      <Role>PLM DELMIA Punctual Operation Instance</Role>
+    </CAAComment>
+
+    <Volatile Name="Reference"
+              Uuid="ED617ECF-BB9E-436c-9C0D-1A89170F5DAA"
+              Accessor="PLMModelerReferenceKweAttribute"
+              TypeName="DELLmiPunctualOperationReference"
+              AccessMode="ReadOnly" />
+
+    <SubClause Name="to"   TargetName="DELLmiPunctualOperationReference"/>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+
+
+  </RelationClass>
+
+</Package>

@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2014, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" CustomerExposition="Programmer" Name="PLMHangerDictionary" Uuid="0A19CEB9-6E28-4E5E-ACBF-AFDD23AD2C22" UseNames="PRODUCTCFG">
+  <Comment>[V6R2019x] 2018-03-23 IR-587845: CustomerExposition changed back to Programmer</Comment>
+  <Comment>[V6R2018x] 2017-01-09 CustomerExposition changed to ProgrammerOnly</Comment>
+  <Comment>[V6R2016x] 2015-07-01 T2O Added Controller</Comment>
+  <!--Start Hanger Extension -->
+  <Extension Name="SharedHangerPart" Discipline="Yes" Specializable="No"  Uuid="5C64E0D7-3F1F-4E0D-B299-E32FB92CC8DC" CustomerExposition="Programmer" ScopeNames="VPMReference">
+    <Simple Name="V_Hgr_Spec" 			Uuid="E129BCBB-B525-4788-B30D-B5FC5F6F29A9" Type="String" MaxLength="100" Protection="Free" CAAExposition="L0"><Property Name="Controller" Value="CATHgrAttributeController"/></Simple>
+    <Simple Name="V_Hgr_Height"         Uuid="4DA8DE9E-6DB0-4824-B5D8-26B49A7872EA" Type="Double" Magnitude="LENGTH" Protection="Free" CAAExposition="L0"><Property Name="Controller" Value="CATHgrAttributeController"/></Simple>
+    <Simple Name="V_Hgr_Width"          Uuid="0868790C-6281-4732-A74E-E59AAB14869A" Type="Double" Magnitude="LENGTH" Protection="Free" CAAExposition="L0"><Property Name="Controller" Value="CATHgrAttributeController"/></Simple>
+    <Simple Name="V_Hgr_Diameter"       Uuid="5D18C3A3-B8CC-4D22-8942-B35240B8D078" Type="Double" Magnitude="LENGTH" Protection="Free" CAAExposition="L0"><Property Name="Controller" Value="CATHgrAttributeController"/></Simple>
+    <Simple Name="V_Hgr_Nominal_Size"   Uuid="340571AD-7101-4E63-9CC6-505BD1A0E31E" Type="String" MaxLength="100" Protection="Free" CAAExposition="L0"><Property Name="Controller" Value="CATHgrAttributeController"/></Simple>
+    <Simple Name="V_Hgr_NumberOfTiers"  Uuid="7AFD2C59-C941-4BD9-B4CA-6A4A55A9EE46" Type="Integer" Protection="Free" CAAExposition="L0"><Property Name="Controller" Value="CATHgrAttributeController"/></Simple>
+    <Simple Name="V_Hgr_TierWidth"      Uuid="C1EA0860-A945-4971-9BD7-E8A0D63ABBFA" Type="Double"  Magnitude="LENGTH" Protection="Free" CAAExposition="L0"><Property Name="Controller" Value="CATHgrAttributeController"/></Simple>
+    <Property Name="IconName" Value="I_CATHgrFeature"/>
+    <Property Name="Searchable" Value="Yes"/>
+  </Extension>
+  <!--End Hanger Extension -->
+</Package>

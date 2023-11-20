@@ -1,0 +1,20 @@
+EXPAND 
+
+     T0.PLM_ExternalID, T1.PLM_ExternalID ,T2.PLM_ExternalID, T3.PLM_ExternalID ,T4.PLM_ExternalID ,
+     T0.PLMID, T1.PLMID ,T2.PLMID, T3.PLMID ,T4.PLMID 
+
+FROM
+
+      SIMObjSimulationCategoryAndProdCnx/SIMObjSimulationCategoryReference T0,
+
+      SIMObjSimulationGeneric/SIMObjSimulationRepInstanceGeneric T1,
+
+      SIMObjSimulationGeneric/SIMObjSimulationRepReferenceGeneric T2,
+
+      SIMObjSimulationV5Generic/SIMObjSimulationV5RepInstanceGeneric T3,
+
+      SIMObjSimulationV5Generic/SIMObjSimulationV5RepReferenceGeneric T4
+
+FROM_ROOTS[?1?]
+DEPTH=1;
+

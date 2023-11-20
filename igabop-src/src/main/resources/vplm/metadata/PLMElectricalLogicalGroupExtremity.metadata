@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY for Electrical Logical Editor, defining GroupExtremity connection -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2007, all rights reserved -->
+
+<!-- 
+   =========
+    Package
+   =========
+   xmlns :           Type of model defined. "PLMDictionaryTop", "PLMDictionaryAbstract", "Core", "Custo".
+   ModelerType :     Type of model defined. "Top", "Abstract", "Core", "Custo".  
+   Alias :           Other name for the object. To be removed.
+   UseNames :        Other dictionaries required to define class derivation or extension.
+   UseScopes :       Other dictionaries required to define relationships between entities.
+   ExpositionLevel : "CAA" for all RFLVPM dictonaries, none for FluidSystemsLogical.
+-->
+
+   <Package Name="PLMElectricalLogicalGroupExtremity"
+      Uuid="8246817e-56a8-4702-a42a-34e2e4145fae"
+      xmlns="PLMDictionaryUnified"
+      ModelerType="Top"
+      BelongsToModeler="PLMElectricalLogical"
+      UseNames="LPABSTRACT"
+	  CustomerExposition="Programmer">
+
+     <CAAComment>
+         <ShortRole>Electrical Logical Group Extremity Package</ShortRole>
+         <Role>This package describes the PLM Electrical Logical model of Group Extremity connections on top of RFLVPMLogical Modeler.</Role>
+      </CAAComment>
+      <Comment>Initial creation : LOK JRI 2007-11-16</Comment>
+      <Comment>Creation mode to "Yes" for electrical connections in V6R2012x: ZTB Jun 2011</Comment>
+	    <Comment>[V6R2013x] New Typing project: ZTB Apr 2012</Comment>
+      <Comment>[V6R2015x] Specialize GoupExtremityConnections: JRI Jan 2014</Comment>
+
+<!-- 
+   =================
+    Group Extremity
+   =================
+-->
+      <Class Name="PLMEleGroupExtremity"
+         Uuid="5317dec4-cf33-4fc0-bc0a-dae911432fd3"
+         SuperName="LPAbstractConnection"
+         Abstract="No"   OwnerTypes="RFLVPMLogicalReference"
+         CustomerExposition="None" >
+        <!-- OwnerTypes="RFLVPMLogicalReference"  Integrate this line if you want to declare the aggregation constraint -->
+
+        <Simple Name="V_LogicalSubType"
+            Uuid="39134725-6b4d-4974-8317-e65fd6b9cb87"
+            Type="String"
+            MaxLength="30"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0" />
+     <Path Name="V_Elec_VirtualPin"
+            Uuid="7e3c7364-b230-4682-9de0-89c2416a9a50"
+            RoleName="PLM_ElectricalLogical_VirtualPin"
+            Semantics="Reference7"  Orientation="Out"
+         		Type="SemanticRelation" AdaptativeToMinor="No"
+        		SynchroSensitivity="Last"
+		        RerouteOnEffectivityChange="No"
+            MultiValuated="No" />
+         <Path Name="V_Elec_Extremities"
+            Uuid="ef9d2773-bedf-4504-ad8b-f77cb92423a9"
+            RoleName="PLM_ElectricalLogical_Extremities"
+            Semantics="Reference"
+            MultiValuated="Yes"		
+            Type="SemanticRelation" AdaptativeToMinor="No"
+		        SynchroSensitivity="None"
+		        RerouteOnEffectivityChange="No"
+            Lower="0"
+            Upper="-1" />
+         <Method ImplementationType="None">
+   	        <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+         </Method>
+      </Class>
+
+	   <Class Name="EleLogicalGroupExtremity"
+			Uuid="08ddf2c2-1d85-4bec-b60d-2c4f2799dce9"
+			CustomerExposition="None"
+			SuperName="PLMEleGroupExtremity"
+			Discipline="Yes">
+	   </Class>
+     
+     <Class Name="EleLogicalShieldedGroupExtremity"
+			Uuid="cc722201-77d1-4706-b80b-9c0162bca960"
+      CustomerExposition="Programmer"
+			SuperName="PLMEleGroupExtremity"
+			Discipline="Yes">
+     </Class>
+
+     <Class Name="EleLogicalTwistedGroupExtremity"
+			Uuid="47caf3f1-7f3f-4e48-b0a6-f27a11270c5c"
+      CustomerExposition="Programmer"
+			SuperName="PLMEleGroupExtremity"
+			Discipline="Yes">
+     </Class>
+
+     <Class Name="EleLogicalTwistedShieldedGroupExtremity"
+			Uuid="199c6a00-ce2b-40e0-9f69-7f9b9e1fa50d"
+      CustomerExposition="Programmer"
+			SuperName="PLMEleGroupExtremity"
+			Discipline="Yes">
+     </Class>
+</Package>

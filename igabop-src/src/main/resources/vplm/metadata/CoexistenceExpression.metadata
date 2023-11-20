@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2018, All rights reserved -->
+
+<!-- History
+    3DEXPERIENCER2019x Created
+-->
+
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" Name="CoexistenceExpression"
+    Uuid="df21b6de-5f55-4ac8-ab83-5687b0ec3cb9"
+	UseNames="PLMCORE VPMCfgConfiguration"
+    CustomerExposition="Programmer"
+	Architecture="All"
+>
+
+  <!-- *********************************** -->
+  <!-- Extension CoexistenceExpressionBase -->
+  <!-- *********************************** -->
+
+  <Extension
+    Name="CoexistenceExpressionBase"
+	Uuid="b77deed3-f210-4798-b9c8-548b3f339668"
+    Abstract="Yes"
+    CustomerExposition="ProgrammerOnly"
+	ScopeNames="PLMCoreInstance;VPMCfgConfiguration"
+  >
+    <Simple
+      Name="TransactionID"
+	  Uuid="43303c69-3d81-4528-9c78-502390f92767"
+      Type="String"
+      Protection="External"
+      PLMImpacting="No"
+    >
+	</Simple>
+	<Simple
+      Name="ProcessingDate"
+	  Uuid="cd8ee486-44bf-4e62-8dbb-d2bb07741ec1"
+      Type="Date"
+      Protection="External"
+      PLMImpacting="No"
+    >
+	</Simple>
+	<Simple
+      Name="ListModels"
+	  Uuid="ab30107e-a779-4d16-89bb-825ef7947f49"
+      Type="String"
+      Protection="External"
+	  MultiValuated="Yes"
+      PLMImpacting="No"
+    >
+	</Simple>
+	<Simple
+      Name="ListChanges"
+	  Uuid="92d2e766-963b-40d7-8622-ad500f3f6757"
+      Type="String"
+      Protection="External"
+	  MultiValuated="Yes"
+      PLMImpacting="No"
+    >
+	</Simple>
+	<Simple
+      Name="ReportStatus"
+	  Uuid="ffe2e35d-85b6-4d9e-9bd1-c34bff8e2593"
+      Type="String"
+      Protection="External"
+	  MultiValuated="Yes"
+      PLMImpacting="No"
+    >
+	</Simple>
+  </Extension>
+
+  <!-- ****************************** -->
+  <!-- Extension CoexFilterExpression -->
+  <!-- ****************************** -->
+  
+  <Extension
+    Name="CoexFilterExpression"
+	Uuid="e19923f7-7446-4224-ba46-10234f6dbac0"
+	SuperName="CoexistenceExpressionBase"
+    Abstract="No"
+    CustomerExposition="ProgrammerOnly"
+  >
+  	<Simple
+      Name="FilterExpression"
+	  Uuid="75b60617-54f1-40fe-93ea-043a6a146a1b"
+      Type="Clob"
+      Protection="Internal"
+      PLMImpacting="No"
+    >
+	</Simple>
+  </Extension>
+  
+  <!-- *********************************** -->
+  <!-- Extension CoexEffectivityExpression -->
+  <!-- *********************************** -->
+  
+  <Extension
+    Name="CoexEffectivityExpression"
+	Uuid="8dfe122e-b755-47cc-a60a-d612b9921d14"
+	SuperName="CoexistenceExpressionBase"
+    Abstract="No"
+    CustomerExposition="ProgrammerOnly"
+  >
+  	<Simple
+      Name="EvolutionExpression"
+	  Uuid="f05919c9-e46e-4db6-a633-b1eb46282567"
+      Type="Clob"
+      Protection="Internal"
+      PLMImpacting="No"
+    >
+	</Simple>
+	<Simple
+      Name="VariantExpression"
+	  Uuid="c2edb977-2ffa-4b9d-bc7d-12a238a754d0"
+      Type="Clob"
+      Protection="Internal"
+      PLMImpacting="No"
+    >
+	</Simple>
+  </Extension>
+  
+  <!-- ****************************** -->
+  <!-- Extension CoexLegacyExpression -->
+  <!-- ****************************** -->
+  
+  <Extension
+    Name="CoexLegacyExpression"
+	Uuid="f5aa5606-2008-4747-b99b-e3f65f285856"
+	SuperName="CoexistenceExpressionBase"
+    Abstract="No"
+    CustomerExposition="ProgrammerOnly"
+  >
+  	<Simple
+      Name="LegacyExpression"
+	  Uuid="3d105987-2165-4766-9488-d0b7b55cc884"
+      Type="Clob"
+      Protection="Internal"
+      PLMImpacting="No"
+    >
+	</Simple>
+  </Extension>
+
+</Package>

@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2006, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top"  Name="CATRepImage" Uuid="6cc3fe6d-f009-4421-b00a-cc719e813085" UseNames="PLMCORE" CustomerExposition="None">
+	<Comment/>
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+  <!--************************************************-->
+	<!--************************************************-->
+	<Class Name="CATRepresentationImage" Uuid="bdd6643b-9b45-47b3-89f6-24ab5433c189" SuperName="PLMCoreRepReference" Abstract="No" CAAExposition="L1" CustomerExposition="None">
+		<Simple Name="V_PrimaryMimeType" Uuid="28347292-a0cb-4b9c-ace9-0ad1a6036fe5"   Type="String" MaxLength="40"  Protection="External" CAAExposition="L1"/>
+		<Simple Name="V_PrimaryFileName" Uuid="5014518f-ac17-4e0a-9b84-9b4b963b73eb"   Type="String" MaxLength="1024"  Protection="External" CAAExposition="L1"/>
+		
+		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+		
+	</Class>
+</Package>

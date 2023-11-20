@@ -1,0 +1,276 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY for Ens Specifications Editor -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2013, all rights reserved -->
+<!-- MODIF PA DEB 27/08/2014 : BelongsToModeler="PLMEnsEngSpecification" added to package : MODIF PA FIN 27/08/2014 -->
+
+<!-- 
+   =========
+    Package
+   =========
+ -->
+<!-- MODIF PA DEB 27/08/2014 -->
+<Package xmlns="PLMDictionaryUnified" CustomerExposition="Programmer" ModelerType="Top" BelongsToModeler="PLMEnsEngSpecification"
+         Name="PLMEnsEngSpecification" Uuid="2eafacbb-ce0a-4169-8bda-b26c7f495ea8" UseNames="PLMEnsSpecTechnoTable PLMEnsSpecPartsFilter PLMEnsSpecSpecification" >
+<!-- MODIF PA FIN 27/08/2014 -->
+  
+  <CAAComment>
+    <ShortRole>Equipment and Systems Engineering Specification Package</ShortRole>
+    <Role>This package describes the Engineering Specification objects for Equipment and Systems Applications.</Role>
+  </CAAComment>
+  <Comment>Initial creation: ADZ GLY Jan 2013</Comment>
+  <Comment>[V6R2015x] 2014-04-07 ADZ Add Property Name="Controller" Value="CATEnsEngAttController" on V_Standard, V_Fluid, V_FluidCategory attributes of Ens_TechnoTable2, Ens_AbstractFilter, Ens_AbstractSpec classes</Comment>
+  <Comment>[V6R2015x] 2014-07-25 PA  Add Property Name="ProposedInDataSetup" on "Ens_CustomerTable"</Comment>
+
+  <!--
+     ===================================================
+     Reference Tables
+     ===================================================
+     -->
+  <Class Name="Ens_StandardTable" Uuid="a6a3adde-e2d1-49d0-bb73-67715fe07fec" Abbreviation="ensst" CustomerExposition="Programmer" Abstract="No"
+         SuperName="EnsTechnologicalTable" Discipline="Yes" CustomerExtensible="Yes" CreateInstName="EnsTechnologicalTableInstance">
+    <Property Name="IconName"                    Value="I_EnsEngSpec_Table"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsTechnologicalTableInstance"/>
+    <Property Name="ProposedInDataSetup"         Value="Yes"/>
+    <CAAComment>
+      <ShortRole>Standard Table</ShortRole>
+      <Role>Standard Table</Role>
+    </CAAComment>
+  </Class>
+
+  <Class Name="Ens_TechnoTable2" Uuid="caaf2301-a009-4aaa-b66b-8400ae29f2d9" CustomerExposition="Programmer" Abstract="Yes" SuperName="EnsTechnologicalTable" Discipline="Yes" >
+    <CAAComment>
+      <ShortRole>Equipment and Systems Techno Table 2</ShortRole>
+      <Role>Equipment and Systems Techno Table 2</Role>
+    </CAAComment>
+    <Simple Name="V_Standard" Uuid="fcb21ea5-a503-4410-8276-1b5caa875949" Type="String" MultiValuated="No" MaxLength="100" Protection="Free" CAAExposition="L0"><Property Name="Controller" Value="CATEnsEngAttController"/></Simple>
+  </Class>
+
+  <Class Name="Ens_TechnoTable3" Uuid="d7fd3679-c072-4562-ab8b-c82a150c286c" CustomerExposition="Programmer" Abstract="Yes" SuperName="Ens_TechnoTable2" Discipline="Yes" >
+    <CAAComment>
+      <ShortRole>Equipment and Systems Techno Table 3</ShortRole>
+      <Role>Equipment and Systems Techno Table 3</Role>
+    </CAAComment>
+    <Simple Name="V_MaxTemperature"  Uuid="8a13648d-edc4-488f-a7a0-3100256928ed" Type="Double" Magnitude="TEMPRTRE" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_MinTemperature"  Uuid="821158f0-a089-452a-a26b-6d7396b95eda" Type="Double" Magnitude="TEMPRTRE" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+  </Class>
+
+  <Class Name="Ens_TechnoTable4" Uuid="960c53f1-374e-4424-89ad-c7252395e61f" CustomerExposition="Programmer" Abstract="Yes" SuperName="Ens_TechnoTable3" Discipline="Yes" >
+    <CAAComment>
+      <ShortRole>Equipment and Systems Techno Table 4</ShortRole>
+      <Role>Equipment and Systems Techno Table 4</Role>
+    </CAAComment>
+    <Simple Name="V_Fluid"           Uuid="7e77d056-cb66-4990-afbd-0938889e848e" Type="String" MultiValuated="No" MaxLength="100" Protection="Free" CAAExposition="L0"><Property Name="Controller" Value="CATEnsEngAttController"/></Simple>
+    <Simple Name="V_FluidCategory"   Uuid="5b5a3908-1c8b-4f26-8da1-5147f5d43722" Type="String" MultiValuated="No" MaxLength="100" Protection="Free" CAAExposition="L0"><Property Name="Controller" Value="CATEnsEngAttController"/></Simple>
+  </Class>
+  
+  <Class Name="Ens_MaterialCategoryTable" Uuid="83a0c8f3-4259-4fd8-bdbb-4bc1d7d03b45" Abbreviation="ensmct" CustomerExposition="Programmer" Abstract="No"
+         SuperName="Ens_TechnoTable2" Discipline="Yes" CustomerExtensible="Yes" CreateInstName="EnsTechnologicalTableInstance">
+    <Property Name="IconName"                    Value="I_EnsEngSpec_Table"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsTechnologicalTableInstance"/>
+    <CAAComment>
+      <ShortRole>Equipment and Systems Material Category Table</ShortRole>
+      <Role>Equipment and Systems Material Category Table</Role>
+    </CAAComment>
+  </Class>
+
+  <Class Name="Ens_MaterialTable" Uuid="0e3bc426-f681-47a4-961c-79122852f9fa" Abbreviation="ensmt" CustomerExposition="Programmer" Abstract="No"
+         SuperName="Ens_TechnoTable2" Discipline="Yes" CustomerExtensible="Yes" CreateInstName="EnsTechnologicalTableInstance">
+    <Property Name="IconName"                    Value="I_EnsEngSpec_Table"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsTechnologicalTableInstance"/>
+    <Property Name="ProposedInDataSetup"         Value="Yes"/>
+    <CAAComment>
+      <ShortRole>Equipment and Systems Material Table</ShortRole>
+      <Role>Equipment and Systems Material Table</Role>
+    </CAAComment>
+  </Class>
+
+  <Class Name="Ens_FluidCategoryTable" Uuid="a8e16dd8-c00e-499e-9a00-4e15cc9d3a50" Abbreviation="ensfct" CustomerExposition="Programmer" Abstract="No"
+         SuperName="Ens_TechnoTable2" Discipline="Yes" CustomerExtensible="Yes" CreateInstName="EnsTechnologicalTableInstance">
+    <Property Name="IconName"                    Value="I_EnsEngSpec_Table"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsTechnologicalTableInstance"/>
+    <CAAComment>
+      <ShortRole>Equipment and Systems Fluid Category Table</ShortRole>
+      <Role>Equipment and Systems Fluid Category Table</Role>
+    </CAAComment>
+  </Class>
+
+  <Class Name="Ens_FluidTable" Uuid="4be1d312-e6fe-4f29-b3c1-372fe5f191c1" Abbreviation="ensft" CustomerExposition="Programmer" Abstract="No"
+         SuperName="Ens_TechnoTable2" Discipline="Yes" CustomerExtensible="Yes" CreateInstName="EnsTechnologicalTableInstance">
+    <Property Name="IconName"                    Value="I_EnsEngSpec_Table"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsTechnologicalTableInstance"/>
+    <Property Name="ProposedInDataSetup"         Value="Yes"/>
+    <CAAComment>
+      <ShortRole>Equipment and Systems Fluid Table</ShortRole>
+      <Role>Equipment and Systems Fluid Table</Role>
+    </CAAComment>
+  </Class>
+
+  <Class Name="Ens_EndStyleTable" Uuid="a0da303c-80c0-4584-a797-edb85884cfce" Abbreviation="ensest" CustomerExposition="Programmer" Abstract="No"
+       SuperName="Ens_TechnoTable2" Discipline="Yes" CustomerExtensible="Yes" CreateInstName="EnsTechnologicalTableInstance">
+    <Property Name="IconName"                    Value="I_EnsEngSpec_Table"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsTechnologicalTableInstance"/>
+    <Property Name="ProposedInDataSetup"         Value="Yes"/>
+    <CAAComment>
+      <ShortRole>Equipment and Systems End Style Table</ShortRole>
+      <Role>Equipment and Systems End Style Table</Role>
+    </CAAComment>
+  </Class>
+
+  <Class Name="Ens_PartSubTypeTable" Uuid="99bfbfbe-f9d1-4a2a-87d3-e549e03faadc" Abbreviation="enspstt" CustomerExposition="Programmer" Abstract="No"
+       SuperName="Ens_TechnoTable2" Discipline="Yes" CustomerExtensible="Yes" CreateInstName="EnsTechnologicalTableInstance">
+    <Property Name="IconName"                    Value="I_EnsEngSpec_Table"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsTechnologicalTableInstance"/>
+    <Property Name="ProposedInDataSetup"         Value="Yes"/>
+    <CAAComment>
+      <ShortRole>Equipment and Systems Part SubType Table</ShortRole>
+      <Role>Equipment and Systems Part SubType Table</Role>
+    </CAAComment>
+  </Class>
+
+  <Class Name="Ens_LogicalPartSubTypeTable" Uuid="a31e5550-4d23-4da4-b548-3690ad639f13" Abbreviation="enslpstt" CustomerExposition="Programmer" Abstract="No"
+         SuperName="Ens_TechnoTable2" Discipline="Yes" CustomerExtensible="Yes" CreateInstName="EnsTechnologicalTableInstance">
+    <Property Name="IconName"                    Value="I_EnsEngSpec_Table"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsTechnologicalTableInstance"/>
+    <Property Name="ProposedInDataSetup"         Value="Yes"/>
+    <CAAComment>
+      <ShortRole>Equipment and Systems Logical Part SubType Table</ShortRole>
+      <Role>Equipment and Systems Logical Part SubType Table</Role>
+    </CAAComment>
+  </Class>
+
+  <Class Name="Ens_MappingPartSubTypeTable" Uuid="af2ef8a1-0e09-414e-923c-5cc7b600f367" Abbreviation="ensmpstt" CustomerExposition="Programmer" Abstract="No"
+         SuperName="Ens_TechnoTable2" Discipline="Yes" CustomerExtensible="Yes" CreateInstName="EnsTechnologicalTableInstance">
+    <Property Name="IconName"                    Value="I_EnsEngSpec_Table"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsTechnologicalTableInstance"/>
+    <Property Name="ProposedInDataSetup"         Value="Yes"/>
+    <CAAComment>
+      <ShortRole>Equipment and Systems Mapping Part SubType Table</ShortRole>
+      <Role>Equipment and Systems Mapping Part SubType Table</Role>
+    </CAAComment>
+  </Class>
+
+  <Class Name="Ens_CustomerTable" Uuid="b0e875bc-dbd6-4bcd-9b76-c76558172423" Abbreviation="ensct" CustomerExposition="Programmer" Abstract="No"
+         SuperName="Ens_TechnoTable2" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes" CreateInstName="EnsTechnologicalTableInstance">
+    <Property Name="IconName"                    Value="I_EnsEngSpec_Table"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsTechnologicalTableInstance"/>
+    <!--  MODIF PA DEB 25/07/2014  -->
+    <Property Name="ProposedInDataSetup"         Value="Yes"/>
+    <!--  MODIF PA FIN 25/07/2014  -->
+    <CAAComment>
+      <ShortRole>Equipment and Systems Customer Table</ShortRole>
+      <Role>Equipment and Systems Customer Table</Role>
+    </CAAComment>
+  </Class>
+
+  <Class Name="Ens_InsulationTypeTable" Uuid="419d68b0-289a-44ff-8e36-f2f1e8d680ba" Abbreviation="ensitt" CustomerExposition="Programmer" Abstract="No"
+       SuperName="Ens_TechnoTable2" Discipline="Yes" CustomerExtensible="Yes" CreateInstName="EnsTechnologicalTableInstance">
+    <Property Name="IconName"                    Value="I_EnsEngSpec_Table"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsTechnologicalTableInstance"/>
+    <Property Name="ProposedInDataSetup"         Value="Yes"/>
+    <CAAComment>
+      <ShortRole>Equipment and Systems Insulation Type Table</ShortRole>
+      <Role>Equipment and Systems Insulation Type Table</Role>
+    </CAAComment>
+  </Class>
+
+  <!--
+     ===================================================
+     Reference Filters
+     ===================================================
+     -->
+  
+  <Class Name="Ens_AbstractFilter" Uuid="1acfbe50-e5f0-4c69-bbea-c42f7b9aaec7" CustomerExposition="Programmer" Abstract="Yes"
+  SuperName="EnsFilter" Discipline="Yes" CustomerExtensible="Yes" CreateInstName="EnsFilterInstance">
+    <CAAComment>
+      <ShortRole>Equipment and Systems Filter</ShortRole>
+      <Role>Equipment and Systems Filter</Role>
+    </CAAComment>
+    <Simple Name="V_Standard"        Uuid="ca60dc07-1de6-4c0f-a90b-b72dba217836" Type="String" MultiValuated="No" MaxLength="100" Protection="Free" CAAExposition="L0"><Property Name="Controller" Value="CATEnsEngAttController"/></Simple>
+    <Simple Name="V_MaxTemperature"  Uuid="1feafaac-9f64-4592-b4b1-6940d9e05a80" Type="Double" Magnitude="TEMPRTRE" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_MinTemperature"  Uuid="6f0a9346-b0bb-4609-9353-95aa976448d2" Type="Double" Magnitude="TEMPRTRE" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Fluid"           Uuid="5259ac0a-cc14-46a9-848b-993c9b689b5e" Type="String" MultiValuated="No" MaxLength="100" Protection="Free" CAAExposition="L0"><Property Name="Controller" Value="CATEnsEngAttController"/></Simple>
+    <Simple Name="V_FluidCategory"   Uuid="891a4861-e7ed-4f2f-b179-ffbc496fdbd1" Type="String" MultiValuated="No" MaxLength="100" Protection="Free" CAAExposition="L0"><Property Name="Controller" Value="CATEnsEngAttController"/></Simple>
+  </Class>
+  
+  <!--
+     ===================================================
+     Reference Specifications
+     ===================================================
+     -->
+  
+  <Class Name="Ens_AbstractSpec" Uuid="89d70bdc-6b39-4411-a752-912476ec2168" CustomerExposition="Programmer" Abstract="Yes"
+SuperName="EnsSpecification" Discipline="Yes" CustomerExtensible="Yes">
+    <CAAComment>
+      <ShortRole>Equipment and Systems Abstract Specification</ShortRole>
+      <Role>Equipment and Systems Abstract Specification</Role>
+    </CAAComment>
+    <Simple Name="V_Standard"        Uuid="7be6ce01-0015-45bf-8a97-811d3c8219be" Type="String" MultiValuated="No" MaxLength="100" Protection="Free" CAAExposition="L0"><Property Name="Controller" Value="CATEnsEngAttController"/></Simple>
+    <Simple Name="V_MaxTemperature"  Uuid="0a1ba8c8-92a8-437e-8edb-483147c72362" Type="Double" Magnitude="TEMPRTRE" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_MinTemperature"  Uuid="84f57078-9186-4ca6-a228-f9e90ae6dfa9" Type="Double" Magnitude="TEMPRTRE" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Fluid"           Uuid="663e0343-7a4d-4817-bac2-8beae508aa0a" Type="String" MultiValuated="No" MaxLength="100" Protection="Free" CAAExposition="L0"><Property Name="Controller" Value="CATEnsEngAttController"/></Simple>
+    <Simple Name="V_FluidCategory"   Uuid="15755da6-c506-4b42-b3bf-56784be4967e" Type="String" MultiValuated="No" MaxLength="100" Protection="Free" CAAExposition="L0"><Property Name="Controller" Value="CATEnsEngAttController"/></Simple>
+  </Class>
+  
+  <Class Name="Ens_InsulationSpecification" Uuid="216f09b4-a074-4c3f-b8ed-a4e5727fc78b" Abbreviation="ensis" CustomerExposition="Programmer" Abstract="No"
+        SuperName="Ens_AbstractSpec" Discipline="Yes" CustomerExtensible="Yes">
+    <Property Name="IconName"                    Value="I_EnsEngSpec_Spec"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="New"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="ProposedInDataSetup"         Value="Yes"/>
+    <CAAComment>
+      <ShortRole>Equipment and Systems Insulation Specification</ShortRole>
+      <Role>Equipment and Systems Insulation Specification</Role>
+    </CAAComment>
+  </Class>
+
+  <!-- MODIF PA DEB 05/01/2015 -->
+  <Class Name="Ens_InsulationCustomerAdditionalSpec" Uuid="3AED8F1C-2E14-4844-AB69-FEC8BC6ACE54" Abbreviation="enscasis" CustomerExposition="Programmer" Abstract="No"
+         SuperName="CustomerAdditionalSpec" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes">
+    <Property Name="IconName"                    Value="I_EnsEngSpec_InsulationCustomerAdditionalSpec"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="New"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="ProposedInDataSetup"         Value="Yes"/>
+    <CAAComment>
+      <ShortRole>Insulation Customer Additional Spec</ShortRole>
+      <Role>Insulation Customer Additional Spec</Role>
+    </CAAComment>
+  </Class>
+  <!-- MODIF PA FIN 05/01/2015 -->
+
+</Package>

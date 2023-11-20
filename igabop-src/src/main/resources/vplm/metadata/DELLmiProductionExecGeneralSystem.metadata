@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR DELMIA Production System Application -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2009, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" 
+         ModelerType="Top" 
+         Name="DELLmiProductionExecGeneralSystem"
+	       Uuid="5be1c079-400b-4fc5-b48c-15987ad7a063"
+	       UseNames="DELLmiProductionSystemUPR"
+         UseProcedures="ENOEps_Procedures ENOPsm_Procedures"
+         CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>Execution General System Model</ShortRole>
+    <Role>This package describes the Execution General System model on top of DELLmiProductionSystemUPR</Role>
+  </CAAComment>
+
+  <Comment>last update 2013-06-18</Comment>
+
+  <Class Name="DELLmiExecGeneralSystemReference"
+		     Uuid="8eefb2ce-6c79-455f-88e0-7032dec1c71c"
+		     Abstract="No"
+         SuperName="DELLmiUPRSystemReference"
+         CustomerExposition="Programmer"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         CreateInstName="DELLmiExecGeneralSystemInstance"
+         Abbreviation="egs"
+         InstantiationOwnerTypes="DELLmiExecGeneralSystemReference;DELLmiExecTransfoSystemReference"
+         AggregatableTypes="DELLmiExecGeneralSystemReference;DELLmiExecTransfoSystemReference;DELLmiExecStorageSystemReference;DELLmiExecTransferSystemReference;DELLmiOperationUPRReference">
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELMPProdSystemAdvDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELLmiExecGeneralSystemInstance"/>
+    <Property Name="IconName" Value="I_UPRGeneralSystem"/>
+    <Property Name="3DIconName" Value="I_UPRGeneralSystem.cgr"/>
+    <Property Name="Newable" Value="No"/>
+    <Property Name="Searchable" Value="Yes"/>
+
+    <CAAComment>
+      <ShortRole>Execution General System Reference</ShortRole>
+      <Role>Execution General System Reference. Specialization is not supported yet.</Role>
+    </CAAComment>
+
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Design"/>
+        <UsedProcedure href="ENOEps_Procedures.proc#ProductionExecSystem_GetAllEntities"/>
+      </ProcedureForUsage>
+    </Method>
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExchangeScope.meth#XPDM"/>
+        <UsedProcedure href="ENOPsm_Procedures.proc#ProductionExecSystem_ExchangeXPDM_GetAllEntities"/>
+      </ProcedureForUsage>
+    </Method>
+
+  </Class>
+
+  <RelationClass Name="DELLmiExecGeneralSystemInstance"
+		     Uuid="eb8dee01-9792-46bd-854e-4aa19aec4564"
+		     Abstract="No"
+         SuperName="DELLmiUPRSystemInstance"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         CustomerExposition="Programmer">
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELMPProdSystemAdvDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELLmiExecGeneralSystemInstance"/>
+    
+    <CAAComment>
+      <ShortRole>Execution General System Instance</ShortRole>
+      <Role>Execution General System Instance. Specialization is not supported yet.</Role>
+    </CAAComment>
+
+    <Volatile Name="Reference" Uuid="8BC15996-21ED-4b3e-8BE0-62AD604E9C95" Accessor="PLMModelerReferenceKweAttribute" TypeName="DELLmiExecGeneralSystemReference" AccessMode="ReadOnly" />
+
+    <SubClause Name="to"   TargetName="DELLmiExecGeneralSystemReference"/>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+
+
+  </RelationClass>
+
+
+</Package>

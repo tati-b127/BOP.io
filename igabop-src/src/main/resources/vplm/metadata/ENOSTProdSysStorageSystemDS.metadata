@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" Name="ENOSTProdSysStorageSystemDS" Uuid="103e4dc7-1d25-4595-a1683ea4d325a20d" UseNames="DELLmiProductionStorageSystem" >
+	<CAAComment>
+		<ShortRole>PLM Customization of DELMIA Storage System for SMB</ShortRole>
+		<Role>PLM Customization of DELMIA Storage System for SMB</Role>
+	</CAAComment>
+	<Comment>last update 2008-11-25</Comment>
+
+	<Class Name="ENOSTStorageSysReferenceCusto" Uuid="90ec76ab-f439-4ad2-a270c62470b2306b" SuperName="DELLmiStorageSystemReference" SuperRef="053add28-7866-4537-92fc76653fb2be83"  >
+
+    <Simple Name="E_fromExternalId"
+            Uuid="2089a784-70de-4bda-814bbad12507eb64"
+            Alias="Definition"
+            Type="String"
+            MaxLength="256"
+            Mandatory="No"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"/>
+    <Simple Name="E_versionComment"
+            Uuid="a496caf2-0164-4e81-9d23739502950647"
+            Alias="Version Comment"
+            Type="String"
+            MaxLength="256"
+            Mandatory="No"
+            MultiValuated="No"
+            Protection="Free"
+            ResetOnNewVersion="Yes"
+            ResetOnCloning="Yes"
+            CAAExposition="L0"/>
+    <IdentifierSet Name="E_identifier"
+                   Uuid="c02bf964-b1a9-43db-bb6a752657b69781"
+                   IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755"
+                   IdentifierNames="PLM_ExternalID V_version"/>
+
+    <CAAComment>
+			<ShortRole>PLM Customization of DELMIA Storage System Reference for SMB</ShortRole>
+			<Role>PLM Customization of DELMIA Storage System Reference for SMB</Role>
+		</CAAComment>
+	</Class>
+
+  <RelationClass Name="ENOSTStorageSysInstanceCusto" Uuid="1826f0b9-3e92-44a3-9db22ca16275ce4c" SuperName="DELLmiStorageSystemInstance" SuperRef="68accbd4-bee9-42b6-ae395641176c6ea9"  >
+		<CAAComment>
+			<ShortRole>PLM Customization of DELMIA Storage System Instance for SMB</ShortRole>
+			<Role>PLM Customization of DELMIA Storage System Instance for SMB</Role>
+		</CAAComment>		
+            <!-- ********************************************************* -->
+            <!-- * Overload(s) of PLMCoreInstance attributes. -->
+            <!-- ********************************************************* -->
+    <SubClause Name="to"   TargetName="ENOSTStorageSysReferenceCusto"/>
+	</RelationClass>
+</Package>

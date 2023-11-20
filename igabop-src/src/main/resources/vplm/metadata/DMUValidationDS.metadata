@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR Validation Application Custo-->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2005, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" DataRDB_OID="ENODR_VALCUSTO" Name="DMUValidationDS" Uuid="1a974a3b-b5ed-44f4-880b6c8e1a8291be" UseNames="DMUValidationBase">
+<Property Name="OptionalInstallation" Value="Yes" /> 
+	<CAAComment>
+		<ShortRole>Validation Modeler Customization Package</ShortRole>
+		<Role>This package describes a Customization of Validation modeler</Role>
+	</CAAComment>
+	<Comment>Creation 2006-03-14 LJE</Comment>
+	
+	<Class Name="DMUValidationValidationDS" Uuid="023b5a9e-9a25-460a-82501f60d5a1728f" SuperName="DMUValidationValidation" SuperRef="a1cc12bc-2b56-4512-8986ba64ec7ea5c7" >
+		<CAAComment>
+			<ShortRole>Customized Validation Object</ShortRole>
+			<Role>Customized Validation Object</Role>
+		</CAAComment>
+		<Simple Name="V_Validation_Archived" Uuid="8fb00e1a-c3c3-474f-9fea2a51b1ef696c" Type="Boolean" Mandatory="No" MultiValuated="No" Protection="User" CAAExposition="L0"/>
+		<IdentifierSet Name="Identifier" Uuid="1256a8ee-a1fd-4c8a-ae35d2d1ade349d1" IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755" IdentifierNames="PLM_ExternalID V_version"/>
+	</Class>
+	
+	<Class Name="DMUValidationCheckDS" Uuid="8dfee7dc-0d66-422e-ba4bb801325b85f5" SuperName="DMUValidationCheck" SuperRef="85c22a1a-0aef-4fe5-9224bc50c869be1a" >
+		<CAAComment>
+			<ShortRole>Customized Check-list Object</ShortRole>
+			<Role>Customized Check-list Object exposes the list of requirements to be checked by the Validation</Role>
+		</CAAComment>
+    <Property Name="Searchable" Value="No"/>
+		<Simple Name="V_Validation_Check_Priority" Uuid="61846165-cbb0-477e-b3507856cfdfb00a" Type="Integer" Mandatory="No" MultiValuated="No" Protection="User" CAAExposition="L0"/>
+	</Class>
+	
+	<Class Name="DMUValidationExposedPresentationDS" Uuid="65f31fe9-a9ef-4d4f-b0a2f70d8a12fa63" SuperName="DMUValidationExposedPresentation" SuperRef="92862e3a-edb6-43f8-b0e391ab0afc9f80" >
+		<CAAComment>
+			<ShortRole>Customized Presentation Object</ShortRole>
+			<Role>Customized Presentation Object exposes the relevant Presentations inside the Validation</Role>
+		</CAAComment>
+		<Property Name="Searchable" Value="Yes"/>
+		<Simple Name="V_Validation_Presentation_Priority" Uuid="d9937b9a-f9ae-464f-bb0122943ced8874" Type="Integer" Mandatory="No" MultiValuated="No" Protection="User" CAAExposition="L0"/>
+	</Class>
+</Package>

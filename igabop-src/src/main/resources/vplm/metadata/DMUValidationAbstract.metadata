@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR Validation Application -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2006, All rights reserved -->
+<Package BelongsToModeler="DMUValidationAbstract" xmlns="PLMDictionaryUnified" ModelerType="Top" Name="DMUValidationAbstract" Uuid="8f5dc16d-a112-4671-a44b4cbb7fb19dd9" UseNames="PLMCORE" CustomerExposition="Programmer">
+	<CAAComment>
+		<ShortRole>Validation Abstract Modeler Package</ShortRole>
+		<Role>This package describes the Validation modeler</Role>
+	</CAAComment>
+	<Comment>Creation 2006-03-14 LJE</Comment>
+	
+	<Class Name="DMUValidationValidationAbstract" Uuid="40b055d7-2034-404d-880781b3fc7f3e8a" Abstract="Yes" SuperName="PLMCoreReference" CustomerExposition="Programmer">
+		<CAAComment>
+			<ShortRole>Validation Abstract Object</ShortRole>
+			<Role>Validation Abstract Object supports all necessary information for the DMDR process and quick red-lining</Role>
+		</CAAComment>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+	</Class>
+</Package>

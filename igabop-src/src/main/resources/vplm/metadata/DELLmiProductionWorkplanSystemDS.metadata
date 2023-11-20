@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" Name="DELLmiProductionWorkplanSystemDS" Uuid="E4365DC4-3B42-4f2d-81C3-9FD9FE5CA603" UseNames="DELLmiProductionWorkplanSystem" >
+<Property Name="OptionalInstallation" Value="Yes" /> 
+	<CAAComment>
+		<ShortRole>Standard DELMIA Workplan System Package</ShortRole>
+		<Role>This package includes default customized DELMIA Workplan System Operation</Role>
+	</CAAComment>
+	<Comment>creation 2012-03-08</Comment>
+
+	<Class Name="DELLmiWorkPlanSystemReferenceCusto" Uuid="09A0A2AC-F22D-4101-8A8E-E78067140D77" SuperName="DELLmiWorkPlanSystemReference"   >
+
+    <IdentifierSet Name="Identifier"
+        Uuid="C544094C-CC27-4859-B36D-51085191E91E"
+        IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755"
+        IdentifierNames="PLM_ExternalID V_version" />
+
+    <CAAComment>
+			<ShortRole>Standard DELMIA Workplan System Reference</ShortRole>
+			<Role>Default customized DELMIA Workplan System Reference</Role>
+		</CAAComment>
+	</Class>
+
+  <RelationClass Name="DELLmiWorkPlanSystemInstanceCusto" Uuid="880D29C4-A20A-4f5e-9D2B-AC95DEBB3711" SuperName="DELLmiWorkPlanSystemInstance"   >
+    <CAAComment>
+      <ShortRole>Standard DELMIA Workplan System Instance</ShortRole>
+      <Role>Default customized DELMIA Workplan System Instance</Role>
+    </CAAComment>
+    <!-- ********************************************************* -->
+    <!-- * Overload(s) of PLMCoreInstance attributes. -->
+    <!-- ********************************************************* -->
+    <SubClause Name="to"   TargetName="DELLmiWorkPlanSystemReferenceCusto"/>
+  </RelationClass>
+
+</Package>

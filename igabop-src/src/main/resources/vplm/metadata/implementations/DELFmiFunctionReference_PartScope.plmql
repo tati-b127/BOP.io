@@ -1,0 +1,8 @@
+NAVIGATE T1.name 
+FROM Class/Part T1 
+FROM_ROOTS [?1?] 
+ON RELATION(FROM=DELFmiFunctionalModel/DELFmiFunctionReference TO=DELFmiFunctionalModelImplementCnx/DELFmiProcessImplementCnx THROUGH=POINTEDBY)
+WITH QUALITY_FILTER (ROLE=PLM_ImplementLink_Source AND CATEGORY=Reference5)
+THEN RELATION(FROM=DELFmiFunctionalModelImplementCnx/DELFmiProcessImplementCnx TO=Class/Part THROUGH=POINTSTO)
+WITH QUALITY_FILTER (ROLE=PLM_ImplementLink_Target AND CATEGORY=Reference3) 
+ITER=1 ;

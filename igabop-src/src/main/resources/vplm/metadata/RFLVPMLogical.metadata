@@ -1,0 +1,330 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR RFL Logical Application -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2007, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" BelongsToModeler="RFLVPMLogical" Name="RFLVPMLogical" 
+	Uuid="8080cf47-ad76-401e-8f5e-496b8f5aa9e5" 
+	UseNames="LPABSTRACT RFLVPMLogicalAbstract" 
+  UseProcedures="ENOLog_Procedures"
+  CustomerExposition="Programmer"         
+	>
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+		<ShortRole>VPM RFL Logical Package</ShortRole>
+		<Role>This package describes the PLM Logical model on top of LPAbstract Modeler</Role>
+	</CAAComment>
+		
+	<!-- ************************************************************ -->
+	<!-- *  RFLVPMLogicalReference (RFLVPMLogicalAbstractReference) * -->
+	<!-- ************************************************************ -->
+
+	<Class Name="RFLVPMLogicalReference" Uuid="60547eaf-681a-401a-a0c7-7c0fa176db05" 
+	CustomerExposition="Programmer"
+	CustomerExtensible="Yes"
+	Specializable="Yes"
+	Abstract="No"
+	SuperName="RFLVPMLogicalAbstractReference" 
+	CreateInstName="RFLVPMLogicalInstance"         
+	Abbreviation="log">
+    
+    
+		<CAAComment>
+			<ShortRole>PLM Logical Reference Object</ShortRole>
+			<Role>PLM Logical Reference Object</Role>
+		</CAAComment>
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+		<Property Name="KweNew_InstanciationMethod" Value="CATELogDelegateInstanciation"/>
+	  <Property Name="KweNew_ReturnedType" Value="RFLVPMLogicalInstance"/>
+    <Property Name="Newable" Value="All_CAA" />
+    <Property Name="IconName" Value="I_VPMNavLogical"/>
+    <Property Name="Configurable" Value="Yes"/>
+    <Property Name="ChangeManagementSupport" Value="Yes"/>
+    <Property Name="ChangeManagementReferential" Value="Yes"/>
+    <Property Name="ChangeManagementContext" Value="Yes"/>
+    <Property Name="3DIconName" Value="Default3DLogicalRep.cgr"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="InstantiationOwnerTypes" Value="RFLVPMLogicalReference"/>
+	<Property Name="AggregatableTypes" Value="RFLVPMLogicalReference;RFLVPMLogicalRepReference;RFLVPMLogical3DRepReference;RFLVPMLogicalCommunicationReference;RFLVPMSystemTypeReference;RFLVPMServicesReference;RFLVPMLogicalPort;RFLVPMLogicalConnection;RFLVPMLogicalPublication;PARParameter"/> <!-- PLMNew UI Constraints -->
+	<Property Name="ShareBetweenProjectsAvailability" Value="Yes"/> <!-- Collaborative Space Applicability -->
+
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Design"/>
+        <UsedProcedure href="ENOLog_Procedures.proc#Logical_ExportReference_Decoration"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Channel"/>
+        <UsedProcedure href="ENOLog_Procedures.proc#Logical_ExportSystemReference_PLMChannel"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Remove"/>
+        <UsedProcedure href="ENOLog_Procedures.proc#Logical_ExportReference_Remove"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#TransferSiteOwnership"/>
+        <UsedProcedure href="ENOLog_Procedures.proc#Logical_ExportReference_TSO"/>
+      </ProcedureForUsage>
+    </Method>
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExchangeScope.meth#XPDM"/>
+        <UsedProcedure href="ENOLog_Procedures.proc#Logical_GetExchangeCompletionOnReference"/>
+      </ProcedureForUsage>
+    </Method>
+  </Class>
+	
+	<!-- ******************************************** -->
+	<!-- * RFLVPMLogicalInstance (LPAbstractInstance) * -->
+	<!-- ******************************************** -->
+	
+	<RelationClass Name="RFLVPMLogicalInstance" Uuid="d92a56e0-cc20-48f6-8f8c-33e38563eff4" 		 
+    CustomerExposition="Programmer"
+    CustomerExtensible="Yes"
+    Specializable="Yes"
+    Abstract="No"
+		SuperName="LPAbstractInstance" 
+		>
+
+		<CAAComment>
+			<ShortRole>PLM Logical Instance Object</ShortRole>
+			<Role>PLM Logical Instance Object</Role>
+		</CAAComment>
+    
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATELogDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="RFLVPMLogicalInstance"/>
+    <Property Name="Searchable" Value="No"/>
+    <Property Name="Filtrable" Value="Yes"/>
+
+    <!-- ********************************************************* -->
+    <!-- * Define Owner and InstanceOf                           * -->
+    <!-- ********************************************************* -->
+    <SubClause Name="from" TargetName="RFLVPMLogicalReference"/>
+    <SubClause Name="to"   TargetName="RFLVPMLogicalReference"/>
+
+    <Volatile Name="Reference" Uuid="20bd53e9-7078-44d5-8772-a10050a5dd9f"
+        Accessor="PLMModelerReferenceKweAttribute"
+        TypeName="RFLVPMLogicalReference"
+        AccessMode="ReadOnly"
+		>
+	  <Property Name="ServerAccessor" Value="com.dassault_systemes.vplm.modelerBaseNav.services.PLMInstance_Reference_Accessor"/>
+	</Volatile>
+
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Channel"/>
+        <UsedProcedure href="ENOLog_Procedures.proc#Logical_ExportSystemInstance_PLMChannel"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Remove"/>
+        <UsedProcedure href="ENOLog_Procedures.proc#Logical_ExportInstance_Remove"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#TransferSiteOwnership"/>
+        <UsedProcedure href="ENOLog_Procedures.proc#Logical_ExportInstance_TSO"/>
+      </ProcedureForUsage>
+    </Method>
+
+	</RelationClass>
+
+	<!-- *************************************** -->
+	<!-- * RFLVPMLogicalPort (LPAbstractPort)  * -->
+	<!-- *************************************** -->
+	
+	<Class Name="RFLVPMLogicalPort" Uuid="e524e58a-2d89-4484-8db5-fffb930b050e" 
+    CustomerExposition="Programmer"
+    CustomerExtensible="Yes"
+    Specializable="Yes"
+    Abstract="No" 
+		SuperName="LPAbstractPort" 
+    OwnerTypes="RFLVPMLogicalReference;RFLVPMLogicalCommunicationReference"
+		>
+    <!-- OwnerTypes="RFLVPMLogicalAbstractReference"  Integrate this line if you want to declare the aggregation constraint -->
+    <CAAComment>
+			<ShortRole>PLM Logical Port Object</ShortRole>
+			<Role>PLM Logical Port Object</Role>
+		</CAAComment>
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATELogDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="RFLVPMLogicalPort"/>
+    <Property Name="Newable" Value="Insert" />
+    <Property Name="IconName" Value="I_VPMNav_LogPort"/>
+    <Property Name="Searchable" Value="No"/>
+
+   
+   
+    <Path Name="SR_LogicalExpose" Uuid="c451a243-ed5a-465d-a825-827799e84f6f"
+            	MultiValuated="No"
+            	RoleName="LogicalType"
+            Semantics="Reference3" Orientation="In"
+            	Type="SemanticRelation" AdaptativeToMinor="Yes"
+		          SynchroSensitivity="PathAndLast"
+		          RerouteOnEffectivityChange="No"
+		/>
+
+        	<Method ImplementationType="None">
+            	<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+        	</Method>
+
+    	</Class>
+
+	<!-- ******************************************** -->
+	<!-- * RFLVPMLogicalConnection (PLMConnection) * -->
+	<!-- ******************************************** -->
+	
+	<Class Name="RFLVPMLogicalConnection" Uuid="e88118dc-e797-4f41-8a34-04b8b2113d61" 
+    CustomerExposition="Programmer"
+    CustomerExtensible="Yes"
+    Specializable="Yes"
+    Abstract="No"
+		SuperName="LPAbstractConnection" 
+    OwnerTypes="RFLVPMLogicalReference"
+		>
+    <!-- OwnerTypes="RFLVPMLogicalAbstractReference"  Integrate this line if you want to declare the aggregation constraint -->
+    <CAAComment>
+			<ShortRole>PLM Logical Connection Object</ShortRole>
+			<Role>PLM Logical Connection Object</Role>
+		</CAAComment>
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATELogDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="RFLVPMLogicalConnection"/>
+    <Property Name="Newable" Value="Insert" />
+    <Property Name="IconName" Value="I_RFLPLMLogicalConnection"/>
+    <Property Name="Searchable" Value="No"/>
+    
+    <Path Name="V_ConnectionPorts" Uuid="a5be1efd-7535-4823-a0b5-c82dc153d7b5"
+			Semantics="Reference4"  Orientation="In"
+			RoleName="LogicalPorts"
+			Lower="0"
+      Upper="2"		
+      Type="SemanticRelation" AdaptativeToMinor="Yes"
+      SynchroSensitivity="Last"
+      RerouteOnEffectivityChange="Yes"
+			MultiValuated="Yes"
+		/>
+
+        	<Method ImplementationType="None">
+            	<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+        	</Method>
+
+	</Class>
+	
+    	<!-- **************************************************** -->
+    	<!-- * RFLVPMLogicalRepReference (LPAbstractRepReference) * -->
+    	<!-- **************************************************** -->
+
+  <Class Name="RFLVPMLogicalRepReference" Uuid="207e0290-f812-4c5c-95ee-0ad5d787d8ff"
+	CustomerExposition="Programmer"
+	CustomerExtensible="No"
+	Specializable="Yes"
+	Abstract="No"
+	SuperName="LPAbstractRepReference"
+	CreateInstName="RFLVPMLogicalRepInstance"
+	Abbreviation="logrep" 
+  DeleteAvailability="Yes">
+		<CAAComment>
+			<ShortRole>PLM Logical Representation Reference Object</ShortRole>
+			<Role>PLM Logical Representation Reference Object</Role>
+		</CAAComment>
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+	<Property Name="KweNew_InstanciationMethod" Value="CATELogDelegateInstanciation"/>
+    <Property Name="IconName" Value="I_PLMNonV5Rep"/>
+    <Property Name="3DIconName" Value="Default3DLogicalRep.cgr"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="InstantiationOwnerTypes" Value="RFLVPMLogicalReference"/>
+	<Property Name="ShareBetweenProjectsAvailability" Value="Yes"/> <!-- Collaborative Space Applicability -->
+
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Remove"/>
+        <UsedProcedure href="ENOLog_Procedures.proc#Logical_ExportRepRef_Remove"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#TransferSiteOwnership"/>
+        <UsedProcedure href="ENOLog_Procedures.proc#Logical_ExportRepRef_TSO"/>
+      </ProcedureForUsage>
+    </Method>
+  </Class>
+      
+    	<!-- ************************************************** -->
+    	<!-- * RFLVPMLogicalRepInstance (LPAbstractRepInstance) * -->
+    	<!-- ************************************************** -->
+
+	<RelationClass Name="RFLVPMLogicalRepInstance" Uuid="abff7b86-e45c-443a-995f-f51e2afb21f9"
+    CustomerExposition="Programmer"
+    CustomerExtensible="No"
+    Specializable="No"
+		Abstract="No" 
+    SuperName="LPAbstractRepInstance"
+		>
+		<CAAComment>
+			<ShortRole>PLM Logical Representation Instance Object</ShortRole>
+			<Role>PLM Logical Representation Instance Object</Role>
+		</CAAComment>
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="Searchable" Value="No"/>
+        
+    		<!-- *********************************************************
+            * Overload(s) of PLMCoreRepInstance attributes.
+            ********************************************************* -->
+
+    <SubClause Name="from" TargetName="RFLVPMLogicalAbstractReference"/>
+    <SubClause Name="to"   TargetName="RFLVPMLogicalRepReference"/>
+    
+
+        	<Volatile Name="Reference" Uuid="d8826447-9d2f-4fa6-bd57-00c421b95d8b"
+			Accessor="PLMModelerReferenceKweAttribute"
+			TypeName="RFLVPMLogicalRepReference"
+			AccessMode="ReadOnly" >      
+			  <Property Name="ServerAccessor" Value="com.dassault_systemes.vplm.modelerBaseNav.services.PLMInstance_Reference_Accessor"/>
+			</Volatile>
+
+        	<Method ImplementationType="None">
+            	<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+        	</Method>
+    	</RelationClass>
+
+  	<!-- **************************************************** -->
+  	<!-- * Declaration of functions                           -->
+  	<!-- **************************************************** -->
+
+  <Function Name="RFLVPMLogical_AllLogObjects">
+    <Implementation Name="RFLVPMLogical_AllLogObjects" FileLocation="RFLVPMLogical_AllLogObjects.plmql" Language="PLMQL"/>
+    <Signature href="ENOLogSignature"/>
+  </Function>
+
+  <Function Name="RFLVPMLogical_AllLogObjects4Exchange">
+    <Implementation Name="RFLVPMLogical_AllLogObjects4Exchange" FileLocation="RFLVPMLogical_AllLogObjects4Exchange.plmql" Language="PLMQL"/>
+    <Signature href="ENOLogSignature"/>
+  </Function>
+
+  <Function Name="RFLVPMLogical_Get1stLevelObjects">
+    <Implementation Name="RFLVPMLogical_Get1stLevelObjects" FileLocation="RFLVPMLogical_Get1stLevelObjects.plmql" Language="PLMQL"/>
+    <Signature href="ENOLogSignature"/>
+  </Function>
+
+  <Function Name="RFLVPMLogicalReference_Aggregated1stLvlObjects">
+    <Implementation Name="RFLVPMLogicalReference_Aggregated1stLvlObjects" FileLocation="RFLVPMLogicalReference_Aggregated1stLvlObjects.plmql" Language="PLMQL"/>
+    <Signature href="ENOLogSignature"/>
+  </Function>
+
+  <Function Name="RFLVPMLogicalReference_RepAggregated">
+    <Implementation Name="RFLVPMLogicalReference_RepAggregated" FileLocation="RFLVPMLogicalReference_RepAggregated.plmql" Language="PLMQL"/>
+    <Signature href="ENOLogSignature"/>
+  </Function>
+
+  <Signature id="ENOLogSignature">
+    <Parameter Name="InputIds" Lower="0" Upper="-1" Direction="in" MultiValuated="Yes" DataType="PLMId"/>
+    <Parameter Name="OutputIds" Lower="0" Upper="-1" Direction="out" MultiValuated="No" DataType="PLMRouteSet"/>
+  </Signature>
+</Package>

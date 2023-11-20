@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" Name="PLMPosAbstractTable" Uuid="9EAA5AB3-BFB2-483B-8B65FDC607022DD5" UseNames="PLMPosResource" CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+  <Class Name="PLMPosAbstractTableRef"  Uuid="3C76C0B7-88F6-4200-AE2908DB8AF236F8" Abstract="No" SuperName="PLMPosResourceRef" CreateInstName="PLMPosAbstractTableInst" CustomerExposition="Programmer" Specializable="Yes" >
+    <Property Name="Searchable" Value="No"/>
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="UniqueNamingRule" Value="No"/>
+    <Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+		<Simple Name="V_row_name" Uuid="CBCFCBC8-760F-4EB6-8859DCB5C643E13E" MultiValuated="No" Type="String" MaxLength="128" PLMImpacting="No" Protection="Free" CAAExposition="L0"/>
+		<Simple Name="V_row_data" Uuid="EDFE5DEC-ADBC-472B-B1BB538702EA0344" CollectionType="List" MultiValuated="Yes" Type="String" MaxLength="128" PLMImpacting="No" Protection="Free" CAAExposition="L0"/>
+	</Class>
+  <RelationClass Name="PLMPosAbstractTableInst" Uuid="7A65788A-B5C4-47d4-B40EB93F2DE72830" SuperName="PLMPosResourceInst" Abstract="No" CustomerExposition="Programmer" Specializable="Yes" >
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </RelationClass>
+</Package>

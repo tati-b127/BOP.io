@@ -1,0 +1,4 @@
+#Prog EKLODT_TruncatedSyntaxProcedure( iPLMIDSet : #In PLMIDSet, oPLMIDSet : #Out PLMIDSet ) : VoidType
+{
+	let PLMID
+

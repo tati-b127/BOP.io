@@ -1,0 +1,33 @@
+/*********************************************************************************************************************************/
+/* Exchange  procedure for Execution Production System                                                                              */
+/* --> Retrieves all agregated PLM objects (References, Ref Instances, Rep References, Rep Instances, Ports and Connections)     */
+/* --> for DAG Process, Production system and Resource																			 */
+/*********************************************************************************************************************************/
+#Prog ProductionExecSystem_ExchangeXPDM_GetAllEntities( iPLMIDSet : #In PLMIDSet, oPLMIDSet : #Out PLMIDSet ) : VoidType
+{
+	let PLMRouteSetDRPorts  (PLMRouteSet)
+	
+	let PLMIDSet1 (PLMIDSet)
+	let restrictedPLMIDSet (PLMIDSet)
+	let PLMIDSetB1 (PLMIDSet)
+	let PLMIDSetProcessRef(PLMIDSet)
+	let PLMIDSetDRPorts(PLMIDSet)
+
+	restrictedPLMIDSet = Restrict(iPLMIDSet, "PLMCORE/PLMCoreReference")
+
+	/*************************************************************************************************************/
+	/* Call ExecProductionSytem_GetAllEntities Procedure    */
+	/*************************************************************************************************************/  	
+	
+	PLMIDSetB1 = ExecutePLMProcedure("ProductionExecSystem_GetAllEntities", restrictedPLMIDSet )
+
+	/*Retrieves the Data Requierement Ports for Process, to avoid creation of implicit DR Ports that will creates incoherence*/
+	PLMIDSetProcessRef = Restrict(PLMIDSetB1, "DELFmiFunctionalModel/DELFmiFunctionReference")
+	PLMRouteSetDRPorts = ExecutePLMFunction("DELFmiFunctionalModel", "DELFmiFunctionModel_expandDRPorts", PLMIDSetProcessRef)
+	PLMIDSetDRPorts = Ids(PLMRouteSetDRPorts,"all")
+
+	/**********************/
+	/* Returns all PLMIds */
+	/**********************/
+	oPLMIDSet = iPLMIDSet +  PLMIDSetB1 + PLMIDSetDRPorts
+}

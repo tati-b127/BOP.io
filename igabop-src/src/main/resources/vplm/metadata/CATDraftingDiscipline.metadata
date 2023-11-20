@@ -1,0 +1,107 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" 
+	       Name="CATDraftingDiscipline" 
+	       UseNames="PRODUCTCFG" 
+	       Uuid="04c31ffa-b9cc-44ab-bd6e-608e4f781782" 
+	       CustomerExposition="Programmer" 
+	       ModelerType="Top"
+	       >
+
+  <!-- =================================================================== -->
+  <!-- Drawing : VPMRepReference with Drafting discipline                  -->
+  <!-- =================================================================== -->
+  <Class Name="Drawing"
+         Uuid="af719738-77d5-4b71-9d93-cd2be1cd0dff"
+         CustomerExposition="Programmer"
+         SuperName="VPMRepReference"
+         Abbreviation="drw"
+         Discipline="Yes"
+         Specializable="Yes">
+
+    <Property Name="KweDisciplineAttributeValue" Value="Drafting"/>
+
+    <Property Name="Newable" Value="All_Offline_CAA"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATKBEDelegateInstanciationDrw"/>
+    <Property Name="KweNew_ReturnedType" Value="VPMRepInstance"/>
+    
+    <Property Name="IconName" Value="I_VPMNavDrawing"/>
+    <Property Name="3DIconName" Value="DefaultDrawingNavrep.cgr"/>
+
+    <!-- XPG Engine (3DXML engine) -->
+    <Property Name="XPGApplyDisciplineOnInstance" Value="Yes"/>
+
+    <!-- GVC 13:01:09 : Authorization to change Ownership for XPDM-->
+    <Property Name="XPGExchangeMode" Value="Bidirectional"/> 
+
+    <!-- Export/Completion -->
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+
+      <ProcedureForUsage>
+	      <Usage href="ExportScope.meth#Design"/>
+	      <UsedProcedure href="Drafting_Procedures.proc#Drafting_ExportCompletion"/>
+      </ProcedureForUsage>
+
+      <ProcedureForUsage>
+	      <Usage href="ExportScope.meth#Channel"/>
+	      <UsedProcedure href="Drafting_Procedures.proc#Drafting_ExportCompletion_Myself"/>
+      </ProcedureForUsage>
+
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Remove"/>
+        <UsedProcedure href="Drafting_Procedures.proc#Drafting_ExportCompletion_Myself"/>
+      </ProcedureForUsage>
+
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#TransferSiteOwnership"/>
+        <UsedProcedure href="Drafting_Procedures.proc#Drafting_ExportCompletion_Myself"/>
+      </ProcedureForUsage>
+
+    </Method>
+
+    <!-- XPDM exchange -->
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+
+  </Class>
+
+  <!-- =================================================================== -->
+  <!-- Export/Completion functions/signature                               -->
+  <!-- =================================================================== -->
+  <Function Name="CATDraftingDiscipline_AddIsAViewOfRepReference">
+    <Implementation Name="CATDraftingDiscipline_AddIsAViewOfRepReference" 
+                    FileLocation="CATDraftingDiscipline_AddIsAViewOfRepReference.plmql" 
+                    Language="PLMQL"/>
+    <Signature href="Drafting_FunctionSignature"/>
+  </Function>
+
+  <Function Name="CATDraftingDiscipline_AddIsAViewOfReference">
+    <Implementation Name="CATDraftingDiscipline_AddIsAViewOfReference" 
+                    FileLocation="CATDraftingDiscipline_AddIsAViewOfReference.plmql" 
+                    Language="PLMQL"/>
+    <Signature href="Drafting_FunctionSignature"/>
+  </Function>
+
+  <Function Name="CATDraftingDiscipline_AddIsAViewOfInstance">
+    <Implementation Name="CATDraftingDiscipline_AddIsAViewOfInstance" 
+                    FileLocation="CATDraftingDiscipline_AddIsAViewOfInstance.plmql" 
+                    Language="PLMQL"/>
+    <Signature href="Drafting_FunctionSignature"/>
+  </Function>
+
+  <Function Name="CATDraftingDiscipline_AddIsAViewOfPVS">
+    <Implementation Name="CATDraftingDiscipline_AddIsAViewOfPVS" 
+                    FileLocation="CATDraftingDiscipline_AddIsAViewOfPVS.plmql" 
+                    Language="PLMQL"/>
+    <Signature href="Drafting_FunctionSignature"/>
+  </Function>
+
+  <Signature id="Drafting_FunctionSignature">
+    <Parameter Name="InputIds" Lower="0" Upper="-1" Direction="in" MultiValuated="Yes" DataType="PLMId"/>
+    <Parameter Name="OutputIds" Lower="0" Upper="-1" Direction="out" MultiValuated="No" DataType="PLMRouteSet"/>
+  </Signature>
+
+</Package>

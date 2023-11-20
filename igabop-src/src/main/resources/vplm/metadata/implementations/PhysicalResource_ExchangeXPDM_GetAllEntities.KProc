@@ -1,0 +1,37 @@
+/*********************************************************************************************************************************/
+/* ExchangeXPDM procedure for Physical Resource                                                                                        */
+/* --> Retrieves all agregated PLM objects (References, Ref Instances, Rep References, Rep Instances, Ports and Connections)     */
+/*********************************************************************************************************************************/
+#Prog PhysicalResource_ExchangeXPDM_GetAllEntities( iPLMIDSet : #In PLMIDSet, oPLMIDSet : #Out PLMIDSet ) : VoidType
+{
+	let PLMRouteSet2 (PLMRouteSet)
+	let PLMRouteSet3 (PLMRouteSet)
+	let PLMRouteSet4 (PLMRouteSet)
+
+	let PLMIDSet1 (PLMIDSet)
+	let PLMIDSet1a (PLMIDSet)
+	let PLMIDSet2 (PLMIDSet)
+	let PLMIDSet3 (PLMIDSet)
+	let PLMIDSet3a (PLMIDSet)
+	let PLMIDSet4 (PLMIDSet)
+
+	/* Retrieves all aggregated representations (references / instances) */
+	PLMIDSet1 = ExecutePLMProcedure("PhysicalResource_GetAllEntities", Restrict(iPLMIDSet, "PRODUCTCFG/VPMReference"))
+	PLMIDSet1a = Restrict(PLMIDSet1 ,"PRODUCTCFG/VPMReference") + Restrict(iPLMIDSet,"PRODUCTCFG/VPMReference") 
+
+	/* Retrieves all aggregated implement connections for RESOURCES */
+	PLMRouteSet2 = ExecutePLMFunction("DELPPRContextModel", "ENORsc_Resource_addAllImplementConnections", PLMIDSet1a)
+	PLMIDSet2 = Ids(PLMRouteSet2 ,"all")
+
+	/* Retrieves implemented Systems scope from Resource References */
+	PLMRouteSet3 = ExecutePLMFunction("DELPPRContextModel", "ENORsc_Resource_addSystemsImplemented", PLMIDSet1a)
+	PLMIDSet3 = Ids(PLMRouteSet3 ,"all")
+	PLMIDSet3a = Restrict(PLMIDSet3 ,"DELLmiProductionSystem/DELLmiProductionSystemReference")
+
+	/* Expand implemented Systems scope */
+	PLMRouteSet4 = ExecutePLMFunction("DELPPRContextModel", "ENOPpr_PPRData_ExpandStructure", PLMIDSet3a)
+	PLMIDSet4 = Ids(PLMRouteSet4 ,"all")
+
+	oPLMIDSet = iPLMIDSet + PLMIDSet1 + PLMIDSet2 + PLMIDSet3 + PLMIDSet4 
+
+}

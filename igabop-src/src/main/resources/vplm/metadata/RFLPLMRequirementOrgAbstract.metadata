@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR RFL Requirement Application -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2006, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" Name="RFLPLMRequirementOrgAbstract" 
+	Uuid="549aa521-1e57-4aca-88bbf9b0d1ad570a" 
+	UseNames="RFLPLMRequirementAbstract" 
+  CustomerExposition="Programmer"
+>
+	
+	<CAAComment>
+		<ShortRole>PLM RFL Requirement Organization Abstract ref Package</ShortRole>
+		<Role>This package describes the PLM Requirement Organization Abstract model on top of PLM Requirement abstract</Role>
+	</CAAComment>
+	
+	<Comment>last update 2007-04-10</Comment>
+	
+	<!-- ************************************************************************************************** -->
+	<!-- *  RFLPLMRequirementOrgAbstractReference (RFLPLMRequirementAbstractReference - PLMCoreReference) * -->
+	<!-- ************************************************************************************************** -->
+
+  <Class Name="RFLPLMRequirementOrgAbstractReference"
+		Uuid="bc23b48e-6fdc-4f04-bbc35dc2179e4bbd"
+		Abstract="Yes"
+		SuperName="RFLPLMRequirementAbstractReference"
+    CustomerExposition="Programmer">
+
+    <CAAComment>
+      <ShortRole>PLM Requirement Org Abstract Reference Object</ShortRole>
+      <Role>PLM Requirement Org Abstract Reference Object</Role>
+    </CAAComment>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+</Package>

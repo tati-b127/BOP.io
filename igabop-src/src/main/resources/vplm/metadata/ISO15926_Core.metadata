@@ -1,0 +1,284 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2018, All rights reserved -->
+
+<Package xmlns = "PLMDictionaryUnified" Name = "ISO15926_Core" Uuid = "89673ed4-f457-0000-394a-485b01000000" UseNames = "PRODUCTCFG" CustomerExposition = "Programmer">
+  <Extension Name = "ISO15926_PlantInformation" Uuid = "89673ed4-f457-0000-394a-485b02000000" Abstract = "No" ScopeNames = "VPMReference VPMInstance" Specializable = "No" CustomerExposition = "Programmer">
+    <Simple Name = "ISO15926_targetNamespace" Type = "String" Uuid = "89673ed4-f457-0000-394a-485b03000000" DefaultValue = " " ResetOnCloning = "Yes" ResetOnNewVersion = "Yes" UIAccess = "ReadWrite" Protection = "Free" PLMImpacting = "No">
+      <Property Name = "V6Exportable" Value = "TRUE"/>
+      <Property Name = "Indexation" Value = "TRUE"/>
+    </Simple>
+    <Simple Name = "ISO15926_SchemaVersion" Type = "String" Uuid = "89673ed4-f457-0000-394a-485b04000000" DefaultValue = " " ResetOnCloning = "Yes" ResetOnNewVersion = "Yes" UIAccess = "ReadWrite" Protection = "Free" PLMImpacting = "No">
+      <Property Name = "V6Exportable" Value = "TRUE"/>
+      <Property Name = "Indexation" Value = "TRUE"/>
+    </Simple>
+    <Simple Name = "ISO15926_OriginatingSystem" Type = "String" Uuid = "89673ed4-f457-0000-394a-485b05000000" DefaultValue = " " ResetOnCloning = "Yes" ResetOnNewVersion = "Yes" UIAccess = "ReadWrite" Protection = "Free" PLMImpacting = "No">
+      <Property Name = "V6Exportable" Value = "TRUE"/>
+      <Property Name = "Indexation" Value = "TRUE"/>
+    </Simple>
+    <Simple Name = "ISO15926_Date" Type = "String" Uuid = "89673ed4-f457-0000-394a-485b06000000" DefaultValue = " " ResetOnCloning = "Yes" ResetOnNewVersion = "Yes" UIAccess = "ReadWrite" Protection = "Free" PLMImpacting = "No">
+      <Property Name = "V6Exportable" Value = "TRUE"/>
+      <Property Name = "Indexation" Value = "TRUE"/>
+    </Simple>
+    <Simple Name = "ISO15926_ProjectName" Type = "String" Uuid = "89673ed4-f457-0000-394a-485b07000000" DefaultValue = " " ResetOnCloning = "Yes" ResetOnNewVersion = "Yes" UIAccess = "ReadWrite" Protection = "Free" PLMImpacting = "No">
+      <Property Name = "V6Exportable" Value = "TRUE"/>
+      <Property Name = "Indexation" Value = "TRUE"/>
+    </Simple>
+    <Simple Name = "ISO15926_ProjectCode" Type = "String" Uuid = "89673ed4-f457-0000-394a-485b08000000" DefaultValue = " " ResetOnCloning = "Yes" ResetOnNewVersion = "Yes" UIAccess = "ReadWrite" Protection = "Free" PLMImpacting = "No">
+      <Property Name = "V6Exportable" Value = "TRUE"/>
+      <Property Name = "Indexation" Value = "TRUE"/>
+    </Simple>
+    <Simple Name = "ISO15926_ProjectDescription" Type = "String" Uuid = "89673ed4-f457-0000-394a-485b09000000" DefaultValue = " " ResetOnCloning = "Yes" ResetOnNewVersion = "Yes" UIAccess = "ReadWrite" Protection = "Free" PLMImpacting = "No">
+      <Property Name = "V6Exportable" Value = "TRUE"/>
+      <Property Name = "Indexation" Value = "TRUE"/>
+    </Simple>
+    <Simple Name = "ISO15926_CompanyName" Type = "String" Uuid = "89673ed4-f457-0000-394a-485b0a000000" DefaultValue = " " ResetOnCloning = "Yes" ResetOnNewVersion = "Yes" UIAccess = "ReadWrite" Protection = "Free" PLMImpacting = "No">
+      <Property Name = "V6Exportable" Value = "TRUE"/>
+      <Property Name = "Indexation" Value = "TRUE"/>
+    </Simple>
+    <Simple Name = "ISO15926_Time" Type = "String" Uuid = "89673ed4-f457-0000-394a-485b0b000000" DefaultValue = " " ResetOnCloning = "Yes" ResetOnNewVersion = "Yes" UIAccess = "ReadWrite" Protection = "Free" PLMImpacting = "No">
+	  <Property Name = "V6Exportable" Value = "TRUE"/>
+      <Property Name = "Indexation" Value = "TRUE"/>
+    </Simple>
+    <Simple Name = "ISO15926_Is3D" Type = "String" Uuid = "89673ed4-f457-0000-394a-485b0c000000" DefaultValue = "Yes" ResetOnCloning = "Yes" ResetOnNewVersion = "Yes" UIAccess = "ReadWrite" Protection = "Free" PLMImpacting = "No">
+       <Range>
+		<Equal>Yes</Equal>
+		<Equal>No</Equal>
+	  </Range>
+      <Property Name = "V6Exportable" Value = "TRUE"/>
+      <Property Name = "Indexation" Value = "TRUE"/>
+    </Simple>
+    <Simple Name = "ISO15926_Units" Type = "String" Uuid = "89673ed4-f457-0000-394a-485b0d000000" DefaultValue = "NotDefined" ResetOnCloning = "Yes" ResetOnNewVersion = "Yes" UIAccess = "ReadWrite" Protection = "Free" PLMImpacting = "No">
+      <Property Name = "V6Exportable" Value = "TRUE"/>
+      <Property Name = "Indexation" Value = "TRUE"/>
+    </Simple>
+    <Simple Name = "ISO15926_Discipline" Type = "String" Uuid = "89673ed4-f457-0000-394a-485b0e000000" DefaultValue = " " ResetOnCloning = "Yes" ResetOnNewVersion = "Yes" UIAccess = "ReadWrite" Protection = "Free" PLMImpacting = "No">
+	  <Property Name = "V6Exportable" Value = "TRUE"/>
+      <Property Name = "Indexation" Value = "TRUE"/>
+    </Simple>
+  </Extension>
+  <Extension Name = "ISO15926_Site" Uuid = "89673ed4-f457-0000-394a-485b0f000000" Abstract = "No" ScopeNames = "VPMReference VPMInstance" Specializable = "No" CustomerExposition = "Programmer">
+    <Simple Name = "ISO15926_AverageBarometricPressure" Uuid = "89673ed4-f457-0000-394a-485b10000000" Type = "Double" Magnitude = "PRESSURE" DefaultValue = "0.0" ResetOnCloning = "Yes" ResetOnNewVersion = "Yes" UIAccess = "ReadWrite" Protection = "Free" PLMImpacting = "No">
+      <Property Name = "V6Exportable" Value = "TRUE"/>
+      <Property Name = "Indexation" Value = "TRUE"/>
+    </Simple>
+    <Simple Name = "ISO15926_MinimumAmbientTemperature" Uuid = "89673ed4-f457-0000-394a-485b11000000" Type = "Double" Magnitude = "TEMPRTRE" DefaultValue = "0.0" ResetOnCloning = "Yes" ResetOnNewVersion = "Yes" UIAccess = "ReadWrite" Protection = "Free" PLMImpacting = "No">
+      <Property Name = "V6Exportable" Value = "TRUE"/>
+      <Property Name = "Indexation" Value = "TRUE"/>
+    </Simple>
+    <Simple Name = "ISO15926_MaximumAmbientTemperature" Uuid = "89673ed4-f457-0000-394a-485b12000000" Type = "Double" Magnitude = "TEMPRTRE" DefaultValue = "0.0" ResetOnCloning = "Yes" ResetOnNewVersion = "Yes" UIAccess = "ReadWrite" Protection = "Free" PLMImpacting = "No">
+      <Property Name = "V6Exportable" Value = "TRUE"/>
+      <Property Name = "Indexation" Value = "TRUE"/>
+    </Simple>
+    <Simple Name = "ISO15926_MinimumRelativeHumidity" Uuid = "89673ed4-f457-0000-394a-485b13000000" Type = "Double" DefaultValue = "0.0" ResetOnCloning = "Yes" ResetOnNewVersion = "Yes" UIAccess = "ReadWrite" Protection = "Free" PLMImpacting = "No">
+      <Property Name = "V6Exportable" Value = "TRUE"/>
+      <Property Name = "Indexation" Value = "TRUE"/>
+    </Simple>
+    <Simple Name = "ISO15926_MaximumRelativeHumidity" Uuid = "89673ed4-f457-0000-394a-485b14000000" Type = "Double" DefaultValue = "0.0" ResetOnCloning = "Yes" ResetOnNewVersion = "Yes" UIAccess = "ReadWrite" Protection = "Free" PLMImpacting = "No">
+      <Property Name = "V6Exportable" Value = "TRUE"/>
+      <Property Name = "Indexation" Value = "TRUE"/>
+    </Simple>
+    <Simple Name = "ISO15926_LowerLimitAmbientTemperature" Uuid = "89673ed4-f457-0000-394a-485b15000000" Type = "Double" Magnitude = "TEMPRTRE" DefaultValue = "0.0" ResetOnCloning = "Yes" ResetOnNewVersion = "Yes" UIAccess = "ReadWrite" Protection = "Free" PLMImpacting = "No">
+      <Property Name = "V6Exportable" Value = "TRUE"/>
+      <Property Name = "Indexation" Value = "TRUE"/>
+    </Simple>
+    <Simple Name = "ISO15926_UpperLimitAmbientTemperature" Uuid = "89673ed4-f457-0000-394a-485b16000000" Type = "Double" Magnitude = "TEMPRTRE" DefaultValue = "0.0" ResetOnCloning = "Yes" ResetOnNewVersion = "Yes" UIAccess = "ReadWrite" Protection = "Free" PLMImpacting = "No">
+      <Property Name = "V6Exportable" Value = "TRUE"/>
+      <Property Name = "Indexation" Value = "TRUE"/>
+    </Simple>
+    <Simple Name = "ISO15926_LowerLimitRelativeHumidity" Uuid = "89673ed4-f457-0000-394a-485b17000000" Type = "Double" DefaultValue = "0.0" ResetOnCloning = "Yes" ResetOnNewVersion = "Yes" UIAccess = "ReadWrite" Protection = "Free" PLMImpacting = "No">
+      <Property Name = "V6Exportable" Value = "TRUE"/>
+      <Property Name = "Indexation" Value = "TRUE"/>
+    </Simple>
+    <Simple Name = "ISO15926_UpperLimitRelativeHumidity" Uuid = "89673ed4-f457-0000-394a-485b18000000" Type = "Double" DefaultValue = "0.0" ResetOnCloning = "Yes" ResetOnNewVersion = "Yes" UIAccess = "ReadWrite" Protection = "Free" PLMImpacting = "No">
+      <Property Name = "V6Exportable" Value = "TRUE"/>
+      <Property Name = "Indexation" Value = "TRUE"/>
+    </Simple>
+  </Extension>
+  <Extension Name = "ISO15926_Equipment" Uuid = "89673ed4-f457-0000-394a-485b19000000" Abstract = "No" ScopeNames = "VPMReference VPMInstance" Specializable = "No" CustomerExposition = "Programmer">
+    <Simple Name = "ISO15926_Discipline" Type = "String" Uuid = "89673ed4-f457-0000-394a-485b1a000000" DefaultValue = "Electrical" ResetOnCloning = "Yes" ResetOnNewVersion = "Yes" UIAccess = "ReadWrite" Protection = "Free" PLMImpacting = "No">
+	  <Range>
+		  <Equal>Electrical</Equal>
+		  <Equal>Mechanical</Equal>
+		  <Equal>Process</Equal>
+		  <Equal>HVAC</Equal>
+		  <Equal>Telecomms</Equal>
+	  </Range>
+	  <Property Name = "V6Exportable" Value = "TRUE"/>
+	  <Property Name = "Indexation" Value = "TRUE"/>
+    </Simple>
+    <Simple Name = "ISO15926_ProcessArea" Type = "String" Uuid = "89673ed4-f457-0000-394a-485b1b000000" DefaultValue = " " ResetOnCloning = "Yes" ResetOnNewVersion = "Yes" UIAccess = "ReadWrite" Protection = "Free" PLMImpacting = "No">
+      <Property Name = "V6Exportable" Value = "TRUE"/>
+      <Property Name = "Indexation" Value = "TRUE"/>
+    </Simple>
+    <Simple Name = "ISO15926_Purpose" Type = "String" Uuid = "89673ed4-f457-0000-394a-485b1c000000" DefaultValue = " " ResetOnCloning = "Yes" ResetOnNewVersion = "Yes" UIAccess = "ReadWrite" Protection = "Free" PLMImpacting = "No">
+      <Property Name = "V6Exportable" Value = "TRUE"/>
+      <Property Name = "Indexation" Value = "TRUE"/>
+    </Simple>
+  </Extension>
+  <Extension Name = "ISO15926_Support" Uuid = "89673ed4-f457-0000-394a-485b26000000" Abstract = "No" ScopeNames = "VPMReference VPMInstance" Specializable = "No" CustomerExposition = "Programmer">
+    <Simple Name = "ISO15926_NominalDiameter" Uuid = "89673ed4-f457-0000-394a-485b27000000" Type = "Double" Magnitude = "LENGTH" DefaultValue = "0.0" ResetOnCloning = "Yes" ResetOnNewVersion = "Yes" UIAccess = "ReadWrite" Protection = "Free" PLMImpacting = "No">
+      <Property Name = "V6Exportable" Value = "TRUE"/>
+      <Property Name = "Indexation" Value = "TRUE"/>
+    </Simple>
+  </Extension>
+  <Extension Name = "ISO15926_Nozzle" Uuid = "89673ed4-f457-0000-394a-485b28000000" Abstract = "No" ScopeNames = "VPMReference VPMInstance" Specializable = "No" CustomerExposition = "Programmer">
+    <Simple Name = "ISO15926_NozzleType" Type = "String" Uuid = "89673ed4-f457-0000-394a-485b29000000" DefaultValue = "Flanged" ResetOnCloning = "Yes" ResetOnNewVersion = "Yes" UIAccess = "ReadWrite" Protection = "Free" PLMImpacting = "No">
+		<Range>
+			<Equal>Welded</Equal>
+			<Equal>Flanged</Equal>
+			<Equal>Elbow</Equal>
+		</Range>
+		<Property Name = "V6Exportable" Value = "TRUE"/>
+		<Property Name = "Indexation" Value = "TRUE"/>
+    </Simple>
+    <Simple Name = "ISO15926_NominalDiameter" Uuid = "89673ed4-f457-0000-394a-485b2a000000" Type = "Double" Magnitude = "LENGTH" DefaultValue = "0.0" ResetOnCloning = "Yes" ResetOnNewVersion = "Yes" UIAccess = "ReadWrite" Protection = "Free" PLMImpacting = "No">
+      <Property Name = "V6Exportable" Value = "TRUE"/>
+      <Property Name = "Indexation" Value = "TRUE"/>
+    </Simple>
+    <Simple Name = "ISO15926_Height" Uuid = "89673ed4-f457-0000-394a-485b2b000000" Type = "Double" Magnitude = "LENGTH" DefaultValue = "0.0" ResetOnCloning = "Yes" ResetOnNewVersion = "Yes" UIAccess = "ReadWrite" Protection = "Free" PLMImpacting = "No">
+      <Property Name = "V6Exportable" Value = "TRUE"/>
+      <Property Name = "Indexation" Value = "TRUE"/>
+    </Simple>
+    <Simple Name = "ISO15926_Rating" Type = "String" Uuid = "89673ed4-f457-0000-394a-485b2c000000" DefaultValue = " " ResetOnCloning = "Yes" ResetOnNewVersion = "Yes" UIAccess = "ReadWrite" Protection = "Free" PLMImpacting = "No">
+      <Property Name = "V6Exportable" Value = "TRUE"/>
+      <Property Name = "Indexation" Value = "TRUE"/>
+    </Simple>
+  </Extension>
+  <Extension Name = "ISO15926_BoltingAssembly" Uuid = "89673ed4-f457-0000-394a-485b2d000000" Abstract = "No" ScopeNames = "VPMReference VPMInstance" Specializable = "No" CustomerExposition = "Programmer">
+    <Simple Name = "ISO15926_Grade" Type = "String" Uuid = "89673ed4-f457-0000-394a-485b2e000000" DefaultValue = " " ResetOnCloning = "Yes" ResetOnNewVersion = "Yes" UIAccess = "ReadWrite" Protection = "Free" PLMImpacting = "No">
+      <Property Name = "V6Exportable" Value = "TRUE"/>
+      <Property Name = "Indexation" Value = "TRUE"/>
+    </Simple>
+    <Simple Name = "ISO15926_PitchCircleDiameter" Uuid = "89673ed4-f457-0000-394a-485b2f000000" Type = "Double" Magnitude = "LENGTH" DefaultValue = "0.0" ResetOnCloning = "Yes" ResetOnNewVersion = "Yes" UIAccess = "ReadWrite" Protection = "Free" PLMImpacting = "No">
+      <Property Name = "V6Exportable" Value = "TRUE"/>
+      <Property Name = "Indexation" Value = "TRUE"/>
+    </Simple>
+    <Simple Name = "ISO15926_BoltPitchX" Uuid = "89673ed4-f457-0000-394a-485b30000000" Type = "Double" Magnitude = "LENGTH" DefaultValue = "0.0" ResetOnCloning = "Yes" ResetOnNewVersion = "Yes" UIAccess = "ReadWrite" Protection = "Free" PLMImpacting = "No">
+      <Property Name = "V6Exportable" Value = "TRUE"/>
+      <Property Name = "Indexation" Value = "TRUE"/>
+    </Simple>
+    <Simple Name = "ISO15926_BoltPitchY" Uuid = "89673ed4-f457-0000-394a-485b31000000" Type = "Double" Magnitude = "LENGTH" DefaultValue = "0.0" ResetOnCloning = "Yes" ResetOnNewVersion = "Yes" UIAccess = "ReadWrite" Protection = "Free" PLMImpacting = "No">
+      <Property Name = "V6Exportable" Value = "TRUE"/>
+      <Property Name = "Indexation" Value = "TRUE"/>
+    </Simple>
+    <Simple Name = "ISO15926_BoltArrangement" Type = "String" Uuid = "89673ed4-f457-0000-394a-485b32000000" DefaultValue = "Circular" ResetOnCloning = "Yes" ResetOnNewVersion = "Yes" UIAccess = "ReadWrite" Protection = "Free" PLMImpacting = "No">
+      <Range>
+		<Equal>Circular</Equal>
+		<Equal>Rectangular</Equal>
+	  </Range>
+	  <Property Name = "V6Exportable" Value = "TRUE"/>
+      <Property Name = "Indexation" Value = "TRUE"/>
+    </Simple>
+    <Simple Name = "ISO15926_NumBolts" Type = "Integer" ResetOnCloning = "Yes" ResetOnNewVersion = "Yes" DefaultValue = "0" UIAccess = "ReadWrite" Uuid = "89673ed4-f457-0000-394a-485b33000000" Protection = "Free" PLMImpacting = "No">
+      <Property Name = "V6Exportable" Value = "TRUE"/>
+      <Property Name = "Indexation" Value = "TRUE"/>
+    </Simple>
+    <Simple Name = "ISO15926_NumBoltsX" Type = "Integer" ResetOnCloning = "Yes" ResetOnNewVersion = "Yes" DefaultValue = "0" UIAccess = "ReadWrite" Uuid = "89673ed4-f457-0000-394a-485b34000000" Protection = "Free" PLMImpacting = "No">
+      <Property Name = "V6Exportable" Value = "TRUE"/>
+      <Property Name = "Indexation" Value = "TRUE"/>
+    </Simple>
+    <Simple Name = "ISO15926_NumBoltsY" Type = "Integer" ResetOnCloning = "Yes" ResetOnNewVersion = "Yes" DefaultValue = "0" UIAccess = "ReadWrite" Uuid = "89673ed4-f457-0000-394a-485b35000000" Protection = "Free" PLMImpacting = "No">
+      <Property Name = "V6Exportable" Value = "TRUE"/>
+      <Property Name = "Indexation" Value = "TRUE"/>
+    </Simple>
+  </Extension>
+  <Extension Name = "ISO15926_Discipline" Uuid = "89673ed4-f457-0000-394a-485b36000000" Abstract = "No" ScopeNames = "VPMReference VPMInstance" Specializable = "No" CustomerExposition = "Programmer">
+    <Simple Name = "ISO15926_Discipline" Type = "String" ResetOnCloning = "Yes" ResetOnNewVersion = "Yes" DefaultValue = "MultiDiscipline" UIAccess = "ReadWrite" Uuid = "89673ed4-f457-0000-394a-485b37000000" Protection = "Free" PLMImpacting = "No">
+		<Range>
+			<Equal>Piping</Equal>
+			<Equal>HVAC</Equal>
+			<Equal>CableTray</Equal>
+			<Equal>Structure</Equal>
+			<Equal>Building</Equal>
+			<Equal>MultiDiscipline</Equal>
+		</Range>
+		<Property Name = "V6Exportable" Value = "TRUE"/>
+        <Property Name = "Indexation" Value = "TRUE"/>
+	</Simple>
+  </Extension>
+  <Extension Name = "ISO15926_PositionNumber" Uuid = "89673ed4-f457-0000-394a-485b38000000" Abstract = "No" ScopeNames = "VPMReference VPMInstance" Specializable = "No" CustomerExposition = "Programmer">
+    <Simple Name = "ISO15926_TagName" Type = "String" Uuid = "89673ed4-f457-0000-394a-485b39000000" ResetOnCloning = "Yes" ResetOnNewVersion = "Yes" DefaultValue = " " UIAccess = "ReadWrite" Protection = "Free" PLMImpacting = "No">
+      <Property Name = "V6Exportable" Value = "TRUE"/>
+      <Property Name = "Indexation" Value = "TRUE"/>
+    </Simple>	
+  </Extension>
+  <Extension Name = "ISO15926_Identification" Uuid = "89673ed4-dc54-0000-4235-4f5b08000000" Abstract = "No" ScopeNames = "VPMReference VPMInstance" Specializable = "No" CustomerExposition = "Programmer">
+	<Simple Name = "ISO15926_Description" Type = "String" Uuid = "89673ed4-542c-0000-6f9d-555b01000000" DefaultValue = " " ResetOnCloning = "Yes" ResetOnNewVersion = "Yes" UIAccess = "ReadWrite" Protection = "Free" PLMImpacting = "No">
+	  <Property Name = "V6Exportable" Value = "TRUE"/>
+	  <Property Name = "Indexation" Value = "TRUE"/>
+	</Simple>
+	<Simple Name = "ISO15926_TagName" Type = "String" Uuid = "89673ed4-542c-0000-6f9d-555b02000000" DefaultValue = " " ResetOnCloning = "Yes" ResetOnNewVersion = "Yes" UIAccess = "ReadWrite" Protection = "Free" PLMImpacting = "No">
+	  <Property Name = "V6Exportable" Value = "TRUE"/>
+	  <Property Name = "Indexation" Value = "TRUE"/>
+	</Simple>
+	<Simple Name = "ISO15926_Specification" Type = "String" Uuid = "89673ed4-542c-0000-6f9d-555b03000000" DefaultValue = " " ResetOnCloning = "Yes" ResetOnNewVersion = "Yes" UIAccess = "ReadWrite" Protection = "Free" PLMImpacting = "No">
+	  <Property Name = "V6Exportable" Value = "TRUE"/>
+	  <Property Name = "Indexation" Value = "TRUE"/>
+	</Simple>
+	<Simple Name = "ISO15926_StockNumber" Type = "String" Uuid = "89673ed4-542c-0000-6f9d-555b04000000" DefaultValue = " " ResetOnCloning = "Yes" ResetOnNewVersion = "Yes" UIAccess = "ReadWrite" Protection = "Free" PLMImpacting = "No">
+	  <Property Name = "V6Exportable" Value = "TRUE"/>
+	  <Property Name = "Indexation" Value = "TRUE"/>
+	</Simple>
+	<Simple Name = "ISO15926_ComponentClass" Type = "String" Uuid = "89673ed4-542c-0000-6f9d-555b05000000" DefaultValue = " " ResetOnCloning = "Yes" ResetOnNewVersion = "Yes" UIAccess = "ReadWrite" Protection = "Free" PLMImpacting = "No">
+	  <Property Name = "V6Exportable" Value = "TRUE"/>
+	  <Property Name = "Indexation" Value = "TRUE"/>
+	</Simple>
+	<Simple Name = "ISO15926_ComponentName" Type = "String" Uuid = "89673ed4-542c-0000-6f9d-555b06000000" DefaultValue = " " ResetOnCloning = "Yes" ResetOnNewVersion = "Yes" UIAccess = "ReadWrite" Protection = "Free" PLMImpacting = "No">
+	  <Property Name = "V6Exportable" Value = "TRUE"/>
+	  <Property Name = "Indexation" Value = "TRUE"/>
+	</Simple>
+	<Simple Name = "ISO15926_ComponentType" Type = "String" Uuid = "89673ed4-542c-0000-6f9d-555b07000000" DefaultValue = "Normal" ResetOnCloning = "Yes" ResetOnNewVersion = "Yes" UIAccess = "ReadWrite" Protection = "Free" PLMImpacting = "No">
+		<Range>
+			<Equal>Normal</Equal>
+			<Equal>Explicit</Equal>
+			<Equal>Parametric</Equal>
+		</Range>	  
+	  <Property Name = "V6Exportable" Value = "TRUE"/>
+	  <Property Name = "Indexation" Value = "TRUE"/>
+	</Simple>
+  </Extension>
+  <Extension Name = "ISO15926_Construction" Uuid = "89673ed4-dc54-0000-4235-4f5b10000000" Abstract = "No" ScopeNames = "VPMReference VPMInstance" Specializable = "No" CustomerExposition = "Programmer">
+	<Simple Name = "ISO15926_Weight" Uuid = "89673ed4-542c-0000-6f9d-555b08000000" Type = "Double" Magnitude = "MASS" DefaultValue = "0.0" ResetOnCloning = "Yes" ResetOnNewVersion = "Yes" UIAccess = "ReadWrite" Protection = "Free" PLMImpacting = "No">
+	  <Property Name = "V6Exportable" Value = "TRUE"/>
+	  <Property Name = "Indexation" Value = "TRUE"/>
+	</Simple>
+	<Simple Name = "ISO15926_Material" Type = "String" Uuid = "89673ed4-542c-0000-6f9d-555b09000000" DefaultValue = " " ResetOnCloning = "Yes" ResetOnNewVersion = "Yes" UIAccess = "ReadWrite" Protection = "Free" PLMImpacting = "No">
+	  <Property Name = "V6Exportable" Value = "TRUE"/>
+	  <Property Name = "Indexation" Value = "TRUE"/>
+	</Simple>
+	<Simple Name = "ISO15926_MaterialOfConstruction" Type = "String" Uuid = "89673ed4-542c-0000-6f9d-555b0a000000" DefaultValue = " " ResetOnCloning = "Yes" ResetOnNewVersion = "Yes" UIAccess = "ReadWrite" Protection = "Free" PLMImpacting = "No">
+	  <Property Name = "V6Exportable" Value = "TRUE"/>
+	  <Property Name = "Indexation" Value = "TRUE"/>
+	</Simple>
+	<Simple Name = "ISO15926_MaterialDescription" Type = "String" Uuid = "89673ed4-542c-0000-6f9d-555b0b000000" DefaultValue = " " ResetOnCloning = "Yes" ResetOnNewVersion = "Yes" UIAccess = "ReadWrite" Protection = "Free" PLMImpacting = "No">
+	  <Property Name = "V6Exportable" Value = "TRUE"/>
+	  <Property Name = "Indexation" Value = "TRUE"/>
+	</Simple>
+	<Simple Name = "ISO15926_ModelNumber" Type = "String" Uuid = "89673ed4-542c-0000-6f9d-555b0c000000" DefaultValue = " " ResetOnCloning = "Yes" ResetOnNewVersion = "Yes" UIAccess = "ReadWrite" Protection = "Free" PLMImpacting = "No">
+	  <Property Name = "V6Exportable" Value = "TRUE"/>
+	  <Property Name = "Indexation" Value = "TRUE"/>
+	</Simple>
+	<Simple Name = "ISO15926_Supplier" Type = "String" Uuid = "89673ed4-542c-0000-6f9d-555b0d000000" DefaultValue = " " ResetOnCloning = "Yes" ResetOnNewVersion = "Yes" UIAccess = "ReadWrite" Protection = "Free" PLMImpacting = "No">
+	  <Property Name = "V6Exportable" Value = "TRUE"/>
+	  <Property Name = "Indexation" Value = "TRUE"/>
+	</Simple>
+	<Simple Name = "ISO15926_Manufacturer" Type = "String" Uuid = "89673ed4-542c-0000-6f9d-555b0e000000" DefaultValue = " " ResetOnCloning = "Yes" ResetOnNewVersion = "Yes" UIAccess = "ReadWrite" Protection = "Free" PLMImpacting = "No">
+	  <Property Name = "V6Exportable" Value = "TRUE"/>
+	  <Property Name = "Indexation" Value = "TRUE"/>
+	</Simple>
+  </Extension>
+  <Extension Name = "ISO15926_IdentificationURI" Uuid = "89673ed4-dc54-0000-4235-4f5b18000000" Abstract = "No" ScopeNames = "VPMReference VPMInstance" Specializable = "No" CustomerExposition = "Programmer">
+	<Simple Name = "ISO15926_SpecificationURI" Type = "String" Uuid = "89673ed4-542c-0000-6f9d-555b0f000000" DefaultValue = " " ResetOnCloning = "Yes" ResetOnNewVersion = "Yes" UIAccess = "ReadWrite" Protection = "Free" PLMImpacting = "No">
+	  <Property Name = "V6Exportable" Value = "TRUE"/>
+	  <Property Name = "Indexation" Value = "TRUE"/>
+	</Simple>
+	<Simple Name = "ISO15926_ComponentClassURI" Type = "String" Uuid = "89673ed4-542c-0000-6f9d-555b10000000" DefaultValue = " " ResetOnCloning = "Yes" ResetOnNewVersion = "Yes" UIAccess = "ReadWrite" Protection = "Free" PLMImpacting = "No">
+	  <Property Name = "V6Exportable" Value = "TRUE"/>
+	  <Property Name = "Indexation" Value = "TRUE"/>
+	</Simple>
+	<Simple Name = "ISO15926_StandardURI" Type = "String" Uuid = "89673ed4-542c-0000-6f9d-555b11000000" DefaultValue = " " ResetOnCloning = "Yes" ResetOnNewVersion = "Yes" UIAccess = "ReadWrite" Protection = "Free" PLMImpacting = "No">
+	  <Property Name = "V6Exportable" Value = "TRUE"/>
+	  <Property Name = "Indexation" Value = "TRUE"/>
+	</Simple>
+  </Extension>
+</Package>

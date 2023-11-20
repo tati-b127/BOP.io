@@ -1,0 +1,43 @@
+NAVIGATE
+	T0.physicalid,
+	T0.logicalid,
+	T0.type,
+	T1.physicalid,
+	T1.logicalid,
+	T1.type,
+	T2.physicalid,
+	T2.logicalid,
+	T2.type,
+	T3.physicalid,
+	T3.logicalid,
+	T3.type,
+	T4.physicalid,
+	T4.logicalid,
+	T4.type,
+	T5.physicalid,
+	T5.logicalid,
+	T5.type,
+	T6.physicalid,
+	T6.logicalid,
+	T6.type,
+	T7.physicalid,
+	T7.logicalid,
+	T7.type
+FROM
+	"Class/Products" T0,
+	"RelationClass/Configuration Features" T1,
+	"Class/Configuration Feature" T2, 
+	"RelationClass/Configuration Options" T3, 
+	"Class/Configuration Option" T4, 
+	"RelationClass/Relation.Product Configuration" T5,
+	"Class/Product Configuration" T6,
+        "RelationClass/Selected Options" T7
+FROM_ROOTS [?1?]
+ON ( (RELATION(FROM="Class/Products" TO="RelationClass/Configuration Features" THROUGH=POINTEDBY) WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY) 
+           THEN RELATION(FROM="RelationClass/Configuration Features" TO="Class/Configuration Feature" THROUGH=POINTSTO) WITH QUALITY_FILTER (CATEGORY=ISINSTANCEOF)  
+           THEN RELATION(FROM="Class/Configuration Feature" TO="RelationClass/Configuration Options" THROUGH=POINTEDBY) WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY) 
+           THEN RELATION(FROM="RelationClass/Configuration Options" TO="Class/Configuration Option" THROUGH=POINTSTO) WITH QUALITY_FILTER (CATEGORY=ISINSTANCEOF))
+          OR (RELATION(FROM="Class/Products" TO="RelationClass/Relation.Product Configuration" THROUGH=POINTEDBY) WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY)
+               THEN RELATION(FROM="RelationClass/Relation.Product Configuration" TO="Class/Product Configuration" THROUGH=POINTSTO) WITH QUALITY_FILTER (CATEGORY=ISINSTANCEOF)
+	       THEN RELATION(FROM="Class/Product Configuration" TO="RelationClass/Selected Options" THROUGH=POINTEDBY) WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY)))
+;

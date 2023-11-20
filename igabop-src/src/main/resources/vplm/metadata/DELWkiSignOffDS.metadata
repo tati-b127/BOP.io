@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2010, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" Name="DELWkiSignOffDS" Uuid="7c4fb3b9-9c4e-44d2-a289dbdc8aa55877" UseNames="DELWkiSignOff" >
+<Property Name="OptionalInstallation" Value="Yes" /> 
+	<CAAComment>
+		<ShortRole>Standard DELMIA Work Instruction SignOff Package</ShortRole>
+		<Role>This package includes default customized DELMIA Work Instruction SignOff</Role>
+	</CAAComment>
+	<Comment>last update 2010-05-27</Comment>
+
+	<Class Name="DELWkiSignOffReferenceCusto" Uuid="a46d0b55-a454-4752-bdb32bc5d7dba504" SuperName="DELWkiSignOffReference"   >
+
+    <IdentifierSet Name="Identifier"
+        Uuid="a8a58e92-55d0-4083-877b12af86330cca"
+        IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755"
+        IdentifierNames="PLM_ExternalID V_version" />
+    
+    <CAAComment>
+			<ShortRole>Standard DELMIA Work Instruction SignOff Reference</ShortRole>
+			<Role>Default customized DELMIA Work Instruction SignOff Reference</Role>
+		</CAAComment>
+	</Class>
+	
+	<RelationClass Name="DELWkiSignOffInstanceCusto" Uuid="9a3c6e10-f0a3-4e0f-8447d57927ca5153" SuperName="DELWkiSignOffInstance"  >
+		<CAAComment>
+			<ShortRole>Standard DELMIA Work Instruction SignOff Instance</ShortRole>
+			<Role>Default customized DELMIA Work Instruction SignOff Instance</Role>
+		</CAAComment>		
+            <!-- ********************************************************* -->
+            <!-- * Overload(s) of PLMCoreInstance attributes. -->
+            <!-- ********************************************************* -->
+    <SubClause Name="to"   TargetName="DELWkiSignOffReferenceCusto"/>
+    
+  </RelationClass>
+  
+</Package>

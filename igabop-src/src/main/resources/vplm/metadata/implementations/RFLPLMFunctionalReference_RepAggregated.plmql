@@ -1,0 +1,15 @@
+EXPAND 
+   T0.PLMID, T1.PLMID,
+   T0.PLM_ExternalID, T1.PLM_ExternalID  
+
+FROM 
+  RFLPLMFunctional/RFLPLMFunctionalRepReference T0,
+  RFLPLMFunctional/RFLPLMFunctionalRepInstance T1
+
+FROM_ROOTS [?1?]
+
+WITH ATTRIBUTE_FILTER(T0.V_isOnceInstantiable = 'TRUE')
+
+ITER=1
+;
+

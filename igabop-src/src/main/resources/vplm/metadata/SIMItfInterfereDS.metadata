@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" DataRDB_OID="ENODR_SIMItfIntC" Name="SIMItfInterfereDS" Uuid="0a0b0f52-e37b-4771-85aa-6db975eb22ff" UseNames="SIMItfInterfere">
+  <!-- **************************************************************************** -->
+  <!-- *    SIMItfContextOfInterferenceDS (SIMItfContextOfInterference)           * -->
+  <!-- * explanations:                                                            * -->
+  <!-- * you cannot customize  so Abstract="No"                                   * -->
+  <!-- * 1f28c8d8-0b09-4cf7-a9fe-82a36623ca46 uuid of SIMItfContextOfInterference * -->
+  <!-- **************************************************************************** -->
+  <Property Name="OptionalInstallation" Value="Yes" />
+  <Class Name="SIMItfContextOfInterferenceDS"
+    Uuid="e07395b4-5b56-45db-afd2-e0080b7d5edf"
+    SuperName="SIMItfContextOfInterference"
+  >
+    <Comment>Default customization for the SIMItfContextOfInterference object</Comment>
+  </Class>
+</Package>

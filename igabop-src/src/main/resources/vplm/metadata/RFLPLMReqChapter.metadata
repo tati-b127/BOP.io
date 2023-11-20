@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<!-- edited with XML Spy v4.4 U (http://www.xmlspy.com) by ndn (DASSAULT SYSTEMES) -->
+
+<!-- ENOVIA DICTIONARY FOR RFL Requirement Application -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2006, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top"  Name="RFLPLMReqChapter"
+	Uuid="c02a91ce-fd5d-4f0e-835186e5bea60ee6"
+	UseNames="PLMCORE;RFLPLMRequirementOrgAbstract"
+  CustomerExposition="None"
+>
+
+  <CAAComment>
+    <ShortRole>PLM RFL Requirement Package</ShortRole>
+    <Role>This package describes the PLM Requirement Chapter model on top of Requirement Org Abstract</Role>
+  </CAAComment>
+
+  <Comment>last update 2007-04-10-12.00.00 - Creation</Comment>
+
+  <!-- ******************************************************************************** -->
+  <!-- *  RFLPLMReqChapter (RFLPLMRequirementOrgAbstract -> PLMCoreReference)   * -->
+  <!-- ******************************************************************************** -->
+
+  <Class Name="RFLPLMReqChapterReference"
+		Uuid="5d140b22-0587-4474-9c3620d5a2d196d0"
+		Abstract="Yes"
+		SuperName="RFLPLMRequirementOrgAbstractReference"
+    CustomerExposition="None"
+>
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <!-- Behavior patterns: default values -->
+    <Property Name="LockUnlockAvailability" Value="No"/>
+    <Property Name="TransferOwnershipAvailability" Value="No"/>
+
+    <CAAComment>
+      <ShortRole>PLM Requirement Chapter Object</ShortRole>
+      <Role>PLM Requirement Chapter Reference Object</Role>
+    </CAAComment>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+  </Class>
+
+  <!-- **************************************************** -->
+  <!-- * RFLPLMReqChapterInstance (PLMCoreInstance) * -->
+  <!-- **************************************************** -->
+
+  <RelationClass Name="RFLPLMReqChapterInstance"
+		Uuid="5535f169-778c-4206-9b3c2662d237bf51"
+		Abstract="Yes"
+		SuperName="PLMCoreInstance"
+    CustomerExposition="None">
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <!-- Behavior patterns: default values -->
+    <Property Name="LockUnlockAvailability" Value="No"/>
+    <Property Name="TransferOwnershipAvailability" Value="No"/>
+
+    <CAAComment>
+      <ShortRole>PLM Requirement Chapter Instance Object</ShortRole>
+      <Role>PLM Requirement Chapter Instance Object</Role>
+    </CAAComment>
+
+    <!--*****************************************************
+         * Overload(s) of PLMCoreInstance attributes to fix metadata access issue. This should not be necessary!
+         ********************************************************* -->
+
+    <SubClause Name="from"   TargetName="RFLPLMRequirementAbstractReference"/>
+    <SubClause Name="to"   TargetName="RFLPLMReqChapterReference"/>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+  </RelationClass>
+  <!-- *************************************** -->
+  <!-- * RFLPLMReqChapterPort (PLMPort)        * -->
+  <!-- *************************************** -->
+
+  <!-- ******************************************** -->
+  <!-- * RFLPLMReqChapterConnection (PLMConnection) * -->
+  <!-- ******************************************** -->
+
+  <!-- **************************************************** -->
+  <!-- * RFLPLMReqChapterRepReference (PLMCoreRepReference) * -->
+  <!-- **************************************************** -->
+
+  <!-- ************************************************** -->
+  <!-- * RFLPLMReqChapterRepInstance (PLMCoreRepInstance) * -->
+  <!-- ************************************************** -->
+
+
+</Package>

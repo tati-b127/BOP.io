@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2004, All rights reserved -->
+
+<!-- History
+    V6R2010  Added Procedures & Functions for Export
+    V6R2011x Increased V_IoExpr and V_Dnf attributes MaxLength (it is now checked by the ENO kernel)
+-->
+
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" Name="PLMConfigExpression"
+    Uuid="F337451C-6964-4AFC-82D5DE515E8A6610"
+    UseNames="PLMCORE"
+    BelongsToModeler="Configuration"
+    CustomerExposition="Programmer"
+   >
+
+    <CAAComment>
+        <ShortRole>The Expression Configuration Component Metadata.</ShortRole>
+        <Role>This package includes all the entities of Expression Configuration Model.</Role>
+    </CAAComment>   
+
+    <!-- ******************************* -->
+    <!-- ABSTRACT CLASS PLMCfgExpression -->
+    <!-- ******************************* -->
+
+    <Class Name="PLMCfgExpression"
+        Uuid="BA357FC1-22BA-0000-02800311EC000000"
+        SuperName="PLMConnection"
+        Abstract="Yes"      
+        CustomerExposition="Programmer"
+        >
+
+        <CAAComment>
+            <ShortRole>The expression.class</ShortRole>
+            <Role>The expression.class</Role>
+        </CAAComment>
+
+        <!-- Overloaded Attributes -->
+
+        <!-- New Attributes -->
+
+            <Simple Name="V_IoExpr"
+                Uuid="BA357FC1-5452-0000-02800311EC000000"
+                Type="Binary"
+                MaxLength="20000"
+                MultiValuated="No"
+                PLMImpacting="Yes"
+                Protection="Internal">
+            </Simple>
+
+			<!-- NOTE: This attribute is obsolete -->
+            <Simple Name="V_IoExprOverflow"
+                Uuid="BA357FC1-6B60-0000-02800311EC000000"
+                Type="Binary"
+                MaxLength="1000"
+                CollectionType="List"
+                MultiValuated="Yes"
+                PLMImpacting="Yes"
+                Protection="Internal">
+            </Simple>
+            
+            <Simple Name="V_Dnf"
+                Uuid="BA357FC1-827E-0000-02800311EC000000"
+                Type="Binary"
+                MaxLength="1048576"
+                MultiValuated="No"
+	            PLMImpacting="Yes"
+                Protection="Internal">
+            </Simple>
+
+			<!-- NOTE: This attribute is obsolete -->
+            <Simple Name="V_DnfOverflow"
+                Uuid="BA357FC1-9A86-0000-02800311EC000000"
+                Type="Binary"
+                MaxLength="1000"
+                MultiValuated="Yes"
+                CollectionType="List"
+	            PLMImpacting="Yes"
+                Protection="Internal">
+            </Simple>
+
+            
+            <Path Name="V_ExpressionDefinition"
+                Uuid="8FAB5955-E7E4-433d-AA12DAA7FA99F076"
+                Lower="0"
+                Upper="-1"
+                MultiValuated="Yes"
+                RoleName="PLMCfgExpressionDefinition"	
+                Type="SemanticRelation" AdaptativeToMinor="No"
+		            SynchroSensitivity="None"
+		            RerouteOnEffectivityChange="No"
+                Semantics="Reference"/>
+
+            <Path Name="V_ExpressionDefinitionImpacting"
+                Uuid="12D3CFB4-603F-4f81-AEC2A5296AA05153"
+                Lower="0"
+                Upper="-1"
+                MultiValuated="Yes"
+                RoleName="PLMCfgExpressionDefinitionImpacting"		
+                Type="SemanticRelation" AdaptativeToMinor="No"
+		            SynchroSensitivity="Last"
+		            RerouteOnEffectivityChange="No" Orientation="In"
+                Semantics="Reference4"/>
+            
+        <!-- Constraints -->
+
+        <!-- *********************** -->
+        <!-- PROCEDURES Declaration  -->      
+        <!-- *********************** -->
+
+        <Method ImplementationType="None">
+            <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+        </Method>
+
+    </Class>
+
+</Package>
+
+ 

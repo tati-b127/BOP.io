@@ -1,0 +1,124 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified"
+         ModelerType="Top"
+         Name="DELLmiProductionCandidateResCnx"
+         Uuid="43ae234e-5f9f-4482-a2c2c5c5bfaf6934"
+         BelongsToModeler="DELAsmAssemblyModelCnx"
+         UseNames="PLMCORE DELAsmAssemblyModelCnx"
+         CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>Connect a PPR Data (Manufacturing Product Transformation/Production System/Operation) to a Candidate Resource</ShortRole>
+    <Role>This package describe the Candidate Resources Connection</Role>
+  </CAAComment>
+
+  <Comment>last update 2012-01-20</Comment>
+
+  <Class Name="DELLmiCandidateResourcesCnx"
+         Uuid="454805db-db52-4ea0-a1ea7ba73a9f08af"
+         Abstract="No"
+         SuperName="PLMConnection"
+         CustomerExposition="Programmer"
+         Specializable="No"
+         CustomerExtensible="No"
+         OwnerTypes="DELLmiAbstractProductionEntity"
+         >
+
+    <CAAComment>
+      <ShortRole>Defines Candidate Resources Connection</ShortRole>
+      <Role>Connects a Manufacturing Product Transormation, a Production System or Operation Reference to a list of candidate resources</Role>
+    </CAAComment>
+
+    <Property Name="AggregatableTypes" Value="PARParameter"/>
+
+    <Path Name="DELResources"
+        Uuid="8c1e21e1-4c9e-44b4-814eea9edcc5cec5"
+        MultiValuated="No"
+        RoleName="DEL_LinkToResources"
+        Type="SemanticRelation" AdaptativeToMinor="No"
+		    SynchroSensitivity="None"
+		    RerouteOnEffectivityChange="No"
+        Semantics="Reference"/>
+
+    <Path Name="DELLmiPreferredCandidateResource"
+        Uuid="68202090-399B-40af-B9A3-0740BB1E19A1"
+        MultiValuated="No"
+        RoleName="DELLmi_PreferredCandidateResource"
+        Type="SemanticRelation" AdaptativeToMinor="No"
+		    SynchroSensitivity="None"
+		    RerouteOnEffectivityChange="No"
+        Protection="Internal"
+        Semantics="Reference2"/>
+
+    <Path Name="DELFmiLinkPCURToDoc"
+      Uuid="64D66881-FA79-477e-936A-F657701AA8AF"
+      RoleName="DEL_LinkToDocument"
+      MultiValuated="Yes"
+      Lower="0"
+      Upper="-1"
+      Type="SemanticRelation" AdaptativeToMinor="No"
+      SynchroSensitivity="None"
+      RerouteOnEffectivityChange="No"
+      Semantics="Reference"/>
+
+    <Path Name="DEL_PCU_Owner_SR"
+      Uuid="BE0DAE6C-8138-4128-9414-DE396ADF64DB"
+      RoleName="DEL_PCU_Owner"
+      MultiValuated="No"
+      Type="SemanticRelation" AdaptativeToMinor="No"
+      SynchroSensitivity="None"
+      RerouteOnEffectivityChange="No"
+      Orientation="Out"
+      Semantics="Reference"/>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+  </Class>
+
+  <Extension Name="DELLmiLogisticExt"
+             Uuid="23C9760E-4802-48cf-902E-0F443BF54A27"
+             ScopeNames="DELLmiCandidateResourcesCnx DELAsmProcessCanUseCnx"
+             CAAExposition="L0"
+             CustomerExposition="Programmer"
+             Specializable="No"
+               >
+    <Simple Name="V_TransportDuration"
+            Uuid="4A022B4E-417D-4ada-A4B8-D34DF3F3102E"
+            Type="Double"
+            Magnitude="TIME"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"
+		          >
+      <CAAComment>
+        <ShortRole>Defines the time duration of transport.</ShortRole>
+      </CAAComment>
+    </Simple>
+  </Extension>
+
+
+  <Extension Name="DELLmi_relativePosition"
+             Uuid="85213B3E-6A3D-46af-ACA7-9D78AE1EE15E"
+             ScopeNames="DELLmiCandidateResourcesCnx DELAsmProcessCanUseCnx"
+             CAAExposition="L0"
+             CustomerExposition="Programmer"
+             Specializable="No">
+    <Simple Name="V_CandidateResourceRelativePosition"
+            Uuid="D119A949-78CA-4381-BF8D-B1B420B369F5"
+            Type="Double"
+            MultiValuated="Yes"
+            CollectionType="List"
+            Protection="Internal"
+            ResetOnCloning="No"
+            ResetOnNewVersion="No">
+      <CAAComment>
+        <ShortRole>Defines the Relative Position between the Product indirectly implemented and the Candidate Resource.</ShortRole>
+      </CAAComment>
+    </Simple>
+  </Extension>
+</Package>

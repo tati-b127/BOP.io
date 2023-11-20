@@ -1,0 +1,24 @@
+NAVIGATE
+	T0.PLMID, T1.PLMID, T2.PLMID, T3.PLMID
+FROM
+	DELLmiProductionSystemOutputCnxAbstract/DELLmiProductionSystemOutputCnxAbstract T0,
+	DELFmiFunctionalModel/DELFmiFunctionReference T1,
+	PRODUCTCFG/VPMReference T2,
+	DELLmiProductionSystemIOPort/DELLmiProdSystemIOPort T3
+
+FROM_ROOTS [?1?]
+ON ( RELATION(
+	FROM=DELLmiProductionSystemAbstract/DELLmiAbstractProductionEntity
+	TO=DELLmiProductionSystemOutputCnxAbstract/DELLmiProductionSystemOutputCnxAbstract
+	THROUGH=POINTEDBY)
+WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY) )
+THEN (
+RELATION(
+	FROM=DELLmiProductionSystemOutputCnxAbstract/DELLmiProductionSystemOutputCnxAbstract 
+	TO=DELFmiFunctionalModel/DELFmiFunctionReference,PRODUCTCFG/VPMReference,DELLmiProductionSystemIOPort/DELLmiProdSystemIOPort 
+	THROUGH=POINTSTO)
+)
+;
+
+
+

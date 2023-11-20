@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR RFL Logical Application -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2007, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" BelongsToModeler="RFLVPMLogical" Name="RFLVPMLogicalAbstract" 
+	Uuid="84bc0410-c1f8-4883-962a-a4e607fdacb2" 
+	UseNames="LPABSTRACT"
+  CustomerExposition="None"         
+	>
+	<CAAComment>
+		<ShortRole>PLM RFL Logical Abstract Package</ShortRole>
+		<Role>This package describes the PLM Logical Abstract model on top of PLM Core</Role>
+	</CAAComment>
+	
+	<!-- ****************************************************** -->
+	<!-- *  RFLVPMLogicalAbstractReference (LPAbstractReference) * -->
+	<!-- ****************************************************** -->
+
+	<Class Name="RFLVPMLogicalAbstractReference" Uuid="5a2c245c-0944-46cb-8ecb-2945ccc8394b" 
+		Abstract="Yes" 
+		SuperName="LPAbstractReference" 
+    CustomerExposition="None" 
+    DeleteAvailability="Yes"         
+		>
+		<CAAComment>
+			<ShortRole>PLM Logical Abstract Reference Object</ShortRole>
+			<Role>PLM Logical Abstract Reference Object</Role>
+		</CAAComment>
+
+        	<Method ImplementationType="None">
+            	<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+        	</Method>
+
+	</Class>
+</Package>

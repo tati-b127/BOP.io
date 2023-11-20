@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!-- edited with XMLSpy v2007 (http://www.altova.com) by DASSAULT SYSTEMES (DASSAULT SYSTEMES) -->
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" BelongsToModeler="SIMObjSimulation" ModelerType="Top" Name="SIMObjSimulationPublishedResultCnx" Uuid="ebe5a070-51fa-4c6a-b89d-82d06f0afd83" UseNames="SIMObjSimulation" CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+  <!-- CustomerExposition="None" -->
+  <Class Name="SIMObjectSimulationPublishedResultCnx" Uuid="5ca80b70-af4f-42fa-b9c4-872afaab65d6" Abstract="No" SuperName="SIMObjSimulationConnection" CustomerExposition="Programmer" Specializable="No" CustomerExtensible="No">
+    <Property Name="Searchable" Value="No"/>
+    <Property Name="Configurable" Value="No" />
+    <Property Name="Filtrable" Value="No" />
+    <!-- CustomerExposition="None" -->
+    <Comment>Scenario Result published in Result Category</Comment>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Path Name="PublishConnectionIN" Uuid="9dcae571-3b23-4545-b659-86c05881ebce"  RoleName="SIM_PublishedCnxIN" MultiValuated="No" Semantics="Reference3" Type="SemanticRelation" AdaptativeToMinor="No"		SynchroSensitivity="PathAndLast"		RerouteOnEffectivityChange="No" Orientation="In">
+    </Path>
+    <Path Name="PublishConnectionOUT" Uuid="50552665-e814-40db-a033-c2f0bca54850" Lower="0" Upper="-1"  RoleName="SIM_PublishedCnxOUT" MultiValuated="Yes" Semantics="Reference5" Type="SemanticRelation" AdaptativeToMinor="No"		SynchroSensitivity="Last"		RerouteOnEffectivityChange="No" Orientation="Out">
+    </Path>
+    <Path Name="PublishConnectionNEUTRAL" Uuid="e285b019-0040-4bbc-9bea-677b4741001c" Lower="0" Upper="-1"  RoleName="SIM_PublishedCnxNEUTRAL" MultiValuated="Yes" Semantics="Reference2" Protection="Internal" Type="SemanticRelation" AdaptativeToMinor="No"		SynchroSensitivity="None"		RerouteOnEffectivityChange="No"/>
+  </Class>
+</Package>

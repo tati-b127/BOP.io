@@ -1,0 +1,38 @@
+NAVIGATE
+
+	T0.logicalid 		, T1.logicalid			, T2.logicalid ,
+	T0.physicalid	    , T1.physicalid         , T2.physicalid ,
+   	T0.type				, T1.type				, T2.type 
+
+FROM
+
+	"Class/Simulation Activity" T0 ,
+
+	"Class/Simulation Connector" T1 ,
+
+	"RelationClass/Simulation Connector" T2
+
+FROM_ROOTS
+
+	[?1?]
+
+ON
+(
+	(RELATION 
+		(FROM="Class/Simulation Activity"
+		 TO="RelationClass/Simulation Connector"
+		 THROUGH=POINTEDBY
+		 )
+		 WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY)
+
+	THEN
+	RELATION 
+		(FROM="RelationClass/Simulation Connector"
+		 TO="Class/Simulation Connector"
+		 THROUGH=POINTSTO
+		 )
+		 WITH QUALITY_FILTER (CATEGORY=ISINSTANCEOF)
+	)
+)
+	
+ITER = 1 ;

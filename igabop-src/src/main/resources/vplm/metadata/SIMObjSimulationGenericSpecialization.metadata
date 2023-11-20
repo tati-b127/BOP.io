@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2007 (http://www.altova.com) by DASSAULT SYSTEMES (DASSAULT SYSTEMES) -->
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" BelongsToModeler="SIMObjSimulation" ModelerType="Top" UseProcedures="DELSimObj_Procedures;SIM_Procedures" Name="SIMObjSimulationGenericSpecialization" Uuid="2590ACE2-D669-44a6-8079-B2015D3E443B" UseNames="SIMObjSimulationGeneric" CustomerExposition="Programmer">
+  <CAAComment>
+    <ShortRole>This package includes the basic entities of the Simulation.</ShortRole>
+    <Role>This package includes the basic entities of the Simulation.</Role>
+  </CAAComment>
+  <Class Name="Kinematics" Uuid="07fba2fa-ad11-4849-80fb-018b064c76bc" Abstract="No" SuperName="SIMObjSimulationObjectGeneric" CustomerExposition="Programmer" Discipline="Yes" Specializable="No" CustomerExtensible="No">
+    <Property Name="KweNew_InstanciationMethod" Value="CATEKINSimulationPLMNew"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="Newable" Value="New"/>
+    <Property Name="IconName" Value="I_KinematicsPLMNewSimu"/>
+    <Property Name="3DIconName" Value="PSM_KinematicsPLMNewSimu.cgr"/>
+    <Property Name="Configurable" Value="No"/>
+    <Property Name="Filtrable" Value="No"/> 
+  </Class>
+  <Class Name="OpticalSimulation" Uuid="C87F0AB8-A503-4DE4-AA73-B9512777A8F6" Abstract="No" SuperName="SIMObjSimulationObjectGeneric" CustomerExposition="Programmer" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes" Abbreviation="opt">
+    <Property Name="KweNew_InstanciationMethod" Value="CATEOpticalSimulationPLMNew"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="Newable" Value="New"/>
+    <Property Name="IconName" Value="I_OpticalSimulation"/>
+    <Property Name="3DIconName" Value="PSM_OpticalSimulation.cgr"/>
+    <Property Name="Configurable" Value="No"/>
+    <Property Name="Filtrable" Value="No"/>
+  </Class>
+  <Class Name="CAAUseCaseSimulationSample" Uuid="1855B2DE-DC58-45AC-AF96-071ED7252BE6" Abstract="No" SuperName="SIMObjSimulationObjectGeneric" CustomerExposition="Programmer" Discipline="Yes" Specializable="No" CustomerExtensible="No">
+    <Property Name="KweNew_InstanciationMethod" Value="CATECAAUseCaseSimulationSamplePLMNew"/>
+    <Property Name="Newable" Value="No"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="Configurable" Value="No"/>
+    <Property Name="Filtrable" Value="No"/>
+  </Class>
+  <Class Name="GenerativeStress" Uuid="ff1d0680-bca0-446a-ad3e-f7f2875aa468" Abstract="No" SuperName="SIMObjSimulationObjectGeneric" CustomerExposition="Programmer" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATEFEASimulationPLMNew"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="Newable" Value="New"/>
+    <Property Name="IconName" Value="I_GenerativeStressPLMNewSimu"/>
+    <Property Name="3DIconName" Value="PSM_GenerativeStressPLMNewSimu.cgr"/>
+    <Property Name="Configurable" Value="No"/>
+    <Property Name="Filtrable" Value="No"/>
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Design"/>
+        <UsedProcedure href="SIM_Procedures.proc#SimulationExportForGPS"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Channel"/>
+        <UsedProcedure href="SIM_Procedures.proc#DefaultSimulationExport_Channel"/>
+      </ProcedureForUsage>
+    </Method>
+    <Simple Name="PhysicsSO" Uuid="b47f492f-7767-4e01-a2f3-f0fdec67696d" Type="String" Protection="External"/>
+  </Class>
+  <Class Name="DesignSight" Uuid="8d4427c2-d954-4d0b-a8f9-95087957127d" Abstract="No" SuperName="SIMObjSimulationObjectGeneric" CustomerExposition="Programmer" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="SMAEMultiPhysicsSimulationPLMNew"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="Newable" Value="New_Offline"/>
+    <Property Name="IconName" Value="I_SMAFeaPLMNewSimu"/>
+    <Property Name="3DIconName" Value="PSM_SMAFeaPLMNewSimu.cgr"/>
+    <Property Name="Configurable" Value="No"/>
+    <Property Name="Filtrable" Value="No"/>
+    <Simple
+            Name="V_SolverId"
+			Uuid="2b12d9d6-20ff-11e6-b67b-9e71128cae77"
+            Type="String"
+            Protection="External"
+            CAAExposition="L1"
+            Faceted="Yes"
+            SetOnlyOnce="Later"
+            PLMImpacting="No">
+    </Simple>
+  </Class>
+  <Class Name="ManufacturingSimulation" Uuid="a1506ec3-50c6-444d-8a71-090b00226b0a" Abstract="No" SuperName="SIMObjSimulationObjectGeneric" CustomerExposition="Programmer" Discipline="Yes" Specializable="No" CustomerExtensible="No" Abbreviation="sms">
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMfgSimulationPLMNew"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="Newable" Value="New"/>
+    <Property Name="IconName" Value="I_ManufacturingSimulation"/>
+    <Property Name="3DIconName" Value="PSM_ManufacturingSimulation.cgr"/>
+    <Property Name="Configurable" Value="No"/>
+    <Property Name="Filtrable" Value="No"/>
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Design"/>
+        <UsedProcedure href="DELSimObj_Procedures.proc#DELSimObj_GetAllEntities"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Channel"/>
+        <UsedProcedure href="DELSimObj_Procedures.proc#DELSimObj_GetAllEntities"/>
+      </ProcedureForUsage>
+    </Method>
+  </Class>
+  <Class Name="LogicalSimulation" Uuid="988c950a-5564-49d8-9a87-bd1faf38efe7" Abstract="No" SuperName="SIMObjSimulationObjectGeneric" CustomerExposition="Programmer" Discipline="Yes" Specializable="No" CustomerExtensible="No" Abbreviation="sel">
+    <Property Name="KweNew_InstanciationMethod" Value="CATELogicalSimulationPLMNew"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="Newable" Value="New"/>
+    <Property Name="IconName" Value="I_FLSystemsPLMNewSimu"/>
+    <Property Name="3DIconName" Value="PSM_FLSystemsPLMNewSimu.cgr"/>
+    <Property Name="Configurable" Value="No"/>
+    <Property Name="Filtrable" Value="No"/>
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Design"/>
+        <UsedProcedure href="SIM_Procedures.proc#LogicalSimulationExport"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Channel"/>
+        <UsedProcedure href="SIM_Procedures.proc#DefaultSimulationExport_Channel"/>
+      </ProcedureForUsage>
+    </Method>
+  </Class>
+  <Class Name="CAASimulationSample" Uuid="64ff371f-a899-4d4f-a3a6-0729d9c28e3a" Abstract="No" SuperName="SIMObjSimulationObjectGeneric" CustomerExposition="Programmer" Discipline="Yes" Specializable="No" CustomerExtensible="No">
+    <Property Name="KweNew_InstanciationMethod" Value="CATECAASimulationSamplePLMNew"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="Configurable" Value="No"/>
+    <Property Name="Filtrable" Value="No"/>
+  </Class>
+  <Class Name="FunctionalSimulation" Uuid="dd26bcde-48e9-445c-96ba-d8437980fc9e" Abstract="No" SuperName="SIMObjSimulationObjectGeneric" CustomerExposition="Programmer" Discipline="Yes" Specializable="No" CustomerExtensible="No" Abbreviation="sef">
+    <Property Name="KweNew_InstanciationMethod" Value="CATEFunctionalSimulationPLMNew"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="Newable" Value="New"/>
+    <Property Name="IconName" Value="I_FLSystemsPLMNewSimu"/>
+    <Property Name="3DIconName" Value="PSM_FLSystemsPLMNewSimu.cgr"/>
+    <Property Name="Configurable" Value="No"/>
+    <Property Name="Filtrable" Value="No"/>
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Design"/>
+        <UsedProcedure href="SIM_Procedures.proc#FunctionalSimulationExport"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Channel"/>
+        <UsedProcedure href="SIM_Procedures.proc#DefaultSimulationExport_Channel"/>
+      </ProcedureForUsage>
+    </Method>
+  </Class>
+  <Class Name="ProductionSystem" Uuid="4f8318e4-df1f-4df0-b7c4-60d2677c1153" Abstract="No" SuperName="SIMObjSimulationObjectGeneric" CustomerExposition="Programmer" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes" Abbreviation="sms">
+    <Property Name="KweNew_InstanciationMethod" Value="DELEProdSysSimulationPLMNew"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="Newable" Value="New"/>
+    <Property Name="IconName" Value="I_DELPssSimulation"/>
+    <Property Name="3DIconName" Value="DELPssSimulation.cgr"/>
+    <Property Name="Configurable" Value="No"/>
+    <Property Name="Filtrable" Value="No"/>
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Design"/>
+        <UsedProcedure href="DELSimObj_Procedures.proc#DELSimObj_GetAllEntities"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Channel"/>
+        <UsedProcedure href="DELSimObj_Procedures.proc#DELSimObj_GetAllEntities"/>
+      </ProcedureForUsage>
+    </Method>
+  </Class>
+  <Class Name="dsc_Simulation_Document" Uuid="d9948721-5503-4945-a8b6-ac6060b99e31" Abstract="No" SuperName="SIMObjSimulationRepReferenceGeneric" CustomerExposition="Programmer" Discipline="Yes" Specializable="No" CustomerExtensible="No" Abbreviation="doc">
+    <Property Name="KweNew_InstanciationMethod" Value="CATESIMObjSimulationDocument"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="Configurable" Value="No"/>
+    <Property Name="Filtrable" Value="No"/>
+    <Property Name="IconName" Value="I_SimulationExternalRep"/>
+    <Property Name="3DIconName" Value="PSM_REPGEN_3DNAVREP.cgr"/>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+  <!-- <Extension Name="dsc_Simulation_Document" Uuid="d9948721-5503-4945-a8b6-ac6060b99e31" Abstract="No" ScopeNames="SIMObjSimulationRepReferenceGeneric" CustomerExposition="Programmer" Discipline="Yes" Specializable="No" ScopeRefs="c368697c-10f8-467b-9f5550a703b7af22" >
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="Configurable" Value="No" />
+    <Property Name="Filtrable" Value="No" />
+  </Extension>-->
+  <Class Name="SystemBehaviorLibSimulation" Uuid="b017e091-7ae2-4edf-9613-318a2111ca90" Abstract="No" SuperName="SIMObjSimulationObjectGeneric" CustomerExposition="Programmer" Discipline="Yes" Specializable="No" CustomerExtensible="No" Abbreviation="sps">
+    <Property Name="KweNew_InstanciationMethod" Value="CATESysBehaviorLibSimulationPLMNew"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="Newable" Value="New"/>
+    <Property Name="IconName" Value="I_FLSystemsPLMNewSimu"/>
+    <Property Name="3DIconName" Value="PSM_FLSystemsPLMNewSimu.cgr"/>
+    <Property Name="Configurable" Value="No"/>
+    <Property Name="Filtrable" Value="No"/>
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Design"/>
+        <UsedProcedure href="SIM_Procedures.proc#BehaviorLibrarySimulationExport"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Channel"/>
+        <UsedProcedure href="SIM_Procedures.proc#DefaultSimulationExport_Channel"/>
+      </ProcedureForUsage>
+    </Method>
+  </Class>
+  <Class Name="BioSystems_Simulation" Uuid="4f64febb-7664-4d79-9323-62a6dbcaf1b1" Abstract="No" SuperName="SIMObjSimulationObjectGeneric" CustomerExposition="Programmer" Discipline="Yes" Specializable="No" CustomerExtensible="No">
+    <Property Name="KweNew_InstanciationMethod" Value="CATEBioSimulationPLMNew"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="Newable" Value="New"/>
+    <Property Name="IconName" Value="I_BioSystemsSimulation"/>
+    <Property Name="3DIconName" Value="BioSystemsSimulation.cgr"/>
+    <Property Name="NewMinorRevisionAvailability" Value="Yes"/>
+    <Property Name="Configurable" Value="No"/>
+    <Property Name="Filtrable" Value="No"/>
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Design"/>
+        <UsedProcedure href="SIM_Procedures.proc#BioSystemsSimulationExport"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Channel"/>
+        <UsedProcedure href="SIM_Procedures.proc#DefaultSimulationExport_Channel"/>
+      </ProcedureForUsage>
+    </Method>
+  </Class>
+  <Class Name="DELRDYSimulation" Uuid="2fea5ffa-aea4-44a9-bea6-61a8442317cc" Abstract="No" SuperName="SIMObjSimulationObjectGeneric" CustomerExposition="Programmer" Discipline="Yes" Specializable="No" CustomerExtensible="No">
+    <Property Name="KweNew_InstanciationMethod" Value="DELRDYSimulationPLMNew"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="Newable" Value="New"/>
+    <Property Name="IconName" Value="I_DELRDYSimulation"/>
+    <Property Name="3DIconName" Value="DELRDYSimulation.cgr"/>
+    <Property Name="Configurable" Value="No"/>
+    <Property Name="Filtrable" Value="No"/>
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Design"/>
+        <UsedProcedure href="SIM_Procedures.proc#DELRDYSimulationExport"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Channel"/>
+        <UsedProcedure href="SIM_Procedures.proc#DefaultSimulationExport_Channel"/>
+      </ProcedureForUsage>
+    </Method>
+  </Class>
+  <Class Name="ErgonomicsSimulation" Uuid="b7805e18-275a-4f85-a004-24c3ec4278c2" Abstract="No" SuperName="SIMObjSimulationObjectGeneric" CustomerExposition="Programmer" Discipline="Yes" Specializable="No" CustomerExtensible="No" Abbreviation="ers">
+    <Property Name="KweNew_InstanciationMethod" Value="CATErgoSimulationPLMNew"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="Newable" Value="New"/>
+    <Property Name="IconName" Value="I_ErgoSim"/>
+    <Property Name="3DIconName" Value="ErgoSimulation.cgr"/>
+    <Property Name="Configurable" Value="No"/>
+    <Property Name="Filtrable" Value="No"/>
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Design"/>
+        <UsedProcedure href="SIM_Procedures.proc#SimulationOpen_ErgonomicsSimulation"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Channel"/>
+          <UsedProcedure href="SIM_Procedures.proc#DefaultSimulationExport_Channel"/>
+      </ProcedureForUsage>
+    </Method>
+  </Class>
+</Package>

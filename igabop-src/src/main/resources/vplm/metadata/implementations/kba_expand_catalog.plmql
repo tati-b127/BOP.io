@@ -1,0 +1,17 @@
+EXPAND
+
+   	T0.PLMID, T1.PLMID, T2.PLMID, T3.PLMID,
+
+   	T0.PLM_ExternalID, T1.PLM_ExternalID, T2.PLM_ExternalID, T3.PLM_ExternalID
+
+FROM
+
+   	PLMCORE/PLMCoreReference  T0,
+
+   	PLMCORE/PLMCoreInstance  T1,
+
+  	PLMCORE/PLMCoreRepInstance  T2,
+
+ 	PLMCORE/PLMCoreRepReference  T3
+
+FROM_ROOTS [?1?] ;

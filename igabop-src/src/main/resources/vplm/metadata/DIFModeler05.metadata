@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY FOR DIFModeler05                    -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2011, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified"
+         ModelerType="Top"
+         Name="DIFModeler05"
+         Uuid="3DD231CA-216C-43cd-84FB-7A5DD8D08263"
+         UseNames="PLMCORE DIFStandard"
+         BelongsToModeler="DIFStandard"
+         CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>DIF modeler Package (part 5)</ShortRole>
+    <Role>This package describes the DIF model built on top of PLM Core2</Role>
+  </CAAComment>
+
+  <Comment>last update 2012-03-27-14.00.00</Comment>
+
+  <!-- DIFModeler05 provides :              -->
+  <!-- DIFShapeRep      PLMCoreRepReference -->
+
+  <!-- ************************************ -->
+  <!-- * DIFShapeRep (PLMCoreRepReference)* -->
+  <!-- ************************************ -->
+  <Class Name="DIFShapeRep"
+         Uuid="53801586-C7CE-4813-808A-3E393E6CCC77"
+         Abstract="No"
+         Abbreviation="slb"
+         SuperName="PLMCoreRepReference"
+         CustomerExposition="Programmer" 
+         DeleteAvailability="Yes">
+
+    <!-- Simples -->
+    <Simple Name="V_DIFStandardClass" Uuid="962B169E-9ABA-4231-BBB4-F7D1966A3F55" Type="Integer" Protection="Internal" DefaultValue="1">
+      <Property Name="RangeAsEnumName" Value="DIFStandard.DIFStandardClass"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="ISO;ASME;JIS"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+      </Range>
+    </Simple>
+
+    <Simple Name="V_DIFStandardVersion"
+            Uuid="1E81A03C-71E8-4D4D-843C-377470AC30E0"
+            Type="Integer"
+            DefaultValue="0"
+            Protection="Internal"/>
+
+    <!-- Support old typing -->
+    <Property Name="DMCDerivable" Value="Yes"/>
+
+    <CAAComment>
+      <ShortRole>DIF Shape Representation Reference Object</ShortRole>
+      <Role>DIF Shape Representation Reference Object</Role>
+    </CAAComment>
+
+    <!-- PLM New UI/KWE Scripts New -->
+    <Property Name="KweNew_InstanciationMethod" Value="CATDifKBEDelegateInstanciation"/>
+
+    <!-- Generic PLM New UI availability -->
+    <Property Name="Newable" Value="New"/>
+
+    <!-- Search support (default is yes, the following declaration is actually useless) -->
+    <Property Name="Searchable" Value="Yes"/>
+
+    <!-- Configuration (default is no, the following declaration is actually useless) -->
+    <Property Name="Configurable" Value="No"/>
+
+    <!-- Icon and 3D Icon -->
+    <Property Name="IconName" Value="I_VPMNavDifSymbol"/>
+
+    <!-- Export/Completion -->
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Design"/>
+        <UsedProcedure href="DIFpe_Procedures.proc#DIFSymbolLibrary_ExportSelf"/>
+      </ProcedureForUsage>
+
+    </Method>
+  </Class>
+
+  <!-- ********************************************************** -->
+  <!-- FUNCTIONS Declarations : here are declared PLMQL Functions -->
+  <!-- ********************************************************** -->
+  <Function Name="DifModeler_AddSymbolLibrary">
+    <Implementation Name="DifModeler_AddSymbolLibrary" FileLocation="DifModeler_AddSymbolLibrary.plmql" Language="PLMQL"/>
+    <Signature href="DIFExportSignature"/>
+  </Function>
+
+  <Signature id="DIFExportSignature">
+    <Parameter Name="InputIds" Lower="0" Upper="-1" Direction="in" MultiValuated="Yes" DataType="PLMId"/>
+    <Parameter Name="OutputIds" Lower="0" Upper="-1" Direction="out" MultiValuated="No" DataType="PLMRouteSet"/>
+  </Signature>
+
+
+</Package>

@@ -1,0 +1,549 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<Package CustomerExposition="Programmer" xmlns="PLMDictionaryUnified" ModelerType="Top" Name="PLMFluidSystemsLogical" Uuid="14179c65-b453-49eb-9f55825204dfd650" UseNames="RFLVPMLogical">
+  <CAAComment>
+    <ShortRole>Fluid Systems Logical Package</ShortRole>
+    <Role>This package describes the Fluid Systems Logical data on top of logical modeler.</Role>
+  </CAAComment>
+  <Comment>Initial creation: AWG 2007-10-23</Comment>
+  <Comment>Modified R207 2008-09-12 by AWG - PipLine and Discipline</Comment>
+  <Comment>Modified R207 2008-10-09 by AWG - PipLine remove V_Specification</Comment>
+  <Comment>Modified R207 2008-11-17 by AWG - V_LogicalSubPartType</Comment>
+  <Comment>Modified R207 2009-01-16 by AWG - Piping_Line discipline</Comment>
+  <Comment>Modified R207 2009-01-29 by AWG - Export</Comment>
+  <Comment>Modified R207 2009-04-01 AWG CAAComment</Comment>
+  <Comment>Modified R207 2009-06-12 AWG R208</Comment>
+  <Comment>Modified R209 2009-12-11 JEC R210 PLE model change. New logical part extension. New port disciplines. new Pipe discipline </Comment>
+  <Comment>Modified R210 2010-07-29 JEC R210 PLE model change. New logical pipe extension.</Comment>
+  <Comment>Modified R214 2012-04-29 ZTB R214 PLE model change for new typing project</Comment>
+  <Comment>Modified R215 2012-11-08 ZTB R215 PLE model change for new typing project</Comment>
+  <Comment>Modified R216 2013-09-13 JRI Add Controller Property on Piping_Logical_Port for the attribute V_NominalSize</Comment>
+  <Comment>Modified R417 2014-05-16 JRI Specialize Logical Instances</Comment>
+  <Class Name="Piping_Logical_Reference_Entity" Uuid="9082d83f-31b6-4f46-8453-2d6bd9ca0d39" Abstract="Yes" CustomerExposition="Programmer" SuperName="RFLVPMLogicalReference" Discipline="Yes">
+    <CAAComment>
+      <ShortRole>PLM Logical Piping Reference Entity</ShortRole>
+      <Role>PLM Logical Piping Reference Entity</Role>
+    </CAAComment>
+    <Property Name="OccurrenceType" Value="PipLogicalOccurrence"/>
+  </Class>
+  <Class Name="Piping_Logical_Part" Uuid="c5ec5bf6-4060-4cb4-882f-b4d22d8cffe0" Abbreviation="lpippart" CustomerExposition="Programmer" Specializable="Yes" SuperName="Piping_Logical_Reference_Entity" Discipline="Yes" CreateInstName="Piping_Logical_Part_Inst">
+    <Property Name="MergedExtensionType" Value="FluidLogicalPartRef"/>
+    <Property Name="TypeForDisciplineValuation" Value="Piping_Logical_Part"/>
+    <Property Name="GroupingType"               Value="Piping_Logical_Part"/>
+    <Property Name="IconName" Value="I_PipLogicalPart"/>
+	<Property Name="KweNew_InstanciationMethod" Value="CATFluidicLogicalInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="Piping_Logical_Part_Inst"/>
+    <Property Name="OccurrenceType" Value="PipLogicalPartOcc"/>
+    <Simple Name="V_LogicalSubPartType"
+				Type="String"
+				Uuid="01141f86-54cc-40d6-8985-65510519c3d8"
+				MaxLength="100"
+				Protection="Free"
+				CAAExposition="L1"
+				MultiValuated="No">
+      <Property Name="Controller"
+                Value="CATFluidicLogicalAttributeController"/>
+    </Simple>
+    <CAAComment>
+      <ShortRole>PLM Logical Piping Part</ShortRole>
+      <Role>PLM Logical Piping Part</Role>
+    </CAAComment>
+  </Class>
+  <Extension Name="FluidLogicalPartRef" Uuid="0a82a25e-cf69-4229-9847-0f6c0caf5b96" CustomerExposition="Programmer" CAAExposition="L1" ScopeNames="RFLVPMLogicalReference">
+    <Property Name="OccurrenceType" Value="PipLogicalPartOcc"/>
+    <Simple Name="V_LogicalSubPartType" Type="String" Uuid="ac6ffbf3-b56d-455a-ae01-5eb43ad365fa" MaxLength="100" Protection="Free" CAAExposition="L1" MultiValuated="No">
+      <Property Name="Controller" Value="CATFluidicLogicalAttributeController"/>
+    </Simple>
+    <Simple Name="V_PipLog_PartType" Uuid="3ce0340d-cadc-4f37-82aa-a9395f0a5031" Type="Integer" Protection="External" CAAExposition="L0" DefaultValue="1">
+      <Property Name="RangeAsEnumName" Value="V_PipLog_PartType_Enum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="Miscellaneous;Branch;Instrument;Reducer;Valve"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+        <Equal>5</Equal>
+      </Range>
+    </Simple>
+    <CAAComment>
+      <ShortRole>Piping Logical Part Classification</ShortRole>
+      <Role>Piping Logical Part Classification</Role>
+    </CAAComment>
+  </Extension>
+  <Class Name="Piping_Logical_Miscellaneous" Uuid="95c0242f-6bcc-42a1-9291-13061721b6af" Abbreviation="lpipmisc" CustomerExposition="Programmer" SuperName="Piping_Logical_Part" Discipline="Yes" CustomerExtensible="Yes" CreateInstName="Piping_Logical_Miscellaneous_Inst">
+    <Property Name="KweNew_InstanciationMethod" Value="CATFluidicLogicalInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="Piping_Logical_Miscellaneous_Inst"/>
+    <Property Name="Newable" Value="All"/>
+    <Property Name="IconName" Value="I_PipLogicalMisc"/>
+    <Property Name="OccurrenceType" Value="PipLogicalMiscOcc"/>
+    <CAAComment>
+      <ShortRole>PLM Logical Piping Miscellaneaous</ShortRole>
+      <Role>PLM Logical Piping Miscellaneaous</Role>
+    </CAAComment>
+  </Class>
+  <Class Name="Piping_Logical_Branch" Uuid="ae5cb7d6-0998-4dbf-8ea0-2bdf09c761b8" Abbreviation="lpipbra" CustomerExposition="Programmer" SuperName="Piping_Logical_Part" Discipline="Yes" CustomerExtensible="Yes" Specializable="Yes" CreateInstName="Piping_Logical_Branch_Inst">
+    <Property Name="KweNew_InstanciationMethod" Value="CATFluidicLogicalInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="Piping_Logical_Branch_Inst"/>
+    <Property Name="Newable" Value="All"/>
+    <Property Name="IconName" Value="I_PipLogicalBranch"/>
+    <Property Name="OccurrenceType" Value="PipLogicalBranchOcc"/>
+    <CAAComment>
+      <ShortRole>PLM Logical Piping Branch</ShortRole>
+      <Role>PLM Logical Piping Branch</Role>
+    </CAAComment>
+  </Class>
+  <Class Name="Piping_Logical_Instrument" Uuid="b3aced91-3383-4604-8272-6d4ed673a39c" Abbreviation="lpipinst" CustomerExposition="Programmer" SuperName="Piping_Logical_Part" Discipline="Yes" CustomerExtensible="Yes" Specializable="Yes" CreateInstName="Piping_Logical_Instrument_Inst">
+    <Property Name="KweNew_InstanciationMethod" Value="CATFluidicLogicalInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="Piping_Logical_Instrument_Inst"/>
+    <Property Name="Newable" Value="All"/>
+    <Property Name="IconName" Value="I_PipLogicalInstrument"/>
+    <Property Name="OccurrenceType" Value="PipLogicalInstrumentOcc"/>
+    <CAAComment>
+      <ShortRole>PLM Logical Piping Instrument</ShortRole>
+      <Role>PLM Logical Piping Instrument</Role>
+    </CAAComment>
+	<Simple Name="V_PLE_MeasuredMagnitude" Type="String" Uuid="6fc2cc13-06c3-48a7-9d57-cdd71efde1c6" MaxLength="100" Protection="Free" CAAExposition="L1" MultiValuated="No">
+      <Property Name="Controller" Value="CATFluidicLogicalAttributeController"/>
+    </Simple>
+	<Simple Name="V_PLE_MeasuredModifier" Type="String" Uuid="ea27b145-eb62-498b-941c-10da9103bd71" MaxLength="100" Protection="Free" CAAExposition="L1" MultiValuated="No">
+      <Property Name="Controller" Value="CATFluidicLogicalAttributeController"/>
+    </Simple>
+	<Simple Name="V_PLE_ReadoutFunction" Type="String" Uuid="82f47fc5-a8ca-4394-ab33-c7538b0923f0" MaxLength="100" Protection="Free" CAAExposition="L1" MultiValuated="No">
+      <Property Name="Controller" Value="CATFluidicLogicalAttributeController"/>
+    </Simple>
+	<Simple Name="V_PLE_OutputFunction" Type="String" Uuid="448c8d21-c998-4fcb-be44-8b03808001d6" MaxLength="100" Protection="Free" CAAExposition="L1" MultiValuated="No">
+      <Property Name="Controller" Value="CATFluidicLogicalAttributeController"/>
+    </Simple>
+	<Simple Name="V_PLE_ReadoutModifier" Type="String" Uuid="8083c1e4-ff61-44bd-938e-1c03e303de9f" MaxLength="100" Protection="Free" CAAExposition="L1" MultiValuated="No">
+      <Property Name="Controller" Value="CATFluidicLogicalAttributeController"/>
+    </Simple>
+	<Simple Name="V_PLE_Location" Type="String" Uuid="26b78c64-4842-48d6-ac51-623d47a1bec5" MaxLength="100" Protection="Free" CAAExposition="L1" MultiValuated="No">
+      <Property Name="Controller" Value="CATFluidicLogicalAttributeController"/>
+    </Simple>
+  </Class>
+  <Class Name="Piping_Logical_Reducer" Uuid="90f7bfc3-a1df-4222-9cf6-8f8cd319edb3" Abbreviation="lpipred" CustomerExposition="Programmer" SuperName="Piping_Logical_Part" Discipline="Yes" CustomerExtensible="Yes" Specializable="Yes" CreateInstName="Piping_Logical_Reducer_Inst">
+    <Property Name="KweNew_InstanciationMethod" Value="CATFluidicLogicalInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="Piping_Logical_Reducer_Inst"/>
+    <Property Name="Newable" Value="All"/>
+    <Property Name="IconName" Value="I_PipLogicalReducer"/>
+    <Property Name="OccurrenceType" Value="PipLogicalReducerOcc"/>
+    <CAAComment>
+      <ShortRole>PLM Logical Piping Reducer</ShortRole>
+      <Role>PLM Logical Piping Reducer</Role>
+    </CAAComment>
+  </Class>
+  <Class Name="Piping_Logical_Valve" Uuid="dc46de57-ddc6-4975-b667-c585325a2ccd" Abbreviation="lpipvlv" CustomerExposition="Programmer" SuperName="Piping_Logical_Part" Discipline="Yes" CustomerExtensible="Yes" Specializable="Yes" CreateInstName="Piping_Logical_Valve_Inst">
+    <Property Name="KweNew_InstanciationMethod" Value="CATFluidicLogicalInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="Piping_Logical_Valve_Inst"/>
+    <Property Name="Newable" Value="All"/>
+    <Property Name="IconName" Value="I_PipLogicalValve"/>
+    <Property Name="OccurrenceType" Value="PipLogicalValveOcc"/>
+    <CAAComment>
+      <ShortRole>PLM Logical Piping Valve</ShortRole>
+      <Role>PLM Logical Piping Valve</Role>
+    </CAAComment>
+  </Class>
+  <Class Name="Piping_Logical_Pipe" Uuid="b028c3c5-baea-4132-aa2b-6b6b9fb2b7f6" Abbreviation="lpippipe" CustomerExposition="Programmer" SuperName="Piping_Logical_Reference_Entity" Discipline="Yes" CustomerExtensible="Yes" Specializable="Yes" CreateInstName="Piping_Logical_Pipe_Inst">
+    <Property Name="MergedExtensionType" Value="FluidLogicalPipeRef"/>
+    <Property Name="TypeForDisciplineValuation" Value="Piping_Logical_Pipe"/>
+    <Property Name="GroupingType"               Value="Piping_Logical_Pipe"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATFluidicLogicalInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="Piping_Logical_Pipe_Inst"/>
+    <Property Name="PQ_Attributes" Value="PLM_ExternalID V_description V_user V_discipline|EQ|Piping_Logical_Pipe"/>
+    <Property Name="IconName" Value="I_PipLogicalPipe"/>
+    <Property Name="Newable" Value="All"/>
+    <Property Name="OccurrenceType" Value="PipLogicalPipeOcc"/>
+    <Simple Name="V_IsFlexible" Type="Boolean" Uuid="0095deb4-cf6b-4006-8999-b10a2c62ab05" MultiValuated="No" Protection="Free" CAAExposition="L1"/>
+    <CAAComment>
+      <ShortRole>PLM Logical Piping Pipe</ShortRole>
+      <Role>PLM Logical Piping Pipe</Role>
+    </CAAComment>
+  </Class>
+  <Extension Name="FluidLogicalPipeRef" Uuid="eee9ca42-6f36-412f-b605-71c992a982e7" CustomerExposition="Programmer" Abstract="No" CAAExposition="L1" ScopeNames="RFLVPMLogicalReference">
+    <Property Name="OccurrenceType" Value="PipLogicalPipeOcc"/>
+    <Simple Name="V_IsFlexible" Type="Boolean" Uuid="d2d41011-4dcd-4b24-8682-83efdc9d1fcf" MultiValuated="No" Protection="Free" CAAExposition="L1"/>
+  </Extension>
+  <Class Name="Piping_Line" Uuid="c4d80288-5870-4b3c-8738-89632cbc3e27" Abbreviation="pipline" CustomerExposition="Programmer" SuperName="Piping_Logical_Reference_Entity" Discipline="Yes" CustomerExtensible="Yes" Specializable="Yes" CreateInstName="Piping_Line_Inst">
+    <Property Name="MergedExtensionType" Value="PipLine"/>
+    <Property Name="TypeForDisciplineValuation" Value="Piping_Line"/>
+    <Property Name="GroupingType"               Value="Piping_Line"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATFluidicLogicalInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="Piping_Line_Inst"/>
+    <Property Name="IconName" Value="I_PipLine"/>
+    <Property Name="Newable" Value="Insert"/>
+    <Property Name="OccurrenceType" Value="PipLineOcc"/>
+    <Simple Name="V_NominalSize" Type="String" Uuid="01a7ce79-5be5-4a05-9597-ded7291121cb" MaxLength="80" Protection="Free" CAAExposition="L1" MultiValuated="No">
+      <Property Name="Controller" Value="CATFluidicLogicalPipingLineController"/>
+    </Simple>
+    <CAAComment>
+      <ShortRole>Nominal Size</ShortRole>
+      <Role>Nominal Size</Role>
+    </CAAComment>
+    <Simple Name="V_Standard" Type="String" Uuid="0fd7f8d0-bf9a-41c8-a5fd-b99998d58f3b" MaxLength="100" Protection="Free" CAAExposition="L1" MultiValuated="No">
+      <Property Name="Controller" Value="CATFluidicLogicalPipingLineController"/>
+    </Simple>
+    <CAAComment>
+      <ShortRole>Standard</ShortRole>
+      <Role>Standard</Role>
+    </CAAComment>
+    <Simple Name="V_PipeSpecification" Type="String" Uuid="458c0df5-d919-4e6b-b561-ae79a6e774e0" MaxLength="100" Protection="Free" CAAExposition="L1" MultiValuated="No">
+      <Property Name="Controller" Value="CATFluidicLogicalPipingLineController"/>
+    </Simple>
+    <CAAComment>
+      <ShortRole>Pipe Specification</ShortRole>
+      <Role>Pipe Specification</Role>
+    </CAAComment>
+    <Simple Name="V_PipeInsulationSpec" Type="String" Uuid="78780589-2ee1-4706-8b85-311eb7b78fc2" MaxLength="100" Protection="Free" CAAExposition="L1" MultiValuated="No">
+      <Property Name="Controller" Value="CATFluidicLogicalPipingLineController"/>
+    </Simple>
+    <CAAComment>
+      <ShortRole>Insulation Specification</ShortRole>
+      <Role>Insulation Specification</Role>
+    </CAAComment>
+    <Simple Name="V_Fluid" Uuid="6a76dd11-bb6a-4850-9b9c-c4ed58c2c1ed" Type="String" MultiValuated="No" MaxLength="100" Protection="Free" CAAExposition="L0">
+      <Property Name="Controller" Value="CATFluidicLogicalPipingLineController"/>
+    </Simple>
+    <CAAComment>
+      <ShortRole>Fluid</ShortRole>
+      <Role>Fluid</Role>
+    </CAAComment>
+    <Simple Name="V_OperatingTemperature" Type="Double" Uuid="c91f0b39-e21e-4032-b302-a920478a7de0" Magnitude="TEMPRTRE" Protection="Free" CAAExposition="L1" MultiValuated="No"/>
+    <CAAComment>
+      <ShortRole>Operating Temperature</ShortRole>
+      <Role>Operating Temperature</Role>
+    </CAAComment>
+    <Simple Name="V_OperatingPressure" Type="Double" Uuid="32e5141b-39f5-4445-9a2b-743e71159a5f" Magnitude="PRESSURE" Protection="Free" CAAExposition="L1" MultiValuated="No"/>
+    <CAAComment>
+      <ShortRole>Operating Pressure</ShortRole>
+      <Role>Operating Pressure</Role>
+    </CAAComment>
+    <Simple Name="V_FillingRatio" Type="Double" Uuid="19264A70-E1C2-4C76-A215-C99958726275" Protection="Free" CAAExposition="L1" MultiValuated="No">
+      <Range>
+        <Between>
+          <MinEqual>0.0</MinEqual>
+        </Between>
+        <Between>
+          <MaxEqual>1.0</MaxEqual>
+        </Between>
+      </Range>
+    </Simple>
+    <CAAComment>
+      <ShortRole>Filling Ratio</ShortRole>
+      <Role>Filling Ratio</Role>
+    </CAAComment>
+    <CAAComment>
+      <ShortRole>PLM Piping Line</ShortRole>
+      <Role>PLM Piping Line</Role>
+    </CAAComment>
+  </Class>
+  <Extension Name="PipLine" Uuid="d9f894ef-16ac-45b2-b39974047083a262" CustomerExposition="Programmer" Abstract="No" CAAExposition="L1" ScopeNames="RFLVPMLogicalReference">
+    <CAAComment>
+      <ShortRole>PLM Piping Line Object</ShortRole>
+      <Role>PLM Piping Line Object</Role>
+    </CAAComment>
+    <Property Name="OccurrenceType" Value="PipLineOcc"/>
+    <Simple Name="V_NominalSize" Type="String" Uuid="7822ca1f-54de-480e-a78ec470c5160649" MaxLength="40" Protection="Free" CAAExposition="L1" MultiValuated="No">
+      <Property Name="Controller" Value="CATFluidicLogicalPipingLineController"/>
+    </Simple>
+    <CAAComment>
+      <ShortRole>Nominal Size</ShortRole>
+      <Role>Nominal Size</Role>
+    </CAAComment>
+    <Simple Name="V_Standard" Type="String" Uuid="210eb295-7e36-40e1-b1401efe7d4f9d11" MaxLength="40" Protection="Free" CAAExposition="L1" MultiValuated="No">
+      <Property Name="Controller" Value="CATFluidicLogicalPipingLineController"/>
+    </Simple>
+    <CAAComment>
+      <ShortRole>Standard</ShortRole>
+      <Role>Standard</Role>
+    </CAAComment>
+    <Simple Name="V_PipeSpecification" Type="String" Uuid="00e3556e-ee98-40e8-9f9f0a0ef44b9148" MaxLength="40" Protection="Free" CAAExposition="L1" MultiValuated="No">
+      <Property Name="Controller" Value="CATFluidicLogicalPipingLineController"/>
+    </Simple>
+    <CAAComment>
+      <ShortRole>Pipe Specification</ShortRole>
+      <Role>Pipe Specification</Role>
+    </CAAComment>
+    <Simple Name="V_Fluid" Uuid="22dbd82f-8a59-4fe8-9005-aa5b28a793bb" Type="String" MultiValuated="No" MaxLength="100" Protection="Free" CAAExposition="L0">
+      <Property Name="Controller" Value="CATFluidicLogicalPipingLineController"/>
+    </Simple>
+    <CAAComment>
+      <ShortRole>Fluid</ShortRole>
+      <Role>Fluid</Role>
+    </CAAComment>
+    <Simple Name="V_PipeInsulationSpec" Type="String" Uuid="101125ca-4026-4266-8611-8e8b9f589772" MaxLength="40" Protection="Free" CAAExposition="L1" MultiValuated="No">
+      <Property Name="Controller" Value="CATFluidicLogicalPipingLineController"/>
+    </Simple>
+    <CAAComment>
+      <ShortRole>Insulation Specification</ShortRole>
+      <Role>Insulation Specification</Role>
+    </CAAComment>
+    <Simple Name="V_OperatingTemperature" Type="Double" Uuid="8684a3f6-c926-4b0c-a8c7-c61bc8a72d1d" Magnitude="TEMPRTRE" Protection="Free" CAAExposition="L1" MultiValuated="No"/>
+    <CAAComment>
+      <ShortRole>Operating Temperature</ShortRole>
+      <Role>Operating Temperature</Role>
+    </CAAComment>
+    <Simple Name="V_OperatingPressure" Type="Double" Uuid="b58b3869-ccd1-4f2d-ae26-8632b140ee39" Magnitude="PRESSURE" Protection="Free" CAAExposition="L1" MultiValuated="No"/>
+    <CAAComment>
+      <ShortRole>Operating Pressure</ShortRole>
+      <Role>Operating Pressure</Role>
+    </CAAComment>
+    <Simple Name="V_FillingRatio" Type="Double" Uuid="44552E73-BE01-4EFC-9D11-FD275CF582C8" Protection="Free" CAAExposition="L1" MultiValuated="No">
+      <Range>
+        <Between>
+          <Min>0.0</Min>
+        </Between>
+        <Between>
+          <Max>1.0</Max>
+        </Between>
+      </Range>
+    </Simple>
+    <CAAComment>
+      <ShortRole>Filling Ratio</ShortRole>
+      <Role>Filling Ratio</Role>
+    </CAAComment>
+  </Extension>
+  <Class Name="ICLoop_Line" Uuid="df218919-127e-43f1-8c88-e23cde5dcc15" Abbreviation="ICline" CustomerExposition="Programmer" SuperName="Piping_Logical_Reference_Entity" Discipline="Yes" CustomerExtensible="Yes" Specializable="Yes" CreateInstName="ICLoop_Line_Inst">
+    <Property Name="MergedExtensionType" Value="ICLoopLine"/>
+    <Property Name="TypeForDisciplineValuation" Value="ICLoop_Line"/>
+    <Property Name="GroupingType"               Value="ICLoop_Line"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATFluidicLogicalInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="ICLoop_Line_Inst"/>
+    <Property Name="IconName" Value="I_ICLoopLine"/>
+    <Property Name="Newable" Value="Insert"/>
+    <Property Name="OccurrenceType" Value="ICLoopLineOcc"/>
+    <CAAComment>
+      <ShortRole>IC Loop Line</ShortRole>
+      <Role>IC Loop Line</Role>
+    </CAAComment>
+  </Class>
+  <Extension Name="ICLoopLine" Uuid="869c5ef5-414f-4140-b1c7-ae967a677dbb" CustomerExposition="Programmer" Abstract="No" CAAExposition="L1" ScopeNames="RFLVPMLogicalReference">
+    <CAAComment>
+      <ShortRole>IC Loop Line Extension</ShortRole>
+      <Role>IC Loop Line Extension</Role>
+    </CAAComment>
+    <Property Name="OccurrenceType" Value="ICLoopLineOcc"/>
+  </Extension>
+  <!-- ********************************************** -->
+  <!-- *          Fluid Logical Instances           * -->
+  <!-- ********************************************** -->
+  <RelationClass Name="Piping_Logical_Instance_Entity" Uuid="32f70816-ea3c-4697-93be-de612b4a9e09" CustomerExposition="Programmer" Abstract="Yes" SuperName="RFLVPMLogicalInstance" Discipline="Yes">
+	<Simple Name="V_PLE_TagNumber" Uuid="1c03ee3e-91f1-45ee-8c4c-58e02352e6de" Type="String"	MaxLength="100"	MultiValuated="No" Protection="Free" CAAExposition="L0" >
+		<Property Name="Controller" Value="CATFluidicLogicalPipingLineController"/>
+	</Simple>  
+ </RelationClass>
+  <RelationClass Name="Piping_Logical_Part_Inst" Uuid="ce9a2206-68c7-4a07-8362-2a64499b1dbe" CustomerExposition="Programmer" SuperName="Piping_Logical_Instance_Entity" Discipline="Yes" CustomerExtensible="Yes" Specializable="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATFluidicLogicalInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="Piping_Logical_Part_Inst"/>
+    <Property Name="IconName" Value="I_PipLogicalPart"/>
+	<Simple Name="V_NominalSize" Type="String" Uuid="d21f3a14-eade-4972-9f44-3199dfe1ef53" MaxLength="80" Protection="External" CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" 
+                Value="CATFluidicLogicalPipingLineController"/>
+    </Simple>
+
+    <Simple Name="V_Standard" Type="String" Uuid="4351e3c4-da3c-439b-9600-a07c83cdb080" MaxLength="100" Protection="External" CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" 
+                Value="CATFluidicLogicalPipingLineController"/>
+    </Simple>
+
+    <Simple Name="V_PipeSpecification" Type="String" Uuid="fdaf0468-4e76-401b-bfd8-f042854eeb01" MaxLength="100" Protection="External" CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" 
+                Value="CATFluidicLogicalPipingLineController"/>
+    </Simple>
+	<Simple Name="V_PredefinedPartNumber" Type="String" Uuid="8235014b-0e09-4ee9-abe2-b967d16bf29b" MaxLength="100" Protection="Free" CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" 
+                Value="CATFluidicLogicalPipingLineController"/>
+    </Simple>
+		<Simple Name="V_PredefinedPartType" Type="String" Uuid="8790d097-1e55-433b-b777-bb75b67ecf79" MaxLength="100" Protection="Free" CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" 
+                Value="CATFluidicLogicalPipingLineController"/>
+    </Simple>
+  </RelationClass>
+  <RelationClass Name="Piping_Logical_Miscellaneous_Inst" Uuid="1a4a5745-e225-44c6-9da9-8b5060fef0d7" CustomerExposition="Programmer" SuperName="Piping_Logical_Part_Inst" Discipline="Yes" CustomerExtensible="Yes" Specializable="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATFluidicLogicalInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="Piping_Logical_Miscellaneous_Inst"/>
+    <Property Name="IconName" Value="I_PipLogicalMisc"/>
+  </RelationClass>
+  <RelationClass Name="Piping_Logical_Branch_Inst" Uuid="6f327449-28bd-4c4c-93ed-567ddad2929d" CustomerExposition="Programmer" SuperName="Piping_Logical_Part_Inst" Discipline="Yes" CustomerExtensible="Yes" Specializable="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATFluidicLogicalInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="Piping_Logical_Branch_Inst"/>
+    <Property Name="IconName" Value="I_PipLogicalBranch"/>
+  </RelationClass>
+  <RelationClass Name="Piping_Logical_Instrument_Inst" Uuid="fe94703a-32d8-4d9f-89e8-c637d04a55f8" CustomerExposition="Programmer" SuperName="Piping_Logical_Part_Inst" Discipline="Yes" CustomerExtensible="Yes" Specializable="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATFluidicLogicalInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="Piping_Logical_Instrument_Inst"/>
+    <Property Name="IconName" Value="I_PipLogicalInstrument"/>
+  </RelationClass>
+  <RelationClass Name="Piping_Logical_Reducer_Inst" Uuid="a01c48ce-237a-4600-8fbb-883692d5176c" CustomerExposition="Programmer" SuperName="Piping_Logical_Part_Inst" Discipline="Yes" CustomerExtensible="Yes" Specializable="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATFluidicLogicalInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="Piping_Logical_Reducer_Inst"/>
+    <Property Name="IconName" Value="I_PipLogicalReducer"/>
+  </RelationClass>
+  <RelationClass Name="Piping_Logical_Valve_Inst" Uuid="fe7dcc16-f05c-4122-a4e6-2bfcb66608d9" CustomerExposition="Programmer" SuperName="Piping_Logical_Part_Inst" Discipline="Yes" CustomerExtensible="Yes" Specializable="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATFluidicLogicalInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="Piping_Logical_Valve_Inst"/>
+    <Property Name="IconName" Value="I_PipLogicalValve"/>
+  </RelationClass>
+  <RelationClass Name="Piping_Logical_Pipe_Inst" Uuid="c4ca43ab-0683-4a40-bc0f-a63385f7bf3e" CustomerExposition="Programmer" SuperName="Piping_Logical_Instance_Entity" Discipline="Yes" CustomerExtensible="Yes" Specializable="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATFluidicLogicalInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="Piping_Logical_Pipe_Inst"/>
+    <Property Name="IconName" Value="I_PipLogicalPipe"/>
+	<Simple Name="V_NominalSize" Type="String" Uuid="b55eaf58-b019-497f-bc9c-fc2c9fb19626" MaxLength="80" Protection="External" CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" 
+                Value="CATFluidicLogicalPipingLineController"/>
+    </Simple>
+
+    <Simple Name="V_Standard" Type="String" Uuid="bdeb271c-03c8-41cc-9caf-9f0b494eb984" MaxLength="100" Protection="External" CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" 
+                Value="CATFluidicLogicalPipingLineController"/>
+    </Simple>
+
+    <Simple Name="V_PipeSpecification" Type="String" Uuid="3ac8c963-3ac3-49f3-87ae-982c2e9edb43" MaxLength="100" Protection="External" CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" 
+                Value="CATFluidicLogicalPipingLineController"/>
+	</Simple>
+	<Simple Name="V_PredefinedPartNumber" Type="String" Uuid="147e598f-7ea7-4003-b9d4-0ff62975aec7" MaxLength="100" Protection="Free" CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" 
+                Value="CATFluidicLogicalPipingLineController"/>
+    </Simple>
+	<Simple Name="V_PredefinedPartType" Type="String" Uuid="bf8f4dd2-a3df-4864-94f6-4f68da88a6b2" MaxLength="100" Protection="Free" CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" 
+                Value="CATFluidicLogicalPipingLineController"/>
+    </Simple>
+  </RelationClass>
+  <RelationClass Name="Piping_Line_Inst" Uuid="ef65f046-61ba-45f4-b21f-438ec7a4a3b9" CustomerExposition="Programmer" SuperName="Piping_Logical_Instance_Entity" Discipline="Yes" CustomerExtensible="Yes" Specializable="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATFluidicLogicalInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="Piping_Line_Inst"/>
+    <Property Name="IconName" Value="I_PipLine"/>
+  </RelationClass>
+  <RelationClass Name="ICLoop_Line_Inst" Uuid="f8ecf0e9-12fa-4fe0-b805-030059ccc22c" CustomerExposition="Programmer" SuperName="Piping_Logical_Instance_Entity" Discipline="Yes" CustomerExtensible="Yes" Specializable="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATFluidicLogicalInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="ICLoop_Line_Inst"/>
+    <Property Name="IconName" Value="I_ICLoopLine"/>
+  </RelationClass>
+  <!-- *          Fluid Logical Ports           * -->
+  <Class Name="Piping_Logical_Port_Entity" Uuid="dfa5809f-ca18-4932-836d-607bdc642ea2" Abstract="Yes" CustomerExposition="Programmer" SuperName="RFLVPMLogicalPort" Discipline="Yes">
+  </Class>
+  <Class Name="Piping_Logical_Port" Uuid="10a24fc4-ae37-48da-8a3d-6bfaf94915aa" CustomerExposition="Programmer" SuperName="Piping_Logical_Port_Entity" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes">
+    <Property Name="MergedExtensionType" Value="PipLogicalPort"/>
+    <Property Name="TypeForDisciplineValuation" Value="Piping_Logical_Port"/>
+    <Property Name="GroupingType"               Value="Piping_Logical_Port"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATFluidicLogicalInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="RFLVPMLogicalPort"/>
+    <Property Name="IconName" Value="I_PipLogicalPort"/>
+    <Property Name="Newable" Value="Insert"/>
+    <CAAComment>
+      <ShortRole>PLM Logical Piping Port Object</ShortRole>
+      <Role>PLM Logical Piping Port Object</Role>
+    </CAAComment>
+    <Simple Name="V_NominalSize" Type="String" Uuid="a1d9cb5f-8b72-4390-9479-1b062bcc02c0" MaxLength="40" Protection="Free" CAAExposition="L1" MultiValuated="No">
+      <Property Name="Controller" Value="CATFluidicLogicalAttributeController"/>
+    </Simple>
+    <CAAComment>
+      <ShortRole>Nominal Size</ShortRole>
+      <Role>Nominal Size</Role>
+    </CAAComment>
+  </Class>
+  <Extension Name="PipLogicalPort" Uuid="7e80860f-a5c0-441e-b8815203a0897755" CustomerExposition="Programmer" Abstract="No" CAAExposition="L1" ScopeNames="RFLVPMLogicalPort">
+    <CAAComment>
+      <ShortRole>PLM Logical Piping Port Object</ShortRole>
+      <Role>PLM Logical Piping Port Object</Role>
+    </CAAComment>
+    <Simple Name="V_NominalSize" Type="String" Uuid="17acc2f3-a36a-419e-bd92ace10fcd989c" MaxLength="40" Protection="Free" CAAExposition="L1" MultiValuated="No"/>
+    <CAAComment>
+      <ShortRole>Nominal Size</ShortRole>
+      <Role>Nominal Size</Role>
+    </CAAComment>
+  </Extension>
+  <Class Name="Piping_Logical_Port_End1" Uuid="bbc4956c-d746-4706-8980-d556783cc76b" CustomerExposition="Programmer" SuperName="Piping_Logical_Port_Entity" Discipline="Yes">
+    <Property Name="TypeForDisciplineValuation" Value="Piping_Logical_Port_End1"/>
+    <CAAComment>
+      <ShortRole>PLM Logical Piping Port End 1 Object</ShortRole>
+      <Role>PLM Logical Piping Port End 1 Object</Role>
+    </CAAComment>
+  </Class>
+  <Class Name="Piping_Logical_Port_End2" Uuid="0b5717a1-4da5-4b5f-aecf-5c9bff0535b2" CustomerExposition="Programmer" SuperName="Piping_Logical_Port_Entity" Discipline="Yes">
+    <Property Name="TypeForDisciplineValuation" Value="Piping_Logical_Port_End2"/>
+    <CAAComment>
+      <ShortRole>PLM Logical Piping Port End 2 Object</ShortRole>
+      <Role>PLM Logical Piping Port End 2 Object</Role>
+    </CAAComment>
+  </Class>
+  <Extension Name="FluidLogicalPartInst" Uuid="c5912b45-3058-47af-83d9-c42483b58786" CustomerExposition="Programmer" Abstract="No" CAAExposition="L1" ScopeNames="RFLVPMLogicalReference">
+    <Simple Name="V_Ens_PredefinedPartType" Type="String" Uuid="8f152260-9bd7-4a98-9eab-0af0410283b7" MaxLength="100" Protection="Free" CAAExposition="L1" MultiValuated="No"/>
+    <Simple Name="V_Ens_PredefinedPartNumber" Type="String" Uuid="1a6e794e-f2c8-45be-aaa5-1bd13f9a02d7" MaxLength="100" Protection="Free" CAAExposition="L1" MultiValuated="No"/>
+  </Extension>
+
+
+  <!-- Begin deprecated from R210 (R2011x). Do not use anymore. Replaced by PipLogicalPartRef-->
+  <Extension Name="PipLogicalPart" Uuid="ebd3f847-aed6-463b-9865924b2629a74b" CustomerExposition="None" Abstract="No" CAAExposition="L1" ScopeNames="RFLVPMLogicalReference">
+    <CAAComment>
+      <ShortRole>PLM Logical Piping Part Object</ShortRole>
+      <Role>PLM Logical Piping Part Object</Role>
+    </CAAComment>
+    <Simple Name="V_LogicalSubPartType" Type="String" Uuid="d927f42c-9baa-422c-a65eab62207bec3b" MaxLength="100" Protection="Free" CAAExposition="L1" MultiValuated="No"/>
+    <CAAComment>
+      <ShortRole>Logical Part Subtype</ShortRole>
+      <Role>Logical Part Subtype</Role>
+    </CAAComment>
+    <Simple Name="V_NominalSize" Type="String" Uuid="118307f3-ad75-48eb-afba0590ad3c847f" MaxLength="80" Protection="Free" CAAExposition="L1" MultiValuated="No"/>
+    <CAAComment>
+      <ShortRole>Nominal Size</ShortRole>
+      <Role>Nominal Size</Role>
+    </CAAComment>
+    <Simple Name="V_Standard" Type="String" Uuid="c4ca558d-0e0a-4ae9-988c98d64250c0d4" MaxLength="40" Protection="Free" CAAExposition="L1" MultiValuated="No"/>
+    <CAAComment>
+      <ShortRole>Standard</ShortRole>
+      <Role>Standard</Role>
+    </CAAComment>
+    <Simple Name="V_PipeSpecification" Type="String" Uuid="f99d1d26-6bd5-4b3a-8a1b614549dc5246" MaxLength="40" Protection="Free" CAAExposition="L1" MultiValuated="No"/>
+    <CAAComment>
+      <ShortRole>Pipe Specification</ShortRole>
+      <Role>Pipe Specification</Role>
+    </CAAComment>
+    <Simple Name="V_Ens_PredefinedPartType" Type="String" Uuid="92ea1173-4b03-441d-b498-eb13c3d33167" MaxLength="100" Protection="Free" CAAExposition="L1" MultiValuated="No"/>
+    <CAAComment>
+      <ShortRole>Predefined Part Type</ShortRole>
+      <Role>Predefined Part Type</Role>
+    </CAAComment>
+    <Simple Name="V_Ens_PredefinedPartNumber" Type="String" Uuid="79e36f91-930e-4a52-9075-01cbfb61616f" MaxLength="100" Protection="Free" CAAExposition="L1" MultiValuated="No"/>
+    <CAAComment>
+      <ShortRole>Predefined Part Number</ShortRole>
+      <Role>Predefined Part Number</Role>
+    </CAAComment>
+    <Simple Name="V_PartAttrNames" Type="String" Uuid="bcfe0f77-1d86-4f5e-8191-c32198f1d0d7" MaxLength="40" Protection="Free" CAAExposition="L0" MultiValuated="Yes" CollectionType="List"/>
+    <CAAComment>
+      <ShortRole>Part Attribute Names</ShortRole>
+      <Role>Part Attribute Names</Role>
+    </CAAComment>
+    <Simple Name="V_PartAttrValues" Type="String" Uuid="85972aa3-7042-4cc8-8150-de1216bf0532" MaxLength="40" Protection="Free" CAAExposition="L0" MultiValuated="Yes" CollectionType="List"/>
+    <CAAComment>
+      <ShortRole>Part Attribute Values</ShortRole>
+      <Role>Part Attribute Values</Role>
+    </CAAComment>
+  </Extension>
+  <!-- End deprecated-->
+  <!-- Beging deprecated from R210 (R2011x). Do not use anymore. Only discipline is used-->
+  <Extension Name="PipLogicalPipe" Uuid="4999e2f2-d315-4cd7-9a9d52f6f9970023" CustomerExposition="None" Abstract="No" CAAExposition="L1" ScopeNames="RFLVPMLogicalReference">
+    <CAAComment>
+      <ShortRole>PLM Logical Pipe Object</ShortRole>
+      <Role>PLM Logical Pipe Object</Role>
+    </CAAComment>
+    <Simple Name="V_NominalSize" Type="String" Uuid="b9af18e0-7906-452a-99bde05cb246e94a" MaxLength="40" Protection="Free" CAAExposition="L1" MultiValuated="No"/>
+    <CAAComment>
+      <ShortRole>Nominal Size</ShortRole>
+      <Role>Nominal Size</Role>
+    </CAAComment>
+    <Simple Name="V_Standard" Type="String" Uuid="9943ea43-ebfa-47d4-982bf165906179f2" MaxLength="40" Protection="Free" CAAExposition="L1" MultiValuated="No"/>
+    <CAAComment>
+      <ShortRole>Standarde</ShortRole>
+      <Role>Standard</Role>
+    </CAAComment>
+    <Simple Name="V_PipeSpecification" Type="String" Uuid="b15d4c25-b300-47cd-9e998ec55e35e35d" MaxLength="40" Protection="Free" CAAExposition="L1" MultiValuated="No"/>
+    <CAAComment>
+      <ShortRole>Pipe Specification</ShortRole>
+      <Role>Pipe Specification</Role>
+    </CAAComment>
+  </Extension>
+  <!-- End deprecated-->
+</Package>

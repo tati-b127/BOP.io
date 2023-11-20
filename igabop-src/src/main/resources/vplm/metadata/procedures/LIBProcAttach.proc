@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+<ProcedurePackage 
+	xmlns="PLMDictionaryProcedure"
+	Name="LIBProcAttach">
+
+	<Procedure Name="LibraryCentralProcAttach">
+		<Implementation Name="invoke" FileLocation="com.dassault_systemes.vplm.modeler.catalog.implementation.LibraryCentralProcAttach" Language="JAVA"/>
+		<Signature href="LibraryCentralProcAttach_sign"/>
+	</Procedure>
+
+	<Signature id="LibraryCentralProcAttach_sign">
+		<Parameter Name="inIDList" MultiValuated="Yes" Direction="in" Order="1" DataType="PLMId"/>
+		<Parameter Name="inOptions" MultiValuated="Yes" Direction="in" Order="2" DataType="String"/>
+		<Parameter Name="out" MultiValuated="Yes" Direction="out" Order="1" DataType="String"/>
+	</Signature>
+
+</ProcedurePackage>

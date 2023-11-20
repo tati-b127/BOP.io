@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2009, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" Name="DELLmiProductionExecLoadingOperationDS" Uuid="7d146ace-6f34-45d7-a65f-ce0b45ab7fcc" UseNames="DELLmiProductionExecLoadingOperation" >
+<Property Name="OptionalInstallation" Value="Yes" /> 
+	<CAAComment>
+		<ShortRole>Standard DELMIA Execution Loading Operation Package</ShortRole>
+		<Role>This package includes default customized DELMIA Execution Loading Operation</Role>
+	</CAAComment>
+	<Comment>last update 2009-05-25</Comment>
+
+	<Class Name="DELLmiExecLoadingOperationRefCusto" Uuid="baec7d46-c3dd-45b7-a7db-e8efcad1508a" SuperName="DELLmiExecLoadingOperationReference"   >
+
+    <IdentifierSet Name="Identifier"
+        Uuid="ea65f90f-8698-4883-b74f-e4599d4c0451"
+        IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755"
+        IdentifierNames="PLM_ExternalID V_version" />
+
+    <CAAComment>
+			<ShortRole>Standard DELMIA Execution Loading Operation Reference</ShortRole>
+			<Role>Default customized DELMIA Execution Loading Operation Reference</Role>
+		</CAAComment>
+	</Class>
+
+  <RelationClass Name="DELLmiExecLoadingOperationInstCusto" Uuid="8fadc966-e8dc-4109-ae03-ff26fc5945cd" SuperName="DELLmiExecLoadingOperationInstance"  >
+		<CAAComment>
+			<ShortRole>Standard DELMIA Execution Loading Operation Instance</ShortRole>
+			<Role>Default customized DELMIA Execution Loading Operation Instance</Role>
+		</CAAComment>		
+            <!-- ********************************************************* -->
+            <!-- * Overload(s) of PLMCoreInstance attributes. -->
+            <!-- ********************************************************* -->
+    <SubClause Name="to"   TargetName="DELLmiExecLoadingOperationRefCusto"/>
+  </RelationClass>
+</Package>

@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto"
+         ModelerType="Custo"
+         Name="ENOSTFProcessDS"
+         Uuid="a56fd624-2c27-4247-b906-0cffb057bdd7"
+         UseNames="DELFmiFunctionalModel"
+         Alias="Process">
+    <CAAComment>
+        <ShortRole>PLM customization of Functional Process for SMB</ShortRole>
+        <Role>PLM customization of Process Function modeler "DELFmiFunctionalModel" package.</Role>
+    </CAAComment>
+
+    <Class Name="ENOSTFProcessReference"
+           Alias="Process Reference customization"
+           Uuid="a463eeea-f81c-4f6a-abf6-952c8cf4d94e"
+           SuperName="DELFmiFunctionReference"
+           SuperRef="2305046a-74cb-4358-9a73-03938f6884c0">
+        <CAAComment>
+            <ShortRole>PLM customization of Process Function Reference</ShortRole>
+            <Role>PLM customization of Process Function Reference "DELFmiFunctionReference".</Role>
+        </CAAComment>
+        <Simple Name="E_fromExternalId"
+                Uuid="2f6e8ac8-4974-41d1-bb65-5ca5abe918af"
+                Alias="Definition"
+                Type="String"
+                MaxLength="256"
+                Mandatory="No"
+                MultiValuated="No"
+                Protection="Free"
+                CAAExposition="L0"/>
+        <Simple Name="E_versionComment"
+                Uuid="e69a840c-a89a-42e2-91b5-eb85b241874e"
+                Alias="Version Comment"
+                Type="String"
+                MaxLength="256"
+                Mandatory="No"
+                MultiValuated="No"
+                Protection="Free"
+                ResetOnNewVersion="Yes"
+                ResetOnCloning="Yes"
+                CAAExposition="L0"/>
+        <IdentifierSet Name="E_identifier"
+                       Uuid="9aa3e8e3-0633-47f8-968d-82e60424a3aa"
+                       IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755"
+                       IdentifierNames="PLM_ExternalID V_version"/>
+    </Class>
+
+    <Class Name="ENOSTFProcessInstance"
+           Alias="Process Instance customization"
+           Uuid="35a22d40-78ba-4c08-93dc-57769fc6c74b"
+           SuperName="DELFmiFunctionInstance"
+           SuperRef="3ffedace-6447-413b-8cb5-84ced69ad1c4">
+        <CAAComment>
+            <ShortRole>PLM customization of Process Function Instance</ShortRole>
+            <Role>PLM customization of Process Function Instance "DELFmiFunctionInstance".</Role>
+        </CAAComment>
+    </Class>
+    <Class Name="ENOSTFProcessRepresentation"
+           Alias="Process Representation Reference customization"
+           Uuid="c7684224-bd7b-4866-8ad5-dbf47d45f708"
+           SuperName="DELFmiFunctionRepresentationReference"
+           SuperRef="38c21e05-f2d3-4b56-9e66-1fd11c0e718e">
+        <CAAComment>
+            <ShortRole>PLM customization of Process Function Representation Reference</ShortRole>
+            <Role>PLM customization of Process Function Representation Reference "DELFmiFunctionRepresentationReference".</Role>
+        </CAAComment>
+        <Simple Name="E_fromExternalId"
+                Uuid="331fff33-3b2e-4a52-9554-2f83fb5ba726"
+                Alias="Definition"
+                Type="String"
+                MaxLength="256"
+                Mandatory="No"
+                MultiValuated="No"
+                Protection="Free"
+                CAAExposition="L0"/>
+        <Simple Name="E_versionComment"
+                Uuid="91b1e08e-3120-49bd-b2db-3745e2b6dd4b"
+                Alias="Version Comment"
+                Type="String"
+                MaxLength="256"
+                Mandatory="No"
+                MultiValuated="No"
+                Protection="Free"
+                ResetOnNewVersion="Yes"
+                ResetOnCloning="Yes"
+                CAAExposition="L0"/>
+        <IdentifierSet Name="E_identifier"
+                       Uuid="7bc66fb4-8f30-433e-b3bc-8fd162510f7a"
+                       IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755"
+                       IdentifierNames="PLM_ExternalID V_version"/>
+    </Class>
+    <Class Name="ENOSTFProcessRepresentationInstance"
+           Alias="Process Representation Instance customization"
+           Uuid="d0557914-b19f-44fb-a0a4-087baf2f139e"
+           SuperName="DELFmiFunctionRepresentationInstance"
+           SuperRef="603abcfe-f607-43f8-ac34-37bafed653bf">
+        <CAAComment>
+            <ShortRole>PLM customization of Process Function Representation Instance</ShortRole>
+            <Role>PLM customization of Process Function Representation Instance "DELFmiFunctionRepresentationInstance".</Role>
+        </CAAComment>
+    </Class>
+</Package>

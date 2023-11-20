@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2017, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified"
+	ModelerType="Top"
+	Name="XCADComposition"
+	Uuid="a21641cc-51bd-11e7-b114-b2f933d5fe66"
+	UseNames="ERCoreModeler"
+	CustomerExposition="Programmer" 
+	Architecture="All"
+	BelongsToModeler="XCADModeler"
+>
+
+	<CAAComment>
+		<ShortRole>Unified Product Structure Embedded Component Modeler Package</ShortRole>
+		<Role>This package includes XCADComposition relationship used in the Embedded Component Support in Unified Product Structure.</Role>
+	</CAAComment>
+
+	<Comment>last update 2017-06-15</Comment>
+
+	<RelationClass Name="XCADComposition" 
+		Uuid="1eb3c1a4-4201-11e7-a919-92ebcb67fe33" 
+		Abstract="No" 
+		CustomerExposition="ProgrammerOnly"
+		SuperName="RelationType"
+		Specializable="No"
+		CustomerExtensible="No"
+		>
+
+		<!--The composition link is mainly used for Aggregation of Embedded Component in its Parent Product-->
+		
+		<SubClause Name="from"   TargetName="PLMCoreReference" minorrevision="replicate" clone="replicate"/>
+		<SubClause Name="to"   TargetName="PLMCoreReference"/>
+	
+		<!-- PROCEDURES Declaration  -->
+		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+	</RelationClass>
+
+</Package>

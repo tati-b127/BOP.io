@@ -1,0 +1,26 @@
+<?xml version="1.0" ?>
+<ProcedurePackage 
+	xmlns="PLMDictionaryProcedure"
+	Name="ConfigCBP_Procedures">
+			
+	<Procedure Name="ConfigCBP_GetModelContent">
+		<Implementation Name="ConfigCBP_GetModelContent" FileLocation="ConfigCBP_GetModelContent.KProc" Language="EKL"/>
+		<Signature href="ConfigCBP_ProcedureSignatureExport"/>
+	</Procedure>
+
+	<Procedure Name="ConfigCBP_GetModelContent_xPDM">
+	  <Implementation Name="ConfigCBP_GetModelContent_xPDM" FileLocation="ConfigCBP_GetModelContent_xPDM.KProc" Language="EKL"/>
+	  <Signature href="ConfigCBP_ProcedureSignatureExport"/>
+	</Procedure>
+
+	<Procedure Name="ConfigCBP_GetModelVersionContent_xPDM">
+	  <Implementation Name="ConfigCBP_GetModelVersionContent_xPDM" FileLocation="ConfigCBP_GetModelVersionContent_xPDM.KProc" Language="EKL"/>
+	  <Signature href="ConfigCBP_ProcedureSignatureExport"/>
+	</Procedure>
+
+	<Signature id="ConfigCBP_ProcedureSignatureExport">
+		<Parameter Name="InputIds" Lower="0" Upper="-1" MultiValuated="Yes" Direction="in" DataType="PLMId"/>
+		<Parameter Name="OutputIds" Lower="0" Upper="-1" MultiValuated="Yes" Direction="out" DataType="PLMId"/>
+	</Signature>
+	
+</ProcedurePackage>

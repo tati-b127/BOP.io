@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR DELMIA Production System Application -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified"
+         ModelerType="Top"
+         Name="DELLmiProductionTransferOperation"
+	       Uuid="5a2df4eb-5dff-4799-aabd5a80e7fe3cf8"
+         BelongsToModeler="DELLmiProductionSystem"
+	       UseNames="DELLmiProductionOperationPPR"
+         CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>PLM DELMIA Transfer Operation </ShortRole>
+    <Role>This package describes the PLM DELMIA Transfer Operation model on top of DELLmiProductionOperationPPR</Role>
+  </CAAComment>
+
+  <Comment>last update 2012-01-20</Comment>
+
+  <Class Name="DELLmiTransferOperationReference"
+		     Uuid="04f4ce56-bb97-4b3e-a96af1bbca9cb977"
+     		 Abstract="No"
+         SuperName="DELLmiOperationPPRReference"
+         CustomerExposition="Programmer"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         CreateInstName="DELLmiTransferOperationInstance"
+         Abbreviation="top"
+         InstantiationOwnerTypes="DELLmiGeneralSystemReference;DELLmiWorkPlanSystemReference;DELLmiTransformationSystemReference;DELLmiTransferSystemReference;DELLmiHeaderOperationReference;DELLmiExecHeaderOperationReference"
+         >
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELMPProdSystemAdvDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELLmiTransferOperationInstance"/>
+    <Property Name="IconName" Value="I_PPRSeqTransfer"/>
+    <Property Name="3DIconName" Value="I_PPRSeqTransfer.cgr"/>
+    <Property Name="Newable" Value="Insert_CAA"/>
+    <Property Name="Searchable" Value="Yes"/>
+
+    <CAAComment>
+      <ShortRole>PLM DELMIA Transfer Operation Reference</ShortRole>
+      <Role>PLM DELMIA Transfer Operation Reference</Role>
+    </CAAComment>
+
+    <Simple Name="V_Capacity"
+            Uuid="8d4f6e7d-2d1b-45ce-bde6913dc806ffed"
+            Type="Integer"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"/>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+
+  </Class>
+
+  <RelationClass Name="DELLmiTransferOperationInstance"
+		     Uuid="90113a86-a0a3-4f07-89c3cee5ffcbf9aa"
+		     Abstract="No"
+         SuperName="DELLmiOperationPPRInstance"
+         CustomerExposition="Programmer"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         >
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELMPProdSystemAdvDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELLmiTransferOperationInstance"/>
+
+    <CAAComment>
+      <ShortRole>PLM DELMIA Transfer Operation Instance. Specialization is not supported yet.</ShortRole>
+      <Role>PLM DELMIA TransferOperation Instance</Role>
+    </CAAComment>
+
+    <Volatile Name="Reference"
+              Uuid="CBF11AC7-9C91-4165-BE2E-4476D9ACC0D3"
+              Accessor="PLMModelerReferenceKweAttribute"
+              TypeName="DELLmiTransferOperationReference"
+              AccessMode="ReadOnly" />
+
+    <SubClause Name="to"   TargetName="DELLmiTransferOperationReference"/>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+
+  </RelationClass>
+
+</Package>

@@ -1,0 +1,54 @@
+/*********************************************************************************************************************************/
+/* Export procedure for Physical Resource                                                                                        */
+/* --> Retrieves all agregated PLM objects (References, Ref Instances, Rep References, Rep Instances, Ports and Connections)     */
+/*********************************************************************************************************************************/
+#Prog PhysicalResource_GetOneLevelEntitiesForChannel( iPLMIDSet : #In PLMIDSet, oPLMIDSet : #Out PLMIDSet ) : VoidType
+{
+	let PLMRouteSet2 (PLMRouteSet)
+	let PLMRouteSet3 (PLMRouteSet)
+	let PLMRouteSet4 (PLMRouteSet)
+	let PLMRouteSet5 (PLMRouteSet)
+	let PLMRouteSet6 (PLMRouteSet)
+	let PLMRouteSet7 (PLMRouteSet)
+	let PLMIDSetA (PLMIDSet)		
+	let PLMIDSetB (PLMIDSet)		
+	let PLMIDSetC (PLMIDSet)		
+	let PLMIDSetD (PLMIDSet)		
+	let PLMIDSetE (PLMIDSet)		
+	let PLMIDSetF (PLMIDSet)		
+	let PLMIDSetG (PLMIDSet)		
+
+	let restrictedPLMIDSet (PLMIDSet)
+	restrictedPLMIDSet = Restrict( iPLMIDSet, "PRODUCTCFG/VPMReference")
+		
+	/* Retrieves all aggregated representations (references / instances) */
+	PLMIDSetA = ExecutePLMProcedure("VPMEditor_GetChannelCompletionOnReference", restrictedPLMIDSet)
+	
+	/* Retrieves all aggregated connections for PRODUCTS and RESOURCES */
+	PLMRouteSet7 = ExecutePLMFunction("DELPPRContextModel", "ENOPcx_PPRContext_addAllConnections", restrictedPLMIDSet)
+	PLMIDSetG = Ids(PLMRouteSet7,"all")
+
+	/* Retrieves all accepted packaging references */
+	PLMRouteSet2 = ExecutePLMFunction("DELPPRContextModel", "ENORsc_Resource_addAcceptedPackagings", restrictedPLMIDSet)
+
+	/* Get all VPMRepReference Behavior and SimulationLogic */
+	PLMIDSetB = Restrict(PLMIDSetA,"PRODUCTCFG/VPMRepReference")+ Restrict(iPLMIDSet, "PRODUCTCFG/VPMRepReference")
+	PLMRouteSet3 = ExecutePLMFunction("DELPPRContextModel", "ENORsc_Resource_getBehaviorReps", PLMIDSetB )
+	PLMRouteSet4 = ExecutePLMFunction("DELPPRContextModel", "ENORsc_Resource_getSimulationLogicReps", PLMIDSetB )
+
+	PLMIDSetC = Restrict(Ids(PLMRouteSet3), "PRODUCTCFG/VPMRepReference") + Restrict(Ids(PLMRouteSet4), "PRODUCTCFG/VPMRepReference")
+
+	PLMRouteSet5 = ExecutePLMFunction("DELPPRContextModel", "ENORsc_Resource_addBehaviorLibraryReps", PLMIDSetC )
+	PLMIDSetD = Restrict(Ids(PLMRouteSet5 ,"all"), "CATSysBehaviorLibrary/CATSysBehaviorLibRepReference")
+
+	/* Get Behavior Lidraries */
+	PLMRouteSet6 = ExecutePLMFunction("CATSysBehaviorLibrary","CATSysBehaviorLibrary_GetRefLibFromRepLib",PLMIDSetD)
+	PLMIDSetE=Restrict(Ids(PLMRouteSet6 ,"all"), "CATSysBehaviorLibrary/CATSysBehaviorLibReference")
+
+	
+	/* Export Behavior Libraries */
+	PLMIDSetF = ExecutePLMProcedure("SystemsBehavior_GetDependencies",PLMIDSetE)
+	
+	/* Returns all PLMIds */
+	oPLMIDSet = iPLMIDSet + PLMIDSetA + Ids(PLMRouteSet2) + PLMIDSetE + PLMIDSetF + PLMIDSetG
+}

@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!-- edited with XMLSpy v2007 (http://www.altova.com) by DASSAULT SYSTEMES (DASSAULT SYSTEMES) -->
+<ProcedurePackage xmlns="PLMDictionaryProcedure" Name="MAT_Procedures">
+  <Procedure Name="MaterialReferenceExport">
+		<Implementation Name="MaterialReferenceExport" FileLocation="MaterialReferenceExport.KProc" Language="EKL"/>
+		<Signature href="MAT_ProcedureSignatureExport"/>
+	</Procedure>
+  <Procedure Name="MatDataFromCnxForOpen">
+		<Implementation Name="MatDataFromCnxForOpen" FileLocation="MatDataFromCnxForOpen.KProc" Language="EKL"/>
+		<Signature href="MAT_ProcedureSignatureExport"/>
+	</Procedure>
+  <Procedure Name="MatAppliedExportDesign">
+		<Implementation Name="MatAppliedExportDesign" FileLocation="MatAppliedExportDesign.KProc" Language="EKL"/>
+		<Signature href="MAT_ProcedureSignatureExport"/>
+  </Procedure>	
+  <Procedure Name="MatAppliedExportReview">
+		<Implementation Name="MatAppliedExportReview" FileLocation="MatAppliedExportReview.KProc" Language="EKL"/>
+		<Signature href="MAT_ProcedureSignatureExport"/>
+  </Procedure>	
+  <Procedure Name="MatAppliedExportReview_V6">
+		<Implementation Name="MatAppliedExportReview_V6" FileLocation="MatAppliedExportReview_V6.KProc" Language="EKL"/>
+		<Signature href="MAT_ProcedureSignatureExport"/>
+  </Procedure>
+  <Procedure Name="MaterialReferenceDetach">
+    <Implementation Name="MaterialReferenceDetach" FileLocation="MaterialReferenceDetach.KProc" Language="EKL"/>
+    <Signature href="MAT_ProcedureSignatureExport"/>
+  </Procedure>
+  <Procedure Name="MaterialReferenceTSO">
+    <Implementation Name="MaterialReferenceTSO" FileLocation="MaterialReferenceTSO.KProc" Language="EKL"/>
+    <Signature href="MAT_ProcedureSignatureExport"/>
+  </Procedure>
+  <Signature id="MAT_ProcedureSignatureExport">
+		<Parameter Name="InputIds" Lower="0" Upper="-1" MultiValuated="Yes" Direction="in" DataType="PLMId"/>
+		<Parameter Name="OutputIds" Lower="0" Upper="-1" MultiValuated="Yes" Direction="out" DataType="PLMId"/>
+	</Signature>
+</ProcedurePackage>

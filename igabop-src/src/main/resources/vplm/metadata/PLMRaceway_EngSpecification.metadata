@@ -1,0 +1,257 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY for Ens Specifications Editor -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2014, all rights reserved -->
+<!-- MODIF PA DEB 27/08/2014 : BelongsToModeler="PLMRaceway_EngSpecification" added to package : MODIF PA FIN 27/08/2014 -->
+
+<!-- 
+   =========
+    Package
+   =========
+ -->
+<!-- MODIF PA DEB 27/08/2014 -->
+<Package xmlns="PLMDictionaryUnified" CustomerExposition="Programmer" ModelerType="Top" BelongsToModeler="PLMRaceway_EngSpecification"
+         Name="PLMRaceway_EngSpecification" Uuid="145c7508-c1b8-41eb-93bc-22a0e7c22745" UseNames="PLMEnsEngSpecification;PLMEnsSpecCnxLogicalToSpecBase;PLMEnsSpecPartsFilter;PLMEnsSpecSpecification" >
+<!-- MODIF PA FIN 27/08/2014 -->
+  
+  <CAAComment>
+    <ShortRole>Raceway Engineering Specification Package</ShortRole>
+    <Role>This package describes the Engineering Specification objects for Raceway Application.</Role>
+  </CAAComment>
+  <Comment>[V6R2015x] 2014-05-27 ADZ/GLY Initial creation</Comment>
+  <Comment>[V6R2015x] 2014-07-02 ADZ Add Property Name="ProposedInDataSetup"</Comment>
+
+  <!--
+   ==================================================================================================
+   Reference Tables
+   ==================================================================================================
+-->
+  <Class Name="RcwNominalSizeTable" Uuid="71538dc0-7273-428a-a254-fa8ccf7c93e9" Abbreviation="rcwnst" CustomerExposition="Programmer" Abstract="No"
+       SuperName="Ens_TechnoTable2" Discipline="Yes" CustomerExtensible="Yes" CreateInstName="EnsTechnologicalTableInstance">
+    <Property Name="IconName"                    Value="I_RacewayEngSpec_Table"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsTechnologicalTableInstance"/>
+    <Property Name="ProposedInDataSetup"         Value="Yes"/>
+  </Class>
+
+  <Class Name="RcwRealisationTypeTable" Uuid="1140867c-688f-47e2-a67f-0a27c6b1968f" Abbreviation="rcwrtt" CustomerExposition="Programmer" Abstract="No"
+     SuperName="Ens_TechnoTable2" Discipline="Yes" CustomerExtensible="Yes" CreateInstName="EnsTechnologicalTableInstance">
+    <Property Name="IconName"                    Value="I_RacewayEngSpec_Table"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsTechnologicalTableInstance"/>
+    <Property Name="ProposedInDataSetup"         Value="Yes"/>
+  </Class>
+
+  <Class Name="RcwHeightTable" Uuid="4169b2ad-a9ae-45f5-b85c-37e667d20ac6" Abbreviation="rcwht" CustomerExposition="Programmer" Abstract="No"
+   SuperName="Ens_TechnoTable2" Discipline="Yes" CustomerExtensible="Yes" CreateInstName="EnsTechnologicalTableInstance">
+    <Property Name="IconName"                    Value="I_RacewayEngSpec_Table"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsTechnologicalTableInstance"/>
+  </Class>
+
+  <Class Name="RcwWidthTable" Uuid="7ece7bbd-fc18-4058-8a25-0b3aebd78c7d" Abbreviation="rcwwt" CustomerExposition="Programmer" Abstract="No"
+ SuperName="Ens_TechnoTable2" Discipline="Yes" CustomerExtensible="Yes" CreateInstName="EnsTechnologicalTableInstance">
+    <Property Name="IconName"                    Value="I_RacewayEngSpec_Table"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsTechnologicalTableInstance"/>
+  </Class>
+
+  <Class Name="RcwTrayReferenceDimensionTable" Uuid="6d8c38bc-476a-4b81-81e4-930e7dd8e1e6" Abbreviation="rcwtrdt" CustomerExposition="Programmer" Abstract="No"
+ SuperName="Ens_TechnoTable2" Discipline="Yes" CustomerExtensible="Yes" CreateInstName="EnsTechnologicalTableInstance">
+    <Property Name="IconName"                    Value="I_RacewayEngSpec_Table"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsTechnologicalTableInstance"/>
+    <Property Name="ProposedInDataSetup"         Value="Yes"/>
+  </Class>
+
+  <Class Name="RcwSpoolRuleTable" Uuid="c6a49ee4-9942-4f4d-b163-579cc5301458" Abbreviation="rcwsrt" CustomerExposition="Programmer" Abstract="No"
+ SuperName="Ens_TechnoTable2" Discipline="Yes" CustomerExtensible="Yes" CreateInstName="EnsTechnologicalTableInstance">
+    <Property Name="IconName"                    Value="I_RacewayEngSpec_Table"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsTechnologicalTableInstance"/>
+  </Class>
+
+  <Class Name="RcwAvailableBendAngleTable" Uuid="e69d59f3-2747-41b9-9479-0a376badb324" Abbreviation="rcwabat" CustomerExposition="Programmer" Abstract="No" SuperName="Ens_TechnoTable2" Discipline="Yes" CustomerExtensible="Yes" CreateInstName="EnsTechnologicalTableInstance">
+    <Property Name="IconName"                    Value="I_RacewayEngSpec_Table"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsTechnologicalTableInstance"/>
+  </Class>
+  
+  <Class Name="Rcw_TechnoTable" Uuid="98c71f55-e30e-476c-ba6d-e3a95ca1a707" CustomerExposition="Programmer" Abstract="Yes" SuperName="Ens_TechnoTable2" Discipline="Yes" >
+    <Simple Name="V_CircuitType" Uuid="26873055-794a-45e8-b865-7301b8ea7935" Type="String" MultiValuated="No" MaxLength="100" Protection="Free" CAAExposition="L0"/>
+  </Class>
+
+  <Class Name="RcwMinimumStraightLengthTable" Uuid="bf357cae-6fa8-4bf6-8ad8-407a022b75fc" Abbreviation="rcwmslt" CustomerExposition="Programmer" Abstract="No"
+ SuperName="Rcw_TechnoTable" Discipline="Yes" CustomerExtensible="Yes" CreateInstName="EnsTechnologicalTableInstance">
+    <Property Name="IconName"                    Value="I_RacewayEngSpec_Table"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsTechnologicalTableInstance"/>
+  </Class>
+
+  <Class Name="RcwTurnRuleTable" Uuid="874b3e2e-45b4-40da-a5b0-3e02ffd85b90" Abbreviation="rcwtrt" CustomerExposition="Programmer" Abstract="No"
+ SuperName="Rcw_TechnoTable" Discipline="Yes" CustomerExtensible="Yes" CreateInstName="EnsTechnologicalTableInstance">
+    <Property Name="IconName"                    Value="I_RacewayEngSpec_Table"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsTechnologicalTableInstance"/>
+  </Class>
+
+  <Class Name="RcwBranchingRuleTable" Uuid="2b208b56-fc93-402f-8721-fe0200cf6d81" Abbreviation="rcwbrt" CustomerExposition="Programmer" Abstract="No"
+ SuperName="Rcw_TechnoTable" Discipline="Yes" CustomerExtensible="Yes" CreateInstName="EnsTechnologicalTableInstance">
+    <Property Name="IconName"                    Value="I_RacewayEngSpec_Table"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsTechnologicalTableInstance"/>
+  </Class>
+
+  <Class Name="RcwCompatibilityRuleTable" Uuid="8acfca80-035d-47e4-beb9-e082f2fd2343" Abbreviation="rcwcrt" CustomerExposition="Programmer" Abstract="No"
+ SuperName="Rcw_TechnoTable" Discipline="Yes" CustomerExtensible="Yes" CreateInstName="EnsTechnologicalTableInstance">
+    <Property Name="IconName"                    Value="I_RacewayEngSpec_Table"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsTechnologicalTableInstance"/>
+  </Class>
+
+  <Class Name="RcwGapTable" Uuid="8149ca9f-8f67-4224-ae57-58796adab6fa" Abbreviation="rcwgt" CustomerExposition="Programmer" Abstract="No"
+ SuperName="Rcw_TechnoTable" Discipline="Yes" CustomerExtensible="Yes" CreateInstName="EnsTechnologicalTableInstance">
+    <Property Name="IconName"                    Value="I_RacewayEngSpec_Table"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsTechnologicalTableInstance"/>
+  </Class>
+
+  <Class Name="RcwReducerRuleTable" Uuid="929490c6-de53-4cfb-af9c-adfa0a85870c" Abbreviation="rcwrrt" CustomerExposition="Programmer" Abstract="No"
+ SuperName="Rcw_TechnoTable" Discipline="Yes" CustomerExtensible="Yes" CreateInstName="EnsTechnologicalTableInstance">
+    <Property Name="IconName"                    Value="I_RacewayEngSpec_Table"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsTechnologicalTableInstance"/>
+  </Class>
+
+  <Class Name="RcwCustomerAdvancedTable" Uuid="30290f32-1d3b-40ba-b88b-392ad57d8eb2" Abbreviation="rcwcat" CustomerExposition="Programmer" Abstract="No"
+ SuperName="Rcw_TechnoTable" Discipline="Yes" CustomerExtensible="Yes" CreateInstName="EnsTechnologicalTableInstance">
+    <Property Name="IconName"                    Value="I_RacewayEngSpec_Table"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsTechnologicalTableInstance"/>
+  </Class>
+  
+  <Class Name="RcwDirectionalLengthTable" Uuid="33be9b3d-629a-444f-9376-bd6ac90027c1" Abbreviation="rcwdlt" CustomerExposition="Programmer" Abstract="No"
+ SuperName="Rcw_TechnoTable" Discipline="Yes" CustomerExtensible="Yes" CreateInstName="EnsTechnologicalTableInstance">
+    <Property Name="IconName"                    Value="I_RacewayEngSpec_Table"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsTechnologicalTableInstance"/>
+  </Class>
+
+  <Class Name="RcwAutomatedOffsetTable" Uuid="a351257b-008a-43bd-99e3-61de7ca7955d" Abbreviation="rcwaot" CustomerExposition="Programmer" Abstract="No"
+ SuperName="Rcw_TechnoTable" Discipline="Yes" CustomerExtensible="Yes" CreateInstName="EnsTechnologicalTableInstance">
+    <Property Name="IconName"                    Value="I_RacewayEngSpec_Table"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsTechnologicalTableInstance"/>
+  </Class>
+  
+  <!--
+     ===================================================
+     Reference Filters
+     ===================================================
+     -->
+
+  <Class Name="Rcw_AbstractFilter" Uuid="efcacad6-12f1-4172-a64b-24f486f7bf75" CustomerExposition="Programmer" Abstract="Yes"
+       SuperName="EnsFilter" Discipline="Yes" CustomerExtensible="Yes" CreateInstName="EnsFilterInstance">
+    <Property Name="IconName"                    Value="I_RacewayEngSpec_Filter"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+
+    <Simple Name="V_Standard"     Uuid="6346ff6c-edee-470f-b2bc-bbdb2b94318c" Type="String" MultiValuated="No" MaxLength="100" Protection="Free" CAAExposition="L0" />
+    <Simple Name="V_CircuitType"  Uuid="2cfc24c2-1e0b-4678-b59f-f132cd0efd4f" Type="String" MultiValuated="No" MaxLength="100" Protection="Free" CAAExposition="L0"/>
+    
+  </Class>
+  
+  <Class Name="RcwTrayFilter" Uuid="d9a0a22d-80d6-46a6-8082-21d83468771c" Abbreviation="rcwtf" CustomerExposition="Programmer" Abstract="No"
+         SuperName="Rcw_AbstractFilter" Discipline="Yes" CustomerExtensible="Yes" CreateInstName="EnsFilterInstance">
+    <Property Name="IconName"                    Value="I_RacewayEngSpec_Filter"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsFilterInstance"/>
+  </Class>
+
+  <Class Name="RcwPartFilter" Uuid="44c3fbf4-ac6d-4734-b6f7-777d37b9bab1" Abbreviation="rcwpf" CustomerExposition="Programmer" Abstract="No"
+       SuperName="Rcw_AbstractFilter" Discipline="Yes" CustomerExtensible="Yes" CreateInstName="EnsFilterInstance">
+    <Property Name="IconName"                    Value="I_RacewayEngSpec_Filter"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsFilterInstance"/>
+  </Class>
+  
+  <!--
+     ===================================================
+     Reference Specifications
+     ===================================================
+     -->
+  <Class Name="RcwSpecification" Uuid="5215d7f9-6d56-4642-91e1-884fd7823ecd" Abbreviation="rcws" CustomerExposition="Programmer" Abstract="No"
+         SuperName="EnsSpecification" Discipline="Yes" CustomerExtensible="Yes">
+    <Property Name="IconName"                    Value="I_RacewayEngSpec_Spec"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="New"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="ProposedInDataSetup"         Value="Yes"/>
+    
+    <Simple Name="V_Standard"     Uuid="330c6958-fac5-4911-a382-9760ff1b27c1" Type="String" MultiValuated="No" MaxLength="100" Protection="Free" CAAExposition="L0" />
+    <Simple Name="V_CircuitType"  Uuid="61390ae9-c3fb-4f28-a19e-8decbd5ba26c" Type="String" MultiValuated="No" MaxLength="100" Protection="Free" CAAExposition="L0"/>
+
+  </Class>
+
+  <!-- MODIF PA DEB 05/01/2015 -->
+  <Class Name="RcwCustomerAdditionalSpec" Uuid="5F7BA8A1-DC6C-425A-A7F1-558C8A0D4E92" Abbreviation="rcwcas" CustomerExposition="Programmer" Abstract="No"
+         SuperName="CustomerAdditionalSpec" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes">
+    <Property Name="IconName"                    Value="I_RacewayEngSpec_CustomerAdditionalSpec"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="New"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="ProposedInDataSetup"         Value="Yes"/>
+    <CAAComment>
+      <ShortRole>Raceway Customer Additional Spec</ShortRole>
+      <Role>Raceway Customer Additional Spec</Role>
+    </CAAComment>
+  </Class>
+  <!-- MODIF PA FIN 05/01/2015 -->
+
+  <!--
+     ===================================================
+     Connection Spec Logical Line
+     ===================================================
+     -->
+  <Class Name="RcwCntnLogToSpec" Uuid="b74e25ed-1fa0-40ef-a4a7-6c7c537566bf" Abstract="No" SuperName="EnsSpecCnxLogicalToSpecBase" CustomerExposition="Programmer">
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+  
+</Package>

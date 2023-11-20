@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<!-- __________________________________________________________________________ -->
+<!-- ARE: NEVER USED - NEVER USED -NEVER USED -NEVER USED -NEVER USED -NEVER USED -  -->
+<!-- __________________________________________________________________________ -->
+
+<Package xmlns="PLMDictionaryUnified"
+         ModelerType="Top"
+         Name="SIMItfInterferenceGroup"
+         Uuid="7d453ae1-24a6-4c98-ba051653d1458d5b"
+         UseNames="SIMObjSimulation"
+         CustomerExposition="Programmer"
+         >
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+  <Class Name="SIMItfGroup"
+         Uuid="07ce812e-4bc8-4d40-ac8162dda2921c1a"
+         Abstract="No"
+         SuperName="SIMObjSimulationConnection"
+         CustomerExposition="Programmer"
+         >
+    <Simple Name="V_Itf_Number"
+            Uuid="2b4ee12b-cbc7-4f48-85a9baa20ffd466c"
+            Protection="External"
+            CAAExposition="L0"
+            Type="Integer"
+            >
+      <Comment>Group number (unique by simulation)</Comment>
+    </Simple>
+    <Comment>Interference Group for interference spec</Comment>
+    <Path Name="PointedOccurences" Uuid="e04a4a17-afa9-4faa-a53ee0fd93a3e82e"  Lower="0" Upper="-1" RoleName="PIM_OccurencesInGroup" MultiValuated="Yes" Semantics="Reference" Type="SemanticRelation" AdaptativeToMinor="No"		SynchroSensitivity="None"		RerouteOnEffectivityChange="No">
+      <Comment>Links to occurences (positioned parts) on which to perform the computation.</Comment>
+    </Path>
+    <!-- EXPORT : no export -->
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+  <Comment>Interference model for group</Comment>
+</Package>

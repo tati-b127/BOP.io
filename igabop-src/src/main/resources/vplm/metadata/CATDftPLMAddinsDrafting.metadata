@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2017, All rights reserved -->
+
+<!-- =================================================================== -->
+<!-- Package defining Drafting addins (types, extensions, ...) defined   -->
+<!-- on top of other PLM modelers, for Drafting functional purposes.     -->
+<!-- =================================================================== -->
+<Package
+    xmlns="PLMDictionaryUnified"
+    ModelerType="Top"
+    Name="CATDftPLMAddinsDrafting"
+    Uuid="F7CF79DB-AC0D-48BC-A480-23E89D6C462A"
+    UseNames="PRODUCTCFG"
+    CustomerExposition="Programmer"
+    >
+
+  <!-- =================================================================== -->
+  <!-- Extension 'Drafting Product Extension' : Extension of the Product   -->
+  <!-- =================================================================== -->
+
+  <Extension Name="CATDftPLMProductExtension"
+             Uuid="550676C4-165F-404C-88E2-200BB7C56FA8"
+             CustomerExposition="Programmer"
+             ScopeNames="VPMReference"
+             Specializable="No"
+             Searchable="Yes">
+
+    <Simple Name="CutModeSection" Uuid="2B714FB1-FB97-4716-A35A-DDDEB3914F57" Type="String" Protection="Free" DefaultValue="Cut">
+      <Property Name="SIXW" Value="ds6w:what"/>
+      <Range>
+        <Equal>Cut</Equal>
+        <Equal>UncutBack</Equal>
+        <Equal>UncutBackAndFront</Equal>
+      </Range>
+    </Simple>
+
+    <Simple Name="CutModeBreakout" Uuid="E50322E2-3905-4B50-A89B-7CF6728BCEEB" Type="String" Protection="Free" DefaultValue="Cut">
+      <Property Name="SIXW" Value="ds6w:what"/>
+      <Range>
+        <Equal>Cut</Equal>
+        <Equal>Uncut</Equal>
+      </Range>
+    </Simple>
+
+  </Extension>
+
+</Package>

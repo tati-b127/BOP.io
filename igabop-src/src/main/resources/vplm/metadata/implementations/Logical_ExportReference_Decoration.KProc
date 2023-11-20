@@ -1,0 +1,105 @@
+#Prog Logical_ExportReference_Decoration (iPLMIDSet :  #In PLMIDSet,oPLMIDSet :  #Out PLMIDSet) : VoidType
+  {
+  let SetOfLogTopModelerPLMRoutes(PLMRouteSet)
+  let SetOfLogTopModelerPLMIDs(PLMIDSet)
+  let SetOfLogSysTypeRefTopModelerPLMIDs(PLMIDSet)
+  let SetOfLogPub3DRepRefTopModelerPLMIDs(PLMRouteSet)
+  let SetOfPLMRoutesForSystemTypes(PLMRouteSet)
+  let SetOfPLMRoutesForImplementLinks(PLMRouteSet)
+  let SetOfPLMRoutesFor3DForSystemsApp(PLMRouteSet)
+  let SetOfPLMRoutesForLogicalElectricalApp(PLMRouteSet)
+  let SetOfPLMRoutesForLogicalPipingApp(PLMRouteSet)
+  let SetOfPLMRoutesForLogicalPortMapping(PLMRouteSet)
+  let SetOfPLMRoutesForDocuments(PLMRouteSet)
+  let SetOfLogSysTypePLMIDs(PLMIDSet)
+  let SetOfLogSysTypeAndServicesRefPLMIDs(PLMIDSet)
+  let SetOfPLMLogicalInterfaceRep(PLMRouteSet)
+  let SetOfPLMParameters(PLMRouteSet)
+  let SetOfPLMRoutesForSPPConnection(PLMRouteSet)
+
+ /*Local Variables declarations for Export Lib in DESIGN completion*/  
+  let PLMIDSet_LogicalRep(PLMIDSet)
+  let PLMRouteSet_LRepRefAndRepLibDependancy(PLMRouteSet)
+  let PLMIDSet_LRepRefAndRepLibDependancy(PLMIDSet)
+  let PLMIDSet_FirstRepLibPointed(PLMIDSet)
+  let PLMRouteSet_LibRefRepDependancy(PLMRouteSet)
+  let PLMIDSet_LibRefRepDependancy(PLMIDSet)
+  let PLMRouteSet_RefLib_RepInstLib_RepRefLib_Dependancy(PLMRouteSet)
+  let PLMIDSet_RefLib_RepInstLib_RepRefLib_Dependancy(PLMIDSet)
+  let PLMIDSet_RefLibDependancy(PLMIDSet)
+  let PLMRouteSet_AdditionnalDataToExport(PLMRouteSet)
+  let PLMIDSet_BehaviorDataToExport(PLMIDSet)
+  let PLMIDSet_DifModeler(PLMIDSet)
+  let PLMIDSet_EngSpecDependancies(PLMIDSet)
+  let SetOfLog3DRepRefTopModelerPLMIDs(PLMIDSet)
+  let PLMIDSet_ForIL(PLMIDSet)
+  let PLMRoutesSet_HVACConnections(PLMRouteSet)
+  
+  let InputPLMIDSetRestricted(PLMIDSet)
+  InputPLMIDSetRestricted = Restrict(iPLMIDSet,"RFLVPMLogical/RFLVPMLogicalReference")
+  
+  SetOfLogTopModelerPLMRoutes = ExecutePLMFunction("RFLVPMLogical","RFLVPMLogical_Get1stLevelObjects",InputPLMIDSetRestricted)
+  SetOfLogTopModelerPLMIDs = Ids(SetOfLogTopModelerPLMRoutes)
+  
+  SetOfLogSysTypeRefTopModelerPLMIDs = Restrict(SetOfLogTopModelerPLMIDs, "RFLVPMSystemType/RFLVPMSystemTypeReference")
+  SetOfPLMRoutesForSystemTypes = ExecutePLMFunction("RFLVPMSystemType","RFLVPMSystemType_Expand", SetOfLogSysTypeRefTopModelerPLMIDs)
+  SetOfLogSysTypePLMIDs = Ids(SetOfPLMRoutesForSystemTypes)
+  
+  SetOfLog3DRepRefTopModelerPLMIDs = Restrict(SetOfLogTopModelerPLMIDs, "RFLVPMLogical3DRep/RFLVPMLogical3DRepReference")
+  SetOfLogPub3DRepRefTopModelerPLMIDs = ExecutePLMFunction("RFLVPMLogical3DRep", "RFLVPMLogical_AddLogicalPublications", SetOfLog3DRepRefTopModelerPLMIDs)
+
+  /* Get all the Logical Interface Rep which are under Type or Services Reference (resp F1T) */
+  SetOfLogSysTypeAndServicesRefPLMIDs = Restrict(SetOfLogSysTypePLMIDs, "RFLVPMSystemType/RFLVPMSystemTypeReference") + Restrict(SetOfLogTopModelerPLMIDs, "RFLVPMLogicalServices/RFLVPMServicesReference")
+  SetOfPLMLogicalInterfaceRep = ExecutePLMFunction("RFLVPMLogicalInterfaceRep","RFLVPMLogicalInterfaceRep_Expand",SetOfLogSysTypeAndServicesRefPLMIDs)
+  
+  /* Add implement Links connections !! (resp: LRG) */
+  PLMIDSet_ForIL = InputPLMIDSetRestricted + SetOfLogSysTypeRefTopModelerPLMIDs
+  SetOfPLMRoutesForImplementLinks = ExecutePLMFunction("RFLPLMImplementConnection","RFLPLMImplementConnection_AddAllImplementCnx",PLMIDSet_ForIL)
+  
+  /* Add HVAC Applicative Connections (resp: JRI) */
+  PLMRoutesSet_HVACConnections = ExecutePLMFunction("PLMHVACLogicalGroupCnx", "PLMHVACLogicalGroupCnx_AddPleCnx", InputPLMIDSetRestricted)
+ 
+  /* Add Allocation Connection of 'PLM 3D Layout For Systems' application (resp: AES) */
+  SetOfPLMRoutesFor3DForSystemsApp = ExecutePLMFunction("PLMLFSAllocationConnection","PLMLFSAllocationConnection_AddLfsCnx",InputPLMIDSetRestricted)
+
+  /* Add Connection of 'Logical Electrical' application (resp: JRI) */
+  SetOfPLMRoutesForLogicalElectricalApp = ExecutePLMFunction("PLMElectricalLogical","PLMElectricalLogical_AddEleCnx",InputPLMIDSetRestricted)
+  
+  /* Add Connection of 'Engineering Specification' application (resp: PA) */
+  PLMIDSet_EngSpecDependancies = ExecutePLMProcedure("ESE_LogRef_GetEngSpecDependencies",InputPLMIDSetRestricted)
+ 
+  /* Add Connection of 'Logical Piping' application (resp: AWG) */
+  SetOfPLMRoutesForLogicalPipingApp = ExecutePLMFunction("PLMEnsGrouping","PLMEnsGrouping_AddGrouping",InputPLMIDSetRestricted)
+ 
+  /* Add Connection for Logical Port Mapping (resp: LST/SVV) */
+  SetOfPLMRoutesForLogicalPortMapping = ExecutePLMFunction("RFLVPMLogicalPortMapping","RFLVPMLogicalPortMapping_AllLogMappingCnx",InputPLMIDSetRestricted)
+
+  /* Add PLMDocConnections plus documents pointed by these PLMDocConnections (resp:BCC)*/
+  SetOfPLMRoutesForDocuments = ExecutePLMFunction("PLMDocConnection","PLMDocConnection_retrieveAllDocuments",InputPLMIDSetRestricted)
+  
+  /*Get All Logical Rep Ref*/
+  PLMIDSet_LogicalRep = Restrict(SetOfLogTopModelerPLMIDs, "RFLVPMLogical/RFLVPMLogicalRepReference")
+  
+  /*Call on all RepRef Logical (PLMIDSet_LogicalRep) to get all Behavior RefLib dependency in case of overloaded Discipline*/
+  /*CATSysBehaviorLibrary_GetRepLibPointedByLogicalRep return Input Logical RepRef+direct pointed Behavior LibRepRef if */
+  /*discipline is overload by a Behavior Discipline (in fact not really based on Discipline, but on SR roles)*/
+  /* resp: JJ4/LST */
+  PLMRouteSet_LRepRefAndRepLibDependancy = ExecutePLMFunction("CATSysBehaviorLibrary","CATSysBehaviorLibrary_GetRepLibPointedByLogicalRep",PLMIDSet_LogicalRep)
+  PLMIDSet_LRepRefAndRepLibDependancy = Ids(PLMRouteSet_LRepRefAndRepLibDependancy)
+  PLMRouteSet_RefLib_RepInstLib_RepRefLib_Dependancy = ExecutePLMFunction("CATSysBehaviorLibrary","CATSysBehaviorLibrary_GetRefLibFromRepLib", PLMIDSet_LRepRefAndRepLibDependancy)
+  PLMIDSet_RefLib_RepInstLib_RepRefLib_Dependancy  = Ids(PLMRouteSet_RefLib_RepInstLib_RepRefLib_Dependancy)
+  
+  /* Call DBM proc on model (resp JJ4/LST) */
+  PLMIDSet_BehaviorDataToExport = ExecutePLMProcedure("SystemsBehavior_GetDependencies",PLMIDSet_RefLib_RepInstLib_RepRefLib_Dependancy)
+
+  /* Call DifPresentation proc (resp GVC) */
+  PLMIDSet_DifModeler = ExecutePLMProcedure("DIFModeler_GetAttachedPresentations",InputPLMIDSetRestricted)
+
+  /* Get PLMParameters */
+  SetOfPLMParameters = ExecutePLMFunction("PLMParameter", "PAR_nav_params", InputPLMIDSetRestricted)
+
+  /* Add SPPConnection for Space Allocation/Space Usage Apps (resp: USV/TL9) */
+  SetOfPLMRoutesForSPPConnection = ExecutePLMFunction("PLMSpacePlanning","SPPConnection_addAllSPPConnection",InputPLMIDSetRestricted)
+
+  oPLMIDSet = iPLMIDSet + SetOfLogTopModelerPLMIDs + Ids(SetOfPLMRoutesForSystemTypes) + Ids(SetOfPLMRoutesForImplementLinks) + Ids(SetOfPLMRoutesFor3DForSystemsApp) + Ids(SetOfPLMRoutesForLogicalElectricalApp) + PLMIDSet_EngSpecDependancies + Ids(SetOfPLMRoutesForLogicalPipingApp) + Ids(SetOfPLMRoutesForLogicalPortMapping) + Ids(SetOfPLMRoutesForDocuments) + PLMIDSet_BehaviorDataToExport + PLMIDSet_DifModeler + Ids(SetOfLogPub3DRepRefTopModelerPLMIDs) + Ids(SetOfPLMLogicalInterfaceRep) + Ids(SetOfPLMParameters) + Ids(PLMRoutesSet_HVACConnections) + Ids(SetOfPLMRoutesForSPPConnection)
+}

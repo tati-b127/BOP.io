@@ -1,0 +1,605 @@
+<?xml version="1.0"?>
+
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2005, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" DataRDB_OID="ENODR_STPRD" Name="ENOSTProductDS"
+    Uuid="f2d08998-1777-4770-adec-033134f62111"
+    UseNames="PRODUCTCFG"
+    Alias="Product"
+    >
+
+	<Comment>last update 2007-08-16-19.00.00</Comment>
+
+	<CAAComment>
+		<ShortRole>PLM Product Customization For ENOVIA SmarTeam</ShortRole>
+		<Role>Tailored to support market needs</Role>
+	</CAAComment>
+
+  <Class Name="ENOSTProductReference"
+        Uuid="4e57136b-385e-467d-90df-6eb4e90845f2"
+        SuperName="VPMReference" SuperRef="6FBC0B4F-5F11-432F-A56B8EFC7001CA9B"
+        Alias="Product"        
+        >
+        <!-- DRL: Deprecated R204, becomes useless and replaced by V_Name new PLMCore attribute  -->
+                <!-- wk34: Cannot be trasformed in Optional as originally targeted -->
+        <Simple Name="E_shortDesc"
+            Uuid="db5da16f-7073-4fae-a0a8-8688d41762f4"
+            Alias="Definition"
+            Type="String"
+            MaxLength="256"
+            Mandatory="No"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"
+          />
+        <!-- R206: contains identifier of object from which it is made from  -->
+        <!-- not exhanged between sites -->
+        <Simple Name="E_fromExternalId"
+        Uuid="32c73d63-bdf2-4b9a-8725-a65a623517aa"
+        Alias="Definition"
+        Type="String"
+        MaxLength="256"
+        Mandatory="No"
+        MultiValuated="No"
+        Protection="Free"
+        CAAExposition="L0"
+          />
+
+        <!-- R206: contains Name comments  -->
+        <!-- not exhanged between sites -->    
+        <Simple Name="E_versionComment"
+        Uuid="3886b608-4396-4221-bb13-02369f269204"
+        Alias="Version Comment"
+        Type="String"
+        MaxLength="256"
+        Mandatory="No"
+        MultiValuated="No"
+        Protection="Free"
+        CAAExposition="L0"
+        ResetOnNewVersion="Yes"
+        ResetOnCloning="Yes"
+              />
+			  
+    <!-- R211: Predefined Attributes for TEAM Parametrization  -->
+        
+        <!-- 4 string of 16 chars -->
+
+        <Simple Name="E_XParamStr16A"
+            Uuid="47db6f9b-c97b-4132-a6e8-ef8bcb4cd9e4"
+            Alias="CustomAttrStr16A"
+            Type="String"
+            MaxLength="16"
+            Mandatory="No"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"
+        />
+
+        <Simple Name="E_XParamStr16B"
+            Uuid="95af8a08-b902-44e0-9d32-7b0b3c676bfe"
+            Alias="CustomAttrStr16B"
+            Type="String"
+            MaxLength="16"
+            Mandatory="No"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"
+        />	
+
+        <Simple Name="E_XParamStr16C"
+            Uuid="7e561504-41b8-4da1-A371-3f5f9e21061e"
+            Alias="CustomAttrStr16C"
+            Type="String"
+            MaxLength="16"
+            Mandatory="No"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"
+        />
+
+        <Simple Name="E_XParamStr16D"
+            Uuid="BB4AAFD7-1429-4bfc-806C-B5F93811BD3D"
+            Alias="CustomAttrStr16D"
+            Type="String"
+            MaxLength="16"
+            Mandatory="No"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"
+        />
+
+        <!-- 7 string of 40 chars -->
+
+        <Simple Name="E_XParamStr40A"
+            Uuid="bb11dde1-15b8-4c32-90e5-982111b02113"
+            Alias="CustomAttrStr40A"
+            Type="String"
+            MaxLength="40"
+            Mandatory="No"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"
+        />
+
+        <Simple Name="E_XParamStr40B"
+            Uuid="2326799c-9a2e-48be-89b9-6f29316c1ea8"
+            Alias="CustomAttrStr40B"
+            Type="String"
+            MaxLength="40"
+            Mandatory="No"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"
+        />
+
+        <Simple Name="E_XParamStr40C"
+            Uuid="2B65D20E-5AF3-418a-B645-982ACA34E4B7"
+            Alias="CustomAttrStr40C"
+            Type="String"
+            MaxLength="40"
+            Mandatory="No"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"
+        />
+
+        <Simple Name="E_XParamStr40D"
+            Uuid="E413503A-5176-4be8-A5B0-BB3334FF8E2F"
+            Alias="CustomAttrStr40D"
+            Type="String"
+            MaxLength="40"
+            Mandatory="No"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"
+        />
+
+        <Simple Name="E_XParamStr40E"
+            Uuid="8F5E7ADC-CA59-4f01-86D3-162C018613A9"
+            Alias="CustomAttrStr40E"
+            Type="String"
+            MaxLength="40"
+            Mandatory="No"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"
+        />
+
+        <Simple Name="E_XParamStr40F"
+            Uuid="0E507BBC-1134-4f50-BE78-B86E7AA031C5"
+            Alias="CustomAttrStr40F"
+            Type="String"
+            MaxLength="40"
+            Mandatory="No"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"
+        />
+
+        <Simple Name="E_XParamStr40G"
+            Uuid="09EE493F-F3A6-4433-A1F6-17B8AD3325DB"
+            Alias="CustomAttrStr40G"
+            Type="String"
+            MaxLength="40"
+            Mandatory="No"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"
+        />
+
+        <!-- 3 string of 80 chars -->
+
+        <Simple Name="E_XParamStr80A"
+            Uuid="3986deb1-a836-4ede-9a19-226a759dffd7"
+            Alias="CustomAttrStr80A"
+            Type="String"
+            MaxLength="80"
+            Mandatory="No"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"
+        />	
+
+        <Simple Name="E_XParamStr80B"
+            Uuid="4494CB98-9183-4c27-81DE-8C55A91568A1"
+            Alias="CustomAttrStr80B"
+            Type="String"
+            MaxLength="80"
+            Mandatory="No"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"
+        />
+
+        <Simple Name="E_XParamStr80C"
+            Uuid="51B8381D-286F-44b5-B283-33945DBB8363"
+            Alias="CustomAttrStr80C"
+            Type="String"
+            MaxLength="80"
+            Mandatory="No"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"
+        />
+
+        <!-- 4 real -->
+
+        <Simple Name="E_XParamRealA"
+            Uuid="e045757b-285e-44e7-9bdd-1a703ae904b8"
+            Alias="CustomAttrRealA"
+            Type="Double"
+            Mandatory="No"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"
+        />	
+
+        <Simple Name="E_XParamRealB"
+            Uuid="c6ad9ea2-837c-43e2-918b-ecf44851dffc"
+            Alias="CustomAttrRealB"
+            Type="Double"
+            Mandatory="No"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"
+        />	
+
+        <Simple Name="E_XParamRealC"
+            Uuid="BF582522-8262-44b4-9534-8E40E0AE40E3"
+            Alias="CustomAttrRealC"
+            Type="Double"
+            Mandatory="No"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"
+        />	
+
+        <Simple Name="E_XParamRealD"
+            Uuid="BC7A11AB-C027-4a7f-A9F9-0A415A4EDB06"
+            Alias="CustomAttrRealD"
+            Type="Double"
+            Mandatory="No"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"
+        />	
+
+        <!-- 2 boolean -->
+
+        <Simple Name="E_XParamBoolA"
+		Uuid="27187718-9FD6-4de8-B620-741DC2C2A7F3"
+            Alias="CustomAttrBoolA"
+            Type="Boolean"
+            Mandatory="No"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"
+        />
+	  
+        <Simple Name="E_XParamBoolB"
+		Uuid="D9E47A0F-7240-4376-A3EF-FF16112608E1"
+            Alias="CustomAttrBoolB"
+            Type="Boolean"
+            Mandatory="No"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"
+        />	  
+
+    <!-- End of TEAM predefined attributes-->
+
+    <IdentifierSet Name="E_identifier"
+            Uuid="2a24d118-86b4-4d32-8f42-6e95fcfc242e"
+            IdentifierNames="PLM_ExternalID V_version"
+            IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755"  
+         />
+  </Class>
+
+  <Class Name="ENOSTRepresentation"
+        Uuid="14cfa981-52f6-4504-96bb-7a92c7b7456b"
+        SuperName="VPMRepReference" SuperRef="37776C3D-FDBE-492A-942EF11C983D20BF"
+        Alias="Representation"       
+        >
+
+        <!-- DRL: Deprecated R204, becomes useless and replaced by V_Name new PLMCore attribute  -->
+                <!-- wk34: Cannot be trasformed in Optional as originally targeted -->
+        <Simple Name="E_shortDesc"
+            Uuid="c9a7a479-19ed-42e8-89c9-83cd37b3b853"
+            Alias="Definition"
+            Type="String"
+            MaxLength="256"
+            Mandatory="No"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"
+
+         />
+        <!-- R206: contains identifier of object from which it is made from  -->
+        <!-- not exhanged between sites -->
+        <Simple Name="E_fromExternalId"
+        Uuid="85ee488c-7213-4f33-9354-abd72bd493f7"
+        Alias="Definition"
+        Type="String"
+        MaxLength="256"
+        Mandatory="No"
+        MultiValuated="No"
+        Protection="Free"
+        CAAExposition="L0"
+        />
+
+        <!-- R206: contains Name comments  -->
+        <!-- not exhanged between sites -->
+        <Simple Name="E_versionComment"
+        Uuid="475964b5-29e2-43dc-94a5-36675fbf5274"
+        Alias="Version Comment"
+        Type="String"
+        MaxLength="256"
+        Mandatory="No"
+        MultiValuated="No"
+        Protection="Free"
+        CAAExposition="L0"
+        ResetOnNewVersion="Yes"
+        ResetOnCloning="Yes"
+         />
+
+    <!-- R211: Predefined Attributes for PLM Express Parametrization  -->
+
+        <!-- 4 string of 16 chars -->
+
+        <Simple Name="E_XParamStr16A"
+            Uuid="44e1adeb-c04a-4dd7-8013-28df3f00aa16"
+            Alias="CustomAttrStr16A"
+            Type="String"
+            MaxLength="16"
+            Mandatory="No"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"
+        />
+
+        <Simple Name="E_XParamStr16B"
+            Uuid="6c66e9f3-1ef3-44c5-9889-dc405970dee5"
+            Alias="CustomAttrStr16B"
+            Type="String"
+            MaxLength="16"
+            Mandatory="No"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"
+        />	
+
+        <Simple Name="E_XParamStr16C"
+            Uuid="10d0c872-73c5-47f3-954a-0dd9f8cb79e4"
+            Alias="CustomAttrStr16C"
+            Type="String"
+            MaxLength="16"
+            Mandatory="No"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"
+        />
+
+        <Simple Name="E_XParamStr16D"
+            Uuid="54B88EE7-8862-428a-8A3B-C03B5A6B3C7A"
+            Alias="CustomAttrStr16D"
+            Type="String"
+            MaxLength="16"
+            Mandatory="No"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"
+        />
+
+        <!-- 7 string of 40 chars -->
+
+        <Simple Name="E_XParamStr40A"
+            Uuid="6de70815-64a8-430f-9349-7bbe5f1718ec"
+            Alias="CustomAttrStr40A"
+            Type="String"
+            MaxLength="40"
+            Mandatory="No"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"
+        />
+
+        <Simple Name="E_XParamStr40B"
+            Uuid="b2bef105-45cb-4f32-b4a0-732c8defa14a"
+            Alias="CustomAttrStr40B"
+            Type="String"
+            MaxLength="40"
+            Mandatory="No"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"
+        />
+
+        <Simple Name="E_XParamStr40C"
+            Uuid="E31CC693-649A-4773-8049-FEBC89E018D5"
+            Alias="CustomAttrStr40C"
+            Type="String"
+            MaxLength="40"
+            Mandatory="No"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"
+        />
+
+        <Simple Name="E_XParamStr40D"
+            Uuid="1FE0198D-B8FF-49f6-B9BD-71DFC3CA2055"
+            Alias="CustomAttrStr40D"
+            Type="String"
+            MaxLength="40"
+            Mandatory="No"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"
+        />
+
+        <Simple Name="E_XParamStr40E"
+            Uuid="5F6D6497-6E2C-40fd-8DCD-B58407F67E14"
+            Alias="CustomAttrStr40E"
+            Type="String"
+            MaxLength="40"
+            Mandatory="No"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"
+        />
+
+        <Simple Name="E_XParamStr40F"
+            Uuid="AAE3EE6B-4013-44ea-B331-E158DD303F17"
+            Alias="CustomAttrStr40F"
+            Type="String"
+            MaxLength="40"
+            Mandatory="No"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"
+        />
+
+        <Simple Name="E_XParamStr40G"
+            Uuid="780D14B2-1B30-468d-8DD6-7222C9884210"
+            Alias="CustomAttrStr40G"
+            Type="String"
+            MaxLength="40"
+            Mandatory="No"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"
+        />
+
+        <!-- 3 string of 80 chars -->
+
+        <Simple Name="E_XParamStr80A"
+            Uuid="c9644306-ff6c-43e4-ad69-83f40c616abb"
+            Alias="CustomAttrStr80A"
+            Type="String"
+            MaxLength="80"
+            Mandatory="No"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"
+        />
+
+        <Simple Name="E_XParamStr80B"
+            Uuid="37210CC7-E922-4180-BF82-92CF5A7D6EFD"
+            Alias="CustomAttrStr80B"
+            Type="String"
+            MaxLength="80"
+            Mandatory="No"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"
+        />
+
+        <Simple Name="E_XParamStr80C"
+            Uuid="50457908-209E-4740-A9F2-7EEBD0EA2A69"
+            Alias="CustomAttrStr80C"
+            Type="String"
+            MaxLength="80"
+            Mandatory="No"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"
+        />
+
+        <!-- 4 real -->
+
+        <Simple Name="E_XParamRealA"
+            Uuid="ba71e6d3-d34c-44ec-b897-0d3f6bba65fc"
+            Alias="CustomAttrRealA"
+            Type="Double"
+            Mandatory="No"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"
+        />	
+
+        <Simple Name="E_XParamRealB"
+            Uuid="9f4c714a-a991-4f50-8e68-4f578fa3ca84"
+            Alias="CustomAttrRealB"
+            Type="Double"
+            Mandatory="No"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"
+        />
+
+        <Simple Name="E_XParamRealC"
+            Uuid="A05B455A-FA46-4cde-A163-533CB1F5B5F0"
+            Alias="CustomAttrRealC"
+            Type="Double"
+            Mandatory="No"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"
+        />	
+
+        <Simple Name="E_XParamRealD"
+            Uuid="B77B0750-7915-4668-82F8-BECC140261A3"
+            Alias="CustomAttrRealD"
+            Type="Double"
+            Mandatory="No"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"
+        />	
+
+        <!-- 2 boolean -->
+
+        <Simple Name="E_XParamBoolA"
+		Uuid="803F15ED-CD78-4378-AC2E-381BD5B2148F"
+            Alias="CustomAttrBoolA"
+            Type="Boolean"
+            Mandatory="No"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"
+        />	
+	  
+        <Simple Name="E_XParamBoolB"
+		Uuid="7175E506-826C-44ec-8FC1-BBA68A126658"
+            Alias="CustomAttrBoolB"
+            Type="Boolean"
+            Mandatory="No"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"
+        />	  
+
+    <!-- End of TEAM predefined attributes  -->
+
+        <IdentifierSet Name="E_identifier"
+            Uuid="1ef3187e-c058-4ae5-88e1-a0ac1887f27c"
+            IdentifierNames="PLM_ExternalID V_version"
+            IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755" 
+        />
+  </Class>
+
+  <Class Name="ENOSTProductInstance"
+        Uuid="39615ba7-b5b8-470c-84a0-414cbb5a5033"
+        SuperName="VPMInstance" SuperRef="5461A455-452A-451E-BB41AB43227613E7"
+        >
+  </Class>
+
+  <Class Name="ENOSTConnection"
+        Uuid="ea6a8e5d-d647-46c3-b1f6-2161b25864f2"
+        SuperName="VPMConnection" SuperRef="A3EEFC65-FE2E-41D7-A68BB09BD9729DE9"
+        >
+  </Class>
+
+  <Class Name="ENOSTPort"
+        Uuid="c770cfe5-7a35-4886-993c-8e9582234034"
+        SuperName="VPMPort" SuperRef="F15B80BD-1859-4A91-9E9A0B096C409A7B"
+        >
+  </Class>
+
+  <Class Name="ENOSTRepresentationInstance"
+        Uuid="5b290ac5-c443-4d52-95bd-862ab8f7b3a8"
+        SuperName="VPMRepInstance"  SuperRef="159B5B75-2D79-4B38-9235E23CE451CA62"
+        >
+  </Class>
+
+</Package>

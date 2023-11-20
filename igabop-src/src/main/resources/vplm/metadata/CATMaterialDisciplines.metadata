@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ENOVIA DICTIONARY -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2012, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" Name="CATMaterialDisciplines" Uuid="305674BD-E257-406b-ABFB-9CEC6DD5DE0B" UseNames="CATMaterial CATMaterialRef CATMaterialRefElement" CustomerExposition="Programmer">
+
+  <!-- /////////////////////////////////////////
+        Discipline for CATMatReference
+       ///////////////////////////////////////// -->
+
+  <!-- ABSTRACT ONES -->
+  <Class Name="dsc_matref_ref_Material" Uuid="A706B57E-7DDD-4efc-842B-8DD6D98C08CA" SuperName="CATMatReference" CreateInstName="CATMatRefInstance"  Discipline="Yes" Abstract="Yes" CustomerExposition="Programmer" Specializable="No" Abbreviation="mat">
+    <Property Name="Searchable" Value="No"/>
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+  <Class Name="dsc_matref_ref_Vector" Uuid="F9038EA9-2D24-489c-A299-11B2283081EA" SuperName="CATMatReference" Discipline="Yes" Abstract="Yes" CustomerExposition="Programmer" Specializable="No" Abbreviation="mtv" DeleteAvailability="Yes">
+    <Property Name="Searchable" Value="No"/>
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+  <!-- CONCRETES ONES -->
+
+  <Class Name="dsc_matref_ref_Covering" Uuid="2f26d6cd-0384-4656-87cf-eca9a516862d" SuperName="dsc_matref_ref_Material" Discipline="Yes" Abstract="No" CustomerExposition="Programmer" Specializable="Yes" Abbreviation="matcv" DeleteAvailability="Yes">
+    <Property Name="IconName" Value="I_Material_Nav_covering" />
+    <Property Name="3DIconName" Value="DefaultMaterialRep.cgr" />
+    <Property Name="Newable" Value="New_Offline"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATMRCReferenceDelegateInstanciation"/>
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+  <Class Name="dsc_matref_ref_Core" Uuid="0c4cdeeb-217b-4aad-9762-dd51be785b5a" SuperName="dsc_matref_ref_Material" Discipline="Yes" Abstract="No" CustomerExposition="Programmer" Specializable="Yes" Abbreviation="matcr" DeleteAvailability="Yes">
+    <Property Name="IconName" Value="I_Material_Nav_core" />
+    <Property Name="3DIconName" Value="DefaultMaterialRep.cgr" />
+    <Property Name="Newable" Value="New_Offline"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATMRCReferenceDelegateInstanciation"/>
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+  <Class Name="dsc_matref_ref_CoveringVector" Uuid="5014A5B9-A71A-43f5-A388-AFECBD200245" SuperName="dsc_matref_ref_Vector" Discipline="Yes" Abstract="No" CustomerExposition="Programmer" Specializable="Yes" Abbreviation="mtvcv">
+    <Property Name="IconName" Value="I_Material_Nav_coveringVector" />
+    <Property Name="3DIconName" Value="DefaultMaterialRep.cgr" />
+    <Property Name="Newable" Value="New_Offline"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATMRCReferenceDelegateInstanciation"/>
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+  <Class Name="dsc_matref_ref_CoreVector" Uuid="BF8B2326-3D3B-428b-B60D-53B2E904A513" SuperName="dsc_matref_ref_Vector" Discipline="Yes" Abstract="No" CustomerExposition="Programmer" Specializable="Yes" Abbreviation="mtvcr">
+    <Property Name="IconName" Value="I_Material_Nav_coreVector" />
+    <Property Name="3DIconName" Value="DefaultMaterialRep.cgr" />
+    <Property Name="Newable" Value="New_Offline"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATMRCReferenceDelegateInstanciation"/>
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+  <Class Name="dsc_decal_ref" Uuid="32AA132F-722C-4EB9-B02C-CB65C2775336" SuperName="CATMatReference" Discipline="Yes" Abstract="No" CustomerExposition="Programmer" Specializable="Yes" Abbreviation="matdc">
+    <Property Name="IconName" Value="I_CATStkSticker_Sticked" />
+    <Property Name="3DIconName" Value="DefaultMaterialRep.cgr" />
+    <Property Name="Newable" Value="New_Offline"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATMRCReferenceDelegateInstanciation"/>
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+  <!-- THIS DISCIPLINE IS OBSOLETE -->
+  <Class Name="dsc_matref_ref_All" Uuid="fda4f2ec-3bbf-4970-935c-e2252043d38b" SuperName="dsc_matref_ref_Material" Discipline="Yes" Abstract="No" CustomerExposition="Programmer" >
+    <Property Name="IconName" Value="I_Material_Nav_core" />
+    <Property Name="3DIconName" Value="DefaultMaterialRep.cgr" />
+    <Property Name="Newable" Value="No"/>
+    <Property Name="Searchable" Value="No"/>
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+  <!-- /////////////////////////////////////////
+        Discipline for MaterialDomain
+       ///////////////////////////////////////// -->
+  <Class Name="dsc_matref_rep_Composite" Uuid="8f2a81c6-7ff4-48bb-bc03-634988fc4729" SuperName="MaterialDomain" Discipline="Yes" Abstract="No" CustomerExposition="Programmer" Specializable="Yes" Abbreviation="mtdcomp">
+    <Property Name="IconName" Value="I_MatDomain_Nav_Composite" />
+    <Property Name="3DIconName" Value="MAT_REPGEN_3DNAVREP_COMPOSITE.cgr" />
+    <Property Name="Newable" Value="Insert_Offline"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATMRCReferenceDelegateInstanciation"/>
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+  <Class Name="dsc_matref_rep_Analysis" Uuid="0441e10d-6a9e-4026-9b71-23e8cd816683" SuperName="MaterialDomain" Discipline="Yes" Abstract="No" CustomerExposition="Programmer" Specializable="Yes" Abbreviation="mtdle">
+    <Property Name="IconName" Value="I_MatDomain_Nav_LinearElastic" />
+    <Property Name="3DIconName" Value="MAT_REPGEN_3DNAVREP_ELFINI.cgr" />
+    <Property Name="Newable" Value="Insert_Offline"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATMRCReferenceDelegateInstanciation"/>
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+  <Class Name="dsc_matref_rep_Rendering" Uuid="18bf8e50-ff31-416b-9c5b-7499cc272c37" SuperName="MaterialDomain" Discipline="Yes" Abstract="No" CustomerExposition="Programmer" Specializable="Yes" Abbreviation="mtdrend">
+    <Property Name="IconName" Value="I_MatDomain_Nav_Rendering" />
+    <Property Name="3DIconName" Value="MAT_REPGEN_3DNAVREP_RENDERING.cgr" />
+    <Property Name="Newable" Value="Insert_Offline"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATMRCReferenceDelegateInstanciation"/>
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+  <Class Name="dsc_matref_rep_Drafting" Uuid="bd82af4a-c0db-45f5-8668-30e09d83c5d8" SuperName="MaterialDomain" Discipline="Yes" Abstract="No" CustomerExposition="Programmer" Specializable="Yes" Abbreviation="mtddraf">
+    <Property Name="IconName" Value="I_MatDomain_Nav_Drafting" />
+    <Property Name="3DIconName" Value="MAT_REPGEN_3DNAVREP_DRAFTING.cgr" />
+    <Property Name="Newable" Value="Insert_Offline"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATMRCReferenceDelegateInstanciation"/>
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+  <Class Name="dsc_matref_rep_SmaOptions" Uuid="674EB0E6-9B51-4a87-8288-66546AF6654B" SuperName="MaterialDomain" Discipline="Yes" Abstract="No" CustomerExposition="Programmer" Specializable="Yes" Abbreviation="mtdsim">
+    <Property Name="IconName" Value="I_MatDomain_Nav_SMAMaterial" />
+    <Property Name="3DIconName" Value="MAT_REPGEN_3DNAVREP_SIMULATION.cgr" />
+    <Property Name="Newable" Value="Insert_Offline"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATMRCReferenceDelegateInstanciation"/>
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+  <Class Name="dsc_matref_rep_Sample" Uuid="57be1f0b-ed82-44d3-8103-d8e5298b86ea" SuperName="MaterialDomain" Discipline="Yes" Abstract="No" CustomerExposition="Programmer" Specializable="Yes" Abbreviation="mtdsamp">
+    <Property Name="IconName" Value="I_MatDomain_Nav_Default" />
+    <Property Name="3DIconName" Value="MAT_REPGEN_3DNAVREP_DEFAULT.cgr" />
+    <Property Name="Newable" Value="Insert_Offline"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATMRCReferenceDelegateInstanciation"/>
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+  <Class Name="dsc_matref_rep_RDM_DAV" Uuid="5aa5d51c-f4b5-455b-808a-14122b8c2e99" SuperName="MaterialDomain" Discipline="Yes" Abstract="No" CustomerExposition="Programmer" Specializable="Yes" Abbreviation="mtddav">
+    <Property Name="IconName" Value="I_MatDomain_Nav_Default" />
+    <Property Name="3DIconName" Value="MAT_REPGEN_3DNAVREP_DEFAULT.cgr" />
+    <Property Name="Newable" Value="Insert_Offline"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATMRCReferenceDelegateInstanciation"/>
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+  <Class Name="dsc_matref_rep_Optis" Uuid="B96C947D-8272-4864-A891-1E3C74551710" SuperName="MaterialDomain" Discipline="Yes" Abstract="No" CustomerExposition="Programmer" Specializable="Yes" Abbreviation="mtdopt" >
+    <Property Name="IconName" Value="I_MatDomain_Nav_Default" />
+    <Property Name="3DIconName" Value="MAT_REPGEN_3DNAVREP_DEFAULT.cgr" />
+    <Property Name="Newable" Value="Insert_Offline"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATMRCReferenceDelegateInstanciation"/>
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+  <!-- /////////////////////////////////////////
+        Discipline for CATMaterialRefElement
+       ///////////////////////////////////////// -->
+  <Class Name="dsc_matrefelem_cnx_SmaBehavior" Uuid="480E3F09-C553-41d5-83CE-55731DDEEE1E" SuperName="CATMatRefElemConnection" Discipline="Yes" Abstract="No" CustomerExposition="Programmer" >
+    <Property Name="Newable" Value="No"/>
+    <Property Name="Searchable" Value="No"/>
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+  <Class Name="dsc_matrefelem_cnx_LEBehavior" Uuid="587C95EA-2581-473E-B34E-D8AC91448B60" SuperName="CATMatRefElemConnection" Discipline="Yes" Abstract="No" CustomerExposition="Programmer" >
+    <Property Name="Newable" Value="No"/>
+    <Property Name="Searchable" Value="No"/>
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+  <!-- /////////////////////////////////////////
+        Discipline for CATMatPort
+       ///////////////////////////////////////// -->
+  <Class Name="dsc_matref_ref_CorePort" Uuid="72D33C5B-70CA-4262-A631-346C5824F362" SuperName="CATMatPort" Discipline="Yes" Abstract="No" CustomerExposition="Programmer" >
+    <Property Name="Newable" Value="No"/>
+    <Property Name="Searchable" Value="No"/>
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+  <Class Name="dsc_matref_ref_CoveringPort" Uuid="CB017127-3AD5-46bd-BD12-2CE21CD597C7" SuperName="CATMatPort" Discipline="Yes" Abstract="No" CustomerExposition="Programmer" >
+    <Property Name="Newable" Value="No"/>
+    <Property Name="Searchable" Value="No"/>
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+  <!-- /////////////////////////////////////////
+        Discipline for CATMaterial
+       ///////////////////////////////////////// -->
+  <Class Name="dsc_mat_cnx_Core" Uuid="94d36b33-bd37-429e-ab4a-70ebee5ca0ea" SuperName="CATMatConnection" Discipline="Yes" Abstract="No" CustomerExposition="Programmer" Specializable="Yes" >
+    <Property Name="IconName" Value="I_Material_Nav_core" />
+    <Property Name="3DIconName" Value="DefaultMaterialRep.cgr" />
+    <Property Name="Newable" Value="No"/>
+    <Property Name="Searchable" Value="No"/>
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+  <Class Name="dsc_mat_cnx_Covering" Uuid="d1aab6fd-dc15-4f28-a05b-4abeb7046f9b" SuperName="CATMatConnection" Discipline="Yes" Abstract="No" CustomerExposition="Programmer" Specializable="Yes" >
+    <Property Name="IconName" Value="I_Material_Nav_covering" />
+    <Property Name="3DIconName" Value="DefaultMaterialRep.cgr" />
+    <Property Name="Newable" Value="No"/>
+    <Property Name="Searchable" Value="No"/>
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+  <Class Name="dsc_decal_cnx" Uuid="FDDB1615-B2E8-49F0-ABF5-E6C43DCA394A" SuperName="CATMatConnection" Discipline="Yes" Abstract="No" CustomerExposition="Programmer" Specializable="Yes" >
+    <Property Name="IconName" Value="I_CATStkSticker_Sticked" />
+    <Property Name="3DIconName" Value="DefaultMaterialRep.cgr" />
+    <Property Name="Newable" Value="No"/>
+    <Property Name="Searchable" Value="No"/>
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+  <!-- //////////////////////////////////////////////
+        Discipline for connections (material policy)
+       ////////////////////////////////////////////// -->
+  <Class Name="dsc_mat_cnx_Core_Design" Uuid="50F6EC86-19F8-4093-B2FC-295AF87EF9B4" SuperName="dsc_mat_cnx_Core" Discipline="Yes" Abstract="No" CustomerExposition="Programmer" Specializable="Yes" >
+    <Property Name="IconName" Value="I_Material_Nav_core" />
+    <Property Name="3DIconName" Value="DefaultMaterialRep.cgr" />
+    <Property Name="Newable" Value="No"/>
+    <Property Name="Searchable" Value="No"/>
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+  <Class Name="dsc_mat_cnx_Core_Eval" Uuid="85E80CCB-55EB-42FF-B21A-AD201D52DD37" SuperName="dsc_mat_cnx_Core" Discipline="Yes" Abstract="No" CustomerExposition="Programmer" Specializable="Yes" >
+    <Property Name="IconName" Value="I_Material_Nav_covering" />
+    <Property Name="3DIconName" Value="DefaultMaterialRep.cgr" />
+    <Property Name="Newable" Value="No"/>
+    <Property Name="Searchable" Value="No"/>
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+
+  <Class Name="dsc_mat_cnx_Covering_Design" Uuid="BC213876-064E-4A62-877B-961D4A1E25A5" SuperName="dsc_mat_cnx_Covering" Discipline="Yes" Abstract="No" CustomerExposition="Programmer" Specializable="Yes" >
+    <Property Name="IconName" Value="I_Material_Nav_core" />
+    <Property Name="3DIconName" Value="DefaultMaterialRep.cgr" />
+    <Property Name="Newable" Value="No"/>
+    <Property Name="Searchable" Value="No"/>
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+  <Class Name="dsc_mat_cnx_Covering_Eval" Uuid="5120C3A2-1028-4D4F-B5FE-9A5EEA8C73C3" SuperName="dsc_mat_cnx_Covering" Discipline="Yes" Abstract="No" CustomerExposition="Programmer" Specializable="Yes" >
+    <Property Name="IconName" Value="I_Material_Nav_covering" />
+    <Property Name="3DIconName" Value="DefaultMaterialRep.cgr" />
+    <Property Name="Newable" Value="No"/>
+    <Property Name="Searchable" Value="No"/>
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+  <Class Name="dsc_decal_cnx_Eval" Uuid="69540A59-9A2C-4644-B299-932A5AFFC864" SuperName="dsc_decal_cnx" Discipline="Yes" Abstract="No" CustomerExposition="Programmer" Specializable="Yes" >
+    <Property Name="IconName" Value="I_CATStkSticker_Sticked" />
+    <Property Name="3DIconName" Value="DefaultMaterialRep.cgr" />
+    <Property Name="Newable" Value="No"/>
+    <Property Name="Searchable" Value="No"/>
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+  <Class Name="dsc_decal_cnx_Design" Uuid="C4AD51A0-6954-4A18-B4B0-B8FD6FBAFDBF" SuperName="dsc_decal_cnx" Discipline="Yes" Abstract="No" CustomerExposition="Programmer" Specializable="Yes" >
+    <Property Name="IconName" Value="I_CATStkSticker_Sticked" />
+    <Property Name="3DIconName" Value="DefaultMaterialRep.cgr" />
+    <Property Name="Newable" Value="No"/>
+    <Property Name="Searchable" Value="No"/>
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+
+  <!-- OBSOLETE DISCIPLINE -->
+  <Class Name="Applied Material" Uuid="4dbfe377-45b6-4c6f-8794-8ac1d002a80b" SuperName="CATMatConnection" Discipline="Yes" Abstract="No" CustomerExposition="Programmer" Specializable="Yes" >
+    <Property Name="IconName" Value="I_Material_Nav_core" />
+    <Property Name="3DIconName" Value="DefaultMaterialRep.cgr" />
+    <Property Name="Newable" Value="No"/>
+    <Property Name="Searchable" Value="No"/>
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+</Package>

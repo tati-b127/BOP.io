@@ -1,0 +1,8 @@
+EXPAND  
+  	T0.PLMID
+FROM
+	DELAsmAssemblyModelCnx/DELAsmProcessCanUseCnx T0
+FROM_ROOTS  [?1?]
+;    
+
+

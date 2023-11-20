@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!-- edited with XMLSpy v2007 (http://www.altova.com) by DASSAULT SYSTEMES (DASSAULT SYSTEMES) -->
+<!-- ENOVIA DICTIONARY -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2007, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" CustomerExposition="Programmer" Name="CATMCXAssemblyAbstract" Uuid="b1680e73-81d5-4e4c-b12d-f9a2f966a16e" UseNames="PLMCORE">
+	<Comment> Metadata historic :</Comment>
+	<Comment> Creation 18-04-2007 by SVV</Comment>
+	<Comment> Delivery 07-09-2007 by JPY</Comment>
+	<Comment> Delivery 02-09-2009 by JPY</Comment>
+	<Comment> Delivery 04-16-2012 by EWN</Comment>
+	<!-- ABSTRACT TYPE = Former Discipline, now abstract type -->
+	<Class Name="MechanicalCNX" Structured="Yes" Uuid="8a6d5d96-883a-4da5-88aa-a38069a059f0" SuperName="PLMConnection" Abstract="Yes" CustomerExposition="Programmer" Specializable="No" >
+		<Method ImplementationType="AsFather">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+	</Class>
+  <!-- Extension for pCache -->
+  <Extension Name="PCacheExtension" Uuid="69314947-abcf-45eb-8707-45bb77a74d98" CustomerExposition="None" ScopeNames="MechanicalCNX">
+    <Simple Name="pCache" Uuid="744d2f27-250e-45a0-8e88-97ed44e39735" Type="Binary" MultiValuated="No" MaxLength="16000" Protection="Internal" CAAExposition="L0"/>
+  </Extension>
+</Package>

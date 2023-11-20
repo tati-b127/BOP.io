@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2012, All rights reserved -->
+
+<Package CustomerExposition = "Programmer" ModelerType = "Top" Name = "AECOmniClass" UseNames = "AECKernel" Uuid = "90B63603-7330-4BCF-A8BD-D18117439D12" xmlns = "PLMDictionaryUnified">
+  <Extension CustomerExposition = "Programmer" Name = "OmniClass" ScopeNames = "AecSpatialStructureElement AecElement AecObjectType" Uuid = "bcfa1c48-9489-4883-96c1-79f4591711c7">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "OmniClass_V_OcClassification" Protection = "Free" Type = "String" Uuid = "4aa208b5-9673-4ae8-849f-fb29cb24dfd8"/>
+  </Extension>
+</Package>

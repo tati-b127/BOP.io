@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY for HVAC Logical Model Port Connection-->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2012, all rights reserved -->
+<!-- Package -->
+<Package Name="PLMHVACLogicalPortSizeCnx" Uuid="29fc0087-74a4-4ca1-97d6-515a86151c88" xmlns="PLMDictionaryUnified" ModelerType="Top" BelongsToModeler="PLMHVACLogical" UseNames="LPABSTRACT" CustomerExposition="Programmer">
+  <CAAComment>
+		<ShortRole>PLM HVAC Logical Port Size Connection Package</ShortRole>
+		<Role>This package describes the PLM HVAC Logical model Port Size Connection under the top LPABSTRACT Modeler.</Role>
+	</CAAComment>
+	<Comment>Initial creation: ZTB JEC Nov 2012</Comment>
+	<!-- HVAC Logical Port Connection -->
+	<Class Name="HVAC_Logical_Port_Size_Connection" Uuid="4bb9a508-9758-41ad-9ded-f184b751077f" SuperName="LPAbstractConnection" CustomerExposition="Programmer"    OwnerTypes="RFLVPMLogicalReference">
+    <!-- OwnerTypes="RFLVPMLogicalReference"  Integrate this line if you want to declare the aggregation constraint -->
+    <CAAComment>
+			<ShortRole>PLM HVAC Logical Port Size Connection</ShortRole>
+			<Role>PLM HVAC Logical Port Size Connection</Role>
+		</CAAComment>
+		<Simple Name="V_EquivalentDiameter" Type="String" Uuid="499d537f-e607-4f1f-86c4-63d8a4bfb8ad" MaxLength="100" Protection="External" CAAExposition="L0" MultiValuated="Yes" CollectionType="List"/>
+		<Path Name="V_Part" Uuid="353691cf-842c-473d-8910-cac2266f0954"  Semantics="Reference"  RoleName="PLM_EnsGrouping_Member" MultiValuated="No" Type="SemanticRelation" AdaptativeToMinor="No"		SynchroSensitivity="None"		RerouteOnEffectivityChange="No"/>
+		<Path Name="V_Ports" Uuid="3a7814bf-259e-49ac-8b84-f4e10c1a872f"  Semantics="Reference7"  RoleName="PLM_EnsGrouping_Group" MultiValuated="Yes" Lower="0" Upper="-1" Type="SemanticRelation" AdaptativeToMinor="No"		SynchroSensitivity="Last"		RerouteOnEffectivityChange="No" Orientation="Out"/>
+		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+	</Class>
+	<!-- HVAC Logical Port Size Connection Discipline -->
+	<Class Name="HVAC_Port_Size" Uuid="0439c782-2e41-40a7-ae98-1fb228970c25" SuperName="HVAC_Logical_Port_Size_Connection" Discipline="Yes" CustomerExposition="Programmer">
+		<Property Name="TypeForDisciplineValuation" Value="HVAC_Port_Size"/>
+  </Class>
+</Package>

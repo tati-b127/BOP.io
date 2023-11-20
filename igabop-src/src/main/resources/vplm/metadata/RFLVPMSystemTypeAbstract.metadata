@@ -1,0 +1,44 @@
+<?xml version="1.0" ?>
+
+<!-- ENOVIA DICTIONARY FOR Abstract Logical System Type -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2011, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" BelongsToModeler="RFLVPMLogical" Name="RFLVPMSystemTypeAbstract" 
+	Uuid="BFEEF67B-6196-4425-B984-75998E9F5846" 
+	UseNames="LPABSTRACT"
+  CustomerExposition="None"
+>
+		
+	<Comment>last update 2011-10-11</Comment>
+
+	<!-- ************************************************* -->
+	<!-- * LogicalAbstractSystemTypeInstance (LPAbstractInstance) * -->
+	<!-- ************************************************* -->
+
+	<RelationClass Name="LogicalAbstractSystemTypeInstance" 
+		Uuid="CEE1CB15-428A-4e1c-BF9D-A595C8C637A5" 
+		Abstract="Yes" 
+		SuperName="LPAbstractInstance"  
+    CustomerExposition="None">
+
+		<Simple Name="V_Identifier" Uuid="27027621-CBB4-4967-B02B-27C8DCA4477E" 
+            	Protection="ExternalIN" 
+            	Type="String" 
+            	MaxLength="100" 
+            	MultiValuated="No" 
+            	PLMImpacting="No" 
+            	CAAExposition="L1" 
+			>
+                <Property Name="SetOnlyOnce" Value="AtCreation"/>
+          		<CAAComment>
+            		<ShortRole>Identifier of every kind of System Type instance</ShortRole>
+          		</CAAComment>
+		</Simple>
+		
+        <Method ImplementationType="None">
+            <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+        </Method>
+	</RelationClass>
+
+</Package>
+

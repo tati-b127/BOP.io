@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<ProcedurePackage
+    xmlns="PLMDictionaryProcedure"
+    Name="ENOCfgModel_Procedures">
+
+  <Procedure Name="CFGModelCompletion">
+    <Implementation Name="invoke" FileLocation="com.dassault_systemes.cfg.completion.CFGModelCompletion" Language="JAVA"/>
+    <Signature href="CFGModelCompletion_sign"/>
+  </Procedure>
+
+  <Signature id="CFGModelCompletion_sign">
+    <Parameter Name="Models" Lower="1" Upper="-1" Direction="in"	Order="1"	DataType="PLMId"	MultiValuated="Yes"/>
+    <Parameter Name="LoadingCriteria"	Lower="0" Upper="-1" Direction="in"	Order="2"	DataType="Integer"	MultiValuated="Yes"/>
+    <Parameter Name="ModelsContent"	Lower="0" Upper="-1" Direction="out"	Order="1"	DataType="PLMId"	MultiValuated="Yes"/>
+  </Signature>
+</ProcedurePackage>

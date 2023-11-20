@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2007, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" Name="PLMCollabDesign_BriefcaseStatus" Uuid="90111825-7f51-4b9d-b1853f9d71de595b" UseNames="PLMCORE"  CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+  <Comment>last update 2007-03-07-16.00.00</Comment>
+  <!-- ***************************************** -->
+  <!--CoDesign Connections -->
+  <!-- ***************************************** -->
+  <!--## Briefcase status connection (derivation from PLMConnection) ##-->
+  <Class Name="PLMCCDUserConnection" Uuid="0981f46c-20e5-4e1c-86141df1f0836b73" SuperName="PLMConnection"   Abstract="No" CustomerExposition="Programmer">
+    <Simple Name="V_BriefcaseStatus" Uuid="d1ad0672-0512-43d1-812799dc57a86485" Type="Integer"  MultiValuated="No"  Protection="External" CAAExposition="L0"/>
+    <!--~~ RelationShip to the User ~~-->
+    <Path Name="PLMCCDConnection_User" Uuid="b162aed3-9ff6-4010-a305bb11948fe89f"  MultiValuated="Yes"  RoleName="PLMCCDConnection_Person" Semantics="Reference2"  Protection="Internal" Type="SemanticRelation" AdaptativeToMinor="No"		SynchroSensitivity="None"		RerouteOnEffectivityChange="No"/>
+    <Path Name="PLMCCDConnection_Target" Uuid="38163d29-2d62-498a-b4a832103c7656a6"  MultiValuated="No"  RoleName="PLMCCDConnection_Target" Semantics="Reference5" Type="SemanticRelation" AdaptativeToMinor="No"		SynchroSensitivity="Last"		RerouteOnEffectivityChange="No"  Orientation="Out"/>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+</Package>
+

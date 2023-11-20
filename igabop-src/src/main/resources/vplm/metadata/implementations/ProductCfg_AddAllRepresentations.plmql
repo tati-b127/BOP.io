@@ -1,0 +1,12 @@
+EXPAND 
+
+T0.PLM_ExternalID , T1.PLM_ExternalID, T2.PLM_ExternalID , T3.PLM_ExternalID,
+T0.PLMID , T1.PLMID, T2.PLMID , T3.PLMID
+
+FROM PRODUCTCFG/VPMRepReference T0, PRODUCTCFG/VPMRepInstance T1, LPPRIVATEREP/LPPrivateRepReference T2, LPPRIVATEREP/LPPrivateRepInstance T3
+
+FROM_ROOTS  [?1?]
+
+WITH ATTRIBUTE_FILTER((T0.V_discipline!='NavRep'))
+
+DEPTH=1;

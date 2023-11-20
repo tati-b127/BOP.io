@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2007, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" Name="CATMCXIAssembly" CustomerExposition="Programmer" Uuid="77df2273-edba-4029-9a30-3c771d217785" UseNames="CATMCXAssemblyAbstract CATMCXAssembly"
+    >
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+  <Comment> Metadata historic :</Comment>
+  <Comment> Creation 10-06-2008 by JPY</Comment>
+  <Comment> Delivery 02-09-2009 by JPY</Comment>
+  <Comment> Delivery 04-16-2012 by EWN</Comment>
+  <Comment> Delivery 08-28-2017 by WO4</Comment> 
+  <!--Instance of PLM Mechanical Connection-->
+  <Class Name="CATMCXMechanicalConnectionInstance" Structured="Yes"  CarryStreams="Yes" Uuid="ca8ac85e-72f0-47ce-b93e-0e0313867154" CustomerExposition="Programmer" SuperName="MechanicalCNX" Abstract="No">
+    <!-- Simples -->
+    <Simple Name="V_ConnectionType" Uuid="e8fc23fc-4323-47b7-aae2-b9f5c48d591e" Type="String" MultiValuated="No" MaxLength="40"  Protection="External" CAAExposition="L0"/>
+    <Simple Name="V_UpdateStatus" Uuid="5ac3f0bb-88cf-4d66-8479-4018b667265d" Type="Integer" Protection="External" CAAExposition="L0" DefaultValue="1">
+      <Property Name="RangeAsEnumName" Value="CATMCXAssembly.CATMCXStatus"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="CATMCXStatus_unknown;CATMCXStatus_error;CATMCXStatus_notsatisfied;CATMCXStatus_satisfied"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+      </Range>
+    </Simple>
+    <Simple Name="V_Active" Uuid="f98a9c18-2df5-4501-babd-dc7ce980e2cb" Type="Boolean" MultiValuated="No" Protection="External" CAAExposition="L0"/>
+    <Simple Name="V_ExtendedRole" Uuid="1ce28b72-c3ae-4cff-a2b3-312775b2bc9a" Type="String" MultiValuated="Yes" MaxLength="40"  CollectionType="List" Protection="External" CAAExposition="L0"/>
+    <!-- Permet de stocker un contexte de creation -->
+    <Simple Name="V_Context" Uuid="8D522155-4C2E-4F3F-9A1E-B7231528A7FF" DefaultValue="" Protection="Internal" Type="String" MaxLength="32" MultiValuated="No"/>		
+    <Property Name="IconName" Value="I_Constraint"/>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+</Package>

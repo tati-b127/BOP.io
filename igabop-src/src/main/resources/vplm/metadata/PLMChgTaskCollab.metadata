@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" Name="PLMChgTaskCollab" Uuid="8A7DC9A5-F2AD-4da6-84BA97458EE4EE17" UseNames="PLMChgBase" BelongsToModeler="PLMCollabDesign" CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+  <CAAComment>
+    <ShortRole>Task Collab Package</ShortRole>
+    <Role>This package includes the entities of the Task Collab Reference and Task Child Collab Instance</Role>
+  </CAAComment>
+  <Comment>last update 2008-08-08-09.00.00</Comment>
+  <!-- *************************************** -->
+  <!-- * PLMTaskCollab (PLMChgBase)   * -->
+  <!-- *************************************** -->
+  <Class Name="PLMTaskCollab" Uuid="36F56D29-7678-4203-A0353145378FC149" Abstract="No" SuperName="PLMChgBase" CustomerExposition="Programmer" Specializable="No" CustomerExtensible="No" CreateInstName="PLMTaskChildCollab" Abbreviation="ccdt">
+    <CAAComment>
+      <ShortRole>Task CollabReference</ShortRole>
+      <Role>Task Reference for Collab</Role>
+    </CAAComment>
+    <Simple Name="V_NeedSupervisorApproval" Uuid="1245E8F4-DFC5-4dbd-B51CE671D3C764C4" Type="Boolean" DefaultValue="False" MultiValuated="No" Protection="Free" CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Describes if the task need an approval from the supervisor. Default should be False.</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Property Name="IconName"	Value="I_PLMTaskCollab"/>
+    <Property Name="3DIconName"	Value="PLMTaskCollab.cgr"/>
+    <Property Name="Newable"	Value="All"/>
+    <Property Name="Searchable"	Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod"	Value="CATCCDTaskPLMNew"/>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+  <!-- *************************************** -->
+  <!-- * PLMTaskChildCollab(PLMChildAction)   * -->
+  <!-- *************************************** -->
+  <RelationClass Name="PLMTaskChildCollab" Uuid="B8CA0C7F-2747-4d73-9A51125B71F6AA40" Abstract="No" SuperName="PLMChgChild" CustomerExposition="Programmer" Specializable="No" CustomerExtensible="No">
+    <CAAComment>
+      <ShortRole>Task Child CollabInstance</ShortRole>
+      <Role>Child Task Instance for Collab</Role>
+    </CAAComment>
+    <!-- ********************************************************* -->
+    <!-- * Overload(s) of PLMCoreInstance attributes. -->
+    <!-- ********************************************************* -->
+    <SubClause Name="from"   TargetName="PLMChgBase"/>
+    <SubClause Name="to"   TargetName="PLMTaskCollab"/>
+    <Property Name="IconName"	Value="I_PLMTaskCollab"/>
+    <Property Name="3DIconName"	Value="PLMTaskCollab.cgr"/>
+    <Property Name="Newable"	Value="Insert"/>
+    <Property Name="Searchable"	Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod"	Value="CATCCDTaskNewImpl"/>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </RelationClass>
+</Package>

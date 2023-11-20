@@ -1,0 +1,874 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2018, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" Name="WCGWeightEquivalent" Uuid="5912CDCA-7692-4801-A2A7FCBE528A3100" UseNames="PRODUCTCFG" CustomerExposition="Programmer">
+  <CAAComment>
+    <ShortRole>Mass And Center of Inertia Model</ShortRole>
+    <Role>Mass And Center of Inertia Model</Role>
+  </CAAComment>
+  <!-- * WCGWeightEquivalent (extensions on VPMReference PLMDictionaryPlayer\PRODUCTCFG.metadata) *   -->
+
+  <!-- ********************************************************************************************** -->
+  <!-- ********************************************************************************************** -->
+  <!-- ********************************************************************************************** -->
+  <Extension Name="WCGEquivalentComputedExt" Uuid="30D25916-04E3-4b59-9A89A5BB805BC9B4" ScopeNames="VPMReference" Abstract="No" Specializable="No" CustomerExposition="Programmer">
+    <!-- ________________________________________________________________________________ -->
+    <!-- V_WCG_Mass                                                                       -->
+    <!-- Represents the dry weight of the entity                                          -->
+    <!-- Unit: kg                                                                         -->
+    <!-- ________________________________________________________________________________ -->
+    <Simple Name="V_WCG_Mass"
+      Uuid="CFF6BDB4-854D-4a13-A39537CFC8C1BC41"
+      Protection="External"
+      Type="Double"
+      Magnitude="MASS"
+      CAAExposition="L1"
+      >
+      <Property Name="SIXW" Value="ds6w:weight"/>
+      <CAAComment>
+        <ShortRole>Mass</ShortRole>
+        <Role>Represents the mass of the object (in kg)</Role>
+      </CAAComment>
+    </Simple>
+    <!-- ________________________________________________________________________________ -->
+    <!-- Fluidic weight                                                                   -->
+    <!-- Represents the weight of the fluids, that is added to the dry weight to get      -->
+    <!-- the wet weight                                                                   -->
+    <!-- Unit: kg                                                                         -->
+    <!-- ________________________________________________________________________________ -->
+    <Simple Name="V_WCG_Fluidic_Mass"
+      Uuid="3BF00E13-65AD-430A-9260-5EFAD76733B2"
+      Protection="External"
+      Type="Double"
+      Magnitude="MASS"
+      CAAExposition="L1"
+      >
+      <Property Name="SIXW" Value="ds6w:fluidicweight"/>
+      <CAAComment>
+        <ShortRole>Fluidic weight</ShortRole>
+        <Role>Represents the weight of the fluids in the object (in kg)</Role>
+      </CAAComment>
+    </Simple>
+    <!-- ________________________________________________________________________________ -->
+    <!-- Mass Tolerance                                                                   -->
+    <!-- Represents the tolerance associated to the mass of the object                    -->
+    <!-- Unit: kg                                                                         -->
+    <!-- ________________________________________________________________________________ -->
+    <Simple Name="V_WCG_Mass_Tolerance"
+      Uuid="9EE3252F-52F5-477a-8E48EB60C08C5565"
+      Protection="Internal"
+      Type="Double"
+      Magnitude="MASS"
+      >
+      <CAAComment>
+        <ShortRole>Mass Tolerance</ShortRole>
+        <Role>Represents the tolerance associated to the mass of the object (in kg)</Role>
+      </CAAComment>
+    </Simple>
+    <!-- ________________________________________________________________________________ -->
+    <!-- Volume                                                                           -->
+    <!-- Represents the volume of the object                                              -->
+    <!-- Unit: m^3                                                                        -->
+    <!-- ________________________________________________________________________________ -->
+    <Simple Name="V_WCG_Volume"
+      Uuid="D7B80E96-5097-444c-BE90C92BFFF770C2"
+      Protection="External"
+      Type="Double"
+      Magnitude="VOLUME"
+      CAAExposition="L1"
+      >
+      <Property Name="SIXW" Value="ds6w:volume"/>
+      <CAAComment>
+        <ShortRole>Volume</ShortRole>
+        <Role>Represents the volume of the object (in m^3)</Role>
+      </CAAComment>
+    </Simple>
+    <!-- ________________________________________________________________________________ -->
+    <!-- Volume tolerance                                                                 -->
+    <!-- Represents the tolerance associated to the volume of the object                  -->
+    <!-- Unit: m^3                                                                        -->
+    <!-- ________________________________________________________________________________ -->
+    <Simple Name="V_WCG_Volume_Tolerance"
+      Uuid="17F312AC-60B0-4700-965E963A0241A5F7"
+      Protection="Internal"
+      Type="Double"
+      Magnitude="VOLUME"
+      >
+      <CAAComment>
+        <ShortRole>Volume tolerance</ShortRole>
+        <Role>Represents the tolerance associated to the volume of the object (in m^3)</Role>
+      </CAAComment>
+    </Simple>
+    <!-- ________________________________________________________________________________ -->
+    <!-- Surface                                                                           -->
+    <!-- Represents the surface of the object                                              -->
+    <!-- Unit: m^2                                                                        -->
+    <!-- ________________________________________________________________________________ -->
+    <Simple Name="V_WCG_Surface"
+      Uuid="AC85C5B4-7D40-4b68-B4BFE05E31393D4B"
+      Protection="External"
+      Type="Double"
+      Magnitude="AREA"
+      CAAExposition="L1"
+      >
+      <Property Name="SIXW" Value="ds6w:surface"/>
+      <CAAComment>
+        <ShortRole>Surface</ShortRole>
+        <Role>Represents the surface of the object (in m^2)</Role>
+      </CAAComment>
+    </Simple>
+    <!-- ________________________________________________________________________________ -->
+    <!-- Surface tolerance                                                                 -->
+    <!-- Represents the tolerance associated to the surface of the object                  -->
+    <!-- Unit: m^2                                                                        -->
+    <!-- ________________________________________________________________________________ -->
+    <Simple Name="V_WCG_Surface_Tolerance"
+      Uuid="F05A5622-ED9C-4a29-9F8F991B40B7338E"
+      Protection="Internal"
+      Type="Double"
+      Magnitude="AREA"
+      >
+      <CAAComment>
+        <ShortRole>Surface tolerance</ShortRole>
+        <Role>Represents the tolerance associated to the surface of the object (in m^2)</Role>
+      </CAAComment>
+    </Simple>
+    <!-- ________________________________________________________________________________ -->
+    <!-- Center of gravity along x                                                        -->
+    <!-- Represents the x value of the center of gravity (local axis of the object)       -->
+    <!-- Unit: m                                                                          -->
+    <!-- ________________________________________________________________________________ -->
+    <Simple Name="V_WCG_COGx"
+      Uuid="C84336EE-A272-4ab4-969DEE8336CF098C"
+      Protection="External"
+      Type="Double"
+      Magnitude="LENGTH"
+      CAAExposition="L1"
+      >
+      <CAAComment>
+        <ShortRole>Center of gravity along x</ShortRole>
+        <Role>Represents the x value of the center of gravity (local axis of the object) (in m)</Role>
+      </CAAComment>
+    </Simple>
+    <!-- ________________________________________________________________________________ -->
+    <!-- Center of gravity along y                                                        -->
+    <!-- Represents the y value of the center of gravity (local axis of the object)       -->
+    <!-- Unit: m                                                                          -->
+    <!-- ________________________________________________________________________________ -->
+    <Simple Name="V_WCG_COGy"
+      Uuid="9260DA09-47DE-4f4e-A8520B9355BC7FDC"
+      Protection="External"
+      Type="Double"
+      Magnitude="LENGTH"
+      CAAExposition="L1"
+      >
+      <CAAComment>
+        <ShortRole>Center of gravity along y</ShortRole>
+        <Role>Represents the y value of the center of gravity (local axis of the object) (in m)</Role>
+      </CAAComment>
+    </Simple>
+    <!-- ________________________________________________________________________________ -->
+    <!-- Center of gravity along z                                                        -->
+    <!-- Represents the z value of the center of gravity (local axis of the object)       -->
+    <!-- Unit: m                                                                          -->
+    <!-- ________________________________________________________________________________ -->
+    <Simple Name="V_WCG_COGz"
+      Uuid="964DB695-B026-457c-85BD53DFFB2411B8"
+      Protection="External"
+      Type="Double"
+      Magnitude="LENGTH"
+      CAAExposition="L1"
+      >
+      <CAAComment>
+        <ShortRole>Center of gravity along z</ShortRole>
+        <Role>Represents the z value of the center of gravity (local axis of the object) (in m)</Role>
+      </CAAComment>
+    </Simple>
+    <!-- ________________________________________________________________________________ -->
+    <!-- Center of gravity tolerance                                                      -->
+    <!-- Represents the tolerance associated to the center of gravity                     -->
+    <!-- Unit: m                                                                          -->
+    <!-- ________________________________________________________________________________ -->
+    <Simple Name="V_WCG_COG_Tolerance"
+      Uuid="5676B00A-C3F7-4470-9A2835A85806F727"
+      Protection="Internal"
+      Type="Double"
+      Magnitude="LENGTH"
+      >
+      <CAAComment>
+        <ShortRole>Center of gravity tolerance</ShortRole>
+        <Role>Represents the tolerance associated to the center of gravity (in m)</Role>
+      </CAAComment>
+    </Simple>
+    <!-- ________________________________________________________________________________ -->
+    <!-- Moment of inertia along X axis                                                   -->
+    <!-- Represents the moment of inertia along the X axis                                -->
+    <!-- Unit: kg.m²                                                                      -->
+    <!-- ________________________________________________________________________________ -->
+    <Simple Name="V_WCG_Moment_X_axis"
+      Uuid="ECEA730C-3138-445a-BD8EAFD517A1B08E"
+      Protection="External"
+      Type="Double"
+      Magnitude="INERTIAMOMENT"
+      CAAExposition="L1"
+      >
+      <CAAComment>
+        <ShortRole>Moment of inertia along X axis</ShortRole>
+        <Role>Represents the moment of inertia along the X axis (in kg.m²)</Role>
+      </CAAComment>
+    </Simple>
+    <!-- ________________________________________________________________________________ -->
+    <!-- Moment of inertia along Y axis                                                   -->
+    <!-- Represents the moment of inertia along the Y axis                                -->
+    <!-- Unit: kg.m²                                                                      -->
+    <!-- ________________________________________________________________________________ -->
+    <Simple Name="V_WCG_Moment_Y_axis"
+      Uuid="2C444806-00D1-4478-A418E33BD1113F6E"
+      Protection="External"
+      Type="Double"
+      Magnitude="INERTIAMOMENT"
+      CAAExposition="L1"
+      >
+      <CAAComment>
+        <ShortRole>Moment of inertia along Y axis</ShortRole>
+        <Role>Represents the moment of inertia along the Y axis (in kg.m²)</Role>
+      </CAAComment>
+    </Simple>
+    <!-- ________________________________________________________________________________ -->
+    <!-- Moment of inertia along Z axis                                                   -->
+    <!-- Represents the moment of inertia along the Z axis                                -->
+    <!-- Unit: kg.m²                                                                      -->
+    <!-- ________________________________________________________________________________ -->
+    <Simple Name="V_WCG_Moment_Z_axis"
+      Uuid="39510AD6-30D0-4b04-9F72D4E5D2858863"
+      Protection="External"
+      Type="Double"
+      Magnitude="INERTIAMOMENT"
+      CAAExposition="L1"
+      >
+      <CAAComment>
+        <ShortRole>Moment of inertia along Z axis</ShortRole>
+        <Role>Represents the moment of inertia along the Z axis (in kg.m²)</Role>
+      </CAAComment>
+    </Simple>
+    <!-- ________________________________________________________________________________ -->
+    <!-- Product of Inertia regarding X & Y axis                                          -->
+    <!-- Represents the product of inertia regarding the X & Y axis                       -->
+    <!-- Unit: kg.m²                                                                      -->
+    <!-- ________________________________________________________________________________ -->
+    <Simple Name="V_WCG_Product_Inertia_X_Y_axis"
+      Uuid="10070D83-CE34-4f06-9EFB7C0E22F04822"
+      Protection="External"
+      Type="Double"
+      Magnitude="INERTIAMOMENT"
+      CAAExposition="L1"
+      >
+      <CAAComment>
+        <ShortRole>Product of Inertia regarding X and Y axis</ShortRole>
+        <Role>Represents the product of inertia regarding the X and Y axis (in kg.m²)</Role>
+      </CAAComment>
+    </Simple>
+    <!-- ________________________________________________________________________________ -->
+    <!-- Product of Inertia regarding Y & Z axis                                          -->
+    <!-- Represents the product of inertia regarding the Y & Z axis                       -->
+    <!-- Unit: kg.m²                                                                      -->
+    <!-- ________________________________________________________________________________ -->
+    <Simple Name="V_WCG_Product_Inertia_Y_Z_axis"
+      Uuid="E46E8660-8064-4141-A0280F0787206878"
+      Protection="External"
+      Type="Double"
+      Magnitude="INERTIAMOMENT"
+      CAAExposition="L1"
+      >
+      <CAAComment>
+        <ShortRole>Product of Inertia regarding Y and Z axis</ShortRole>
+        <Role>Represents the product of inertia regarding the Y and Z axis (in kg.m²)</Role>
+      </CAAComment>
+    </Simple>
+    <!-- ________________________________________________________________________________ -->
+    <!-- Product of Inertia regarding X & Z axis                                          -->
+    <!-- Represents the product of inertia regarding the X & Z axis                       -->
+    <!-- Unit: kg.m²                                                                      -->
+    <!-- ________________________________________________________________________________ -->
+    <Simple Name="V_WCG_Product_Inertia_X_Z_axis"
+      Uuid="D8596ADE-BB1D-43b9-A5E09D0E27D1E5DA"
+      Protection="External"
+      Type="Double"
+      Magnitude="INERTIAMOMENT"
+      CAAExposition="L1"
+      >
+      <CAAComment>
+        <ShortRole>Product of Inertia regarding X and Z axis</ShortRole>
+        <Role>Represents the product of inertia regarding the X and Z axis (in kg.m²)</Role>
+      </CAAComment>
+    </Simple>
+    <!-- ________________________________________________________________________________ -->
+    <!-- Information (warning / errors) output by the solver during the computation       -->
+    <!-- value = 0 -> No problem                                                          -->
+    <!-- value = 1 -> no material defined on the reference                                -->
+    <!-- value = 2 -> material defined, but its density is 0                              -->
+    <!-- value = 3 -> solver went in error - problem                                      -->
+    <!-- ________________________________________________________________________________ -->
+    <Simple Name="V_Solver_Information"
+      Uuid="84C7EC7F-539E-400c-A5571903FF2CDB81"
+      Protection="Internal"
+      Type="Integer"
+      >
+      <CAAComment>
+        <ShortRole>Information (warning and errors) output by the solver during the computation</ShortRole>
+        <Role>Information (warning and errors) output by the solver during the computation</Role>
+      </CAAComment>
+    </Simple>
+    <!-- ________________________________________________________________________________ -->
+    <!-- Computed weight Update Stamp                                                     -->
+    <!-- value in number of seconds since 1970                                            -->
+    <!-- ________________________________________________________________________________ -->
+    <Simple Name="V_WCG_UpdateStamp"
+      Uuid="DB3D1B03-4200-44E4-8A3E-949F4A6FA7E7"
+      Protection="Internal"
+      Type="Integer"
+      >
+      <CAAComment>
+        <ShortRole>Computed weight update stamp</ShortRole>
+        <Role>Computed weight update stamp</Role>
+      </CAAComment>
+    </Simple>
+    <!-- ________________________________________________________________________________ -->
+    <!-- User comment                                                                     -->
+    <!-- ________________________________________________________________________________ -->
+    <Simple Name="V_WCG_Comment"
+      Uuid="13CD6EF8-937E-4593-81230D47FE59A058"
+      Protection="Free"
+      CAAExposition="L0"
+      Type="String"
+      MaxLength="70"
+      >
+      <CAAComment>
+        <ShortRole>Comment that can be filled by the end-user</ShortRole>
+        <Role>Comment that can be filled by the end-user</Role>
+      </CAAComment>
+    </Simple>
+    <!-- ________________________________________________________________________________ -->
+    <!-- User status                                                                      -->
+    <!-- value = 1 -> Default value; undefined                                            -->
+    <!-- value = 2 -> Ignore any weight value on this node                                -->
+    <!-- ________________________________________________________________________________ -->
+    <Simple Name="V_WCG_UserDecision" Uuid="49712BBB-0C6E-4873-A7807083E5B333E3" Type="Integer" Protection="Internal" DefaultValue="1">
+      <CAAComment>
+        <ShortRole>User status</ShortRole>
+        <Role>User status that can have several values (undefined, Ignore this node)</Role>
+      </CAAComment>
+      <Property Name="RangeAsEnumName" Value="V_WCG_UserStatusEnum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="Nominal_Usage;Ignore"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+      </Range>
+    </Simple>
+    <Simple Name="V_WCG_Confidence"
+      Uuid="5ACB55D2-B417-4D43-ADC9F82CC11E1E47"
+      Protection="Internal"
+      Type="Double"
+      >
+      <CAAComment>
+        <ShortRole>Weight confidence</ShortRole>
+        <Role>Represents the confidence (%) associated to the weight value</Role>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_WCG_WeightPerMaterial"
+      Uuid="7523B47A-9ED5-479D-A8C38AC828DD1AA7"
+      Protection="Internal"
+      MultiValuated="No"
+      Type="String"
+      >
+      <CAAComment>
+        <ShortRole>Weights per material</ShortRole>
+        <Role>Internal attribute describing the dispatch of the weights per material</Role>
+      </CAAComment>
+    </Simple>
+  </Extension>
+
+
+  <!-- ********************************************************************************************* -->
+  <!-- ********************************************************************************************* -->
+  <!-- ********************************************************************************************* -->
+  <Extension Name="WCGEquivalentDeclaredWeightExt" Uuid="93351DC1-28D4-4c86-A789-7025E0C86476" ScopeNames="VPMReference" Abstract="No" Specializable="No" CustomerExposition="Programmer">
+    <!-- ________________________________________________________________________________ -->
+    <!-- Mass                                                                             -->
+    <!-- Represents the declared (or measured) mass of the object                         -->
+    <!-- Unit: kg                                                                         -->
+    <!-- ________________________________________________________________________________ -->
+    <Simple Name="V_WCG_Declared_Mass"
+      Uuid="603895BB-4CA8-436d-8339B341E72D73F9"
+      Protection="Free"
+      Type="Double"
+      Magnitude="MASS"
+      CAAExposition="L1"
+      >
+      <Property Name="SIXW" Value="ds6w:declaredWeight"/>
+      <CAAComment>
+        <ShortRole>Mass</ShortRole>
+        <Role>Represents the declared mass of the object (in kg)</Role>
+      </CAAComment>
+    </Simple>
+    <!-- ________________________________________________________________________________ -->
+    <!-- Mass tolerance                                                                   -->
+    <!-- Represents the tolerance associated to the declared mass of the object           -->
+    <!-- Unit: kg                                                                         -->
+    <!-- ________________________________________________________________________________ -->
+    <Simple Name="V_WCG_Declared_Mass_Tolerance"
+      Uuid="51F5E0EB-2866-4a08-8015A571F988FB53"
+      Protection="Internal"
+      Type="Double"
+      Magnitude="MASS"
+      >
+      <CAAComment>
+        <ShortRole>Mass tolerance</ShortRole>
+        <Role>Represents the tolerance associated to the declared mass of the object (in kg)</Role>
+      </CAAComment>
+    </Simple>
+    <!-- ________________________________________________________________________________ -->
+    <!-- Mass margin                                                                      -->
+    <!-- Represents the margin associated to the declared mass of the object              -->
+    <!-- Unit: kg                                                                         -->
+    <!-- ________________________________________________________________________________ -->
+    <Simple Name="V_WCG_Declared_Mass_Margin"
+      Uuid="36614594-508A-4bc3-815717E8C4B65486"
+      Protection="Free"
+      CAAExposition="L1"
+      Type="Double"
+      Magnitude="MASS"
+      >
+      <CAAComment>
+        <ShortRole>Mass margin</ShortRole>
+        <Role>Represents the margin associated to the declared mass of the object (in kg)</Role>
+      </CAAComment>
+    </Simple>
+  </Extension>
+
+
+  <!-- ********************************************************************************************* -->
+  <!-- ********************************************************************************************* -->
+  <!-- ********************************************************************************************* -->
+  <Extension Name="WCGEquivalentDeclaredInertiaExt" Uuid="1D603632-A818-4029-AB7AA74E57111D8A" ScopeNames="VPMReference" Abstract="No" Specializable="No" CustomerExposition="Programmer">
+    <!-- ________________________________________________________________________________ -->
+    <!-- Volume                                                                           -->
+    <!-- Represents the declared volume of the object                                     -->
+    <!-- Unit: m^3                                                                        -->
+    <!-- ________________________________________________________________________________ -->
+    <Simple Name="V_WCG_Declared_Volume"
+      Uuid="C2937AEB-3BC2-4437-B1A34F36F37B9579"
+      Protection="Free"
+      Type="Double"
+      Magnitude="VOLUME"
+      CAAExposition="L1"
+      >
+      <Property Name="SIXW" Value="ds6w:declaredVolume"/>
+      <CAAComment>
+        <ShortRole>Volume</ShortRole>
+        <Role>Represents the declared volume of the object (in m^3)</Role>
+      </CAAComment>
+    </Simple>
+    <!-- ________________________________________________________________________________ -->
+    <!-- Volume tolerance                                                                 -->
+    <!-- Represents the tolerance associated to the declared volume of the object         -->
+    <!-- Unit: m^3                                                                        -->
+    <!-- ________________________________________________________________________________ -->
+    <Simple Name="V_WCG_Declared_Volume_Tolerance"
+      Uuid="0E9F15F9-E1FC-4f6f-9F086570C03949AC"
+      Protection="Internal"
+      Type="Double"
+      Magnitude="VOLUME"
+      >
+      <CAAComment>
+        <ShortRole>Volume tolerance</ShortRole>
+        <Role>Represents the tolerance associated to the declared volume of the object (in m^3)</Role>
+      </CAAComment>
+    </Simple>
+    <!-- ________________________________________________________________________________ -->
+    <!-- Surface                                                                          -->
+    <!-- Represents the declared surface of the object                                    -->
+    <!-- Unit: m^2                                                                        -->
+    <!-- ________________________________________________________________________________ -->
+    <Simple Name="V_WCG_Declared_Surface"
+      Uuid="FD734AF6-DC05-4caf-B7D52EBEE2A0C16C"
+      Protection="External"
+      Type="Double"
+      Magnitude="AREA"
+      CAAExposition="L1"
+      >
+      <Property Name="SIXW" Value="ds6w:declaredSurface"/>
+      <CAAComment>
+        <ShortRole>Surface</ShortRole>
+        <Role>Represents the declared surface of the object (in m^2)</Role>
+      </CAAComment>
+    </Simple>
+    <!-- ________________________________________________________________________________ -->
+    <!-- Surface tolerance                                                                -->
+    <!-- Represents the tolerance associated to the declared surface of the object        -->
+    <!-- Unit: m^2                                                                        -->
+    <!-- ________________________________________________________________________________ -->
+    <Simple Name="V_WCG_Declared_Surface_Tolerance"
+      Uuid="BA1E2AC8-F5FB-42f3-9D61A823A5ACEDC0"
+      Protection="Internal"
+      Type="Double"
+      Magnitude="AREA"
+      >
+      <CAAComment>
+        <ShortRole>Surface tolerance</ShortRole>
+        <Role>Represents the tolerance associated to the declared surface of the object (in m^2)</Role>
+      </CAAComment>
+    </Simple>
+    <!-- ________________________________________________________________________________          -->
+    <!-- Center of gravity along x                                                                 -->
+    <!-- Represents the declared x value of the center of gravity (local axis of the object)       -->
+    <!-- Unit: m                                                                                   -->
+    <!-- ________________________________________________________________________________          -->
+    <Simple Name="V_WCG_Declared_COGx"
+      Uuid="747F39EB-89B5-4589-912D7449BC1AE1C9"
+      Protection="Free"
+      Type="Double"
+      Magnitude="LENGTH"
+      CAAExposition="L1"
+      >
+      <CAAComment>
+        <ShortRole>Center of gravity along x</ShortRole>
+        <Role>Represents the declared x value of the center of gravity (local axis of the object) (in m)</Role>
+      </CAAComment>
+    </Simple>
+    <!-- ________________________________________________________________________________          -->
+    <!-- Center of gravity along y                                                                 -->
+    <!-- Represents the declared y value of the center of gravity (local axis of the object)       -->
+    <!-- Unit: m                                                                                   -->
+    <!-- ________________________________________________________________________________          -->
+    <Simple Name="V_WCG_Declared_COGy"
+      Uuid="CB7BAF47-056D-451a-BE315C16CBD67F5A"
+      Protection="Free"
+      Type="Double"
+      Magnitude="LENGTH"
+      CAAExposition="L1"
+      >
+      <CAAComment>
+        <ShortRole>Center of gravity along y</ShortRole>
+        <Role>Represents the declared y value of the center of gravity (local axis of the object) (in m)</Role>
+      </CAAComment>
+    </Simple>
+    <!-- ________________________________________________________________________________          -->
+    <!-- Center of gravity along z                                                                 -->
+    <!-- Represents the declared z value of the center of gravity (local axis of the object)       -->
+    <!-- Unit: m                                                                                   -->
+    <!-- ________________________________________________________________________________          -->
+    <Simple Name="V_WCG_Declared_COGz"
+      Uuid="ED6D313C-6EB3-4a58-809EA49A543FD3CD"
+      Protection="Free"
+      Type="Double"
+      Magnitude="LENGTH"
+      CAAExposition="L1"
+      >
+      <CAAComment>
+        <ShortRole>Center of gravity along z</ShortRole>
+        <Role>Represents the declared z value of the center of gravity (local axis of the object) (in m)</Role>
+      </CAAComment>
+    </Simple>
+    <!-- ________________________________________________________________________________ -->
+    <!-- Center of gravity tolerance                                                      -->
+    <!-- Represents the tolerance associated to the declared center of gravity            -->
+    <!-- Unit: m                                                                          -->
+    <!-- ________________________________________________________________________________ -->
+    <Simple Name="V_WCG_Declared_COG_Tolerance"
+      Uuid="0B6AB377-01D4-4a6c-B58DA233241B3AEF"
+      Protection="Internal"
+      Type="Double"
+      Magnitude="LENGTH"
+      >
+      <CAAComment>
+        <ShortRole>Center of gravity tolerance</ShortRole>
+        <Role>Represents the tolerance associated to the declared center of gravity (in m)</Role>
+      </CAAComment>
+    </Simple>
+    <!-- ________________________________________________________________________________ -->
+    <!-- Moment of inertia along X axis                                                   -->
+    <!-- Represents the declared moment of inertia along the X axis                       -->
+    <!-- Unit: kg.m²                                                                      -->
+    <!-- ________________________________________________________________________________ -->
+    <Simple Name="V_WCG_Declared_Moment_X_axis"
+      Uuid="CB1A9CCE-FEFB-4d15-B0A0F6941AE5FA71"
+      Protection="Free"
+      Type="Double"
+      Magnitude="INERTIAMOMENT"
+      CAAExposition="L1"
+      >
+      <CAAComment>
+        <ShortRole>Moment of inertia along X axis</ShortRole>
+        <Role>Represents the declared moment of inertia along the X axis (in kg.m²)</Role>
+      </CAAComment>
+    </Simple>
+    <!-- ________________________________________________________________________________ -->
+    <!-- Moment of inertia along Y axis                                                   -->
+    <!-- Represents the declared moment of inertia along the Y axis                       -->
+    <!-- Unit: kg.m²                                                                      -->
+    <!-- ________________________________________________________________________________ -->
+    <Simple Name="V_WCG_Declared_Moment_Y_axis"
+      Uuid="0D83817D-A40C-4994-86524F09987BE79F"
+      Protection="Free"
+      Type="Double"
+      Magnitude="INERTIAMOMENT"
+      CAAExposition="L1"
+      >
+      <CAAComment>
+        <ShortRole>Moment of inertia along Y axis</ShortRole>
+        <Role>Represents the declared moment of inertia along the Y axis (in kg.m²)</Role>
+      </CAAComment>
+    </Simple>
+    <!-- ________________________________________________________________________________ -->
+    <!-- Moment of inertia along Z axis                                                   -->
+    <!-- Represents the declared moment of inertia along the Z axis                       -->
+    <!-- Unit: kg.m²                                                                      -->
+    <!-- ________________________________________________________________________________ -->
+    <Simple Name="V_WCG_Declared_Moment_Z_axis"
+      Uuid="67236332-DFC2-443a-89DF7E7EB6D31A1D"
+      Protection="Free"
+      Type="Double"
+      Magnitude="INERTIAMOMENT"
+      CAAExposition="L1"
+      >
+      <CAAComment>
+        <ShortRole>Moment of inertia along Z axis</ShortRole>
+        <Role>Represents the declared moment of inertia along the Z axis (in kg.m²)</Role>
+      </CAAComment>
+    </Simple>
+    <!-- ________________________________________________________________________________ -->
+    <!-- Product of Inertia regarding X & Y axis                                          -->
+    <!-- Represents the declared product of inertia regarding the X & Y axis              -->
+    <!-- Unit: kg.m²                                                                      -->
+    <!-- ________________________________________________________________________________ -->
+    <Simple Name="V_WCG_Declared_Product_Inertia_X_Y_axis"
+      Uuid="7ABD0D18-6CF5-4498-B1A13C32D93ADAB4"
+      Protection="Free"
+      Type="Double"
+      Magnitude="INERTIAMOMENT"
+      CAAExposition="L1"
+      >
+      <CAAComment>
+        <ShortRole>Product of Inertia regarding X and Y axis</ShortRole>
+        <Role>Represents the declared product of inertia regarding the X and Y axis (in kg.m²)</Role>
+      </CAAComment>
+    </Simple>
+    <!-- ________________________________________________________________________________ -->
+    <!-- Product of Inertia regarding Y & Z axis                                          -->
+    <!-- Represents the declared product of inertia regarding the Y & Z axis              -->
+    <!-- Unit: kg.m²                                                                      -->
+    <!-- ________________________________________________________________________________ -->
+    <Simple Name="V_WCG_Declared_Product_Inertia_Y_Z_axis"
+      Uuid="470B16C9-F680-46a7-90700025EC38BCE7"
+      Protection="Free"
+      Type="Double"
+      Magnitude="INERTIAMOMENT"
+      CAAExposition="L1"
+      >
+      <CAAComment>
+        <ShortRole>Product of Inertia regarding Y and Z axis</ShortRole>
+        <Role>Represents the declared product of inertia regarding the Y and Z axis (in kg.m²)</Role>
+      </CAAComment>
+    </Simple>
+    <!-- ________________________________________________________________________________ -->
+    <!-- Product of Inertia regarding X & Z axis                                          -->
+    <!-- Represents the declared product of inertia regarding the X & Z axis              -->
+    <!-- Unit: kg.m²                                                                      -->
+    <!-- ________________________________________________________________________________ -->
+    <Simple Name="V_WCG_Declared_Product_Inertia_X_Z_axis"
+      Uuid="D94901E1-869C-41b3-811B-1CCA41894027"
+      Protection="Free"
+      Type="Double"
+      Magnitude="INERTIAMOMENT"
+      CAAExposition="L1"
+     >
+      <CAAComment>
+        <ShortRole>Product of Inertia regarding X and Z axis</ShortRole>
+        <Role>Represents the declared product of inertia regarding the X and Z axis (in kg.m²)</Role>
+      </CAAComment>
+    </Simple>
+    <!-- ________________________________________________________________________________     -->
+    <!-- Information about the declared weight data on this component                         -->
+    <!-- value = 0 -> this reference is instanciated by a higher level reference, which       -->
+    <!--              has a declared weight                                                   -->
+    <!-- value = 1 -> A declared weight is actually put on the component; mass                -->
+    <!-- value = 2 -> A declared weight is actually put on the component; mass & CoG          -->
+    <!-- value = 3 -> A declared weight is actually put on the component; every values valid  -->
+    <!-- ________________________________________________________________________________     -->
+    <Simple Name="V_WCG_Declared_Information"
+      Uuid="BB374D66-D9F1-48ea-BF627D5900B7D1FC"
+      Protection="Internal"
+      Type="Integer"
+      >
+      <CAAComment>
+        <ShortRole>Information about the declared weight data on this component</ShortRole>
+        <Role>Information about the declared weight data on this component</Role>
+      </CAAComment>
+    </Simple>
+    <!-- ________________________________________________________________________________ -->
+    <!-- User comment                                                                     -->
+    <!-- ________________________________________________________________________________ -->
+    <Simple Name="V_WCG_Declared_Comment"
+      Uuid="34F5E703-903B-404d-8F606EE6DB82D01E"
+      Protection="Free"
+      CAAExposition="L0"
+      Type="String"
+      MaxLength="70"
+      >
+      <CAAComment>
+        <ShortRole>Comment that can be filled by the end-user</ShortRole>
+        <Role>Comment that can be filled by the end-user</Role>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_WCG_Declared_Confidence"
+      Uuid="B1102EF9-FC0E-42A2-88A4199E0A111FF6"
+      Protection="Internal"
+      Type="Double"
+      >
+      <CAAComment>
+        <ShortRole>Weight confidence</ShortRole>
+        <Role>Represents the confidence (%) associated to the weight value</Role>
+      </CAAComment>
+    </Simple>
+  </Extension>
+
+  <!-- ********************************************************************************************* -->
+  <!-- ********************************************************************************************* -->
+  <!-- ********************************************************************************************* -->
+  <Extension Name="CIEDerivedCostInformation" Uuid="E46A58E9-20AF-4F80-9A3C393E8894649E" ScopeNames="VPMReference" Abstract="No" Specializable="No" CustomerExposition="Programmer">
+    <Simple Name="V_CIE_ElectricalDerivedCost"
+      Uuid="9F2F95D0-4C4E-4F66-821959F5624713EA"
+      Protection="Internal"
+      Type="String">
+      <CAAComment>
+        <ShortRole>Internal Electrical cost derived data</ShortRole>
+        <Role>Internal Electrical cost derived data</Role>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_CIE_FluidicDerivedCost"
+      Uuid="10189ED1-AC1A-4DD4-95269A840402EC47"
+      Protection="Internal"
+      Type="String">
+      <CAAComment>
+        <ShortRole>Internal Fluidic cost derived data</ShortRole>
+        <Role>Internal Fluidic (HVAC, Piping, Tubing) cost derived data</Role>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_CIE_MechanicalDerivedCost"
+      Uuid="15FB2790-5113-4A26-ADD9973193BEBCEC"
+      Protection="Internal"
+      Type="String">
+      <CAAComment>
+        <ShortRole>Internal Mechanical cost derived data</ShortRole>
+        <Role>Internal Mechanical cost derived data</Role>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_CIE_CompositeDerivedCost"
+      Uuid="879A3EBA-5754-4F59-9EFB5B0E84224D72"
+      Protection="Internal"
+      Type="String">
+      <CAAComment>
+        <ShortRole>Internal Composite cost derived data</ShortRole>
+        <Role>Internal Composite cost derived data</Role>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_CIE_ToolingDerivedCost"
+      Uuid="C9070DD1-13B2-42BD-9C385434451F38FA"
+      Protection="Internal"
+      Type="String">
+      <CAAComment>
+        <ShortRole>Internal Tooling cost derived data</ShortRole>
+        <Role>Internal Tooling cost derived data</Role>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_CIE_SheetMetalDerivedCost"
+      Uuid="CDC22BBB-3C16-432C-8EAB76E10C3D62DA"
+      Protection="Internal"
+      Type="String">
+      <CAAComment>
+        <ShortRole>Internal Sheet metal cost derived data</ShortRole>
+        <Role>Internal Sheet metal cost derived data</Role>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_CIE_StructureDerivedCost"
+      Uuid="8E91D53E-6414-499D-98A966E1B205E178"
+      Protection="Internal"
+      Type="String">
+      <CAAComment>
+        <ShortRole>Internal Structure cost derived data</ShortRole>
+        <Role>Internal Structure cost derived data</Role>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_CIE_AccomodationDerivedCost"
+      Uuid="51E8937B-E99B-457C-942CB6213E0000A8"
+      Protection="Internal"
+      Type="String">
+      <CAAComment>
+        <ShortRole>Internal Accomodation cost derived data</ShortRole>
+        <Role>Internal Accomodation cost derived data</Role>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_CIE_AdditiveManufacturingDerivedCost"
+      Uuid="8F238DDE-F653-4FC3-9C1E746ED502C630"
+      Protection="Internal"
+      Type="String">
+      <CAAComment>
+        <ShortRole>Internal Additive manufacturing cost derived data</ShortRole>
+        <Role>Internal Additive manufacturing cost derived data</Role>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_CIE_CostComment"
+      Uuid="F124782F-9993-490C-94755EAA501645D4"
+      Protection="Internal"
+      Type="String"
+      MaxLength="70">
+      <CAAComment>
+        <ShortRole>Comment that can be filled by the end-user</ShortRole>
+        <Role>Comment that can be filled by the end-user</Role>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_CIE_CostConfidence"
+      Uuid="041902F7-D38F-4777-8E956FD953F3F417"
+      Protection="Internal"
+      Type="Double">
+      <CAAComment>
+        <ShortRole>Cost confidence</ShortRole>
+        <Role>Represents the confidence (%) associated to the cost value</Role>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_CIE_DerivedCostUpdateStamp"
+      Uuid="3BC8FB5F-BC3F-4775-ADC1B38EEB31E166"
+      Protection="Internal"
+      Type="Integer">
+      <CAAComment>
+        <ShortRole>Derived cost update stamp</ShortRole>
+        <Role>Derived cost update stamp</Role>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_CIE_ReferenceProductionSpecificities"
+      Uuid="AACA1BC8-6415-4A7D-B0C761D3B822068B"
+      Protection="Internal"
+      Type="String">
+      <CAAComment>
+        <ShortRole>Specificities related to the production of this component</ShortRole>
+        <Role>Specificities related to the production of this component</Role>
+      </CAAComment>
+    </Simple>
+  </Extension>
+
+  <!-- ********************************************************************************************* -->
+  <!-- ********************************************************************************************* -->
+  <!-- ********************************************************************************************* -->
+  <Extension Name="CIEInstanceDerivedCostInformation" Uuid="34C13402-B719-4069-B7E2425DE3D76EB2" ScopeNames="VPMInstance" Abstract="No" Specializable="No" CustomerExposition="Programmer">
+    <Simple Name="V_CIE_InstanceProductionSpecificities"
+      Uuid="4129832B-EC6E-4765-AD8D97689B3F5EFB"
+      Protection="Internal"
+      Type="String">
+      <CAAComment>
+        <ShortRole>Specificities related to the production of this instance of component</ShortRole>
+        <Role>Specificities related to the production of this instance of component</Role>
+      </CAAComment>
+    </Simple>
+  </Extension>
+
+</Package>

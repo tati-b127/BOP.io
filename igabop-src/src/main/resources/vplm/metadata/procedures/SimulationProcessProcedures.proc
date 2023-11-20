@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+<ProcedurePackage 
+	xmlns="PLMDictionaryProcedure"
+	Name="SimulationProcessProcedures">
+	
+	<Procedure Name="SimulationProcessExport">
+		<Implementation Name="SimulationProcessExport" FileLocation="SimulationProcessExport.KProc" Language="EKL"/>
+		<Signature href="CompletionSignature"/>
+	</Procedure>
+	
+	<Procedure Name="SimulationTemplateExport">
+		<Implementation Name="SimulationTemplateExport" FileLocation="SimulationTemplateExport.KProc" Language="EKL"/>
+		<Signature href="CompletionSignature"/>
+	</Procedure>
+	
+	<Signature id="CompletionSignature">
+		<Parameter Name="InputIds" Lower="0" Upper="-1" MultiValuated="Yes" Direction="in" DataType="PLMId"/>
+		<Parameter Name="OutputIds" Lower="0" Upper="-1" MultiValuated="Yes" Direction="out" DataType="PLMId"/>
+	</Signature>
+		
+</ProcedurePackage>

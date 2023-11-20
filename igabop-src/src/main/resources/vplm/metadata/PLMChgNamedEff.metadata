@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2005, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top"  Name="PLMChgNamedEff" Uuid="040d35ac-e36d-423d-a4c840574cd833f3" UseNames="PLMCORE" BelongsToModeler="PLMChgActionBase" CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+  <CAAComment>
+    <ShortRole>Change Management Named Effectivity Objects Package</ShortRole>
+    <Role>This package includes the Concrete entity for Change Management Named Effectivity Objects Connections</Role>
+  </CAAComment>
+  <Comment>last update 2005-11-09-15.51.00</Comment>
+  <!-- *************************************** -->
+  <!-- * PLMInput (PLMConnection)   		   * -->
+  <!-- *************************************** -->
+  <Class Name="PLMChgNamedEff" Uuid="6579c752-e091-45f0-a765bfad7f2ef74d"  Abstract="No" SuperName="PLMConnection" CustomerExposition="Programmer" OwnerTypes="PLMChgBase">
+    <CAAComment>
+      <ShortRole>Change Management Named Effectivity Object</ShortRole>
+      <Role>Concrete entity for Change Management Named Effectivity Object Connections - hold Configuration Named Effectivities associated to product modifications of the Action</Role>
+    </CAAComment>
+
+    <Path Name="DefaultNamedEff" Uuid="e71889d5-6ad2-472f-9f54-3f44e8191c52"  MultiValuated="No" RoleName="PLMChgNamedEff" Semantics="Reference" Type="SemanticRelation" AdaptativeToMinor="No"		SynchroSensitivity="None"		RerouteOnEffectivityChange="No"/>
+    <!-- OwnerTypes="PLMChgBase"  Integrate this line if you want to declare the aggregation constraint -->
+
+    <!-- *********************** -->
+    <!-- PROCEDURES Declaration  -->
+    <!-- *********************** -->
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    
+  </Class>
+
+  <!-- ********************** -->
+  <!-- FUNCTIONS Declarations -->
+  <!-- ********************** -->
+
+  <Function Name="PLMChgNamedEff_AddNEs">
+    <Implementation Name="PLMChgNamedEff_AddNEs" FileLocation="PLMChgNamedEff_AddNEs.plmql" Language="PLMQL"/>
+    <Signature href="PLMChgNamedEff_FunctionSignatureExport"/>
+  </Function>
+
+  <Signature id="PLMChgNamedEff_FunctionSignatureExport">
+    <Parameter Name="InputIds" Lower="0" Upper="-1" Direction="in" MultiValuated="Yes" DataType="PLMId"/>
+    <Parameter Name="OutputIds" Lower="0" Upper="-1" Direction="out" MultiValuated="No" DataType="PLMRouteSet"/>
+  </Signature>
+  
+</Package>

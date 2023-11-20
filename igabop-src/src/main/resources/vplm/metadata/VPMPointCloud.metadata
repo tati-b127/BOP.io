@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2017, All rights reserved -->
+<Package  Name="VPMPointCloud"
+          ModelerType="Top"
+          xmlns="PLMDictionaryUnified"
+          Uuid="58470f82-5ec1-4441-bfce-5fefc849efd7"
+          UseNames="PRODUCTCFG"
+          CustomerExposition="Programmer">
+  <Class
+        Name="VPMPointCloudRepReference"
+        Uuid="17da8f76-e72a-4f70-8c44-e4a97814c57e"
+        Abstract="No"
+        Discipline="Yes"
+        Abbreviation="delpc"
+        SuperName="VPMRepReference"
+        Specializable="No"
+        CustomerExtensible="No"
+        CustomerExposition="Programmer"
+        CreateInstName="VPMRepInstance"
+        InstantiationOwnerTypes="VPMReference">
+    <Property Name="Searchable" Value="No"/>
+    <Property Name="IconName" Value="I_PointRepIcon"/>
+    <Property Name="Newable" Value="No"/>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+</Package>
+
+

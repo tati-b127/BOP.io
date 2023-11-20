@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR Logical Application -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2012, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" BelongsToModeler="RFLVPMLogical" Name="RFLVPMLogicalInterfaceRep" 
+	Uuid="FAA28798-A208-4133-9A20-B0B882244C63" 
+	UseNames="LPABSTRACT"
+    CustomerExposition="Programmer"
+	>
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+		<ShortRole>VPM Logical Interface Representations Package</ShortRole>
+		<Role>This package describes the PLM Logical model for VPM Logical Interface Representations on top of LPAbstract Modeler</Role>
+	</CAAComment>
+	
+    <!-- *************************************************************** -->
+    <!-- * RFLVPMLogicalInterfaceRepReference (LPAbstractRepReference) * -->
+    <!-- *************************************************************** -->
+
+  <Class Name="RFLVPMLogicalInterfaceRepReference" Uuid="A7087299-C812-4A96-8BCA-3D0ECA3FF405"
+    CustomerExposition="Programmer"
+    CustomerExtensible="No"
+    Specializable="No"
+    Abstract="No"
+    SuperName="LPAbstractRepReference" 
+    CreateInstName="RFLVPMLogicalInterfaceRepInstance"
+	Abbreviation="logitfrep">
+		<CAAComment>
+			<ShortRole>PLM Logical Interface Representation Reference Object</ShortRole>
+			<Role>PLM Logical Interface Representation Reference Object</Role>
+		</CAAComment>
+
+    <!-- <Property Name="DMCDerivable" Value="Yes"/> -->
+    <Property Name="IconName" Value="I_PLMNonV5Rep"/>
+    <Property Name="3DIconName" Value="Default3DLogicalRep.cgr"/>
+    <Property Name="Searchable" Value="No"/>
+    <Property Name="InstantiationOwnerTypes" Value="RFLVPMSystemTypeReference;RFLVPMServicesReference"/>
+	<Property Name="ShareBetweenProjectsAvailability" Value="Yes"/> <!-- Collaborative Space Applicability -->
+
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+	  <ProcedureForUsage>
+	    <Usage href="ExportScope.meth#Remove"/>
+        <UsedProcedure href="ENOLog_Procedures.proc#Logical_ExportInterfaceRepRef_Remove"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#TransferSiteOwnership"/>
+        <UsedProcedure href="ENOLog_Procedures.proc#Logical_ExportInterfaceRepRef_TSO"/>
+      </ProcedureForUsage>
+    </Method>
+  </Class>
+
+	<!-- ************************************************************* -->
+	<!-- * RFLVPMLogicalInterfaceRepInstance (LPAbstractRepInstance) * -->
+	<!-- ************************************************************* -->
+	
+  <RelationClass Name="RFLVPMLogicalInterfaceRepInstance" Uuid="BDE28889-B706-4836-B69E-42CF8CC82DDD"
+    CustomerExposition="Programmer"
+    CustomerExtensible="No"
+    Specializable="No"
+    Abstract="No"
+    SuperName="LPAbstractRepInstance"
+		>
+
+    <!-- <Property Name="DMCDerivable" Value="Yes"/> -->
+    <Property Name="Searchable" Value="No"/>
+
+    <CAAComment>
+      <ShortRole>PLM Logical Interface Representation Instance Object</ShortRole>
+      <Role>PLM Logical Interface Representation Instance Object</Role>
+    </CAAComment>
+
+    <SubClause Name="to"   TargetName="RFLVPMLogicalInterfaceRepReference"/>
+
+
+    <Volatile Name="Reference" Uuid="4CEAEE4E-A8D3-496D-BB41-F68E6B47FEF0"
+      Accessor="PLMModelerReferenceKweAttribute"
+      TypeName="RFLVPMLogicalInterfaceRepReference"
+      AccessMode="ReadOnly"
+		>
+	  <Property Name="ServerAccessor" Value="com.dassault_systemes.vplm.modelerBaseNav.services.PLMInstance_Reference_Accessor"/>
+	</Volatile>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </RelationClass>
+  
+  <!-- **************************************************** -->
+  <!-- * Declaration of functions                           -->
+  <!-- **************************************************** -->
+  <Function Name="RFLVPMLogicalInterfaceRep_Expand">
+    <Implementation Name="RFLVPMLogicalInterfaceRep_Expand" FileLocation="RFLVPMLogicalInterfaceRep_Expand.plmql" Language="PLMQL"/>
+    <Signature href="ENOLogInterfaceRepSignature"/>
+  </Function>
+
+  <Signature id="ENOLogInterfaceRepSignature">
+    <Parameter Name="InputIds" Lower="0" Upper="-1" Direction="in" MultiValuated="Yes" DataType="PLMId"/>
+    <Parameter Name="OutputIds" Lower="0" Upper="-1" Direction="out" MultiValuated="No" DataType="PLMRouteSet"/>
+  </Signature>
+
+  <!-- ********************************************************* -->  
+  
+</Package>

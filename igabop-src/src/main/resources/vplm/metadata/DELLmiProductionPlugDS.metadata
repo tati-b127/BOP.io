@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2010, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" Name="DELLmiProductionPlugDS" Uuid="07AF64E3-42AD-485a-956B-C1657C9662EE" UseNames="DELLmiProductionPlug" >
+<Property Name="OptionalInstallation" Value="Yes" /> 
+	<CAAComment>
+		<ShortRole>Standard DELMIA Plug Package</ShortRole>
+		<Role>This package includes default customized DELMIA Plug</Role>
+	</CAAComment>
+	<Comment>last update 2010-06-15</Comment>
+
+	<Class Name="DELLmiProductionPlugReferenceCusto" Uuid="C0575642-33C3-4950-9620-B91A7EFFAC5E" SuperName="DELLmiProductionPlugReference" >
+
+    <IdentifierSet Name="Identifier"
+        Uuid="8AF69E90-EE1C-4a9c-B630-7CAF819C5F32"
+        IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755"
+        IdentifierNames="PLM_ExternalID V_version" />
+
+    <Property Name="Searchable" Value="No"/>
+
+    <CAAComment>
+			<ShortRole>Standard DELMIA Plug Reference</ShortRole>
+			<Role>Default customized DELMIA Plug Reference</Role>
+		</CAAComment>
+	</Class>
+	
+	<Class Name="DELLmiProductionPlugInstanceCusto" Uuid="DEAC006D-0BFE-4ece-9242-2021A3A1ABE6" SuperName="DELLmiProductionPlugInstance"  >
+		<CAAComment>
+			<ShortRole>Standard DELMIA Plug Instance</ShortRole>
+			<Role>Default customized DELMIA Plug Instance</Role>
+		</CAAComment>		
+     	</Class>
+</Package>

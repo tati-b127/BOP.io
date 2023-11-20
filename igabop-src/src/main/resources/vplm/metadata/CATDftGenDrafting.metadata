@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<Package
+    xmlns="PLMDictionaryUnified"
+    ModelerType="Top"
+    Name="CATDftGenDrafting"
+    Uuid="982fe1fa-cd2a-45be-9c96-1123a0f97f06"
+    UseNames="PRODUCTCFG"
+    CustomerExposition="Programmer"
+    >
+  <Extension
+      Name="CATDftGenDraftingExt"
+      Uuid="28a149d5-662e-4933-a391-09eb81b055fc"
+    ScopeNames="VPMRepReference"
+      CustomerExposition="Programmer"
+	     >
+    <CAAComment>
+      <ShortRole>Drawing representation extension</ShortRole>
+      <Role>The drawing representation extension provides with additional information</Role>
+    </CAAComment>
+
+    <Simple
+         Name="V_UpdateStatusComputationDate"
+         Uuid="cab93dab-46b6-47e5-9036-3c27688dc680"
+         Type="Date"
+         MultiValuated="No"
+         Protection="External"
+ CAAExposition="L1">
+      <CAAComment>
+        <ShortRole>The date when the drawing update status was computed</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_UpdateStatus" Uuid="97131d07-924d-4305-9708-a9f108024d0c" Type="Integer" Protection="External" CAAExposition="L1" DefaultValue="1">
+      <Property Name="SIXW" Value="ds6w:what"/>
+      <Property Name="RangeAsEnumName" Value="CATDftUpdateStatusEnum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="NA;UpToDate;NotUpToDate"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+      </Range>
+      <CAAComment>
+        <ShortRole>The result of the drawing update status computation</ShortRole>
+      </CAAComment>
+    </Simple>
+  </Extension>
+
+</Package>

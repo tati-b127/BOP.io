@@ -1,0 +1,717 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2007, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified"
+         ModelerType="Top"
+         Name="DELSerializedMBOMModel"
+         Uuid="72BB7EA3-D345-4763-8F4E-62436D19F34E"
+         BelongsToModeler="DELSerializedMBOMModel"
+         UseNames="DELFmiFunctionalModel"
+         CustomerExposition="Programmer">
+
+  <CAAComment>
+    <ShortRole>Serialized MBOM Model Package</ShortRole>
+    <Role>This package describes the Serialized MBOM Model</Role>
+  </CAAComment>
+
+
+  <!-- Abstract Serialized MBOM Ref -->
+  <Class Name="DELSerializedLotAbstract"
+		  Uuid="3ACF5D5C-678F-47dc-B76A-78DEE1BF43D7"
+		  Abstract="Yes"
+		  Discipline="Yes"
+		  SuperName="DELFmiFunctionReference"
+		  Specializable="No"
+		  CustomerExtensible="No"
+		  CustomerExposition="Programmer">
+    
+    <Property Name="ChangeMaturityAvailability" Value="Yes"/>
+    <Property Name="DeleteAvailability" Value="Yes"/>
+    <Property Name="LockUnlockAvailability" Value="Yes"/>
+    <Property Name="TransferOwnerShipAvailability" Value="Yes"/>
+    <Property Name="EditPropertiesAvailability" Value="Yes"/>
+ 
+    <Property Name="ChangeManagementSupport" Value="No"/>
+    <Property Name="ChangeManagementReferential"    Value="No"/>
+    <Property Name="ChangeManagementContext"    Value="No"/>
+    <Property Name="DupplicateAvailability"    Value="No"/>
+    <Property Name="SaveAsNewAvailability"    Value="No"/>
+    <Property Name="NewMinorRevisionAvailability"    Value="No"/>
+    <Property Name="NewMajorRevisionAvailability"    Value="No"/>
+    <Property Name="EvolutionAvailability"    Value="No"/>
+    <Property Name="IterationAvailability"    Value="No"/>
+    <Property Name="Configurable" Value="No"/>
+    <Property Name="ManageAccessAvailability" Value="No"/>
+    <Property Name="ShareBetweenProjectsAvailability" Value="No"/>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+  </Class>
+  
+  <Class Name="DELSerializedUnitAbstract"
+		  Uuid="E22CF4C2-BB02-421a-B065-AC71ECA16452"
+		  Abstract="Yes"
+		  Discipline="Yes"
+		  SuperName="DELFmiFunctionReference"
+		  Specializable="No"
+		  CustomerExtensible="No"
+		  CustomerExposition="Programmer">
+    
+    <Property Name="ChangeMaturityAvailability" Value="Yes"/>
+    <Property Name="DeleteAvailability" Value="Yes"/>
+    <Property Name="LockUnlockAvailability" Value="Yes"/>
+    <Property Name="TransferOwnerShipAvailability" Value="Yes"/>
+    <Property Name="EditPropertiesAvailability" Value="Yes"/>
+ 
+    <Property Name="ChangeManagementSupport" Value="No"/>
+    <Property Name="ChangeManagementReferential"    Value="No"/>
+    <Property Name="ChangeManagementContext"    Value="No"/>
+    <Property Name="DupplicateAvailability"    Value="No"/>
+    <Property Name="SaveAsNewAvailability"    Value="No"/>
+    <Property Name="NewMinorRevisionAvailability"    Value="No"/>
+    <Property Name="NewMajorRevisionAvailability"    Value="No"/>
+    <Property Name="EvolutionAvailability"    Value="No"/>
+    <Property Name="IterationAvailability"    Value="No"/>
+    <Property Name="Configurable" Value="No"/>
+    <Property Name="ManageAccessAvailability" Value="No"/>
+    <Property Name="ShareBetweenProjectsAvailability" Value="No"/>
+
+ 
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+  </Class>
+  
+  <Class Name="DELSerializedLotDiscreteAbstract"
+		  Uuid="58C5AFA4-59A6-4ff4-AC85-ED9897AE1564"
+		  Abstract="Yes"
+		  Discipline="Yes"
+		  SuperName="DELSerializedLotAbstract"
+		  Specializable="No"
+		  CustomerExtensible="No"
+		  CustomerExposition="Programmer">
+    
+ 
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+  
+    <Simple Name="V_DiscreteQuantity"
+         Uuid="808CBFA0-E57C-43bc-ADF4-0AA800902B32"
+         Type="Integer"
+         MultiValuated="No"
+         Protection="External"
+         CAAExposition="L0"
+         DefaultValue="2">    
+    </Simple>
+
+  
+  </Class>
+  
+  <Class Name="DELSerializedLotContinuousAbstract"
+		  Uuid="6D9DA23A-9C04-4a3f-AB8E-066974259E56"
+		  Abstract="Yes"
+		  Discipline="Yes"
+		  SuperName="DELSerializedLotAbstract"
+		  Specializable="No"
+		  CustomerExtensible="No"
+		  CustomerExposition="Programmer">
+    
+ 
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+  </Class>
+
+  <!-- Serialized Discrete Lot MBOM Ref -->
+  <Class Name="DELSerializedLotManufacturedPart"
+			   Uuid="0D05AFC8-59C9-47e9-ADBB-05BE3BE174A7"
+		     Abstract="No"
+			   Discipline="Yes"
+			   SuperName="DELSerializedLotDiscreteAbstract"
+		     Specializable="Yes"
+		     CustomerExtensible="Yes"
+		     CustomerExposition="Programmer"
+		     CreateInstName="DELFmiFunctionSerializedIdentifiedInstance"
+         Abbreviation="slmp"
+         InstantiationOwnerTypes="DELSerializedLotManufacturedKit;DELSerializedLotManufacturingAssembly;DELSerializedLotManufacturedMaterial;DELSerializedLotContinuousManufacturedMaterial;DELSerializedUnitManufacturedKit;DELSerializedUnitManufacturingAssembly;DELSerializedUnitInstall;DELSerializedUnitManufacturedMaterial">
+
+    <Property Name="XPGApplyDisciplineOnInstance" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELSerializedDiscreteDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELFmiFunctionSerializedIdentifiedInstance"/>
+    <Property Name="IconName" Value="I_InsertLotElementaryEndItemProcess"/>
+    <Property Name="3DIconName" Value="I_InsertLotElementaryEndItemProcess.cgr"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="OccurrenceType" Value="MfgProcessOccurrence"/>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+  
+      <Simple Name="V_NeedDedicatedSystem"
+         Uuid="B5F4B397-8A58-46cf-A5EE-F389ECBF3B7D"
+         Type="String"
+         MaxLength="50"
+         MultiValuated="No"
+         Protection="Free"
+         CAAExposition="L0"
+         DefaultValue="Yes">
+      <Range>
+        <Equal>No</Equal>
+        <Equal>Yes</Equal>
+      </Range>
+    </Simple>
+
+  </Class>
+
+  <Class Name="DELSerializedLotProvidedPart"
+			   Uuid="7521D2CE-4F46-4710-B091-D9387CA47A0A"
+		     Abstract="No"
+			   Discipline="Yes"
+			   SuperName="DELSerializedLotDiscreteAbstract"
+		     Specializable="Yes"
+		     CustomerExtensible="Yes"
+		     CustomerExposition="Programmer"
+		     CreateInstName="DELFmiFunctionSerializedIdentifiedInstance"
+         Abbreviation="slpp"
+         InstantiationOwnerTypes="DELSerializedLotManufacturedPart;DELSerializedLotManufacturedKit;DELSerializedLotManufacturingAssembly;DELSerializedLotManufacturedMaterial;DELSerializedLotContinuousManufacturedMaterial;DELSerializedUnitManufacturedPart;DELSerializedUnitManufacturedKit;DELSerializedUnitManufacturingAssembly;DELSerializedUnitInstall;DELSerializedUnitManufacturedMaterial">
+
+    <Property Name="XPGApplyDisciplineOnInstance" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELSerializedDiscreteDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELFmiFunctionSerializedIdentifiedInstance"/>
+    <Property Name="IconName" Value="I_InsertLotProvideProcess"/>
+    <Property Name="3DIconName" Value="I_InsertLotProvideProcess.cgr"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="OccurrenceType" Value="MfgProcessOccurrence"/>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+  </Class>
+
+   <Class Name="DELSerializedLotManufacturedKit"
+			   Uuid="51EE41E6-EC6A-424c-9F6C-0294AF4DCDAA"
+		     Abstract="No"
+			   Discipline="Yes"
+			   SuperName="DELSerializedLotDiscreteAbstract"
+		     Specializable="Yes"
+		     CustomerExtensible="Yes"
+		     CustomerExposition="Programmer"
+		     CreateInstName="DELFmiFunctionSerializedIdentifiedInstance"
+         Abbreviation="slmk"
+         InstantiationOwnerTypes="DELSerializedLotManufacturedPart;DELSerializedLotManufacturedKit;DELSerializedLotManufacturingAssembly;DELSerializedLotManufacturedMaterial;DELSerializedLotContinuousManufacturedMaterial;DELSerializedUnitManufacturedPart;DELSerializedUnitManufacturedKit;DELSerializedUnitManufacturingAssembly;DELSerializedUnitInstall;DELSerializedUnitManufacturedMaterial">
+
+    <Property Name="XPGApplyDisciplineOnInstance" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELSerializedDiscreteDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELFmiFunctionSerializedIdentifiedInstance"/>
+    <Property Name="IconName" Value="I_InsertLotCreateKitProcess"/>
+    <Property Name="3DIconName" Value="I_InsertLotCreateKitProcess.cgr"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="OccurrenceType" Value="MfgProcessOccurrence"/>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+  
+      <Simple Name="V_NeedDedicatedSystem"
+         Uuid="8833CAE6-5018-4d46-9669-9D592807B062"
+         Type="String"
+         MaxLength="50"
+         MultiValuated="No"
+         Protection="Free"
+         CAAExposition="L0"
+         DefaultValue="Yes">
+      <Range>
+        <Equal>No</Equal>
+        <Equal>Yes</Equal>
+      </Range>
+    </Simple>
+
+  </Class>
+
+   <Class Name="DELSerializedLotManufacturingAssembly"
+			   Uuid="FECCC21C-5DD1-4f31-90FA-50FE78767089"
+		     Abstract="No"
+			   Discipline="Yes"
+			   SuperName="DELSerializedLotDiscreteAbstract"
+		     Specializable="Yes"
+		     CustomerExtensible="Yes"
+		     CustomerExposition="Programmer"
+		     CreateInstName="DELFmiFunctionSerializedIdentifiedInstance"
+         Abbreviation="slma"
+         InstantiationOwnerTypes="DELSerializedLotManufacturedKit;DELSerializedLotManufacturingAssembly;DELSerializedLotManufacturedMaterial;DELSerializedLotContinuousManufacturedMaterial;DELSerializedUnitManufacturedKit;DELSerializedUnitManufacturingAssembly;DELSerializedUnitInstall;DELSerializedUnitManufacturedMaterial">
+
+    <Property Name="XPGApplyDisciplineOnInstance" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELSerializedDiscreteDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELFmiFunctionSerializedIdentifiedInstance"/>
+    <Property Name="IconName" Value="I_InsertLotCreateAssemblyProcess"/>
+    <Property Name="3DIconName" Value="I_InsertLotCreateAssemblyProcess.cgr"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="OccurrenceType" Value="MfgProcessOccurrence"/>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+  
+      <Simple Name="V_NeedDedicatedSystem"
+         Uuid="65E0CB79-849C-4a44-AD21-BE2E95C5BE0D"
+         Type="String"
+         MaxLength="50"
+         MultiValuated="No"
+         Protection="Free"
+         CAAExposition="L0"
+         DefaultValue="Yes">
+      <Range>
+        <Equal>No</Equal>
+        <Equal>Yes</Equal>
+      </Range>
+    </Simple>
+
+  </Class>
+
+   <Class Name="DELSerializedLotManufacturedMaterial"
+			   Uuid="A8EB2477-B9B4-457a-818F-23ED910F0EA0"
+		     Abstract="No"
+			   Discipline="Yes"
+			   SuperName="DELSerializedLotDiscreteAbstract"
+		     Specializable="Yes"
+		     CustomerExtensible="Yes"
+		     CustomerExposition="Programmer"
+		     CreateInstName="DELFmiFunctionSerializedIdentifiedInstance"
+         Abbreviation="slmm"
+         InstantiationOwnerTypes="DELSerializedLotManufacturedKit;DELSerializedLotManufacturingAssembly;DELSerializedLotManufacturedMaterial;DELSerializedLotContinuousManufacturedMaterial;DELSerializedUnitManufacturedKit;DELSerializedUnitManufacturingAssembly;DELSerializedUnitInstall;DELSerializedUnitManufacturedMaterial">
+
+    <Property Name="XPGApplyDisciplineOnInstance" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELSerializedDiscreteDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELFmiFunctionSerializedIdentifiedInstance"/>
+    <Property Name="IconName" Value="I_InsertLotCreateMaterialProcess"/>
+    <Property Name="3DIconName" Value="I_InsertLotCreateMaterialProcess.cgr"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="OccurrenceType" Value="MfgProcessOccurrence"/>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+  
+      <Simple Name="V_NeedDedicatedSystem"
+         Uuid="00736BB7-11FF-4764-8A47-614343E85BC1"
+         Type="String"
+         MaxLength="50"
+         MultiValuated="No"
+         Protection="Free"
+         CAAExposition="L0"
+         DefaultValue="Yes">
+      <Range>
+        <Equal>No</Equal>
+        <Equal>Yes</Equal>
+      </Range>
+    </Simple>
+
+  </Class>
+
+  <!-- Serialized Continuous Lot MBOM Ref -->
+   <Class Name="DELSerializedLotContinuousManufacturedMaterial"
+			   Uuid="D91A3BF0-473D-43ae-9D7E-0745F5E52A1C"
+		     Abstract="No"
+			   Discipline="Yes"
+			   SuperName="DELSerializedLotContinuousAbstract"
+		     Specializable="Yes"
+		     CustomerExtensible="Yes"
+		     CustomerExposition="Programmer"
+		     CreateInstName="SerializedProcessInstanceContinuous"
+         Abbreviation="slcmm"
+         InstantiationOwnerTypes="DELSerializedLotManufacturedKit;DELSerializedLotManufacturingAssembly;DELSerializedLotManufacturedMaterial;DELSerializedLotContinuousManufacturedMaterial;DELSerializedUnitManufacturedKit;DELSerializedUnitManufacturingAssembly;DELSerializedUnitInstall;DELSerializedUnitManufacturedMaterial">
+
+    <Property Name="XPGApplyDisciplineOnInstance" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELSerializedContinuousDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="SerializedProcessInstanceContinuous"/>
+    <Property Name="IconName" Value="I_InsertLotCreateMaterialProcessContinuous"/>
+    <Property Name="3DIconName" Value="I_InsertLotCreateMaterialProcessContinuous.cgr"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="OccurrenceType" Value="MfgProcessOccurrence"/>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+  
+      <Simple Name="V_NeedDedicatedSystem"
+         Uuid="AE21BDE1-8C42-4d89-810E-6205F8253335"
+         Type="String"
+         MaxLength="50"
+         MultiValuated="No"
+         Protection="Free"
+         CAAExposition="L0"
+         DefaultValue="Yes">
+      <Range>
+        <Equal>No</Equal>
+        <Equal>Yes</Equal>
+      </Range>
+    </Simple>
+
+  </Class>
+
+   <Class Name="DELSerializedLotContinuousProvidedPart"
+			   Uuid="09C59F06-2FD7-4a10-BACA-FE8AB0BDF32C"
+		     Abstract="No"
+			   Discipline="Yes"
+			   SuperName="DELSerializedLotContinuousAbstract"
+		     Specializable="Yes"
+		     CustomerExtensible="Yes"
+		     CustomerExposition="Programmer"
+		     CreateInstName="SerializedProcessInstanceContinuous"
+         Abbreviation="slcpp"
+         InstantiationOwnerTypes="DELSerializedLotManufacturedPart;DELSerializedLotManufacturedKit;DELSerializedLotManufacturingAssembly;DELSerializedLotManufacturedMaterial;DELSerializedLotContinuousManufacturedMaterial;DELSerializedUnitManufacturedPart;DELSerializedUnitManufacturedKit;DELSerializedUnitManufacturingAssembly;DELSerializedUnitInstall;DELSerializedUnitManufacturedMaterial">
+
+    <Property Name="XPGApplyDisciplineOnInstance" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELSerializedContinuousDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="SerializedProcessInstanceContinuous"/>
+    <Property Name="IconName" Value="I_InsertLotCreateMaterialProcessContinuous"/>
+    <Property Name="3DIconName" Value="I_InsertLotCreateMaterialProcessContinuous.cgr"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="OccurrenceType" Value="MfgProcessOccurrence"/>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+
+  </Class>
+
+  <!-- Serialized Discrete Unit MBOM Ref -->
+  <Class Name="DELSerializedUnitManufacturedPart"
+			   Uuid="F47F0BD2-B33B-44ae-B519-9013FCC2CC09"
+		     Abstract="No"
+			   Discipline="Yes"
+			   SuperName="DELSerializedUnitAbstract"
+		     Specializable="Yes"
+		     CustomerExtensible="Yes"
+		     CustomerExposition="Programmer"
+		     CreateInstName="DELFmiFunctionSerializedIdentifiedInstance"
+         Abbreviation="sump"
+         InstantiationOwnerTypes="DELSerializedUnitManufacturedKit;DELSerializedUnitManufacturingAssembly;DELSerializedUnitInstall;DELSerializedUnitManufacturedMaterial">
+
+    <Property Name="XPGApplyDisciplineOnInstance" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELSerializedDiscreteDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELFmiFunctionSerializedIdentifiedInstance"/>
+    <Property Name="IconName" Value="I_InsertUnitElementaryEndItemProcess"/>
+    <Property Name="3DIconName" Value="I_InsertUnitElementaryEndItemProcess.cgr"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="OccurrenceType" Value="MfgProcessOccurrence"/>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+  
+      <Simple Name="V_NeedDedicatedSystem"
+         Uuid="34239C31-FF6E-4b0c-8BA5-AE52011F1363"
+         Type="String"
+         MaxLength="50"
+         MultiValuated="No"
+         Protection="Free"
+         CAAExposition="L0"
+         DefaultValue="Yes">
+      <Range>
+        <Equal>No</Equal>
+        <Equal>Yes</Equal>
+      </Range>
+    </Simple>
+
+  </Class>
+
+  <Class Name="DELSerializedUnitProvidedPart"
+			   Uuid="E268B496-6852-4619-837A-EC07798FB896"
+		     Abstract="No"
+			   Discipline="Yes"
+			   SuperName="DELSerializedUnitAbstract"
+		     Specializable="Yes"
+		     CustomerExtensible="Yes"
+		     CustomerExposition="Programmer"
+		     CreateInstName="DELFmiFunctionSerializedIdentifiedInstance"
+         Abbreviation="supp"
+         InstantiationOwnerTypes="DELSerializedUnitManufacturedPart;DELSerializedUnitManufacturedKit;DELSerializedUnitManufacturingAssembly;DELSerializedUnitInstall;DELSerializedUnitManufacturedMaterial">
+
+    <Property Name="XPGApplyDisciplineOnInstance" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELSerializedDiscreteDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELFmiFunctionSerializedIdentifiedInstance"/>
+    <Property Name="IconName" Value="I_InsertUnitProvideProcess"/>
+    <Property Name="3DIconName" Value="I_InsertUnitProvideProcess.cgr"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="OccurrenceType" Value="MfgProcessOccurrence"/>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+  
+  </Class>
+
+  <Class Name="DELSerializedUnitManufacturedKit"
+			   Uuid="8C184F5A-D60E-4425-BF9B-3DF4AE502975"
+		     Abstract="No"
+			   Discipline="Yes"
+			   SuperName="DELSerializedUnitAbstract"
+		     Specializable="Yes"
+		     CustomerExtensible="Yes"
+		     CustomerExposition="Programmer"
+		     CreateInstName="DELFmiFunctionSerializedIdentifiedInstance"
+         Abbreviation="sumk"
+         InstantiationOwnerTypes="DELSerializedUnitManufacturedPart;DELSerializedUnitManufacturedKit;DELSerializedUnitManufacturingAssembly;DELSerializedUnitInstall;DELSerializedUnitManufacturedMaterial">
+
+    <Property Name="XPGApplyDisciplineOnInstance" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELSerializedDiscreteDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELFmiFunctionSerializedIdentifiedInstance"/>
+    <Property Name="IconName" Value="I_InsertUnitCreateKitProcess"/>
+    <Property Name="3DIconName" Value="I_InsertUnitCreateKitProcess.cgr"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="OccurrenceType" Value="MfgProcessOccurrence"/>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+  
+      <Simple Name="V_NeedDedicatedSystem"
+         Uuid="0E66381D-8801-432f-93EE-88A06E67448A"
+         Type="String"
+         MaxLength="50"
+         MultiValuated="No"
+         Protection="Free"
+         CAAExposition="L0"
+         DefaultValue="Yes">
+      <Range>
+        <Equal>No</Equal>
+        <Equal>Yes</Equal>
+      </Range>
+    </Simple>
+
+  </Class>
+
+  <Class Name="DELSerializedUnitManufacturingAssembly"
+			   Uuid="01821EE5-4C3E-42d4-8670-3E8ECB6DE1D4"
+		     Abstract="No"
+			   Discipline="Yes"
+			   SuperName="DELSerializedUnitAbstract"
+		     Specializable="Yes"
+		     CustomerExtensible="Yes"
+		     CustomerExposition="Programmer"
+		     CreateInstName="DELFmiFunctionSerializedIdentifiedInstance"
+         Abbreviation="suma"
+         InstantiationOwnerTypes="DELSerializedUnitManufacturedKit;DELSerializedUnitManufacturingAssembly;DELSerializedUnitInstall;DELSerializedUnitManufacturedMaterial">
+
+    <Property Name="XPGApplyDisciplineOnInstance" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELSerializedDiscreteDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELFmiFunctionSerializedIdentifiedInstance"/>
+    <Property Name="IconName" Value="I_InsertUnitCreateAssemblyProcess"/>
+    <Property Name="3DIconName" Value="I_InsertUnitCreateAssemblyProcess.cgr"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="OccurrenceType" Value="MfgProcessOccurrence"/>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+  
+      <Simple Name="V_NeedDedicatedSystem"
+         Uuid="A4C961AD-CC6A-419e-A17A-26CD9D863DE4"
+         Type="String"
+         MaxLength="50"
+         MultiValuated="No"
+         Protection="Free"
+         CAAExposition="L0"
+         DefaultValue="Yes">
+      <Range>
+        <Equal>No</Equal>
+        <Equal>Yes</Equal>
+      </Range>
+    </Simple>
+
+  </Class>
+
+  <Class Name="DELSerializedUnitInstall"
+			   Uuid="2D8551A5-7513-40cd-AD7E-B5B6BEC13E28"
+		     Abstract="No"
+			   Discipline="Yes"
+			   SuperName="DELSerializedUnitAbstract"
+		     Specializable="Yes"
+		     CustomerExtensible="Yes"
+		     CustomerExposition="Programmer"
+		     CreateInstName="DELFmiFunctionSerializedIdentifiedInstance"
+         Abbreviation="sui"
+         InstantiationOwnerTypes="DELSerializedUnitManufacturedPart;DELSerializedUnitManufacturingAssembly;DELSerializedUnitInstall;DELSerializedUnitManufacturedMaterial">
+
+    <Property Name="XPGApplyDisciplineOnInstance" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELSerializedDiscreteDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELFmiFunctionSerializedIdentifiedInstance"/>
+    <Property Name="IconName" Value="I_InsertUnitInstallProcess"/>
+    <Property Name="3DIconName" Value="I_InsertUnitInstallProcess.cgr"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="OccurrenceType" Value="MfgProcessOccurrence"/>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+    
+    <Simple Name="V_NeedDedicatedSystem"
+       Uuid="E3C354FA-77E9-4865-8999-D909F167FC81"
+       Type="String"
+       MaxLength="50"
+       MultiValuated="No"
+       Protection="Free"
+       CAAExposition="L0"
+       DefaultValue="Yes">
+      <Range>
+        <Equal>No</Equal>
+        <Equal>Yes</Equal>
+      </Range>
+    </Simple>
+
+  </Class>
+
+
+  <Class Name="DELSerializedUnitManufacturedMaterial"
+			   Uuid="8E463592-F98D-492c-824D-ED0F21B1C04F"
+		     Abstract="No"
+			   Discipline="Yes"
+			   SuperName="DELSerializedUnitAbstract"
+		     Specializable="Yes"
+		     CustomerExtensible="Yes"
+		     CustomerExposition="Programmer"
+		     CreateInstName="DELFmiFunctionSerializedIdentifiedInstance"
+         Abbreviation="summ"
+         InstantiationOwnerTypes="DELSerializedUnitManufacturedKit;DELSerializedUnitManufacturingAssembly;DELSerializedUnitInstall;DELSerializedUnitManufacturedMaterial">
+
+    <Property Name="XPGApplyDisciplineOnInstance" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELSerializedDiscreteDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELFmiFunctionSerializedIdentifiedInstance"/>
+    <Property Name="IconName" Value="I_InsertUnitCreateMaterialProcess"/>
+    <Property Name="3DIconName" Value="I_InsertUnitCreateMaterialProcess.cgr"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="OccurrenceType" Value="MfgProcessOccurrence"/>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+  
+      <Simple Name="V_NeedDedicatedSystem"
+         Uuid="E12C8B15-5B22-4ffd-A6B7-1B53D761B8C0"
+         Type="String"
+         MaxLength="50"
+         MultiValuated="No"
+         Protection="Free"
+         CAAExposition="L0"
+         DefaultValue="Yes">
+      <Range>
+        <Equal>No</Equal>
+        <Equal>Yes</Equal>
+      </Range>
+    </Simple>
+
+  </Class>
+
+  <!-- Serialized Abstract Serialized MBOM Inst -->
+  <RelationClass Name="DELSerializedInstanceAbstract"
+              Uuid="54A9E949-DEBE-4a6c-8868-DEE4AA6EC1AF"
+              Abstract="Yes"
+              CustomerExposition="Programmer"
+              CustomerExtensible="Yes"
+              Discipline="Yes"
+              SuperName="DELFmiFunctionInstance"
+              Specializable="No">
+    
+    <Property Name="DeleteAvailability" Value="Yes"/>
+    <Property Name="LockUnlockAvailability" Value="Yes"/>
+    <Property Name="TransferOwnerShipAvailability" Value="Yes"/>
+    <Property Name="EditPropertiesAvailability" Value="Yes"/>
+    <Property Name="ShareBetweenProjectsAvailability" Value="Yes"/>
+ 
+    <Property Name="ChangeMaturityAvailability" Value="No"/>
+    <Property Name="DupplicateAvailability"    Value="No"/>
+    <Property Name="SaveAsNewAvailability"    Value="No"/>
+    <Property Name="NewMinorRevisionAvailability"    Value="No"/>
+    <Property Name="NewMajorRevisionAvailability"    Value="No"/>
+    <Property Name="EvolutionAvailability"    Value="No"/>
+    <Property Name="IterationAvailability"    Value="No"/>
+    <Property Name="ManageAccessAvailability" Value="No"/>
+    <Property Name="Filterable" Value="No"/>
+
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+  </RelationClass>
+
+  <!-- Serialized Serialized Discrete MBOM Inst -->
+  <RelationClass Name="DELFmiFunctionSerializedIdentifiedInstance"
+              Uuid="387742F4-9D41-4401-9FA9-8F8CC3972F97"
+              Abstract="No"
+              CustomerExposition="Programmer"
+              CustomerExtensible="Yes"
+              Discipline="Yes"
+              SuperName="DELSerializedInstanceAbstract"
+              Specializable="No">
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+  </RelationClass>
+
+ <RelationClass Name="SerializedProcessInstanceContinuous"
+              Uuid="75E15AC3-9EA2-47ca-A839-E8F696226158"
+              Abstract="No"
+              CustomerExposition="Programmer"
+              CustomerExtensible="Yes"
+              Discipline="Yes"
+              SuperName="DELSerializedInstanceAbstract"
+              Specializable="No">
+
+    <Simple Name="V_UsageMode"
+        Uuid="6FDD779E-3043-4fe9-8A05-90142BEA3D74"
+        Type="String"
+        MultiValuated="No"
+        Protection="External"
+        CAAExposition="L0"
+        DefaultValue="Percentage"
+            >
+      <Range>
+        <Equal>Percentage</Equal>
+        <Equal>Quantity</Equal>
+      </Range>
+    </Simple>
+    <Simple Name="V_Percentage"
+        Uuid="727ED128-3D96-4870-9DE3-992F469A53C4"
+        Type="Double"
+        MultiValuated="No"
+        Protection="External"
+        CAAExposition="L0"
+            >
+    </Simple>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+  </RelationClass>
+
+</Package>

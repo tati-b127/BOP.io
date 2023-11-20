@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" 
+         Name="DELLmiProductionImplCnx"
+         Uuid="e28703d3-1442-41a3-91b9d66e6c4b580e"
+         UseNames="PLMCORE"
+         CustomerExposition="None">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+      <ShortRole>DELMIA Production System Model</ShortRole>
+      <Role>This package describes Production System Implement Link Connection</Role>
+    </CAAComment>
+
+    <Class Name="DELLmiImplCnx"
+           Uuid="1010c990-986a-43e7-8bb7b5d80515965b"
+           Abstract="No"
+           SuperName="PLMConnection"
+           CAAExposition="L0"
+           CustomerExposition="None"
+           Specializable="No"
+           CustomerExtensible="No"
+         OwnerTypes="DELLmiProductionSystemReference"
+        >
+      <!-- OwnerTypes="DELLmiProductionSystemReference"  Integrate this line if you want to declare the aggregation constraint-->
+
+      <CAAComment>
+        <ShortRole>Defines Production System Implement Link Connection</ShortRole>
+        <Role>Defines Production System Implement Link Connection</Role>
+      </CAAComment>
+
+      <Path Name="DELLinkToFunctionalObject"
+          Uuid="3aa7eb03-9987-47eb-952ea839ece25861"
+          MultiValuated="No"
+          RoleName="PLM_ImplementLink_Target"
+          Type="SemanticRelation" AdaptativeToMinor="No"
+		      SynchroSensitivity="PathAndLast"
+		      RerouteOnEffectivityChange="No" Orientation="In"
+          Semantics="Reference3"/>
+
+      <Path Name="DELLinkFromLogicalObject"
+          Uuid="70151d78-26a4-4cbb-bbb56a40c048d040"
+          MultiValuated="No"
+          RoleName="PLM_ImplementLink_Source"		
+          Type="SemanticRelation" AdaptativeToMinor="No"
+		      SynchroSensitivity="Last"
+		      RerouteOnEffectivityChange="Yes" Orientation="Out"
+          Semantics="Reference5"/>
+
+      <Method ImplementationType="None">
+        <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      </Method>
+
+    </Class>
+</Package>

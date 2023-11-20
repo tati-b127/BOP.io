@@ -1,0 +1,13 @@
+EXPAND
+T0.PLMID, T1.PLMID ,T2.PLMID ,T3.PLMID ,T4.PLMID ,T5.PLMID ,T6.PLMID ,T7.PLMID
+FROM
+DELFmiFunctionalModelPrerequisiteCnx/DELFmiProcessPrerequisiteCnx T0,
+DELFmiFunctionalModelExpositionCnx/DELFmiProcessExpositionCnx T1,
+DELFmiFunctionalModelPrerequisitePort/DELFmiProcessPrerequisitePort T2,
+DELFmiFunctionalModelPrecedenceCnx/DELFmiProcessPrecedenceCnx T3,
+DELFmiFunctionalModelPrecedencePort/DELFmiProcessPrecedencePort T4,
+DELFmiFunctionalModelPrerequisiteCnx1/DELFmiProcessPrerequisiteCnxCust T5,
+DELFmiFunctionalModelExpositionCnx1/DELFmiProcessExpositionCnxCust T6,
+DELFmiFunctionalModelPrecedenceCnx1/DELFmiProcessPrecedenceCnxCust T7
+FROM_ROOTS [?1?]
+DEPTH=1;

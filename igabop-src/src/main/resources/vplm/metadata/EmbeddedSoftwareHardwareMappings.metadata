@@ -1,0 +1,114 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY for E/E Editor -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2012, all rights reserved -->
+
+<Package Name="EmbeddedSoftwareHardwareMappings"
+    Uuid="7E9AA4F3-2FF1-4d56-98FD-1510A6E98614"
+    xmlns="PLMDictionaryUnified"
+    ModelerType="Top"
+	CustomerExposition="Programmer"
+    BelongsToModeler="EmbeddedSoftwareHardwareMappings"
+	UseNames="RFLVPMLogical" >
+
+	<CAAComment>
+        <ShortRole>Embedded Software Hardware Mapping Package</ShortRole>
+        <Role>This package describes the PLM Embedded Software Hardware Mapping package on top of RFLVPMLogical Modeler. For E/E Workbench</Role>
+	</CAAComment>
+	<Comment>Initial creation: A58 Apr 2013</Comment>
+	<Property Name="OptionalInstallation" Value="Yes" />
+<!-- ************************** -->
+<!-- EESystemMapping : RFLVPMLogicalReference -->
+<!-- ************************** -->
+	<Class 
+		Name="EESystemMapping"
+		Uuid="33220F23-B9A1-4694-A273-BA9F449D8C03"
+		Abstract="No"
+		Specializable="Yes"
+		CustomerExposition="Programmer"
+		CustomerExtensible="Yes"
+		Discipline="Yes"
+		SuperName="RFLVPMLogicalReference"
+		CreateInstName="RFLVPMLogicalInstance"
+		Abbreviation="eesmp">
+		<Property Name="IconName" Value="EESystemMapping"/>
+		<Property Name="Newable" Value="All"/>
+		<Property Name="Searchable" Value="Yes"/>
+		<Property Name="Configurable" Value="Yes"/>
+		<Property Name="KweNew_InstanciationMethod" Value="CATELogDelegateInstanciation"/>
+	   	<Property Name="KweNew_ReturnedType" Value="RFLVPMLogicalInstance"/>
+		<Simple Name="category"
+			Uuid="48EDA83C-8741-42B1-AA05-7582851DE8B4" 
+			Protection="Free"
+			Type="Integer"
+			DefaultValue="1">
+			<Property Name="RangeAsEnumName" Value="SystemMappingEnum"/>
+			<Property Name="RangeAsEnumAuthorizedValues" Value="SystemMapping;System;Project"/>
+			<Range>
+				<Equal>1</Equal>
+				<Equal>2</Equal>
+				<Equal>3</Equal>
+			</Range>
+		</Simple>
+	</Class>
+<!-- ************************** -->
+<!-- EECharacterization : EESystemMapping -->
+<!-- ************************** -->
+	<Class 
+		Name="EECharacterization"
+		Uuid="0ABC3D5F-D0B4-40b0-9348-ED497B1AA9DD"
+		Abstract="No"
+		Specializable="Yes"
+		CustomerExposition="Programmer"
+		CustomerExtensible="Yes"
+		Discipline="Yes"
+		SuperName="EESystemMapping"
+		InstantiationOwnerTypes="EECharacterization"
+		CreateInstName="RFLVPMLogicalInstance"
+		Abbreviation="eecha">
+		<Property Name="IconName" Value="EECharacterization"/>
+		<Property Name="Newable" Value="All"/>
+		<Property Name="Searchable" Value="Yes"/>
+		<Property Name="Configurable" Value="Yes"/>
+		<Property Name="KweNew_InstanciationMethod" Value="CATELogDelegateInstanciation"/>
+	   	<Property Name="KweNew_ReturnedType" Value="RFLVPMLogicalInstance"/>
+	</Class>
+<!-- **************************************************** -->
+<!-- *  EESystemMappingRep :  RFLVPMLogicalRepReference  * -->
+<!-- **************************************************** -->
+	<Class Name="EESystemMappingRep" 
+		Uuid="4B049E44-CF0F-4314-9496-B3ECECA7ED4D" 
+		SuperName="RFLVPMLogicalRepReference" 
+		Specializable="Yes"
+		CreateInstName="RFLVPMLogicalRepInstance"
+		CustomerExposition="Programmer"
+		InstantiationOwnerTypes="EESystemMapping"
+		Discipline="Yes"
+		Abbreviation="eesmr">
+		<CAAComment>
+			<ShortRole>SystemMapping Rep Reference Object</ShortRole>
+			<Role>SystemMapping Rep Reference Object</Role>
+		</CAAComment>
+		<Property Name="KweNew_InstanciationMethod" Value="CATELogDelegateInstanciation"/>
+	   	<Property Name="KweNew_ReturnedType" Value="RFLVPMLogicalRepInstance"/>
+	</Class>
+<!-- **************************************************** -->
+<!-- *  EECharacterizationRep :  EESystemMappingRep  * -->
+<!-- **************************************************** -->
+	<Class Name="EECharacterizationRep" 
+		Uuid="FB6A5A38-8F36-4f14-9101-EFE58AC78E8A" 
+		SuperName="EESystemMappingRep" 
+		Specializable="Yes"
+		CreateInstName="RFLVPMLogicalRepInstance"
+		CustomerExposition="Programmer"
+		InstantiationOwnerTypes="EECharacterization"
+		Discipline="Yes"
+		Abbreviation="eecre">
+		<CAAComment>
+			<ShortRole>SystemMapping Rep Reference Object</ShortRole>
+			<Role>SystemMapping Rep Reference Object</Role>
+		</CAAComment>
+		<Property Name="KweNew_InstanciationMethod" Value="CATELogDelegateInstanciation"/>
+	   	<Property Name="KweNew_ReturnedType" Value="RFLVPMLogicalRepInstance"/>
+	</Class>
+</Package>

@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2007, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" BelongsToModeler="PLMKnowHowRule" CustomerExposition="Programmer"  Name="PLMKnowHowGenericRuleBaseComponent" Uuid="9ED18B66-60E5-47c9-B0D0FA6C0DF921CD" UseNames="PLMCORE" >
+	<CAAComment>
+		<ShortRole>KnowHow GenericRuleBaseComponent Package</ShortRole>
+		<Role>This package includes the GenericRuleBaseComponent entities of KnowHow Rule Model</Role>
+	</CAAComment>
+	<Comment>last update 2007-03-23</Comment>
+	<!-- ************************************************** -->
+	<!-- * PLMGenericRuleBaseComponent (PLMCoreReference) * -->
+	<!-- ************************************************** -->
+	<Class Name="PLMGenericRuleBaseComponent" CustomerExposition="Programmer" Uuid="05150A61-F454-4976-B575A201657AC9AF" Abstract="Yes" SuperName="PLMCoreReference" >
+    <Property Name="Searchable"      Value="Yes"/>
+    <CAAComment>
+			<ShortRole>PLM GenericRuleBaseComponent</ShortRole>
+			<Role>PLM GenericRuleBaseComponent</Role>
+    </CAAComment>
+    <!-- ********************************************************* -->
+    <!-- * Elementary PLMGenericRuleBaseComponent attributes     * -->
+    <!-- ********************************************************* -->
+    <Simple Name="V_IsUseOnly" Uuid="14A4D030-54E3-45f0-AE777A82469CA3C7" Type="Boolean" Protection="External" CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>An attribute used to specify if the component to be use-only</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_IsActivate" Uuid="4B0D5411-ADDA-424c-96EFE5FD2FA97A60" Type="Boolean" Protection="External" CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>The activity of the component</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+	<!-- ********************************************************* -->
+	<!-- * PLMGenericRuleBaseComponentInstance (PLMCoreInstance) * -->
+	<!-- ********************************************************* -->
+  <RelationClass Name="PLMGenericRuleBaseComponentInstance" CustomerExposition="Programmer" Uuid="D53507F6-8F1D-49a5-A059217C3C696733"  Abstract="Yes" SuperName="PLMCoreInstance" >
+		<CAAComment>
+			<ShortRole>PLM GenericRuleBaseComponent instance</ShortRole>
+			<Role>PLM GenericRuleBaseComponent instance</Role>
+		</CAAComment>
+    <SubClause Name="from"   TargetName="PLMGenericRuleBaseComponent"/>
+    <SubClause Name="to"   TargetName="PLMGenericRuleBaseComponent"/>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </RelationClass>
+</Package>

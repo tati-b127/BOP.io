@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY FOR SLM Application -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2009, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" Name="SLMSimulationAbstract" 
+    Uuid="8DE1C388-9D43-4b58-A626-6D60827B14BB"
+    UseNames="PLMCORE"  CustomerExposition="Programmer"
+    >
+    <CAAComment>
+        <ShortRole>Simulation Base</ShortRole>
+        <Role>Simulation Base</Role>
+    </CAAComment>
+	
+	<!-- *************
+	*	SLMProcess   *
+	****************** -->
+    <Class Name="SLMSimulationAbstract"
+        Uuid="7928A869-DFC9-40b2-8C61-DD1F3A2E9336"
+        SuperName="PLMCoreReference" 
+		Abstract="Yes"
+           CustomerExposition="Programmer"
+		>
+		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>  
+    </Class>
+	
+	<RelationClass Name="SLMSimulationAbstractInstance"
+        Uuid="A8BC9D16-DA16-4b13-F6B0-3CC54F4B4137"
+        SuperName="PLMCoreInstance" 
+		Abstract="Yes"
+           CustomerExposition="Programmer"
+		>
+		
+		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>  
+    </RelationClass>
+	
+</Package>

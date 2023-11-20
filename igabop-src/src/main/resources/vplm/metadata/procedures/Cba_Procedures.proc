@@ -1,0 +1,31 @@
+<?xml version="1.0" ?>
+<ProcedurePackage 
+	xmlns="PLMDictionaryProcedure"
+	Name="Cba_Procedures">
+			
+	<Procedure Name="ObjectTypeReferenceExport">
+		<Implementation Name="ObjectTypeReferenceExport" FileLocation="ObjectTypeReferenceExport.KProc" Language="EKL"/>
+		<Signature href="ObjectTypeReferenceExport_Sig"/>
+	</Procedure>
+
+  <Procedure Name="ObjectTypeReferenceExport_Remove">
+    <Implementation Name="ObjectTypeReferenceExport_Remove" FileLocation="ObjectTypeReferenceExport_Remove.KProc" Language="EKL"/>
+    <Signature href="ObjectTypeReferenceExport_Sig"/>
+  </Procedure>
+
+  <Procedure Name="ObjectTypeRepReferenceExport">
+    <Implementation Name="ObjectTypeRepReferenceExport" FileLocation="ObjectTypeRepReferenceExport.KProc" Language="EKL"/>
+    <Signature href="ObjectTypeReferenceExport_Sig"/>
+  </Procedure>
+
+  <Procedure Name="ObjectTypeRepReferenceExport_Remove">
+    <Implementation Name="ObjectTypeRepReferenceExport_Remove" FileLocation="ObjectTypeRepReferenceExport_Remove.KProc" Language="EKL"/>
+    <Signature href="ObjectTypeReferenceExport_Sig"/>
+  </Procedure>
+
+	<Signature id="ObjectTypeReferenceExport_Sig">
+		<Parameter Name="InputIds" Lower="0" Upper="-1" MultiValuated="Yes" Direction="in" DataType="PLMId"/>
+		<Parameter Name="OutputIds" Lower="0" Upper="-1" MultiValuated="Yes" Direction="out" DataType="PLMId"/>
+	</Signature>
+	
+</ProcedurePackage>

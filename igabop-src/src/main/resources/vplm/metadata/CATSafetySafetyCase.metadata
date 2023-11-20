@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2015, All rights reserved -->
+<Package
+	xmlns="PLMDictionaryUnified"
+	Name="CATSafetySafetyCase"
+	Uuid="50d54dc2-6d4b-458d-8ed6-31a705bb2361"
+	UseNames="PLMCORE"
+	BelongsToModeler="CATSafety"
+	CustomerExposition="Programmer"
+	ModelerType="Top"
+	Architecture="Web">
+	<Class
+		Name="SafetyCase"
+		Uuid="df5870e3-206a-4364-b32a-bf466515df0a"
+		CustomerExposition="Programmer"
+		SuperName="PLMCoreReference"
+		IconName="SafetyCase">
+		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope" />
+		</Method>
+	</Class>
+	<Class
+		Name="SafetyAssessment"
+		Uuid="f28f28b0-6f32-40f1-b452-344006cc6d9c"
+		CustomerExposition="Programmer"
+		SuperName="PLMCoreReference"
+		IconName="SafetyAssessment">
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Design"/>
+        <UsedProcedure href="CATSafety_Procedures.proc#SafetyAssessment_ExportDesign"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Review"/>
+        <UsedProcedure href="CATSafety_Procedures.proc#SafetyAssessment_ExportReview"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Channel"/>
+        <UsedProcedure href="CATSafety_Procedures.proc#SafetyAssessment_ExportChannel"/>
+      </ProcedureForUsage>
+    </Method>
+	</Class>
+	<RelationClass
+		Name="SafetyCaseSafetyAssessment"
+		Uuid="6b9ef6f9-582e-47fe-bd24-e1c33b5a2783"
+		SuperName="PLMCoreInstance"
+		CustomerExposition="Programmer">
+    <SubClause Name="from"   TargetName="SafetyCase"/>
+    <SubClause Name="to"   TargetName="SafetyAssessment"/>
+		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope" />
+		</Method>
+	</RelationClass>
+	<RelationClass
+		Name="SafetyCaseReliabilitySource"
+		Uuid="2ee8238c-0a66-4c25-8ca7-701ac667fc91"
+		SuperName="PLMCoreInstance"
+		CustomerExposition="Programmer">
+    <SubClause Name="from"   TargetName="SafetyCase"/>
+    <SubClause Name="to"   TargetName="ReliabilitySource"/>
+		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope" />
+		</Method>
+	</RelationClass>
+
+	<!-- Missions in SafetyCase -->
+	<RelationClass
+		Name="SafetyCaseMission"
+		Uuid="f8dcf16c-496c-4ba3-9cc0-e901001b9fbc"
+		SuperName="PLMCoreInstance"
+		CustomerExposition="Programmer">
+    <SubClause Name="from"   TargetName="SafetyCase"/>
+    <SubClause Name="to"   TargetName="PLMCoreReference"/>
+<!-- While mission is not better known, 
+			allow any PLMCoreReference -->
+		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope" />
+		</Method>
+	</RelationClass>
+
+	<Class
+		Name="SafetyAssessmentRep"
+		Uuid="701a1a9a-c2f0-456b-bf1d-30416adad614"
+		SuperName="PLMCoreRepReference"
+		CustomerExposition="ProgrammerOnly">
+		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope" />
+		</Method>
+	</Class>
+	<RelationClass
+		Name="SafetyAssessmentRepInstance"
+		Uuid="a6f51659-a739-43ec-8f1e-4f3f64548574"
+		CustomerExposition="ProgrammerOnly"
+		SuperName="PLMCoreRepInstance">
+    <SubClause Name="from"   TargetName="SafetyAssessment"/>
+    <SubClause Name="to"   TargetName="SafetyAssessmentRep"/>
+		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope" />
+		</Method>
+	</RelationClass>
+
+	<Class
+		Name="SafetyAssessmentAnalysis"
+		Uuid="db2f8622-623d-4864-9565-d15a9c73292c"
+		CustomerExposition="Programmer"
+		SuperName="PLMConnection"
+		OwnerTypes="SafetyAssessment">
+		<Path
+			Name="analyzes"
+			Uuid="a2c2f892-fb8a-4596-ac5f-42ed01659a4b"
+			Orientation="In"
+			SynchroSensitivity="PathAndLast"
+			Protection="External"
+			RerouteOnEffectivityChange="No"
+			MultiValuated="No"
+			Type="SemanticRelation"
+			TargetName="V_SR"
+			TargetNames="FaultTreeElement;FailureModesEffectsAnalysis"
+			RoleName="SafetyAssessmentAnalyzes"
+			Semantics="Reference3" />
+		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope" />
+		</Method>
+	</Class>
+
+	<Class
+		Name="SafetyAssessmentHypothesis"
+		Uuid="491856f7-b51e-4e26-a730-40f5d6c6baa8"
+		CustomerExposition="Programmer"
+		SuperName="PLMConnection"
+		OwnerTypes="SafetyAssessment">
+		<Path
+			Name="reliesOn"
+			Uuid="3eb16ed6-9d43-4df4-891c-8e18f064f3ee"
+			Orientation="In"
+			SynchroSensitivity="PathAndLast"
+			Protection="External"
+			RerouteOnEffectivityChange="No"
+			MultiValuated="No"
+			Type="SemanticRelation"
+			TargetName="V_SR"
+			TargetNames="PLMCoreReference"
+			RoleName="SafetyAssessmentHypothesisReliesOn"
+			Semantics="Reference3" />
+		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope" />
+		</Method>
+	</Class>
+
+
+
+	<Class
+		Name="SafetyAssessmentTarget"
+		Uuid="703b9f55-698b-4f1c-bd84-a293aaf6eaa8"
+		CustomerExposition="Programmer"
+		SuperName="PLMConnection"
+		OwnerTypes="SafetyAssessment">
+		<Path
+			Name="appliesTo"
+			Uuid="5fd13dfb-2fdc-47d8-8c14-1aeea43f7a40"
+			Orientation="In"
+			SynchroSensitivity="PathAndLast"
+			Protection="External"
+			RerouteOnEffectivityChange="No"
+			MultiValuated="No"
+			Type="SemanticRelation"
+			TargetName="V_SR"
+			TargetNames="PLMCoreInstance"
+			RoleName="SafetyAssessmentTargetAppliesTo"
+			Semantics="Reference3" />
+
+		<Path
+			Name="appliesToFailureMode"
+			Uuid="19366e8c-0cd6-4fd8-b62e-7ec41e1edeed"
+			Orientation="In"
+			SynchroSensitivity="PathAndLast"
+			Protection="External"
+			RerouteOnEffectivityChange="No"
+			MultiValuated="No"
+			Type="SemanticRelation"
+			TargetName="V_SR"
+			TargetNames="FailureMode"
+			RoleName="SafetyAssessmentTargetAppliesToFailureMode"
+			Semantics="Reference3" />
+		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope" />
+		</Method>
+	</Class>
+
+	<Class
+		Name="SafetyAssessmentResult"
+		Uuid="5b18ed48-70a2-47e6-8ef9-c2fd5783ab5d"
+		CustomerExposition="Programmer"
+		SuperName="PLMConnection"
+		OwnerTypes="SafetyAssessment">
+		<Path
+			Name="appliesTo"
+			Uuid="0441492b-1078-4e71-93fe-fb8219b6a3be"
+			Orientation="In"
+			SynchroSensitivity="PathAndLast"
+			Protection="External"
+			RerouteOnEffectivityChange="No"
+			MultiValuated="No"
+			Type="SemanticRelation"
+			TargetName="V_SR"
+			TargetNames="PLMCoreInstance"
+			RoleName="SafetyAssessmentResultAppliesTo"
+			Semantics="Reference3" />
+		<Path
+			Name="appliesToFailureMode"
+			Uuid="7957a9b0-8f07-4d68-977c-6b3048492dc8"
+			Orientation="In"
+			SynchroSensitivity="PathAndLast"
+			Protection="External"
+			RerouteOnEffectivityChange="No"
+			MultiValuated="No"
+			Type="SemanticRelation"
+			TargetName="V_SR"
+			TargetNames="FailureMode"
+			RoleName="SafetyAssessmentResultAppliesToFailureMode"
+			Semantics="Reference3" />
+		<Path
+			Name="satisfies"
+			Uuid="1c8d99e4-c3e7-4fd8-b602-f2daaf313f13"
+			Orientation="In"
+			SynchroSensitivity="PathAndLast"
+			Protection="External"
+			RerouteOnEffectivityChange="No"
+			MultiValuated="No"
+			Type="SemanticRelation"
+			TargetName="V_SR"
+			TargetNames="SafetyAssessmentTarget"
+			RoleName="SafetyAssessmentResultSatisfies"
+			Semantics="Reference3" />
+		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope" />
+		</Method>
+	</Class>
+
+	<RelationClass
+		Name="SafetyAssessmentMission"
+		Uuid="eaa19ec7-49fd-42b8-99ce-e3f8889c487b"
+		SuperName="PLMCoreInstance"
+		CustomerExposition="Programmer">
+    <SubClause Name="from"   TargetName="SafetyAssessment"/>
+    <SubClause Name="to"   TargetName="PLMCoreReference"/>
+<!-- While mission is not better known, 
+			allow any PLMCoreReference -->
+		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope" />
+		</Method>
+	</RelationClass>
+
+	<RelationClass
+		Name="SafetyAssessmentReliabilitySource"
+		Uuid="20bcd92a-d272-43b0-aea5-b9a19cbc4df4"
+		SuperName="PLMCoreInstance"
+		CustomerExposition="Programmer">
+    <SubClause Name="from"   TargetName="SafetyAssessment"/>
+    <SubClause Name="to"   TargetName="ReliabilitySource"/>
+		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope" />
+		</Method>
+	</RelationClass>
+</Package>

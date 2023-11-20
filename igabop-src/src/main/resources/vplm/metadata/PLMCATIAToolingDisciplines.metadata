@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" Name="PLMCATIAToolingDisciplines" UseNames="PRODUCTCFG" CustomerExposition="Programmer" Uuid="f3f4a62a-b905-47c4-a816-95e0e57265c5" ModelerType="Top">
+</Package>

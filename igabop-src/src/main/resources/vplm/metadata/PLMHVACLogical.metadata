@@ -1,0 +1,458 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY for Hvac Logical Model -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2012, all rights reserved -->
+<!-- Package -->
+<Package Name="PLMHVACLogical" Uuid="830068a6-5922-41e6-866a-9eb8299cd0a0" xmlns="PLMDictionaryUnified" ModelerType="Top" UseNames="RFLVPMLogical" CustomerExposition="Programmer">
+  <CAAComment> 
+    <ShortRole>PLM HVAC Logical Package</ShortRole>
+    <Role>This package describes the PLM HVAC Logical model under the top RFLVPMLogical Modeler.</Role>
+  </CAAComment>
+  <Property Name="IconName" Value="I_HVACLogical"/>
+  <Comment>Initial creation: ZTB JEC Apr 2012</Comment>
+  <Comment>Modified R215 2012-11-08 ZTB R215 PLE model change for new typing project</Comment>
+  <!-- HVAC Logical Reference Entity -->
+  <Class Name="HVAC_Logical_Reference_Entity" Uuid="13f64270-262c-438f-a3c6-c4b12f0b975a" Abstract="Yes" CustomerExposition="Programmer" SuperName="RFLVPMLogicalReference" Discipline="Yes">
+    <CAAComment>
+      <ShortRole>PLM Logical HVAC Reference Entity</ShortRole>
+      <Role>PLM Logical HVAC Reference Entity</Role>
+    </CAAComment>
+    <Property Name="OccurrenceType" Value="HvaLogicalOccurrence"/>
+  </Class>
+  <!-- HVAC Logical Part -->
+  <Class Name="HVAC_Logical_Part" Uuid="06e0c068-21ef-4d21-a792-fe50858bb98c" Abstract="Yes" CustomerExposition="Programmer" SuperName="HVAC_Logical_Reference_Entity" Discipline="Yes" CustomerExtensible="Yes" Specializable="Yes" CreateInstName="HVAC_Logical_Part_Inst">
+    <CAAComment>
+      <ShortRole>PLM HVAC Logical Part</ShortRole>
+      <Role>PLM HVAC Logical Part</Role>
+    </CAAComment>
+    <Property Name="MergedExtensionType" Value="HVAC_Logical_Part_Extension"/>
+    <Property Name="TypeForDisciplineValuation" Value="HVAC_Logical_Part"/>
+    <Property Name="GroupingType"               Value="HVAC_Logical_Part"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATHVACLogicalInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="HVAC_Logical_Part_Inst"/>
+    <Property Name="IconName" Value="I_HvaLogicalPart"/>
+    <Property Name="Newable" Value="All"/>
+    <Property Name="OccurrenceType" Value="HvaLogicalPartOcc"/>
+    <Simple Name="V_SubType" Type="String" Uuid="4babe2ae-e8fb-4530-bc75-942ff342ebd3" MaxLength="100" Protection="Free" CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" Value="CATHVACLogicalAttributeController"/>
+    </Simple>
+    <CAAComment>
+      <ShortRole>Subtype</ShortRole>
+      <Role>Subtype</Role>
+    </CAAComment>
+  </Class>
+  <!-- HVAC Logical Miscellaneous -->
+  <Class Name="HVAC_Logical_Miscellaneous" Uuid="539b2c45-7966-43ce-ad82-554c3c13297d" Abbreviation="lhvamisc" CustomerExposition="Programmer" SuperName="HVAC_Logical_Part" Discipline="Yes" CustomerExtensible="Yes" CreateInstName="HVAC_Logical_Miscellaneous_Inst">
+    <CAAComment>
+      <ShortRole>PLM HVAC Logical Miscellaneous</ShortRole>
+      <Role>PLM HVAC Logical Miscellaneous</Role>
+    </CAAComment>
+    <Property Name="KweNew_InstanciationMethod" Value="CATHVACLogicalInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="HVAC_Logical_Miscellaneous_Inst"/>
+    <Property Name="Newable" Value="All"/>
+    <Property Name="IconName" Value="I_HvaLogicalMisc"/>
+    <Property Name="OccurrenceType" Value="HvaLogicalMiscOcc"/>
+  </Class>
+  <!-- HVAC Logical Branch -->
+  <Class Name="HVAC_Logical_Branch" Uuid="a03e9d34-f66c-4aa8-8f3b-ff3936501bc8" Abbreviation="lhvabra" CustomerExposition="Programmer" SuperName="HVAC_Logical_Part" Discipline="Yes" CustomerExtensible="Yes" Specializable="Yes" CreateInstName="HVAC_Logical_Branch_Inst">
+    <CAAComment>
+      <ShortRole>PLM HVAC Logical Branch</ShortRole>
+      <Role>PLM HVAC Logical Branch</Role>
+    </CAAComment>
+    <Property Name="KweNew_InstanciationMethod" Value="CATHVACLogicalInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="HVAC_Logical_Branch_Inst"/>
+    <Property Name="Newable" Value="All"/>
+    <Property Name="IconName" Value="I_HvaLogicalBranch"/>
+    <Property Name="OccurrenceType" Value="HvaLogicalBranchOcc"/>
+  </Class>
+  <Class Name="HVAC_Logical_Instrument" Uuid="9e757d44-0901-4390-b2cc-730d3a89ef6e" Abbreviation="lhvainst" CustomerExposition="Programmer" SuperName="HVAC_Logical_Part" Discipline="Yes" CustomerExtensible="Yes" Specializable="Yes" CreateInstName="HVAC_Logical_Instrument_Inst">
+    <Property Name="KweNew_InstanciationMethod" Value="CATHVACLogicalInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="HVAC_Logical_Instrument_Inst"/>
+    <Property Name="Newable" Value="All"/>
+    <Property Name="IconName" Value="I_HvaLogicalInstrument"/>
+    <Property Name="OccurrenceType" Value="HvaLogicalInstrumentOcc"/>
+    <CAAComment>
+      <ShortRole>PLM Logical HVAC Instrument</ShortRole>
+      <Role>PLM Logical HVAC Instrument</Role>
+    </CAAComment>
+	<Simple Name="V_HLE_MeasuredMagnitude" Type="String" Uuid="0c5907c0-4f7d-4d67-be85-edd2d5d5bb0c" MaxLength="100" Protection="Free" CAAExposition="L1" MultiValuated="No">
+      <Property Name="Controller" Value="CATHVACLogicalAttributeController"/>
+    </Simple>
+	<Simple Name="V_HLE_MeasuredModifier" Type="String" Uuid="97f476d8-2cc7-409c-ab8d-57e960b775f5" MaxLength="100" Protection="Free" CAAExposition="L1" MultiValuated="No">
+      <Property Name="Controller" Value="CATHVACLogicalAttributeController"/>
+    </Simple>
+	<Simple Name="V_HLE_ReadoutFunction" Type="String" Uuid="f6099b6f-5c53-4655-894c-c35669efdf1d" MaxLength="100" Protection="Free" CAAExposition="L1" MultiValuated="No">
+      <Property Name="Controller" Value="CATHVACLogicalAttributeController"/>
+    </Simple>
+	<Simple Name="V_HLE_OutputFunction" Type="String" Uuid="f9fcc801-e66c-48bd-9318-24f73bb0ac37" MaxLength="100" Protection="Free" CAAExposition="L1" MultiValuated="No">
+      <Property Name="Controller" Value="CATHVACLogicalAttributeController"/>
+    </Simple>
+	<Simple Name="V_HLE_ReadoutModifier" Type="String" Uuid="ea55c4f3-720f-49f3-a738-eab238065145" MaxLength="100" Protection="Free" CAAExposition="L1" MultiValuated="No">
+      <Property Name="Controller" Value="CATHVACLogicalAttributeController"/>
+    </Simple>
+	<Simple Name="V_HLE_Location" Type="String" Uuid="0fbaaeed-1fd9-41b0-8809-bd078e8cbb6c" MaxLength="100" Protection="Free" CAAExposition="L1" MultiValuated="No">
+      <Property Name="Controller" Value="CATHVACLogicalAttributeController"/>
+    </Simple>
+  </Class>
+  <!-- HVAC Logical Reducer -->
+  <Class Name="HVAC_Logical_Reducer" Uuid="21205b62-5514-4460-bbc4-fdf499d344c1" Abbreviation="lhvared" CustomerExposition="Programmer" SuperName="HVAC_Logical_Part" Discipline="Yes" CustomerExtensible="Yes" Specializable="Yes" CreateInstName="HVAC_Logical_Reducer_Inst">
+    <CAAComment>
+      <ShortRole>PLM HVAC Logical Reducer</ShortRole>
+      <Role>PLM HVAC Logical Reducer</Role>
+    </CAAComment>
+    <Property Name="KweNew_InstanciationMethod" Value="CATHVACLogicalInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="HVAC_Logical_Reducer_Inst"/>
+    <Property Name="Newable" Value="All"/>
+    <Property Name="IconName" Value="I_HvaLogicalReducer"/>
+    <Property Name="OccurrenceType" Value="HvaLogicalReducerOcc"/>
+  </Class>
+  <!-- HVAC Logical Damper -->
+  <Class Name="HVAC_Logical_Damper" Uuid="f3bb90bd-54ea-40ae-922c-4d4fccd53224" Abbreviation="lhvadmp" CustomerExposition="Programmer" SuperName="HVAC_Logical_Part" Discipline="Yes" CustomerExtensible="Yes" Specializable="Yes" CreateInstName="HVAC_Logical_Damper_Inst">
+    <CAAComment>
+      <ShortRole>PLM HVAC Logical Damper</ShortRole>
+      <Role>PLM HVAC Logical Damper</Role>
+    </CAAComment>
+    <Property Name="KweNew_InstanciationMethod" Value="CATHVACLogicalInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="HVAC_Logical_Damper_Inst"/>
+    <Property Name="Newable" Value="All"/>
+    <Property Name="IconName" Value="I_HvaLogicalDamper"/>
+    <Property Name="OccurrenceType" Value="HvaLogicalDamperOcc"/>
+  </Class>
+  <!-- HVAC Logical Duct -->
+  <Class Name="HVAC_Logical_Duct" Uuid="f3860913-cb6c-4943-b501-a30f09983622" Abbreviation="lhvaduct" CustomerExposition="Programmer" SuperName="HVAC_Logical_Reference_Entity" Discipline="Yes" CustomerExtensible="Yes" Specializable="Yes" CreateInstName="HVAC_Logical_Duct_Inst">
+    <CAAComment>
+      <ShortRole>PLM HVAC Logical Duct</ShortRole>
+      <Role>PLM HVAC Logical Duct</Role>
+    </CAAComment>
+    <Property Name="MergedExtensionType" Value="HVAC_Logical_Duct_Extension"/>
+    <Property Name="TypeForDisciplineValuation" Value="HVAC_Logical_Duct"/>
+    <Property Name="GroupingType"               Value="HVAC_Logical_Duct"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATHVACLogicalInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="HVAC_Logical_Duct_Inst"/>
+    <Property Name="IconName" Value="I_HvaLogicalDuct"/>
+    <Property Name="Newable" Value="All"/>
+    <Property Name="OccurrenceType" Value="HvaLogicalDuctOcc"/>
+    <Simple Name="V_IsFlexible" Type="Boolean" Uuid="4236f939-a996-4903-9b0d-5c379acd2a42" Protection="Free" CAAExposition="L0" MultiValuated="No"/>
+    <CAAComment>
+      <ShortRole>Is Flexible</ShortRole>
+      <Role>Is Flexible</Role>
+    </CAAComment>
+    <Simple Name="V_SubType" Type="String" Uuid="7a38688f-931f-4580-b409-a19fecea24e4" MaxLength="100" Protection="Free" CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" Value="CATHVACLogicalAttributeController"/>
+    </Simple>
+    <CAAComment>
+      <ShortRole>Subtype</ShortRole>
+      <Role>Subtype</Role>
+    </CAAComment>
+  </Class>
+  <!-- HVAC Line -->
+  <Class Name="HVAC_Line" Uuid="9c394e21-593f-44a2-a97f-8a706a0ca47f" Abbreviation="hvaline" CustomerExposition="Programmer" SuperName="HVAC_Logical_Reference_Entity" Discipline="Yes" CustomerExtensible="Yes" Specializable="Yes" CreateInstName="HVAC_Line_Inst">
+    <CAAComment>
+      <ShortRole>PLM HVAC Line</ShortRole>
+      <Role>PLM HVAC Line</Role>
+    </CAAComment>
+    <Property Name="MergedExtensionType" Value="HVAC_Line_Extension"/>
+    <Property Name="TypeForDisciplineValuation" Value="HVAC_Line"/>
+    <Property Name="GroupingType"               Value="HVAC_Line"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATHVACLogicalInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="HVAC_Line_Inst"/>
+    <Property Name="IconName" Value="I_HvaLine"/>
+    <Property Name="Newable" Value="Insert"/>
+    <Property Name="OccurrenceType" Value="HvaLineOcc"/>
+    <Simple Name="V_DuctSpecification" Type="String" Uuid="8a093e16-2d38-4492-8b40-209cff24e7d5" MaxLength="100" Protection="Free" CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" Value="CATHVACLogicalDuctLineController"/>
+    </Simple>
+    <CAAComment>
+      <ShortRole>Duct Specification</ShortRole>
+      <Role>Duct Specification</Role>
+    </CAAComment>
+    <Simple Name="V_EquivalentDiameter" Type="String" Uuid="d7cbed7c-6bb5-4e2d-a067-e23e93e8bf40" MaxLength="100" Protection="Free" CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" Value="CATHVACLogicalDuctLineController"/>
+    </Simple>
+    <CAAComment>
+      <ShortRole>Equivalent Diameter</ShortRole>
+      <Role>Equivalent Diameter</Role>
+    </CAAComment>
+    <Simple Name="V_InsulationSpecification" Type="String" Uuid="5b93a8d5-c822-4c20-a66d-9102e9e95db6" MaxLength="100" Protection="Free" CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" Value="CATHVACLogicalDuctLineController"/>
+    </Simple>
+    <CAAComment>
+      <ShortRole>Insulation Specification</ShortRole>
+      <Role>Insulation Specification</Role>
+    </CAAComment>
+    <Simple Name="V_Fluid" Uuid="53d9ec4e-3c2b-4f3a-8963-fc77179c0e7d" Type="String" MultiValuated="No" MaxLength="100" Protection="Free" CAAExposition="L0">
+      <Property Name="Controller" Value="CATHVACLogicalDuctLineController"/>
+    </Simple>
+    <CAAComment>
+      <ShortRole>Fluid</ShortRole>
+      <Role>Fluid</Role>
+    </CAAComment>
+    <Simple Name="V_OperationPressure" Type="Double" Uuid="b2a7bd2a-127d-4fd7-b51f-c85fcfe0ed29" Magnitude="PRESSURE" Protection="Free" CAAExposition="L0" MultiValuated="No"/>
+    <CAAComment>
+      <ShortRole>Operation Pressure</ShortRole>
+      <Role>Operation Pressure</Role>
+    </CAAComment>
+    <Simple Name="V_OperationTemperature" Type="Double" Uuid="7cea212e-5a26-4273-8221-6278caa232d1" Magnitude="TEMPRTRE" Protection="Free" CAAExposition="L0" MultiValuated="No"/>
+    <CAAComment>
+      <ShortRole>Operation Temperature</ShortRole>
+      <Role>Operation Temperature</Role>
+    </CAAComment>
+    <Simple Name="V_Standard" Type="String" Uuid="59dc7f98-b4bb-49ab-bb22-293f77a95316" MaxLength="100" Protection="Free" CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" Value="CATHVACLogicalDuctLineController"/>
+    </Simple>
+    <CAAComment>
+      <ShortRole>Standard</ShortRole>
+      <Role>Standard</Role>
+    </CAAComment>
+    <Simple Name="V_SubType" Type="String" Uuid="aee2bddd-a2fa-4f7e-aa69-0ebb11339e0d" MaxLength="100" Protection="Free" CAAExposition="L0" MultiValuated="No"/>
+    <CAAComment>
+      <ShortRole>Subtype</ShortRole>
+      <Role>Subtype</Role>
+    </CAAComment>
+  </Class>
+  <!-- ********************************************* -->
+  <!-- *          HVAC Logical Instances           * -->
+  <!-- ********************************************* -->
+  <RelationClass Name="HVAC_Logical_Instance_Entity" Uuid="3bf7d39b-1f89-4411-a793-3bf6cc4d1e99" CustomerExposition="Programmer" Abstract="Yes" SuperName="RFLVPMLogicalInstance" Discipline="Yes">
+    <Simple Name="V_HLE_TagNumber" Uuid="c72238b7-7abf-40f7-a37a-d85a38700133" Type="String"	MaxLength="100"	MultiValuated="No" Protection="Free" CAAExposition="L0" >
+	 	<Property Name="Controller" Value="CATHVACLogicalDuctLineController"/> 
+	</Simple>       
+  </RelationClass>
+  <RelationClass Name="HVAC_Logical_Part_Inst" Uuid="2aa63094-fd55-4864-8db0-2a039d977b40" CustomerExposition="Programmer" Abstract="Yes" Discipline="Yes" CustomerExtensible="Yes" Specializable="Yes" SuperName="HVAC_Logical_Instance_Entity">
+  <Property Name="KweNew_InstanciationMethod" Value="CATHVACLogicalInstanciation"/>
+	<Simple Name="V_EquivalentDiameter" Type="String" Uuid="35f5d60f-9628-4b15-bde9-ecd527b61c6f" MaxLength="100" Protection="External" CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" Value="CATHVACLogicalDuctLineController"/>
+    </Simple>
+	<Simple Name="V_Standard" Type="String" Uuid="b4057de2-039a-4d51-bd93-8309c2303b1b" MaxLength="100" Protection="External" CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" Value="CATHVACLogicalDuctLineController"/>
+    </Simple>
+	<Simple Name="V_DuctSpecification" Type="String" Uuid="aded0499-b2de-4500-abe0-b48b4ae31ea1" MaxLength="100" Protection="External" CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" Value="CATHVACLogicalDuctLineController"/>
+    </Simple>
+    <Simple Name="V_PredefinedPartNumber" Type="String" Uuid="d04e3520-7928-4a9c-9fe2-9138a5571eb1" MaxLength="100" Protection="Free" CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" Value="CATHVACLogicalDuctLineController"/>
+    </Simple>
+		<Simple Name="V_PredefinedPartType" Type="String" Uuid="0d86310f-567f-456e-b716-cd37a56a6057" MaxLength="100" Protection="Free" CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" Value="CATHVACLogicalDuctLineController"/>
+    </Simple>
+   </RelationClass>
+  <RelationClass Name="HVAC_Logical_Miscellaneous_Inst" Uuid="5dc640b0-2701-4833-87a6-6c978346b045" CustomerExposition="Programmer" SuperName="HVAC_Logical_Part_Inst" Discipline="Yes" CustomerExtensible="Yes" Specializable="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATHVACLogicalInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="HVAC_Logical_Miscellaneous_Inst"/>
+    <Property Name="IconName" Value="I_HvaLogicalMisc"/>
+  </RelationClass>
+  <RelationClass Name="HVAC_Logical_Branch_Inst" Uuid="fdd04ba2-a27f-472e-b1d8-f9ea4d63e9f1" CustomerExposition="Programmer" SuperName="HVAC_Logical_Part_Inst" Discipline="Yes" CustomerExtensible="Yes" Specializable="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATHVACLogicalInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="HVAC_Logical_Branch_Inst"/>
+    <Property Name="IconName" Value="I_HvaLogicalBranch"/>
+  </RelationClass>
+  <RelationClass Name="HVAC_Logical_Instrument_Inst" Uuid="f9a1cca9-461a-48f0-b1d8-92ea9dd77916" CustomerExposition="Programmer" SuperName="HVAC_Logical_Part_Inst" Discipline="Yes" CustomerExtensible="Yes" Specializable="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATHVACLogicalInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="HVAC_Logical_Instrument_Inst"/>
+    <Property Name="IconName" Value="I_HvaLogicalInstrument"/>
+  </RelationClass>
+  <RelationClass Name="HVAC_Logical_Reducer_Inst" Uuid="59f038e5-b953-4d96-b6aa-9c6621e2b26c" CustomerExposition="Programmer" SuperName="HVAC_Logical_Part_Inst" Discipline="Yes" CustomerExtensible="Yes" Specializable="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATHVACLogicalInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="HVAC_Logical_Reducer_Inst"/>
+    <Property Name="IconName" Value="I_HvaLogicalReducer"/>
+  </RelationClass>
+  <RelationClass Name="HVAC_Logical_Damper_Inst" Uuid="102f7205-512f-4338-b1ae-afdcc2ec0fc9" CustomerExposition="Programmer" SuperName="HVAC_Logical_Part_Inst" Discipline="Yes" CustomerExtensible="Yes" Specializable="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATHVACLogicalInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="HVAC_Logical_Damper_Inst"/>
+    <Property Name="IconName" Value="I_HvaLogicalDamper"/>
+  </RelationClass>
+  <RelationClass Name="HVAC_Logical_Duct_Inst" Uuid="ee74124f-55a7-45b7-9748-8a7bfa609567" CustomerExposition="Programmer" SuperName="HVAC_Logical_Instance_Entity" Discipline="Yes" CustomerExtensible="Yes" Specializable="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATHVACLogicalInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="HVAC_Logical_Duct_Inst"/>
+    <Property Name="IconName" Value="I_HvaLogicalDuct"/>
+	<Simple Name="V_EquivalentDiameter" Type="String" Uuid="028a79b2-de92-4637-9a4f-84fe12d58a07" MaxLength="100" Protection="External" CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" Value="CATHVACLogicalDuctLineController"/>
+    </Simple>
+	<Simple Name="V_Standard" Type="String" Uuid="52511a8d-38e9-4a14-a5cd-68264990d067" MaxLength="100" Protection="External" CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" Value="CATHVACLogicalDuctLineController"/>
+    </Simple>
+	<Simple Name="V_DuctSpecification" Type="String" Uuid="373c1455-c44c-4c3c-a761-a6fa3cd77e43" MaxLength="100" Protection="External" CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" Value="CATHVACLogicalDuctLineController"/>
+    </Simple>
+	<Simple Name="V_PredefinedPartNumber" Type="String" Uuid="1879a745-38b4-427f-8a1f-9cc8f6f19a79" MaxLength="100" Protection="Free" CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" Value="CATHVACLogicalDuctLineController"/>
+    </Simple>
+		<Simple Name="V_PredefinedPartType" Type="String" Uuid="97dfad37-a576-473e-a7c4-6fd9cf180cb6" MaxLength="100" Protection="Free" CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" Value="CATHVACLogicalDuctLineController"/>
+    </Simple>
+  </RelationClass>
+  <RelationClass Name="HVAC_Line_Inst" Uuid="cc29ee7c-9f89-435d-a87c-8d8a910a4ca9" CustomerExposition="Programmer" SuperName="HVAC_Logical_Instance_Entity" Discipline="Yes" CustomerExtensible="Yes" Specializable="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATHVACLogicalInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="HVAC_Line_Inst"/>
+    <Property Name="IconName" Value="I_HvaLine"/>
+  </RelationClass>
+  <!-- HVAC Logical Port Entity -->
+  <Class Name="HVAC_Logical_Port_Entity" Uuid="91df0a75-1063-4b32-a9fe-3e0e7b329fbe" Abstract="Yes" CustomerExposition="Programmer" SuperName="RFLVPMLogicalPort" Discipline="Yes">
+    <CAAComment>
+      <ShortRole>PLM HVAC Logical Port Entity</ShortRole>
+      <Role>PLM HVAC Logical Port Entity</Role>
+    </CAAComment>
+  </Class>
+  <!-- HVAC Logical Port -->
+  <Class Name="HVAC_Logical_Port" Uuid="91c5eb39-c1b3-4c61-a852-7f5b32b3f133" CustomerExposition="Programmer" SuperName="HVAC_Logical_Port_Entity" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes">
+    <CAAComment>
+      <ShortRole>PLM HVAC Logical Port</ShortRole>
+      <Role>PLM HVAC Logical Port</Role>
+    </CAAComment>
+    <Property Name="MergedExtensionType" Value="HVAC_Logical_Port_Extension"/>
+    <Property Name="TypeForDisciplineValuation" Value="HVAC_Logical_Port"/>
+    <Property Name="GroupingType"               Value="HVAC_Logical_Port"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATHVACLogicalInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="RFLVPMLogicalPort"/>
+    <Property Name="IconName" Value="I_HvaLogicalPort"/>
+    <Property Name="Newable" Value="Insert"/>
+    <Simple Name="V_EquivalentDiameter" Type="String" Uuid="a2e9df62-2cb9-46dc-b158-2f2bc1b82c69" MaxLength="100" Protection="Free" CAAExposition="L0" MultiValuated="No"/>
+    <CAAComment>
+      <ShortRole>Equivalent Diameter</ShortRole>
+      <Role>Equivalent Diameter</Role>
+    </CAAComment>
+    <Simple Name="V_SubType" Type="String" Uuid="2f91a32c-d193-40bf-bec0-51512071b135" MaxLength="100" Protection="Free" CAAExposition="L0" MultiValuated="No"/>
+    <CAAComment>
+      <ShortRole>Subtype</ShortRole>
+      <Role>Subtype</Role>
+    </CAAComment>
+  </Class>
+  <!-- HVAC Logical Port End One -->
+  <Class Name="HVAC_Logical_Port_End1" Uuid="fc376f22-7135-43de-b793-756001c50c5c" CustomerExposition="Programmer" SuperName="HVAC_Logical_Port_Entity" Discipline="Yes">
+    <CAAComment>
+      <ShortRole>PLM HVAC Logical Port End One</ShortRole>
+      <Role>PLM HVAC Logical Port End One</Role>
+    </CAAComment>
+    <Property Name="TypeForDisciplineValuation" Value="HVAC_Logical_Port_End1"/>
+    <Property Name="IconName" Value="I_HvaLogicalPortEnd1"/>
+  </Class>
+  <!-- HVAC Logical Port End Two -->
+  <Class Name="HVAC_Logical_Port_End2" Uuid="7eafd815-1a34-4170-94ef-9ae322bbc207" CustomerExposition="Programmer" SuperName="HVAC_Logical_Port_Entity" Discipline="Yes">
+    <CAAComment>
+      <ShortRole>PLM HVAC Logical Port End Two</ShortRole>
+      <Role>PLM HVAC Logical Port End Two</Role>
+    </CAAComment>
+    <Property Name="TypeForDisciplineValuation" Value="HVAC_Logical_Port_End2"/>
+    <Property Name="IconName" Value="I_HvaLogicalPortEnd2"/>
+  </Class>
+  <!-- HVAC Logical Part Extension -->
+  <Extension Name="HVAC_Logical_Part_Extension" Uuid="526f4912-d220-42e5-a148-6d7c7c825c58" CustomerExposition="Programmer" ScopeNames="RFLVPMLogicalReference" CAAExposition="L0">
+    <CAAComment>
+      <ShortRole>PLM HVAC Logical Part Extension</ShortRole>
+      <Role>PLM HVAC Logical Part Extension</Role>
+    </CAAComment>
+    <Property Name="OccurrenceType" Value="HvaLogicalPartOcc"/>
+    <Simple Name="V_SubType" Type="String" Uuid="03f87f8a-a1c5-49df-ad67-f4fca26f68d5" MaxLength="100" Protection="Free" CAAExposition="L0" MultiValuated="No"/>
+    <CAAComment>
+      <ShortRole>Subtype</ShortRole>
+      <Role>Subtype</Role>
+    </CAAComment>
+    <Simple Name="V_HvaLog_PartType" Uuid="3b035730-b040-43c5-b137-7b516d4747f6" Type="Integer" Protection="External" CAAExposition="L0" DefaultValue="1">
+      <Property Name="RangeAsEnumName" Value="V_HvaLog_PartType_Enum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="Miscellaneous;Branch;Damper;Reducer;Instrument"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+        <Equal>5</Equal>
+      </Range>
+    </Simple>
+    <CAAComment>
+      <ShortRole>HVAC Logical Part Classification</ShortRole>
+      <Role>HVAC Logical Part Classification</Role>
+    </CAAComment>
+  </Extension>
+  <!-- HVAC Logical Duct Extension -->
+  <Extension Name="HVAC_Logical_Duct_Extension" Uuid="a88891c6-f17f-41d3-9d70-6c8c4bfe7589" CustomerExposition="Programmer" ScopeNames="RFLVPMLogicalReference" CAAExposition="L0">
+    <CAAComment>
+      <ShortRole>PLM HVAC Logical Duct Extension</ShortRole>
+      <Role>PLM HVAC Logical Duct Extension</Role>
+    </CAAComment>
+    <Property Name="OccurrenceType" Value="HvaLogicalDuctOcc"/>
+    <Simple Name="V_IsFlexible" Type="Boolean" Uuid="0fa157eb-0c57-4f84-8854-8b8a7c48810e" Protection="Free" CAAExposition="L0" MultiValuated="No"/>
+    <CAAComment>
+      <ShortRole>Is Flexible</ShortRole>
+      <Role>Is Flexible</Role>
+    </CAAComment>
+    <Simple Name="V_SubType" Type="String" Uuid="f53199aa-1884-4e01-ac89-9058a62c8eab" MaxLength="100" Protection="Free" CAAExposition="L0" MultiValuated="No"/>
+    <CAAComment>
+      <ShortRole>Subtype</ShortRole>
+      <Role>Subtype</Role>
+    </CAAComment>
+  </Extension>
+  <!-- HVAC Line Extension -->
+  <Extension Name="HVAC_Line_Extension" Uuid="02dc46bf-fbc7-484f-afdf-b797769b4a9c" CustomerExposition="Programmer" ScopeNames="RFLVPMLogicalReference" CAAExposition="L0">
+    <CAAComment>
+      <ShortRole>PLM HVAC Line Extension</ShortRole>
+      <Role>PLM HVAC Line Extension</Role>
+    </CAAComment>
+    <Property Name="OccurrenceType" Value="HvaLineOcc"/>
+    <Simple Name="V_DuctSpecification" Type="String" Uuid="ff1e1192-0d10-4ac9-979e-ffad4cda3101" MaxLength="100" Protection="Free" CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" Value="CATHVACLogicalDuctLineController"/>
+    </Simple>
+    <CAAComment>
+      <ShortRole>Duct Specification</ShortRole>
+      <Role>Duct Specification</Role>
+    </CAAComment>
+    <Simple Name="V_Fluid" Uuid="1887ee6f-ae97-4862-a584-56a9b0b9d32d" Type="String" MultiValuated="No" MaxLength="100" Protection="Free" CAAExposition="L0">
+      <Property Name="Controller" Value="CATHVACLogicalDuctLineController"/>
+    </Simple>
+    <CAAComment>
+      <ShortRole>Fluid</ShortRole>
+      <Role>Fluid</Role>
+    </CAAComment>
+    <Simple Name="V_EquivalentDiameter" Type="String" Uuid="8fe155e1-609b-4c8e-a3b0-90bae41fef37" MaxLength="100" Protection="Free" CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" Value="CATHVACLogicalDuctLineController"/>
+    </Simple>
+    <CAAComment>
+      <ShortRole>Equivalent Diameter</ShortRole>
+      <Role>Equivalent Diameter</Role>
+    </CAAComment>
+    <Simple Name="V_InsulationSpecification" Type="String" Uuid="60445110-ef60-43ae-85ec-6b086e925904" MaxLength="100" Protection="Free" CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" Value="CATHVACLogicalDuctLineController"/>
+    </Simple>
+    <CAAComment>
+      <ShortRole>Insulation Specification</ShortRole>
+      <Role>Insulation Specification</Role>
+    </CAAComment>
+    <Simple Name="V_OperationPressure" Type="Double" Uuid="94cdde00-a39e-4b69-9426-472d45f541de" Magnitude="PRESSURE" Protection="Free" CAAExposition="L0" MultiValuated="No"/>
+    <CAAComment>
+      <ShortRole>Operation Pressure</ShortRole>
+      <Role>Operation Pressure</Role>
+    </CAAComment>
+    <Simple Name="V_OperationTemperature" Type="Double" Uuid="228933a2-0a50-479e-b85e-a69aa3798fdb" Protection="Free" CAAExposition="L0" MultiValuated="No" Magnitude="TEMPRTRE"/>
+    <CAAComment>
+      <ShortRole>Operation Temperature</ShortRole>
+      <Role>Operation Temperature</Role>
+    </CAAComment>
+    <Simple Name="V_SubType" Type="String" Uuid="7176e6dc-1ad6-4d85-952c-8c9dff7351ab" MaxLength="100" Protection="Free" CAAExposition="L0" MultiValuated="No"/>
+    <CAAComment>
+      <ShortRole>Subtype</ShortRole>
+      <Role>Subtype</Role>
+    </CAAComment>
+    <Simple Name="V_Standard" Type="String" Uuid="cb7ef6b7-6886-4194-aec5-62fbf79b8ac2" MaxLength="100" Protection="Free" CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" Value="CATHVACLogicalDuctLineController"/>
+    </Simple>
+    <CAAComment>
+      <ShortRole>Standard</ShortRole>
+      <Role>Standard</Role>
+    </CAAComment>
+  </Extension>
+  <!-- HVAC Logical Port Extension -->
+  <Extension Name="HVAC_Logical_Port_Extension" Uuid="ef3efc88-ebe5-4ec6-b342-49ccc54fbf79" CustomerExposition="Programmer" ScopeNames="RFLVPMLogicalPort" CAAExposition="L0">
+    <CAAComment>
+      <ShortRole>PLM HVAC Logical Port Extension</ShortRole>
+      <Role>PLM HVAC Logical Port Extension</Role>
+    </CAAComment>
+    <Simple Name="V_EquivalentDiameter" Type="String" Uuid="566d452a-afea-4fd2-b044-01d63407a57e" MaxLength="100" Protection="Free" CAAExposition="L0" MultiValuated="No"/>
+    <CAAComment>
+      <ShortRole>Equivalent Diameter</ShortRole>
+      <Role>Equivalent Diameter</Role>
+    </CAAComment>
+    <Simple Name="V_SubType" Type="String" Uuid="14ef9711-4b2f-4049-97ca-b1acf5ae14bc" MaxLength="100" Protection="Free" CAAExposition="L0" MultiValuated="No"/>
+    <CAAComment>
+      <ShortRole>Subtype</ShortRole>
+      <Role>Subtype</Role>
+    </CAAComment>
+  </Extension>
+</Package>

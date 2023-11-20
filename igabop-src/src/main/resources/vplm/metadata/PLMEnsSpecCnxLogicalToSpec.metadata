@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY for Ens Specifications Editor -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2011, all rights reserved -->
+
+<!-- 
+   =========
+    Package
+   =========       
+-->
+
+    <Package xmlns="PLMDictionaryUnified"
+             CustomerExposition="Programmer"
+             ModelerType="Top"
+             Name="PLMEnsSpecCnxLogicalToSpec"
+             Uuid="5D344A2A-A57A-478c-B9B4-CDB990C4E8C0"
+             UseNames="PLMCORE">
+      <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+      <CAAComment>
+         <ShortRole>Logical to specification connection Package</ShortRole>
+         <Role>This package describes the connection between a RFLP logical reference and an Ens Specification.</Role>
+      </CAAComment>
+      <Comment>Initial creation: PA GLY Feb 2011</Comment>
+      <Comment>Review for V6R2012: JLN PGT PYR DRL JLM SLI ASG LBH GLY Dec 2010</Comment>
+      <Comment>Ens Specifications Logical to Ens specification connection</Comment>
+      
+  <!-- 
+   ===============================================
+    Ens filter built from connection (connection)     
+   ===============================================   
+-->
+
+  <Class Name="EnsSpecCnxLogicalToSpecification"
+         Uuid="9C673B56-A56D-41ee-BA77-B8B549D7A67C"
+         CustomerExposition="Programmer"
+         Abstract="No"
+         SuperName="PLMConnection"
+         Specializable="No"    OwnerTypes="RFLVPMLogicalReference"  
+         CustomerExtensible="No">
+    <!-- OwnerTypes="RFLVPMLogicalReference"  Integrate this line if you want to declare the aggregation constraint -->
+    <!-- 
+              MODIF PA DEB 10022012
+        -->
+    <Property Name="Searchable"      Value="No"/>
+    <!-- 
+              MODIF PA FIN 10022012
+        -->
+
+    <Path Name="V_EnsSpec_LogicalToSpec"
+       Uuid="07C52F01-3743-4aad-B858-462E76FD9C4D"
+       RoleName="EnsSpec_LogicalToSpec"           
+       Semantics="Reference"
+       MultiValuated="Yes"
+    	 Type="SemanticRelation" AdaptativeToMinor="No"
+       SynchroSensitivity="None"
+		   RerouteOnEffectivityChange="No"
+       Lower="0"
+       Upper="-1" />
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>  
+</Package>

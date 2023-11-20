@@ -1,0 +1,167 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2012, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" 
+	       Name="CATFunctionalSurfaces"
+	       UseNames="LPABSTRACT PRODUCTCFG"
+	       Uuid="0374866f-ec92-4dbb-89dd-dcef79e89bcd"   
+         BelongsToModeler="CATMechanicalInterfaces"
+	       CustomerExposition="Programmer" 
+	       ModelerType="Top"
+         UseProcedures= "FunctionalSurfaces_Procedures">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+ 
+  <!-- =================================================================== -->
+  <!-- FSTemplateRepReference :             -->
+  <!-- =================================================================== -->
+  <!--  ============  -->
+  <Class Name="FunctionalSurfaceTemplate"
+         Uuid="06B2ED18-C78E-4FA0-B265-BDAF5F211F51"
+         Abstract="No"
+         CustomerExposition="Programmer"
+         SuperName="LPAbstractRepReference"
+         Specializable="No"
+         CustomerExtensible="No"
+         Abbreviation="fstp">
+
+    <Property Name="Newable" Value="New"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATFSTemplRepInstanciate"/>
+    <Property Name="IconName" Value="I_FSTemplateRep"/>
+    <Property Name="3DIconName" Value="I_FSTemplateRep"/>
+    <Property Name="Searchable" Value="Yes"/>
+
+    <Property Name="ChangeMaturityAvailability" Value="Yes"/>
+    <Property Name="DeleteAvailability" Value="Yes"/>
+    <Property Name="DuplicateAvailability" Value="Yes"/>
+    <Property Name="EditPropertiesAvailability" Value="Yes"/>
+    <Property Name="EvolutionAvailability" Value="No"/>
+    <Property Name="LockUnlockAvailability" Value="Yes"/>
+    <Property Name="NewMajorRevisionAvailability" Value="No"/>
+    <Property Name="NewMinorRevisionAvailability" Value="No"/>
+    <Property Name="SaveAsNewAvailability" Value="No"/>
+    <Property Name="TransferOwnershipAvailability" Value="Yes"/>
+
+
+    <Simple Name="V_FSType"
+            Uuid="90CF5961-88D2-4179-AFE5-5C292BD4D4BC"
+            Type="String"
+            MaxLength="72"
+            MultiValuated="No"
+            Protection="External">
+      <CAAComment>
+        <ShortRole>The Type of the FS Template</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_FSIIdentifier"
+            Uuid="8F824604-0985-4C92-A1E2-3CD31ADDBFCD"
+            Type="String"
+            MaxLength="200"
+            MultiValuated="No"
+            Protection="External">
+      <CAAComment>
+        <ShortRole>The Unique Identifier of the FS Template</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_FSFunctions"
+            Uuid="244CFDFB-A9E9-4FC7-BA46-622CB272C1BE"
+            Type="String"
+            MultiValuated="Yes"
+            Protection="External">
+      <CAAComment>
+        <ShortRole>The list of the Functions of FS MI Template</ShortRole>
+      </CAAComment>
+    </Simple>
+   
+    <!-- XPDM exchange -->
+    <Method
+     ImplementationType="Self">
+      <RealizeMethodType
+        href="ExportScope.meth#ExportScope" />
+      <ProcedureForUsage>
+        <Usage
+          href="ExportScope.meth#Design" />
+        <UsedProcedure
+          href="FunctionalSurfaces_Procedures.proc#MechFSTemplateExport" />
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage
+          href="ExportScope.meth#Channel" />
+        <UsedProcedure
+          href="FunctionalSurfaces_Procedures.proc#MechFSTemplateExport" />
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage
+          href="ExportScope.meth#Remove" />
+        <UsedProcedure
+          href="FunctionalSurfaces_Procedures.proc#MechFSTemplateExport" />
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage
+          href="ExportScope.meth#TransferSiteOwnership" />
+        <UsedProcedure
+          href="FunctionalSurfaces_Procedures.proc#MechFSTemplateExport" />
+      </ProcedureForUsage>
+    </Method>
+  </Class>
+
+
+  <!-- =================================================================== -->
+  <!-- Port Extension:                                                     -->
+  <!-- =================================================================== -->
+  
+
+  <!-- FS Extension -->
+  <Extension  Name="CATAsmFS"
+              Uuid="D079FAE4-4A81-4AD0-8825-628D59BC0239"
+              ScopeNames="VPMPort"
+              CustomerExposition="ProgrammerOnly">
+    
+    <Simple Name="V_FSType"
+            Uuid="D58DDD09-657B-4DB5-ACC2-FF4E361D9D65"
+            Type="String"
+            MaxLength="72"
+            MultiValuated="No"
+            Protection="External" CAAExposition="L0"/>
+
+    <Simple Name="V_FSId"
+           Uuid="89CFB6DE-8C80-418A-A4DB-30D0BB5D15D1"
+           Type="String"
+           MaxLength="200"
+           MultiValuated="No"
+           Protection="External" CAAExposition="L0"/>
+
+    <Simple Name="V_FSValidity"
+           Uuid="EC5B0F24-244B-4E91-88C2-2471F6AE0F0E"
+           Type="Integer"
+           MultiValuated="No"
+           Protection="External" CAAExposition="L0"/>
+
+    <Simple Name="V_FSTemplate"
+          Uuid="93235F1B-DEA7-4FD1-9760-F774F4B8E958"
+          Type="Integer"
+          MultiValuated="No"
+          Protection="External" CAAExposition="L0"/>
+
+    <Simple Name="V_FSFunctions"
+            Uuid="AF64A69A-8DF1-4445-9882-6797060AC099"
+            Type="String"
+            MaxLength="80"
+            MultiValuated="Yes"
+            Protection="External" CAAExposition="L0"/>
+
+    <Simple Name="V_FSUsages"
+            Uuid="68F73483-E3E9-44C2-9DA1-0C214AAFA8C1"
+            Type="String"
+            MultiValuated="Yes"
+            Protection="External" CAAExposition="L0"/>
+
+    <Simple Name="V_FSVersion"
+          Uuid="C21484FF-AF13-43E1-99C7-B16BA8BFE924"
+          Type="Integer"
+          MultiValuated="No"
+          Protection="External" CAAExposition="L0"/>
+
+  </Extension>
+  
+</Package>

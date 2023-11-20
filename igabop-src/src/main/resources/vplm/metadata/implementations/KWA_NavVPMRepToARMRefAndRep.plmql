@@ -1,0 +1,20 @@
+NAVIGATE
+   T0.PLMID, T1.PLMID
+                
+FROM
+  PLMCORE/PLMCoreReference T0,
+  PLMCORE/PLMCoreRepReference T1
+
+FROM_ROOTS [?1?]
+
+ON (
+  RELATION (
+    FROM=PRODUCTCFG/VPMRepReference
+    TO=PLMCORE/PLMCoreReference, PLMCORE/PLMCoreRepReference
+    THROUGH=POINTSTO
+  )
+  WITH QUALITY_FILTER (CATEGORY=Reference AND ROLE=KWE_SetupData_Resource)
+)
+
+ITER = 1
+;

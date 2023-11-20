@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- COPYRIGHT DASSAULT SYSTEMES 2015, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" BelongsToModeler="PLM3DXEnvironment" Name="PLM3DXAmbienceEnvironment" 
+  Uuid="6CB1A84B-EA3C-4C5F-922B-86C5C42495FB" 
+  UseNames="PLM3DXEnvironment" 
+  CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <Class Name="AmbienceEnvironment"
+					 Uuid="7E2390C4-DCB1-4804-94CE-3FFEE458132C"
+					 Abstract="No"
+					 SuperName="PLM3DXEnvironment"
+					 Abbreviation="amb"
+					 CustomerExposition="Programmer"
+					 Specializable="Yes"
+					 CustomerExtensible="No">
+
+    <Property Name="NewMajorRevisionAvailability"  Value="Yes"/>
+    <Property Name="ChangeMaturityAvailability"    Value="Yes"/>
+    <Property Name="DeleteAvailability"            Value="Yes"/>
+    <Property Name="LockUnlockAvailability"        Value="Yes"/>
+    <Property Name="TransferOwnershipAvailability" Value="Yes"/>
+    <Property Name="DuplicateAvailability"         Value="Yes"/>
+    <Property Name="EditPropertiesAvailability"    Value="Yes"/>
+    <Property Name="SaveAsNewAvailability"         Value="Yes"/>
+    <Property Name="EvolutionAvailability"         Value="No"/>
+    <Property Name="NewMinorRevisionAvailability"  Value="No"/>
+    <Property Name="Searchable"                    Value="Yes"/>
+    <Property Name="Newable"                       Value="New_Offline"/>
+    <Property Name="IconName"                      Value="I_AmbienceEnvironment"/>
+    <Property Name="3DIconName"                    Value="CAT3DNav_AmbienceEnvironment.cgr"/>
+    <Property Name="Configurable"                  Value="No" />
+    <Property Name="Filtrable"                     Value="No" />
+    <Property Name="KweNew_InstanciationMethod"    Value="CATEnvironmentDelegateInstanciation"/>
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+</Package>

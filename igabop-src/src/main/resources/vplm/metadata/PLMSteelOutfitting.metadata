@@ -1,0 +1,127 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2015, All rights reserved -->
+
+  <Package xmlns="PLMDictionaryUnified" ModelerType="Top" CustomerExposition="Programmer" Name="PLMSteelOutfitting" Uuid="732DCAEE-4F06-448A-A744-31386BE2D5D3" UseNames="PRODUCTCFG">
+  <CAAComment>
+    <ShortRole>Steel Outfitting Design Package</ShortRole>
+    <Role>This package describes Steel Outfitting Design App data.</Role>
+  </CAAComment>
+  
+  <Comment>Created  2015-05-12 by S3M</Comment>
+
+  <Class Name="SOECoveringPart"
+    Uuid="ABCC9203-9BEA-446E-844F-D15103E16217"
+    Abstract="No"
+    CustomerExposition="Programmer"
+    SuperName="VPMReference"
+    Abbreviation="stco"
+    Discipline="Yes"
+    Specializable="Yes"
+    CustomerExtensible="Yes"
+    CreateInstName="SOECoveringPart_Inst">
+    <Property Name="KweNew_InstanciationMethod" Value="CATESOEDelegateInstanciation"/>
+    <Property Name="Newable" Value="All"/>
+    <Property Name="IconName" Value="I_SOECoveringPart"/>
+    <Property Name="KweDisciplineAttributeValue" Value="SOECoveringPart"/>
+    <Property Name="3DPartAvailability" Value="3DPartOnly"/>
+  </Class>
+
+  <RelationClass Name="SOECoveringPart_Inst"
+          Uuid="5DD9D0F9-05E4-49FA-A464-E281CBBE1991"
+          CustomerExposition="Programmer"
+          SuperName="VPMInstance"
+          Discipline="Yes"
+          CustomerExtensible="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATESOEDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="SOECoveringPart_Inst"/>
+    <Property Name="IconName"                   Value="I_SOECoveringPart"/>
+  </RelationClass>
+    
+    
+
+  <Class Name="SOESystem"
+    Uuid="5246B9EB-090E-47CC-8D99-DC6725BF2F91"
+    Abstract="No"
+    CustomerExposition="Programmer"
+    SuperName="VPMReference"
+    Abbreviation="stsy"
+    Discipline="Yes"
+    Specializable="Yes"    
+    CustomerExtensible="Yes"
+    CreateInstName="SOESystem_Inst">
+    <Property Name="KweNew_InstanciationMethod" Value="CATESOEDelegateInstanciation"/>
+    <Property Name="Newable" Value="All"/>
+    <Property Name="IconName" Value="I_SOESystem"/>
+    <Property Name="KweDisciplineAttributeValue" Value="SOESystem"/>
+    <Property Name="3DPartAvailability" Value="UserChoice3DPartDefault"/>
+  </Class>
+
+  <RelationClass Name="SOESystem_Inst"
+          Uuid="0450B6B6-CD76-42C8-B91C-9498C9B9FAF9"
+          CustomerExposition="Programmer"
+          SuperName="VPMInstance"
+          Discipline="Yes"
+          CustomerExtensible="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATESOEDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="SOESystem_Inst"/>
+    <Property Name="IconName"                   Value="I_SOESystem"/>
+  </RelationClass>
+
+    <Class Name="SOESystemPart"
+    Uuid="D0756156-5BBA-4580-BAB1-F342B11F902E"
+    Abstract="No"
+    CustomerExposition="Programmer"
+    SuperName="VPMReference"
+    Abbreviation="stdp"
+    Discipline="Yes"
+    Specializable="Yes"    
+    CustomerExtensible="Yes"
+    CreateInstName="SOESystemPart_Inst">
+    <Property Name="KweNew_InstanciationMethod" Value="CATESOEDelegateInstanciation"/>
+    <Property Name="Newable" Value="All"/>
+    <Property Name="IconName" Value="I_SOESystemPart"/>
+    <Property Name="KweDisciplineAttributeValue" Value="SOESystemPart"/>
+    <Property Name="3DPartAvailability" Value="UserChoice3DPartDefault"/>
+  </Class>
+
+    <RelationClass Name="SOESystemPart_Inst"
+          Uuid="501C9A2A-0C7B-4135-8873-B41EC472BF4F"
+          CustomerExposition="Programmer"
+          SuperName="VPMInstance"
+          Discipline="Yes"
+          CustomerExtensible="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATESOEDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="SOESystemPart_Inst"/>
+    <Property Name="IconName"                   Value="I_SOESystemPart"/>
+  </RelationClass>    
+
+  <Class Name="SOEFoundation"
+    Uuid="69BD57F9-FED0-4908-9642-46E4D2730708"
+    Abstract="No"
+    CustomerExposition="Programmer"
+    SuperName="VPMReference"
+    Abbreviation="stfd"
+    Discipline="Yes"
+    Specializable="Yes"    
+    CustomerExtensible="Yes"
+    CreateInstName="SOEFoundation_Inst">
+    <Property Name="KweNew_InstanciationMethod" Value="CATESOEDelegateInstanciation"/>
+    <Property Name="Newable" Value="All"/>
+    <Property Name="IconName" Value="I_SOEFoundation"/>
+    <Property Name="KweDisciplineAttributeValue" Value="SOEFoundation"/>
+    <Property Name="3DPartAvailability" Value="ReferenceOnly"/>
+  </Class>
+
+    <RelationClass Name="SOEFoundation_Inst"
+          Uuid="9B82241A-4714-4755-8570-09D9A85243E9"
+          CustomerExposition="Programmer"
+          SuperName="VPMInstance"
+          Discipline="Yes"
+          CustomerExtensible="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATESOEDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="SOEFoundation_Inst"/>
+    <Property Name="IconName"                   Value="I_SOEFoundation"/>
+  </RelationClass>       
+    
+</Package>

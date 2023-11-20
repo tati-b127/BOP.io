@@ -1,0 +1,128 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY FOR DIFModeler04                    -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2011, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified"
+         ModelerType="Top"
+         Name="DIFModeler04"
+         Uuid="F49D8A1F-0B66-494a-98BB-B7DE1C23C215"
+         UseNames="DIFStandard;PLMCORE"
+		 CustomerExposition="Programmer"
+         BelongsToModeler="DIFModeler01">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>DIF modeler Package (part 4)</ShortRole>
+    <Role>This package describes the DIF model built on top of PLM Core2</Role>
+  </CAAComment>
+
+  <Comment>last update 2012-03-27-14.00.00</Comment>
+
+  <!-- DIFModeler04 provides :                          -->
+  <!-- DIFBackgroundViewRep         PLMCoreRepReference -->
+  <!-- DIFBackgroundViewRepInstance PLMCoreRepInstance  -->
+
+  <!-- ********************************************* -->
+  <!-- * DIFBackgroundViewRep (PLMCoreRepReference)* -->
+  <!-- ********************************************* -->
+  <Class Name="DIFBackgroundViewRep"
+         Uuid="BED62E42-6C55-48ca-804A-8F5D4CD2DB2D"
+         Abstract="No"
+         CreateInstName="DIFBackgroundViewRepInstance"
+   		   CustomerExposition="None"
+		     SuperName="PLMCoreRepReference">
+
+    <CAAComment>
+      <ShortRole>DIF  Background View Representation Reference Object</ShortRole>
+      <Role>DIF Background View Representation Reference Object</Role>
+    </CAAComment>
+
+    <!-- PLM New UI/KWE Scripts New -->
+    <Property Name="KweNew_InstanciationMethod" Value="CATDifKBEDelegateInstanciation"/>
+
+    <!-- Advanced search -->
+    <Property Name="Searchable" Value="No"/>
+
+    <!-- Mandatory property because of CustomerExposition value (none) -->
+    <!-- Unique name for this "private" rep is not required            -->
+    <Property Name="UniqueNamingRule" Value="No"/>
+
+    <!-- Simples -->
+    <Simple Name="V_DIFStandardClass" Uuid="1C16300E-6FCB-4C53-B161-851392E75700" Type="Integer" Protection="Internal" DefaultValue="1">
+      <Property Name="RangeAsEnumName" Value="DIFStandard.DIFStandardClass"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="ISO;ASME;JIS"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+      </Range>
+    </Simple>
+
+    <Simple Name="V_DIFStandardVersion"
+            Uuid="CB681AC3-CA66-4577-B5B4-E740AB0C59FF"
+            Type="Integer"
+            DefaultValue="0"
+            Protection="Internal"/>
+
+    <!-- R206: contains identifier of object from which it is made from  -->
+    <!-- not exhanged between sites -->
+    <Simple Name="E_fromExternalId"
+            Uuid="E00D6AFF-C607-424d-8606-F0192E1C5092"
+            Type="String"
+            MaxLength="255"
+            MultiValuated="No"
+            CAAExposition="L0"
+            Protection="Free"/>
+
+    <!-- R206: contains Name comments  -->
+    <!-- not exhanged between sites -->
+    <Simple Name="E_versionComment"
+            Uuid="48E81B4B-BAEB-43b4-8CBA-26572A7E2C84"
+            Type="String"
+            MaxLength="255"
+            MultiValuated="No"
+            CAAExposition="L0"
+            Protection="Free"
+            ResetOnNewVersion="Yes"
+            ResetOnCloning="Yes"/>
+
+    <!-- Export -->
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+  </Class>
+
+
+
+  <!-- ******************************************************** -->
+  <!-- * DIFBackgroundViewRepInstance (PLMCoreRepInstance) * -->
+  <!-- ******************************************************** -->
+  <RelationClass Name="DIFBackgroundViewRepInstance"
+         Uuid="126A2D13-C491-4fb4-A00B-8A6629AD865B"
+         Abstract="No"
+ 		     CustomerExposition="None"
+         SuperName="PLMCoreRepInstance">
+
+    <CAAComment>
+      <ShortRole>DIF Background View Representation Instance Object</ShortRole>
+      <Role>DIF Background View Representation Instance Object</Role>
+    </CAAComment>
+
+    <!-- PLM New UI is not available (default behavior), and
+         CATDifKBEDelegateInstanciation will be implemented so as to
+         prevent instantiation -->
+    <Property Name="KweNew_InstanciationMethod" Value="CATDifKBEDelegateInstanciation"/>
+
+    <!-- Advanced search -->
+    <Property Name="Searchable" Value="No"/>
+
+    <!-- Export -->
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+    <SubClause Name="from"   TargetName="DIFSheet"/>
+    <SubClause Name="to"   TargetName="DIFBackgroundViewRep"/>
+
+  </RelationClass>
+</Package>

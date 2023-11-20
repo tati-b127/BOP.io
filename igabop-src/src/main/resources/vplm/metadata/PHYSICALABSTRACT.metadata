@@ -1,0 +1,87 @@
+<?xml version="1.0" ?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2007, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" 
+  ModelerType="Top"
+  BelongsToModeler="PRODUCT"
+  Name="PHYSICALABSTRACT"
+  Uuid="17ff18b5-383a-44e0-b2a1-abe5df91776e"
+  UseNames="LPABSTRACT LPABSTRACT3DREP"
+  CustomerExposition="Programmer"
+  >
+
+  <CAAComment>
+    <ShortRole>Common package for Logical and Physical Models</ShortRole>
+    <Role>This package includes all the common entities for Logical and Physical Models</Role>
+  </CAAComment>
+
+  <Class Name="PHYSICALAbstractReference"
+    Uuid="7212bb9a-ead1-429c-8977-5978ca6dd2eb"
+    Abstract="Yes"
+    SuperName="LPAbstractReference" 
+    CustomerExposition="None" 
+    DeleteAvailability="Yes"
+    >
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+  <Class Name="PHYSICALAbstractPort" 
+    Uuid="0213db2b-0e3b-4aea-985f-1ad3e750af0e" 
+    Abstract="Yes" 
+    SuperName="LPAbstractPort" 
+    CustomerExposition="None"
+    >
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+  <Class Name="PHYSICALAbstractConnection" 
+    Uuid="fffd1f3f-5001-4928-8548-e8d4adda4780" 
+    Abstract="Yes" 
+    SuperName="LPAbstractConnection" 
+    CustomerExposition="None"
+    >
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+  <RelationClass Name="PHYSICALAbstractInstance"
+    Uuid="c6539a17-d24a-40e3-8475-14984415ca10"
+    Abstract="Yes"
+    SuperName="LPAbstractInstance" 
+    CustomerExposition="None"
+    >
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </RelationClass>
+
+  <RelationClass Name="PHYSICALAbstract3DRepInstance"
+    Uuid="ed2a2748-95c0-448f-b5ae-c0d975233cc9"
+    Abstract="Yes"
+    SuperName="LPAbstract3DRepInstance"
+    CustomerExposition="None"
+    >
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </RelationClass>
+
+  <Class Name="PHYSICALAbstract3DRepReference"
+    Uuid="c41f2f25-1b64-4e84-b5e5-a98584cc512d"
+    Abstract="Yes"
+    SuperName="LPAbstract3DRepReference"
+    CustomerExposition="None"
+    >
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+</Package>
+

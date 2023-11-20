@@ -1,0 +1,158 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY for Ens Specifications Editor  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2011, all rights reserved -->
+<!-- MODIF PA DEB 27/08/2014 : BelongsToModeler="Engineering Specifications" ==> BelongsToModeler="PLMEnsSpecSpecification" : MODIF PA FIN 27/08/2014 -->
+
+<!-- 
+   =========
+    Package
+   =========   
+-->
+<!-- MODIF PA DEB 27/08/2014 -->
+<Package xmlns="PLMDictionaryUnified"
+         CustomerExposition="Programmer"
+         ModelerType="Top"
+         BelongsToModeler="PLMEnsSpecSpecification"
+         Name="PLMEnsSpecSpecification"
+         Uuid="547D1B31-B5BD-45a1-AFF0-EA7A968C62A2"
+         UseNames="PLMCORE">
+<!-- MODIF PA FIN 27/08/2014 -->
+  <!-- Modif frh: impossible since 2 references 
+  <Property Name="FormerTypingLegacy" Value="Yes"/>-->
+
+  <CAAComment>
+    <ShortRole>Ens Specifications Package</ShortRole>
+    <Role>This package describes the Ens Specifications model.</Role>
+  </CAAComment>
+  <Comment>Initial creation: PA GLY Feb 2011</Comment>
+  <Comment>Review for V6R2012: JLN PGT PYR DRL JLM SLI ASG LBH GLY Dec 2010</Comment>
+  <Comment>Ens Specifications, Ens parts' filtering and Ens technological tables</Comment>
+
+  <!-- 
+   ==================================
+    Ens Specification (PLM Reference)
+    MODIF PA DEB 12/12/2012 Abstract="No" following the use of Discipline="Yes" for specialized entities MODIF PA FIN 12/12/2012
+   ==================================    
+-->  
+  <Class Name="EnsSpecification"
+         Uuid="DEB1E5C3-CD02-4d8a-A913-C100BAF08CC5"
+         Abbreviation="esp" 
+         CustomerExposition="Programmer"
+         Abstract="No"
+         SuperName="PLMCoreReference"
+         Specializable="Yes"
+         CustomerExtensible="No"
+         DeleteAvailability="Yes" >
+    <Property Name="IconName"                    Value="I_TreeEngSpec"/>
+    <Property Name="3DIconName"                  Value="I3D_EngSpec_Specification.cgr"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="PQ_Attributes"               Value="PLM_ExternalID V_description V_user"/>
+    <!-- MODIF PA DEB 30/03/2016 -->
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation_NotSupported"/>
+    <!-- MODIF PA FIN 30/03/2016 -->
+    <CAAComment>
+      <ShortRole>Ens Specification object</ShortRole>
+      <Role>This object representing an Ens context aggregates Ens parts' filters and Ens technological tables usable in this context</Role>
+    </CAAComment>
+
+    <Simple Name="V_SpecDescription" Uuid="876821EE-B6EA-4e62-A56F-BEEA8EDB0DA0" Type="String" MultiValuated="No" MaxLength="100"  Protection="Free" CAAExposition="L0"/>
+    <CAAComment>
+      <ShortRole>Specification description</ShortRole>
+      <Role>Specification description</Role>
+    </CAAComment>
+
+    <!-- MODIF PA DEB 30/03/2016 -->   
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <UsedProcedure href="PLMEnsSpec_Procedures.proc#ESE_SpecExport"/>
+        <Usage href="ExportScope.meth#Design"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <UsedProcedure href="PLMEnsSpec_Procedures.proc#ESE_SpecExport"/>
+        <Usage href="ExportScope.meth#Review"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <UsedProcedure href="PLMEnsSpec_Procedures.proc#ESE_SpecExport"/>
+        <Usage href="ExportScope.meth#Channel"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Remove"/>
+        <UsedProcedure href="PLMEnsSpec_Procedures.proc#ESE_SpecRemove"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#TransferSiteOwnership"/>
+        <UsedProcedure href="PLMEnsSpec_Procedures.proc#ESE_SpecRemove"/>
+      </ProcedureForUsage>
+    </Method>
+    <!-- MODIF PA FIN 30/03/2016 -->
+  </Class>
+  <!-- MODIF PA DEB 05/01/2015 -->  
+  <Class Name="CustomerAdditionalSpec" Uuid="9F5FFD0A-2417-44EF-8DE3-F066A8644618" Abbreviation="espcas" CustomerExposition="Programmer" Abstract="Yes" SuperName="EnsSpecification" Specializable="Yes" Discipline="Yes" CustomerExtensible="Yes">
+    <!-- MODIF PA DEB 30/03/2016 -->
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation_NotSupported"/>
+    <!-- MODIF PA FIN 30/03/2016 -->
+    <CAAComment>
+      <ShortRole>Customer additional spec</ShortRole>
+      <Role>Customer additional spec</Role>
+    </CAAComment>
+  </Class>
+  <!-- MODIF PA FIN 05/01/2015 -->
+  <!-- FUNCTIONS Declarations : here are declared PLMQL Functions -->
+  <Function Name="ESE_AddLogToSpecConnectionForExport">
+    <Implementation Name="ESE_AddLogToSpecConnectionForExport" FileLocation="ESE_AddLogToSpecConnectionForExport.plmql" Language="PLMQL"/>
+    <Signature href="ESESpecSignature"/>
+  </Function>
+  <Function Name="ESE_AddTableBuiltFromConnectionForExport">
+    <Implementation Name="ESE_AddTableBuiltFromConnectionForExport" FileLocation="ESE_AddTableBuiltFromConnectionForExport.plmql" Language="PLMQL"/>
+    <Signature href="ESESpecSignature"/>
+  </Function>
+  <Function Name="ESE_AddFilterBuiltFromConnectionForExport">
+    <Implementation Name="ESE_AddFilterBuiltFromConnectionForExport" FileLocation="ESE_AddFilterBuiltFromConnectionForExport.plmql" Language="PLMQL"/>
+    <Signature href="ESESpecSignature"/>
+  </Function>
+  <!-- MODIF PA DEB 15/03/2013 -->
+  <Function Name="ESE_AddFilterExtensionDefConnectionForExport">
+    <Implementation Name="ESE_AddFilterExtensionDefConnectionForExport" FileLocation="ESE_AddFilterExtensionDefConnectionForExport.plmql" Language="PLMQL"/>
+    <Signature href="ESESpecSignature"/>
+  </Function>
+  <!-- MODIF PA FIN 15/03/2013 -->
+  <Function Name="ESE_SpecLogRefToSpec">
+    <Implementation Name="ESE_SpecLogRefToSpec" FileLocation="ESE_SpecLogRefToSpec.plmql" Language="PLMQL"/>
+    <Signature href="ESESpecSignature"/>
+  </Function>
+  <Function Name="ESE_SpecEPFBuiltFromToETT">
+    <Implementation Name="ESE_SpecEPFBuiltFromToETT" FileLocation="ESE_SpecEPFBuiltFromToETT.plmql" Language="PLMQL"/>
+    <Signature href="ESESpecSignature"/>
+  </Function>
+  <Function Name="ESE_SpecETTBuiltFromToETT">
+    <Implementation Name="ESE_SpecETTBuiltFromToETT" FileLocation="ESE_SpecETTBuiltFromToETT.plmql" Language="PLMQL"/>
+    <Signature href="ESESpecSignature"/>
+  </Function>
+  <Function Name="ESE_SpecCategories">
+    <Implementation Name="ESE_SpecCategories" FileLocation="ESE_SpecCategories.plmql" Language="PLMQL"/>
+    <Signature href="ESESpecSignature"/>
+  </Function>
+  <Function Name="ESE_SpecETTRep">
+    <Implementation Name="ESE_SpecETTRep" FileLocation="ESE_SpecETTRep.plmql" Language="PLMQL"/>
+    <Signature href="ESESpecSignature"/>
+  </Function>
+  <Function Name="ESE_SpecEPFRep">
+    <Implementation Name="ESE_SpecEPFRep" FileLocation="ESE_SpecEPFRep.plmql" Language="PLMQL"/>
+    <Signature href="ESESpecSignature"/>
+  </Function>
+  <!-- MODIF PA DEB 30/03/2016 -->
+  <Function Name="ESE_SpecCategories2">
+    <Implementation Name="ESE_SpecCategories2" FileLocation="ESE_SpecCategories2.plmql" Language="PLMQL"/>
+    <Signature href="ESESpecSignature"/>
+  </Function>
+  <!-- MODIF PA FIN 30/03/2016 -->
+  <Signature id="ESESpecSignature">
+    <Parameter Name="InputIds" Lower="0" Upper="-1" Direction="in" MultiValuated="No" DataType="PLMId"/>
+    <Parameter Name="OutputIds" Lower="0" Upper="-1" Direction="out" MultiValuated="No" DataType="PLMRouteSet"/>
+  </Signature>
+</Package>
+
+
+

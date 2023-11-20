@@ -1,0 +1,135 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY FOR DIFModeler02                    -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2010, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" 
+         ModelerType="Top" 
+         Name="DIFModeler02" 
+         Uuid="02F0809A-DA8D-461F-93E9-6735FDB31EC5" 
+         UseNames="DIFModelerAbstractSheet"
+         BelongsToModeler="DIFModeler01"
+         CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>DIF model Package (part 2)</ShortRole>
+    <Role>This package describes the DIF model built on top of PLM Core2</Role>
+  </CAAComment>
+
+  <Comment>last update 2013-01-14-14.00.00</Comment>
+    
+  <!-- DIFModeler02 provides :                               -->
+  <!-- DIFSheet     DIFAbstractSheet/PLMCoreReference        -->
+  <!-- DIFSheetInst DIFAbstractSheetInstance/PLMCoreInstance -->
+
+  <!-- ******************************************* -->
+  <!-- *  DIFSheet (DIFAbstractSheet)            * -->
+  <!-- ******************************************* -->
+  <!-- CustomerExposition: whether Type projected in the KWE dictionary           -->
+  <!-- Specializable     : whether Type customizable by the customer (new typing) -->
+  <Class Name="DIFSheet" 
+         Uuid="296B8224-D67F-472B-A244-7D0A9AC4F9AC" 
+         Abstract="No" 
+         SuperName="DIFAbstractSheet"
+         Abbreviation="sht"
+         CreateInstName="DIFSheetInstance"
+         CustomerExposition="Programmer"
+         Specializable="Yes" 
+         DeleteAvailability="Yes">
+ 
+    <CAAComment>
+      <ShortRole>DIF Sheet Reference Object</ShortRole>
+      <Role>DIF Sheet Reference Object</Role>
+    </CAAComment>
+
+    <!-- Simples -->
+    <Simple Name="V_DIFName"
+            Uuid="3C92C937-E72B-4C9C-A4D6-D1CF0636776F"
+            Type="String"
+            DefaultValue=""
+            CAAExposition="L0"
+            Protection="Free"/>    
+
+    <!-- Configuration -->
+    <Property Name="Configurable" Value="Yes"/>
+
+    <!-- Minor Version -->
+    <Property Name="ShareBetweenProjectsAvailability" Value="Yes"/>
+
+    <!-- Collaborative Space Applicability -->
+    <Property Name="NewMinorRevisionAvailability" Value="Yes"/>
+
+    <!-- PLM New UI/KWE Scripts New -->
+    <Property Name="Newable" Value="Insert"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATDifKBEDelegateInstanciation"/>
+
+    <!-- Custo Package -->
+    <Property Name="DMCDerivable" Value="Yes"/>
+
+    <!-- Icon and 3D Icon -->
+    <Property Name="IconName" Value="I_VPMNavDifSheet"/>
+
+    <!-- Export -->
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Remove"/>
+        <UsedProcedure href="DIFpe_Procedures.proc#DIFModeler_ExportCompletion_DifAbstractSheet"/>
+      </ProcedureForUsage>
+
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#TransferSiteOwnership"/>
+        <UsedProcedure href="DIFpe_Procedures.proc#DIFModeler_ExportCompletion_DifAbstractSheet"/>
+      </ProcedureForUsage>
+    </Method>
+
+  </Class>
+
+  <!-- *********************************************** -->
+  <!-- * DIFSheetInstance (DIFAbstractSheetInstance) * -->
+  <!-- *********************************************** -->
+  <!-- CustomerExposition: whether Type projected in the KWE dictionary           -->
+  <!-- Specializable     : whether Type customizable by the customer (new typing) -->
+  <RelationClass Name="DIFSheetInstance" 
+         Uuid="FE253DD8-71E3-4DD6-AE5D-9FE85C74CE45" 
+         Abstract="No" 
+         SuperName="DIFAbstractSheetInstance"
+         CustomerExposition="Programmer"
+         Specializable="Yes">
+
+    <CAAComment>
+      <ShortRole>DIF  Sheet Instance Object</ShortRole>
+      <Role>DIF Sheet Instance Object</Role>
+    </CAAComment>
+
+    <!-- Configuration -->
+    <Property Name="Filtrable" Value="Yes"/>
+
+    <!-- PLM New UI/KWE Scripts New -->
+    <Property Name="KweNew_InstanciationMethod" Value="CATDifKBEDelegateInstanciation"/>
+
+    <!-- Custo Package -->
+    <Property Name="DMCDerivable" Value="Yes"/>
+
+    <!-- Icon and 3D Icon -->
+    <Property Name="IconName" Value="I_VPMNavDifSheet"/>
+    <!-- Simples -->
+
+    <Simple Name="V_DIFName"
+            Uuid="38B68410-7B20-44B1-8A2A-2DDE976A0FD7"
+            Type="String"
+            DefaultValue=""
+            CAAExposition="L0"
+            Protection="Free"/>
+
+    <SubClause Name="from"   TargetName="DIFLayout"/>
+    <SubClause Name="to"   TargetName="DIFSheet"/>
+
+    <!-- Export -->
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+   
+  </RelationClass>
+
+</Package>

@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR Validation Application -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2007, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" Name="DMUValidationValidated" Uuid="fdcc3b87-b280-4356-a904d0b0824daebb" UseNames="PLMCORE" BelongsToModeler="DMUValidationAbstract" CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+  <CAAComment>
+		<ShortRole>Validation Validated Modeler Package</ShortRole>
+		<Role>This package describes the Validated objects of the Validation inside Validation modeler</Role>
+	</CAAComment>
+	<Comment>Creation 2007-07-24 LJE</Comment>
+	
+	<Class Name="DMUValidationValidated" Uuid="ce694195-07ff-4f73-a07f03ff02c2d4a2" Abstract="No" SuperName="PLMConnection" CustomerExposition="Programmer"  OwnerTypes="DMUValidationValidationAbstract">
+		<CAAComment>
+			<ShortRole>Validated Object</ShortRole>
+			<Role>Validated Object connects the Validation with all validated objects</Role>
+		</CAAComment>
+    <Property Name="IconName" Value="I_VALValidated"/>
+    <Property Name="3DIconName" Value="I_VALValidated.cgr"/>    
+    <Property Name="Searchable" Value="No"/>
+    <!-- OwnerTypes="DMUValidationValidationAbstract"  Integrate this line if you want to declare the aggregation constraint -->
+ 	<Path Name="V_Validation_Validated" Uuid="d9ff7239-499d-4c8b-b2e76555df3a7e06"  Lower="0" Upper="-1" MultiValuated="Yes"  RoleName="DMU_Validated_Object" Semantics="Reference3" Type="SemanticRelation" AdaptativeToMinor="No" 		SynchroSensitivity="PathAndLast" RerouteOnEffectivityChange="No"  Orientation="In"/>
+		<Path Name="V_Validation_Valtedval" Uuid="ebb5974f-ca20-4665-9d0122e16ea100c8"  MultiValuated="No" RoleName="DMU_Impacted_Validation" Semantics="Reference5" Type="SemanticRelation" AdaptativeToMinor="No" 		SynchroSensitivity="Last"		RerouteOnEffectivityChange="No"  Orientation="Out"/>
+		    <!-- Behavior patterns: default values -->
+    <Property Name="LockUnlockAvailability" Value="No"/>
+    <Property Name="TransferOwnershipAvailability" Value="No"/>
+<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+	</Class>
+</Package>

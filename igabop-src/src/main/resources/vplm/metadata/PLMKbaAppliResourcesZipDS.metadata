@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" DataRDB_OID="ENODR_KBA_RZ_DS"
+	Name="PLMKbaAppliResourcesZipDS" 
+	Uuid="d813ca7e-1ce4-4eae-8049-07ed68e8207b"
+	UseNames="PLMKbaAppliResourcesZip"
+	Alias="PLM Knowledge Business Applications -- DS Default Custo of Applicative Resources Zips' Modeler"
+	
+>
+    <CAAComment>
+        <ShortRole>PLM Knowledge Business Applications -- Applicative Resources Zips' Modeler</ShortRole>
+        <Role>This package describes the DS (default) Customization of Knowledge Business Applicative Resources Zips on top of PLM Core</Role>
+    </CAAComment>
+    <Comment>Created by PHB (2006-12-15)</Comment>
+    <!-- ********************************************************** -->
+    <!-- *  PLMKbaAppliResourcesZipDS (PLMCoreRepReference) * -->
+    <!-- ********************************************************** -->
+    <Class Name="PLMKbaAppliResourcesZipDS"
+		 Alias="PLMKbaAppliResourcesZipDS"
+		 Uuid="b4151bd9-d2a1-4e7d-83ad-3e3be4511d67"		
+		 
+		 
+		 
+		 
+		 SuperName="PLMKbaAppliResourcesZip"
+		 SuperRef="05a04f9b-495b-4552-830599c47db72d7a"
+		 
+		 
+	>
+        <CAAComment>
+            <ShortRole>DS Knowledge Business Applicative Resources Zip (RepRef Object)</ShortRole>
+            <Role>DS PLM Knowledge Business Applicative Resources Zip -- Custo of Representation Reference Object</Role>
+        </CAAComment>
+
+      <IdentifierSet 
+        Name="Identifier"
+        Uuid="9a24dabe-4b19-49b5-b857-c54eba37d801"
+        IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755"
+        IdentifierNames="PLM_ExternalID V_version"
+        />
+
+    </Class>
+</Package>

@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2009, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" Name="DELLmiProductionExecCurveOperationDS" Uuid="687e1d10-d25a-415f-b1c7-17fbe066a389" UseNames="DELLmiProductionExecCurveOperation" >
+<Property Name="OptionalInstallation" Value="Yes" /> 
+	<CAAComment>
+		<ShortRole>Standard DELMIA Execution Curve Operation Package</ShortRole>
+		<Role>This package includes default customized DELMIA Execution Curve Operation</Role>
+	</CAAComment>
+	<Comment>last update 2009-05-25</Comment>
+
+	<Class Name="DELLmiExecCurveOperationRefCusto" Uuid="2987a958-2507-4f2f-a384-7232646211fd" SuperName="DELLmiExecCurveOperationReference"  >
+
+    <IdentifierSet Name="Identifier"
+        Uuid="3782539f-dd31-441e-9938-26a564358dad"
+        IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755"
+        IdentifierNames="PLM_ExternalID V_version" />
+    
+    <CAAComment>
+			<ShortRole>Standard DELMIA Execution Curve Operation Reference</ShortRole>
+			<Role>Default customized DELMIA Execution Curve Operation Reference</Role>
+		</CAAComment>
+	</Class>
+
+  <RelationClass Name="DELLmiExecCurveOperationInstCusto" Uuid="9915b363-dee7-4ae5-af64-4509be904bf1" SuperName="DELLmiExecCurveOperationInstance" >
+		<CAAComment>
+			<ShortRole>Standard DELMIA Execution Curve Operation Instance</ShortRole>
+			<Role>Default customized DELMIA Execution Curve Operation Instance</Role>
+		</CAAComment>		
+            <!-- ********************************************************* -->
+            <!-- * Overload(s) of PLMCoreInstance attributes. -->
+            <!-- ********************************************************* -->
+    <SubClause Name="to"   TargetName="DELLmiExecCurveOperationRefCusto"/>
+	</RelationClass>
+</Package>

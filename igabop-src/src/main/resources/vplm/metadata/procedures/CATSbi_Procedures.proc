@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!-- Last edited 2010-10-25 by JJ4 -->
+<ProcedurePackage xmlns="PLMDictionaryProcedure" Name="CATSbi_Procedures">
+	<Procedure Name="SystemsBehavior_ExportChannel">
+		<Implementation Name="SystemsBehavior_ExportChannel" FileLocation="SystemsBehavior_ExportChannel.KProc" Language="EKL"/>
+		<Signature href="CATSbi_ProcedureSignatureExport"/>
+	</Procedure>
+	<Procedure Name="SystemsBehavior_ExportDesign">
+		<Implementation Name="SystemsBehavior_ExportDesign" FileLocation="SystemsBehavior_ExportDesign.KProc" Language="EKL"/>
+		<Signature href="CATSbi_ProcedureSignatureExport"/>
+	</Procedure>
+	<Procedure Name="SystemsBehavior_Remove">
+		<Implementation Name="SystemsBehavior_Remove" FileLocation="SystemsBehavior_Remove.KProc" Language="EKL"/>
+		<Signature href="CATSbi_ProcedureSignatureRemove"/>
+	</Procedure>
+  <Procedure Name="SystemsBehavior_TransferSiteOwnership">
+    <Implementation Name="SystemsBehavior_TransferSiteOwnership" FileLocation="SystemsBehavior_TransferSiteOwnership.KProc" Language="EKL"/>
+    <Signature href="CATSbi_ProcedureSignatureTransferSiteOwnership"/>
+  </Procedure>
+  <Procedure Name="SystemsBehavior_GetDependencies">
+    <Implementation Name="SystemsBehavior_GetDependencies" FileLocation="SystemsBehavior_GetDependencies.KProc" Language="EKL"/>
+    <Signature href="CATSbi_ProcedureSignatureExport"/>
+  </Procedure>
+  <Procedure Name="SystemsBehavior_GetDependenciesINF">
+     <!-- INF stands for Input Not Filtered -->
+    <Implementation Name="SystemsBehavior_GetDependenciesINF" FileLocation="SystemsBehavior_GetDependenciesINF.KProc" Language="EKL"/>
+    <Signature href="CATSbi_ProcedureSignatureExport"/>
+  </Procedure>
+  <Signature id="CATSbi_ProcedureSignatureExport">
+    <Parameter Name="InputIds" Lower="0" Upper="-1" MultiValuated="Yes" Direction="in" DataType="PLMId"/>
+    <Parameter Name="OutputIds" Lower="0" Upper="-1" MultiValuated="Yes" Direction="out" DataType="PLMId"/>
+  </Signature>
+  <Signature id="CATSbi_ProcedureSignatureRemove">
+    <Parameter Name="InputIds" Lower="0" Upper="-1" MultiValuated="Yes" Direction="in" DataType="PLMId"/>
+    <Parameter Name="OutputIds" Lower="0" Upper="-1" MultiValuated="Yes" Direction="out" DataType="PLMId"/>
+  </Signature>
+  <Signature id="CATSbi_ProcedureSignatureTransferSiteOwnership">
+    <Parameter Name="InputIds" Lower="0" Upper="-1" MultiValuated="Yes" Direction="in" DataType="PLMId"/>
+    <Parameter Name="OutputIds" Lower="0" Upper="-1" MultiValuated="Yes" Direction="out" DataType="PLMId"/>
+  </Signature>
+</ProcedurePackage>

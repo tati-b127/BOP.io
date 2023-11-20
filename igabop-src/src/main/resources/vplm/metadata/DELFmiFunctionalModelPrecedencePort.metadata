@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2006, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified"
+         ModelerType="Top"
+         BelongsToModeler="DELFmiFunctionalModel"
+         Name="DELFmiFunctionalModelPrecedencePort"
+         Uuid="3A4C7937-5847-4B9E-B37E484A8417F114"
+         UseNames="PLMCORE"
+         CustomerExposition="Programmer"
+    >
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>Process Function Modeler</ShortRole>
+    <Role>Defines Process Function Precedence Port to deal with Precedence Connection</Role>
+  </CAAComment>
+
+  <Class Name="DELFmiProcessPrecedencePort"
+      Uuid="17003962-6241-471F-AA87407A4FC69561"
+      SuperName="PLMPort"
+      CustomerExposition="Programmer"
+      CustomerExtensible="No"
+      Specializable="No"
+      Abstract="No"
+      OwnerTypes="DELFmiFunctionReference"
+        >
+
+    <!-- OwnerTypes="DELFmiFunctionReference"  Integrate this line if you want to declare the aggregation constraint-->
+
+    <Property Name="IconName" Value="I_ProcessPrecedencePort"/>
+
+    <CAAComment>
+      <ShortRole>Defines Process Function Precedence Port</ShortRole>
+      <Role>Used for exposition of the status of the process purpose and to connect precedence constraints: possible values are "IN" or "OUT"?</Role>
+    </CAAComment>
+
+    <Simple Name="V_IOType" Uuid="9C633E01-21D3-46AD-9123A3484A20402E" Type="Integer" Protection="External" CAAExposition="L0" DefaultValue="1" Faceted="Yes">
+      <Property Name="RangeAsEnumName" Value="V_IOType_Enum_Prec"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="In;Out"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+      </Range>
+      <CAAComment>
+        <ShortRole>Defines Process Function Precedence Port Type</ShortRole>
+        <Role>Defines the type of the Port (In or Out)</Role>
+      </CAAComment>
+
+    </Simple>
+
+      <CAAComment>
+        <ShortRole>Defines Process Function Precedence Port owner</ShortRole>
+        <Role>Defines the type of the Port owner i.e. Process Function Reference</Role>
+      </CAAComment>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+  </Class>
+
+</Package>

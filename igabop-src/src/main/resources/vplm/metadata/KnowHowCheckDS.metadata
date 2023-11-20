@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2005, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" DataRDB_OID="ENODR_CHECKC" Name="KnowHowCheckDS" Uuid="1EB010F9-4F30-4006-8B8AD3A6AF8D3C29" UseNames="PLMKnowHowCheck" Alias="KnowHow Check Custo" >
+<Property Name="OptionalInstallation" Value="Yes" /> 
+	<Class Name="PLMCheckCusto" Uuid="6CCE1EC2-0F3D-452d-8DFCB4BA28413D7B" Alias="PLMCheckCusto"       SuperRef="A3BE9B37-9EE5-4f14-9A0BB92CA1C456DD" SuperName="PLMCheck" >
+    <IdentifierSet Name="Identifier" Uuid="F3504AB9-F1BD-46bf-A4B36CB0DEB94EBA" 
+      IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755" 
+      IdentifierNames="PLM_ExternalID V_version"/>
+  </Class>
+	<Class Name="PLMCheckInstanceCusto" Uuid="293FDCAF-5811-4b29-A4EC578D791EE994" Alias="PLMCheckInstanceCusto"       SuperRef="C3FDC21B-F7B9-4d00-8A90A09053178F38" SuperName="PLMCheckInstance" />
+</Package>

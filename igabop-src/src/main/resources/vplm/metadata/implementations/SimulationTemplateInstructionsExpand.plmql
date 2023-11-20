@@ -1,0 +1,38 @@
+NAVIGATE
+
+	T0.logicalid 		, T1.logicalid			, T2.logicalid ,
+	T0.physicalid		, T1.physicalid			, T2.physicalid ,
+   	T0.type				, T1.type				, T2.type 
+
+FROM
+
+	"Class/Simulation Template" T0 ,
+
+	"Class/DOCUMENTS" T1 ,
+
+	"RelationClass/Simulation Template Instructions" T2 
+
+FROM_ROOTS
+
+	[?1?]
+
+ON
+(
+	(RELATION 
+		(FROM="Class/Simulation Template"
+		 TO="RelationClass/Simulation Template Instructions"
+		 THROUGH=POINTEDBY
+		 )
+		 WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY)
+
+	THEN
+	RELATION 
+		(FROM="RelationClass/Simulation Template Instructions"
+		 TO="Class/DOCUMENTS"
+		 THROUGH=POINTSTO
+		 )
+		 WITH QUALITY_FILTER (CATEGORY=ISINSTANCEOF)
+	)
+)
+	
+ITER = 2 ;

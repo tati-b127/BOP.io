@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2006, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified"
+         ModelerType="Top"
+    	   Name="DELRmiAcceptedPackagingCnx"
+         BelongsToModeler="DELRmiResourceModel"
+    	   Uuid="6F390201-37B6-469d-B3DE-A932DF241CF4"
+    	   UseNames="PLMCORE"
+         CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>DELRmiAcceptedPackagingCnxModeler Package</ShortRole>
+    <Role>This package describes Resource Accepted Packaging Connection</Role>
+  </CAAComment>
+
+  <Class Name="DELRmiAcceptedPackagingCnx"
+         Uuid="D7FA15DD-9DE5-4708-AA9D-506A89B4E619"
+         SuperName="PLMConnection"
+         Abstract="No"
+      	 Specializable="No"
+		     CustomerExtensible="No"
+    OwnerTypes="VPMReference"
+           CustomerExposition="Programmer">
+
+    <Simple Name="V_InOrOutValidity" Uuid="B47D5E7F-1742-4360-A575-E756F9187488" Type="Integer" Protection="Free" CAAExposition="L0" DefaultValue="2" ResetOnCloning="No" ResetOnNewVersion="No">
+      <Property Name="RangeAsEnumName" Value="V_InOrOutValidity_Enum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="IN;OUT"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+      </Range>
+    </Simple>
+
+   
+    <Path Name="DELRmiLinkToPackaging"
+        Uuid="10DAAD11-3EA7-44ae-BEA8-DD43D8089666"
+        MultiValuated="Yes"
+        Lower="0"
+        Upper="-1"
+        RoleName="DEL_LinkToPackagingObject"
+        Type="SemanticRelation" AdaptativeToMinor="Yes"
+		    SynchroSensitivity="None"
+		    RerouteOnEffectivityChange="No"
+        Semantics="Reference"/>
+
+    <Path Name="DELRmiLinkToRecommandedPackaging"
+        Uuid="8CBAA2AD-9F5E-45fe-9620-9E5D97243D1D"
+        MultiValuated="Yes"
+        Lower="0"
+        Upper="-1"
+        RoleName="DEL_LinkToRecommendedPackagingObject"
+     		Type="SemanticRelation" AdaptativeToMinor="Yes"
+    		SynchroSensitivity="None"
+		    RerouteOnEffectivityChange="No"
+        Semantics="Reference"/>
+
+    <CAAComment>
+      <ShortRole>The DELRmiAcceptedPackagingCnx.class</ShortRole>
+      <Role>The DELRmiAcceptedPackagingCnx.class</Role>
+    </CAAComment>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+  </Class>
+
+</Package>

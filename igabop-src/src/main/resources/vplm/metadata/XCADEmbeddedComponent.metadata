@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2017, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified"
+	ModelerType="Top"
+	Name="XCADEmbeddedComponent"
+	Uuid="ea258604-41f4-11e7-a919-92ebcb67fe33"
+	UseNames="PRODUCTCFG"
+	CustomerExposition="Programmer" 
+	Architecture="All"
+	BelongsToModeler="XCADModeler"
+>
+
+	<CAAComment>
+		<ShortRole>Unified Product Structure Embedded Component Modeler Package</ShortRole>
+		<Role>This package includes all the entities and relations involved in the Embedded Component Support in Unified Product Structure.</Role>
+	</CAAComment>
+
+	<Comment>last update 2017-05-26</Comment>
+
+	<Extension  Name="XCADEmbeddedCmp" 
+		    Uuid="62840d26-b0b6-4a6d-9b77-29ee6c5cc212"
+		    ScopeNames="VPMReference"
+		    Specializable="No"
+		    CustomerExposition="Programmer">
+
+	  <Simple Name="V_IsEmbeddedComponent"
+		  Uuid="2ea867a8-f911-4a0e-a0c1-120766701341"
+		  Type="Boolean"
+		  DefaultValue="true"
+		  ResetOnCloning="No"
+		  ResetOnNewVersion="No"			
+		  Protection="External"
+		  MultiValuated="No">
+	  </Simple>
+	</Extension>
+
+</Package>

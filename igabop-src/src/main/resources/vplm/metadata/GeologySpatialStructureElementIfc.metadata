@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2017, All rights reserved -->
+
+<Package CustomerExposition = "Programmer" ModelerType = "Top" Name = "GeologySpatialStructureElementIfc" UseNames = "GeologySpatialStructureElement" Uuid = "42E305BB-B4D1-418A-A117-FBE988DAEC47" xmlns = "PLMDictionaryUnified">
+  <Extension CustomerExposition = "Programmer" Name = "IfcGeologyPart" ScopeNames = "GeologyPart" Uuid = "76D97792-5B95-419D-8DF9-10B332582973">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcGeologyPart_ObjectType" Protection = "Free" Type = "String" Uuid = "B8CC3454-9534-47B1-A5C8-354AA33E1223"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcGeologyPart_LongName" Protection = "Free" Type = "String" Uuid = "EA26CDF2-3614-41BF-89C2-59E6CC553F1D"/>
+    <Simple CAAExposition = "L0" DefaultValue = "ELEMENT" Name = "IfcGeologyPart_CompositionType" Protection = "Free" Type = "String" Uuid = "3B9E7267-3F93-466C-BC4E-49495F1AFFFA">
+      <Range>
+        <Equal>COMPLEX</Equal>
+        <Equal>ELEMENT</Equal>
+        <Equal>PARTIAL</Equal>
+      </Range>
+    </Simple>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcGeologyPartType" ScopeNames = "GeologyPartType" Uuid = "937C9293-E0E3-43F3-9713-F71924DEEC55">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcGeologyPartType_Tag" Protection = "Free" Type = "String" Uuid = "B3988B60-E485-4B4F-8BE7-24AF5B74E37D"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcGeologyPartType_ElementType" Protection = "Free" Type = "String" Uuid = "757BF7FF-A74A-4FCD-A8FB-A840F1EF8155"/>
+  </Extension>
+</Package>

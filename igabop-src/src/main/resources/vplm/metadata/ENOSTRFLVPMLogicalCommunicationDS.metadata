@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR RFL Logical Application Custo 1-->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2006, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo"  Name="ENOSTRFLVPMLogicalCommunicationDS"
+	Uuid="973865a9-559b-4746-bb9d-113386c18752" 
+	UseNames="RFLVPMLogicalCommunication" 
+	>
+
+	<CAAComment>
+		<ShortRole>PLM Logical Communication Customization sample Package</ShortRole>
+		<Role>This package describes a Customization of PLM Logical Communication model</Role>
+	</CAAComment>
+	
+	<Comment>last update 2007-02-22</Comment>
+	
+	<!-- ************************************************************************************ -->
+	<!-- *  ENOSTLogicalCommunicationReference (RFLVPMLogicalCommunicationReference) * -->
+  <!-- ************************************************************************************ -->
+
+  <Class Name="ENOSTLogicalCommunicationReference"
+		Uuid="546ec3f4-46b1-4c05-bc8c-e021b7683e71" 
+
+		SuperName="RFLVPMLogicalCommunicationReference" 
+		SuperRef="df51c026-160d-436c-8fb9-cefed32e14db" 
+		 
+		>
+
+		<CAAComment>
+			<ShortRole>Customized PLM Logical Communication Reference Object</ShortRole>
+			<Role>Customized PLM Logical Communication Reference Object</Role>
+		</CAAComment>
+
+    <!-- R206: contains identifier of object from which it is made from  -->
+    <!-- not exhanged between sites -->
+    <Simple Name="E_fromExternalId"
+    Uuid="7ebddb7f-85aa-4d40-95f9-d52ddfa689e1"
+    Alias="Definition"
+    Type="String"
+    MaxLength="256"
+    Mandatory="No"
+    MultiValuated="No"
+    Protection="Free"
+    CAAExposition="L0"
+          />
+
+    <!-- R206: contains Name comments  -->
+    <!-- not exhanged between sites -->
+    <Simple Name="E_versionComment"
+    Uuid="88b9378b-0d8c-4844-b2ee-1cb57e8296ad"
+    Alias="Version Comment"
+    Type="String"
+    MaxLength="256"
+    Mandatory="No"
+    MultiValuated="No"
+    Protection="Free"
+    CAAExposition="L0"
+    ResetOnNewVersion="Yes"
+    ResetOnCloning="Yes"
+              />    
+    
+        <IdentifierSet Name="Identifier"
+            Uuid="45118508-9978-412c-a05e-319f0e834c6e"
+            IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755"
+            IdentifierNames="PLM_ExternalID V_version" />
+	</Class>
+
+	<!-- ********************************************************************************* -->
+	<!-- * ENOSTLogicalCommunicationInstance (RFLVPMLogicalCommunicationInstance) * -->
+  <!-- ********************************************************************************* -->
+
+  <Class Name="ENOSTLogicalCommunicationInstance"
+		Uuid="d7d6cad4-5dde-4734-8efc-e2e7e30ef1e9" 
+
+		SuperName="RFLVPMLogicalCommunicationInstance" 
+		SuperRef="6238c98e-f878-4954-be2f-26dcf0fb7f61" 
+		 
+		>
+
+		<CAAComment>
+			<ShortRole>Customized PLM Logical Communication Instance Object</ShortRole>
+			<Role>Customized PLM Logical Communication Instance Object</Role>
+		</CAAComment>
+
+	</Class>
+
+</Package>

@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2007, All rights reserved --> 
+
+<Package xmlns="PLMDictionaryUnified" CustomerExposition="Programmer" ModelerType="Top"  Name="PLMResourceSetRep" Uuid="8DC9C517-C65B-4559-8DDE38C6EEE2C904" UseNames="PLMCORE" >
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+  <CAAComment>
+        <ShortRole>PLM Resource Set Representation Model</ShortRole>
+        <Role>This package includes all the entities in PLM Resource Set Representation Model</Role>
+    </CAAComment>
+    <Class Name="PLMResourceSetRepReference" CustomerExposition="Programmer" Uuid="9D4D5649-E0EA-4392-97EBA4AF59C9F81E"  Abstract="No" SuperName="PLMCoreRepReference"  Abbreviation="ars" DeleteAvailability="Yes" >
+      <Property Name="Searchable"      Value="Yes"/>
+      <Property Name="PQ_Attributes"   Value="PLM_ExternalID V_description V_user"/>
+      <Property Name="KweNew_InstanciationMethod" Value="CATKBEDelegateInstanciationRessourceSet"/>
+      <Property Name="DMCDerivable" Value="Yes"/>
+      <CAAComment>
+            <ShortRole>PLM Resource Set representation reference</ShortRole>
+          <Role>PLM Resources Set representation reference</Role>
+        </CAAComment>
+      <!-- ***************************************************** -->
+      <!-- * Elementary PLMResourcesSetRepReference attributes * -->
+      <!-- ***************************************************** -->
+      <Simple Name="V_ResourceSetID" Uuid="61A3755B-5FE9-4624-B98DCA5E3FB8F8FA" Type="String" MaxLength="40" Protection="External" CAAExposition="L0" Faceted="Yes">
+        <Property Name="SIXW" Value="ds6w:fulfills"/>
+            <CAAComment>
+                <ShortRole>A Resource Set Identifier extracted from the resource set xml declaration file.</ShortRole>
+            </CAAComment>
+      </Simple>
+      <Simple Name="V_ResourceSetTableStatus" Uuid="66263ED4-7091-481f-B4F61A0023761B31" Type="String" MaxLength="10" Protection="External" CAAExposition="L0" Faceted="Yes">
+            <CAAComment>
+                <ShortRole>An attribute used to store the current status of the setup data resource table.</ShortRole>
+            </CAAComment>
+      </Simple>
+      <Simple Name="V_ResourceSetDefinitionDate" Uuid="9BB1AF69-C795-4ff9-A84F8B25297B8D94" Type="Date" Protection="Internal">
+            <CAAComment>
+                <ShortRole>An attribute used to store the last modified date of the corresponding setup data usage declaration file.</ShortRole>
+            </CAAComment>
+      </Simple>
+
+      <!-- Exposition for RACE only (propagate depends on pointed resources) -->
+      <Volatile Name="Resources" Uuid="6f4d0114-6a6b-455f-9bc9-3239da3fb5b4" Accessor="None" TypeName="List" AccessMode="ReadOnly">
+        <Property Name="ServerAccessor" Value="com.dassault_systemes.EKLEngine.openings.lib.PLMEnt_Accessor"/>
+      </Volatile>
+
+      <!-- PROCEDURES Declaration  -->
+      <Method ImplementationType="Self">
+        <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+        <ProcedureForUsage>
+          <Usage href="ExportScope.meth#Design"/>
+          <UsedProcedure href="PRMpe_Procedures.proc#Prm_ExportResources"/>
+        </ProcedureForUsage>
+        <ProcedureForUsage>
+          <Usage href="ExportScope.meth#Channel"/>
+          <UsedProcedure href="PRMpe_Procedures.proc#Prm_ExportResources"/>
+        </ProcedureForUsage>
+		<ProcedureForUsage>
+          <Usage href="ExportScope.meth#Remove"/>
+          <UsedProcedure href="PRMpe_Procedures.proc#Prm_ExportResources"/>
+        </ProcedureForUsage>
+		<ProcedureForUsage>
+          <Usage href="ExportScope.meth#TransferSiteOwnership"/>
+          <UsedProcedure href="PRMpe_Procedures.proc#Prm_ExportResources"/>
+        </ProcedureForUsage>
+      </Method>
+
+    </Class>
+
+  <!-- ******************************* -->
+  <!-- FUNCTIONS Declarations : PLMQL  -->
+  <Function Name="prm_navigate_ref">
+    <Implementation Name="prm_navigate_ref" FileLocation="prm_navigate_ref.plmql" Language="PLMQL"/>
+    <Signature href="PLMResourceSetRepSignature"/>
+  </Function>
+  <Function Name="prm_navigate_repref">
+    <Implementation Name="prm_navigate_repref" FileLocation="prm_navigate_repref.plmql" Language="PLMQL"/>
+    <Signature href="PLMResourceSetRepSignature"/>
+  </Function>
+  <Function Name="prm_navigate_cbp">
+    <Implementation Name="prm_navigate_cbp" FileLocation="prm_navigate_cbp.plmql" Language="PLMQL"/>
+    <Signature href="PLMResourceSetRepSignature"/>
+  </Function>
+
+  <Signature id="PLMResourceSetRepSignature">
+    <Parameter Name="InputIds" Lower="0" Upper="-1" Direction="in" MultiValuated="Yes" DataType="PLMId"/>
+    <Parameter Name="OutputIds" Lower="0" Upper="-1" Direction="out" MultiValuated="No" DataType="PLMRouteSet"/>
+  </Signature>
+  <!-- ******************************* -->
+</Package>

@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<!-- ANY MODIFICATION IN THIS FILE MUST BE APPROVED BY DATA ARCHITECTURE COMMITTEE  -->
+<!-- ===============================================================================  -->
+<!-- see the excel file delivered in CATPLMDictionary/CNext.internal/docs for details on each of the following -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" Name="EXPERIMENT_ENUMS" Uuid="9d6f0ad4-2c3d-445f-ade2-20da62490737" CustomerExposition="Programmer">
+  <!-- 
+  <Enum Name="ExperimentStatusEnum"   CustomerExposition="Programmer" Uuid="9a7af8f2-61a8-4d18-ae7d-c103bfa672a7">
+    <Enumerator Name="ExperimentStatusEnum_Undefined" Uuid="ce7f3e82-c275-45e2-abde-068cbebfae64" Value="1"/>
+    <Enumerator Name="ExperimentStatusEnum_Failed" Uuid="f0c2725d-c25c-4fd3-b990-d1e1706f1123" Value="2"/>
+    <Enumerator Name="ExperimentStatusEnum_Balancing" Uuid="b0af0f97-6c4a-447b-bf40-8ee9cb8661a2" Value="3"/>
+    <Enumerator Name="ExperimentStatusEnum_Passed" Uuid="cfb8a727-dc87-4040-a7d7-bb32fd2ddbe9" Value="4"/>
+  </Enum>
+  -->
+</Package>

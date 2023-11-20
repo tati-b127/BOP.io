@@ -1,0 +1,123 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified"
+         ModelerType="Top"
+         Name="DELRmiResourceModelProdSysImplCnx"
+         BelongsToModeler="DELRmiResourceModel"
+         Uuid="9b835d60-60d9-4960-b9b98a1db3bbe19c"
+         UseNames="PLMCORE"
+         CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>DELRmiResourceModelProdSysImplCnx Modeler Package</ShortRole>
+    <Role>This package describes Resource Implement Connection to Production System</Role>
+  </CAAComment>
+
+  <Comment>Resource Implement Connection</Comment>
+
+  <Class Name="PLMDELProdSysImplCnx"
+         CustomerExposition="Programmer"
+         Uuid="1a0f1bb6-3174-49c7-9f6ce7202503b0e2"
+         SuperName="PLMConnection"
+         Abstract="No"
+         Specializable="No"
+         CustomerExtensible="No"
+OwnerTypes="VPMReference"
+                    CAAExposition="L1">
+ 
+   <Property Name="IconName" Value="I_RFLPLMImplementConnection"/>
+
+    <!-- OwnerTypes="VPMReference"  Integrate this line if you want to declare the aggregation constraint -->
+    <Path Name="DELLinkToImplementedLogicalObject"
+       Uuid="66a3e6be-3ccd-45e2-b3e459837f548fab"
+       MultiValuated="No"
+       RoleName="PLM_ImplementLink_Target"
+   		 Type="SemanticRelation" AdaptativeToMinor="No"
+		   SynchroSensitivity="PathAndLast"
+		   RerouteOnEffectivityChange="No"
+                      Orientation="In"
+       Semantics="Reference3"/>
+
+    <Path Name="DELLinkFromImplementingPhysicalObject"
+        Uuid="19e26763-be9a-4e51-aac12e1387c4613c"
+        MultiValuated="No"
+        RoleName="PLM_ImplementLink_Source"
+     		Type="SemanticRelation" AdaptativeToMinor="No"
+		    SynchroSensitivity="Last"
+		    RerouteOnEffectivityChange="Yes"
+                      Orientation="Out"
+        Semantics="Reference5"/>
+
+    <Path Name="DELLinkToWithObjects"
+        Uuid="fb7aa305-def7-4bbc-b33ad6fd68145674"
+        MultiValuated="Yes"
+        RoleName="DEL_LinkToWithObjects"
+     		Type="SemanticRelation" AdaptativeToMinor="No"
+		    SynchroSensitivity="None"
+		    RerouteOnEffectivityChange="No"
+        Semantics="Reference"/>
+
+    <Path Name="DELLinkToWhereObject"
+        Uuid="8ee11110-1d5b-41de-b62d-f21c962744e3"
+        MultiValuated="No"
+        RoleName="DEL_LinkToWhereObject"
+        Type="SemanticRelation" AdaptativeToMinor="No"
+		    SynchroSensitivity="None"
+		    RerouteOnEffectivityChange="No"
+        Semantics="Reference"/>
+
+    <Path Name="DELLinkToStates"
+        Uuid="5eed3d9a-e8ad-44c2-94a0309e65fe535a"
+        MultiValuated="Yes"
+        RoleName="DEL_LinkFromActivitytoState"
+     		Type="SemanticRelation" AdaptativeToMinor="No"
+		    SynchroSensitivity="Last"
+		    RerouteOnEffectivityChange="No"
+                      Orientation="Out"
+        Semantics="Reference5"/>
+
+    <Path Name="DELLinkToRelativeObject"
+      Uuid="0b288507-ba04-46fd-a9cedbac42787459"
+      MultiValuated="No"
+      RoleName="DEL_LinkToRelativeObject"
+   		Type="SemanticRelation" AdaptativeToMinor="No"
+	  	SynchroSensitivity="None"
+		  RerouteOnEffectivityChange="No"
+      Semantics="Reference"/>
+
+    <Simple Name="V_StateTypes"
+            Uuid="f089d5f8-14ce-4077-9871fca40faaf932"
+            Type="Integer"
+            MultiValuated="Yes"
+            CollectionType="Set"
+            Protection="Free"
+            CAAExposition="L0"/>
+    <Simple Name="V_SimulatedTime"
+            Uuid="859fc665-79d3-4288-af0e96de9f9fbbf8"
+            Type="Double"
+            Magnitude="TIME"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"/>
+    <Simple Name="V_RelativePosition"
+            Uuid="d957ea8a-ce94-45f2-ba58-d6673841dc64"
+            Type="Double"
+            MultiValuated="Yes"
+            CollectionType="List"
+            Protection="Free"
+            CAAExposition="L0"/>
+
+    <CAAComment>
+      <ShortRole>The DELRmiResourceModelProdSysImplCnx.class</ShortRole>
+      <Role>The DELRmiResourceModelProdSysImplCnx.class</Role>
+    </CAAComment>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+  </Class>
+
+</Package>

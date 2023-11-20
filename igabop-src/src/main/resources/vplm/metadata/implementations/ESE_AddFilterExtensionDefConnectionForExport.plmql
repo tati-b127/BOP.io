@@ -1,0 +1,22 @@
+NAVIGATE
+
+     T0.PLM_ExternalID,   T0.PLMID,
+     T1.PLM_ExternalID,   T1.PLMID 
+
+FROM 
+
+     PLMEnsSpecPartsFilter/EnsFilter T0,
+     PLMEnsSpecCnxFilterExtensionDef/EnsCnxFilterExtensionDef T1
+
+FROM_ROOTS [?1?]
+
+ON ( RELATION(
+
+     FROM=PLMEnsSpecPartsFilter/EnsFilter
+     TO=PLMEnsSpecCnxFilterExtensionDef/EnsCnxFilterExtensionDef
+
+     THROUGH=POINTEDBY )
+
+WITH QUALITY_FILTER(CATEGORY=ISOWNEDBY))
+
+;

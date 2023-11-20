@@ -1,0 +1,38 @@
+NAVIGATE     
+
+T0.PLMID, T1.PLMID
+ 
+
+FROM      
+
+DELRmiResourceModelProdSysImplCnx/PLMDELProdSysImplCnx T0,
+
+DELLmiProductionSystem/DELLmiProductionSystemReference T1
+
+FROM_ROOTS[?1?]
+
+ON ( RELATION(     
+
+FROM=PRODUCTCFG/VPMReference     
+
+TO=DELRmiResourceModelProdSysImplCnx/PLMDELProdSysImplCnx 
+
+THROUGH=POINTEDBY )
+
+WITH QUALITY_FILTER(CATEGORY=ISOWNEDBY))
+
+
+
+THEN (RELATION(
+
+FROM=DELRmiResourceModelProdSysImplCnx/PLMDELProdSysImplCnx
+
+TO=DELLmiProductionSystem/DELLmiProductionSystemReference
+
+THROUGH=POINTSTO))
+
+
+
+;
+
+

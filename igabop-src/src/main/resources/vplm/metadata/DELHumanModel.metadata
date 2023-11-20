@@ -1,0 +1,281 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2004, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" BelongsToModeler="DELHumanModel" ModelerType="Top" Name="DELHumanModel" Uuid="6B3391B9-89FA-4bc3-93B6969D5620D466" CustomerExposition="Programmer" UseNames="PRODUCTCFG PRODUCTDiscipline">
+  <Comment>Human Model Message Catalog</Comment>
+  <!-- **************************************** -->
+  <!-- * PLMResourceManikinRef (VPMReference) * -->
+  <!-- **************************************** -->
+  <Extension Name="PLMResourceManikinRef" Uuid="FA2C11B5-4D5D-44c9-B45966818E4C0F71" ScopeNames="VPMReference" CAAExposition="L1" CustomerExposition="Programmer">
+    <!--PGT: Issue on V_Gender ; should be INT-->
+    <Simple Name="V_Population" Uuid="2C58864F-AB6E-4ae0-A2D525F4C211B224" Faceted="Yes" Type="String" MaxLength="50" MultiValuated="No" Protection="Free" CAAExposition="L1">
+      <Property Name="SIXW" Value="ds6w:location"/>
+    </Simple>
+    <Simple Name="V_Gender" Uuid="329E1583-7DF4-437f-9B6DFDA0A38DF1E8" Faceted="Yes" Type="Integer" Protection="Free" CAAExposition="L1" DefaultValue="1">
+      <Property Name="SIXW" Value="ds6w:gender"/>
+      <Property Name="RangeAsEnumName" Value="V_Gender_Enum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="Woman;Man"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+      </Range>
+    </Simple>
+    <Simple Name="V_Weight" Uuid="D03D63EE-3DD3-43a7-B5BF39A6906A180A" Type="Double" Magnitude="MASS" MultiValuated="No" Protection="Free" CAAExposition="L1">
+      <Property Name="SIXW" Value="ds6w:weight"/>
+    </Simple>
+    <Simple Name="V_Stature" Uuid="6C144D85-BD8B-4930-B99A33DC05C94F58" Type="Double" Magnitude="LENGTH" MultiValuated="No" Protection="Free" CAAExposition="L1">
+      <Property Name="SIXW" Value="ds6w:height"/>
+    </Simple>
+  </Extension>
+  <Extension Name="ErgoResource" Uuid="32F29CBE-C56D-450B-A85E-AE34BB98C76A" ScopeNames="VPMReference" CAAExposition="L1" CustomerExposition="Programmer">
+    <Simple Name="V_ErgoFamily" Uuid="43201A77-AB66-4F4D-99D0-81E173D80475" Type="String" MultiValuated="Yes" Protection="External" Faceted="Yes">
+      <Property Name="SIXW" Value="ds6w:category"/>
+      <Range>
+        <Equal>Ergo_ComputerEquipment</Equal>
+        <Equal>Ergo_Furniture</Equal>
+        <Equal>Ergo_IndustrialDevice</Equal>
+        <Equal>Ergo_Logistics</Equal>
+        <Equal>Ergo_Storage</Equal>
+        <Equal>Ergo_AccessoryTools</Equal>
+        <Equal>Ergo_CuttingTools</Equal>
+        <Equal>Ergo_DispensingTools</Equal>
+        <Equal>Ergo_DrivingTools</Equal>
+        <Equal>Ergo_HammeringTools</Equal>
+        <Equal>Ergo_PlyingTools</Equal>
+        <Equal>Ergo_SurfaceFinishingTools</Equal>
+        <Equal>Ergo_WeldingTools</Equal>
+      </Range>
+    </Simple>
+    <Simple Name="V_ErgoCategory" Uuid="6923D584-B046-48D8-820C-11DFA804E161" Type="String" MultiValuated="No" Protection="External" Faceted="Yes">
+      <Property Name="SIXW" Value="ds6w:predefinedType"/>
+      <Range>
+        <Equal>Ergo_Adaptor</Equal>
+        <Equal>Ergo_AirLiquidGun</Equal>
+        <Equal>Ergo_AirLiquidNozzle</Equal>
+        <Equal>Ergo_AnvilForRivet</Equal>
+        <Equal>Ergo_AutomatedGuidedVehicule</Equal>
+        <Equal>Ergo_Battery</Equal>
+        <Equal>Ergo_BatteryCharger</Equal>
+        <Equal>Ergo_Bin</Equal>
+        <Equal>Ergo_Bit</Equal>
+        <Equal>Ergo_Board</Equal>
+        <Equal>Ergo_Box</Equal>
+        <Equal>Ergo_Brush</Equal>
+        <Equal>Ergo_Cart</Equal>
+        <Equal>Ergo_Chair</Equal>
+        <Equal>Ergo_ControlCommand</Equal>
+        <Equal>Ergo_Conveyor</Equal>
+        <Equal>Ergo_Crimper</Equal>
+        <Equal>Ergo_Cutter</Equal>
+        <Equal>Ergo_Drill</Equal>
+        <Equal>Ergo_DrillBit</Equal>
+        <Equal>Ergo_Extension</Equal>
+        <Equal>Ergo_GlueDispenser</Equal>
+        <Equal>Ergo_Hammer</Equal>
+        <Equal>Ergo_HandGrinder</Equal>
+        <Equal>Ergo_HandScanner</Equal>
+        <Equal>Ergo_Jig</Equal>
+        <Equal>Ergo_Keyboard</Equal>
+        <Equal>Ergo_Knife</Equal>
+        <Equal>Ergo_LiftAssistant</Equal>
+        <Equal>Ergo_LiquidContainer</Equal>
+        <Equal>Ergo_LubricantDispenserGun</Equal>
+        <Equal>Ergo_Machine</Equal>
+        <Equal>Ergo_Mallet</Equal>
+        <Equal>Ergo_Mouse</Equal>
+        <Equal>Ergo_NutRunner</Equal>
+        <Equal>Ergo_PaintGunSprayGun</Equal>
+        <Equal>Ergo_Pallet</Equal>
+        <Equal>Ergo_Plier</Equal>
+        <Equal>Ergo_PolishingTools</Equal>
+        <Equal>Ergo_PowerScrewdriver</Equal>
+        <Equal>Ergo_Printer</Equal>
+        <Equal>Ergo_Rack</Equal>
+        <Equal>Ergo_ReactionBar</Equal>
+        <Equal>Ergo_RivetRunner</Equal>
+        <Equal>Ergo_Robot</Equal>
+        <Equal>Ergo_Roller</Equal>
+        <Equal>Ergo_Scissors</Equal>
+        <Equal>Ergo_Screen</Equal>
+        <Equal>Ergo_Screwdriver</Equal>
+        <Equal>Ergo_SealantDispenserGun</Equal>
+        <Equal>Ergo_Shelf</Equal>
+        <Equal>Ergo_Socket</Equal>
+        <Equal>Ergo_SolderingIron</Equal>
+        <Equal>Ergo_Stool</Equal>
+        <Equal>Ergo_Table</Equal>
+        <Equal>Ergo_TorqueWrench</Equal>
+        <Equal>Ergo_Totes</Equal>
+        <Equal>Ergo_Transpallet</Equal>
+        <Equal>Ergo_Tray</Equal>
+        <Equal>Ergo_TrolleyDolly</Equal>
+        <Equal>Ergo_Tweezers</Equal>
+        <Equal>Ergo_Workbench</Equal>
+      </Range>
+    </Simple>
+    <Simple Name="V_ErgoSubCategory" Uuid="CCA45048-0010-46CF-A919-A9B64A625E63" Type="String" MultiValuated="No" Protection="Internal" />
+    <Simple Name="V_ErgoCoordinates" Uuid="28111D88-5CB7-4BC6-9230-AD8669670850" Type="Double" MultiValuated="Yes" Protection="Internal" />
+    <Simple Name="V_ErgoHandPosture" Uuid="5EA73036-DA61-4796-B0AD-E9C972E712E5" Type="Double" MultiValuated="Yes" Protection="Internal" />
+  </Extension>
+
+  <Class Name="Human"
+    Uuid="55607bd0-63c1-4d59-abb2-fe64307d31f1"
+    Abstract="No"
+    Discipline="Yes"
+    SuperName="VPMRepReference"
+    CustomerExposition="Programmer"
+    CAAExposition="L1"
+    Specializable="No"
+    Abbreviation="hur"
+    Searchable="No">
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Review"/>
+        <UsedProcedure href="Human_Procedures.proc#Human_ExportHumanReps"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Design"/>
+        <UsedProcedure href="Human_Procedures.proc#Human_ExportHumanReps"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Remove"/>
+        <UsedProcedure href="Human_Procedures.proc#Human_ExportHumanReps"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#TransferSiteOwnership"/>
+        <UsedProcedure href="Human_Procedures.proc#Human_ExportHumanReps"/>
+      </ProcedureForUsage>
+    </Method>
+  </Class>
+  <Class Name="HumanRepRef"
+    Uuid="8b697ed3-9573-47f6-a7bc-04a3c09d5fe9"
+    Abstract="No"
+    Discipline="Yes"
+    SuperName="3DShape"
+    CustomerExposition="Programmer"
+    CAAExposition="L1"
+    Specializable="No"
+    Searchable="No">	
+	<!-- At most, one HumanRepRef under an ErgoHuman -->
+	<Property Name="AttributeValuation" Value="MonoValued"/>
+	<!-- Representation is not shown in UI (ProgrammerOnly), but the content is visible in the Spec Tree-->
+	<Property Name="ShowContent" Value="Show" />
+	<Property Name="IconName" Value="I_Part" />
+	<Property Name="3DIconName" Value="CAT3DNav_BSMRepInstance.cgr" />
+	<Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Review"/>
+        <UsedProcedure href="Human_Procedures.proc#Human_ExportHumanReps"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Design"/>
+        <UsedProcedure href="Human_Procedures.proc#Human_ExportHumanReps"/>
+      </ProcedureForUsage>
+          <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Remove"/>
+        <UsedProcedure href="Human_Procedures.proc#Human_ExportHumanReps"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#TransferSiteOwnership"/>
+        <UsedProcedure href="Human_Procedures.proc#Human_ExportHumanReps"/>
+      </ProcedureForUsage>
+    </Method>
+  </Class>
+  <Class Name="Human_Interface"
+    Uuid="5FCF7F9C-1AE8-11DD-B841-731756D89593"
+    Abstract="No"
+    Discipline="Yes"
+    SuperName="VPMRepReference"
+    CustomerExposition="Programmer"
+    Specializable="No"
+    CustomerExtensible="No"
+    Abbreviation="hif">
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Design"/>
+        <UsedProcedure href="Human_Procedures.proc#Human_ExportHumanReps"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Remove"/>
+        <UsedProcedure href="Human_Procedures.proc#Human_ExportHumanReps"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#TransferSiteOwnership"/>
+        <UsedProcedure href="Human_Procedures.proc#Human_ExportHumanReps"/>
+      </ProcedureForUsage>
+    </Method>
+  </Class>
+  <Class Name="Human_Attributes_Library"
+    Uuid="33480523-1FC3-4215-AE7B-E3E196DEC6E3"
+    Abstract="No"
+    Discipline="Yes"
+    SuperName="VPMRepReference"
+    CustomerExposition="Programmer"
+    Specializable="No"
+    CustomerExtensible="No"
+    Abbreviation="hal">
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Design"/>
+        <UsedProcedure href="Human_Procedures.proc#Human_ExportHumanReps"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Remove"/>
+        <UsedProcedure href="Human_Procedures.proc#Human_ExportHumanReps"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#TransferSiteOwnership"/>
+        <UsedProcedure href="Human_Procedures.proc#Human_ExportHumanReps"/>
+      </ProcedureForUsage>
+    </Method>
+  </Class>
+  <Class Name="ErgoHuman"
+    Uuid="b4e8d120-e574-11e2-a28f-0800200c9a66"
+    Abstract="No"
+    Discipline="Yes"
+    SuperName="VPMReference"
+    CustomerExposition="Programmer"
+    CAAExposition="L1"
+    Specializable="No"
+    Abbreviation="hum">
+    <Property Name="IconName" Value="I_DELRMWorkerSystem"/>
+    <Property Name="3DIconName" Value="I_DELRMWorkerSystem.cgr"/>
+    <Property Name="Newable" Value="New"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATManikinDelegateInstanciationImpl"/>
+    <Property Name="MergedExtensionType" Value="PLMResourceManikinRef"/>
+    <Property Name="XPGApplyDisciplineOnInstance" Value="Yes"/>
+    <Simple Name="V_Population" Uuid="4c3353b0-e576-11e2-a28f-0800200c9a66" Faceted="Yes" Type="String" MaxLength="50" MultiValuated="No" Protection="Free" CAAExposition="L1">
+      <Property Name="SIXW" Value="ds6w:location"/>
+    </Simple>
+    <Simple Name="V_Gender" Uuid="54cc6840-e576-11e2-a28f-0800200c9a66" Faceted="Yes" Type="Integer" Protection="Free" CAAExposition="L1" DefaultValue="1">
+      <Property Name="SIXW" Value="ds6w:gender"/>
+      <Property Name="RangeAsEnumName" Value="V_Gender_Enum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="Woman;Man"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+      </Range>
+    </Simple>
+    <Simple Name="V_Weight" Uuid="5a3d3ac0-e576-11e2-a28f-0800200c9a66" Type="Double" Magnitude="MASS" MultiValuated="No" Protection="Free" CAAExposition="L1">
+      <Property Name="SIXW" Value="ds6w:weight"/>
+    </Simple>
+    <Simple Name="V_Stature" Uuid="5f4d0180-e576-11e2-a28f-0800200c9a66" Type="Double" Magnitude="LENGTH" MultiValuated="No" Protection="Free" CAAExposition="L1">
+      <Property Name="SIXW" Value="ds6w:height"/>
+    </Simple>
+  </Class>
+
+  <Function Name="Human_AddHumanRepresentation">
+    <Implementation Name="Human_AddHumanRepresentation" FileLocation="Human_AddHumanRepresentation.plmql" Language="PLMQL"/>
+    <Signature href="Human_Signature"/>
+  </Function>
+
+  <Signature id="Human_Signature">
+    <Parameter Name="InputIds" Lower="0" Upper="-1" Direction="in" MultiValuated="Yes" DataType="PLMId"/>
+    <Parameter Name="OutputIds" Lower="0" Upper="-1" Direction="out" MultiValuated="No" DataType="PLMRouteSet"/>
+  </Signature>
+  
+</Package>

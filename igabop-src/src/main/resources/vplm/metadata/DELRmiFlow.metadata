@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified"
+         ModelerType="Top"
+         Name="DELRmiFlow"
+         Uuid="187809cc-7530-11e8-adc0-fa7ae01bbebc"
+         BelongsToModeler="DELRmiResourceModel"
+         UseNames="PLMCORE"
+         CustomerExposition="Programmer">
+	<CAAComment>
+		<ShortRole/>
+		<Role/>
+	</CAAComment>
+	
+	<Class Name="DELRmiFlowCnx"
+        Uuid="ec1f1b5c-7531-11e8-adc0-fa7ae01bbebc"
+        Abstract="No"
+        SuperName="PLMConnection"
+        CustomerExposition="Programmer"
+        Specializable="No"
+        CustomerExtensible="Yes"
+        OwnerTypes="VPMReference" >
+		<CAAComment>
+		  <ShortRole></ShortRole>
+		  <Role></Role>
+		</CAAComment>
+		<Path Name="DELMaterialPathIN"
+			Uuid="232b72f2-7533-11e8-adc0-fa7ae01bbebc"
+			MultiValuated="No"
+			RoleName="DEL_MaterialPathIN"		
+			Type="SemanticRelation" 
+			AdaptativeToMinor="Yes"
+			SynchroSensitivity="None"
+			RerouteOnEffectivityChange="Yes"
+			Semantics="Reference"/>
+
+		<Path Name="DELMaterialPathOUT"
+			Uuid="26c5582e-7533-11e8-adc0-fa7ae01bbebc"
+			MultiValuated="No"
+			RoleName="DEL_MaterialPathOUT"		
+			Type="SemanticRelation" 
+			AdaptativeToMinor="Yes"
+			SynchroSensitivity="None"
+			RerouteOnEffectivityChange="Yes"
+			Semantics="Reference"/>
+		<Method ImplementationType="None">
+		  <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+	</Class>
+	
+	<Extension Name="DELRmiFlowInternalInfo"
+           Uuid="2b276e48-7533-11e8-adc0-fa7ae01bbebc"
+           ScopeNames="DELRmiFlowCnx"
+           Discipline="No"
+           Abstract="No"
+	       Specializable="No"
+           CAAExposition="L0"
+           CustomerExposition="Programmer">
+
+		<Simple Name="V_FlowData"
+			Uuid="47d082dc-7533-11e8-adc0-fa7ae01bbebc"
+			Type="Clob"
+			ResetOnCloning="No"
+			ResetOnNewVersion="No"
+			MultiValuated="No"
+			Protection="Internal">
+		  <CAAComment>
+			<ShortRole></ShortRole>
+		  </CAAComment>
+		</Simple>
+
+		<CAAComment>
+		  <ShortRole></ShortRole>
+		</CAAComment>
+	</Extension>
+	
+</Package>

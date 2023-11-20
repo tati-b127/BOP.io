@@ -1,0 +1,42 @@
+NAVIGATE
+   	T0.PLMID, T0.PLM_ExternalID,
+   	T1.physicalid, T1.logicalid, T1.type, T1.name,
+	T2.PLMID, T2.PLM_ExternalID,
+   	T3.PLMID, T3.PLM_ExternalID
+
+FROM
+	SIMObjSimulation/SIMObjSimulationObject T0,
+	Class/Requirement T1,
+	PLMCORE/PLMCoreReference T2,
+	ParameterPort/ParameterPort T3
+
+FROM_ROOTS
+	[?1?]
+
+ON
+	(RELATION 
+		(FROM=SIMObjSimulation/SIMObjSimulationObject
+		TO=ParameterPort/ParameterPort
+		THROUGH=POINTEDBY
+		)
+		WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY)
+	)
+	OR
+	(RELATION 
+		(FROM=Class/Requirement
+		TO=ParameterPort/ParameterPort
+		THROUGH=POINTEDBY
+		)
+		WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY)
+	)
+	OR
+	(RELATION 
+		(FROM=PLMCORE/PLMCoreReference
+		TO=ParameterPort/ParameterPort
+		THROUGH=POINTEDBY
+		)
+		WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY)
+	)
+
+ITER = 1 ;
+

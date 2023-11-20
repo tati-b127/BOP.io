@@ -1,0 +1,201 @@
+<?xml version="1.0" ?>
+<ProcedurePackage 
+	xmlns="PLMDictionaryProcedure"
+	Name="ENOLog_Procedures">
+			
+	<Procedure Name="Logical_ExportReference_Design">
+		<Implementation Name="Logical_ExportReference_Design" FileLocation="Logical_ExportReference_Design.KProc" Language="EKL"/>
+		<Signature href="ENOLog_ProcedureSignatureExport"/>
+	</Procedure>
+
+   <Procedure Name="Logical_ExportReference_Decoration">
+      <Implementation Name="Logical_ExportReference_Decoration" FileLocation="Logical_ExportReference_Decoration.KProc" Language="EKL"/>
+      <Signature href="ENOLog_ProcedureSignatureExport"/>
+   </Procedure>
+	
+  <Procedure Name="Logical_ExportSystemReference_PLMChannel">
+    <Implementation Name="Logical_ExportSystemReference_PLMChannel" FileLocation="Logical_ExportSystemReference_PLMChannel.KProc" Language="EKL"/>
+    <Signature href="ENOLog_ProcedureSignatureExport"/>
+  </Procedure>
+
+  <Procedure Name="Logical_ExportSystemInstance_PLMChannel">
+    <Implementation Name="Logical_ExportSystemInstance_PLMChannel" FileLocation="Logical_ExportSystemInstance_PLMChannel.KProc" Language="EKL"/>
+    <Signature href="ENOLog_ProcedureSignatureExport"/>
+  </Procedure>
+
+  <Procedure Name="Logical_ExportMultiplexerRef_Design">
+    <Implementation Name="Logical_ExportMultiplexerRef_Design" FileLocation="Logical_ExportMultiplexerRef_Design.KProc" Language="EKL"/>
+    <Signature href="ENOLog_ProcedureSignatureExport"/>
+  </Procedure>
+
+  <Procedure Name="Logical_ExportMultiplexerRef_PLMChannel">
+    <Implementation Name="Logical_ExportMultiplexerRef_PLMChannel" FileLocation="Logical_ExportMultiplexerRef_PLMChannel.KProc" Language="EKL"/>
+    <Signature href="ENOLog_ProcedureSignatureExport"/>
+  </Procedure>
+
+  <Procedure Name="Logical_ExportMultiplexerInst_PLMChannel">
+    <Implementation Name="Logical_ExportMultiplexerInst_PLMChannel" FileLocation="Logical_ExportMultiplexerInst_PLMChannel.KProc" Language="EKL"/>
+    <Signature href="ENOLog_ProcedureSignatureExport"/>
+  </Procedure>
+
+  <Procedure Name="Logical_ExportType_Design">
+    <Implementation Name="Logical_ExportType_Design" FileLocation="Logical_ExportType_Design.KProc" Language="EKL"/>
+    <Signature href="ENOLog_ProcedureSignatureExport"/>
+  </Procedure>
+  
+  <Procedure Name="Logical_ExportType_PLMChannel">
+    <Implementation Name="Logical_ExportType_PLMChannel" FileLocation="Logical_ExportType_PLMChannel.KProc" Language="EKL"/>
+    <Signature href="ENOLog_ProcedureSignatureExport"/>
+  </Procedure>
+  
+  <Procedure Name="Logical_ExportServices_Design">
+    <Implementation Name="Logical_ExportServices_Design" FileLocation="Logical_ExportServices_Design.KProc" Language="EKL"/>
+    <Signature href="ENOLog_ProcedureSignatureExport"/>
+  </Procedure>
+  
+  <Procedure Name="Logical_ExportServices_PLMChannel">
+    <Implementation Name="Logical_ExportServices_PLMChannel" FileLocation="Logical_ExportServices_PLMChannel.KProc" Language="EKL"/>
+    <Signature href="ENOLog_ProcedureSignatureExport"/>
+  </Procedure>
+  
+  <Procedure Name="Logical_ExportRepresentation_Design">
+    <Implementation Name="Logical_ExportRepresentation_Design" FileLocation="Logical_ExportRepresentation_Design.KProc" Language="EKL"/>
+    <Signature href="ENOLog_ProcedureSignatureExport"/>
+  </Procedure>  
+
+  <Procedure Name="Logical_ExportRepresentation_PLMChannel">
+    <Implementation Name="Logical_ExportRepresentation_PLMChannel" FileLocation="Logical_ExportRepresentation_PLMChannel.KProc" Language="EKL"/>
+    <Signature href="ENOLog_ProcedureSignatureExport"/>
+  </Procedure>
+
+  <Procedure Name="Logical_GetExchangeCompletionOnReference">
+    <Implementation Name="Logical_GetExchangeCompletionOnReference" FileLocation="Logical_GetExchangeCompletionOnReference.KProc" Language="EKL"/>
+    <Signature href="ENOLog_ProcedureSignatureExport"/>
+  </Procedure>
+
+  <Procedure Name="Logical_Export3DRepRef_Remove">
+    <Implementation Name="Logical_Export3DRepRef_Remove" FileLocation="Logical_Export3DRepRef_Remove.KProc" Language="EKL"/>
+    <Signature href="ENOLog_ProcedureSignatureExport"/>
+  </Procedure>
+
+  <Procedure Name="Logical_Export3DRepRef_TSO">
+    <Implementation Name="Logical_Export3DRepRef_TSO" FileLocation="Logical_Export3DRepRef_TSO.KProc" Language="EKL"/>
+    <Signature href="ENOLog_ProcedureSignatureExport"/>
+  </Procedure>
+
+  <Procedure Name="Logical_ExportInstance_Remove">
+    <Implementation Name="Logical_ExportInstance_Remove" FileLocation="Logical_ExportInstance_Remove.KProc" Language="EKL"/>
+    <Signature href="ENOLog_ProcedureSignatureExport"/>
+  </Procedure>
+
+  <Procedure Name="Logical_ExportInstance_TSO">
+    <Implementation Name="Logical_ExportInstance_TSO" FileLocation="Logical_ExportInstance_TSO.KProc" Language="EKL"/>
+    <Signature href="ENOLog_ProcedureSignatureExport"/>
+  </Procedure>
+
+  <Procedure Name="Logical_ExportInterfaceRepRef_Remove">
+    <Implementation Name="Logical_ExportInterfaceRepRef_Remove" FileLocation="Logical_ExportInterfaceRepRef_Remove.KProc" Language="EKL"/>
+    <Signature href="ENOLog_ProcedureSignatureExport"/>
+  </Procedure>
+
+  <Procedure Name="Logical_ExportInterfaceRepRef_TSO">
+    <Implementation Name="Logical_ExportInterfaceRepRef_TSO" FileLocation="Logical_ExportInterfaceRepRef_TSO.KProc" Language="EKL"/>
+    <Signature href="ENOLog_ProcedureSignatureExport"/>
+  </Procedure>
+
+  <Procedure Name="Logical_ExportMultiplexerInst_Remove">
+    <Implementation Name="Logical_ExportMultiplexerInst_Remove" FileLocation="Logical_ExportMultiplexerInst_Remove.KProc" Language="EKL"/>
+    <Signature href="ENOLog_ProcedureSignatureExport"/>
+  </Procedure>
+
+  <Procedure Name="Logical_ExportMultiplexerInst_TSO">
+    <Implementation Name="Logical_ExportMultiplexerInst_TSO" FileLocation="Logical_ExportMultiplexerInst_TSO.KProc" Language="EKL"/>
+    <Signature href="ENOLog_ProcedureSignatureExport"/>
+  </Procedure>
+
+  <Procedure Name="Logical_ExportMultiplexerRef_Remove">
+    <Implementation Name="Logical_ExportMultiplexerRef_Remove" FileLocation="Logical_ExportMultiplexerRef_Remove.KProc" Language="EKL"/>
+    <Signature href="ENOLog_ProcedureSignatureExport"/>
+  </Procedure>
+
+  <Procedure Name="Logical_ExportMultiplexerRef_TSO">
+    <Implementation Name="Logical_ExportMultiplexerRef_TSO" FileLocation="Logical_ExportMultiplexerRef_TSO.KProc" Language="EKL"/>
+    <Signature href="ENOLog_ProcedureSignatureExport"/>
+  </Procedure>
+
+  <Procedure Name="Logical_ExportReference_Remove">
+    <Implementation Name="Logical_ExportReference_Remove" FileLocation="Logical_ExportReference_Remove.KProc" Language="EKL"/>
+    <Signature href="ENOLog_ProcedureSignatureExport"/>
+  </Procedure>
+
+  <Procedure Name="Logical_ExportReference_TSO">
+    <Implementation Name="Logical_ExportReference_TSO" FileLocation="Logical_ExportReference_TSO.KProc" Language="EKL"/>
+    <Signature href="ENOLog_ProcedureSignatureExport"/>
+  </Procedure>
+
+  <Procedure Name="Logical_ExportRepRef_Remove">
+    <Implementation Name="Logical_ExportRepRef_Remove" FileLocation="Logical_ExportRepRef_Remove.KProc" Language="EKL"/>
+    <Signature href="ENOLog_ProcedureSignatureExport"/>
+  </Procedure>
+
+  <Procedure Name="Logical_ExportRepRef_TSO">
+    <Implementation Name="Logical_ExportRepRef_TSO" FileLocation="Logical_ExportRepRef_TSO.KProc" Language="EKL"/>
+    <Signature href="ENOLog_ProcedureSignatureExport"/>
+  </Procedure>
+
+  <Procedure Name="Logical_ExportServicesExpoInst_Remove">
+    <Implementation Name="Logical_ExportServicesExpoInst_Remove" FileLocation="Logical_ExportServicesExpoInst_Remove.KProc" Language="EKL"/>
+    <Signature href="ENOLog_ProcedureSignatureExport"/>
+  </Procedure>
+
+  <Procedure Name="Logical_ExportServicesExpoInst_TSO">
+    <Implementation Name="Logical_ExportServicesExpoInst_TSO" FileLocation="Logical_ExportServicesExpoInst_TSO.KProc" Language="EKL"/>
+    <Signature href="ENOLog_ProcedureSignatureExport"/>
+  </Procedure>
+
+  <Procedure Name="Logical_ExportServicesRef_Remove">
+    <Implementation Name="Logical_ExportServicesRef_Remove" FileLocation="Logical_ExportServicesRef_Remove.KProc" Language="EKL"/>
+    <Signature href="ENOLog_ProcedureSignatureExport"/>
+  </Procedure>
+
+  <Procedure Name="Logical_ExportServicesRef_TSO">
+    <Implementation Name="Logical_ExportServicesRef_TSO" FileLocation="Logical_ExportServicesRef_TSO.KProc" Language="EKL"/>
+    <Signature href="ENOLog_ProcedureSignatureExport"/>
+  </Procedure>
+
+  <Procedure Name="Logical_ExportTypeExpoInst_Remove">
+    <Implementation Name="Logical_ExportTypeExpoInst_Remove" FileLocation="Logical_ExportTypeExpoInst_Remove.KProc" Language="EKL"/>
+    <Signature href="ENOLog_ProcedureSignatureExport"/>
+  </Procedure>
+
+  <Procedure Name="Logical_ExportTypeExpoInst_TSO">
+    <Implementation Name="Logical_ExportTypeExpoInst_TSO" FileLocation="Logical_ExportTypeExpoInst_TSO.KProc" Language="EKL"/>
+    <Signature href="ENOLog_ProcedureSignatureExport"/>
+  </Procedure>
+
+  <Procedure Name="Logical_ExportTypeInst_Remove">
+    <Implementation Name="Logical_ExportTypeInst_Remove" FileLocation="Logical_ExportTypeInst_Remove.KProc" Language="EKL"/>
+    <Signature href="ENOLog_ProcedureSignatureExport"/>
+  </Procedure>
+
+  <Procedure Name="Logical_ExportTypeInst_TSO">
+    <Implementation Name="Logical_ExportTypeInst_TSO" FileLocation="Logical_ExportTypeInst_TSO.KProc" Language="EKL"/>
+    <Signature href="ENOLog_ProcedureSignatureExport"/>
+  </Procedure>
+
+  <Procedure Name="Logical_ExportTypeRef_Remove">
+    <Implementation Name="Logical_ExportTypeRef_Remove" FileLocation="Logical_ExportTypeRef_Remove.KProc" Language="EKL"/>
+    <Signature href="ENOLog_ProcedureSignatureExport"/>
+  </Procedure>
+
+  <Procedure Name="Logical_ExportTypeRef_TSO">
+    <Implementation Name="Logical_ExportTypeRef_TSO" FileLocation="Logical_ExportTypeRef_TSO.KProc" Language="EKL"/>
+    <Signature href="ENOLog_ProcedureSignatureExport"/>
+  </Procedure>
+
+  <Signature id="ENOLog_ProcedureSignatureExport">
+		<Parameter Name="InputIds" Lower="0" Upper="-1" MultiValuated="Yes" Direction="in" DataType="PLMId"/>
+		<Parameter Name="OutputIds" Lower="0" Upper="-1" MultiValuated="Yes" Direction="out" DataType="PLMId"/>
+	</Signature>
+	
+</ProcedurePackage>

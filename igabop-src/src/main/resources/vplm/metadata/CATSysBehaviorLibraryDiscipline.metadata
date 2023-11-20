@@ -1,0 +1,647 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2007, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" 
+		ModelerType="Top" 
+		CustomerExposition="Programmer" 
+		Name="CATSysBehaviorLibraryDiscipline" 
+		Uuid="F5EAC543-7F2E-4623-969A-836E34CBF34C" 
+		UseNames="CATSysBehaviorLibrary RFLPLMFunctionalSubRep RFLVPMLogicalSubRep"
+		BelongsToModeler="CATSysBehaviorLibrary"
+		>
+	<CAAComment>
+		<ShortRole>PLM CATSysBehaviorLibraryClass Package</ShortRole>
+		<Role>This package describes the Classs of the PLM CATSysBehaviorLibrary model on top of PLM Core</Role>
+	</CAAComment>
+	
+	<Class Name="Behavior_Continuous_Root" Uuid="141aa096-1e68-4caa-a214-2171aad24ae1" Abbreviation="dbrr" Abstract="No" CustomerExposition="Programmer" Discipline="Yes" SuperName="CATSysBehaviorLibRepReference">
+		<Property Name="Searchable" Value="No" /> 
+		<Property Name="KweNew_InstanciationMethod" 
+				Value="CATSysDelegateInstanciation"/>
+		<Property Name="Newable" 
+				Value="No"/>
+		<Property Name="IconName" 
+				Value="I_BehaviorLibContinuousRep"/>
+		<Property Name="ChangeCollaborativeSpaceAvailability" Value="Yes"/>
+		<Method ImplementationType="AsFather">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+	</Class>
+	<Class Name="Behavior_Discrete_Root" Uuid="ef7ca627-56a8-41c3-b66a-0e538d30cdb1" Abbreviation="sbrr" Abstract="No" CustomerExposition="Programmer" Discipline="Yes" SuperName="CATSysBehaviorLibRepReference">
+		<Property Name="KweNew_InstanciationMethod" 
+				Value="CATCbuLCMDelegateInstanciation"/>
+		<Property Name="Newable" 
+				Value="No"/>
+		<Property Name="IconName" 
+				Value="I_BehaviorLibDiscrete"/>
+		<Property Name="ChangeCollaborativeSpaceAvailability" Value="Yes"/>
+		<Method ImplementationType="AsFather">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+	</Class>
+	<Class Name="Behavior_Safety_Root" Uuid="76310388-F5E6-4e53-98F6-A30CD3431B3F" Abbreviation="abrr" Abstract="No" CustomerExposition="Programmer" Discipline="Yes" SuperName="CATSysBehaviorLibRepReference">
+		<Property Name="KweNew_InstanciationMethod" 
+				Value="CATSysDelegateInstanciation"/>
+		<Property Name="Newable" 
+				Value="No"/>
+		<Property Name="IconName" 
+				Value="I_BehaviorLibSafety"/>
+		<Property Name="ChangeCollaborativeSpaceAvailability" Value="Yes"/>
+		<Method ImplementationType="AsFather">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+	</Class>
+	<Class Name="Behavior_External_Root" Uuid="9838baab-bce2-4260-95b3-3e47d0ec7a28" Abbreviation="ebrr" Abstract="No" CustomerExposition="Programmer" Discipline="Yes" SuperName="CATSysBehaviorLibRepReference">
+		<Property Name="KweNew_InstanciationMethod" 
+				Value="CATSysDelegateInstanciation"/>
+		<Property Name="Newable" 
+				Value="No"/>
+		<Property Name="ChangeCollaborativeSpaceAvailability" Value="Yes"/>
+		<Method ImplementationType="AsFather">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+	</Class>
+	<Class Name="TestBehavior_Root" Uuid="6e9d4fbd-b1e3-4c9f-b753-2adf3d3d9197" Abstract="No" CustomerExposition="Programmer" Discipline="Yes" SuperName="CATSysBehaviorLibRepReference">
+		<Property Name="KweNew_InstanciationMethod" 
+				Value="CATSysDelegateInstanciation"/>
+		<Property Name="Newable" 
+				Value="No"/>
+		<Property Name="ChangeCollaborativeSpaceAvailability" Value="Yes"/>
+		<Method ImplementationType="AsFather">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+	</Class>
+
+	<Class Name="Behavior_Discrete" Uuid="757F7CB1-636C-4288-8357-484D032AF5A4" Abstract="No" CustomerExposition="Programmer" Discipline="Yes" SuperName="CATSysBehaviorLibReference">
+		<Property Name="IconName" 
+				Value="I_BehaviorLibDiscrete"/>
+		<Property Name="ChangeCollaborativeSpaceAvailability" Value="Yes"/>
+		<Method ImplementationType="Self">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+			<ProcedureForUsage>
+				<Usage href="ExportScope.meth#Design"/>
+				<UsedProcedure href="CATSbi_Procedures.proc#SystemsBehavior_ExportDesign"/>
+			</ProcedureForUsage>
+			<ProcedureForUsage>
+				<Usage href="ExportScope.meth#Channel"/>
+				<UsedProcedure href="CATSbi_Procedures.proc#SystemsBehavior_ExportChannel"/>
+			</ProcedureForUsage>
+		</Method>
+	</Class>
+	<Class Name="Behavior_Continuous" Uuid="B3B5C0B6-189F-42DE-9030-7D41A26375A6" Abstract="No" CustomerExposition="Programmer" Discipline="Yes" SuperName="CATSysBehaviorLibReference">
+		<Property Name="IconName" 
+				Value="I_BehaviorLibContinuousRep"/>
+		<Property Name="ChangeCollaborativeSpaceAvailability" Value="Yes"/>
+		<Method ImplementationType="Self">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+			<ProcedureForUsage>
+				<Usage href="ExportScope.meth#Design"/>
+				<UsedProcedure href="CATSbi_Procedures.proc#SystemsBehavior_ExportDesign"/>
+			</ProcedureForUsage>
+			<ProcedureForUsage>
+				<Usage href="ExportScope.meth#Channel"/>
+				<UsedProcedure href="CATSbi_Procedures.proc#SystemsBehavior_ExportChannel"/>
+			</ProcedureForUsage>
+			<ProcedureForUsage>
+				<Usage href="ExportScope.meth#Remove"/>
+				<UsedProcedure href="CATSbi_Procedures.proc#SystemsBehavior_Remove"/>
+			</ProcedureForUsage>
+			<ProcedureForUsage>
+				<Usage href="ExportScope.meth#TransferSiteOwnership"/>
+				<UsedProcedure href="CATSbi_Procedures.proc#SystemsBehavior_TransferSiteOwnership"/>
+			</ProcedureForUsage>
+		</Method>
+	</Class>
+	<Class Name="Behavior_Safety" Uuid="43E2EC55-6B68-419C-9146-BCDBC5BE2932" Abstract="No" CustomerExposition="Programmer" Discipline="Yes" SuperName="CATSysBehaviorLibReference">
+		<Property Name="IconName" 
+				Value="I_BehaviorLibSafety"/>
+		<Property Name="ChangeCollaborativeSpaceAvailability" Value="Yes"/>
+		<Method ImplementationType="Self">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+			<ProcedureForUsage>
+				<Usage href="ExportScope.meth#Design"/>
+				<UsedProcedure href="CATSbi_Procedures.proc#SystemsBehavior_ExportDesign"/>
+			</ProcedureForUsage>
+			<ProcedureForUsage>
+				<Usage href="ExportScope.meth#Channel"/>
+				<UsedProcedure href="CATSbi_Procedures.proc#SystemsBehavior_ExportChannel"/>
+			</ProcedureForUsage>
+		</Method>
+	</Class>
+	<Class Name="Behavior_External" Uuid="DE1CD402-E6F5-459F-9ACB-C4F06346326B" Abstract="No" CustomerExposition="Programmer" Discipline="Yes" SuperName="CATSysBehaviorLibReference">
+		<Property Name="ChangeCollaborativeSpaceAvailability" Value="Yes"/>
+		<Method ImplementationType="Self">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+			<ProcedureForUsage>
+				<Usage href="ExportScope.meth#Design"/>
+				<UsedProcedure href="CATSbi_Procedures.proc#SystemsBehavior_ExportDesign"/>
+			</ProcedureForUsage>
+			<ProcedureForUsage>
+				<Usage href="ExportScope.meth#Channel"/>
+				<UsedProcedure href="CATSbi_Procedures.proc#SystemsBehavior_ExportChannel"/>
+			</ProcedureForUsage>
+		</Method>
+	</Class>
+
+	<Class Name="Behavior_Discrete_BehLibRef" Uuid="77353DA4-14A2-4da4-9952-C0A825149B91" Abbreviation="sbl" Abstract="No" CustomerExposition="Programmer" Discipline="Yes" SuperName="CATSysBehaviorLibReference">
+		<Property Name="KweNew_InstanciationMethod" 
+				Value="CATCbuLCMDelegateInstanciation"/>
+		<Property Name="IconName" 
+				Value="I_BehaviorLibDiscrete"/>
+		<Property Name="Newable" 
+				Value="No"/>
+		<Property Name="ChangeCollaborativeSpaceAvailability" Value="Yes"/>
+		<Method ImplementationType="Self">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+			<ProcedureForUsage>
+				<Usage href="ExportScope.meth#Design"/>
+				<UsedProcedure href="CATSbi_Procedures.proc#SystemsBehavior_ExportDesign"/>
+			</ProcedureForUsage>
+			<ProcedureForUsage>
+				<Usage href="ExportScope.meth#Channel"/>
+				<UsedProcedure href="CATSbi_Procedures.proc#SystemsBehavior_ExportChannel"/>
+			</ProcedureForUsage>
+		</Method>
+	</Class>
+	<Class Name="Behavior_Discrete_BehLibRepRef" Uuid="E249B9CD-78C1-4c1c-9CA1-4B1F414FA5B8" Abbreviation="sbr" Abstract="No" CustomerExposition="Programmer" Discipline="Yes" SuperName="CATSysBehaviorLibRepReference">
+		<Property Name="KweNew_InstanciationMethod" 
+				Value="CATCbuLCMDelegateInstanciation"/>
+		<Property Name="IconName" 
+				Value="I_BehaviorLibDiscrete"/>
+		<Property Name="Newable" 
+				Value="No"/>
+		<Property Name="ChangeCollaborativeSpaceAvailability" Value="Yes"/>
+		<Method ImplementationType="Self">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+			<ProcedureForUsage>
+				<Usage href="ExportScope.meth#Design"/>
+				<UsedProcedure href="CATSbi_Procedures.proc#SystemsBehavior_ExportDesign"/>
+			</ProcedureForUsage>
+			<ProcedureForUsage>
+				<Usage href="ExportScope.meth#Channel"/>
+				<UsedProcedure href="CATSbi_Procedures.proc#SystemsBehavior_ExportChannel"/>
+			</ProcedureForUsage>
+		</Method>
+	</Class>	
+	<Class Name="Behavior_Discrete_FunRepRef" Uuid="0ECF9CCA-6BFB-4339-A852-03CEFC3C68EF" Abbreviation="sbf" Abstract="No" CustomerExposition="Programmer" Discipline="Yes" SuperName="FunctionalDSContentRepReference">
+		<Property Name="KweNew_InstanciationMethod" 
+				Value="CATSysFLDelegateInstanciation"/>
+		<Property Name="IconName" 
+				Value="I_SbmlogExternalBehavior"/>
+		<Property Name="Newable" 
+				Value="Insert"/>
+		<Property Name="ChangeCollaborativeSpaceAvailability" Value="Yes"/>
+		<Method ImplementationType="Self">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+			<ProcedureForUsage>
+				<Usage href="ExportScope.meth#Design"/>
+				<UsedProcedure href="CATSbi_Procedures.proc#SystemsBehavior_ExportDesign"/>
+			</ProcedureForUsage>
+			<ProcedureForUsage>
+				<Usage href="ExportScope.meth#Channel"/>
+				<UsedProcedure href="CATSbi_Procedures.proc#SystemsBehavior_ExportChannel"/>
+			</ProcedureForUsage>
+		</Method>
+	</Class>
+	<Class Name="Behavior_Discrete_LogRepRef" Uuid="BFC28B0A-04B9-4b9a-8488-1CA3FAB559A4" Abbreviation="sbc" Abstract="No" CustomerExposition="Programmer" Discipline="Yes" SuperName="LogicalDSContentRepReference">
+		<Property Name="KweNew_InstanciationMethod" 
+				Value="CATSysFLDelegateInstanciation"/>
+		<Property Name="IconName" 
+				Value="I_SbmLogDiscreteBehavior"/>
+		<Property Name="Newable" 
+				Value="No"/>
+		<Property Name="ChangeCollaborativeSpaceAvailability" Value="Yes"/>
+		<Method ImplementationType="Self">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+			<ProcedureForUsage>
+				<Usage href="ExportScope.meth#Design"/>
+				<UsedProcedure href="CATSbi_Procedures.proc#SystemsBehavior_ExportDesign"/>
+			</ProcedureForUsage>
+			<ProcedureForUsage>
+				<Usage href="ExportScope.meth#Channel"/>
+				<UsedProcedure href="CATSbi_Procedures.proc#SystemsBehavior_ExportChannel"/>
+			</ProcedureForUsage>
+		</Method>
+	</Class>
+	
+	<Class Name="Behavior_Continuous_BehLibRef" Uuid="4DA07B12-C7AC-4efb-9961-B15A88F5FF11" Abbreviation="dbl" Abstract="No" CustomerExposition="Programmer" Discipline="Yes" SuperName="CATSysBehaviorLibReference">
+		<Property Name="KweNew_InstanciationMethod" 
+				Value="CATSysDelegateInstanciation"/>
+		<Property Name="IconName" 
+				Value="I_BehaviorLibContinuous"/>
+		<Property Name="Newable" 
+				Value="No"/>
+		<Property Name="ChangeCollaborativeSpaceAvailability" Value="Yes"/>
+		<Method ImplementationType="Self">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+			<ProcedureForUsage>
+				<Usage href="ExportScope.meth#Design"/>
+				<UsedProcedure href="CATSbi_Procedures.proc#SystemsBehavior_ExportDesign"/>
+			</ProcedureForUsage>
+			<ProcedureForUsage>
+				<Usage href="ExportScope.meth#Channel"/>
+				<UsedProcedure href="CATSbi_Procedures.proc#SystemsBehavior_ExportChannel"/>
+			</ProcedureForUsage>
+			<ProcedureForUsage>
+				<Usage href="ExportScope.meth#Remove"/>
+				<UsedProcedure href="CATSbi_Procedures.proc#SystemsBehavior_Remove"/>
+			</ProcedureForUsage>
+			<ProcedureForUsage>
+				<Usage href="ExportScope.meth#TransferSiteOwnership"/>
+				<UsedProcedure href="CATSbi_Procedures.proc#SystemsBehavior_TransferSiteOwnership"/>
+			</ProcedureForUsage>
+		</Method>
+	</Class>
+	<Class Name="Behavior_Continuous_BehLibRepRef" Uuid="F054480C-8B4C-4fa3-BCEB-7895BA9315DC" Abbreviation="dbr" Abstract="No" CustomerExposition="Programmer" Discipline="Yes" SuperName="CATSysBehaviorLibRepReference">
+		<Property Name="Searchable" Value="No" /> 
+		<Property Name="KweNew_InstanciationMethod" 
+				Value="CATSysDelegateInstanciation"/>
+		<Property Name="IconName" 
+				Value="I_BehaviorLibContinuous"/>
+		<Property Name="Newable" 
+				Value="No"/>
+		<Property Name="ChangeCollaborativeSpaceAvailability" Value="Yes"/>
+		<Method ImplementationType="Self">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+			<ProcedureForUsage>
+				<Usage href="ExportScope.meth#Design"/>
+				<UsedProcedure href="CATSbi_Procedures.proc#SystemsBehavior_ExportDesign"/>
+			</ProcedureForUsage>
+			<ProcedureForUsage>
+				<Usage href="ExportScope.meth#Channel"/>
+				<UsedProcedure href="CATSbi_Procedures.proc#SystemsBehavior_ExportChannel"/>
+			</ProcedureForUsage>
+			<ProcedureForUsage>
+				<Usage href="ExportScope.meth#Remove"/>
+				<UsedProcedure href="CATSbi_Procedures.proc#SystemsBehavior_Remove"/>
+			</ProcedureForUsage>
+			<ProcedureForUsage>
+				<Usage href="ExportScope.meth#TransferSiteOwnership"/>
+				<UsedProcedure href="CATSbi_Procedures.proc#SystemsBehavior_TransferSiteOwnership"/>
+			</ProcedureForUsage>
+		</Method>
+	</Class>	
+	<Class Name="Behavior_Continuous_FunRepRef" Uuid="3FA1CB07-8311-4a65-99FA-B6F90348642D" Abbreviation="dbf" Abstract="No" CustomerExposition="Programmer" Discipline="Yes" SuperName="FunctionalDSContentRepReference">
+		<Property Name="Searchable" Value="No" /> 
+		<Property Name="KweNew_InstanciationMethod" 
+				Value="CATSysFLDelegateInstanciation"/>
+		<Property Name="IconName" 
+				Value="I_SbmLogContinuousBehavior"/>
+		<Property Name="Newable" 
+				Value="No"/>
+		<Property Name="ChangeCollaborativeSpaceAvailability" Value="Yes"/>
+		<Method ImplementationType="Self">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+			<ProcedureForUsage>
+				<Usage href="ExportScope.meth#Design"/>
+				<UsedProcedure href="CATSbi_Procedures.proc#SystemsBehavior_ExportDesign"/>
+			</ProcedureForUsage>
+			<ProcedureForUsage>
+				<Usage href="ExportScope.meth#Channel"/>
+				<UsedProcedure href="CATSbi_Procedures.proc#SystemsBehavior_ExportChannel"/>
+			</ProcedureForUsage>
+			<ProcedureForUsage>
+				<Usage href="ExportScope.meth#Remove"/>
+				<UsedProcedure href="CATSbi_Procedures.proc#SystemsBehavior_Remove"/>
+			</ProcedureForUsage>
+			<ProcedureForUsage>
+				<Usage href="ExportScope.meth#TransferSiteOwnership"/>
+				<UsedProcedure href="CATSbi_Procedures.proc#SystemsBehavior_TransferSiteOwnership"/>
+			</ProcedureForUsage>
+		</Method>
+	</Class>
+	<Class Name="Behavior_Continuous_LogRepRef" Uuid="0CAD548E-F032-4755-8C57-86D1C99AFBB6" Abbreviation="dbc" Abstract="No" CustomerExposition="Programmer" Discipline="Yes" SuperName="LogicalDSContentRepReference">
+		<Property Name="Searchable" Value="No" /> 
+		<Property Name="KweNew_InstanciationMethod" 
+				Value="CATSysFLDelegateInstanciation"/>
+		<Property Name="IconName" 
+				Value="I_SbmLogContinuousBehavior"/>
+		<Property Name="Newable" 
+				Value="Insert"/>
+		<Property Name="ChangeCollaborativeSpaceAvailability" Value="Yes"/>
+		<Method ImplementationType="Self">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+			<ProcedureForUsage>
+				<Usage href="ExportScope.meth#Design"/>
+				<UsedProcedure href="CATSbi_Procedures.proc#SystemsBehavior_ExportDesign"/>
+			</ProcedureForUsage>
+			<ProcedureForUsage>
+				<Usage href="ExportScope.meth#Channel"/>
+				<UsedProcedure href="CATSbi_Procedures.proc#SystemsBehavior_ExportChannel"/>
+			</ProcedureForUsage>
+			<ProcedureForUsage>
+				<Usage href="ExportScope.meth#Remove"/>
+				<UsedProcedure href="CATSbi_Procedures.proc#SystemsBehavior_Remove"/>
+			</ProcedureForUsage>
+			<ProcedureForUsage>
+				<Usage href="ExportScope.meth#TransferSiteOwnership"/>
+				<UsedProcedure href="CATSbi_Procedures.proc#SystemsBehavior_TransferSiteOwnership"/>
+			</ProcedureForUsage>
+		</Method>
+	</Class>
+	<Class Name="Behavior_Context_LogRepRef" Uuid="9D3D6AB2-D886-42B5-BBE0-AD996602A4F5" Abstract="No" CustomerExposition="Programmer" Discipline="Yes" SuperName="Behavior_Continuous_LogRepRef">
+		<Property Name="Searchable" Value="No" /> 
+		<Property Name="KweNew_InstanciationMethod" 
+				Value="CATSysFLDelegateInstanciation"/>
+		<Property Name="IconName" 
+				Value="I_SbmLogContextBehavior"/>
+		<Property Name="Newable" 
+				Value="Insert"/>
+		<Property Name="ChangeCollaborativeSpaceAvailability" Value="Yes"/>
+		<Method ImplementationType="Self">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+			<ProcedureForUsage>
+				<Usage href="ExportScope.meth#Design"/>
+				<UsedProcedure href="CATSbi_Procedures.proc#SystemsBehavior_ExportDesign"/>
+			</ProcedureForUsage>
+			<ProcedureForUsage>
+				<Usage href="ExportScope.meth#Channel"/>
+				<UsedProcedure href="CATSbi_Procedures.proc#SystemsBehavior_ExportChannel"/>
+			</ProcedureForUsage>
+			<ProcedureForUsage>
+				<Usage href="ExportScope.meth#Remove"/>
+				<UsedProcedure href="CATSbi_Procedures.proc#SystemsBehavior_Remove"/>
+			</ProcedureForUsage>
+			<ProcedureForUsage>
+				<Usage href="ExportScope.meth#TransferSiteOwnership"/>
+				<UsedProcedure href="CATSbi_Procedures.proc#SystemsBehavior_TransferSiteOwnership"/>
+			</ProcedureForUsage>
+		</Method>
+	</Class>
+	<Class Name="Behavior_Context_FunRepRef" Uuid="AFCFA13C-C8B1-4225-876A-84CC9806F244" Abstract="No" CustomerExposition="Programmer" Discipline="Yes" SuperName="Behavior_Continuous_FunRepRef">
+		<Property Name="Searchable" Value="No" /> 
+		<Property Name="KweNew_InstanciationMethod" 
+				Value="CATSysFLDelegateInstanciation"/>
+		<Property Name="IconName" 
+				Value="I_SbmLogContextBehavior"/>
+		<Property Name="Newable" 
+				Value="Insert"/>
+		<Property Name="ChangeCollaborativeSpaceAvailability" Value="Yes"/>
+		<Method ImplementationType="Self">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+			<ProcedureForUsage>
+				<Usage href="ExportScope.meth#Design"/>
+				<UsedProcedure href="CATSbi_Procedures.proc#SystemsBehavior_ExportDesign"/>
+			</ProcedureForUsage>
+			<ProcedureForUsage>
+				<Usage href="ExportScope.meth#Channel"/>
+				<UsedProcedure href="CATSbi_Procedures.proc#SystemsBehavior_ExportChannel"/>
+			</ProcedureForUsage>
+			<ProcedureForUsage>
+				<Usage href="ExportScope.meth#Remove"/>
+				<UsedProcedure href="CATSbi_Procedures.proc#SystemsBehavior_Remove"/>
+			</ProcedureForUsage>
+			<ProcedureForUsage>
+				<Usage href="ExportScope.meth#TransferSiteOwnership"/>
+				<UsedProcedure href="CATSbi_Procedures.proc#SystemsBehavior_TransferSiteOwnership"/>
+			</ProcedureForUsage>
+		</Method>
+	</Class>
+	
+	<Class Name="Behavior_Safety_BehLibRef" Uuid="2FE91EB6-D833-478b-9029-4A51388D6EBF" Abbreviation="abl" Abstract="No" CustomerExposition="Programmer" Discipline="Yes" SuperName="CATSysBehaviorLibReference">
+		<Property Name="KweNew_InstanciationMethod" 
+				Value="CATSysDelegateInstanciation"/>
+		<Property Name="IconName" 
+				Value="I_BehaviorLib"/>
+		<Property Name="Newable" 
+				Value="No"/>
+		<Property Name="ChangeCollaborativeSpaceAvailability" Value="Yes"/>
+		<Method ImplementationType="Self">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+			<ProcedureForUsage>
+				<Usage href="ExportScope.meth#Design"/>
+				<UsedProcedure href="CATSbi_Procedures.proc#SystemsBehavior_ExportDesign"/>
+			</ProcedureForUsage>
+			<ProcedureForUsage>
+				<Usage href="ExportScope.meth#Channel"/>
+				<UsedProcedure href="CATSbi_Procedures.proc#SystemsBehavior_ExportChannel"/>
+			</ProcedureForUsage>
+		</Method>
+	</Class>
+	<Class Name="Behavior_Safety_BehLibRepRef" Uuid="ECC6ABE5-14F7-4df0-92FA-C2143A6326B3" Abbreviation="abr" Abstract="No" CustomerExposition="Programmer" Discipline="Yes" SuperName="CATSysBehaviorLibRepReference">
+		<Property Name="KweNew_InstanciationMethod" 
+				Value="CATSysDelegateInstanciation"/>
+		<Property Name="IconName" 
+				Value="I_BehaviorLibSafety"/>
+		<Property Name="Newable" 
+				Value="No"/>
+		<Property Name="ChangeCollaborativeSpaceAvailability" Value="Yes"/>
+		<Method ImplementationType="Self">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+			<ProcedureForUsage>
+				<Usage href="ExportScope.meth#Design"/>
+				<UsedProcedure href="CATSbi_Procedures.proc#SystemsBehavior_ExportDesign"/>
+			</ProcedureForUsage>
+			<ProcedureForUsage>
+				<Usage href="ExportScope.meth#Channel"/>
+				<UsedProcedure href="CATSbi_Procedures.proc#SystemsBehavior_ExportChannel"/>
+			</ProcedureForUsage>
+		</Method>
+	</Class>	
+	<Class Name="Behavior_Safety_FunRepRef" Uuid="480EEB24-3444-4cc5-8852-C34B42B968E3" Abbreviation="abf" Abstract="No" CustomerExposition="Programmer" Discipline="Yes" SuperName="FunctionalDSContentRepReference">
+		<Property Name="KweNew_InstanciationMethod" 
+				Value="CATSysFLDelegateInstanciation"/>
+		<Property Name="IconName" 
+				Value="I_BehaviorLibSafety"/>
+		<Property Name="Newable" 
+				Value="No"/>
+		<Property Name="ChangeCollaborativeSpaceAvailability" Value="Yes"/>
+		<Method ImplementationType="Self">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+			<ProcedureForUsage>
+				<Usage href="ExportScope.meth#Design"/>
+				<UsedProcedure href="CATSbi_Procedures.proc#SystemsBehavior_ExportDesign"/>
+			</ProcedureForUsage>
+			<ProcedureForUsage>
+				<Usage href="ExportScope.meth#Channel"/>
+				<UsedProcedure href="CATSbi_Procedures.proc#SystemsBehavior_ExportChannel"/>
+			</ProcedureForUsage>
+		</Method>
+	</Class>
+	<Class Name="Behavior_Safety_LogRepRef" Uuid="05F4D346-538B-4f7b-BF4D-640F06E58206" Abbreviation="abc" Abstract="No" CustomerExposition="Programmer" Discipline="Yes" SuperName="LogicalDSContentRepReference">
+		<Property Name="KweNew_InstanciationMethod" 
+				Value="CATSysFLDelegateInstanciation"/>
+		<Property Name="IconName" 
+				Value="I_BehaviorLibSafety"/>
+		<Property Name="Newable" 
+				Value="No"/>
+		<Property Name="ChangeCollaborativeSpaceAvailability" Value="Yes"/>
+		<Method ImplementationType="Self">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+			<ProcedureForUsage>
+				<Usage href="ExportScope.meth#Design"/>
+				<UsedProcedure href="CATSbi_Procedures.proc#SystemsBehavior_ExportDesign"/>
+			</ProcedureForUsage>
+			<ProcedureForUsage>
+				<Usage href="ExportScope.meth#Channel"/>
+				<UsedProcedure href="CATSbi_Procedures.proc#SystemsBehavior_ExportChannel"/>
+			</ProcedureForUsage>
+		</Method>
+	</Class>
+	
+	<Class Name="Behavior_External_BehLibRef" Uuid="6C0FA1E1-D065-4f34-809D-0AAAC099ACBA" Abbreviation="ebl" Abstract="No" CustomerExposition="Programmer" Discipline="Yes" SuperName="CATSysBehaviorLibReference">
+		<Property Name="KweNew_InstanciationMethod" 
+				Value="CATSysDelegateInstanciation"/>
+		<Property Name="Newable" 
+				Value="No"/>
+		<Property Name="ChangeCollaborativeSpaceAvailability" Value="Yes"/>
+		<Method ImplementationType="Self">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+			<ProcedureForUsage>
+				<Usage href="ExportScope.meth#Design"/>
+				<UsedProcedure href="CATSbi_Procedures.proc#SystemsBehavior_ExportDesign"/>
+			</ProcedureForUsage>
+			<ProcedureForUsage>
+				<Usage href="ExportScope.meth#Channel"/>
+				<UsedProcedure href="CATSbi_Procedures.proc#SystemsBehavior_ExportChannel"/>
+			</ProcedureForUsage>
+		</Method>
+	</Class>
+	<Class Name="Behavior_External_BehLibRepRef" Uuid="98DF1A06-033B-4a6b-BAF9-372C47E97B2D" Abbreviation="ebr" Abstract="No" CustomerExposition="Programmer" Discipline="Yes" SuperName="CATSysBehaviorLibRepReference">
+		<Property Name="Searchable" Value="No" /> 
+		<Property Name="KweNew_InstanciationMethod" 
+				Value="CATSysDelegateInstanciation"/>
+		<Property Name="Newable" 
+				Value="No"/>
+		<Property Name="ChangeCollaborativeSpaceAvailability" Value="Yes"/>
+		<Method ImplementationType="Self">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+			<ProcedureForUsage>
+				<Usage href="ExportScope.meth#Design"/>
+				<UsedProcedure href="CATSbi_Procedures.proc#SystemsBehavior_ExportDesign"/>
+			</ProcedureForUsage>
+			<ProcedureForUsage>
+				<Usage href="ExportScope.meth#Channel"/>
+				<UsedProcedure href="CATSbi_Procedures.proc#SystemsBehavior_ExportChannel"/>
+			</ProcedureForUsage>
+		</Method>
+	</Class>	
+	<Class Name="Behavior_External_FunRepRef" Uuid="F871BF4B-6807-4394-94B5-A8DE287116B0" Abbreviation="ebf" Abstract="No" CustomerExposition="Programmer"  Discipline="Yes" SuperName="FunctionalDSContentRepReference">
+		<Property Name="Searchable" Value="No" /> 
+		<Property Name="KweNew_InstanciationMethod" 
+				Value="CATSysFLDelegateInstanciation"/>
+		<Property Name="Newable" 
+				Value="No"/>
+		<Property Name="ChangeCollaborativeSpaceAvailability" Value="Yes"/>
+		<Method ImplementationType="Self">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+			<ProcedureForUsage>
+				<Usage href="ExportScope.meth#Design"/>
+				<UsedProcedure href="CATSbi_Procedures.proc#SystemsBehavior_ExportDesign"/>
+			</ProcedureForUsage>
+			<ProcedureForUsage>
+				<Usage href="ExportScope.meth#Channel"/>
+				<UsedProcedure href="CATSbi_Procedures.proc#SystemsBehavior_ExportChannel"/>
+			</ProcedureForUsage>
+			<ProcedureForUsage>
+				<Usage href="ExportScope.meth#Remove"/>
+				<UsedProcedure href="CATSbi_Procedures.proc#SystemsBehavior_Remove"/>
+			</ProcedureForUsage>
+			<ProcedureForUsage>
+				<Usage href="ExportScope.meth#TransferSiteOwnership"/>
+				<UsedProcedure href="CATSbi_Procedures.proc#SystemsBehavior_TransferSiteOwnership"/>
+			</ProcedureForUsage>
+		</Method>
+	</Class>
+	<Class Name="Behavior_External_LogRepRef" Uuid="E57743DF-A6B4-4ba3-80D3-19208C3E1C9D" Abbreviation="ebc" Abstract="No" CustomerExposition="Programmer" Discipline="Yes" SuperName="LogicalDSContentRepReference">
+		<Property Name="Searchable" Value="No" /> 
+		<Property Name="KweNew_InstanciationMethod" 
+				Value="CATSysFLDelegateInstanciation"/>
+		<Property Name="IconName" 
+				Value="I_SbmLogExternalBehavior"/>
+		<Property Name="Newable" 
+				Value="Insert"/>
+		<Property Name="ChangeCollaborativeSpaceAvailability" Value="Yes"/>
+		<Method ImplementationType="Self">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+			<ProcedureForUsage>
+				<Usage href="ExportScope.meth#Design"/>
+				<UsedProcedure href="CATSbi_Procedures.proc#SystemsBehavior_ExportDesign"/>
+			</ProcedureForUsage>
+			<ProcedureForUsage>
+				<Usage href="ExportScope.meth#Channel"/>
+				<UsedProcedure href="CATSbi_Procedures.proc#SystemsBehavior_ExportChannel"/>
+			</ProcedureForUsage>
+			<ProcedureForUsage>
+				<Usage href="ExportScope.meth#Remove"/>
+				<UsedProcedure href="CATSbi_Procedures.proc#SystemsBehavior_Remove"/>
+			</ProcedureForUsage>
+			<ProcedureForUsage>
+				<Usage href="ExportScope.meth#TransferSiteOwnership"/>
+				<UsedProcedure href="CATSbi_Procedures.proc#SystemsBehavior_TransferSiteOwnership"/>
+			</ProcedureForUsage>
+		</Method>
+	</Class>
+	
+	<Class Name="TestBehavior_BehLibRef" Uuid="8214CD0C-D36F-4c68-AF75-68B994B6DB71" Abstract="No" CustomerExposition="Programmer" Discipline="Yes" SuperName="CATSysBehaviorLibReference">
+		<Property Name="KweNew_InstanciationMethod" 
+				Value="CATSysDelegateInstanciation"/>
+		<Property Name="Newable" 
+				Value="No"/>
+		<Property Name="ChangeCollaborativeSpaceAvailability" Value="Yes"/>
+		<Method ImplementationType="Self">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+			<ProcedureForUsage>
+				<Usage href="ExportScope.meth#Design"/>
+				<UsedProcedure href="CATSbi_Procedures.proc#SystemsBehavior_ExportDesign"/>
+			</ProcedureForUsage>
+			<ProcedureForUsage>
+				<Usage href="ExportScope.meth#Channel"/>
+				<UsedProcedure href="CATSbi_Procedures.proc#SystemsBehavior_ExportChannel"/>
+			</ProcedureForUsage>
+		</Method>
+	</Class>
+	<Class Name="TestBehavior_BehLibRepRef" Uuid="965CB15E-212D-4ab1-AA00-CA2DDF58A16A" Abstract="No" CustomerExposition="Programmer" Discipline="Yes" SuperName="CATSysBehaviorLibRepReference">
+		<Property Name="KweNew_InstanciationMethod" 
+				Value="CATSysDelegateInstanciation"/>
+		<Property Name="Newable" 
+				Value="No"/>
+		<Property Name="ChangeCollaborativeSpaceAvailability" Value="Yes"/>
+		<Method ImplementationType="Self">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+			<ProcedureForUsage>
+				<Usage href="ExportScope.meth#Design"/>
+				<UsedProcedure href="CATSbi_Procedures.proc#SystemsBehavior_ExportDesign"/>
+			</ProcedureForUsage>
+			<ProcedureForUsage>
+				<Usage href="ExportScope.meth#Channel"/>
+				<UsedProcedure href="CATSbi_Procedures.proc#SystemsBehavior_ExportChannel"/>
+			</ProcedureForUsage>
+		</Method>
+	</Class>	
+	<Class Name="TestBehavior_FunRepRef" Uuid="CC20979F-6FAC-49b6-9BD9-772B2BA2B326" Abstract="No" CustomerExposition="Programmer" Discipline="Yes" SuperName="FunctionalDSContentRepReference">
+		<Property Name="KweNew_InstanciationMethod" 
+				Value="CATSysFLDelegateInstanciation"/>
+		<Property Name="Newable" 
+				Value="Insert"/>
+		<Property Name="ChangeCollaborativeSpaceAvailability" Value="Yes"/>
+		<Method ImplementationType="Self">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+			<ProcedureForUsage>
+				<Usage href="ExportScope.meth#Design"/>
+				<UsedProcedure href="CATSbi_Procedures.proc#SystemsBehavior_ExportDesign"/>
+			</ProcedureForUsage>
+			<ProcedureForUsage>
+				<Usage href="ExportScope.meth#Channel"/>
+				<UsedProcedure href="CATSbi_Procedures.proc#SystemsBehavior_ExportChannel"/>
+			</ProcedureForUsage>
+		</Method>
+	</Class>
+	<Class Name="TestBehavior_LogRepRef" Uuid="FA9EC11B-101D-402a-82C0-E45F812A1114" Abstract="No" CustomerExposition="Programmer" Discipline="Yes" SuperName="LogicalDSContentRepReference">
+		<Property Name="KweNew_InstanciationMethod" 
+				Value="CATSysFLDelegateInstanciation"/>
+		<Property Name="Newable" 
+				Value="Insert"/>
+		<Property Name="ChangeCollaborativeSpaceAvailability" Value="Yes"/>
+		<Method ImplementationType="Self">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+			<ProcedureForUsage>
+				<Usage href="ExportScope.meth#Design"/>
+				<UsedProcedure href="CATSbi_Procedures.proc#SystemsBehavior_ExportDesign"/>
+			</ProcedureForUsage>
+			<ProcedureForUsage>
+				<Usage href="ExportScope.meth#Channel"/>
+				<UsedProcedure href="CATSbi_Procedures.proc#SystemsBehavior_ExportChannel"/>
+			</ProcedureForUsage>
+		</Method>
+	</Class>
+</Package>

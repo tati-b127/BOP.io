@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2010, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" DataRDB_OID="ENODR_ST_KBA_CFG"
+	Name="ENOSTKbaAppliConfigurationDS" 
+	Uuid="6C96214C-D24C-45e7-A850-A281E915822B"
+	UseNames="PLMKbaAppliConfig"
+	Alias="PLM Knowledge Business Applications -- SMB Custo of Configurations' Modeler"
+>
+    <CAAComment>
+        <ShortRole>PLM Knowledge Business Applications - Applicative Configurations' Modeler</ShortRole>
+        <Role>This package describes the SMB Customization of Knowledge Business Applicative Configurations on top of PLM Core</Role>
+    </CAAComment>
+    <Comment>Created by FRH (2010-05-17)</Comment>
+  
+    <!-- ********************************************************** -->
+    <!-- *  ENOSTKbaAppliConfiguration (PLMKbaAppliConfiguration) * -->
+    <!-- ********************************************************** -->
+    <Class Name="ENOSTKbaAppliConfiguration"
+		 Alias="ENOSTKbaAppliConfiguration"
+		 Uuid="B4151CC6-9EAF-498c-8FF1-6E833DF877E6"		
+		 SuperName="PLMKbaAppliConfiguration"
+		 SuperRef="5afb26b4-ad45-4007-a02f877f20810003"
+	>
+      <IdentifierSet 
+        Name="Identifier"
+        Uuid="B2AEA2AD-D586-4e60-9D04-4D39E9521113"
+        IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755"
+        IdentifierNames="PLM_ExternalID V_version"
+        />
+      <Simple Name="E_fromExternalId" Uuid="506FAA35-3338-4cdb-8C58-D2A1A5AEE25D" Alias="Definition" Type="String" MaxLength="256" Mandatory="No" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+      <Simple Name="E_versionComment" Uuid="F0ABFF3B-5E7F-4d73-B734-0154C9618EC6" Alias="Version Comment" Type="String" MaxLength="256" Mandatory="No" MultiValuated="No" Protection="Free" CAAExposition="L0"  ResetOnNewVersion="Yes"  ResetOnCloning="Yes"/>
+
+      <CAAComment>
+            <ShortRole>DS Knowledge Business Applicative Configuration (Reference)</ShortRole>
+            <Role>PLM Knowledge Business Applicative Configuration - SMB Custo of Reference Object</Role>
+        </CAAComment>
+    </Class>
+
+
+  <!-- **************************************************************************************** -->
+  <!-- *  PLMKbaAppliConfigAggregationLinkToRZip (PLMKbaAppliConfigAggregationLinkToRZip)		  * -->
+  <!-- **************************************************************************************** -->
+  <Class Name="ENOSTKbaAppliConfigAggregationLinkToRZip"
+   Alias="ENOSTKbaAppliConfigAggregationLinkToRZip"
+   Uuid="99C02FD7-346D-466e-A8E6-6E79811054D2"
+   SuperName="PLMKbaAppliConfigAggregationLinkToRZip"
+   SuperRef="030277fe-e5bd-458c-8170-a684de0f44d0"
+	 >
+    <CAAComment>
+      <ShortRole>Applicative Configuration Aggregation Link to RZip (Port)</ShortRole>
+      <Role>PLM Knowledge Applicative Configuration Aggregation Link to RZip -- Port Object</Role>
+    </CAAComment>
+  </Class>
+</Package>

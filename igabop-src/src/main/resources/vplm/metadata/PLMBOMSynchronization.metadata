@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2007, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" Name="PLMBOMSynchronization" Uuid="098c408b-4070-4a9d-8d26-05449fa4aadd" UseNames="PLMCORE" UseProcedures="VPMBOMSyncProcedure" CustomerExposition="None">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+  <CAAComment>
+		<ShortRole>VPLM-BOM Publish and Synchronization Request Management</ShortRole>
+		<Role>This package includes the entities for VPLM-BOM Publish and Synchronization Request Management</Role>
+	</CAAComment>
+	<Comment>last update 2007-4-10-18.00.00</Comment>
+	<!-- *************************************** -->
+	<!-- * PLMBOMSyncRequest(PLMReference) * -->
+	<!-- *************************************** -->
+	<Class Name="PLMBOMSyncRequest" Uuid="c4928f82-37f8-4e06-9266-05d7b506c0a3" Abstract="No" SuperName="PLMCoreReference" CustomerExposition="None">
+		<CAAComment>
+			<ShortRole>VPLM-BOM Publish and Synchronization Request</ShortRole>
+			<Role>Reference used to create a request for the publication or synchronization of a VPLM structure with a MatrixOne BOM.</Role>
+		</CAAComment>
+		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+	</Class>	
+	<!-- *************************************** -->
+	<!-- * PLMBOMSyncRequestInput (PLMConnection)   * -->
+	<!-- *************************************** -->
+	<Class Name="PLMBOMSyncInput" Uuid="38de6f59-05cc-4b5d-9b56-a489601fe044"   Abstract="No" SuperName="PLMConnection" CustomerExposition="None"
+                     OwnerTypes="PLMBOMSyncRequest">
+		<CAAComment>
+			<ShortRole>VPLM-BOM Publish and Synchronization Request Input</ShortRole>
+			<Role>Manages relationships to References to publish and synchronize.</Role>
+		</CAAComment>
+		<Path Name="SyncRequestInputs" Uuid="1ac487cd-9c93-405d-b3f1-1aecf08ed81b" MultiValuated="Yes" RoleName="Default" Semantics="Reference" Type="SemanticRelation" AdaptativeToMinor="No"		SynchroSensitivity="None"		RerouteOnEffectivityChange="No"/>
+		<!-- OwnerTypes="PLMBOMSyncRequest"  Integrate this line if you want to declare the aggregation constraint -->
+
+    <Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+	</Class>
+</Package>

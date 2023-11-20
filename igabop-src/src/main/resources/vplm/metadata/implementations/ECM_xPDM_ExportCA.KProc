@@ -1,0 +1,12 @@
+#Prog ECM_xPDM_ExportCA( iPLMIDSet : #In PLMIDSet, oPLMIDSet : #Out PLMIDSet ) : VoidType
+{
+let PLMIDSetCA (PLMIDSet)
+let PLMRouteSetCA (PLMRouteSet)
+
+/* Completes with the full content of CA */
+PLMIDSetCA = Restrict(iPLMIDSet, "Class/Change Action")
+PLMRouteSetCA = ExecutePLMFunction("Change Action", "ECM_ExportCA", PLMIDSetCA)
+
+/* Fill output ID set */
+oPLMIDSet = iPLMIDSet + Ids(PLMRouteSetCA)
+}

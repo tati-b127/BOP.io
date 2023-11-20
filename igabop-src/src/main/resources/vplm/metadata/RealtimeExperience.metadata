@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2007 (http://www.altova.com) by DASSAULT SYSTEMES (DASSAULT SYSTEMES) -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2013, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" Name="RealtimeExperience" Uuid="BAFF93E3-FB01-461E-8B25-115F3035580F" UseNames="PLMExp3DExperience" CustomerExposition="Programmer">
+	<Property Name="FormerTypingLegacy" Value="Yes"/>
+	<Class Name="Stu3DExperience" Uuid="F3E9B93C-8117-4B0C-BFCC-8D68A4AFE63B" Abstract="No" SuperName="3DExperience" Abbreviation="rtexp" CustomerExposition="Programmer" Specializable="Yes" CustomerExtensible="No">
+		<Property Name="NewMajorRevisionAvailability" Value="Yes"/>
+		<Property Name="ChangeMaturityAvailability" Value="Yes"/>
+		<Property Name="DeleteAvailability" Value="Yes"/>
+		<Property Name="LockUnlockAvailability" Value="Yes"/>
+		<Property Name="TransferOwnershipAvailability" Value="Yes"/>
+		<Property Name="DuplicateAvailability" Value="Yes"/>
+		<Property Name="EditPropertiesAvailability" Value="Yes"/>
+		<Property Name="SaveAsNewAvailability" Value="Yes"/>
+		<Property Name="EvolutionAvailability" Value="No"/>
+		<Property Name="NewMinorRevisionAvailability" Value="No"/>
+		<Property Name="Searchable" Value="Yes"/>
+		<Property Name="Newable" Value="New_Offline"/>
+		<Property Name="IconName" Value="I_Stu3DExperience"/>
+		<Property Name="3DIconName" Value="CAT3DNav_Stu3DExperience.cgr"/>
+		<Property Name="Configurable" Value="No"/>
+		<Property Name="Filtrable" Value="No"/>
+		<Property Name="KweNew_InstanciationMethod" Value="Stu3DExperience_PLMNew"/>
+		<Simple Name="V_ScenarioTypes" Uuid="86E0FB0D-FBF5-4535-AC8B-701DDC8A6CDF" Type="String" MaxLength="50" MultiValuated="Yes" Faceted="Yes" Protection="External" DefaultValue="NotDefined" CAAExposition="L0" >
+      <Property Name="SIXW" Value="ds6w:kind"/>
+			<Range>
+				<Equal>Presentation</Equal>
+				<Equal>Gallery</Equal>
+				<Equal>Story</Equal>
+        <Equal>ProductPerceptionExperience</Equal>
+        <Equal>3DPresentation</Equal>
+        <Equal>NotDefined</Equal>
+			</Range>
+			<CAAComment>
+				<ShortRole>Scenario possible values.</ShortRole>
+			</CAAComment>
+		</Simple>
+		<Method ImplementationType="AsFather">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+	</Class>
+</Package>

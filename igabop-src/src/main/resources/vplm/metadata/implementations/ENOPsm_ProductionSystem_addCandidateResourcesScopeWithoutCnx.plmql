@@ -1,0 +1,27 @@
+NAVIGATE     
+
+T0.PLMID, T1.PLMID
+ 
+
+FROM        
+
+DELLmiProductionCandidateResCnx/DELLmiCandidateResourcesCnx T0,
+
+PRODUCTCFG/VPMReference T1
+
+FROM_ROOTS[?1?]
+
+ON  RELATION(     
+
+FROM=DELLmiProductionCandidateResCnx/DELLmiCandidateResourcesCnx
+
+TO=PRODUCTCFG/VPMReference
+
+THROUGH=POINTSTO)
+
+WITH ATTRIBUTE_FILTER T0.V_discipline LIKE 'CandidateResourceScopeLink'
+
+;
+
+
+

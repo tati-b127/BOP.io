@@ -1,0 +1,14 @@
+EXPAND
+
+   	T0.PLMID, T1.PLMID, T2.PLMID,
+   	T0.PLM_ExternalID, T1.PLM_ExternalID, T2.PLM_ExternalID
+
+FROM
+
+  	PLMKbaApplication/PLMKbaBusinessApplication T0,
+
+ 	PLMKbaAppliComponent/PLMKbaAppliCompositionItem T1,
+
+ 	PLMKbaAppliComponent/PLMKbaAppliComponent T2
+
+FROM_ROOTS [?1?] ;

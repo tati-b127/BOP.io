@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2010, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified"
+         ModelerType="Top"
+         Name="PLMRequirementSpecifyHowToCnxAbstract"
+         Uuid="CB7B09DA-940C-4df7-8813-F770BCA30D60"
+         BelongsToModeler="PLMRequirementSpecifyHowToCnx"
+         UseNames="PLMCORE"
+         CustomerExposition="Programmer">
+
+  <CAAComment>
+    <ShortRole>PLM Requirement Specify How To Abstract Modeler </ShortRole>
+    <Role>This package describes the PLM Requirement Specify How To Abstract Modeler model on top of PLM Core</Role>
+  </CAAComment>
+
+  <Comment>creation 2012-07-10</Comment>
+
+  <Class Name="PLMReqSpecifyHowToCnxAbstract"
+         Uuid="A11BFAB7-C8A7-40c0-8CAD-67DAB2C8F213"
+         SuperName="PLMConnection"
+         Abstract="Yes"
+         Specializable="No"
+         CustomerExtensible="No"
+         CustomerExposition="Programmer"
+           OwnerTypes="PLMCoreReference"
+        >
+
+    <Path Name="PLMSpecifiedByReq"
+          Uuid="B37FA6A0-C81C-4b83-BC50-897584FE9FB3"
+          RoleName="PLM_SpecifiedByReq"
+          MultiValuated="No"	
+          Type="SemanticRelation" AdaptativeToMinor="No"
+	      	SynchroSensitivity="Last"
+		      RerouteOnEffectivityChange="No" Orientation="Out"
+          Semantics="Reference5" />
+
+    <Path Name="PLMSpecifyingReq"
+          Uuid="7C6D2A70-4FFB-4c8d-A97A-646762552DBF"
+          RoleName="PLM_SpecifyingReq"
+          MultiValuated="Yes"		
+          Type="SemanticRelation" AdaptativeToMinor="No"
+		      SynchroSensitivity="PathAndLast"
+		      RerouteOnEffectivityChange="No" Orientation="In"
+          Semantics="Reference3" />
+
+
+    <CAAComment>
+      <ShortRole>The PLMReqSpecifyHowToCnxAbstract.class</ShortRole>
+      <Role>The PLMReqSpecifyHowToCnxAbstract.class is a connection that links a PLM reference to the requirement it is required to follow.</Role>
+    </CAAComment>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+  </Class>
+
+
+</Package>

@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2005, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified"  CustomerExposition="Programmer" BelongsToModeler="PLMKnowHowRule" ModelerType="Top"  Name="PLMKnowHowLibrary" Uuid="48F2B5C1-2F37-4A2D-8479-8AC597180803" UseNames="PLMKnowHowRuleBaseComponent"  >
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+  <CAAComment>
+		<ShortRole>KnowHow Library Package</ShortRole>
+		<Role>This package includes the Library entities of KnowHow Rule Model</Role>
+	</CAAComment> 
+	<!-- ***************************************** -->
+	<!-- * PLMEKLLibrary (PLMCoreReference)             * -->
+	<!-- ***************************************** -->
+	<Class Name="PLMEKLLibrary" Uuid="90CF8C55-4A83-4F8C-B59E-BFF7CEFEFD40"  CustomerExposition="Programmer" Abstract="No" SuperName="PLMRuleBaseComponent" Specializable="No" CustomerExtensible="No" Abbreviation="kwl" DeleteAvailability="Yes" >
+    <Property Name="IconName"        Value="I_PLMKweLibrary"/>
+    <Property Name="Searchable"      Value="Yes"/>
+    <Property Name="Newable"         Value="All"/>
+    <Property Name="PQ_Attributes"   Value="V_Name PLM_ExternalID V_description V_user"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATKBEDelegateInstanciationLibrary"/>
+    <Property Name="KweNew_ReturnedType" Value="PLMEKLLibrary"/>
+    <CAAComment>
+			<ShortRole>PLM Library</ShortRole>
+			<Role>PLM Library</Role>
+		</CAAComment>
+
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Design"/>
+        <UsedProcedure href="KWLpe_Procedures.proc#Kwe_ExportEKLLibrary"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Channel"/>
+        <UsedProcedure href="KWLpe_Procedures.proc#Kwe_ExportEKLLibrary"/>
+      </ProcedureForUsage>
+	  <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Remove"/>
+        <UsedProcedure href="KWLpe_Procedures.proc#Kwe_ExportEKLLibrary"/>
+      </ProcedureForUsage>
+	  <ProcedureForUsage>
+        <Usage href="ExportScope.meth#TransferSiteOwnership"/>
+        <UsedProcedure href="KWLpe_Procedures.proc#Kwe_ExportEKLLibrary"/>
+      </ProcedureForUsage>
+    </Method>
+    </Class>
+</Package>

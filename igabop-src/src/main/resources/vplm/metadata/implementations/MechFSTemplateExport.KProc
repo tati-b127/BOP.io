@@ -1,0 +1,4 @@
+#Prog MechFSTemplateExport( iPLMIDSet : #In PLMIDSet, oPLMIDSet : #Out PLMIDSet ) : VoidType
+{
+  oPLMIDSet = iPLMIDSet
+}

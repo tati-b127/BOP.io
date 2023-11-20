@@ -1,0 +1,51 @@
+<?xml version="1.0" ?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2012, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified"
+         Name="CATComponentsFamilyImplicit"
+         Uuid="AA7DD91B-0870-42ad-94D3-8F04D9AC7C72"
+         ModelerType="Top"
+	       CustomerExposition="Programmer"
+         UseNames="CATComponentsFamily PRODUCTCFG" 
+         BelongsToModeler="CATComponentsFamily" 
+         >
+
+  <CAAComment>
+    <ShortRole>Components Family Implicit package</ShortRole>
+    <Role>This package contains the sub types of ComponentsFamily dedicated for Implicit management</Role>
+  </CAAComment>
+
+  <!-- DISCIPLINES DECLARATIONS -->
+
+  <Class Name="CATComponentsFamilyImplicit"
+    Uuid="9D917A6F-0C79-4b53-B305-680C980872C5"
+    CustomerExposition="Programmer"
+    Abstract="No" 
+    SuperName="CATComponentsFamilyReference"
+    Discipline="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATKBEDelegateInstanciationCfy"/>
+    <Property Name="IconName"        Value="I_ComponentsFamilyImplicit"/>
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+  <Extension
+   Name="SWXConfigurationExtensionOnElement"
+   Uuid="109C3C3C-C489-438f-9D80-717169659EA3"
+   CustomerExposition="Programmer"
+   ScopeNames="VPMReference"
+   >
+    <!-- CAAExposition="L0"|"L1" PHB: projection in 3DXML or not? -->
+    <!-- -->
+    <!-- CAA_Derivable="No" PHB: obsolete? -->
+    <CAAComment>
+      <ShortRole>Components family extension on the  the components family implicit items solved models</ShortRole>
+      <Role>Components family implicit extension on the  the components family items solved models</Role>
+    </CAAComment>
+  </Extension>
+
+</Package>
+

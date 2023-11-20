@@ -1,0 +1,59 @@
+#Prog VPMEditor_GetOnly3DShapeRepresentationsForReview (iPLMIDSet :  #In PLMIDSet,oPLMIDSet :  #Out PLMIDSet) : VoidType
+  {
+
+let PLMRouteSet1(PLMRouteSet)
+let PLMRouteSet2(PLMRouteSet)
+let PLMRouteSet3(PLMRouteSet)
+let PLMRouteSet4(PLMRouteSet)
+let PLMRouteSet5(PLMRouteSet)
+let PLMRouteSet6(PLMRouteSet)
+let PLMRouteSet7(PLMRouteSet)
+let PLMRouteSet8(PLMRouteSet)
+let PLMRouteSet9(PLMRouteSet)
+let PLMRouteSet10(PLMRouteSet)
+let PLMRouteSet11(PLMRouteSet)
+let PLMRouteSetPrivateReps(PLMRouteSet)
+
+let PLMIDSet2(PLMIDSet )
+let PLMIDSet3(PLMIDSet )
+let PLMIDSet4(PLMIDSet )
+let PLMIDSet5(PLMIDSet )
+
+let PLMIDSetRestricted(PLMIDSet)
+PLMIDSetRestricted = Restrict(iPLMIDSet, "PRODUCTCFG/VPMReference")
+
+/*Completes with  LPPrivateRep*/
+PLMRouteSetPrivateReps = ExecutePLMFunction("PRODUCTCFG", "ProductCfg_AddPGPRep", PLMIDSetRestricted)
+
+/*Completes with 3DShape Representations and LPPrivateRep*/
+PLMRouteSet1 = ExecutePLMFunction("PRODUCTCFG", "ProductCfg_Add3DShapeOnly", PLMIDSetRestricted )
+
+/*Completes with  3DPart Representations (in case of 3DPart Representation discipline is different from "Design"*/
+PLMRouteSet9 = ExecutePLMFunction("PRODUCTCFG", "ProductCfg_Add3DPartRepresentation", PLMIDSetRestricted)
+
+/* Completes with Material*/
+PLMRouteSet2 = ExecutePLMFunction("CATMaterial", "mat_retrieveAllAppliedMaterial", PLMIDSetRestricted )
+PLMIDSet2 = Ids(PLMRouteSet2)
+
+PLMRouteSet3 = ExecutePLMFunction("CATMaterialRef", "mat_retrieveRenderingDomain",  Restrict(PLMIDSet2, "CATMaterialRef/CATMatReference"))
+PLMIDSet3 = Ids(PLMRouteSet3)
+
+/* getting all connections aggregated by the material*/
+PLMRouteSet5 = ExecutePLMFunction("CATMaterialRef", "rdg_retrieveTexture", Restrict(PLMIDSet3, "CATMaterialRef/MaterialDomain"))
+PLMIDSet5 = Ids(PLMRouteSet5)
+
+
+/* Completes with Review Rep */
+PLMRouteSet6 = ExecutePLMFunction("DMUReviewDisciplines", "DMUReviewDisciplines_AddReview", Restrict( iPLMIDSet, "PRODUCTCFG/VPMReference"))
+
+
+
+/*Completes with PVS Connections */
+PLMRouteSet8 = ExecutePLMFunction("PLMWspSpecFilter", "PLMWspSpecFilter_AddAllAggregatedSpecPVS", PLMIDSetRestricted)
+
+
+oPLMIDSet = iPLMIDSet + Ids(PLMRouteSet1)+ PLMIDSet2 +PLMIDSet3 + PLMIDSet5 + Ids(PLMRouteSet6) 
+			+ Ids(PLMRouteSet7) + Ids(PLMRouteSet4)+ Ids(PLMRouteSet8) + Ids(PLMRouteSet9)+Ids(PLMRouteSet10)
+			+ Ids(PLMRouteSet11) + Ids(PLMRouteSetPrivateReps)
+
+}

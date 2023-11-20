@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY for Ens Specifications Editor -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2011, all rights reserved -->
+
+<!-- 
+   =========
+    Package
+   =========  
+-->
+
+    <Package xmlns="PLMDictionaryUnified"
+             CustomerExposition="Programmer"             
+             ModelerType="Top"
+             Name="PLMEnsSpecCnxFilterBuiltFrom"
+             Uuid="A331E0D2-1109-4ea7-BBBB-F8FB77C96344"
+             UseNames="PLMCORE">
+      <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+      <CAAComment>
+         <ShortRole>Ens Specifications filter built from connection Package</ShortRole>
+         <Role>This package describes the filter built from connection used in the Ens Specifications model.</Role>
+      </CAAComment>
+      <Comment>Initial creation: PA GLY Feb 2011</Comment>
+      <Comment>Review for V6R2012: JLN PGT PYR DRL JLM SLI ASG LBH GLY Dec 2010</Comment>
+      <Comment>Ens Specifications filter built from connection</Comment>
+      
+  <!-- 
+   ===============================================
+    Ens filter built from connection (connection)   
+   ===============================================
+-->
+
+      <Class Name="EnsCnxFilterBuiltFromTable"
+             Uuid="8A34112B-4067-4e5b-BD7C-20C2084CBC35"
+             CustomerExposition="Programmer"
+             Abstract="No"
+             SuperName="PLMConnection"              OwnerTypes="EnsFilter"  
+             Specializable="No"
+             CustomerExtensible="No">
+        <!-- OwnerTypes="EnsFilter"  Integrate this line if you want to declare the aggregation constraint -->
+        <!-- 
+              MODIF PA DEB 10022012
+        -->
+        <Property Name="Searchable"      Value="No"/>
+        <!-- 
+              MODIF PA FIN 10022012
+        -->
+
+        <Path Name="V_EnsSpec_FilterToTechnoTable"
+           Uuid="6A7C85D3-27C2-4333-903E-1FC2DAB45986"
+           RoleName="EnsSpec_FilterToTechnoTable"
+           Semantics="Reference"
+        	 Type="SemanticRelation" AdaptativeToMinor="No"
+	         SynchroSensitivity="None"
+		       RerouteOnEffectivityChange="No"
+           MultiValuated="Yes"
+           Lower="0"
+           Upper="-1" />
+        <Method ImplementationType="None">
+          <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+        </Method>
+      </Class>  
+</Package>
+
+
+
+
+
+
+
+
+
+
+
+
+

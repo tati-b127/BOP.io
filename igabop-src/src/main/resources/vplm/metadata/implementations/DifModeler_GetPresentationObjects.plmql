@@ -1,0 +1,22 @@
+
+NAVIGATE
+T0.PLMID, 
+T0.PLM_ExternalID
+
+FROM 
+PLMCORE/PLMCoreReference T0
+
+
+FROM_ROOTS[?1?]
+ON ( RELATION(
+	FROM=PLMCORE/PLMCoreReference
+	TO=DIFModeler01/DIFAttachedPresentation
+	THROUGH=POINTEDBY))
+THEN (
+RELATION(
+	FROM=DIFModeler01/DIFAttachedPresentation 
+	TO=PLMCORE/PLMCoreReference 
+	THROUGH=POINTSTO)
+)
+
+ITER=1;

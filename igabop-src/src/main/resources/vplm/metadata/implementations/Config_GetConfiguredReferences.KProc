@@ -1,0 +1,18 @@
+#Prog Config_GetConfiguredReferences( iPLMIDSet : #In PLMIDSet, oPLMIDSet : #Out PLMIDSet ) : VoidType
+{
+
+let PLMRouteSetRef (PLMRouteSet)
+let PLMIDSetInputConfig (PLMIDSet)
+let PLMIDSetRef (PLMIDSet)
+
+/* Completes with configured Reference associated to the Predefined Configuration */
+
+PLMIDSetInputConfig = Restrict(iPLMIDSet, "VPMCfgConfiguration/VPMCfgConfiguration")
+PLMRouteSetRef = ExecutePLMFunction("VPMCfgConfiguration", "VPMCfgConfiguration_AddReferenceFromConfiguration", PLMIDSetInputConfig)
+PLMIDSetRef = Restrict(Ids(PLMRouteSetRef), "PLMCORE/PLMCoreReference")
+
+/* Fill output ID set */
+
+oPLMIDSet = iPLMIDSet + PLMIDSetRef
+
+}

@@ -1,0 +1,29 @@
+#Prog MatAppliedExportDesign (iPLMIDSet :  #In PLMIDSet,oPLMIDSet :  #Out PLMIDSet) : VoidType
+{
+/*Write your procedure here*/
+let PLMRouteSet_Mat(PLMRouteSet)
+let PLMRouteSet_Mcc(PLMRouteSet)
+
+let PLMIDSet_Mat(PLMIDSet)
+let PLMIDSet_MatExpanded(PLMIDSet)
+let PLMIDSet_Mcc(PLMIDSet)
+let PLMIDSet_MccExpanded(PLMIDSet)
+
+/* complete with material and vectors */
+PLMRouteSet_Mat = ExecutePLMFunction("CATMaterial","mat_retrieveAllAppliedMaterial",iPLMIDSet)
+PLMIDSet_Mat = Ids(PLMRouteSet_Mat)
+
+/* complete vector with materials, and materials with domains, cnx, doc, texture */
+PLMIDSet_MatExpanded = ExecutePLMProcedure("MaterialReferenceExport",Restrict(PLMIDSet_Mat,"CATMaterialRef/CATMatReference" ))
+
+/* complete with entities */
+PLMRouteSet_Mcc = ExecutePLMFunction("MaterialUnifiedResources","mcc_retrieveAllAppliedMaterial",iPLMIDSet)
+PLMIDSet_Mcc = Ids(PLMRouteSet_Mcc)
+
+/* complete entities with all the stuff under */
+PLMIDSet_MccExpanded = ExecutePLMProcedure("MaterialUnifiedDesignCompletion",Restrict(PLMIDSet_Mcc,"Class/Internal Material" ))
+
+oPLMIDSet = PLMIDSet_Mat + PLMIDSet_MatExpanded + PLMIDSet_Mcc + PLMIDSet_MccExpanded
+}
+
+

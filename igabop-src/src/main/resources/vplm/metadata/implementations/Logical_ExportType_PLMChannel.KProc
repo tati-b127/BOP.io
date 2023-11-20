@@ -1,0 +1,26 @@
+#Prog Logical_ExportType_PLMChannel (iPLMIDSet :  #In PLMIDSet,oPLMIDSet :  #Out PLMIDSet) : VoidType
+{
+  let InputPLMIDSetRestrictedToRefs(PLMIDSet)
+  let SetOfPLMRoutesForStructuredType(PLMRouteSet)
+  let PLMIDSetRestrictedToRefs(PLMIDSet)
+  let SetOfPLMRoutesForImplementLinks(PLMRouteSet)
+  let SetOfPLMRoutesForDocuments(PLMRouteSet)
+  let SetOfPLMLogicalInterfaceRep(PLMRouteSet)
+
+  InputPLMIDSetRestrictedToRefs = Restrict(iPLMIDSet,"RFLVPMSystemType/RFLVPMSystemTypeReference")
+ 
+  /* Recursively expand the structured type (resp: LVT) */
+  SetOfPLMRoutesForStructuredType = ExecutePLMFunction("RFLVPMSystemType","RFLVPMSystemType_Expand",InputPLMIDSetRestrictedToRefs)
+   
+  /* Implement Link Connections associated to Logical System Types (resp LVT) */
+  PLMIDSetRestrictedToRefs = InputPLMIDSetRestrictedToRefs + Restrict(Ids(SetOfPLMRoutesForStructuredType),"RFLVPMSystemType/RFLVPMSystemTypeReference")
+  SetOfPLMRoutesForImplementLinks = ExecutePLMFunction("RFLPLMImplementConnection","RFLPLMImplementConnection_AddAllImplementCnx",PLMIDSetRestrictedToRefs)
+
+  /* Add PLMDocConnections plus documents pointed by these PLMDocConnections (resp:MUT)*/
+  SetOfPLMRoutesForDocuments = ExecutePLMFunction("PLMDocConnection","PLMDocConnection_retrieveAllDocuments",PLMIDSetRestrictedToRefs)
+  
+  /* Expand the Logical Interface Rep (resp: F1T) */
+  SetOfPLMLogicalInterfaceRep = ExecutePLMFunction("RFLVPMLogicalInterfaceRep","RFLVPMLogicalInterfaceRep_Expand",PLMIDSetRestrictedToRefs)
+   
+  oPLMIDSet = iPLMIDSet + Ids(SetOfPLMRoutesForStructuredType) + Ids(SetOfPLMRoutesForImplementLinks) + Ids(SetOfPLMRoutesForDocuments) + Ids(SetOfPLMLogicalInterfaceRep)
+}

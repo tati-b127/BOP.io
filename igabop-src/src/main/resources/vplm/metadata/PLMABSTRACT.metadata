@@ -1,0 +1,178 @@
+﻿<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2004, All rights reserved -->
+<!-- [chd:27.01.2015] migration Enum -> Range -->
+<!-- [chd:05.12.2014] je vire les tags obsoletes DefaultValueRef et TargetRef -->
+<!-- [frh:06.11.2014] passage de v_discipline et v_CustoDiscipline a SetOnlyOnce="Later" -->
+<!-- [chd:04.03.2014] disparition definitive de Inverse, Unique et InterfaceImplementation -->
+<!-- [frh:04.03.2014] changement de hierarchie PLMEntity vers BusinessType  -->
+<!-- [frh:04.03.2014] suppression des attributs qui arrivent par la derivation / ajout de volatiles pour acceder aux anciens attributs mappes -->
+<!-- [frh:06.11.2014] passage de v_discipline et v_CustoDiscipline a SetOnlyOnce="Later" -->
+<Package xmlns="PLMDictionaryCore" Name="PLMABSTRACT" Uuid="17F0F799-F8CA-4F91-8437ED73D8C846AB" ModelerType="Core" CustomerExposition="Programmer" UseNames="ERCoreModeler" >
+  <CAAComment>
+    <ShortRole>PLM Abstract Model</ShortRole>
+    <Role>This package includes all the entities of PLM Abstract Model</Role>
+  </CAAComment>
+  <Class Name="PLMEntity" Uuid="70A6D59F-D91B-4665-BFFA977C12FF9C41"   Abstract="Yes" CustomerExposition="Programmer" SuperName="BusinessType" LogicalIdentification="Explicit" InterchangeableMinors="Yes">
+    <CAAComment>
+      <ShortRole>Entity Objects</ShortRole>
+      <Role>Entity Objects</Role>
+    </CAAComment>
+    <!-- Additional attributes available on all PLM Entities  -->
+    <Simple Name="C_updatestamp" Uuid="FB58B9C0-8DB7-46D0-880109C40C741153"  Type="Integer"  MultiValuated="No" Protection="Internal">
+      <CAAComment>
+        <ShortRole>Deprecated : Synchronization stamp</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_Name" Uuid="50aeef2d-58f6-4a18-98c0-69d57c666e07"  Type="String" MaxLength="100"  MultiValuated="No" Protection="Free" CAAExposition="L1">
+      <CAAComment>
+        <ShortRole>Common naming support</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_isUptodate" Uuid="BA35398C-50E8-0000-0280030D7B000000" Type="Integer" Protection="Internal" DefaultValue="1">
+      <CAAComment>
+        <ShortRole>Internal persistency of Uptodate status</ShortRole>
+      </CAAComment>
+      <Property Name="RangeAsEnumName" Value="V_isUptodateEnum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="UpdateToDate;MustBeRebuilt;NotApplicable"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+      </Range>
+    </Simple>
+    <Simple Name="PLM_ExternalID" Uuid="86A2CB5C-4D50-4593-8489DF068C40FAAB" Type="String" MaxLength="100"  MultiValuated="No" Protection="Free" CAAExposition="L1">
+      <CAAComment>
+        <ShortRole>External Identification name</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_description" Uuid="B35C7975-01AA-4716-803057247E7A2DFD"  Type="String" MaxLength="256"  MultiValuated="No" Protection="Free" CAAExposition="L1">
+      <CAAComment>
+        <ShortRole>Description - free field</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_discipline" Uuid="87627948-956F-445B-91B580FE5438C59F" Faceted="Yes"  Type="String" MaxLength="40"  MultiValuated="No" Protection="External" CAAExposition="L1" DefaultValue=""  SetOnlyOnce="Later">
+      <CAAComment>
+        <ShortRole>Discipline - e.g: mechanical, electrical</ShortRole>
+      </CAAComment>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Simple Name="V_usage" Uuid="7317D967-ACD4-4C1D-A3C3DB952A4CC33B" Faceted="Yes"  Type="String" MaxLength="40"  MultiValuated="No" Protection="External" CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Deprecated</ShortRole>
+      </CAAComment>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Simple Name="V_nature" Uuid="0A8F7109-0AEB-43BF-9FC7871484D9D8C4" Type="Integer" Protection="ExternalIN" CAAExposition="L1" DefaultValue="2">
+      <CAAComment>
+        <ShortRole>Nature of the object - enum { Specification, Definition, Representation }</ShortRole>
+      </CAAComment>
+      <Property Name="RangeAsEnumName" Value="V_NatureEnum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="Specification;Definition;Presentation"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+      </Range>
+    </Simple>
+    <Simple Name="V_sec_level" Uuid="75773879-fca9-4e79-a6f9-9edbe238e009"   MultiValuated="No"  Type="Integer" Protection="Free" CAAExposition="L0" DefaultValue="-1">
+    </Simple>
+    <Simple Name="V_CustoDiscipline" Uuid="b6a27953-23b7-4658-bc7a-6eb9852a1d02" Faceted="Yes"  MultiValuated="No"  Type="String" MaxLength="100" Protection="External" CAAExposition="L0" SetOnlyOnce="Later">
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Simple Name="workspaceid" Uuid="854A271D-E391-469b-BE1B-A865DDCEEB7F" Type="Binary" MaxLength="16"  MultiValuated="No" Protection="Internal"  ExtendedEnterprise="Yes">
+      <CAAComment>
+        <ShortRole>Physicalid of workspace it belongs to</ShortRole>
+      </CAAComment>
+    </Simple>
+    <!-- Volatile attributes  -->
+    <Volatile Name="V_confidentiality" Uuid="f401fbed-76f6-46a2-a2a1e2debb3d50ab" Accessor="PLMPosAttributeAccess" TypeName="String" AccessMode="ReadWrite" />
+    <!-- V_user is in reality mapped to owner  -->
+    <Volatile Name="V_user" Uuid="57E04F0B-84CE-4c60-95B2-A2341536DFDC" AccessMode="ReadWrite" Accessor="CATCkePLMNavAttributeAccess"  TypeName="String">
+      <Property Name="ServerAccessor" Value="com.dassault_systemes.Knowledge_Procs.KweBasicsMapping"/>
+    </Volatile>
+    <!-- V_organization is in reality mapped to organization  -->
+    <Volatile Name="V_organization" Uuid="106218DC-848B-4e58-A165-79F691178040" AccessMode="ReadWrite" Accessor="CATCkePLMNavAttributeAccess" TypeName="String">
+      <Property Name="ServerAccessor" Value="com.dassault_systemes.Knowledge_Procs.KweBasicsMapping"/>
+    </Volatile>
+    <!-- V_project is in reality mapped to project  -->
+    <Volatile Name="V_project" Uuid="16FFDF33-EA29-41e6-955A-9EC0DEC5B137" AccessMode="ReadWrite" Accessor="CATCkePLMNavAttributeAccess"  TypeName="String">
+      <Property Name="ServerAccessor" Value="com.dassault_systemes.Knowledge_Procs.KweBasicsMapping"/>
+    </Volatile>
+    <!-- C_created is in reality mapped to originated  -->
+    <Volatile Name="C_created" Uuid="0B214F0C-C6BF-45f6-B272-FC313E6A00E8" AccessMode="ReadOnly" Accessor="CATCkePLMNavAttributeAccess" TypeName="Date">
+      <Property Name="ServerAccessor" Value="com.dassault_systemes.Knowledge_Procs.KweBasicsMapping"/>
+    </Volatile>
+    <!-- C_modified is in reality mapped to modified  -->
+    <Volatile Name="C_modified" Uuid="3CFAF1A0-28D3-4fdd-A731-F348E90B82B0" AccessMode="ReadOnly" Accessor="CATCkePLMNavAttributeAccess"  TypeName="Date">
+      <Property Name="ServerAccessor" Value="com.dassault_systemes.Knowledge_Procs.KweBasicsMapping"/>
+    </Volatile>
+    <!-- ISSUE on reserved and reservedby. They correspond to LOCKSTATUS and LOCKUSER that are not described in dictionary...  -->
+    <Volatile Name="LOCKSTATUS" Uuid="D59EF60F-DD6C-45f8-8BEA-58F75A942186" AccessMode="ReadWrite" Accessor="CATCkePLMNavAttributeAccess"  TypeName="String">
+      <Property Name="ServerAccessor" Value="com.dassault_systemes.Knowledge_Procs.KweBasicsMapping"/>
+    </Volatile>
+    <Volatile Name="LOCKUSER" Uuid="DC75FE07-AD40-40d7-824D-633EB7A7DA38" AccessMode="ReadWrite" Accessor="CATCkePLMNavAttributeAccess" TypeName="String">
+      <Property Name="ServerAccessor" Value="com.dassault_systemes.Knowledge_Procs.KweBasicsMapping"/>
+    </Volatile>
+    <!-- Behavior patterns: default values -->
+    <Property Name="ObjectNature" Value="No"/>
+    <Property Name="RelationNature" Value="No"/>
+    <Property Name="IsSynchronizable" Value="Yes"/>
+    <Property Name="CarryPointers" Value="No"/>
+    <Property Name="CarryStreams" Value="No"/>
+    <Property Name="AggregatesComponents" Value="No"/>
+    <Property Name="IterationAvailability" Value="No"/>
+  </Class>
+	<Class Name="PLMStreamDescriptor" Uuid="59E79226-747E-4DBB-99963B1154491E0D"   CustomerExposition="None"  Abstract="No" >
+		<CAAComment>
+			<ShortRole>The Stream Descriptor links to the vault</ShortRole>
+			<Role>The Stream Descriptor links to the vault.</Role>
+		</CAAComment> 
+    <Simple Name="V_size" Uuid="B8C1E8D1-39ED-0000-02800310F7000000"  Type="Integer"  MultiValuated="No" Protection="External" CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Stream descriptor size</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_isMandatory" Uuid="B8C1E8DF-6797-0000-02800310F7000000"  Type="Boolean"  MultiValuated="No" Protection="External" CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Is the StreamDescriptor mandatory for the entity ?</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_phaseOrigin" Uuid="4FC6F1CA-6D95-4F5B-8ABDC06AF1D038FC"  Type="Integer"  MultiValuated="No" Protection="External" CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>The StreamDescriptor phase origin</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_format" Uuid="AF970632-445F-41A8-95CD2F64E0D799D7" Type="Integer" Protection="External" CAAExposition="L0" DefaultValue="1">
+      <CAAComment>
+        <ShortRole>Format</ShortRole>
+      </CAAComment>
+      <Property Name="RangeAsEnumName" Value="V_FormatEnum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="Authoring;AuthoringVisu;VisuRep;NavRep;IndexRep;JpegThumbnail"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+        <Equal>5</Equal>
+        <Equal>6</Equal>
+      </Range>
+    </Simple>
+    <Simple Name="V_role" Uuid="89AB3916-0E20-486F-B9B4CB69E84A4EA3"  Type="String" MaxLength="40"  MultiValuated="No" Protection="External" CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Role</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_markstamp" Uuid="F752C65F-B69B-476D-92655E7F15D2EDA3"  Type="Integer"  MultiValuated="No" Protection="Internal">
+      <CAAComment>
+        <ShortRole>Stamp of last CGR generation</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_typelate" Uuid="B14980CF-683D-4E74-B7DE7A0C37FE2AA4" Type="String" MaxLength="40" MultiValuated="No" Protection="External" CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Type late</ShortRole>
+      </CAAComment>
+    </Simple>
+
+  </Class>
+</Package>

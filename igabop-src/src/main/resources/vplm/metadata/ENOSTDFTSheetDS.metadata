@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY FOR DFTSheet - Custo sample     -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2010, All rights reserved -->
+
+<Package xmlns="PLMDictionaryCusto" 
+         ModelerType="Custo" 
+         Name="ENOSTDFTSheetDS"
+         Uuid="64E7B03F-7E16-47E7-9924-4BC0E65A0C3F"
+         UseNames="DFTSheet">
+
+  <CAAComment>
+    <ShortRole>DFT Model - Sheet - Custo OOTB Package</ShortRole>
+    <Role>This package describes a OOTB customization of DFT Model - Sheet</Role>
+  </CAAComment>
+
+  <Comment>last update 2013-01-17-14.00.00</Comment>
+
+  <!-- ENOSTDFTSheetDS provides :                                                             -->
+  <!-- ENOSTDFTSheetDS               DFTSheet/DIFAbstractSheet/PLMCoreReference               -->
+  <!-- ENOSTDFTSheetInstanceDS       DFTSheetInstance/DIFAbstractSheetInstace/PLMCoreInstance -->
+
+  <Property Name="OptionalInstallation" Value="No" />
+
+  <!-- ************************************************ -->
+  <!-- *  ENOSTDFTSheetDS                             * -->
+  <!-- ************************************************ -->
+  <Class Name="ENOSTDFTSheetDS"
+         Uuid="DD858A01-750E-4B70-8F22-42781C54EDB9"
+         SuperName="DFTSheet">
+    
+    <CAAComment>
+      <ShortRole>Customized DFT Sheet</ShortRole>
+      <Role>ENOSTDFTSheet Reference</Role>
+    </CAAComment>
+
+    <IdentifierSet Name="Identifier" 
+                   Uuid="374A4CB2-6411-4CFB-9EEA-1597A349EB4E" 
+                   IdentifierNames="PLM_ExternalID V_version"
+                   IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755"/>
+
+  </Class>
+
+  <!-- ************************************************ -->
+	<!-- * ENOSTDFTSheetInstanceDS                      * -->
+  <!-- ************************************************ -->
+  <Class Name="ENOSTDFTSheetInstanceDS" 
+		     Uuid="6B95A97A-5752-4AC8-A55E-DBEF7E9FFFCD" 
+		     SuperName="DFTSheetInstance">
+
+		<CAAComment>
+			<ShortRole>Customized Sheet Instance Object</ShortRole>
+			<Role>Customized Sheet Instance Object</Role>
+		</CAAComment>
+
+  </Class>
+
+</Package>

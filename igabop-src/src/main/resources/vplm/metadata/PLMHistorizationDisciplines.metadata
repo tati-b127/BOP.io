@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2010, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" 
+         ModelerType="Top" 
+         Name="PLMHistorizationDisciplines" 
+         Uuid="4374349E-83E4-445a-8F54-F3A6BF06BA54"
+         BelongsToModeler="PLMHistorizationCnx"
+         UseNames="PLMHistorizationCnx"
+         CustomerExposition="Programmer">
+  
+<Comment>PLM Historization Modeler Disciplines</Comment>
+
+  <Class Name="HistorizationLinkRefRef"
+         CustomerExposition="Programmer"
+    	   Uuid="7292ACB8-E263-437e-872F-F2A115A816EC"
+         Abstract="No"
+         Discipline="Yes"
+    	   SuperName="PLMHistoLinkCnx"
+         Specializable="No"
+         CustomerExtensible="No"
+        >
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+  <Class Name="HistorizationLinkInstInst"
+         CustomerExposition="Programmer"
+         Uuid="1792C730-EF9B-4842-A2EE-4B7A1FFAF096"
+         Abstract="No"
+         Discipline="Yes"
+         SuperName="PLMHistoLinkCnx"
+         Specializable="No"
+         CustomerExtensible="No"
+         >
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+  
+
+</Package>

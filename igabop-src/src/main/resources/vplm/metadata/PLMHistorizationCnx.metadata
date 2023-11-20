@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2010, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" 
+         ModelerType="Top" 
+         Name="PLMHistorizationCnx" 
+         Uuid="7CBC5691-4714-4096-967E-F26ACA9319B6"
+         BelongsToModeler="PLMHistorizationCnx"
+         UseNames="PLMCORE"
+         CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <Comment>PLM Historization Modeler</Comment>
+
+    <Class Name="PLMHistoLinkCnx"
+           Uuid="932EA17B-2A70-4e34-B2DC-3E8307A09F3F"
+           SuperName="PLMConnection"
+           Abstract="No"
+           Specializable="No" OwnerTypes="PLMCoreReference"
+           CustomerExtensible="No"
+           CustomerExposition="Programmer"
+        >
+      
+
+      <!-- ***************************************************** -->
+      <!--  PLM_LinkToPPRTargetObject -->
+      <!--   To specify the target semantic relation-->
+      <!-- ***************************************************** -->
+        <Path Name="PLMLinkToUPRTargetObject"
+            Uuid="CBBEE011-9BB6-4a3f-9DF0-94270997324C"
+            RoleName="PLM_LinkToPPRTargetObject"
+            MultiValuated="No"
+         		Type="SemanticRelation" AdaptativeToMinor="No"
+        		SynchroSensitivity="PathAndLast"
+		        RerouteOnEffectivityChange="No" Orientation="In"
+            Semantics="Reference3" />
+
+      <!-- ***************************************************** -->
+      <!--   PLM_LinkToUPRSourceObject-->
+      <!--   To specify the source semantic relation -->
+      <!-- ***************************************************** -->
+      <Path Name="PLMLinkToUPRSourceObject"
+                 Uuid="0CE732B6-5468-4436-ACB8-2B62CA62413F"
+                 RoleName="PLM_LinkToUPRSourceObject"
+                 MultiValuated="No"		
+                 Type="SemanticRelation" AdaptativeToMinor="No"
+		             SynchroSensitivity="Last"
+		             RerouteOnEffectivityChange="No" Orientation="Out"
+                 Semantics="Reference5" />
+
+        <CAAComment>
+            <ShortRole>The PLMHistoLinkCnx.class</ShortRole>
+            <Role>The PLMHistoLinkCnx.class is a connection that enables to keep a link between an UPR reference (or an UPR instance) and a PPR reference (or a PPR instance) </Role>
+        </CAAComment>
+
+        <Method ImplementationType="None">
+            <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+        </Method>
+    </Class>
+
+
+  <!-- FUNCTIONS Declarations : here are declared PLMQL Functions -->
+
+  <Function Name="PLMHistorizationCnx_addHistoEntities">
+    <Implementation Name="PLMHistorizationCnx_addHistoEntities" FileLocation="PLMHistorizationCnx_addHistoEntities.plmql" Language="PLMQL"/>
+    <Signature href="PLMHistorizationCnxSignature"/>
+  </Function>
+
+  <Function Name="PLMHistorizationCnx_addHistoEntitiesFromCnx">
+    <Implementation Name="PLMHistorizationCnx_addHistoEntitiesFromCnx" FileLocation="PLMHistorizationCnx_addHistoEntitiesFromCnx.plmql" Language="PLMQL"/>
+    <Signature href="PLMHistorizationCnxSignature"/>
+  </Function>
+
+  <Signature id="PLMHistorizationCnxSignature">
+    <Parameter Name="InputIds" Lower="0" Upper="-1" Direction="in" MultiValuated="Yes" DataType="PLMId"/>
+    <Parameter Name="OutputIds" Lower="0" Upper="-1" Direction="out" MultiValuated="No" DataType="PLMRouteSet"/>
+  </Signature>
+  <!-- ********************************************************* -->
+  
+
+</Package>

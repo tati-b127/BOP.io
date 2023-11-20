@@ -1,0 +1,30 @@
+NAVIGATE     
+
+T0.PLMID,
+T1.PLMID,
+T2.physicalid, 
+T2.logicalid, 
+T2.majorid, 
+T2.type
+
+FROM      
+
+DELLmiProductionCandidateResCnx/DELLmiCandidateResourcesCnx T0,
+PLMDmtDocument/PLMDMTDocument T1,
+Class/DOCUMENTS T2
+
+FROM_ROOTS[?1?]
+
+ON  
+(
+RELATION(FROM=DELLmiProductionCandidateResCnx/DELLmiCandidateResourcesCnx TO=PLMDmtDocument/PLMDMTDocument THROUGH=POINTSTO)
+OR
+RELATION(FROM=DELLmiProductionCandidateResCnx/DELLmiCandidateResourcesCnx TO=Class/DOCUMENTS THROUGH=POINTSTO)
+)
+
+
+
+ITER=1
+;
+
+

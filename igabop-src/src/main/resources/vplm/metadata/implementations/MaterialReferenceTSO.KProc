@@ -1,0 +1,40 @@
+#Prog MaterialReferenceTSO (iPLMIDSet :  #In PLMIDSet,oPLMIDSet :  #Out PLMIDSet) : VoidType
+  {
+let PLMIDSetPort(PLMIDSet)
+let PLMIDSetDom(PLMIDSet)
+let PLMIDSetMatCnx(PLMIDSet)
+let PLMIDSetText(PLMIDSet)
+let PLMIDSetMatDoc(PLMIDSet)
+let PLMRouteSetPort (PLMRouteSet)
+let PLMRouteSetDom (PLMRouteSet)
+let PLMRouteSetMatCnx (PLMRouteSet)
+let PLMRouteSetText (PLMRouteSet)
+let PLMRouteSetMatDoc (PLMRouteSet)
+
+
+/* Material Vector : Add the Port under the Vector */
+PLMRouteSetPort = ExecutePLMFunction( "CATMaterialRef", "mat_retrievePortFromVector", iPLMIDSet )
+PLMIDSetPort = Ids(PLMRouteSetPort)
+
+
+/* Material Reference : Add the domains + Cnx + Pointed Docs */
+
+/* getting all domains */
+PLMRouteSetDom = ExecutePLMFunction("CATMaterialRef", "mat_retrieveDomains", iPLMIDSet)
+PLMIDSetDom = Ids(PLMRouteSetDom)
+
+/* getting all connections aggregated by the material*/
+PLMRouteSetMatCnx = ExecutePLMFunction("CATMaterialRef", "mat_retrieveCnx", iPLMIDSet)
+PLMIDSetMatCnx = Ids(PLMRouteSetMatCnx)
+
+/* getting Documents pointed by rendering domain*/
+PLMRouteSetText = ExecutePLMFunction("CATMaterialRef", "rdg_retrieveTexture",Restrict(PLMIDSetDom, "CATMaterialRef/MaterialDomain"))
+PLMIDSetText = Ids(PLMRouteSetText)
+
+/* Completes with Documents Connections */
+PLMRouteSetMatDoc = ExecutePLMFunction("PLMDocConnection", "PLMDocConnection_retrieveAllDocuments", iPLMIDSet)
+PLMIDSetMatDoc = Ids(PLMRouteSetMatDoc)
+
+oPLMIDSet = iPLMIDSet +  PLMIDSetPort + PLMIDSetDom + PLMIDSetMatCnx + PLMIDSetText + PLMIDSetMatDoc
+}
+

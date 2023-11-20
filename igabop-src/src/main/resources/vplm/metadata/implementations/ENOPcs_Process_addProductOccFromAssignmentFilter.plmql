@@ -1,0 +1,24 @@
+NAVIGATE     
+
+T0.PLMID, T1.PLMID
+ 
+
+FROM      
+
+PLMAssignmentFilter/PLMAssignmentFilterCnx T0,
+
+PRODUCTCFG/VPMInstance T1
+
+FROM_ROOTS[?1?]
+
+ON  (RELATION(
+
+FROM=PLMAssignmentFilter/PLMAssignmentFilterCnx
+
+TO=PRODUCTCFG/VPMInstance
+
+THROUGH=POINTSTO) WITH QUALITY_FILTER (ROLE=PLM_AssignmentFilter_Target))
+
+;
+
+

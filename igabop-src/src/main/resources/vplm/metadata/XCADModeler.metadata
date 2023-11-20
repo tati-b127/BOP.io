@@ -1,0 +1,146 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2017, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified"
+	ModelerType="Top"
+	Name="XCADModeler"
+	Uuid="40729df7-7a01-4d44-9e38-f0b9b2912fd7"
+	UseNames="PLMCORE"
+	CustomerExposition="Programmer" 
+	Architecture="All"
+	BelongsToModeler="XCADModeler"
+        UseProcedures="XCAD_Procedures"
+>
+
+	<CAAComment>
+		<ShortRole>XCAD Non PS Modeler Package</ShortRole>
+		<Role>This package includes all the entities involved in the XCAD Non PS modeler.</Role>
+	</CAAComment>
+
+	<Comment>last update 2017-06-22</Comment>
+
+	<Class Name="XCADNonPSBaseRepReference" 
+		Uuid="29aaf006-5d54-4b07-84ca-83b318c064f4" 
+		Abstract="No" 
+                ChangeManagementSupport="Yes" 
+                ChangeManagementContext="Yes" 
+                ChangeManagementReferential="Yes"  
+		CustomerExposition="Programmer"
+		SuperName="PLMCoreRepReference" 
+		Specializable="No"
+		CustomerExtensible="No"
+		Searchable="Yes"
+		AggregatableTypes="None"
+		InstantiationOwnerTypes="None"
+		ObjectNature="Independent"
+		Abbreviation="xcadrep"
+		IconName="I_XCADNonPSBaseRepReference">
+		
+		<Property Name="KweNew_InstanciationMethod" Value="CATKBEXCADNonPSBaseRepReferenceDelegateInstanciation"/>
+				
+		<!-- Used to defined XCAD Object Type -->
+		<Simple Name="V_CADObjectType"
+			Uuid="dbff7f75-7c43-4e51-97fb-8cb18d6da0e0"
+			Type="String"
+			Protection="External"
+			Faceted="Yes"
+			MultiValuated="No"
+			ResetOnCloning="No"
+			ResetOnNewVersion="No"
+			UIAccess="ReadOnly" >
+			<Property Name="SIXW" Value="ds6w:kind"/>
+		</Simple>
+		
+		<!-- PROCEDURES Declaration  -->
+		<Method ImplementationType="Self">
+                  <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+                  <ProcedureForUsage>
+                    <Usage href="ExportScope.meth#Design"/>
+                    <UsedProcedure href="XCAD_Procedures.proc#XCAD_ExportNonPSRep"/>
+                  </ProcedureForUsage>
+                  <ProcedureForUsage>
+                    <Usage href="ExportScope.meth#TransferSiteOwnership"/>
+                    <UsedProcedure href="XCAD_Procedures.proc#XCAD_ExportNonPSRep"/>
+                  </ProcedureForUsage>
+		</Method>
+
+                <!-- XPDM exchange -->
+                <Method ImplementationType="Self">
+                  <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+                  <ProcedureForUsage>
+                    <Usage href="ExchangeScope.meth#XPDM"/>
+                    <UsedProcedure href="XCAD_Procedures.proc#XCAD_ExportNonPSRep"/>
+                  </ProcedureForUsage>
+                  <ProcedureForUsage>
+                    <Usage href="ExchangeScope.meth#XPDM2"/>
+                    <UsedProcedure href="XCAD_Procedures.proc#XCAD_ExportNonPSRep"/>
+                  </ProcedureForUsage>
+                </Method>
+
+	</Class>
+	
+        <Function Name="XCAD_AddRepInstAndRefFather">
+          <Implementation Name="XCAD_AddRepInstAndRefFather" FileLocation="XCAD_AddRepInstAndRefFather.plmql" Language="PLMQL"/>
+          <Signature href="XCADModelerSignature"/>
+        </Function>
+
+        <Function Name="XCAD_ExpandRefOne">
+          <Implementation Name="XCAD_ExpandRefOne" FileLocation="XCAD_ExpandRefOne.plmql" Language="PLMQL"/>
+          <Signature href="XCADModelerSignature"/>
+        </Function>
+
+        <Function Name="XCAD_ExpandReverseOne">
+          <Implementation Name="XCAD_ExpandReverseOne" FileLocation="XCAD_ExpandReverseOne.plmql" Language="PLMQL"/>
+          <Signature href="XCADModelerSignature"/>
+        </Function>
+
+        <Function Name="XCAD_GetComposedRefToRef">
+          <Implementation Name="XCAD_GetComposedRefToRef" FileLocation="XCAD_GetComposedRefToRef.plmql" Language="PLMQL"/>
+          <Signature href="XCADModelerSignature"/>
+        </Function>
+
+        <Function Name="XCAD_GetCompositionRefToRef">
+          <Implementation Name="XCAD_GetCompositionRefToRef" FileLocation="XCAD_GetCompositionRefToRef.plmql" Language="PLMQL"/>
+          <Signature href="XCADModelerSignature"/>
+        </Function>
+
+        <Function Name="XCAD_GetFamilyFromItem">
+          <Implementation Name="XCAD_GetFamilyFromItem" FileLocation="XCAD_GetFamilyFromItem.plmql" Language="PLMQL"/>
+          <Signature href="XCADModelerSignature"/>
+        </Function>
+
+        <Function Name="XCAD_GetItemsFromFamily">
+          <Implementation Name="XCAD_GetItemsFromFamily" FileLocation="XCAD_GetItemsFromFamily.plmql" Language="PLMQL"/>
+          <Signature href="XCADModelerSignature"/>
+        </Function>
+
+        <Function Name="XCAD_GetComponentFromLink">
+          <Implementation Name="XCAD_GetComponentFromLink" FileLocation="XCAD_GetComponentFromLink.plmql" Language="PLMQL"/>
+          <Signature href="XCADModelerSignature"/>
+        </Function>
+
+        <Function Name="XCAD_GetDependenciesRefToRef">
+          <Implementation Name="XCAD_GetDependenciesRefToRef" FileLocation="XCAD_GetDependenciesRefToRef.plmql" Language="PLMQL"/>
+          <Signature href="XCADModelerSignature"/>
+        </Function>
+
+        <Function Name="XCAD_GetDependenciesRefToRep">
+          <Implementation Name="XCAD_GetDependenciesRefToRep" FileLocation="XCAD_GetDependenciesRefToRep.plmql" Language="PLMQL"/>
+          <Signature href="XCADModelerSignature"/>
+        </Function>
+
+        <Function Name="XCAD_GetDependenciesRepToRef">
+          <Implementation Name="XCAD_GetDependenciesRepToRef" FileLocation="XCAD_GetDependenciesRepToRef.plmql" Language="PLMQL"/>
+          <Signature href="XCADModelerSignature"/>
+        </Function>
+
+        <Function Name="XCAD_GetDependenciesRepToRep">
+          <Implementation Name="XCAD_GetDependenciesRepToRep" FileLocation="XCAD_GetDependenciesRepToRep.plmql" Language="PLMQL"/>
+          <Signature href="XCADModelerSignature"/>
+        </Function>
+
+        <Signature id="XCADModelerSignature">
+          <Parameter Name="InputIds" Lower="0" Upper="-1" Direction="in" MultiValuated="Yes" DataType="PLMId"/>
+          <Parameter Name="OutputIds" Lower="0" Upper="-1" Direction="out" MultiValuated="No" DataType="PLMRouteSet"/>
+        </Signature>
+
+</Package>

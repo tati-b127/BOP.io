@@ -1,0 +1,297 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified"
+         ModelerType="Top"
+         Name="DELLmiProductionTimeConstraintCnx"
+         Uuid="d2cc1a03-b3aa-4c54-92008ff8a2478a5f"
+         BelongsToModeler="DELLmiProductionSystem"
+         UseNames="PLMCORE"
+         CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>DELMIA Production System model</ShortRole>
+    <Role>This package describe the Time Constraint Connection</Role>
+  </CAAComment>
+
+  <Comment>last update 2012-01-20</Comment>
+
+  <Class Name="DELLmiTimeConstraintCnx"
+         Uuid="4f9cd59c-4530-46ff-82d897e7fb249d25"
+         Abstract="No"
+         SuperName="PLMConnection"
+         CustomerExposition="Programmer"
+         Specializable="No"
+         CustomerExtensible="Yes"
+         OwnerTypes="DELLmiAbstractProductionEntity"
+        >
+    <!-- OwnerTypes="DELLmiAbstractProductionEntity"  Integrate this line if you want to declare the aggregation constraint-->
+
+    <CAAComment>
+      <ShortRole>Defines DELMIA Time Constraint Connection</ShortRole>
+      <Role>Connection aggregated be a Production System or Operation Reference to 2 Operations references</Role>
+    </CAAComment>
+
+    <Simple Name="V_DelayMode" Uuid="F0804516-E549-4ABB-B9CF-C359F4359CC7" Type="String" Protection="Free" CAAExposition="L0" DefaultValue="MinDelay">
+      <Range>
+        <Equal>MinDelay</Equal>
+        <Equal>MaxDelay</Equal>
+        <Equal>Synchro</Equal>
+      </Range>
+    </Simple>
+
+    <Simple Name="V_DependencyType" Uuid="ea35b586-766f-47b5-8079105d3bed8005" Type="Integer" Protection="Free" CAAExposition="L0" DefaultValue="1">
+      <Property Name="RangeAsEnumName" Value="DELLmi_DependencyType"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="FinishToStart;StartToStart;FinishToFinish;StartToFinish;PreviousCycle"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+        <Equal>5</Equal>
+      </Range>
+    </Simple>
+
+    <Simple Name="V_Delay"
+            Uuid="d14b41fb-c105-44a0-a746e8cb36c127eb"
+            Type="Double"
+            Magnitude="TIME"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"
+            DefaultValue="0.0" />
+
+    <Simple Name="V_Contiguity"
+            Uuid="b0a12a52-baa7-4342-812493371afa9e17"
+            Type="Boolean"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"/>
+
+    <Simple Name="V_MaterialNeed"
+            Uuid="fa0648d8-7b76-4258-9cd03422a99b46ac"
+            Type="Boolean"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"/>
+
+    <Simple Name="V_OptionalTimeConstraint"
+            Uuid="368E0425-3BDF-4d5f-B2FD-004DF38302F2"
+            Type="Boolean"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"
+            DefaultValue="false"
+            ResetOnCloning="No"
+            ResetOnNewVersion="No"/>
+
+    <Simple Name="V_ResourceConstraint" Uuid="54D83038-96DF-4286-B385-1E8C8F2FDA21" Type="String" Protection="Free" CAAExposition="L0" DefaultValue="None">
+      <Range>
+        <Equal>None</Equal>
+        <Equal>SameResources</Equal>
+        <Equal>SameResourcesWithReservation</Equal>
+        <Equal>DifferentResources</Equal>
+      </Range>
+    </Simple>
+
+    <Simple Name="V_IsActive"
+            Uuid="0734730C-3B88-44C3-8F4C-BE9BFDD7443C"
+            Type="Boolean"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"
+            DefaultValue="true"
+            ResetOnCloning="No"
+            ResetOnNewVersion="No"/>
+    
+    <Path Name="DELLinkToConstrainingObject"
+        Uuid="4c81421d-ea2a-4c1b-b1fe4448fc552c82"
+        MultiValuated="No"
+        RoleName="DEL_LinkToConstrainingObject"		Type="SemanticRelation" AdaptativeToMinor="Yes"
+		SynchroSensitivity="None"
+		RerouteOnEffectivityChange="Yes"
+
+        Semantics="Reference"/>
+
+    <Path Name="DELLinkToConstrainedObject"
+        Uuid="793d167d-6f5a-4b2a-98ed6168df173807"
+        MultiValuated="No"
+        RoleName="DEL_LinkToConstrainedObject"
+        Type="SemanticRelation" AdaptativeToMinor="Yes"
+		    SynchroSensitivity="None"
+		    RerouteOnEffectivityChange="Yes"
+        Semantics="Reference"/>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+  </Class>
+    <Extension Name="DELLmiTimeConstraintCategoryAbstract"
+             Uuid="0B3E52DE-5AB6-4BD3-8A85-6F924DAAF7D7"
+             ScopeNames="DELLmiTimeConstraintCnx"
+             Abstract="Yes"
+             CAAExposition="L0"
+             CustomerExposition="Programmer"
+             Specializable="Yes">
+      <Simple Name="V_ExecutionReturnCode"
+              Uuid="6BF7E326-6BAB-47F1-81B4-282BFF82286B"
+              Type="String"
+              MultiValuated="No"
+              Protection="Free"
+              ResetOnCloning="No"
+              ResetOnNewVersion="No"
+              DefaultValue="1">
+      </Simple>
+      <Property Name="KweNew_InstanciationMethod" Value="DELLmiTimeCstExtDelegateInstanciation"/>
+    </Extension>
+
+    <Extension Name="DELLmiTimeConstraintFailed"
+             Uuid="8D70A35B-6516-4DB4-9003-82B5F673695A"
+             SuperName="DELLmiTimeConstraintCategoryAbstract"
+             CAAExposition="L0"
+             CustomerExposition="Programmer"
+             Specializable="Yes">
+      <Simple Name="V_MaximumRetries"
+              Uuid="3733EC52-A44F-4C01-9110-25BEE46EF93A"
+              Type="Integer"
+              MultiValuated="No"
+              Protection="Free"
+              ResetOnCloning="No"
+              ResetOnNewVersion="No"
+              DefaultValue="1">
+      </Simple>
+      <Property Name="KweNew_InstanciationMethod" Value="DELLmiTimeCstExtDelegateInstanciation"/>
+    </Extension>
+
+    <Extension Name="DELLmiTimeConstraintAlternative"
+             Uuid="09B38ACA-25E4-4E23-AC89-BCD55976065A"
+             SuperName="DELLmiTimeConstraintCategoryAbstract"
+             CAAExposition="L0"
+             CustomerExposition="Programmer"
+             Specializable="Yes">
+      <Property Name="KweNew_InstanciationMethod" Value="DELLmiTimeCstExtDelegateInstanciation"/>
+    </Extension>
+
+    <Extension Name="DELLmiTimeConstraintScrapped"
+             Uuid="6E1E9FEF-160F-4493-87E3-265E9E32A2CB"
+             SuperName="DELLmiTimeConstraintCategoryAbstract"
+             CAAExposition="L0"
+             CustomerExposition="Programmer"
+             Specializable="Yes">
+      <Property Name="KweNew_InstanciationMethod" Value="DELLmiTimeCstExtDelegateInstanciation"/>
+    </Extension>
+    
+    <Extension Name="DELLmiTCOverlapQty_Abstract"
+                 Uuid="1416C13E-51E7-4AF6-A1AB-7B6029048857"
+                 ScopeNames="DELLmiTimeConstraintCnx"
+                 Abstract="Yes"
+                 CAAExposition="L0"
+                 CustomerExposition="Programmer"
+                 Specializable="No">
+      <Simple Name="V_OverlapQuantityMode"
+              Uuid="2AFB1651-AF62-4BF7-B785-E477C5722513"
+              Type="String"
+              MultiValuated="No"
+              Protection="Free"
+              ResetOnCloning="No"
+              ResetOnNewVersion="No"
+              DefaultValue="MinQuantity">
+        <Range>
+          <Equal>MinQuantity</Equal>
+          <Equal>MaxQuantity</Equal>
+          <Equal>Synchro</Equal>
+        </Range>
+      </Simple>
+    </Extension>
+
+    <Extension Name="DELLmiTCOverlapQty_Each"
+             Uuid="06283236-9FDB-4822-A6E2-44B782C1D70F"
+             SuperName="DELLmiTCOverlapQty_Abstract"
+             CAAExposition="L0"
+             CustomerExposition="Programmer"
+             Specializable="No">
+      <Simple Name="V_OverlapQty"
+              Uuid="CC6E39C8-63EC-46FB-B354-EDA2494F9420"
+              Type="Integer"
+              MultiValuated="No"
+              Protection="External"
+              ResetOnCloning="No"
+              ResetOnNewVersion="No"
+              DefaultValue="1">
+      </Simple>
+    </Extension>
+
+    <Extension Name="DELLmiTCOverlapQty_Area"
+             Uuid="65B67EA7-AFA2-49ED-9F0F-B8FF7620A398"
+             SuperName="DELLmiTCOverlapQty_Abstract"
+             CAAExposition="L0"
+             CustomerExposition="Programmer"
+             Specializable="No">
+      <Simple Name="V_OverlapQty"
+              Uuid="0FBDF6F4-4801-4E96-822C-8B54A6747328"
+              Type="Double"
+              Magnitude="AREA"
+              MultiValuated="No"
+              Protection="External"
+              ResetOnCloning="No"
+              ResetOnNewVersion="No"
+              DefaultValue="1.0">
+      </Simple>
+    </Extension>
+
+    <Extension Name="DELLmiTCOverlapQty_Length"
+             Uuid="0CDD8E67-2C53-4E3D-BA48-C816A97742C3"
+             SuperName="DELLmiTCOverlapQty_Abstract"
+             CAAExposition="L0"
+             CustomerExposition="Programmer"
+             Specializable="No">
+      <Simple Name="V_OverlapQty"
+              Uuid="288A49F8-3533-4857-9A2D-25F30AFAF6A9"
+              Type="Double"
+              Magnitude="LENGTH"
+              MultiValuated="No"
+              Protection="External"
+              ResetOnCloning="No"
+              ResetOnNewVersion="No"
+              DefaultValue="1.0">
+      </Simple>
+    </Extension>
+
+    <Extension Name="DELLmiTCOverlapQty_Weight"
+             Uuid="48B33F07-AC39-47D8-B27C-C962B0FB3E41"
+             SuperName="DELLmiTCOverlapQty_Abstract"
+             CAAExposition="L0"
+             CustomerExposition="Programmer"
+             Specializable="No">
+      <Simple Name="V_OverlapQty"
+              Uuid="4852D98B-4343-47D7-85EF-6689EFB74818"
+              Type="Double"
+              Magnitude="MASS"
+              MultiValuated="No"
+              Protection="External"
+              ResetOnCloning="No"
+              ResetOnNewVersion="No"
+              DefaultValue="1.0">
+      </Simple>
+    </Extension>
+
+    <Extension Name="DELLmiTCOverlapQty_Volume"
+             Uuid="1897D746-0DE9-4264-BAAD-7FD17B8FF643"
+             SuperName="DELLmiTCOverlapQty_Abstract"
+             CAAExposition="L0"
+             CustomerExposition="Programmer"
+             Specializable="No">
+      <Simple Name="V_OverlapQty"
+              Uuid="EC0B2FDA-16DF-452F-A5E4-63CCE1C24027"
+              Type="Double"
+              Magnitude="VOLUME"
+              MultiValuated="No"
+              Protection="External"
+              ResetOnCloning="No"
+              ResetOnNewVersion="No"
+              DefaultValue="1.0">
+      </Simple>
+    </Extension>
+</Package>

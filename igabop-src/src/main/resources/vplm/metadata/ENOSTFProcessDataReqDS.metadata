@@ -1,0 +1,23 @@
+<?xml version="1.0"?> <!-- COPYRIGHT DASSAULT SYSTEMES 2004, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo"  Name="ENOSTFProcessDataReqDS"
+      Uuid="80026c03-d08b-4cd6-9dd6-c76ecb70069a" 
+      UseNames="DELFmiFunctionalModelPrerequisiteCnx1" 
+      >
+
+      <CAAComment>
+            <ShortRole>PLM Process Customization for ENOVIA Team Engineering</ShortRole>
+            <Role>Used by Team Engineering</Role>
+      </CAAComment>
+      
+      <Class Name="ENOSTFProcessDataReq"
+            Uuid="ce84b13d-acb0-4ea9-8eef-bc656855bcb0"
+            SuperName="DELFmiProcessPrerequisiteCnxCust" 
+            SuperRef="BC8C3603-146A-429E-BC17-E1381A0B121E" 
+             >
+
+            <CAAComment>
+                  <ShortRole>Customized PLM Function Connection Object</ShortRole>
+                  <Role>Customized PLM Function Connection Object</Role>
+            </CAAComment>
+      </Class>
+</Package>

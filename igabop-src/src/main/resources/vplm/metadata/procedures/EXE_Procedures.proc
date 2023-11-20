@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2005, All rights reserved -->
+<ProcedurePackage xmlns="PLMDictionaryProcedure" Name="EXE_Procedures">
+  <!-- Java procs -->
+  <!-- EXE Services -->
+  <Procedure Name="EXEGetTicket">
+    <Implementation Name="invoke" FileLocation="com.dassault_systemes.smaexe.plm.services.SMAExeGetTicket" Language="JAVA"/>
+    <Signature href="EXEGetTicket_sig"/>
+  </Procedure>
+  <Signature id="EXEGetTicket_sig">
+    <Parameter Name="inPLMObjIds" MultiValuated="Yes" Direction="in" DataType="PLMId" Order="1"/>
+    <Parameter Name="inPLMObjAccess" MultiValuated="Yes" Direction="in" DataType="String" Order="2"/>
+    <Parameter Name="outTicket" MultiValuated="No" Direction="out" DataType="String" Order="1"/>
+  </Signature>
+
+  <Procedure Name="EXEGetEEDInfo">
+    <Implementation Name="invoke" FileLocation="com.dassault_systemes.smaexe.plm.services.SMAExeGetEEDInfo" Language="JAVA"/>
+    <Signature href="EXEGetEEDInfo_sig"/>
+  </Procedure>
+  <Signature id="EXEGetEEDInfo_sig">
+    <Parameter Name="iInput" MultiValuated="No" Direction="in" DataType="String" Order="1"/>
+    <Parameter Name="outEEDInfo" MultiValuated="No" Direction="out" DataType="String" Order="1"/>
+  </Signature>  
+</ProcedurePackage>

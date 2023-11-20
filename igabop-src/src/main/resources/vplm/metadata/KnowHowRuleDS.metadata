@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2005, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" DataRDB_OID="ENODR_RULEC" Name="KnowHowRuleDS" Uuid="11FC95E7-9B22-4c97-A83251FAB311EA54" UseNames="PLMKnowHowRule" Alias="KnowHow Rule Custo" >
+<Property Name="OptionalInstallation" Value="Yes" /> 
+	<Class Name="PLMRuleCusto" Uuid="CD09FB0C-098B-4bab-9A3C3FD212AA4579" Alias="PLMRuleCusto"       SuperRef="CBA6EA43-9467-496b-BB4BCEABED5B2DC2" SuperName="PLMRule" >
+    <IdentifierSet Name="Identifier" Uuid="21EE3BD3-A980-4568-A35C9774F1CDC349" 
+        IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755" 
+        IdentifierNames="PLM_ExternalID V_version"/>
+  </Class>
+	<Class Name="PLMRuleInstanceCusto" Uuid="73072B0C-3E5E-4fb6-9D19B0A5365878C3" Alias="PLMRuleInstanceCusto"       SuperRef="50BE900C-9892-43e8-918E6D858180A047" SuperName="PLMRuleInstance" />
+</Package>

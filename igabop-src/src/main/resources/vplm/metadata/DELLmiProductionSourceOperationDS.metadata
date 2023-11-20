@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" Name="DELLmiProductionSourceOperationDS" Uuid="6980defe-b878-4647-b052ee449c2f962f" UseNames="DELLmiProductionSourceOperation" >
+<Property Name="OptionalInstallation" Value="Yes" /> 
+	<CAAComment>
+		<ShortRole>Standard DELMIA Source Operation Package</ShortRole>
+		<Role>This package includes default customized DELMIA Source Operation</Role>
+	</CAAComment>
+	<Comment>last update 2008-11-21</Comment>
+
+	<Class Name="DELLmiSourceOperationReferenceCusto" Uuid="1570a9ef-26c7-4d7f-84654ac5b36f34d1" SuperName="DELLmiSourceOperationReference"  >
+
+    <IdentifierSet Name="Identifier"
+        Uuid="b39bc698-2c5b-44c1-80f7c63a61e0a85d"
+        IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755"
+        IdentifierNames="PLM_ExternalID V_version" />
+
+    <CAAComment>
+			<ShortRole>Standard DELMIA Source Operation Reference</ShortRole>
+			<Role>Default customized DELMIA Source Operation Reference</Role>
+		</CAAComment>
+	</Class>
+
+  <RelationClass Name="DELLmiSourceOperationInstanceCusto" Uuid="03898f73-0658-4d17-bbc0-670ec254f3cb" SuperName="DELLmiSourceOperationInstance"   >
+    <CAAComment>
+      <ShortRole>Standard DELMIA Source Operation Instance</ShortRole>
+      <Role>Default customized DELMIA Source Operation Instance</Role>
+    </CAAComment>
+    <!-- ********************************************************* -->
+    <!-- * Overload(s) of PLMCoreInstance attributes. -->
+    <!-- ********************************************************* -->
+    <SubClause Name="to"   TargetName="DELLmiSourceOperationReferenceCusto"/>
+  </RelationClass>
+
+</Package>

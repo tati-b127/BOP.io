@@ -1,0 +1,974 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2010, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified"
+         Name="PLMDELMIASystemDisciplines"
+         BelongsToModeler="DELLmiProductionSystem"
+         UseNames="RFLPLMImplementConnection DELLmiProductionStorageSystem DELLmiProductionInterruptOperation DELLmiProductionCandidateResCnx DELLmiProductionDocRep DELLmiProductionGeneralSystem DELLmiProductionTransferSystem DELLmiProductionWorkplanSystem PRODUCTCFG DELLmiProductionTransformationSystem DELLmiWorkOrder DELAsmAssemblyModelCnx"
+         Uuid="DF9C842B-9D01-4c16-90B9-39F29B419AB0"
+         ModelerType="Top"
+         CustomerExposition="Programmer">
+
+  <!-- Disciplines for implement connection -->
+
+  <Class Name="MfgProductionPlanning"
+         Uuid="A87B9D2A-A069-4059-8CF4-C1343AC43EC7"
+         Abstract="No"
+         Discipline="Yes"
+         SuperName="RFLPLMImplementConnection"
+	       CustomerExposition="Programmer"
+         Specializable="No"
+         CustomerExtensible="Yes"
+         >
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+  <Class Name="MfgProductionExecution"
+         Uuid="F700B3C0-BC83-4163-A916-666A19728AF7"
+         Abstract="No"
+         Discipline="Yes"
+         SuperName="RFLPLMImplementConnection"
+         CustomerExposition="Programmer"
+         Specializable="No"
+         CustomerExtensible="Yes"
+         >
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+
+  <!-- Disciplines for storage system -->
+
+  <Class Name="SourceSystem"
+        CustomerExposition="Programmer"
+        Uuid="0cb75224-a8b3-47b7-9b10-a3d62acd9808"
+        Abstract="No"
+        Discipline="Yes"
+        SuperName="DELLmiStorageSystemReference"
+        Specializable="Yes"
+        CustomerExtensible="Yes"
+        Abbreviation="scs">
+
+    <Property Name="KweDisciplineAttributeValue" Value="Prodsys_StorageSource"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELMPProdSystemAdvDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELLmiStorageSystemInstance"/>
+    <Property Name="IconName" Value="I_PPRSourceSystem"/>
+    <Property Name="3DIconName" Value="I_PPRSourceSystem.cgr"/>
+    <Property Name="Newable" Value="Insert_CAA"/>
+    <Property Name="Searchable" Value="Yes"/>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+  </Class>
+
+  <Class Name="SinkSystem"
+         CustomerExposition="Programmer"
+         Uuid="32ec4b4e-505d-4d0f-82bb-7adf2b9c9db5"
+         Abstract="No"
+         Discipline="Yes"
+         SuperName="DELLmiStorageSystemReference"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         Abbreviation="sks">
+
+    <Property Name="KweDisciplineAttributeValue" Value="Prodsys_StorageSink"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELMPProdSystemAdvDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELLmiStorageSystemInstance"/>
+    <Property Name="IconName" Value="I_PPRSinkSystem"/>
+    <Property Name="3DIconName" Value="I_PPRSinkSystem.cgr"/>
+    <Property Name="Newable" Value="Insert_CAA"/>
+    <Property Name="Searchable" Value="Yes"/>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+  </Class>
+
+  <Class Name="BufferSystem"
+         CustomerExposition="Programmer"
+         Uuid="b36cea1e-9f4b-40d6-9b98-3fab27908661"
+         Abstract="No"
+         Discipline="Yes"
+         SuperName="DELLmiStorageSystemReference"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         Abbreviation="bfs">
+
+    <Property Name="KweDisciplineAttributeValue" Value="Prodsys_StorageBuffer"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELMPProdSystemAdvDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELLmiStorageSystemInstance"/>
+    <Property Name="IconName" Value="I_PPRBufferSystem"/>
+    <Property Name="3DIconName" Value="I_PPRBufferSystem.cgr"/>
+    <Property Name="Newable" Value="Insert_CAA"/>
+    <Property Name="Searchable" Value="Yes"/>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+  </Class>
+
+  <!-- Disciplines for supply chain planning -->
+
+
+  <!-- Definition of abstract type -->
+  <Class Name="DELSCPLogisticsReference"
+         Uuid="012936fa-e335-4217-a2a68bf0a3f03372"
+		     Abstract="Yes"
+         Discipline="Yes"
+         SuperName="DELLmiGeneralSystemReference"
+         CustomerExposition="Programmer"
+         Specializable="No"
+         CustomerExtensible="Yes"
+         CreateInstName="DELLmiGeneralSystemInstance"
+         >
+
+    <CAAComment>
+      <ShortRole>PLM DELMIA Logistics System</ShortRole>
+      <Role>PLM DELMIA Logistics System Reference</Role>
+    </CAAComment>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+  </Class>
+
+  <Class Name="DELSCPLogisticsSiteRef"
+         Uuid="f98e5bab-d4c2-4b29-910caea43c02af0a"
+		     Abstract="No"
+         Discipline="Yes"
+         SuperName="DELSCPLogisticsReference"
+         CustomerExposition="Programmer"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         CreateInstName="DELLmiGeneralSystemInstance"
+         Abbreviation="lst"
+         InstantiationOwnerTypes="DELSCPLogisticsSiteRef">
+
+    <Property Name="KweNew_InstanciationMethod" Value="DELMPProdSystemAdvDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELLmiGeneralSystemInstance"/>
+    <Property Name="IconName" Value="I_SCPLogisticsSiteRef"/>
+    <Property Name="3DIconName" Value="I_SCPLogisticsSiteRef.cgr"/>
+    <Property Name="Newable" Value="No"/>
+    <Property Name="Searchable" Value="Yes"/>
+
+
+    <CAAComment>
+      <ShortRole>PLM DELMIA Logistics Station Reference</ShortRole>
+      <Role>PLM DELMIA Logistics Station Reference</Role>
+    </CAAComment>
+
+    <Simple Name="V_SCRole" Uuid="01E53E91-276C-4366-81C7-F9D25A0603D4" Type="Integer" Protection="Free" CAAExposition="L0" DefaultValue="1" Faceted="Yes" ResetOnCloning="No" ResetOnNewVersion="No">
+      <Property Name="SIXW" Value="ds6w:kind"/>
+      <Property Name="RangeAsEnumName" Value="DELSCP_SCRole_Enum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="Unknown;Supplier;Manufacturer;DistributionCenter;Retailer;Customer"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+        <Equal>5</Equal>
+        <Equal>6</Equal>
+      </Range>
+      <CAAComment>
+        <ShortRole>Defines the role of the logistics station.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_IndustrialActivity"
+            Uuid="369CCB1C-08A4-449D-8BAA-DF72C1BD02A6"
+            Type="String"
+            MaxLength="256"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0">
+    </Simple>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+  </Class>
+
+  <Class Name="DELSCPLogisticsTransferReference"
+         Uuid="26f0017c-73c4-4e96-a178c44fbd82ecf4"
+		     Abstract="Yes"
+         Discipline="Yes"
+         SuperName="DELLmiTransferSystemReference"
+         CustomerExposition="Programmer"
+         Specializable="No"
+         CustomerExtensible="Yes"
+         CreateInstName="DELLmiTransferSystemInstance"
+         >
+
+    <CAAComment>
+      <ShortRole>PLM DELMIA Logistics Transfer System</ShortRole>
+      <Role>PLM DELMIA Logistics Transfer System Reference</Role>
+    </CAAComment>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+  </Class>
+
+  <Class Name="DELSCPLogisticsTransferSiteRef"
+         Uuid="afd362e1-e14c-4b03-9cb66f876cd023e5"
+		     Abstract="No"
+         Discipline="Yes"
+         SuperName="DELSCPLogisticsTransferReference"
+         CustomerExposition="Programmer"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         CreateInstName="DELLmiTransferSystemInstance"
+         Abbreviation="lts"
+         InstantiationOwnerTypes="DELSCPLogisticsSiteRef">
+
+    <Property Name="KweNew_InstanciationMethod" Value="DELMPProdSystemAdvDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELLmiTransferSystemInstance"/>
+    <Property Name="IconName" Value="I_SCPLogisticsTransferSiteRef"/>
+    <Property Name="3DIconName" Value="I_SCPLogisticsTransferSiteRef.cgr"/>
+    <Property Name="Newable" Value="No"/>
+    <Property Name="Searchable" Value="Yes"/>
+
+
+    <CAAComment>
+      <ShortRole>PLM DELMIA Logistics Transfer Station Reference</ShortRole>
+      <Role>PLM DELMIA Logistics Transfer Station Reference</Role>
+    </CAAComment>
+
+    <Simple Name="V_DeliveryMethod" Uuid="61A71019-6BDC-49CE-90DC-4A1F4CB27DCF" Type="Integer" Protection="Free" CAAExposition="L0" DefaultValue="1" Faceted="Yes" ResetOnCloning="No" ResetOnNewVersion="No">
+      <Property Name="SIXW" Value="ds6w:kind"/>
+      <Property Name="RangeAsEnumName" Value="DELSCP_DeliveryMethod_Enum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="Unknown;JIT;JIS;Store"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+      </Range>
+      <CAAComment>
+        <ShortRole>Defines the role of the logistics station.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+  </Class>
+
+  <!-- Disciplines for interrupt operation -->
+
+  <Class Name="Prodsys_InterruptRepair"
+       Uuid="22c94e9c-2701-4602-bb85-9bb086b5c957"
+       Abstract="No"
+       Discipline="Yes"
+       SuperName="DELLmiInterruptOperationReference"
+       CustomerExposition="Programmer"
+       Specializable="Yes"
+       CustomerExtensible="Yes"
+       Abbreviation="rpo"
+         >
+
+    <Property Name="KweNew_InstanciationMethod" Value="DELMPProdSystemAdvDelegateInstanciation"/>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  
+  </Class>
+
+  <Class Name="Prodsys_InterruptSetup"
+		     Uuid="76051a40-9c46-4093-8c85-052a55be2465"
+		     Abstract="No"
+         Discipline="Yes"
+	       SuperName="DELLmiInterruptOperationReference"
+         CustomerExposition="Programmer"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         Abbreviation="sto"
+         >
+    <Property Name="KweNew_InstanciationMethod" Value="DELMPProdSystemAdvDelegateInstanciation"/>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  
+  </Class>
+
+  <Class Name="Prodsys_InterruptMaintenance"
+		     Uuid="b277c6ec-4492-4491-b39a-d448bd4660ae"
+         Abstract="No"
+		     Discipline="Yes"
+		     SuperName="DELLmiInterruptOperationReference"
+         CustomerExposition="Programmer"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         Abbreviation="mto"
+         >
+    <Property Name="KweNew_InstanciationMethod" Value="DELMPProdSystemAdvDelegateInstanciation"/>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  
+  </Class>
+
+  <Class Name="Prodsys_InterruptInspection"
+		     Uuid="a3670e9b-153d-4913-8e39-71c5daf6ac86"
+         Abstract="No"
+		     Discipline="Yes"
+		     SuperName="DELLmiInterruptOperationReference"
+         CustomerExposition="Programmer"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         Abbreviation="ipo"
+         >
+    <Property Name="KweNew_InstanciationMethod" Value="DELMPProdSystemAdvDelegateInstanciation"/>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  
+  </Class>
+
+  <Class Name="Prodsys_InterruptShift"
+	     	 Uuid="be485481-721c-4af9-9a67-0e93a367b8a3"
+		     Abstract="No"
+         Discipline="Yes"
+		     SuperName="DELLmiInterruptOperationReference"
+         CustomerExposition="Programmer"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         Abbreviation="sho"
+         >
+    <Property Name="KweNew_InstanciationMethod" Value="DELMPProdSystemAdvDelegateInstanciation"/>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  
+  </Class>
+
+  <!-- Disciplines for candidate resource connection -->
+
+  <Class Name="CandidateResourceScopeLink"
+       Uuid="18CD104E-1FEB-48e8-B2B3-3EB219668B7A"
+       Abstract="No"
+       Discipline="Yes"
+       SuperName="DELLmiCandidateResourcesCnx"
+       CustomerExposition="Programmer"
+       Specializable="No"
+       CustomerExtensible="Yes">
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+  <Class Name="CandidateResourceLink"
+         Uuid="DFBDDB21-D1AC-43bd-82D8-975202944B99"
+         Abstract="No"
+         Discipline="Yes"
+         SuperName="DELLmiCandidateResourcesCnx"
+         CustomerExposition="Programmer"
+         Specializable="No"
+         CustomerExtensible="Yes">
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+    <Path Name="DELFmiDEL_DependsOnCapableResource"
+          Uuid="2C83D275-1383-4E11-8846-A14C143C0176"
+          RoleName="DEL_DependsOnCapableResource"
+          MultiValuated="Yes"
+          Type="SemanticRelation" AdaptativeToMinor="No"
+          SynchroSensitivity="None"
+          RerouteOnEffectivityChange="No"
+          Orientation="Out"
+          Semantics="Reference"/>
+
+    <Simple Name="V_Priority"
+            Uuid="09954F1D-562D-4F64-B741-E3EA8A33BF55"
+            Type="Integer"
+            MultiValuated="No"
+            Protection="Free"
+            ResetOnCloning="No"
+            ResetOnNewVersion="No"
+            DefaultValue="1">
+      <CAAComment>
+        <ShortRole>Defines the Primary Capable Resource Priority.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_ManuallyScheduled"
+           Uuid="A1886348-5D89-4070-B334-3360167DA043"
+           Type="Boolean"
+           MultiValuated="No"
+           Protection="Free"
+           ResetOnCloning="No"
+           ResetOnNewVersion="No"
+           DefaultValue="False">
+      <CAAComment>
+        <ShortRole>Defines if the Primary Capable Resource is manually scheduled.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_ResourcesQuantity"
+        Uuid="E04494EA-8D52-417D-9DC1-00E5FC660B66"
+        Type="Double"
+        MultiValuated="No"
+        Protection="External"
+        ResetOnCloning="No"
+        ResetOnNewVersion="No"
+        DefaultValue="1.0">
+      <CAAComment>
+        <ShortRole>Defines the Primary Capable Resource Quantity.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_ToolChangeoverTime"
+      Uuid="146F68BC-1B3A-4C65-9467-4F1AFC4BAD85"
+      Type="Double"
+      Magnitude="TIME"
+      MultiValuated="No"
+      Protection="Free"
+      ResetOnCloning="No"
+      ResetOnNewVersion="No"
+      DefaultValue="0.0">
+      <CAAComment>
+        <ShortRole>Tool change Overtime.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+  </Class>
+
+  <Class Name="SecondaryCandidateResourceLink"
+        Uuid="85E12557-C676-48FB-B07F-6C3DB0EFA349"
+        Abstract="No"
+        Discipline="Yes"
+        SuperName="DELLmiCandidateResourcesCnx"
+        CustomerExposition="Programmer"
+        Specializable="No"
+        CustomerExtensible="Yes">
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+    <Path Name="DELFmiDEL_DependsOnCapableResource"
+          Uuid="C2288EF4-FFBE-4066-A2B7-25F83B5A2CA1"
+          RoleName="DEL_DependsOnCapableResource"
+          MultiValuated="Yes"
+          Type="SemanticRelation" AdaptativeToMinor="No"
+          SynchroSensitivity="None"
+          RerouteOnEffectivityChange="No"
+          Orientation="Out"
+          Semantics="Reference"/>
+
+    <Simple Name="V_RscTimeConst"
+           Uuid="E14B4AA7-A56D-4B3F-8E84-DF1BFB076AB1"
+           Type="Double"
+           Magnitude="TIME"
+           MultiValuated="No"
+           Protection="Free"
+           ResetOnCloning="No"
+           ResetOnNewVersion="No"
+           DefaultValue="0.0">
+      <CAAComment>
+        <ShortRole>Resource Time Constant.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_RscTimePerQtyToProducedPerTime"
+           Uuid="3F8C7EE7-E0D5-48AC-8DA9-8B5ED10C4B6E"
+           Type="Double"
+           Magnitude="TIME"
+           MultiValuated="No"
+           Protection="Free"
+           ResetOnCloning="No"
+           ResetOnNewVersion="No"
+           DefaultValue="0.0">
+      <CAAComment>
+        <ShortRole>Resource Time per quantity to be produced per time.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+  </Class>
+
+  <Class Name="AllocatedResourceLink"
+          Uuid="EFE8B97A-F3CF-4842-92EE-E34445E0ED2C"
+          Abstract="No"
+          Discipline="Yes"
+          SuperName="DELLmiCandidateResourcesCnx"
+          CustomerExposition="Programmer"
+          Specializable="No"
+          CustomerExtensible="Yes">
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+    <Path Name="DELFmiDEL_LinkToCandResourceLink"
+          Uuid="E87D530A-C98C-4EF5-A2E0-E86C19B764CF"
+          RoleName="DEL_LinkToCandResourceLink"
+          MultiValuated="No"
+          Type="SemanticRelation" AdaptativeToMinor="No"
+          SynchroSensitivity="None"
+          RerouteOnEffectivityChange="No"
+          Orientation="Out"
+          Semantics="Reference"/>
+
+    <Simple Name="V_ForcedAllocation"
+            Uuid="DB215C66-E28E-4444-A880-3B5C934841E4"
+            Type="Boolean"
+            MultiValuated="No"
+            Protection="Free"
+            ResetOnCloning="No"
+            ResetOnNewVersion="No"
+            DefaultValue="False"
+            >
+      <CAAComment>
+        <ShortRole>Defines if the resource is a forced allocation.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_RunCapacity"
+            Uuid="157E3CCF-36A0-4A6B-A472-5D42E8CFF7C8"
+            Type="Integer"
+            MultiValuated="No"
+            Protection="Free"
+            ResetOnCloning="No"
+            ResetOnNewVersion="No"
+            >
+      <CAAComment>
+        <ShortRole>Defines the run capacity of allocated resource.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_ResourcesQuantity"
+    Uuid="E0E3CE50-F4CB-4537-8DFF-6194E05819D5"
+    Type="Double"
+    MultiValuated="No"
+    Protection="External"
+    ResetOnCloning="No"
+    ResetOnNewVersion="No"
+    DefaultValue="1.0">
+      <CAAComment>
+        <ShortRole>Defines the Allocated Resource Quantity.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_ToolChangeoverTime"
+      Uuid="3BA3B4BD-6E76-419D-B2D5-FCBBB887505A"
+      Type="Double"
+      Magnitude="TIME"
+      MultiValuated="No"
+      Protection="Free"
+      ResetOnCloning="No"
+      ResetOnNewVersion="No"
+      DefaultValue="0.0">
+      <CAAComment>
+        <ShortRole>Tool change Overtime.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+  </Class>
+
+  <Extension Name="DELLmiEstimatedTime"
+           Uuid="B2CC290C-6766-4A14-B64B-02C19700569B"
+           ScopeNames="CandidateResourceLink SecondaryCandidateResourceLink AllocatedResourceLink DELAsmProcessCanUseCnx"
+           CAAExposition="L0"
+           CustomerExposition="Programmer"
+           Specializable="No">
+    <Simple Name="V_EstimatedTime"
+            Uuid="DA4BD85E-A8D3-48DB-8767-2374065BCCC8"
+            Type="Double"
+            Magnitude="TIME"
+            MultiValuated="No"
+            Protection="Free"
+            ResetOnCloning="No"
+            ResetOnNewVersion="No"
+            >
+      <CAAComment>
+        <ShortRole>Defines the Primary Capable Resource Estimated Time.</ShortRole>
+      </CAAComment>
+    </Simple>
+  </Extension>
+  
+  <Extension Name="DELLmiRscQtyAbstract"
+              Uuid="5DB100D3-9350-47BA-A437-B32B86DC0401"
+              ScopeNames="SecondaryCandidateResourceLink"
+              Abstract="Yes"
+              CAAExposition="L0"
+              CustomerExposition="Programmer"
+              Specializable="No">
+    <CAAComment>
+      <ShortRole>Resource Quantity Abstract extension.</ShortRole>
+    </CAAComment>
+  </Extension>
+
+  <Extension Name="DELLmiRscQtyArea"
+            Uuid="870303B3-0656-4979-9F74-87E1B4C150E5"
+            Abstract="No"
+            CAAExposition="L0"
+            CustomerExposition="Programmer"
+            Specializable="No"
+            SuperName="DELLmiRscQtyAbstract">
+  
+    <Simple Name="V_RscQtyConst"
+          Uuid="6B91627C-5C9F-413E-BDC0-6E26C26182AD"
+          Type="Double"
+          Magnitude="AREA"
+          DefaultValue="0.0"
+          MultiValuated="No"
+          Protection="Free"
+          ResetOnCloning="No"
+          ResetOnNewVersion="No"
+          CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Resource Quantity constant for Area</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_RscQtyPerQtyToProducedPerTime"
+      Uuid="E03661CA-78FB-4AC3-8026-6C0A7A977024"
+      Type="Double"
+      Magnitude="AREA"
+      DefaultValue="0.0"
+      MultiValuated="No"
+      Protection="Free"
+      ResetOnCloning="No"
+      ResetOnNewVersion="No"
+      CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Resource Quantity per quantity to be produced per time for Area</ShortRole>
+      </CAAComment>
+    </Simple>
+    
+    <CAAComment>
+      <ShortRole>Resource Quantity extension for Area.</ShortRole>
+    </CAAComment>
+  </Extension>
+
+  <Extension Name="DELLmiRscQtyWeight"
+          Uuid="B7B97DC6-79AE-49CB-82E5-342F76F7E3AF"
+          Abstract="No"
+          CAAExposition="L0"
+          CustomerExposition="Programmer"
+          Specializable="No"
+          SuperName="DELLmiRscQtyAbstract">
+
+    <Simple Name="V_RscQtyConst"
+          Uuid="D57AF596-A8E3-4699-95E4-DCA1E8F0946B"
+          Type="Double"
+          Magnitude="MASS"
+          DefaultValue="0.0"
+          MultiValuated="No"
+          Protection="Free"
+          ResetOnCloning="No"
+          ResetOnNewVersion="No"
+          CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Resource Quantity constant for Mass</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_RscQtyPerQtyToProducedPerTime"
+      Uuid="FCCA08E6-A06C-47B5-9C67-C4554CCEFC9C"
+      Type="Double"
+      Magnitude="MASS"
+      DefaultValue="0.0"
+      MultiValuated="No"
+      Protection="Free"
+      ResetOnCloning="No"
+      ResetOnNewVersion="No"
+      CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Resource Quantity per quantity to be produced per time for Mass</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <CAAComment>
+      <ShortRole>Resource Quantity extension for Mass.</ShortRole>
+    </CAAComment>
+  </Extension>
+
+  <Extension Name="DELLmiRscQtyLength"
+          Uuid="343FAA3D-D657-492C-BDF2-29934074F673"
+          Abstract="No"
+          CAAExposition="L0"
+          CustomerExposition="Programmer"
+          Specializable="No"
+          SuperName="DELLmiRscQtyAbstract">
+
+    <Simple Name="V_RscQtyConst"
+          Uuid="A56D1E33-4301-410A-9A64-60611E7EE9AC"
+          Type="Double"
+          Magnitude="LENGTH"
+          DefaultValue="0.0"
+          MultiValuated="No"
+          Protection="Free"
+          ResetOnCloning="No"
+          ResetOnNewVersion="No"
+          CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Resource Quantity constant for Length</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_RscQtyPerQtyToProducedPerTime"
+      Uuid="7B3E0245-2B77-4851-9EB7-EB22CEE7C702"
+      Type="Double"
+      Magnitude="LENGTH"
+      DefaultValue="0.0"
+      MultiValuated="No"
+      Protection="Free"
+      ResetOnCloning="No"
+      ResetOnNewVersion="No"
+      CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Resource Quantity per quantity to be produced per time for Length</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <CAAComment>
+      <ShortRole>Resource Quantity extension for Length.</ShortRole>
+    </CAAComment>
+  </Extension>
+
+  <Extension Name="DELLmiRscQtyVolume"
+          Uuid="3B67448B-66CA-40E1-841C-6D5CE728745E"
+          Abstract="No"
+          CAAExposition="L0"
+          CustomerExposition="Programmer"
+          Specializable="No"
+          SuperName="DELLmiRscQtyAbstract">
+
+    <Simple Name="V_RscQtyConst"
+          Uuid="365A1215-76A2-4EDF-A182-A50B719EFE56"
+          Type="Double"
+          Magnitude="VOLUME"
+          DefaultValue="0.0"
+          MultiValuated="No"
+          Protection="Free"
+          ResetOnCloning="No"
+          ResetOnNewVersion="No"
+          CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Resource Quantity constant for Volume</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_RscQtyPerQtyToProducedPerTime"
+      Uuid="10C92E5B-93DD-467C-ABD0-DC7F0576073E"
+      Type="Double"
+      Magnitude="VOLUME"
+      DefaultValue="0.0"
+      MultiValuated="No"
+      Protection="Free"
+      ResetOnCloning="No"
+      ResetOnNewVersion="No"
+      CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Resource Quantity per quantity to be produced per time for Volume</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <CAAComment>
+      <ShortRole>Resource Quantity extension for Volume.</ShortRole>
+    </CAAComment>
+  </Extension>
+
+  <Extension Name="DELLmiRscQtyEach"
+          Uuid="8EC68A39-3B3B-44A7-BF2E-22DB55222361"
+          Abstract="No"
+          CAAExposition="L0"
+          CustomerExposition="Programmer"
+          Specializable="No"
+          SuperName="DELLmiRscQtyAbstract">
+
+    <Simple Name="V_RscQtyConst"
+          Uuid="C699B956-C11E-4CBA-BCB0-7A45DCCEA9A6"
+          Type="Integer"
+          DefaultValue="0"
+          MultiValuated="No"
+          Protection="Free"
+          ResetOnCloning="No"
+          ResetOnNewVersion="No"
+          CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Resource Quantity constant for lot</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_RscQtyPerQtyToProducedPerTime"
+      Uuid="5472DEA4-6FDA-4D66-85B9-CEF276C3753E"
+      Type="Integer"
+      DefaultValue="0"
+      MultiValuated="No"
+      Protection="Free"
+      ResetOnCloning="No"
+      ResetOnNewVersion="No"
+      CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Resource Quantity per quantity to be produced per time for lot</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <CAAComment>
+      <ShortRole>Resource Quantity extension for lot.</ShortRole>
+    </CAAComment>
+  </Extension>
+
+  <!-- Disciplines for documentation representation -->
+
+  <Class Name="ProductionSystemDocumentation"
+        CustomerExposition="Programmer"
+        Uuid="ddd6c88a-b895-4346-865e-113247746d0a"
+        Abstract="No"
+        Discipline="Yes"
+        SuperName="DELLmiDocRepReference"
+        Specializable="No"
+        CustomerExtensible="No"
+        Abbreviation="psd">
+
+    <Property Name="KweDisciplineAttributeValue" Value="Prodsys_documentation"/>
+    <Property Name="Newable" Value="No"/>
+    <Property Name="Searchable" Value="No"/>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+  <Class Name="ProductionSystem2DLayout"
+         CustomerExposition="Programmer"
+         Uuid="b9ab7932-c9ab-44d7-97bf-0766f5db6ba8"
+         Abstract="No"
+         Discipline="Yes"
+         SuperName="DELLmiDocRepReference"
+         Specializable="No"
+         CustomerExtensible="No"
+         Abbreviation="psl">
+
+    <Property Name="KweDisciplineAttributeValue" Value="Prodsys_2DLayoutData"/>
+    <Property Name="Newable" Value="No"/>
+    <Property Name="Searchable" Value="No"/>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+  <Class Name="ProductionSystemPlugBehavior"
+         CustomerExposition="Programmer"
+         Uuid="006653F3-2CB7-48d8-9D23-311B38DADD32"
+         Abstract="No"
+         Discipline="Yes"
+         SuperName="DELLmiDocRepReference"
+         Specializable="No"
+         CustomerExtensible="No"
+         Abbreviation="psp"
+         InstantiationOwnerTypes="DELLmiProductionPlugReference">
+
+    <Property Name="KweDisciplineAttributeValue" Value="Prodsys_PlugBehavior"/>
+    <Property Name="Newable" Value="No"/>
+    <Property Name="Searchable" Value="No"/>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+  <Class Name="ProductionSystemShiftSchedule"
+         CustomerExposition="Programmer"
+         Uuid="09A4AAFC-169C-40b8-A655-9BCF41469C6D"
+         Abstract="No"
+         Discipline="Yes"
+         SuperName="DELLmiDocRepReference"
+         Specializable="No"
+         CustomerExtensible="No"
+         Abbreviation="pss"
+         InstantiationOwnerTypes="DELLmiProductionShiftModelReference">
+
+    <Property Name="KweDisciplineAttributeValue" Value="Prodsys_ShiftSchedule"/>
+    <Property Name="Newable" Value="No"/>
+    <Property Name="Searchable" Value="No"/>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+  <Class Name="ProductionSystemDecoration"
+         CustomerExposition="Programmer"
+         Uuid="FC06008A-3F9F-4c59-9B52-61546E6B4517"
+         Abstract="No"
+         Discipline="Yes"
+         SuperName="DELLmiDocRepReference"
+         Abbreviation="sdc">
+
+    <Property Name="KweDisciplineAttributeValue" Value="Prodsys_Decoration"/>
+    <Property Name="Newable" Value="No"/>
+    <Property Name="Searchable" Value="No"/>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+  <Class Name="WorkInstruction3DDocumentation"
+         CustomerExposition="Programmer"
+         Uuid="68ad359c-c3b4-4cbd-8312-b98cacbda47e"
+         Abstract="No"
+         Discipline="Yes"
+         SuperName="DELLmiDocRepReference"
+         Specializable="No"
+         CustomerExtensible="No"
+         Abbreviation="wi3d"
+         InstantiationOwnerTypes="DELLmiOperationPPRReference">
+
+    <Property Name="KweNew_InstanciationMethod" Value="DELWorkInstructionDelegateInstanciation"/>
+    <Property Name="Newable" Value="No"/>
+    <Property Name="Searchable" Value="No"/>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+  <Extension Name="DELLmiProdSysAndResourceReferenceExt"
+         Uuid="FB51F844-63D1-41BE-88E0-647ADCFCD1DE"
+         ScopeNames="DELLmiWorkPlanSystemReference DELLmiGeneralSystemReference DELLmiTransformationSystemReference DELLmiTransferSystemReference DELLmiStorageSystemReference VPMReference DELLmiWorkOrderReference"
+         Discipline="No"
+         Abstract="No"
+       Specializable="No"
+         CAAExposition="L0"
+         CustomerExposition="Programmer">
+
+    <CAAComment>
+      <ShortRole>Extension used to store some Information</ShortRole>
+      <Role>Extension used to store some Information that are not mandatory</Role>
+    </CAAComment>
+
+    <Simple Name="V_GanttColor"
+            Uuid="D3065CBD-000C-4F16-99A0-6626C0075DE3"
+            Type="String"
+            MaxLength="30"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0">
+    </Simple>
+  </Extension>
+
+</Package>
+

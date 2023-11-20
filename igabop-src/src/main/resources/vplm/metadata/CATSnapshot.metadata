@@ -1,0 +1,261 @@
+<?xml version="1.0" ?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2011, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" 
+         ModelerType="Top" 
+         Name="CATSnapshot"
+         Uuid="7F77FDEB-7764-4129-9235-CECC88D4C640"	
+         UseNames="PLMCORE"
+	       CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>CATIA System Snapshot Package</ShortRole>
+    <Role>This package includes all the entities of CATIA System Snapshot model</Role>
+  </CAAComment>
+  
+  <Class Name="SnapshotReference"
+      Uuid="7D953BDF-D66C-4d94-A11E-C3CAF7379650"
+      Abstract="No"
+      SuperName="PLMCoreReference"
+      CAAExposition="L0"
+	    CustomerExposition="Programmer"
+      Abbreviation="sna" 
+      DeleteAvailability="Yes">
+
+    <Property Name="KweNew_InstanciationMethod" Value="CATESnapshotDelegateInstanciation"/>
+    <Property Name="Newable" Value="Insert" />
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="IconName" Value="I_RFLPSnapshot"/>
+    
+    <Simple Name="V_DefaultPrintFormat" 
+			Uuid="4C948CA8-2AD2-4646-B1A4-C88A5A442A60" 
+			Type="Integer"
+      DefaultValue="1"
+			MultiValuated="No"
+			Protection="Free"
+			CAAExposition="L0">
+
+      <Property Name="RangeAsEnumName" Value="V_PrintFormatEnum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="Undefined;A3H;A3V;A4H;A4V"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+        <Equal>5</Equal>
+      </Range>
+
+      <CAAComment>
+        <ShortRole>Default Print Format of the Snapshot</ShortRole>
+      </CAAComment>
+    </Simple>
+	<Simple Name="V_Width"
+            Uuid="DC1CCFAF-7EA6-4130-B19C-DB2598EEE8EF"
+            Type="Integer"
+            MultiValuated="No"
+			Protection="External"
+            CAAExposition="L0">
+            <CAAComment>
+                <ShortRole>Snapshot Width</ShortRole>
+            </CAAComment>
+        </Simple>
+        <Simple Name="V_Height"
+            Uuid="3CC335DD-E7F4-48cc-9E2A-CFA76C31C5D9"
+            Type="Integer"
+            MultiValuated="No"
+			Protection="External"
+            CAAExposition="L0">
+            <CAAComment>
+                <ShortRole>Snapshot Height</ShortRole>
+            </CAAComment>
+        </Simple>
+	  
+    <!-- PROCEDURES Declaration  -->
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+  <Class Name="Snapshot2DInputConnection"
+      Uuid="B7992901-EAA6-4f07-B3B6-32F8119EB7A0"
+      Abstract="No"
+      SuperName="PLMConnection"
+	     OwnerTypes="SnapshotReference"
+         CustomerExposition="Programmer"
+         >
+ 
+    <!-- OwnerTypes="SnapshotReference"  Integrate this line if you want to declare the aggregation constraint -->
+
+    <Path Name="Snapshot2DSource"
+      Uuid="56E25C8C-9D57-4e0c-B084-D3B49F17F470"
+      MultiValuated="No"
+      RoleName="Snapshot2DSource"
+    	Type="SemanticRelation" AdaptativeToMinor="No"
+    	SynchroSensitivity="PathAndLast"
+		  RerouteOnEffectivityChange="No" Orientation="In"
+      Semantics="Reference3"/>
+
+    <Simple Name="V_BottomLeftX"
+         Uuid="5BF516D9-2D70-4606-BD17-A054988AF359"
+         Type="Double"
+         MultiValuated="No"
+         Protection="Internal">
+      <CAAComment>
+        <ShortRole>Snapshot bottom left coordinate - X</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_BottomLeftY"
+         Uuid="275D59F5-DF88-4963-A093-B286A3DAFEDF"
+         Type="Double"
+         MultiValuated="No"
+         Protection="Internal">
+      <CAAComment>
+        <ShortRole>Snapshot bottom left coordinate - Y</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_TopRightX"
+       Uuid="FEBFF83F-8A31-4863-8F72-91112C684601"
+       Type="Double"
+       MultiValuated="No"
+		   Protection="Internal">
+      <CAAComment>
+        <ShortRole>Snapshot top right coordinate - X</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_TopRightY"
+         Uuid="4BC346EB-4F39-4fc0-B441-BF9D2A667D1C"
+         Type="Double"
+         MultiValuated="No"
+         Protection="Internal">
+      <CAAComment>
+        <ShortRole>Snapshot top right coordinate - Y</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_2DViewpointOriginX"
+       Uuid="DA9A91D4-6F24-4f4b-9689-762B02DF6D92"
+       Type="Double"
+       MultiValuated="No"
+		   Protection="Internal">
+      <CAAComment>
+        <ShortRole>Snapshot viewpoint origine coordinate - X</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_2DViewpointOriginY"
+         Uuid="B4DCBA2F-5021-4073-A18C-F3CE89102DF6"
+         Type="Double"
+         MultiValuated="No"
+         Protection="Internal">
+      <CAAComment>
+        <ShortRole>Snapshot viewpoint origine coordinate - Y</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_2DViewpointScale"
+       Uuid="EDA911DF-9BED-409d-B30F-8C6A16E491AD"
+       Type="Double"
+       MultiValuated="No"
+		   Protection="Internal">
+      <CAAComment>
+        <ShortRole>Snapshot Viewpoint Zoom factor</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_2DViewpointKind"
+       Uuid="31A18A5A-502D-4791-8172-C6CDA74189B8"
+       Type="Integer"
+       MultiValuated="No"
+		   Protection="Internal">
+      <CAAComment>
+        <ShortRole>Snapshot Viewpoint Kind and version </ShortRole>
+      </CAAComment>
+    </Simple>    
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+   <!-- ****************************************************** -->
+  <!-- * SnapshotRepReference (PLMCoreRepReference) * -->
+  <!-- ****************************************************** -->
+
+  <Class Name="SnapshotRepReference"
+      Uuid="AC5A758E-1F28-49cf-A93E-B2FDAF518592"
+      Abstract="No"
+      SuperName="PLMCoreRepReference"
+      CreateInstName="SnapshotRepInstance"
+	    CustomerExposition="Programmer" 
+      DeleteAvailability="Yes">
+
+    <Property Name="IconName" Value="I_SnapshotRep"/>
+
+	<!-- R206: contains identifier of object from which it is made from  -->
+    <!-- not exhanged between sites -->
+	<Simple Name="E_fromExternalId"
+    Uuid="B52A853F-40F7-422a-B5A2-2E91D1A5653E"
+    Type="String"
+    MaxLength="256"
+    MultiValuated="No"
+    Protection="Free"
+    CAAExposition="L0"
+    />
+
+    <!-- R206: contains Name comments  -->
+    <!-- not exhanged between sites -->
+    <Simple Name="E_versionComment"
+    Uuid="E51B057F-3D0C-4934-AAE7-68D74E5177CE"
+    Type="String"
+    MaxLength="256"
+    MultiValuated="No"
+    Protection="Free"
+    CAAExposition="L0"
+    ResetOnNewVersion="Yes"
+    ResetOnCloning="Yes"
+     />
+	 
+    <CAAComment>
+      <ShortRole>PLM Snapshot Representation Reference Object</ShortRole>
+      <Role>PLM Snapshot Representation Reference Object - contains the captured image</Role>
+    </CAAComment>
+    
+	
+    <Method ImplementationType="None">
+        <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+	</Class>
+  
+  <!-- **************************************************** -->
+  <!-- * SnapshotRepInstance (PLMCoreRepInstance) * -->
+  <!-- **************************************************** -->
+
+  <RelationClass Name="SnapshotRepInstance"
+      Uuid="8D54536C-DA2D-4a50-9119-62911A8CAB6B"
+      Abstract="No"
+      SuperName="PLMCoreRepInstance" 
+	  CustomerExposition="Programmer">
+
+    <Property Name="IconName" Value="I_SnapshotRep"/>   
+
+    <CAAComment>
+      <ShortRole>Snapshot Representation Instance Object</ShortRole>
+      <Role>Snapshot Representation Instance Object</Role>
+    </CAAComment>
+
+
+    <SubClause Name="from"   TargetName="SnapshotReference"/>
+    <SubClause Name="to"   TargetName="SnapshotRepReference"/>
+
+    <Method ImplementationType="None">
+        <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </RelationClass>
+  
+  <!-- ********************************************************* -->
+  <!-- FUNCTIONS Declarations : here are delcared PLMQL Functions -->
+
+  <!-- ********************************************************* -->
+
+  <!-- DISCIPLINES DECLARATIONS -->
+
+  <!-- ********************************************************* -->
+</Package>

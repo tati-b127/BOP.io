@@ -1,0 +1,18 @@
+NAVIGATE 
+	T0.PLMID, T1.PLMID, T2.PLMID,
+	T0.PLM_ExternalID, T1.PLM_ExternalID, T2.PLM_ExternalID
+FROM 
+  DIFModeler04/DIFBackgroundViewRep T0,	DIFModeler03/DIFViewStream T1	, DIFStandard/DIFStandardRep T2
+FROM_ROOTS  [?1?]
+
+ON 
+(
+  ( RELATION (FROM=DIFModeler04/DIFBackgroundViewRep TO=DIFStandard/DIFStandardRep THROUGH=POINTSTO)
+    WITH QUALITY_FILTER (ROLE=DIFStandardProvider) 
+  )
+  OR
+  ( RELATION (FROM=DIFModeler03/DIFViewStream TO=DIFStandard/DIFStandardRep THROUGH=POINTSTO)
+    WITH QUALITY_FILTER (ROLE=DIFStandardProvider)
+  )
+)
+;

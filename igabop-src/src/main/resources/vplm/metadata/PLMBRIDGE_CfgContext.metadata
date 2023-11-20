@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2005, All rights reserved -->
+
+<!-- History
+    V6R2010 Added Procedures & Functions for Export
+    V6R2011 Defined Configuration_GetStructConfig for export thru Channel
+-->
+
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" Name="PLMBRIDGE_CfgContext"
+    Uuid="B93F2EDD-9B63-0000-0280030D7B000000"
+    UseNames="PLMCORE"
+    BelongsToModeler="Configuration"
+    CustomerExposition="Programmer"
+   >
+
+    <CAAComment>
+        <ShortRole>The Configuration Bridge Metadata (1/3).</ShortRole>
+        <Role>This package includes the entity PLMCfgContext.</Role>
+    </CAAComment>
+
+    <!-- ******************* -->
+    <!-- CLASS PLMCfgContext -->
+    <!-- ******************* -->
+
+    <Class Name="PLMCfgContext"
+        Uuid="B93F30E9-9260-0000-0280030D7B000000"
+        SuperName="PLMConnection"
+        Abstract="No"
+        CustomerExposition="Programmer"
+        >
+
+        <CAAComment>
+            <ShortRole>The PLMCfgContext.class</ShortRole>
+            <Role>The PLMCfgContext.class</Role>
+        </CAAComment>
+        
+
+		<Path Name="_CfgQueries"
+			Uuid="03200baf-add5-44b7-a006-889d8989fa9e"
+			MultiValuated="Yes"
+    RoleName="PLMCfgQueries"		Type="SemanticRelation" AdaptativeToMinor="No"
+  SynchroSensitivity="None"
+  RerouteOnEffectivityChange="No"
+    Semantics="Reference"/>
+		<Path Name="_CfgVS"
+			Uuid="c85d5141-8547-47f1-b6bd-99c44cb41e0f"
+			MultiValuated="No"
+      RoleName="PLMCfgVariabilitySpace"		
+      Type="SemanticRelation" AdaptativeToMinor="No"
+        SynchroSensitivity="None"
+      RerouteOnEffectivityChange="No"
+    Semantics="Reference"/>         
+
+        <!-- *********************** -->
+        <!-- PROCEDURES Declaration  -->      
+        <!-- *********************** -->
+
+	  <Method ImplementationType="Self">
+		<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		<ProcedureForUsage>
+			<Usage href="ExportScope.meth#Design"/>
+			<UsedProcedure href="ENOCfg_Procedures.proc#Configuration_GetStructConfigAndFullVS"/>
+		</ProcedureForUsage>
+		<ProcedureForUsage>
+			<Usage href="ExportScope.meth#Channel"/>
+			<UsedProcedure href="ENOCfg_Procedures.proc#Configuration_GetStructConfig"/> 
+		</ProcedureForUsage>
+	  </Method>
+        
+    </Class>
+
+    <!-- ********************** -->
+    <!-- FUNCTIONS Declarations -->
+    <!-- ********************** -->
+
+    <Function Name="PLMBRIDGE_CfgContext_AddReferenceContext">
+		<Implementation Name="PLMBRIDGE_CfgContext_AddReferenceContext" FileLocation="PLMBRIDGE_CfgContext_AddReferenceContext.plmql" Language="PLMQL"/>
+		<Signature href="PLMBRIDGE_CfgContext_FuntionSignatureExport"/>
+    </Function>
+    <Function Name="PLMBRIDGE_CfgContext_AddContextQueries">
+		<Implementation Name="PLMBRIDGE_CfgContext_AddContextQueries" FileLocation="PLMBRIDGE_CfgContext_AddContextQueries.plmql" Language="PLMQL"/>
+		<Signature href="PLMBRIDGE_CfgContext_FuntionSignatureExport"/>
+    </Function>
+    <Function Name="PLMBRIDGE_CfgContext_AddContextVariabilitySpace">
+		<Implementation Name="PLMBRIDGE_CfgContext_AddContextVariabilitySpace" FileLocation="PLMBRIDGE_CfgContext_AddContextVariabilitySpace.plmql" Language="PLMQL"/>
+		<Signature href="PLMBRIDGE_CfgContext_FuntionSignatureExport"/>
+    </Function>
+	
+    <Signature id="PLMBRIDGE_CfgContext_FuntionSignatureExport">
+		<Parameter Name="InputIds" Lower="0" Upper="-1" Direction="in" MultiValuated="Yes" DataType="PLMId"/>
+		<Parameter Name="OutputIds" Lower="0" Upper="-1" Direction="out" MultiValuated="No" DataType="PLMRouteSet"/>
+    </Signature>
+    <!-- CSI Je ramene les disciplines -->
+<Class Name="BridgeDiscipline"
+       Discipline="Yes"
+       SuperName="PLMCfgContext"
+       CustomerExposition="Programmer"      
+	Uuid="4de3747f-5fed-4990-a678-4c8709e81b12">
+		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+	</Class>
+</Package>
+

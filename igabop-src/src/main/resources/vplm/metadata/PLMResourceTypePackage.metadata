@@ -1,0 +1,184 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2013, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" CustomerExposition="Programmer" ModelerType="Top" Name="PLMResourceTypePackage" Uuid="ad6cb1f5-8b3e-4074-adba-6025feef4d88" UseNames="PLMCORE PRODUCTCFG" >
+	<CAAComment>
+		<ShortRole>Fake modelers</ShortRole>
+		<Role>This package includes the fake DELMIA Modeler</Role>
+	</CAAComment>
+	<Comment>last update 2013-03-17</Comment>
+	<!-- ******************************* -->
+	<!-- * PLMOperation (PLMCoreReference) * -->
+	<!-- ******************************* -->
+  <Extension Name="PLMResource"  CustomerExposition="ProgrammerOnly" Uuid="468fae56-1fdb-4444-941c-5886a202b7af" Abstract="Yes" ScopeNames="VPMReference"  Searchable="No" >
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Extension>
+  <Extension Name="PLMResourceInstance"  CustomerExposition="ProgrammerOnly" Uuid="a97274c9-a0ae-4f59-be8e-8f040851ce0e" Abstract="Yes" ScopeNames="VPMInstance"  Searchable="No" >
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Extension>
+  <Extension Name="OrganizationalRef" Discipline="Yes" CustomerExposition="ProgrammerOnly" Uuid="fcb5d51d-64ae-4562-b613-36f1f34d133b" Abstract="Yes" SuperName="PLMResource"  Searchable="No" >
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Extension>
+  <Extension Name="RobotRef"  Discipline="Yes"  CustomerExposition="ProgrammerOnly" Uuid="82ab43fe-e45e-4319-86b1-f075fbe68ea9" Abstract="Yes" SuperName="PLMResource"  Searchable="No" >
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Extension>
+  <Extension Name="WorkerRef"  Discipline="Yes"  CustomerExposition="ProgrammerOnly" Uuid="887b3235-0497-4656-b398-32fb60365f28" Abstract="Yes" SuperName="PLMResource"  Searchable="No" >
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Extension>
+  <Extension Name="NCMachineRef"  Discipline="Yes"  CustomerExposition="ProgrammerOnly" Uuid="57b8bcb6-99a6-4c75-b454-b5caa668f04e" Abstract="Yes" SuperName="PLMResource"  Searchable="No" >
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Extension>
+  <Extension Name="InspectRef"  Discipline="Yes"  CustomerExposition="ProgrammerOnly" Uuid="78e85b88-93a7-4bfc-ad04-04efbdd4094b" Abstract="Yes" SuperName="PLMResource"  Searchable="No" >
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Extension>
+  <Extension Name="ToolDeviceRef"  Discipline="Yes"  CustomerExposition="ProgrammerOnly" Uuid="45f476cd-823b-40dd-9f77-ce04259ca23d" Abstract="Yes" SuperName="PLMResource"  Searchable="No" >
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Extension>
+  <Extension Name="StorageRef"  Discipline="Yes"  CustomerExposition="ProgrammerOnly" Uuid="4e3181d4-fe14-4f3c-bf98-5b0c966584eb" Abstract="Yes" SuperName="PLMResource"  Searchable="No" >
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Extension>
+  <Extension Name="TransportRef"  Discipline="Yes"  CustomerExposition="ProgrammerOnly" Uuid="bf7f2471-3a20-4c94-a055-946e1288be68" Abstract="Yes" SuperName="PLMResource"  Searchable="No" >
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Extension>
+  <Extension Name="ConveyorRef"  Discipline="Yes"  CustomerExposition="ProgrammerOnly" Uuid="9b9760c7-2dea-4722-9956-09c6cdc091bb" Abstract="Yes" SuperName="PLMResource"  Searchable="No" >
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Extension>
+  <Extension Name="ControlDeviceRef"  Discipline="Yes"  CustomerExposition="ProgrammerOnly" Uuid="225eb07c-6453-4664-b86c-a67915f9175d" Abstract="Yes" SuperName="PLMResource"  Searchable="No" >
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Extension>
+  <Extension Name="UserDefinedRef"  Discipline="Yes"  CustomerExposition="ProgrammerOnly" Uuid="510439d5-83c2-4f02-b05d-de3ca8ebab52" Abstract="Yes" SuperName="PLMResource"  Searchable="No" >
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Extension>
+  <Extension Name="SensorRef"  Discipline="Yes"  CustomerExposition="ProgrammerOnly" Uuid="72a91726-e322-408f-822f-dea8e9be28d9" Abstract="Yes" SuperName="PLMResource"  Searchable="No" >
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Extension>
+  <Extension Name="LogicControllerRef"  Discipline="Yes"  CustomerExposition="ProgrammerOnly" Uuid="9612db7c-9424-4159-8925-47a6353fc09b" Abstract="Yes" SuperName="PLMResource"  Searchable="No" >
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Extension>
+  <Extension Name="IndustrialMachineRef"  Discipline="Yes"  CustomerExposition="ProgrammerOnly" Uuid="6cf00f14-4e00-4cd8-8cec-cf55eb5cd795" Abstract="Yes" SuperName="PLMResource"  Searchable="No" >
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Extension>
+  <Extension Name="AreaRef"  Discipline="Yes"  CustomerExposition="ProgrammerOnly" Uuid="bcdcb282-d7d1-4386-ab2d-3631a8efbcee" Abstract="Yes" SuperName="PLMResource"  Searchable="No" >
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Extension>
+  <Extension Name="ManufacturingSetupRef"  Discipline="Yes"  CustomerExposition="ProgrammerOnly" Uuid="7b808d7b-51b7-48e7-82ec-3c64471aee55" Abstract="Yes" SuperName="PLMResource"  Searchable="No" >
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Extension>
+  <Extension Name="OrganizationalInstance"  Discipline="Yes"  CustomerExposition="ProgrammerOnly" Uuid="03cde53f-d240-4144-9e6b-79d18de5fbe2" Abstract="Yes" SuperName="PLMResourceInstance"  Searchable="No" >
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Extension>
+  <Extension Name="RobotInstance"  Discipline="Yes"  CustomerExposition="ProgrammerOnly" Uuid="e91f173d-855d-4660-8082-c96141dfb0d6" Abstract="Yes" SuperName="PLMResourceInstance"  Searchable="No" >
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Extension>
+  <Extension Name="WorkerInstance"  Discipline="Yes"  CustomerExposition="ProgrammerOnly" Uuid="f680684b-3d6a-4eb1-bc8b-c82b75759917" Abstract="Yes" SuperName="PLMResourceInstance"  Searchable="No" >
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Extension>
+  <Extension Name="NCMachineInstance"  Discipline="Yes"  CustomerExposition="ProgrammerOnly" Uuid="842db2aa-09bd-434b-b097-f3ec460eef10" Abstract="Yes" SuperName="PLMResourceInstance"  Searchable="No" >
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Extension>
+  <Extension Name="InspectInstance"  Discipline="Yes"  CustomerExposition="ProgrammerOnly" Uuid="4f76585b-e002-43a9-b45a-454c62f79c69" Abstract="Yes" SuperName="PLMResourceInstance"  Searchable="No" >
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Extension>
+  <Extension Name="ToolDeviceInstance"  Discipline="Yes"  CustomerExposition="ProgrammerOnly" Uuid="bd17244e-c497-4b05-a062-6e50534c16ab" Abstract="Yes" SuperName="PLMResourceInstance"  Searchable="No" >
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Extension>
+  <Extension Name="StorageInstance"  Discipline="Yes"  CustomerExposition="ProgrammerOnly" Uuid="dcfb953f-3743-49ed-8492-cc0dd139c0c5" Abstract="Yes" SuperName="PLMResourceInstance"  Searchable="No" >
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Extension>
+  <Extension Name="TransportInstance"  Discipline="Yes"  CustomerExposition="ProgrammerOnly" Uuid="fad0f85c-a670-42c5-a81c-c0daab051c54" Abstract="Yes" SuperName="PLMResourceInstance"  Searchable="No" >
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Extension>
+  <Extension Name="ConveyorInstance"  Discipline="Yes"  CustomerExposition="ProgrammerOnly" Uuid="fe115f27-b9ba-471a-b362-90f177f09610" Abstract="Yes" SuperName="PLMResourceInstance"  Searchable="No" >
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Extension>
+  <Extension Name="ControlDeviceInstance"  Discipline="Yes"  CustomerExposition="ProgrammerOnly" Uuid="3b8379bf-8e98-4865-97d4-931100010742" Abstract="Yes" SuperName="PLMResourceInstance"  Searchable="No" >
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Extension>
+  <Extension Name="UserDefinedInstance" Discipline="Yes"   CustomerExposition="ProgrammerOnly" Uuid="172c248a-7bc6-4e67-98c1-f79de4dff406" Abstract="Yes" SuperName="PLMResourceInstance"  Searchable="No" >
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Extension>
+  <Extension Name="SensorInstance"  Discipline="Yes"  CustomerExposition="ProgrammerOnly" Uuid="579a23fc-9ca6-44a4-9f5f-83e06387ac37" Abstract="Yes" SuperName="PLMResourceInstance"  Searchable="No" >
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Extension>
+  <Extension Name="LogicControllerInstance"  Discipline="Yes"  CustomerExposition="ProgrammerOnly" Uuid="83d77b7a-55f8-475a-b67c-03179ca6b98e" Abstract="Yes" SuperName="PLMResourceInstance"  Searchable="No" >
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Extension>
+  <Extension Name="IndustrialMachineInstance"  Discipline="Yes"  CustomerExposition="ProgrammerOnly" Uuid="448e12a7-9a49-4043-ac20-bc8c19f0f456" Abstract="Yes" SuperName="PLMResourceInstance"  Searchable="No" >
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Extension>
+  <Extension Name="AreaInstance"  Discipline="Yes"  CustomerExposition="ProgrammerOnly" Uuid="65bf0134-3136-4a9d-a6a7-60128c8f831e" Abstract="Yes" SuperName="PLMResourceInstance"  Searchable="No" >
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Extension>
+  <Extension Name="ManufacturingSetupInstance"  Discipline="Yes"  CustomerExposition="ProgrammerOnly" Uuid="0772e8d7-61e0-4c2c-947d-4f007755b559" Abstract="Yes" SuperName="PLMResourceInstance"  Searchable="No" >
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Extension>
+</Package>

@@ -1,0 +1,33 @@
+#Prog MatAppliedExportReview_V6 (iPLMIDSet :  #In PLMIDSet,oPLMIDSet :  #Out PLMIDSet) : VoidType
+  {
+/*Write your procedure here*/
+
+let PLMRouteSet_MatCnx(PLMRouteSet)
+let PLMRouteSet_MatRef(PLMRouteSet)
+let PLMRouteSet_RendDom(PLMRouteSet)
+let PLMRouteSet_Text(PLMRouteSet)
+
+let PLMIDSet_MatCnx(PLMIDSet) 
+let PLMIDSet_MatRef(PLMIDSet)
+let PLMIDSet_RendDom(PLMIDSet)
+let PLMIDSet_Text(PLMIDSet)
+
+/* get matcnx from product */
+PLMRouteSet_MatCnx = ExecutePLMFunction("CATMaterial","mat_retrieveMatCnxUnderProduct",iPLMIDSet )
+PLMIDSet_MatCnx = Ids(PLMRouteSet_MatCnx)
+
+/* get matref from matcnx */
+PLMRouteSet_MatRef = ExecutePLMFunction("CATMaterial","mat_retrieveMatRefFromCnx", Restrict(PLMIDSet_MatCnx,"CATMaterial/CATMatConnection"))
+PLMIDSet_MatRef = Ids(PLMRouteSet_MatRef)
+
+/* get rend domain from matref */
+PLMRouteSet_RendDom = ExecutePLMFunction("CATMaterialRef","mat_retrieveRenderingDomain", Restrict(PLMIDSet_MatRef,"CATMaterialRef/CATMatReference" ))
+PLMIDSet_RendDom = Ids(PLMRouteSet_RendDom)
+
+/* get textures from rend domain */
+PLMRouteSet_Text = ExecutePLMFunction("CATMaterialRef","rdg_retrieveTexture",Restrict(PLMIDSet_RendDom,"CATMaterialRef/MaterialDomain"))
+PLMIDSet_Text = Ids(PLMRouteSet_Text)
+
+oPLMIDSet = iPLMIDSet + PLMIDSet_MatCnx + PLMIDSet_MatRef + PLMIDSet_RendDom + PLMIDSet_Text
+}
+

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2010, All rights reserved -->
+
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" Name="DELFmiFunctionalModelPrecCnx1DS" Uuid="053c4f92-f2d4-45e2-9565-545a9a81289a" UseNames="DELFmiFunctionalModelPrecedenceCnx1" >
+	
+<Property Name="OptionalInstallation" Value="Yes" /> 
+	<CAAComment>
+		<ShortRole>Package to customize Process Precedence connection</ShortRole>
+		<Role>Package to customize package Process Precedence connection "DELFmiFunctionalModelPrecedenceCnx1"</Role>
+	</CAAComment>
+	
+	<Class Name="DELFmiProcessPrecCnxCustDS"  Uuid="a4b89cfd-8dd0-445e-89d2-04e478ac8c24"
+		SuperName="DELFmiProcessPrecedenceCnxCust" >
+
+		<CAAComment>
+			<ShortRole>PLM Customization for Process Precedence connection</ShortRole>
+			<Role>PLM Customization for Process Precedence connection "DELFmiProcessPrecedenceCnxCust"</Role>
+		</CAAComment>
+
+	</Class>
+	
+</Package>

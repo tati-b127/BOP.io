@@ -1,0 +1,8 @@
+#Prog BioBiologicsSafetyStudyExport (iPLMIDSet :  #In PLMIDSet,oPLMIDSet :  #Out PLMIDSet) : VoidType
+{
+  let InputPLMIDSetRestricted(PLMIDSet)
+
+  InputPLMIDSetRestricted = Restrict(iPLMIDSet,"Class/BioBiologicsSafetyStudy")
+  
+  oPLMIDSet = InputPLMIDSetRestricted
+}

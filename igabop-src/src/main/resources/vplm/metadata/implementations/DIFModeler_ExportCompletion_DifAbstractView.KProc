@@ -1,0 +1,11 @@
+#Prog DIFModeler_ExportCompletion_DifAbstractView (iPLMIDSet :  #In PLMIDSet, oPLMIDSet :  #Out PLMIDSet) : VoidType
+{
+  let PLMDifViewStreamSet(PLMRouteSet)
+  let PLMDifViewStreamIDSet(PLMIDSet)
+
+  /* Retrieve DIFViewStream from View */
+  PLMDifViewStreamSet = ExecutePLMFunction("DIFModeler01", "DifModeler_AddViewsStreamReference", Restrict(iPLMIDSet, "DIFModelerAbstractView/DIFAbstractView"))
+  PLMDifViewStreamIDSet = Ids(PLMDifViewStreamSet)
+
+  oPLMIDSet = iPLMIDSet  + PLMDifViewStreamIDSet
+}

@@ -1,0 +1,67 @@
+#Prog VPMEditor_GetRepresentationsForReview (iPLMIDSet :  #In PLMIDSet,oPLMIDSet :  #Out PLMIDSet) : VoidType
+  {
+
+let PLMRouteSet1(PLMRouteSet)
+let PLMRouteSet4(PLMRouteSet)
+let PLMRouteSet6(PLMRouteSet)
+let PLMRouteSet7(PLMRouteSet)
+let PLMRouteSet8(PLMRouteSet)
+let PLMRouteSet9(PLMRouteSet)
+let PLMRouteSet10(PLMRouteSet)
+let PLMRouteSet11(PLMRouteSet)
+let PLMRouteSetPrivateReps(PLMRouteSet)
+let PLMRouteSetHumanRep(PLMRouteSet)
+
+
+let PLMIDSet2(PLMIDSet )
+let PLMIDSet4(PLMIDSet )
+
+let PLMIDSetRestricted(PLMIDSet)
+PLMIDSetRestricted = Restrict(iPLMIDSet, "PRODUCTCFG/VPMReference")
+
+/*Completes with  LPPrivateRep*/
+PLMRouteSetPrivateReps = ExecutePLMFunction("PRODUCTCFG", "ProductCfg_AddPGPRep", PLMIDSetRestricted)
+
+/*Completes with 3DShape Representations*/
+PLMRouteSet1 = ExecutePLMFunction("PRODUCTCFG", "ProductCfg_Add3DShapeOnly", PLMIDSetRestricted )
+
+/*Completes with  3DPart Representations (in case of 3DPart Representation discipline is different from "Design"*/
+PLMRouteSet9 = ExecutePLMFunction("PRODUCTCFG", "ProductCfg_Add3DPartRepresentation", PLMIDSetRestricted)
+
+/* Completes with Material*/
+PLMIDSet2 = ExecutePLMProcedure("MatAppliedExportReview",PLMIDSetRestricted )
+
+
+/* Completes with Rendering Rep */
+PLMRouteSet7 = ExecutePLMFunction("Rendering", "Rendering_AddRenderingRepresentations", PLMIDSetRestricted )
+
+
+/* Completes with Fastener Rep */
+PLMRouteSet4 = ExecutePLMFunction("PLMFst_Fasteners", "PLMFst_Fasteners_AddFstRepsOnly", PLMIDSetRestricted )
+
+
+/* Completes with Review Rep */
+PLMRouteSet6 = ExecutePLMFunction("DMUReviewDisciplines", "DMUReviewDisciplines_AddReview", Restrict( iPLMIDSet, "PRODUCTCFG/VPMReference"))
+
+
+/* Completes with Animation Rep */
+PLMRouteSet10 = ExecutePLMFunction("PLMDELMIADisciplines", "DELPPRDisciplines_AddAnimationRep", PLMIDSetRestricted )
+
+
+/*Completes with PVS Connections */
+PLMRouteSet8 = ExecutePLMFunction("PLMWspSpecFilter", "PLMWspSpecFilter_AddAllAggregatedSpecPVS", PLMIDSetRestricted)
+
+
+/* Completes with Electrical Rep */
+PLMRouteSet11 = ExecutePLMFunction("PLMElectricalDictionary", "Electrical_AddBranchGeometryShape", PLMIDSetRestricted )
+
+
+/* Completes with Human Rep */
+PLMRouteSetHumanRep = ExecutePLMFunction("DELHumanModel", "Human_AddHumanRepresentation", PLMIDSetRestricted )
+
+
+oPLMIDSet = iPLMIDSet + Ids(PLMRouteSet1)+ PLMIDSet2  + Ids(PLMRouteSet6) 
+			+ Ids(PLMRouteSet7) + Ids(PLMRouteSet4)+ Ids(PLMRouteSet8) + Ids(PLMRouteSet9)+Ids(PLMRouteSet10)
+			+ Ids(PLMRouteSet11) + Ids(PLMRouteSetPrivateReps) + Ids(PLMRouteSetHumanRep)
+
+}

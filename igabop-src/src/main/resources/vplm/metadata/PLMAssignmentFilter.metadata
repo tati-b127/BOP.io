@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2006, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified"
+         ModelerType="Top"
+         BelongsToModeler="DELFmiFunctionalModel"
+         Name="PLMAssignmentFilter"
+         Uuid="82EBF1D5-E7E1-4AF3-8037-2E33575CB1CC"
+         UseNames="PLMCORE"
+         CustomerExposition="None"
+         >
+
+  <CAAComment>
+    <ShortRole>MBOM Assignment Filter</ShortRole>
+    <Role>"PLMAssignmentFilter" package describes Filter Connection to Assignable Product Occurrences.</Role>
+  </CAAComment>
+
+  <Class Name="PLMAssignmentFilterCnx"
+         Uuid="F350E7C2-A793-499F-9EDF-97E45C3B5AFB"
+         SuperName="PLMConnection"
+         CustomerExposition="None"
+         CustomerExtensible="No"
+         Specializable="No"
+         Abstract="No"
+         >
+
+    <Property Name="Searchable" Value="No"/>
+    <Property Name="Newable" Value="No"/>
+    <Property Name="OwnerTypes" Value="DELFmiFunctionReference"/>
+
+    <CAAComment>
+      <ShortRole>Defines Assignment Filter Connection</ShortRole>
+      <Role>Connects Manufacturing Process Reference to Product Occurrences in context of scope.</Role>
+    </CAAComment>
+
+    <!-- ********************************************************* -->
+    <!-- * SubRelationship declaration -->
+    <!-- ********************************************************* -->
+
+    <Path Name="PLM_AssignmentFilterTarget"
+          Uuid="2A293379-82FB-4318-96F2-8394E849B0BB"
+          TargetName="V_SRs"
+          MultiValuated="Yes"
+          Type="SemanticRelation"
+          RoleName="PLM_AssignmentFilter_Target"
+          AdaptativeToMinor="No"
+          SynchroSensitivity="PathAndLast"
+          RerouteOnEffectivityChange="No"
+          Orientation="In"
+          Semantics="Reference3"/>
+
+    <Path Name="PLM_AssignmentFilterSource"
+          Uuid="9A717E17-3D58-4FB0-B89A-447964E4F92E"
+          TargetName="V_SRs"
+          MultiValuated="No"
+          Type="SemanticRelation"
+          RoleName="PLM_AssignmentFilter_Source"
+          AdaptativeToMinor="No"
+          SynchroSensitivity="Last"
+          RerouteOnEffectivityChange="No"
+          Orientation="Out"
+          Semantics="Reference7"/>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+  </Class>
+</Package>

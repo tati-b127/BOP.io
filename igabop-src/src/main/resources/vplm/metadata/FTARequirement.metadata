@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2012, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" 
+	       Name="FTARequirement"
+	       UseNames="RFLPLMImplementConnection"
+	       Uuid="8f1f354a-060c-4ab8-b539-599207460e24"         
+	       CustomerExposition="Programmer" 
+	       ModelerType="Top"
+         BelongsToModeler="FTARequirement">
+
+ 
+
+  
+  <!-- =================================================================== -->
+  <!-- Implement link Root->ReqSpec      :             -->
+  <!-- =================================================================== -->
+  <Class Name="FTARootRequirementCnx"
+         Uuid="366ce094-f07f-4db8-9a22-a8584ce70057"
+         Abstract="No"
+         Discipline="Yes"
+         SuperName="RFLPLMImplementConnection"
+         CustomerExposition="Programmer"
+         Specializable="No"
+         CustomerExtensible="No"
+         >
+    
+     <Simple Name="V_FTACnxType"
+           Uuid="f41dbb6f-60a1-4b9d-b769-b362daa9a670"
+           Type="Integer"
+           MultiValuated="No"
+           DefaultValue="0"
+           Protection="External" CAAExposition="L0"/>
+      
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+
+  
+
+
+
+</Package>

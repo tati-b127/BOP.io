@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2005, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" Name="PLMWspSpecUnderWspRef" BelongsToModeler="PLMWspContext" Uuid="15c443ff-59a6-4a09-9b03cc489a9540c7" UseNames="PLMWspContext" CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+  <CAAComment>
+		<ShortRole>Capture Specification Package</ShortRole>
+		<Role>This package includes specification object of Capture Model</Role>
+	</CAAComment>
+	<Comment>last update 2007-03-28-12.00.00</Comment>
+	<!-- *********************************************** -->
+  <!-- *    PLMWspSpecUnderWspRef (PLMWspConnection) * -->
+  <!-- *********************************************** -->
+	<Class Name="PLMWspSpecUnderWspRef" Uuid="e83e6ebc-f68d-477f-9e2b83b65a839d8a" SuperName="PLMWspSpecConnection" Abstract="No" CustomerExposition="Programmer">
+		<CAAComment>
+			<ShortRole>Capture Specification object</ShortRole>
+			<Role>This object captures a query or filter specification</Role>
+		</CAAComment>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope" />
+    </Method>
+	</Class>
+</Package>

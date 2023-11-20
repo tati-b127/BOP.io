@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2018, All rights reserved -->
+<Package Name="NonLinearVersioning"
+         Uuid="93d1facf-c1b6-49d5-9b7e-baced185bf65"
+         UseNames="ERCoreModeler"
+         ModelerType="Top"
+         xmlns="PLMDictionaryUnified"
+         CustomerExposition="Programmer"
+         Architecture ="All" >
+
+    <Class Name="GenericPLMItem"
+           Uuid="bc554377-af92-4b90-9eb3-737f39b151db"
+           SuperName="BusinessType"
+           Abstract="No"
+           CustomerExposition="ProgrammerOnly"
+           ObjectNature="Independent"
+           Specializable="No"
+           CustomerExtensible="No"
+           Searchable="No"
+           Newable="No" >
+       <Simple Name="familyId"
+               Uuid="6574f021-8a7f-41d2-a39b-1443f56f5471"
+               Type="Clob"
+               Protection="Internal"
+               PLMImpacting="No" />
+       <Method ImplementationType="None">
+            <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+        </Method>
+    </Class>
+
+   <RelationClass Name="isVersionOf"
+                  Uuid="74d3a10d-31f0-452f-8a58-d34c08099461"
+                  SuperName="RelationType"
+                  Abstract="No"
+                  CustomerExposition="ProgrammerOnly"
+                  Specializable="No"
+                  CustomerExtensible="No" >
+      <Simple Name="fromId"
+               Uuid="0902D60F-D617-4238-9ABB-F8B0B3476FEF"
+               Type="Clob"
+               Protection="Internal"
+               PLMImpacting="No" />
+      <SubClause Name="from" TargetName="BusinessType"   cardinality="Many" minorrevision="replicate" clone="none"/>
+      <SubClause Name="to"   TargetName="GenericPLMItem" cardinality="One"  minorrevision="none" clone="none"/>
+
+      <Method ImplementationType="None">
+         <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      </Method>
+   </RelationClass>
+
+   <RelationClass Name="hasSemanticVersion"
+                   Uuid="c58580b6-278c-4963-b32c-db38fd0126ca"
+                   SuperName="RelationType"
+                   Abstract="No"
+                   CustomerExposition="ProgrammerOnly"
+                   Specializable="No"
+                   CustomerExtensible="No" >
+        <SubClause Name="from" TargetName="GenericPLMItem" cardinality="Many" minorrevision="none" clone="none"/>
+        <SubClause Name="to"   TargetName="GenericPLMItem" cardinality="Many" minorrevision="none" clone="none"/>
+
+        <Simple Name = "fromFamilyId"
+                Uuid="76364c08-afd3-4063-9735-9650c6055905"
+                Type="Clob"
+                Protection="Internal"
+                PLMImpacting="No" />
+
+        <Simple Name = "toFamilyId"
+                Uuid="6824323d-708e-4748-af80-1af5b501b581"
+                Type="Clob"
+                Protection="Internal"
+                PLMImpacting="No" />
+
+        <Simple Name = "intentVersionType"
+                Uuid="c6c77dce-7a52-4ea4-b66f-fe014d1f2983"
+                Type="Integer"
+                Protection="Internal"
+                PLMImpacting="No"
+                DefaultValue ="1" >
+            <Range>
+                <Equal>1</Equal>
+                <Equal>2</Equal>
+                <Equal>3</Equal>
+                <Equal>4</Equal>
+                <Equal>5</Equal>
+                <Equal>6</Equal>
+            </Range>
+        </Simple>
+
+        <Method ImplementationType="None">
+            <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+        </Method>
+    </RelationClass>
+
+
+    <!-- FUNCTIONS Declarations : here are declared PLMQL Functions -->
+    <Function Name="NLV_GetItemAndGraph">
+      <Implementation Name="NLV_GetItemAndGraph" FileLocation="NLV_GetItemAndGraph.plmql" Language="PLMQL"/>
+      <Signature href="NLV_ExportSignature"/>
+    </Function>
+    <Signature id="NLV_ExportSignature">
+      <Parameter Name="InputIds" Direction="in" MultiValuated="Yes" DataType="PLMId"/>
+      <Parameter Name="OutputIds" Direction="out" MultiValuated="No" DataType="PLMRouteSet"/>
+    </Signature>
+</Package>

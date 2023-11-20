@@ -1,0 +1,501 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2012, All rights reserved -->
+
+<Package CustomerExposition = "Programmer" ModelerType = "Top" Name = "AECElementComponentIfc" UseNames = "AECElementComponent" Uuid = "cff9b2bb-a5cc-4706-aa91-354dd7e3b941" xmlns = "PLMDictionaryUnified">
+  <Extension CustomerExposition = "Programmer" Name = "IfcDiscreteAccessory" ScopeNames = "AecDiscreteAccessory" Uuid = "2a508774-de97-49d1-bb27-861fa9045253">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcDiscreteAccessory_ObjectType" Protection = "Free" Type = "String" Uuid = "2a508774-de97-49d1-bb27-1ad52eb2ea5e"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcDiscreteAccessory_Tag" Protection = "Free" Type = "String" Uuid = "2a508774-de97-49d1-bb27-ed12431a92f4"/>
+    <Simple CAAExposition = "L0" DefaultValue = "5" Name = "IfcDiscreteAccessory_PredefinedType" Protection = "Free" Type = "Integer" Uuid = "6e061f99-8538-4cf2-9954-d7316e198e46">
+      <Property Name = "RangeAsEnumName" Value = "IfcDiscreteAccessoryTypeEnum"/>
+      <Property Name = "RangeAsEnumAuthorizedValues" Value = "ANCHORPLATE;BRACKET;SHOE;USERDEFINED;NOTDEFINED"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+        <Equal>5</Equal>
+      </Range>
+    </Simple>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcDiscreteAccessoryType" ScopeNames = "AecDiscreteAccessoryType" Uuid = "5b5212fb-4258-46ab-94ec-cea3e25144e9">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcDiscreteAccessoryType_Tag" Protection = "Free" Type = "String" Uuid = "5b5212fb-4258-46ab-94ec-cc2a36316812"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcDiscreteAccessoryType_ElementType" Protection = "Free" Type = "String" Uuid = "5b5212fb-4258-46ab-94ec-4fccfb51960c"/>
+    <Simple CAAExposition = "L0" DefaultValue = "5" Name = "IfcDiscreteAccessoryType_PredefinedType" Protection = "Free" Type = "Integer" Uuid = "00c41ad0-9f50-424e-bbec-ac0014ba4dc8">
+      <Property Name = "RangeAsEnumName" Value = "IfcDiscreteAccessoryTypeEnum"/>
+      <Property Name = "RangeAsEnumAuthorizedValues" Value = "ANCHORPLATE;BRACKET;SHOE;USERDEFINED;NOTDEFINED"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+        <Equal>5</Equal>
+      </Range>
+    </Simple>
+  </Extension>
+  <Comment>IfcElementComponent is not generated since abstract</Comment>
+  <Comment>IfcElementComponentType is not generated since abstract</Comment>
+  <Extension CustomerExposition = "Programmer" Name = "IfcMechanicalFastener" ScopeNames = "AecMechanicalFastener" Uuid = "24F90FDF-6DDC-4552-A5AF-970D295172E2">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcMechanicalFastener_ObjectType" Protection = "Free" Type = "String" Uuid = "24F90FDF-6DDC-4552-A5AF-1ad52eb2ea5e"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcMechanicalFastener_Tag" Protection = "Free" Type = "String" Uuid = "24F90FDF-6DDC-4552-A5AF-ed12431a92f4"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcMechanicalFastener_NominalDiameter" Protection = "Free" Type = "Double" Uuid = "ADACD8F6-5633-4E98-B676-197E8326EBEB"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcMechanicalFastener_NominalLength" Protection = "Free" Type = "Double" Uuid = "6D2B2990-6C0C-4135-ACD3-EFBE1F6C0E18"/>
+    <Simple CAAExposition = "L0" DefaultValue = "NOTDEFINED" MaxLength = "255" Name = "IfcMechanicalFastener_PredefinedType" Protection = "Free" Type = "String" Uuid = "7D564ACC-C7DD-43CA-A543-E319BC7371C8">
+      <Range>
+        <Equal>ANCHORBOLT</Equal>
+        <Equal>BOLT</Equal>
+        <Equal>DOWEL</Equal>
+        <Equal>NAIL</Equal>
+        <Equal>NAILPLATE</Equal>
+        <Equal>RIVET</Equal>
+        <Equal>SCREW</Equal>
+        <Equal>SHEARCONNECTOR</Equal>
+        <Equal>STAPLE</Equal>
+        <Equal>STUDSHEARCONNECTOR</Equal>
+        <Equal>USERDEFINED</Equal>
+        <Equal>NOTDEFINED</Equal>
+      </Range>
+    </Simple>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcMechanicalFastenerType" ScopeNames = "AecMechanicalFastenerType" Uuid = "DEF696BB-5565-41BD-A2F1-F7148A53D055">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcMechanicalFastenerType_Tag" Protection = "Free" Type = "String" Uuid = "DEF696BB-5565-41BD-A2F1-cc2a36316812"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcMechanicalFastenerType_ElementType" Protection = "Free" Type = "String" Uuid = "DEF696BB-5565-41BD-A2F1-4fccfb51960c"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcMechanicalFastenerType_NominalDiameter" Protection = "Free" Type = "Double" Uuid = "EDA14B78-2257-4742-99E4-364C011FC2B3"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcMechanicalFastenerType_NominalLength" Protection = "Free" Type = "Double" Uuid = "5F94C5A3-2AE5-4E6A-B1C5-BC5D35EAA813"/>
+    <Simple CAAExposition = "L0" DefaultValue = "NOTDEFINED" MaxLength = "255" Name = "IfcMechanicalFastenerType_PredefinedType" Protection = "Free" Type = "String" Uuid = "C5ED4804-ABC1-4B63-BB2B-314D13379ABD">
+      <Range>
+        <Equal>ANCHORBOLT</Equal>
+        <Equal>BOLT</Equal>
+        <Equal>DOWEL</Equal>
+        <Equal>NAIL</Equal>
+        <Equal>NAILPLATE</Equal>
+        <Equal>RIVET</Equal>
+        <Equal>SCREW</Equal>
+        <Equal>SHEARCONNECTOR</Equal>
+        <Equal>STAPLE</Equal>
+        <Equal>STUDSHEARCONNECTOR</Equal>
+        <Equal>USERDEFINED</Equal>
+        <Equal>NOTDEFINED</Equal>
+      </Range>
+    </Simple>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcReinforcingBar" ScopeNames = "AecReinforcingBar" Uuid = "399d7c95-623a-4142-a9da-b01bcafb1479">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcReinforcingBar_ObjectType" Protection = "Free" Type = "String" Uuid = "399d7c95-623a-4142-a9da-1ad52eb2ea5e"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcReinforcingBar_Tag" Protection = "Free" Type = "String" Uuid = "399d7c95-623a-4142-a9da-ed12431a92f4"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcReinforcingBar_SteelGrade" Protection = "Free" Type = "String" Uuid = "399d7c95-623a-4142-a9da-2ddde1b128af"/>
+    <Simple CAAExposition = "L0" DefaultValue = "0.0" Magnitude = "AREA" Name = "IfcReinforcingBar_CrossSectionArea" Protection = "Free" Type = "Double" Uuid = "015368d5-c75e-46fd-965d-5ac2abdc40bc"/>
+    <Simple CAAExposition = "L0" DefaultValue = "10" Name = "IfcReinforcingBar_PredefinedType" Protection = "Free" Type = "Integer" Uuid = "a71a39e5-0abf-4e5d-8802-b5eaad23f916">
+      <Property Name = "RangeAsEnumName" Value = "IfcReinforcingBarTypeEnum"/>
+      <Property Name = "RangeAsEnumAuthorizedValues" Value = "ANCHORING;EDGE;LIGATURE;MAIN;PUNCHING;RING;SHEAR;STUD;USERDEFINED;NOTDEFINED"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+        <Equal>5</Equal>
+        <Equal>6</Equal>
+        <Equal>7</Equal>
+        <Equal>8</Equal>
+        <Equal>9</Equal>
+        <Equal>10</Equal>
+      </Range>
+    </Simple>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcReinforcingBar_NominalDiameter" Protection = "Free" Type = "Double" Uuid = "e30bbba2-0d22-4269-bb69-a8e6904c99d3"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcReinforcingBar_BarLength" Protection = "Free" Type = "Double" Uuid = "0edf62a7-587e-45c7-89b1-2c00d782c340"/>
+    <Simple CAAExposition = "L0" DefaultValue = "1" Name = "IfcReinforcingBar_BarSurface" Protection = "Free" Type = "Integer" Uuid = "7bfc01b0-e2ff-4ac7-8c43-0e8b4ae251e9">
+      <Property Name = "RangeAsEnumName" Value = "IfcReinforcingBarSurfaceEnum"/>
+      <Property Name = "RangeAsEnumAuthorizedValues" Value = "PLAIN;TEXTURED"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+      </Range>
+    </Simple>
+    <Simple CAAExposition = "L0" Faceted = "Yes" MaxLength = "255" Name = "IfcReinforcingBar_BendingShapeCode" Protection = "Free" Type = "String" Uuid = "EEFC8600-9C86-41AD-8A27-D2BCB0EC5E58">
+      <Property Name = "Quadrant" Value = "What"/>
+      <Property Name = "SIXW" Value = "ds6w:kind"/>
+    </Simple>
+    <Simple CAAExposition = "L0" CollectionType = "List" MultiValuated = "Yes" Name = "IfcReinforcingBar_BendingParameters" Protection = "Free" Type = "Double" Uuid = "3A2905C7-39D9-4800-8FCE-F2DFD9DB9803"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcReinforcingBarType" ScopeNames = "AecReinforcingBarType" Uuid = "22ca4ea1-16e6-482c-b445-f4d045967224">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcReinforcingBarType_Tag" Protection = "Free" Type = "String" Uuid = "22ca4ea1-16e6-482c-b445-cc2a36316812"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcReinforcingBarType_ElementType" Protection = "Free" Type = "String" Uuid = "22ca4ea1-16e6-482c-b445-4fccfb51960c"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcReinforcingBarType_SteelGrade" Protection = "Free" Type = "String" Uuid = "22ca4ea1-16e6-482c-b445-1B03C3563D01"/>
+    <Simple CAAExposition = "L0" DefaultValue = "10" Name = "IfcReinforcingBarType_PredefinedType" Protection = "Free" Type = "Integer" Uuid = "211e6fc9-266b-4bda-9f2a-58b9fee1073c">
+      <Property Name = "RangeAsEnumName" Value = "IfcReinforcingBarTypeEnum"/>
+      <Property Name = "RangeAsEnumAuthorizedValues" Value = "ANCHORING;EDGE;LIGATURE;MAIN;PUNCHING;RING;SHEAR;STUD;USERDEFINED;NOTDEFINED"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+        <Equal>5</Equal>
+        <Equal>6</Equal>
+        <Equal>7</Equal>
+        <Equal>8</Equal>
+        <Equal>9</Equal>
+        <Equal>10</Equal>
+      </Range>
+    </Simple>
+    <Simple CAAExposition = "L0" DefaultValue = "0.0" Magnitude = "LENGTH" Name = "IfcReinforcingBarType_NominalDiameter" Protection = "Free" Type = "Double" Uuid = "c8b37f6e-6de8-4d56-b09e-d8b46e86ba2f"/>
+    <Simple CAAExposition = "L0" DefaultValue = "0.0" Magnitude = "AREA" Name = "IfcReinforcingBarType_CrossSectionArea" Protection = "Free" Type = "Double" Uuid = "26e3eea3-ca60-4002-8498-007bebfd3e94"/>
+    <Simple CAAExposition = "L0" DefaultValue = "0.0" Magnitude = "LENGTH" Name = "IfcReinforcingBarType_BarLength" Protection = "Free" Type = "Double" Uuid = "6f6bd2de-93d1-4606-9eb3-dc08020fb5cb"/>
+    <Simple CAAExposition = "L0" DefaultValue = "1" Name = "IfcReinforcingBarType_BarSurface" Protection = "Free" Type = "Integer" Uuid = "f69691fa-92d1-428d-93c1-c81622630c82">
+      <Property Name = "RangeAsEnumName" Value = "IfcReinforcingBarSurfaceEnum"/>
+      <Property Name = "RangeAsEnumAuthorizedValues" Value = "PLAIN;TEXTURED"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+      </Range>
+    </Simple>
+    <Simple CAAExposition = "L0" Faceted = "Yes" MaxLength = "255" Name = "IfcReinforcingBarType_BendingShapeCode" Protection = "Free" Type = "String" Uuid = "4fff5392-1291-4f5f-96c4-f72a5afa098a">
+      <Property Name = "Quadrant" Value = "What"/>
+      <Property Name = "SIXW" Value = "ds6w:kind"/>
+    </Simple>
+    <Simple CAAExposition = "L0" CollectionType = "List" MultiValuated = "Yes" Name = "IfcReinforcingBarType_BendingParameters" Protection = "Free" Type = "Double" Uuid = "55860b01-d88a-40e5-9ce2-d3667e664456"/>
+  </Extension>
+  <Comment>IfcReinforcingElement is not generated since abstract</Comment>
+  <Comment>IfcReinforcingElementType is not generated since abstract</Comment>
+  <Extension CustomerExposition = "Programmer" Name = "IfcReinforcingMesh" ScopeNames = "AecReinforcingMesh" Uuid = "74b523ca-2eb4-4177-8e22-56011dbb8dcb">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcReinforcingMesh_ObjectType" Protection = "Free" Type = "String" Uuid = "74b523ca-2eb4-4177-8e22-1ad52eb2ea5e"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcReinforcingMesh_Tag" Protection = "Free" Type = "String" Uuid = "74b523ca-2eb4-4177-8e22-ed12431a92f4"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcReinforcingMesh_SteelGrade" Protection = "Free" Type = "String" Uuid = "74b523ca-2eb4-4177-8e22-2ddde1b128af"/>
+    <Simple CAAExposition = "L0" DefaultValue = "2" Name = "IfcReinforcingMesh_PredefinedType" Protection = "Free" Type = "Integer" Uuid = "9095fc4e-f1cd-43c4-801b-490316f8f85e">
+      <Property Name = "RangeAsEnumName" Value = "IfcReinforcingMeshTypeEnum"/>
+      <Property Name = "RangeAsEnumAuthorizedValues" Value = "USERDEFINED;NOTDEFINED"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+      </Range>
+    </Simple>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcReinforcingMesh_MeshLength" Protection = "Free" Type = "Double" Uuid = "50bb796d-26c6-473f-bb34-6b6c006da0a8"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcReinforcingMesh_MeshWidth" Protection = "Free" Type = "Double" Uuid = "4678dbfb-c75f-45fc-8de6-83e5da7d7080"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcReinforcingMesh_LongitudinalBarNominalDiameter" Protection = "Free" Type = "Double" Uuid = "8c54eee4-a15c-48dc-92ee-d1b0dfa7276b"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcReinforcingMesh_TransverseBarNominalDiameter" Protection = "Free" Type = "Double" Uuid = "0c65f228-0d8a-4291-a0b1-369e8e8455bc"/>
+    <Simple CAAExposition = "L0" Magnitude = "AREA" Name = "IfcReinforcingMesh_LongitudinalBarCrossSectionArea" Protection = "Free" Type = "Double" Uuid = "2f6fe202-ed7a-4bc3-b351-1bc4fe9e1764"/>
+    <Simple CAAExposition = "L0" Magnitude = "AREA" Name = "IfcReinforcingMesh_TransverseBarCrossSectionArea" Protection = "Free" Type = "Double" Uuid = "9ecd829d-2623-406f-ab2b-40e7742d1a12"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcReinforcingMesh_LongitudinalBarSpacing" Protection = "Free" Type = "Double" Uuid = "2e7590d7-539f-4dec-939b-4ad0c252bc9b"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcReinforcingMesh_TransverseBarSpacing" Protection = "Free" Type = "Double" Uuid = "0be60c6a-e8c0-42ef-bdf6-dff755f07663"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcReinforcingMeshType" ScopeNames = "AecReinforcingMeshType" Uuid = "543a3213-9e09-4cd1-b766-f8f5ccbe5e81">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcReinforcingMeshType_Tag" Protection = "Free" Type = "String" Uuid = "543a3213-9e09-4cd1-b766-cc2a36316812"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcReinforcingMeshType_ElementType" Protection = "Free" Type = "String" Uuid = "543a3213-9e09-4cd1-b766-4fccfb51960c"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcReinforcingMeshType_SteelGrade" Protection = "Free" Type = "String" Uuid = "543a3213-9e09-4cd1-b766-1B03C3563D01"/>
+    <Simple CAAExposition = "L0" DefaultValue = "2" Name = "IfcReinforcingMeshType_PredefinedType" Protection = "Free" Type = "Integer" Uuid = "7aeefc49-b6bc-4fe1-b39f-1b1ad639dbcd">
+      <Property Name = "RangeAsEnumName" Value = "IfcReinforcingMeshTypeEnum"/>
+      <Property Name = "RangeAsEnumAuthorizedValues" Value = "USERDEFINED;NOTDEFINED"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+      </Range>
+    </Simple>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcReinforcingMeshType_MeshLength" Protection = "Free" Type = "Double" Uuid = "263fb79b-1609-462c-87fe-cfa60813aa85"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcReinforcingMeshType_MeshWidth" Protection = "Free" Type = "Double" Uuid = "d8367d9e-62c4-4932-966f-284a10e908a5"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcReinforcingMeshType_LongitudinalBarNominalDiameter" Protection = "Free" Type = "Double" Uuid = "39f826ee-5ccf-48f2-b5ee-3bd884f76703"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcReinforcingMeshType_TransverseBarNominalDiameter" Protection = "Free" Type = "Double" Uuid = "5f46f398-b426-4b47-91ca-f2c2db4aaa47"/>
+    <Simple CAAExposition = "L0" Magnitude = "AREA" Name = "IfcReinforcingMeshType_LongitudinalBarCrossSectionArea" Protection = "Free" Type = "Double" Uuid = "95450c34-c8a2-4ad0-9445-936618065e0e"/>
+    <Simple CAAExposition = "L0" Magnitude = "AREA" Name = "IfcReinforcingMeshType_TransverseBarCrossSectionArea" Protection = "Free" Type = "Double" Uuid = "936b86b7-465e-4f82-88e5-8f030c252341"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcReinforcingMeshType_LongitudinalBarSpacing" Protection = "Free" Type = "Double" Uuid = "b432706c-27a3-4381-9833-45c54c1836ac"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcReinforcingMeshType_TransverseBarSpacing" Protection = "Free" Type = "Double" Uuid = "d1d996a6-b5c4-4891-9fae-c7884d6888b8"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcReinforcingMeshType_BendingShapeCode" Protection = "Free" Type = "String" Uuid = "2ca0d4c4-ec03-4305-82da-f7fc6cdead91"/>
+    <Simple CAAExposition = "L0" CollectionType = "List" MultiValuated = "Yes" Name = "IfcReinforcingMeshType_BendingParameters" Protection = "Free" Type = "Double" Uuid = "5aacf3a3-81fb-4417-972f-22332c926def"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcTendon" ScopeNames = "AecTendon" Uuid = "efe3494e-7ece-4bd4-ae7e-a289ec67dbe8">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcTendon_ObjectType" Protection = "Free" Type = "String" Uuid = "efe3494e-7ece-4bd4-ae7e-1ad52eb2ea5e"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcTendon_Tag" Protection = "Free" Type = "String" Uuid = "efe3494e-7ece-4bd4-ae7e-ed12431a92f4"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcTendon_SteelGrade" Protection = "Free" Type = "String" Uuid = "efe3494e-7ece-4bd4-ae7e-2ddde1b128af"/>
+    <Simple CAAExposition = "L0" DefaultValue = "6" Name = "IfcTendon_PredefinedType" Protection = "Free" Type = "Integer" Uuid = "0a146da8-89c8-4af3-80ba-dade645fc460">
+      <Property Name = "RangeAsEnumName" Value = "IfcTendonTypeEnum"/>
+      <Property Name = "RangeAsEnumAuthorizedValues" Value = "BAR;COATED;STRAND;WIRE;USERDEFINED;NOTDEFINED"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+        <Equal>5</Equal>
+        <Equal>6</Equal>
+      </Range>
+    </Simple>
+    <Simple CAAExposition = "L0" Magnitude = "FORCE" Name = "IfcTendon_TensionForce" Protection = "Free" Type = "Double" Uuid = "2fc93583-9b7b-44a9-ba8c-a75058d3472a"/>
+    <Simple CAAExposition = "L0" Magnitude = "PRESSURE" Name = "IfcTendon_PreStress" Protection = "Free" Type = "Double" Uuid = "91ee00ef-3a6b-4fe3-bcb3-61b99bccb584"/>
+    <Simple CAAExposition = "L0" Magnitude = "Ratio" Name = "IfcTendon_FrictionCoefficient" Protection = "Free" Type = "Double" Uuid = "113fca94-7cab-4f34-be6b-56259d18d238"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcTendon_AnchorageSlip" Protection = "Free" Type = "Double" Uuid = "dcdbb918-1199-40ab-bd88-3a72be869d88"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcTendon_MinCurvatureRadius" Protection = "Free" Type = "Double" Uuid = "152a5d80-2261-4c45-aa42-87e60aef35ef"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcTendon_NominalDiameter" Protection = "Free" Type = "Double" Uuid = "c961abef-0166-4ad0-866a-bb57e948f27d"/>
+    <Simple CAAExposition = "L0" Magnitude = "AREA" Name = "IfcTendon_CrossSectionArea" Protection = "Free" Type = "Double" Uuid = "22f34983-22cf-492b-ad80-839b7509d71b"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcTendonAnchor" ScopeNames = "AecTendonAnchor" Uuid = "9ad79f85-fcea-4dbf-92a8-c913a36f4f04">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcTendonAnchor_ObjectType" Protection = "Free" Type = "String" Uuid = "9ad79f85-fcea-4dbf-92a8-1ad52eb2ea5e"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcTendonAnchor_Tag" Protection = "Free" Type = "String" Uuid = "9ad79f85-fcea-4dbf-92a8-ed12431a92f4"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcTendonAnchor_SteelGrade" Protection = "Free" Type = "String" Uuid = "9ad79f85-fcea-4dbf-92a8-2ddde1b128af"/>
+    <Simple CAAExposition = "L0" DefaultValue = "5" Name = "IfcTendonAnchor_PredefinedType" Protection = "Free" Type = "Integer" Uuid = "cb25d1e0-a52e-48d7-b81d-c9e565e9827e">
+      <Property Name = "RangeAsEnumName" Value = "IfcTendonAnchorTypeEnum"/>
+      <Property Name = "RangeAsEnumAuthorizedValues" Value = "COUPLER;FIXED_END;TENSIONING_END;USERDEFINED;NOTDEFINED"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+        <Equal>5</Equal>
+      </Range>
+    </Simple>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcTendonAnchorType" ScopeNames = "AecTendonAnchorType" Uuid = "531eb9a4-8b88-4415-8628-1d3369d349f3">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcTendonAnchorType_Tag" Protection = "Free" Type = "String" Uuid = "531eb9a4-8b88-4415-8628-cc2a36316812"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcTendonAnchorType_ElementType" Protection = "Free" Type = "String" Uuid = "531eb9a4-8b88-4415-8628-4fccfb51960c"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcTendonAnchorType_SteelGrade" Protection = "Free" Type = "String" Uuid = "531eb9a4-8b88-4415-8628-1B03C3563D01"/>
+    <Simple CAAExposition = "L0" DefaultValue = "5" Name = "IfcTendonAnchorType_PredefinedType" Protection = "Free" Type = "Integer" Uuid = "13ec02e4-73d9-4720-b35e-ac28fd1ebf10">
+      <Property Name = "RangeAsEnumName" Value = "IfcTendonAnchorTypeEnum"/>
+      <Property Name = "RangeAsEnumAuthorizedValues" Value = "COUPLER;FIXED_END;TENSIONING_END;USERDEFINED;NOTDEFINED"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+        <Equal>5</Equal>
+      </Range>
+    </Simple>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcTendonType" ScopeNames = "AecTendonType" Uuid = "aa16fb31-5a67-402f-8fa9-4f55b7d7edad">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcTendonType_Tag" Protection = "Free" Type = "String" Uuid = "aa16fb31-5a67-402f-8fa9-cc2a36316812"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcTendonType_ElementType" Protection = "Free" Type = "String" Uuid = "aa16fb31-5a67-402f-8fa9-4fccfb51960c"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcTendonType_SteelGrade" Protection = "Free" Type = "String" Uuid = "aa16fb31-5a67-402f-8fa9-1B03C3563D01"/>
+    <Simple CAAExposition = "L0" DefaultValue = "6" Name = "IfcTendonType_PredefinedType" Protection = "Free" Type = "Integer" Uuid = "a89f4cf3-3ca1-4c8c-bc9e-2d24b9b6634a">
+      <Property Name = "RangeAsEnumName" Value = "IfcTendonTypeEnum"/>
+      <Property Name = "RangeAsEnumAuthorizedValues" Value = "BAR;COATED;STRAND;WIRE;USERDEFINED;NOTDEFINED"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+        <Equal>5</Equal>
+        <Equal>6</Equal>
+      </Range>
+    </Simple>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcTendonType_NominalDiameter" Protection = "Free" Type = "Double" Uuid = "45feef65-d6e3-49b3-b861-3eeb276b89f8"/>
+    <Simple CAAExposition = "L0" Magnitude = "AREA" Name = "IfcTendonType_CrossSectionArea" Protection = "Free" Type = "Double" Uuid = "636974f0-03c3-4912-8407-7a7c8e9874ca"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcTendonType_SheethDiameter" Protection = "Free" Type = "Double" Uuid = "afd40afc-bc0b-49b5-a86b-4a62c80107c7"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcPset_DiscreteAccessoryColumnShoe" ScopeNames = "AecDiscreteAccessory AecDiscreteAccessoryType" Uuid = "941c07d0-5c78-4266-9713-27436233abcd">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_DiscreteAccessoryColumnShoe_ColumnShoeBasePlateThickness" Protection = "Free" Type = "Double" Uuid = "0422abc4-af4d-4c2c-a288-13071b013a4a"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_DiscreteAccessoryColumnShoe_ColumnShoeBasePlateWidth" Protection = "Free" Type = "Double" Uuid = "0a1a1d7b-1ee5-4d4c-ac28-3b87847ddf34"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_DiscreteAccessoryColumnShoe_ColumnShoeBasePlateDepth" Protection = "Free" Type = "Double" Uuid = "4bba0d92-738f-4137-80c3-dd17053d064d"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_DiscreteAccessoryColumnShoe_ColumnShoeCasingHeight" Protection = "Free" Type = "Double" Uuid = "91129c99-f964-4418-897c-eca20d8d41de"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_DiscreteAccessoryColumnShoe_ColumnShoeCasingWidth" Protection = "Free" Type = "Double" Uuid = "2c7c1f36-a751-4fa5-abe1-84c33d6bb7ba"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_DiscreteAccessoryColumnShoe_ColumnShoeCasingDepth" Protection = "Free" Type = "Double" Uuid = "3c2188df-6fba-416c-b5a9-fb4e09340b81"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcPset_DiscreteAccessoryCornerFixingPlate" ScopeNames = "AecDiscreteAccessory AecDiscreteAccessoryType" Uuid = "2bcddadb-765d-4511-8e8e-b9e2ee113fd0">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_DiscreteAccessoryCornerFixingPlate_CornerFixingPlateLength" Protection = "Free" Type = "Double" Uuid = "78a958f4-cb5e-4999-9550-46c040cd817f"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_DiscreteAccessoryCornerFixingPlate_CornerFixingPlateThickness" Protection = "Free" Type = "Double" Uuid = "a00525cf-8841-4216-9f63-6f24cb95f288"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_DiscreteAccessoryCornerFixingPlate_CornerFixingPlateFlangeWidthInPlaneZ" Protection = "Free" Type = "Double" Uuid = "bad80295-f85b-4191-9450-82c2323e9bb1"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_DiscreteAccessoryCornerFixingPlate_CornerFixingPlateFlangeWidthInPlaneX" Protection = "Free" Type = "Double" Uuid = "284a7faa-3c17-44c7-b07c-fd67bfefdc86"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcPset_DiscreteAccessoryDiagonalTrussConnector" ScopeNames = "AecDiscreteAccessory AecDiscreteAccessoryType" Uuid = "406f9327-48f5-4433-b570-17ed93659b34">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_DiscreteAccessoryDiagonalTrussConnector_DiagonalTrussHeight" Protection = "Free" Type = "Double" Uuid = "6783a828-9365-4bae-8442-aa9fb646ddac"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_DiscreteAccessoryDiagonalTrussConnector_DiagonalTrussLength" Protection = "Free" Type = "Double" Uuid = "30cc1dcd-072e-4158-804c-d92fb9f8b65a"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_DiscreteAccessoryDiagonalTrussConnector_DiagonalTrussCrossBarSpacing" Protection = "Free" Type = "Double" Uuid = "2b9a21d8-059b-44ef-afb1-a15b12105664"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_DiscreteAccessoryDiagonalTrussConnector_DiagonalTrussBaseBarDiameter" Protection = "Free" Type = "Double" Uuid = "6480ffaf-8e10-4e8a-9607-39b940ab38e0"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_DiscreteAccessoryDiagonalTrussConnector_DiagonalTrussSecondaryBarDiameter" Protection = "Free" Type = "Double" Uuid = "445fe5a2-84f7-4d1b-ab48-036f0872a102"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_DiscreteAccessoryDiagonalTrussConnector_DiagonalTrussCrossBarDiameter" Protection = "Free" Type = "Double" Uuid = "d787cc9a-9abd-4307-853d-617c8bf3ff3b"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcPset_DiscreteAccessoryEdgeFixingPlate" ScopeNames = "AecDiscreteAccessory AecDiscreteAccessoryType" Uuid = "3a1b68e3-ea04-4f18-bccc-8ec6686c22f2">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_DiscreteAccessoryEdgeFixingPlate_EdgeFixingPlateLength" Protection = "Free" Type = "Double" Uuid = "6f276bea-fc16-4fa3-a045-94c4f7c3058f"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_DiscreteAccessoryEdgeFixingPlate_EdgeFixingPlateThickness" Protection = "Free" Type = "Double" Uuid = "58634779-9f2f-473d-9647-97d694cb4dcd"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_DiscreteAccessoryEdgeFixingPlate_EdgeFixingPlateFlangeWidthInPlaneZ" Protection = "Free" Type = "Double" Uuid = "fd52fa6b-2f12-4d24-921a-7a3b957ee488"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_DiscreteAccessoryEdgeFixingPlate_EdgeFixingPlateFlangeWidthInPlaneX" Protection = "Free" Type = "Double" Uuid = "ddc771d1-2d01-4511-ad6b-a50fd7e351ae"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcPset_DiscreteAccessoryFixingSocket" ScopeNames = "AecDiscreteAccessory AecDiscreteAccessoryType" Uuid = "b45cc755-f19d-45a9-a53a-7ebe531629c2">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_DiscreteAccessoryFixingSocket_FixingSocketTypeReference" Protection = "Free" Type = "String" Uuid = "d44cc466-82ff-4179-a3f1-ddbc43490910"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_DiscreteAccessoryFixingSocket_FixingSocketHeight" Protection = "Free" Type = "Double" Uuid = "71f5fdeb-eab0-443c-956f-2143fc40acd1"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_DiscreteAccessoryFixingSocket_FixingSocketThreadDiameter" Protection = "Free" Type = "Double" Uuid = "12f4e885-a18f-4d9b-b741-acd26b9d8390"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_DiscreteAccessoryFixingSocket_FixingSocketThreadLength" Protection = "Free" Type = "Double" Uuid = "c7743009-c657-4dbd-8d16-5d65c092cfe3"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcPset_DiscreteAccessoryLadderTrussConnector" ScopeNames = "AecDiscreteAccessory AecDiscreteAccessoryType" Uuid = "aa5d0a72-77e9-45b1-83ff-83800f1df000">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_DiscreteAccessoryLadderTrussConnector_LadderTrussHeight" Protection = "Free" Type = "Double" Uuid = "4ff2ad26-975b-4ccc-a184-7bb582f8f3ad"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_DiscreteAccessoryLadderTrussConnector_LadderTrussLength" Protection = "Free" Type = "Double" Uuid = "8dc2dd57-a577-4c98-8a60-1ca3152d1f95"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_DiscreteAccessoryLadderTrussConnector_LadderTrussCrossBarSpacing" Protection = "Free" Type = "Double" Uuid = "1832c6f2-4cc7-4e0c-a97b-6be84f7f7e6b"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_DiscreteAccessoryLadderTrussConnector_LadderTrussBaseBarDiameter" Protection = "Free" Type = "Double" Uuid = "fece6bd3-69c2-478d-9723-abe6a9cc422b"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_DiscreteAccessoryLadderTrussConnector_LadderTrussSecondaryBarDiameter" Protection = "Free" Type = "Double" Uuid = "1c8647e2-5710-48ff-b215-4a171af7fdcc"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_DiscreteAccessoryLadderTrussConnector_LadderTrussCrossBarDiameter" Protection = "Free" Type = "Double" Uuid = "9598d927-d78d-4f81-bcc6-64d2421571cc"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcPset_DiscreteAccessoryStandardFixingPlate" ScopeNames = "AecDiscreteAccessory AecDiscreteAccessoryType" Uuid = "c61798b9-27de-4d57-b6f6-58e86f67750d">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_DiscreteAccessoryStandardFixingPlate_StandardFixingPlateWidth" Protection = "Free" Type = "Double" Uuid = "ae1e4adb-eb48-4e0c-be56-4508aa4fb5e1"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_DiscreteAccessoryStandardFixingPlate_StandardFixingPlateDepth" Protection = "Free" Type = "Double" Uuid = "5001f945-b5d6-4357-aaaf-d6507c72025a"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_DiscreteAccessoryStandardFixingPlate_StandardFixingPlateThickness" Protection = "Free" Type = "Double" Uuid = "e5b8c80e-2b1d-4a60-a952-2b3ca3613592"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcPset_DiscreteAccessoryWireLoop" ScopeNames = "AecDiscreteAccessory AecDiscreteAccessoryType" Uuid = "4778d16d-4997-474b-b536-164d76aef850">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_DiscreteAccessoryWireLoop_WireLoopBasePlateThickness" Protection = "Free" Type = "Double" Uuid = "20f5a810-e711-499f-accd-cfe939db2524"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_DiscreteAccessoryWireLoop_WireLoopBasePlateWidth" Protection = "Free" Type = "Double" Uuid = "6c15b3f5-dcfc-47bd-b028-d4639fdc5398"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_DiscreteAccessoryWireLoop_WireLoopBasePlateLength" Protection = "Free" Type = "Double" Uuid = "706eb34f-1ebc-4c46-a249-051619dce02b"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_DiscreteAccessoryWireLoop_WireDiameter" Protection = "Free" Type = "Double" Uuid = "073bbd40-9a95-4135-98d3-59aeb18df695"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_DiscreteAccessoryWireLoop_WireEmbeddingLength" Protection = "Free" Type = "Double" Uuid = "e891cf1e-77f6-4158-92f9-096bbcd0adca"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_DiscreteAccessoryWireLoop_WireLoopLength" Protection = "Free" Type = "Double" Uuid = "6b5d1245-45ce-41bf-92be-ad9672a21407"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcPset_DS_MechanicalFastenerAnchorCommon" ScopeNames = "AecMechanicalFastenerAnchor AecMechanicalFastenerAnchorType" Uuid = "29D3D384-7304-4263-96CA-B2EE9844D1A5">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_DS_MechanicalFastenerAnchorCommon_InternalDiameter" Protection = "Free" Type = "Double" Uuid = "0F657913-4373-4659-A1D5-65AF037E5881"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_DS_MechanicalFastenerAnchorCommon_InternalSmallDiameter" Protection = "Free" Type = "Double" Uuid = "87F87019-B108-4048-B96A-8181A92A439D"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_DS_MechanicalFastenerAnchorCommon_InternalLength" Protection = "Free" Type = "Double" Uuid = "AB17ED36-DB76-4E8F-80E1-866EE2C14212"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_DS_MechanicalFastenerAnchorCommon_InternalDistance" Protection = "Free" Type = "Double" Uuid = "1CCDC1A2-6294-41E4-83DF-958612E1D60B"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_DS_MechanicalFastenerAnchorCommon_BaseDiameter" Protection = "Free" Type = "Double" Uuid = "83596186-60A4-4179-846C-C8C19E0591A1"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_DS_MechanicalFastenerAnchorCommon_HeadLength" Protection = "Free" Type = "Double" Uuid = "28BB3E76-4A78-4BDA-8E8F-182D349F7029"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_DS_MechanicalFastenerAnchorCommon_SteelGrade" Protection = "Free" Type = "String" Uuid = "DA8D937A-87FF-4505-A6D1-555E02E4C1B1"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcPset_DS_MechanicalFastenerCouplerCommon" ScopeNames = "AecMechanicalFastenerCoupler AecMechanicalFastenerCouplerType" Uuid = "527D9FB8-7FD6-4794-97A9-25262F79DDEF">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_DS_MechanicalFastenerCouplerCommon_Threaded" Protection = "Free" Type = "Boolean" Uuid = "6E3DC8E0-D463-4CA0-8F7C-65BD19E72130"/>
+    <Simple CAAExposition = "L0" DefaultValue = "STANDARD" MaxLength = "255" Name = "IfcPset_DS_MechanicalFastenerCouplerCommon_ThreadedShape" Protection = "Free" Type = "String" Uuid = "A6FB63E2-5933-4A1A-98D7-3E0EC5A12FD0">
+      <Range>
+        <Equal>STANDARD</Equal>
+        <Equal>CONIC</Equal>
+      </Range>
+    </Simple>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_DS_MechanicalFastenerCouplerCommon_InternalDiameter" Protection = "Free" Type = "Double" Uuid = "488668AB-05BE-4A93-8272-720568D025EB"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_DS_MechanicalFastenerCouplerCommon_InternalSecondDiameter" Protection = "Free" Type = "Double" Uuid = "60CCF78F-69E7-4D7D-9721-048F0E1541C8"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_DS_MechanicalFastenerCouplerCommon_InternalSmallDiameter" Protection = "Free" Type = "Double" Uuid = "67C27832-6048-4836-AE2B-E16C8C486E8D"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_DS_MechanicalFastenerCouplerCommon_InternalSecondSmallDiameter" Protection = "Free" Type = "Double" Uuid = "01D79070-FF5C-4621-AB04-7E84FF5322D0"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_DS_MechanicalFastenerCouplerCommon_InternalLength" Protection = "Free" Type = "Double" Uuid = "56728B25-06B6-49E7-AB72-B822CB7476C9"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_DS_MechanicalFastenerCouplerCommon_InternalSecondLength" Protection = "Free" Type = "Double" Uuid = "BC182560-C0E8-4B61-B978-3B2A15EE81CD"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_DS_MechanicalFastenerCouplerCommon_InternalDistance" Protection = "Free" Type = "Double" Uuid = "6B8B0800-F557-454C-8175-3700E4B616E7"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_DS_MechanicalFastenerCouplerCommon_NumberOfBolts" Protection = "Free" Type = "Integer" Uuid = "F2226675-6FDF-4882-ACE3-DEB8900E6D0B"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_DS_MechanicalFastenerCouplerCommon_BoltsDiameter" Protection = "Free" Type = "Double" Uuid = "C7FF5C8B-A678-46DC-961D-9EC742CE4E4D"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_DS_MechanicalFastenerCouplerCommon_BoltsSpacing" Protection = "Free" Type = "Double" Uuid = "35A2A518-BF5E-4ADA-B875-8E0317D04AC9"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_DS_MechanicalFastenerCouplerCommon_BoltsHeadHeight" Protection = "Free" Type = "Double" Uuid = "E3C23529-B1FF-485E-8D3B-3B6877429D90"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_DS_MechanicalFastenerCouplerCommon_SteelGrade" Protection = "Free" Type = "String" Uuid = "D4E0A189-8343-4A0B-A2A3-172715D69678"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcPset_MechanicalFastenerCommon" ScopeNames = "AecMechanicalFastener AecMechanicalFastenerType" Uuid = "6A6FDEBF-DE08-4EA1-8EE2-08532DDD3AAE">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_MechanicalFastenerCommon_NominalDiameter" Protection = "Free" Type = "Double" Uuid = "2DC6F0B0-DA69-409C-A7C9-3D4DF6FA7BEC"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_MechanicalFastenerCommon_NominalLength" Protection = "Free" Type = "Double" Uuid = "264AFDF2-D7AA-4AE1-8908-8D268FDD447E"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcPset_ReinforcingBarCommon" ScopeNames = "AecReinforcingBar AecReinforcingBarType" Uuid = "EBAE5AA3-C889-4DCD-85D2-3844D5D70C7D">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_ReinforcingBarCommon_Reference" Protection = "Free" Type = "String" Uuid = "CE5EB11C-A8F4-4193-B09E-61E66A2D947D"/>
+    <Simple CAAExposition = "L0" DefaultValue = "UNSET" MaxLength = "255" Name = "IfcPset_ReinforcingBarCommon_Status" Protection = "Free" Type = "String" Uuid = "4589E23F-F52C-40F9-A5AB-9D14AC15D009">
+      <Range>
+        <Equal>NEW</Equal>
+        <Equal>EXISTING</Equal>
+        <Equal>DEMOLISH</Equal>
+        <Equal>TEMPORARY</Equal>
+        <Equal>OTHER</Equal>
+        <Equal>NOTKNOWN</Equal>
+        <Equal>UNSET</Equal>
+      </Range>
+    </Simple>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_ReinforcingBarCommon_NominalDiameter" Protection = "Free" Type = "Double" Uuid = "C89A7BD5-4D8D-4B7D-AFC7-BFC1652E3EFC"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_ReinforcingBarCommon_BarLength" Protection = "Free" Type = "Double" Uuid = "BE4DF8C8-AB3E-4377-8553-F9DC12D2951F"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_ReinforcingBarCommon_BarSpacing" Protection = "Free" Type = "Double" Uuid = "0948DFEB-97E3-4F96-8FA2-962F36675A71"/>
+    <Simple CAAExposition = "L0" DefaultValue = "PLAIN" MaxLength = "255" Name = "IfcPset_ReinforcingBarCommon_BarSurface" Protection = "Free" Type = "String" Uuid = "B12CA662-1B9F-46FE-B1AB-5580E25B4E2F">
+      <Range>
+        <Equal>PLAIN</Equal>
+        <Equal>TEXTURED</Equal>
+      </Range>
+    </Simple>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_ReinforcingBarCommon_BendingShapeCode" Protection = "Free" Type = "String" Uuid = "9F369396-A9AE-4BD4-A189-9C5104D6DC81"/>
+    <Simple CAAExposition = "L0" CollectionType = "List" MultiValuated = "Yes" Name = "IfcPset_ReinforcingBarCommon_BendingParameters" Protection = "Free" Type = "Double" Uuid = "EACDB279-478E-4C53-A03F-45B7A6098505"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcPset_ReinforcingMeshCommon" ScopeNames = "AecReinforcingMesh AecReinforcingMeshType" Uuid = "5CE3A161-DF2B-4B09-B4A3-4A6FA069C38B">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_ReinforcingMeshCommon_Reference" Protection = "Free" Type = "String" Uuid = "C309DD3A-0B8A-4AFF-BB5B-E957EA70DA97"/>
+    <Simple CAAExposition = "L0" DefaultValue = "UNSET" MaxLength = "255" Name = "IfcPset_ReinforcingMeshCommon_Status" Protection = "Free" Type = "String" Uuid = "C1F0C747-5449-4077-8A2E-C1EB4CEE4442">
+      <Range>
+        <Equal>NEW</Equal>
+        <Equal>EXISTING</Equal>
+        <Equal>DEMOLISH</Equal>
+        <Equal>TEMPORARY</Equal>
+        <Equal>OTHER</Equal>
+        <Equal>NOTKNOWN</Equal>
+        <Equal>UNSET</Equal>
+      </Range>
+    </Simple>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_ReinforcingMeshCommon_MeshLength" Protection = "Free" Type = "Double" Uuid = "C12F6B64-D17E-4990-A951-6781384A333D"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_ReinforcingMeshCommon_MeshWidth" Protection = "Free" Type = "Double" Uuid = "AB6F48B1-A077-468E-BDDB-A0644187E411"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_ReinforcingMeshCommon_LongitudinalBarNominalDiameter" Protection = "Free" Type = "Double" Uuid = "DB84F391-60FD-4274-B4E6-FEAA37CF4F82"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_ReinforcingMeshCommon_LongitudinalBarSpacing" Protection = "Free" Type = "Double" Uuid = "2C0ED776-3DDB-4DC7-8273-827BC68E84A0"/>
+    <Simple CAAExposition = "L0" DefaultValue = "PLAIN" MaxLength = "255" Name = "IfcPset_ReinforcingMeshCommon_LongitudinalBarSurface" Protection = "Free" Type = "String" Uuid = "CFA8535D-E10D-47B5-B958-18891DFAB06E">
+      <Range>
+        <Equal>PLAIN</Equal>
+        <Equal>TEXTURED</Equal>
+      </Range>
+    </Simple>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_ReinforcingMeshCommon_TransverseBarNominalDiameter" Protection = "Free" Type = "Double" Uuid = "1F0D1535-B1F3-4C95-98AB-44B388FA7A42"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_ReinforcingMeshCommon_TransverseBarSpacing" Protection = "Free" Type = "Double" Uuid = "F671B52A-EEC3-4802-A8BC-D6ABE30B92B6"/>
+    <Simple CAAExposition = "L0" DefaultValue = "PLAIN" MaxLength = "255" Name = "IfcPset_ReinforcingMeshCommon_TransverseBarSurface" Protection = "Free" Type = "String" Uuid = "33580BB3-0A03-4D60-AD2F-04A78B4A0D85">
+      <Range>
+        <Equal>PLAIN</Equal>
+        <Equal>TEXTURED</Equal>
+      </Range>
+    </Simple>
+    <Simple CAAExposition = "L0" CollectionType = "List" MaxLength = "255" MultiValuated = "Yes" Name = "IfcPset_ReinforcingMeshCommon_TransverseBarBendingShapeCode" Protection = "Free" Type = "String" Uuid = "481B35DF-CD12-4F1D-B9F9-A5E0A58BB5B3"/>
+    <Simple CAAExposition = "L0" CollectionType = "List" MultiValuated = "Yes" Name = "IfcPset_ReinforcingMeshCommon_TransverseBarBendingParameters" Protection = "Free" Type = "Double" Uuid = "2E6E018D-274C-4D31-BDDE-12CFD54BBD7E"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcPset_TendonAnchorCommon" ScopeNames = "AecTendonAnchor AecTendonAnchorType" Uuid = "640A2697-4750-44A5-8DE9-9E0A0FC3829E">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_TendonAnchorCommon_Reference" Protection = "Free" Type = "String" Uuid = "70051F9B-64A2-4D11-87F5-77653492C4F6"/>
+    <Simple CAAExposition = "L0" DefaultValue = "UNSET" MaxLength = "255" Name = "IfcPset_TendonAnchorCommon_Status" Protection = "Free" Type = "String" Uuid = "27FD8502-08BE-47AE-B2CD-CED1D799411D">
+      <Range>
+        <Equal>NEW</Equal>
+        <Equal>EXISTING</Equal>
+        <Equal>DEMOLISH</Equal>
+        <Equal>TEMPORARY</Equal>
+        <Equal>OTHER</Equal>
+        <Equal>NOTKNOWN</Equal>
+        <Equal>UNSET</Equal>
+      </Range>
+    </Simple>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcPset_TendonCommon" ScopeNames = "AecTendon AecTendonType" Uuid = "29E6DE1C-C2C8-4642-992F-E3A897FF1B09">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_TendonCommon_Reference" Protection = "Free" Type = "String" Uuid = "F5D73B0F-239D-4D4F-95C5-C1BFAF380475"/>
+    <Simple CAAExposition = "L0" DefaultValue = "UNSET" MaxLength = "255" Name = "IfcPset_TendonCommon_Status" Protection = "Free" Type = "String" Uuid = "2F9F075A-4E83-4B33-B4F2-ADDD85FE70F3">
+      <Range>
+        <Equal>NEW</Equal>
+        <Equal>EXISTING</Equal>
+        <Equal>DEMOLISH</Equal>
+        <Equal>TEMPORARY</Equal>
+        <Equal>OTHER</Equal>
+        <Equal>NOTKNOWN</Equal>
+        <Equal>UNSET</Equal>
+      </Range>
+    </Simple>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_TendonCommon_NominalDiameter" Protection = "Free" Type = "Double" Uuid = "D1F3C7D5-3B27-4DA3-9DD7-A568752A1B89"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_TendonCommon_SheathDiameter" Protection = "Free" Type = "Double" Uuid = "CCFEB0B2-7E40-4BAF-BB97-61EBB7B62624"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcQto_DS_MechanicalFastenerAnchorBaseQuantities" ScopeNames = "AecMechanicalFastenerAnchor AecMechanicalFastenerAnchorType" Uuid = "94ADECD5-AEBC-4D6E-87D5-83596080A91B">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcQto_DS_MechanicalFastenerAnchorBaseQuantities_MethodOfMeasurement" Protection = "Free" Type = "String" Uuid = "94ADECD5-AEBC-4D6E-87D5-14b1550b5f09"/>
+    <Simple CAAExposition = "L0" Name = "IfcQto_DS_MechanicalFastenerAnchorBaseQuantities_Count" Protection = "Free" Type = "Integer" Uuid = "762DD5C8-4311-4543-B87C-0217FDCA82DF"/>
+    <Simple CAAExposition = "L0" Magnitude = "MASS" Name = "IfcQto_DS_MechanicalFastenerAnchorBaseQuantities_Weight" Protection = "Free" Type = "Double" Uuid = "435AE68C-39EB-4BF7-A5D4-511877FD6CC8"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcQto_DS_MechanicalFastenerCouplerBaseQuantities" ScopeNames = "AecMechanicalFastenerCoupler AecMechanicalFastenerCouplerType" Uuid = "4E3E90C8-58C7-4B6E-997E-E2D76A32D0F8">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcQto_DS_MechanicalFastenerCouplerBaseQuantities_MethodOfMeasurement" Protection = "Free" Type = "String" Uuid = "4E3E90C8-58C7-4B6E-997E-14b1550b5f09"/>
+    <Simple CAAExposition = "L0" Name = "IfcQto_DS_MechanicalFastenerCouplerBaseQuantities_Count" Protection = "Free" Type = "Integer" Uuid = "8830BAA7-55F1-49D9-B4BE-C971A928B2B9"/>
+    <Simple CAAExposition = "L0" Magnitude = "MASS" Name = "IfcQto_DS_MechanicalFastenerCouplerBaseQuantities_Weight" Protection = "Free" Type = "Double" Uuid = "148FB372-5CD7-4A32-99FA-2C7E6C7374F8"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcQto_ReinforcingElementBaseQuantities" ScopeNames = "AecReinforcingElement AecReinforcingElementType" Uuid = "A314D291-1073-4FE4-A1DB-B74496CAB2FA">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcQto_ReinforcingElementBaseQuantities_MethodOfMeasurement" Protection = "Free" Type = "String" Uuid = "A314D291-1073-4FE4-A1DB-14b1550b5f09"/>
+    <Simple CAAExposition = "L0" Name = "IfcQto_ReinforcingElementBaseQuantities_Count" Protection = "Free" Type = "Integer" Uuid = "2AA9F0E7-C32C-4C24-A19F-9D04B5ACCF84"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcQto_ReinforcingElementBaseQuantities_Length" Protection = "Free" Type = "Double" Uuid = "5E5B0132-777D-4296-B867-9C52EDEFD73E"/>
+    <Simple CAAExposition = "L0" Magnitude = "MASS" Name = "IfcQto_ReinforcingElementBaseQuantities_Weight" Protection = "Free" Type = "Double" Uuid = "304E6AA6-8BDF-46CD-853B-3E646FD36C6F"/>
+  </Extension>
+</Package>

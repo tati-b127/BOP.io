@@ -1,0 +1,70 @@
+<?xml version="1.0" ?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2009, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top"  Name="PLMDerivedObj"
+    Uuid="E0127F2A-7F8F-41db-BF8F-BEFA5F014E85"
+    UseNames="PLMCORE"
+    CustomerExposition="Programmer"
+   >
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+        <ShortRole>Common package for derived object representation</ShortRole>
+        <Role>This package includes the common entities for internal derived object Representation</Role>
+    </CAAComment>
+
+
+  <Class Name="PLMDerivedObjRepresentation"
+       Uuid="B750E587-24D9-49fe-A399-CF07957BFB27"
+       CustomerExposition="Programmer"
+       Abstract="No"
+       SuperName="PLMCoreRepReference"  
+    >
+	
+	<Property Name="Searchable" Value="No"/>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+    <Simple Name="V_DerivedOf"
+            Uuid="30D9C5A3-722D-429a-A300-7A48AA6AD8C0"
+            Type="String"
+            MaxLength="32"
+            Protection="Free" CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Source object physical ID</ShortRole>
+      </CAAComment>
+    </Simple>
+	
+	<Simple Name="V_IsDeleted"
+            Uuid="18951BA4-D153-4317-A3DC-74D933F7C61D"
+            Type="Boolean"
+            Protection="Free" CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Tag to indicate if the DWH rep is deleted</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_CGRWMSOfLastOctree"
+            Uuid="485BB24E-DFF0-41D9-A8F7-F9CD6787B512"
+            Type="String"
+            Protection="Free" CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>WMS of the CGR used to compute the current (= last successful) octree for the Rep this object is derived of.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+  </Class>
+
+  <UniqueKey Name="PLMDerivedObj_Identifier"
+		Uuid="AB18A9D4-6A0B-48cb-AA0B-DACAF3427F76"
+		ClassName="PLMDerivedObjRepresentation"
+		AttributeNames="V_DerivedOf" />
+
+
+    
+</Package>
+

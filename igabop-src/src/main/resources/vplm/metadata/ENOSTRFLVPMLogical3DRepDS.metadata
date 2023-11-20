@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR RFL Logical 3D Rep DS -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2007, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" Name="ENOSTRFLVPMLogical3DRepDS"
+	Uuid="07fbf1bb-01fc-4f75-a239-b29f77ad4b6a" 
+	UseNames="RFLVPMLogical3DRep" 
+	>
+	
+	<CAAComment>
+		<ShortRole>PLM RFL Logical 3D Rep Custo Package</ShortRole>
+		<Role>PLM RFL Logical 3D Rep Custo Package</Role>
+	</CAAComment>
+	
+	<Comment>last update 2007-09-26</Comment>
+	
+  <!-- ***************************************************************** -->
+	<!-- *  ENOSTLogical3DRepReference (RFLVPMLogical3DRepReference)  * -->
+  <!-- ***************************************************************** -->
+
+  <Class Name="ENOSTLogical3DRepReference"
+		Uuid="7d68fdba-e0f4-463b-a5de-b43e93da059f" 
+		SuperName="RFLVPMLogical3DRepReference" 
+		SuperRef="e7554101-09fc-4fe5-914e-122f3e19c3b5" 
+		 
+		>
+
+    <!-- R206: contains identifier of object from which it is made from  -->
+    <!-- not exhanged between sites -->
+    <Simple Name="E_fromExternalId"
+    Uuid="51f9076d-8dab-4d09-ab70-8fd6eaacb3d6"
+    Alias="Definition"
+    Type="String"
+    MaxLength="256"
+    Mandatory="No"
+    MultiValuated="No"
+    Protection="Free"
+    CAAExposition="L0"
+          />
+
+    <!-- R206: contains Name comments  -->
+    <!-- not exhanged between sites -->
+    <Simple Name="E_versionComment"
+    Uuid="6801e2ad-8fa6-4343-b606-bb150b876d6d"
+    Alias="Version Comment"
+    Type="String"
+    MaxLength="256"
+    Mandatory="No"
+    MultiValuated="No"
+    Protection="Free"
+    CAAExposition="L0"
+    ResetOnNewVersion="Yes"
+    ResetOnCloning="Yes"
+              />
+    
+        <IdentifierSet Name="Identifier"
+            Uuid="56974639-eeb4-4fce-9411-2b9c36f3d0ba"
+            IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755"
+            IdentifierNames="PLM_ExternalID V_version" />
+ 
+	</Class>
+
+	<!-- ************************************************************* -->
+	<!-- * ENOSTLogical3DRepInstance (RFLVPMLogical3DRepInstance) * -->
+  <!-- ************************************************************* -->
+
+  <Class Name="ENOSTLogical3DRepInstance"
+		Uuid="7da68c9a-5069-4bc8-874b-6f3f109303c0" 
+		 
+		 
+		 
+		 
+		SuperName="RFLVPMLogical3DRepInstance" 
+		SuperRef="6aa6f475-5be8-4ccd-a2dd-ac6ebed61722" 
+		 
+		>
+        	
+	</Class>
+
+</Package>

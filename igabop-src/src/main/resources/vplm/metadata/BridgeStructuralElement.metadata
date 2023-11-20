@@ -1,0 +1,154 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2012, All rights reserved -->
+
+<Package CustomerExposition = "Programmer" ModelerType = "Top" Name = "BridgeStructuralElement" UseNames = "CivilEngineeringElement" Uuid = "7a47f995-9ffc-4362-8dd5-f3366025c20e" xmlns = "PLMDictionaryUnified">
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "BridgeArchSegment" SuperName = "BridgeStructuralElement" Uuid = "88f03d7e-3192-4fc5-8159-bf6974574387">
+    <Property Name = "IconName" Value = "I_BridgeArchSegment"/>
+    <Property Name = "3DIconName" Value = "I_BridgeArchSegment.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATEAECDelegateInstanciation"/>
+    <Property Name = "Newable" Value = "All_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "UserChoiceReferenceDefault"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "BridgeArchSegmentType" SuperName = "BridgeStructuralElementType" Uuid = "4734303A-D4D9-489F-B89C-115D6BC669FC">
+    <Property Name = "IconName" Value = "I_BridgeArchSegmentType"/>
+    <Property Name = "3DIconName" Value = "I_BridgeArchSegmentType.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATCbaObjectTypeDelegateInstanciation"/>
+    <Property Name = "Newable" Value = "New_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "ReferenceOnly"/>
+  </Class>
+  <Class Abstract = "Yes" CustomerExposition = "Programmer" Discipline = "Yes" Name = "BridgeCable" SuperName = "BridgeStructuralElement" Uuid = "ed8257b9-522b-4e9e-88db-ad25df761e75"/>
+  <Class Abstract = "Yes" CustomerExposition = "Programmer" Discipline = "Yes" Name = "BridgeCableType" SuperName = "BridgeStructuralElementType" Uuid = "0CD15925-87A6-4440-87E6-E429F454F7B6"/>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "BridgeCrosshead" SuperName = "BridgeStructuralElement" Uuid = "d3093106-61fb-40e6-acb3-797a74e5e256">
+    <Property Name = "IconName" Value = "I_BridgeCrosshead"/>
+    <Property Name = "3DIconName" Value = "I_BridgeCrosshead.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATEAECDelegateInstanciation"/>
+    <Property Name = "Newable" Value = "All_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "UserChoiceReferenceDefault"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "BridgeCrossheadType" SuperName = "BridgeStructuralElementType" Uuid = "FE444C94-DACB-4BAC-A38A-75BC4DF84A0B">
+    <Property Name = "IconName" Value = "I_BridgeCrossheadType"/>
+    <Property Name = "3DIconName" Value = "I_BridgeCrossheadType.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATCbaObjectTypeDelegateInstanciation"/>
+    <Property Name = "Newable" Value = "New_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "ReferenceOnly"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "BridgeDeckSegment" SuperName = "BridgeStructuralElement" Uuid = "0dc16085-a245-4338-b744-18674301985a">
+    <Property Name = "IconName" Value = "I_BridgeDeckSegment"/>
+    <Property Name = "3DIconName" Value = "I_BridgeDeckSegment.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATEAECDelegateInstanciation"/>
+    <Property Name = "Newable" Value = "All_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "UserChoiceReferenceDefault"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "BridgeDeckSegmentType" SuperName = "BridgeStructuralElementType" Uuid = "D2122849-7290-441A-A7D0-57CA38BCEBA5">
+    <Property Name = "IconName" Value = "I_BridgeDeckSegmentType"/>
+    <Property Name = "3DIconName" Value = "I_BridgeDeckSegmentType.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATCbaObjectTypeDelegateInstanciation"/>
+    <Property Name = "Newable" Value = "New_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "ReferenceOnly"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "BridgeHangerCable" SuperName = "BridgeCable" Uuid = "fd4ebd51-54f8-48ee-b5d5-019d2b507ae0">
+    <Property Name = "IconName" Value = "I_BridgeHangerCable"/>
+    <Property Name = "3DIconName" Value = "I_BridgeHangerCable.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATEAECDelegateInstanciation"/>
+    <Property Name = "Newable" Value = "All_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "UserChoiceReferenceDefault"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "BridgeHangerCableType" SuperName = "BridgeCableType" Uuid = "1C8B8136-3335-4EBA-9D92-0FD0CEE2A3AC">
+    <Property Name = "IconName" Value = "I_BridgeHangerCableType"/>
+    <Property Name = "3DIconName" Value = "I_BridgeHangerCableType.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATCbaObjectTypeDelegateInstanciation"/>
+    <Property Name = "Newable" Value = "New_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "ReferenceOnly"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "BridgeOtherStructuralElement" Specializable = "Yes" SuperName = "BridgeStructuralElement" Uuid = "98f822ae-f550-4ab4-bb79-25fcc2807fe4">
+    <Property Name = "IconName" Value = "I_BridgeOtherStructuralElement"/>
+    <Property Name = "3DIconName" Value = "I_BridgeOtherStructuralElement.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATEAECDelegateInstanciation"/>
+    <Property Name = "Newable" Value = "All_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "UserChoiceReferenceDefault"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "BridgeOtherStructuralElementType" Specializable = "Yes" SuperName = "BridgeStructuralElementType" Uuid = "59AE2CFF-7377-4DBC-A9DC-D17D52E7F73C">
+    <Property Name = "IconName" Value = "I_BridgeOtherStructuralElementType"/>
+    <Property Name = "3DIconName" Value = "I_BridgeOtherStructuralElementType.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATCbaObjectTypeDelegateInstanciation"/>
+    <Property Name = "Newable" Value = "New_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "ReferenceOnly"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "BridgePierSegment" SuperName = "BridgeStructuralElement" Uuid = "37e82e1c-c9ff-4169-8987-6eac242b2143">
+    <Property Name = "IconName" Value = "I_BridgePierSegment"/>
+    <Property Name = "3DIconName" Value = "I_BridgePierSegment.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATEAECDelegateInstanciation"/>
+    <Property Name = "Newable" Value = "All_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "UserChoiceReferenceDefault"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "BridgePierSegmentType" SuperName = "BridgeStructuralElementType" Uuid = "EFE3E654-A46C-4851-8AC1-01E163789850">
+    <Property Name = "IconName" Value = "I_BridgePierSegmentType"/>
+    <Property Name = "3DIconName" Value = "I_BridgePierSegmentType.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATCbaObjectTypeDelegateInstanciation"/>
+    <Property Name = "Newable" Value = "New_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "ReferenceOnly"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "BridgeStayCable" SuperName = "BridgeCable" Uuid = "948b0a59-14ec-4f4d-af39-3200d70ddc15">
+    <Property Name = "IconName" Value = "I_BridgeStayCable"/>
+    <Property Name = "3DIconName" Value = "I_BridgeStayCable.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATEAECDelegateInstanciation"/>
+    <Property Name = "Newable" Value = "All_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "UserChoiceReferenceDefault"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "BridgeStayCableType" SuperName = "BridgeCableType" Uuid = "82BE7E4D-EB7B-44CB-A1BF-7CFC4DC00E0A">
+    <Property Name = "IconName" Value = "I_BridgeStayCableType"/>
+    <Property Name = "3DIconName" Value = "I_BridgeStayCableType.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATCbaObjectTypeDelegateInstanciation"/>
+    <Property Name = "Newable" Value = "New_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "ReferenceOnly"/>
+  </Class>
+  <Class Abstract = "Yes" CustomerExposition = "Programmer" Discipline = "Yes" Name = "BridgeStructuralElement" SuperName = "CivilEngineeringElement" Uuid = "ef7a7a7e-34cc-468f-92e6-a5be7b88f6a0">
+    <Property Name = "GroupingType" Value = "BridgeStructuralElement"/>
+    <Property Name = "InstantiationOwnerTypes" Value = "PPRContext;BridgeSpatialStructureElement;AecElementAssembly;BridgeStructuralElement;BuildingSpace"/>
+  </Class>
+  <Class Abstract = "Yes" CustomerExposition = "Programmer" Discipline = "Yes" Name = "BridgeStructuralElementType" SuperName = "CivilEngineeringElementType" Uuid = "FD6CA545-9510-4B5D-AF8F-88366CCE0F62">
+    <Property Name = "GroupingType" Value = "BridgeStructuralElementType"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "BridgeSuspensionCable" SuperName = "BridgeCable" Uuid = "6e6b2a8e-07fe-441c-b171-5ce428667403">
+    <Property Name = "IconName" Value = "I_BridgeSuspensionCable"/>
+    <Property Name = "3DIconName" Value = "I_BridgeSuspensionCable.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATEAECDelegateInstanciation"/>
+    <Property Name = "Newable" Value = "All_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "UserChoiceReferenceDefault"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "BridgeSuspensionCableType" SuperName = "BridgeCableType" Uuid = "9B1657CC-E189-4D63-96CC-B0CAB9538505">
+    <Property Name = "IconName" Value = "I_BridgeSuspensionCableType"/>
+    <Property Name = "3DIconName" Value = "I_BridgeSuspensionCableType.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATCbaObjectTypeDelegateInstanciation"/>
+    <Property Name = "Newable" Value = "New_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "ReferenceOnly"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "BridgeTowerSegment" SuperName = "BridgeStructuralElement" Uuid = "de213955-f299-4b4f-9b49-f011ca7fd0d2">
+    <Property Name = "IconName" Value = "I_BridgeTowerSegment"/>
+    <Property Name = "3DIconName" Value = "I_BridgeTowerSegment.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATEAECDelegateInstanciation"/>
+    <Property Name = "Newable" Value = "All_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "UserChoiceReferenceDefault"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "BridgeTowerSegmentType" SuperName = "BridgeStructuralElementType" Uuid = "7F987F43-803C-4FC7-95FD-E73EADA1D503">
+    <Property Name = "IconName" Value = "I_BridgeTowerSegmentType"/>
+    <Property Name = "3DIconName" Value = "I_BridgeTowerSegmentType.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATCbaObjectTypeDelegateInstanciation"/>
+    <Property Name = "Newable" Value = "New_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "ReferenceOnly"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "BridgeWay" SuperName = "BridgeStructuralElement" Uuid = "df016097-bafd-46d3-8bbb-98e5ef4ff3ea">
+    <Property Name = "IconName" Value = "I_BridgeWay"/>
+    <Property Name = "3DIconName" Value = "I_BridgeWay.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATEAECDelegateInstanciation"/>
+    <Property Name = "Newable" Value = "All_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "UserChoiceReferenceDefault"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "BridgeWayType" SuperName = "BridgeStructuralElementType" Uuid = "97FEEB10-75A4-4B52-816E-A7EFF574C7C3">
+    <Property Name = "IconName" Value = "I_BridgeWayType"/>
+    <Property Name = "3DIconName" Value = "I_BridgeWayType.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATCbaObjectTypeDelegateInstanciation"/>
+    <Property Name = "Newable" Value = "New_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "ReferenceOnly"/>
+  </Class>
+</Package>

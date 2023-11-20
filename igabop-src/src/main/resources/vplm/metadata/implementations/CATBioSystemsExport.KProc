@@ -1,0 +1,13 @@
+#Prog CATBioSystemsExport (iPLMIDSet :  #In PLMIDSet,oPLMIDSet :  #Out PLMIDSet) : VoidType
+{
+  let SetOfLogTopModelerPLMRoutes(PLMRouteSet)
+  let SetOfLogTopModelerPLMIDs(PLMIDSet)
+  let InputPLMIDSetRestricted(PLMIDSet)
+
+  InputPLMIDSetRestricted = Restrict(iPLMIDSet,"RFLVPMLogical/RFLVPMLogicalRepReference")
+  
+  SetOfLogTopModelerPLMRoutes = ExecutePLMFunction("RFLVPMLogical","RFLVPMLogical_Get1stLevelObjects",InputPLMIDSetRestricted)
+  SetOfLogTopModelerPLMIDs = Ids(SetOfLogTopModelerPLMRoutes)
+  
+  oPLMIDSet = iPLMIDSet + SetOfLogTopModelerPLMIDs
+}

@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2009, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" Name="ENOSTProdSysExecGeneralSysDS" Uuid="937bfd38-1556-450c-b625-24185c915188" UseNames="DELLmiProductionExecGeneralSystem" >
+	<CAAComment>
+		<ShortRole>PLM Customization of DELMIA Execution General System for SMB</ShortRole>
+		<Role>PLM Customization of DELMIA Execution General System for SMB</Role>
+	</CAAComment>
+	<Comment>last update 2009-05-29</Comment>
+
+	<Class Name="ENOSTExecGeneralSysRefCusto" Uuid="879a223f-9b51-4d8e-948e-a4ea22fe81d6" SuperName="DELLmiExecGeneralSystemReference" SuperRef="8eefb2ce-6c79-455f-88e0-7032dec1c71c"  >
+
+    <Simple Name="E_fromExternalId"
+            Uuid="0156a9e2-3c68-47c1-a752-86dd0171eb30"
+            Alias="Definition"
+            Type="String"
+            MaxLength="256"
+            Mandatory="No"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"/>
+    <Simple Name="E_versionComment"
+            Uuid="8a5fbbea-3420-4ff2-b863-055058b42b0e"
+            Alias="Version Comment"
+            Type="String"
+            MaxLength="256"
+            Mandatory="No"
+            MultiValuated="No"
+            Protection="Free"
+            ResetOnNewVersion="Yes"
+            ResetOnCloning="Yes"
+            CAAExposition="L0"/>
+    <IdentifierSet Name="E_identifier"
+                   Uuid="2416d885-82ed-4f81-9179-ae0870836005"
+                   IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755"
+                   IdentifierNames="PLM_ExternalID V_version"/>
+
+    <CAAComment>
+			<ShortRole>PLM Customization of DELMIA Execution General System Reference for SMB</ShortRole>
+			<Role>PLM Customization of DELMIA Execution General System Reference for SMB</Role>
+		</CAAComment>
+	</Class>
+
+  <RelationClass Name="ENOSTExecGeneralSysInstCusto" Uuid="2c60fdb3-46cb-4778-9aeb-ec75f1e117b8" SuperName="DELLmiExecGeneralSystemInstance" SuperRef="eb8dee01-9792-46bd-854e-4aa19aec4564"  >
+    <CAAComment>
+      <ShortRole>PLM Customization of DELMIA Execution General System Instance for SMB</ShortRole>
+      <Role>PLM Customization of DELMIA Execution General System Instance for SMB</Role>
+    </CAAComment>
+    <!-- ********************************************************* -->
+    <!-- * Overload(s) of PLMCoreInstance attributes. -->
+    <!-- ********************************************************* -->
+    <SubClause Name="to"   TargetName="ENOSTExecGeneralSysRefCusto"/>
+  </RelationClass>
+
+</Package>

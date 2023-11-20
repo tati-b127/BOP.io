@@ -1,0 +1,24 @@
+#Prog MaterialUnifiedDetach (iPLMIDSet :  #In PLMIDSet,oPLMIDSet :  #Out PLMIDSet) : VoidType
+  {
+let AllDomains(PLMIDSet)
+let AllCnxUnderRef(PLMIDSet)
+
+let DomainFromMCCComposed (PLMRouteSet)
+let DomainFromMCCUsing (PLMRouteSet) 
+let CnxFromMCC (PLMRouteSet)
+
+/* -------------------------------------------------
+getting all domains from references
+----------------------------------------------------*/
+DomainFromMCCComposed = ExecutePLMFunction("MaterialUnifiedResources", "mcc_retrieveDomains", Restrict( iPLMIDSet, "Class/Internal Material" ))
+DomainFromMCCUsing = ExecutePLMFunction("MaterialUnifiedResources", "mcc_retrieveDomainsUsing", Restrict( iPLMIDSet, "Class/Internal Material" ))
+AllDomains = Ids(DomainFromMCCComposed) + Ids(DomainFromMCCUsing) 
+
+/* -------------------------------------------------
+getting cnx aggregated under references (Behavior/Default)
+----------------------------------------------------*/
+CnxFromMCC = ExecutePLMFunction("MaterialUnifiedResources", "mcc_retrieveCnx", Restrict( iPLMIDSet, "Class/Internal Material" ) )
+AllCnxUnderRef = Ids(CnxFromMCC) 
+
+oPLMIDSet = iPLMIDSet + AllDomains + AllCnxUnderRef
+}

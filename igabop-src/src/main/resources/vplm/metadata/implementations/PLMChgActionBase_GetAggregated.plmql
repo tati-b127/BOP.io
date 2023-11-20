@@ -1,0 +1,25 @@
+EXPAND
+    CNXReportedAgainst.PLMID, CNXReportedAgainst.PLM_ExternalID,
+    CNXAttachments.PLMID, CNXAttachments.PLM_ExternalID,
+    CNXInputs.PLMID, CNXInputs.PLM_ExternalID,
+    CNXFamilyInputs.PLMID, CNXFamilyInputs.PLM_ExternalID,
+    CNXChangeNE.PLMID, CNXChangeNE.PLM_ExternalID,
+    CNXConfigNE.PLMID, CNXConfigNE.PLM_ExternalID,
+    CNXConfigAppli.PLMID, CNXConfigAppli.PLM_ExternalID,
+    CNXOutputs.PLMID, CNXOutputs.PLM_ExternalID,
+    CNXPeers.PLMID, CNXPeers.PLM_ExternalID,
+    RefECA.PLMID, RefECA.PLM_ExternalID,
+    InstECA.PLMID, InstECA.PLM_ExternalID
+FROM 
+    PLMChgProductInput/PLMChgProductInput CNXReportedAgainst,
+    PLMChgAttachment/PLMChgAttachment CNXAttachments,
+    PLMChgTaskInput/PLMChgTaskInput CNXInputs,
+    PLMChgFamilyInput/PLMChgFamilyInput CNXFamilyInputs,
+    PLMChgNamedEff/PLMChgNamedEff CNXChangeNE,
+    PLMConfigNamedEffectivity/PLMCfgNamedEffectivity CNXConfigNE,
+    VPMCfgApplicability/VPMCfgApplicability CNXConfigAppli,
+    PLMChgMAO/PLMChgMAO CNXOutputs,
+    PLMChgPeer/PLMChgPeer CNXPeers,
+    PLMChgActionBase/PLMActionBase RefECA,
+    PLMChgActionBase/PLMChildAction InstECA
+FROM_ROOTS [?1?];

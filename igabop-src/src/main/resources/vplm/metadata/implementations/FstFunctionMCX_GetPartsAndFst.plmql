@@ -1,0 +1,31 @@
+NAVIGATE   
+T1.PLMID 
+FROM 
+CATMCXAssembly/CATMCXMechanicalConnection T0, PRODUCTCFG/VPMInstance T1
+
+FROM_ROOTS[?1?]
+ON 	
+(
+	(
+	RELATION
+		(
+			FROM=CATMCXAssembly/CATMCXMechanicalConnection
+			TO= PRODUCTCFG/VPMInstance
+			THROUGH=POINTSTO
+		)
+	 	WITH QUALITY_FILTER	(ROLE=Asd_LinkedZone) 
+	)
+	OR
+	(
+	RELATION
+		(
+			FROM=CATMCXAssembly/CATMCXMechanicalConnection
+			TO= PRODUCTCFG/VPMInstance
+			THROUGH=POINTSTO
+		)
+	 	WITH QUALITY_FILTER	(ROLE=Fst_Realization) 
+
+	)
+)
+; 
+

@@ -1,0 +1,128 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR DELMIA Production System Application -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified"
+         ModelerType="Top"
+         Name="DELLmiProductionGeneralOperation"
+	       Uuid="33b4b11a-84eb-4b9e-a2e9d9a738cba2dc"
+         BelongsToModeler="DELLmiProductionSystem"
+	       UseNames="DELLmiProductionOperationPPR"
+         CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>PLM DELMIA General Operation </ShortRole>
+    <Role>This package describes the PLM DELMIA General Operation model on top of DELLmiProductionOperationPPR</Role>
+  </CAAComment>
+
+  <Comment>last update 2012-01-20</Comment>
+
+  <Class Name="DELLmiGeneralOperationReference"
+		     Uuid="7005fb02-87de-4d1c-970fe1527756b6d1"
+		     Abstract="No"
+    		 SuperName="DELLmiOperationPPRReference"
+         CustomerExposition="Programmer"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         CreateInstName="DELLmiGeneralOperationInstance"
+         Abbreviation="gop"
+         InstantiationOwnerTypes="DELLmiGeneralSystemReference;DELLmiWorkPlanSystemReference;DELLmiTransformationSystemReference;DELLmiGeneralOperationReference;DELLmiInterruptOperationReference;DELLmiHeaderOperationReference;DELLmiExecHeaderOperationReference"
+         >
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELMPProdSystemAdvDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELLmiGeneralOperationInstance"/>
+    <Property Name="IconName" Value="I_PPRSeqGeneral"/>
+    <Property Name="3DIconName" Value="I_PPRSeqGeneral.cgr"/>
+    <Property Name="Newable" Value="Insert_CAA"/>
+    <Property Name="Searchable" Value="Yes"/>
+
+    <Simple Name="V_MaterialScrap"
+            Uuid="85475E7C-05D3-48bf-8C29-ADBF672D06E2"
+	          Type="Double"
+	          DefaultValue="0.0"
+	          MultiValuated="No"
+	          Protection="Free"
+	          CAAExposition="L0"/>
+    
+    <Simple Name="V_UseGanttTimeSolver"
+            Uuid="3662CD5D-EAD6-4f60-9549-48CA83E6F071"
+            Type="Boolean"
+            DefaultValue="true"
+            MultiValuated="No"
+            ResetOnCloning="No"
+            ResetOnNewVersion="No"
+            Protection="Free"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>If true the Time solver wil be used for Gantt display of operation with children. If no it will be the TimeMode that will be used.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_ManageVariant"
+            Uuid="63532E8C-4AFC-4b30-8A39-F968EF4B09D5"
+            Type="Boolean"
+            DefaultValue="false"
+            MultiValuated="No"
+            ResetOnCloning="No"
+            ResetOnNewVersion="No"
+            Protection="Free"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>If true the operation is dedicated to management of variants, else it is just a structural operation.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <CAAComment>
+      <ShortRole>PLM DELMIA General Operation Reference</ShortRole>
+      <Role>PLM DELMIA General Operation Reference</Role>
+    </CAAComment>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+
+
+  </Class>
+
+  <RelationClass Name="DELLmiGeneralOperationInstance"
+		     Uuid="3be1588d-bd56-4153-b064745c3dd7ee36"
+		     Abstract="No"
+    		 SuperName="DELLmiOperationPPRInstance"
+         CustomerExposition="Programmer"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         >
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELMPProdSystemAdvDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELLmiGeneralOperationInstance"/>
+
+    <CAAComment>
+      <ShortRole>PLM DELMIA General Operation Instance. Specialization is not supported yet.</ShortRole>
+      <Role>PLM DELMIA General Operation Instance</Role>
+    </CAAComment>
+
+    <Volatile Name="Reference"
+              Uuid="F4780811-F611-4f4d-B1A4-E8DB6D567DA8"
+              Accessor="PLMModelerReferenceKweAttribute"
+              TypeName="DELLmiGeneralOperationReference"
+              AccessMode="ReadOnly" />
+
+    <SubClause Name="to"   TargetName="DELLmiGeneralOperationReference"/>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+
+
+  </RelationClass>
+
+</Package>

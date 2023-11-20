@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2004, All rights reserved -->
+
+<!-- History
+    V6R2010 Added Procedures & Functions for Export
+    V6R2011 Added V_CriterionStatus on Option
+-->
+
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top"  Name="PLMConfigOption"
+    Uuid="BA357FBC-CAE3-0000-02800311EC000000"
+    UseNames="PLMCORE PLMConfigVariabilitySpace"
+    BelongsToModeler="Configuration"
+    CustomerExposition="Programmer"
+   >
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+        <ShortRole>The Option Configuration Component Metadata.</ShortRole>
+        <Role>This package includes all the entities of Option Configuration Model.</Role>
+    </CAAComment>
+
+    <!-- ******************** -->
+    <!-- CLASS PLMCfgCategory -->
+    <!-- ********************* -->
+
+    <Class Name="PLMCfgCategory"
+        Uuid="BA357FBC-CAE4-0000-02800311EC000000"
+        SuperName="PLMCoreReference"
+        Abstract="No"
+        CustomerExposition="Programmer"
+        >
+        
+        <CAAComment>
+            <ShortRole>The category class.</ShortRole>
+            <Role>The category class.</Role>
+        </CAAComment>
+        
+        <!-- Properties -->
+		
+            <Property Name="Searchable" Value="No"/>
+			
+        <!-- Overloaded Attributes -->
+        
+        <!-- New Attributes -->
+
+            <Simple Name="V_CfgKey"
+                Uuid="CC953FB7-E7FF-49cc-B70A6BB399AF0BDA"
+                Type="Binary"
+                MaxLength="16"
+                MultiValuated="No"
+                Protection="Internal">
+            </Simple>
+            
+        <!-- Constraints -->
+
+            <!-- The (Name)=(PLM_ExternalID) identify a category -->
+            <IdentifierSet Name="Identifier"
+                           Uuid="14BE7921-23F1-42fb-8BFD1DAFFF262670"
+                           IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB"
+                           IdentifierNames="PLM_ExternalID"/>
+
+        <!-- *********************** -->
+        <!-- PROCEDURES Declaration  -->      
+        <!-- *********************** -->
+
+	  <Method ImplementationType="None">
+		<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+	  </Method>
+
+    </Class>
+
+    <!-- ************************* -->
+    <!-- CLASS PLMCfgCategoryUsage -->
+    <!-- ************************* -->
+
+    <RelationClass Name="PLMCfgCategoryUsage"
+        Uuid="BA357FBC-CAE6-0000-02800311EC000000"
+        SuperName="PLMCoreInstance"
+        Abstract="No"
+        CustomerExposition="Programmer"
+        >
+        
+        <CAAComment>
+            <ShortRole>The category instance class.</ShortRole>
+            <Role>The category instance class.</Role>
+        </CAAComment>
+
+        <!-- Overloaded Attributes -->
+
+      <SubClause Name="from" TargetName="PLMCfgVariabilitySpace"/>
+      <SubClause Name="to"   TargetName="PLMCfgCategory"/>
+
+      <!-- New Attributes -->
+
+        <!-- Constraints -->
+
+
+        <!-- *********************** -->
+        <!-- PROCEDURES Declaration  -->      
+        <!-- *********************** -->
+
+	  <Method ImplementationType="None">
+		<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+	  </Method>
+
+    </RelationClass>
+
+    <!-- ****************** -->
+    <!-- CLASS PLMCfgOption -->
+    <!-- ****************** -->
+
+    <Class Name="PLMCfgOption"
+        Uuid="BA357FBC-CAE9-0000-02800311EC000000"
+        SuperName="PLMPort"
+        Abstract="No"
+        CustomerExposition="Programmer"
+        >
+ <Property Name="OwnerTypes" Value="PLMCfgCategory"/>
+      <!-- OwnerTypes="PLMCfgCategory"  Integrate this line if you want to declare the aggregation constraint-->
+
+      <CAAComment>
+            <ShortRole>The option class.</ShortRole>
+            <Role>The option class.</Role>
+        </CAAComment>
+        
+        <!-- Overloaded Attributes -->        
+        
+        <!-- New Attributes -->
+
+            <Simple Name="V_CfgKey"
+                Uuid="BA357FBC-CAEB-0000-02800311EC000000"
+                Type="Binary"
+                MaxLength="16"
+                MultiValuated="No"
+                Protection="Internal">
+            </Simple>
+			
+            <Simple Name="V_CriterionStatus"
+                Uuid="02D1143E-96D4-4d73-8F721A6648D1B399"
+                Type="String"
+                MaxLength="128"
+                MultiValuated="No"
+                Protection="Free">
+            </Simple>
+            
+        <!-- Constraints 
+
+            <ContextKey
+                 Name="contextual_id"
+                 Uuid="4C419159-AC1B-470d-A4677185C52F55AF"
+                 SimpleName="PLM_ExternalID"
+                 SimpleRef="86A2CB5C-4D50-4593-8489DF068C40FAAB" />
+                 -->
+
+
+        <!-- *********************** -->
+        <!-- PROCEDURES Declaration  -->      
+        <!-- *********************** -->
+
+        <Method ImplementationType="None">
+            <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+        </Method>
+
+    </Class>
+
+</Package>
+
+ 

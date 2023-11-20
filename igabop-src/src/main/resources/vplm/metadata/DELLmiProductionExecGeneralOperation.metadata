@@ -1,0 +1,136 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR DELMIA Execution Production System Application -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2009, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" 
+         ModelerType="Top"
+         Name="DELLmiProductionExecGeneralOperation"
+	       Uuid="2a7326ce-18b2-48de-a839-43199a89e5b8"
+         BelongsToModeler="DELLmiProductionPlan"
+	       UseNames="DELLmiProductionOperationUPR" 
+         CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>Execution General Operation. OBSOLETE. Not used in current applications </ShortRole>
+    <Role>This package describes the Execution General Operation model on top of DELLmiProductionOperationUPR</Role>
+  </CAAComment>
+
+  <Comment>last update 2009-05-25</Comment>
+  <Comment>last update 2013-06-21</Comment>
+
+  <Class Name="DELLmiExecGeneralOperationReference"
+		     Uuid="2513a9a7-62fc-4aff-9bbe-2bdfc3b9f815"
+		     Abstract="No"
+    		 SuperName="DELLmiOperationUPRReference"
+         CustomerExposition="Programmer"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         CreateInstName="DELLmiExecGeneralOperationInstance"
+         Abbreviation="wgop"
+         InstantiationOwnerTypes="DELLmiExecGeneralSystemReference;DELLmiExecTransfoSystemReference;DELLmiExecGeneralOperationReference;DELLmiExecInterruptOperationReference;DELLmiWorkOrderReference">
+    <!-- we want only support InstantiationOwnerTypes="DELLmiWorkOrderReference"-->
+    <!-- we keep all for historical reasons"-->
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELLmiExecOpDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELLmiExecGeneralOperationInstance"/>
+    <Property Name="IconName" Value="I_PPRSeqExecGeneral"/>
+    <Property Name="3DIconName" Value="I_PPRSeqExecGeneral.cgr"/>
+    <Property Name="Newable" Value="Insert_CAA"/>
+    <Property Name="Searchable" Value="Yes"/>
+
+    <CAAComment>
+      <ShortRole>Execution General Operation Reference</ShortRole>
+      <Role>Execution General Operation Reference. Specialization is not supported yet.</Role>
+    </CAAComment>
+
+    <Simple Name="V_MaterialScrap"
+            Uuid="F9057E8C-9AF3-4bef-9A34-A639C43A2661"
+	          Type="Double"
+	          DefaultValue="0.0"
+	          MultiValuated="No"
+	          Protection="Free"
+	          CAAExposition="L0">
+
+      <CAAComment>
+        <ShortRole>Defines the Scrap/Yield lost by the operation.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_UseGanttTimeSolver"
+            Uuid="E5BDCF52-85C8-4340-8580-F22DC5C93FDD"
+            Type="Boolean"
+            DefaultValue="true"
+            MultiValuated="No"
+            ResetOnCloning="No"
+            ResetOnNewVersion="No"
+            Protection="Free"
+            CAAExposition="L0">
+
+      <CAAComment>
+        <ShortRole>If true the Time solver wil be used for Gantt display of operation with children. If no it will be the TimeMode that will be used.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_ManageVariant"
+            Uuid="FE597AA2-AF86-440a-A811-017357512DE6"
+            Type="Boolean"
+            DefaultValue="false"
+            MultiValuated="No"
+            ResetOnCloning="No"
+            ResetOnNewVersion="No"
+            Protection="Free"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>If true the operation is dedicated to management of variants, else it is just a structural operation.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+
+
+  </Class>
+
+  <RelationClass Name="DELLmiExecGeneralOperationInstance"
+		     Uuid="b0784726-8c9f-49e8-b15e-97a2c3316ad0"
+		     Abstract="No"
+    		 SuperName="DELLmiOperationUPRInstance"
+         CustomerExposition="Programmer"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         >
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELLmiExecOpDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELLmiExecGeneralOperationInstance"/>
+    
+    <CAAComment>
+      <ShortRole>Execution General Operation Instance</ShortRole>
+      <Role>Execution General Operation Instance. Specialization is not supported yet.</Role>
+    </CAAComment>
+
+    <Volatile Name="Reference" 
+              Uuid="E9ED3DFB-019C-4e5a-BE45-E5E4117C7F83" 
+              Accessor="PLMModelerReferenceKweAttribute" 
+              TypeName="DELLmiExecGeneralOperationReference" 
+              AccessMode="ReadOnly" />
+
+    <SubClause Name="to"   TargetName="DELLmiExecGeneralOperationReference"/>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+
+
+  </RelationClass>
+
+</Package>

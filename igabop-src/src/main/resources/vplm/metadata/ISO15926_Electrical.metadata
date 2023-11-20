@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2018, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" Name="ISO15926_Electrical" Uuid="89673ed4-002d-0000-0326-475b01000000" UseNames="PRODUCTCFG" CustomerExposition="Programmer">
+<Extension Name="ISO15926_CableTrayCircularDimension" Uuid="89673ed4-002d-0000-0326-475b02000000" Abstract="No" ScopeNames="VPMReference VPMInstance" Specializable="No" CustomerExposition="Programmer">
+        <Simple Name="ISO15926_NominalDiameter" Uuid="89673ed4-002d-0000-0326-475b03000000" Type="Double" Magnitude="LENGTH" DefaultValue="0.0" ResetOnCloning="Yes" ResetOnNewVersion="Yes" UIAccess="ReadWrite" Protection="Free" PLMImpacting="No">
+			<Property Name="V6Exportable" Value="TRUE"/>
+			<Property Name="Indexation" Value="TRUE"/>
+		</Simple>
+</Extension>
+<Extension Name="ISO15926_CableTray" Uuid="89673ed4-002d-0000-0326-475b04000000" Abstract="No" ScopeNames="VPMReference VPMInstance" Specializable="No" CustomerExposition="Programmer">
+		<Simple Name="ISO15926_Width" Uuid="89673ed4-002d-0000-0326-475b05000000" Type="Double" Magnitude="LENGTH" DefaultValue="0.0" ResetOnCloning="Yes" ResetOnNewVersion="Yes" UIAccess="ReadWrite" Protection="Free" PLMImpacting="No">
+            <Property Name="V6Exportable" Value="TRUE"/>
+			<Property Name="Indexation" Value="TRUE"/>
+		</Simple>
+		<Simple Name="ISO15926_Depth" Uuid="89673ed4-002d-0000-0326-475b06000000" Type="Double" Magnitude="LENGTH" DefaultValue="0.0" ResetOnCloning="Yes" ResetOnNewVersion="Yes" UIAccess="ReadWrite" Protection="Free" PLMImpacting="No">
+			<Property Name="V6Exportable" Value="TRUE"/>
+			<Property Name="Indexation" Value="TRUE"/>
+		</Simple>
+		<Simple Name="ISO15926_Length" Uuid="89673ed4-002d-0000-0326-475b07000000" Type="Double" Magnitude="LENGTH" DefaultValue="0.0" ResetOnCloning="Yes" ResetOnNewVersion="Yes" UIAccess="ReadWrite" Protection="Free" PLMImpacting="No">
+			<Property Name="V6Exportable" Value="TRUE"/>
+			<Property Name="Indexation" Value="TRUE"/>
+		</Simple>
+
+		<Simple Name="ISO15926_Thickness"  Uuid="89673ed4-002d-0000-0326-475b08000000" Type="Double" Magnitude="LENGTH" DefaultValue="0.0" ResetOnCloning="Yes" ResetOnNewVersion="Yes" UIAccess="ReadWrite" Protection="Free" PLMImpacting="No">
+			<Property Name="V6Exportable" Value="TRUE"/>
+			<Property Name="Indexation" Value="TRUE"/>
+		</Simple>
+</Extension>	
+</Package>

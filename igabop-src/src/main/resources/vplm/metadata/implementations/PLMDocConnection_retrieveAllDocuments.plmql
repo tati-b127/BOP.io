@@ -1,0 +1,41 @@
+NAVIGATE     
+
+T0.PLM_ExternalID, T1.PLM_ExternalID, T2.PLM_ExternalID,
+T0.PLMID, T1.PLMID, T2.PLMID 
+ 
+
+FROM      
+
+PLMCORE/PLMCoreReference T0,     
+
+PLMDocConnection/PLMDocConnection T1,
+
+PLMDmtDocument/PLMDMTDocument T2
+
+FROM_ROOTS[?1?]
+
+ON ( RELATION(     
+
+FROM=PLMCORE/PLMCoreReference     
+
+TO=PLMDocConnection/PLMDocConnection 
+
+THROUGH=POINTEDBY )
+
+WITH QUALITY_FILTER(CATEGORY=ISOWNEDBY))
+
+
+
+THEN (RELATION(
+
+FROM=PLMDocConnection/PLMDocConnection
+
+TO=PLMDmtDocument/PLMDMTDocument
+
+THROUGH=POINTSTO))
+
+
+
+;
+
+

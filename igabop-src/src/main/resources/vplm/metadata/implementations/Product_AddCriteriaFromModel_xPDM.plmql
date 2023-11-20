@@ -1,0 +1,89 @@
+NAVIGATE
+	T0.physicalid,
+	T0.logicalid,
+	T0.type,
+	T1.physicalid,
+	T1.logicalid,
+	T1.type,
+	T2.physicalid,
+	T2.logicalid,
+	T2.type,
+	T3.physicalid,
+	T3.logicalid,
+	T3.type,
+	T4.physicalid,
+	T4.logicalid,
+	T4.type,
+	T5.physicalid,
+	T5.logicalid,
+	T5.type,
+	T6.physicalid,
+	T6.logicalid,
+	T6.type,
+	T7.physicalid,
+	T7.logicalid,
+	T7.type,
+        T8.physicalid,
+	T8.logicalid,
+	T8.type,
+	T9.physicalid,
+	T9.logicalid,
+	T9.type,
+	T10.physicalid,
+	T10.logicalid,
+	T10.type,
+	T11.physicalid,
+	T11.logicalid,
+	T11.type,
+	T12.physicalid,
+	T12.logicalid,
+	T12.type,
+	T13.physicalid,
+	T13.logicalid,
+	T13.type,
+	T14.physicalid,
+	T14.logicalid,
+	T14.type,
+	T15.physicalid,
+	T15.logicalid,
+	T15.type,
+	T16.physicalid,
+	T16.logicalid,
+	T16.type
+FROM
+	"Class/Model" T0, 
+	"RelationClass/Relation.Products" T1, 
+	"Class/Products" T2,
+	"RelationClass/Configuration Features" T3,
+	"Class/Configuration Feature" T4, 
+	"RelationClass/Configuration Options" T5, 
+	"Class/Configuration Option" T6, 
+	"RelationClass/DERIVED_ABSTRACT" T7,
+        "Class/Builds" T8,
+        "RelationClass/Model Build" T9,
+        "RelationClass/Product Build" T10,
+        "Class/Manufacturing Plan Master" T11,
+        "Class/Manufacturing Plan" T12,
+	"RelationClass/Series Master" T13,
+	"RelationClass/Managed Series" T14,
+	"RelationClass/Planned Builds" T15,
+	"RelationClass/Associated Manufacturing Plans" T16
+FROM_ROOTS [?1?]
+ON ( (  RELATION(FROM="Class/Model" TO="RelationClass/Relation.Products" THROUGH=POINTEDBY) WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY) 
+    THEN RELATION(FROM="RelationClass/Relation.Products" TO="Class/Products" THROUGH=POINTSTO) WITH QUALITY_FILTER (CATEGORY=ISINSTANCEOF) 
+    THEN ((RELATION(FROM="Class/Products" TO="RelationClass/Configuration Features" THROUGH=POINTEDBY) WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY) 
+           THEN RELATION(FROM="RelationClass/Configuration Features" TO="Class/Configuration Feature" THROUGH=POINTSTO) WITH QUALITY_FILTER (CATEGORY=ISINSTANCEOF)  
+           THEN RELATION(FROM="Class/Configuration Feature" TO="RelationClass/Configuration Options" THROUGH=POINTEDBY) WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY) 
+           THEN RELATION(FROM="RelationClass/Configuration Options" TO="Class/Configuration Option" THROUGH=POINTSTO) WITH QUALITY_FILTER (CATEGORY=ISINSTANCEOF))
+          OR (RELATION(FROM="Class/Products" TO="RelationClass/DERIVED_ABSTRACT" THROUGH=POINTEDBY) WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY))
+          OR (RELATION(FROM="Class/Products" TO="RelationClass/Product Build" THROUGH=POINTEDBY) WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY)) 
+	  OR (RELATION(FROM="Class/Products" TO="RelationClass/Associated Manufacturing Plans" THROUGH=POINTEDBY) WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY)) ))
+        OR (RELATION(FROM="Class/Model" TO="RelationClass/Model Build" THROUGH=POINTEDBY) WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY) 
+		THEN RELATION(FROM="RelationClass/Model Build" TO="Class/Builds" THROUGH=POINTSTO) WITH QUALITY_FILTER (CATEGORY=ISINSTANCEOF))
+        OR (RELATION(FROM="Class/Model" TO="RelationClass/Series Master" THROUGH=POINTEDBY) WITH QUALITY_FILTER (CATEGORY=ISINSTANCEOF) 
+		THEN RELATION(FROM="RelationClass/Series Master" TO="Class/Manufacturing Plan Master" THROUGH=POINTSTO) WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY) 
+		THEN RELATION(FROM="Class/Manufacturing Plan Master" TO="RelationClass/Managed Series" THROUGH=POINTEDBY) WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY) 
+		THEN RELATION(FROM="RelationClass/Managed Series" TO="Class/Manufacturing Plan" THROUGH=POINTSTO) WITH QUALITY_FILTER (CATEGORY=ISINSTANCEOF) 
+		THEN ( (RELATION(FROM="Class/Manufacturing Plan" TO="RelationClass/DERIVED_ABSTRACT" THROUGH=POINTEDBY) WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY)) 
+		OR (RELATION(FROM="Class/Manufacturing Plan" TO="RelationClass/Planned Builds" THROUGH=POINTEDBY) WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY)))))
+;

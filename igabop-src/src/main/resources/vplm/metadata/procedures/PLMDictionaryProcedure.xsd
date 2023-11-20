@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<xs:schema
+        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        xmlns:tns="PLMDictionaryProcedure"
+        targetNamespace="PLMDictionaryProcedure"
+        elementFormDefault="qualified"
+        attributeFormDefault="unqualified">
+
+    <xs:complexType name="ProcedurePackage">
+        <xs:choice minOccurs="1" maxOccurs="unbounded">
+            <xs:element ref="tns:Procedure"/>
+            <xs:element name="Signature" type="tns:ProcSignature"/>
+        </xs:choice>
+        <xs:attribute name="Name" type="xs:string" use="required"/>
+    </xs:complexType>
+    <xs:element name="ProcedurePackage" type="tns:ProcedurePackage"/>
+
+    <xs:complexType name="Procedure">
+        <xs:choice minOccurs="1" maxOccurs="unbounded">
+            <xs:element ref="tns:Implementation" minOccurs="1"/>
+            <xs:element name="Signature" type="tns:SignatureHref" minOccurs="1" maxOccurs="1"/>
+        </xs:choice>
+        <xs:attribute name="Name" type="xs:string" use="required"/>
+    </xs:complexType>
+    <xs:element name="Procedure" type="tns:Procedure"/>
+
+    <xs:complexType name="SignatureHref">
+        <xs:attribute name="href" type="xs:string"/>
+    </xs:complexType>
+    <xs:element name="Signature" type="tns:SignatureHref"/>
+
+    <xs:complexType name="Implementation">
+        <xs:attribute name="Name" type="xs:string" use="required"/>
+        <xs:attribute name="FileLocation" type="xs:string" use="required"/>
+        <xs:attribute name="Language" use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="EKL"/>
+                    <xs:enumeration value="PLMQL"/>
+                    <xs:enumeration value="WS"/>
+                    <xs:enumeration value="Java"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:complexType>
+    <xs:element name="Implementation" type="tns:Implementation"/>
+
+    <xs:complexType name="ProcSignature">
+        <xs:choice minOccurs="1" maxOccurs="unbounded">
+            <xs:element name="Parameter" type="tns:ProcParameter"/>
+        </xs:choice>
+        <xs:attribute name="id" type="xs:string"/>
+    </xs:complexType>
+
+    <xs:complexType name="ProcParameter">
+        <xs:attribute name="Name" type="xs:string" use="required"/>
+        <xs:attribute name="Lower" type="xs:integer"/>
+        <xs:attribute name="Upper" type="xs:integer"/>
+        <xs:attribute name="Order" type="xs:integer"/>
+        <xs:attribute name="Direction" use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="in"/>
+                    <xs:enumeration value="out"/>
+                    <xs:enumeration value="inout"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="MultiValuated" use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="Yes"/>
+                    <xs:enumeration value="No"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="DataType" use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="Boolean"/>
+                    <xs:enumeration value="Integer"/>
+                    <xs:enumeration value="Double"/>
+                    <xs:enumeration value="String"/>
+                    <xs:enumeration value="Date"/>
+                    <xs:enumeration value="PLMId"/>
+                    <xs:enumeration value="PLMRouteSet"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:complexType>
+
+
+</xs:schema>

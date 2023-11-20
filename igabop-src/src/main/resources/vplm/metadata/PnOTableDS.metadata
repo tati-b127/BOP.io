@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2009, All rights reserved -->
+
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" Name="PnOTableDS" Uuid="DD5B24AA-97BE-493D-B60F2588860A7F5B" UseNames="PLMPosAbstractTable">
+	<Class Name="PLMPosTableRef" Uuid="3A802272-FED5-4ADC-9C208A3AEB54EAEE" Alias="PLMPosTableRef"  SuperName="PLMPosAbstractTableRef"  SuperRef="3C76C0B7-88F6-4200-AE2908DB8AF236F8" >
+    <Property Name="Searchable" Value="No"/>
+		<Simple Name="V_row_value" Uuid="A5ED8828-DA59-4A1B-8BFD28C289018021" Mandatory="No" MultiValuated="No" Type="String" MaxLength="256" Protection="User" CAAExposition="L0"/>
+		<Simple Name="V_row_type"  Uuid="9C4E62A0-BEFB-4DD7-940E3D673DC01B08" Mandatory="No" MultiValuated="No" Type="String" MaxLength="16" Protection="User" CAAExposition="L0"/>
+		<Simple Name="V_row_order" Uuid="A7C62040-131B-4076-96DB89C878247675" Mandatory="No" MultiValuated="No" Type="Integer" Protection="User" CAAExposition="L0"/>
+	</Class>
+	<Class Name="PLMPosTableInst" Uuid="03B0CD17-A5EF-4788-A6B7D55E22A1ADEB" Alias="PLMPosTableInst" SuperRef="7A65788A-B5C4-47d4-B40EB93F2DE72830" SuperName="PLMPosAbstractTableInst" >
+	</Class>
+</Package>

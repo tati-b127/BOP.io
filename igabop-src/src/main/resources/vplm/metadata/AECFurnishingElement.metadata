@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2012, All rights reserved -->
+
+<Package CustomerExposition = "Programmer" ModelerType = "Top" Name = "AECFurnishingElement" UseNames = "AECKernel" Uuid = "62deba15-a6d5-486d-a6b1-6744cb9f387b" xmlns = "PLMDictionaryUnified">
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "AecFurnishingElement" SuperName = "AecElement" Uuid = "53a65791-6249-42b8-bef1-4598522fd5ab">
+    <Property Name = "IconName" Value = "I_AecFurnishingElement"/>
+    <Property Name = "3DIconName" Value = "I_AecFurnishingElement.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATEAECDelegateInstanciation"/>
+    <Property Name = "KweNew_ReturnedType" Value = "VPMInstance"/>
+    <Property Name = "Newable" Value = "All_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "UserChoiceReferenceDefault"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "AecFurnishingElementType" SuperName = "AecElementType" Uuid = "b69ff777-e641-4fbe-af03-e6907eebfc27">
+    <Property Name = "IconName" Value = "I_AecFurnishingElementType"/>
+    <Property Name = "3DIconName" Value = "I_AecFurnishingElementType.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATCbaObjectTypeDelegateInstanciation"/>
+    <Property Name = "Newable" Value = "New_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "ReferenceOnly"/>
+  </Class>
+</Package>

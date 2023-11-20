@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY for Ens Specifications Editor -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2011, all rights reserved -->
+
+<!-- 
+   =========
+    Package
+   =========     
+-->
+
+<Package xmlns="PLMDictionaryUnified"
+         CustomerExposition="Programmer"
+         ModelerType="Top"
+         Name="PLMEnsSpecCnxTableThroughFilter"
+         Uuid="1D02FE0D-F30D-414c-95FC-8C2A58309016"            
+         UseNames="PLMCORE">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>Ens Specifications table through filter connection Package</ShortRole>
+    <Role>This package describes the table through filter connection used in the Ens Specifications model.</Role>
+  </CAAComment>
+  <Comment>Initial creation: PA GLY Feb 2011</Comment>
+  <Comment>Review for V6R2012: JLN PGT PYR DRL JLM SLI ASG LBH GLY Dec 2010</Comment>
+  <Comment>Ens Specifications table through filter connection</Comment>
+
+  <!-- 
+   ===============================================
+    Ens filter built from connection (connection)    
+   ===============================================
+-->
+
+  <Class Name="EnsSpecCnxTableThroughFilter"
+         Uuid="5FC8C325-8F21-48a5-9A62-942720463F8A"
+         CustomerExposition="Programmer"
+         Abstract="No"
+         SuperName="PLMConnection" OwnerTypes="EnsSpecification"
+	       Specializable="No"
+         CustomerExtensible="No">
+    <!-- OwnerTypes="EnsSpecification"  Integrate this line if you want to declare the aggregation constraint -->
+    <!-- 
+              MODIF PA DEB 10022012
+        -->
+    <Property Name="Searchable"      Value="No"/>
+    <!-- 
+              MODIF PA FIN 10022012
+        -->
+    <Path Name="V_EnsSpec_SpecToTechnoTable"
+       Uuid="73c02612-c872-4401-8cd7-47e964547046"
+       RoleName="EnsSpec_SpecToTechnoTable"
+       Semantics="Reference"
+       MultiValuated="Yes"
+    	 Type="SemanticRelation" AdaptativeToMinor="No"
+    	 SynchroSensitivity="None"
+	     RerouteOnEffectivityChange="No"
+       Lower="0"
+       Upper="-1" />
+    <Path Name="V_EnsSpec_SpecToTechnoTableFilter"
+       Uuid="40b3927b-8c86-4ae8-9a1f-18cd141c55e5"
+       RoleName="EnsSpec_SpecToTechnoTableFilter"
+       Semantics="Reference"
+       MultiValuated="Yes"
+   		 Type="SemanticRelation" AdaptativeToMinor="No"
+   		 SynchroSensitivity="None"
+		   RerouteOnEffectivityChange="No"
+       Lower="0"
+       Upper="-1" />
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+</Package>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,28 @@
+<?xml version="1.0" ?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2006, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" Name="PLMPosProxy" Uuid="6FE9EE35-23D7-40F4-A3748E40A7A7A1F8" UseNames="PLMCORE PLMPosResourceCore" CustomerExposition="Programmer" >
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+  <UniqueKey Name="PLMPosProxyRefUK" Uuid="8643D97A-C790-4fda-A116BD78B2112492" ClassName="PLMPosProxyRef" AttributeNames="PLM_ExternalID" />
+	<Class Name="PLMPosProxyRef" Uuid="FCF49D12-E1EA-4641-B983E5F2177707A8" Abstract="No" SuperName="PLMPosResourceCoreRef" CustomerExposition="Programmer" >
+    <Property Name="Searchable" Value="Yes"/>
+		<Property Name="IconName" Value="I_ENOVIA_RscProxy"/>
+		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+		<Simple Name="V_pno_type" Uuid="CF8F622C-D727-4F30-87D4EBB86749FA2F" MultiValuated="No" Type="String" MaxLength="64"  PLMImpacting="No" Protection="Free" CAAExposition="L0"/>
+	</Class>
+	<Class Name="PLMPosResourceCnx" Uuid="BC29E845-5AC9-441A-AA95D20B96BE7E54" Abstract="No" SuperName="PLMConnection" CustomerExposition="Programmer"  
+                           OwnerTypes="PLMPosProxyRef"
+>
+ 		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+    <!-- OwnerTypes="PLMPosProxyRef"  Integrate this line if you want to declare the aggregation constraint FB025717-36D4-4374-AC81946DBBD95BE4 -->
+
+    <Path Name="V_resources" Uuid="A107B684-F154-44DA-8572BD5EF66AF12B"  MultiValuated="Yes" Lower="0" Upper="-1" Semantics="Reference" RoleName="Default" Type="SemanticRelation" AdaptativeToMinor="No"		SynchroSensitivity="None"		RerouteOnEffectivityChange="No"/>
+		<Simple Name="V_rsc_type" Uuid="A54C17FA-0DC3-4289-BB6B705E4762A08C" MultiValuated="No" Type="String" MaxLength="64"  PLMImpacting="No" Protection="Free" CAAExposition="L0"/>
+	</Class>
+</Package>

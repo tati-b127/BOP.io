@@ -1,0 +1,27 @@
+EXPAND  
+  	T0.PLMID, T1.PLMID, T2.PLMID , T3.PLMID, T4.PLMID , T5.PLMID, T6.PLMID , T7.PLMID,
+	T8.PLMID, T9.PLMID, T10.PLMID, T11.PLMID, T12.PLMID
+	
+	
+
+ FROM 
+	DELLmiProductionSystemIOPort/DELLmiProdSystemIOPort T0, 
+	DELLmiProductionSystemExposedOpPort/DELLmiProdSystemExposedOpPort T1,
+	DELLmiProductionCandidateResCnx/DELLmiCandidateResourcesCnx T2, 
+	DELLmiProductionDetailedMaterialPathCnx/DELLmiDetailedMaterialPathCnx T3,
+	DELLmiProductionImplCnx/DELLmiImplCnx T4,
+	DELLmiProductionMaterialPathCnx/DELLmiMaterialPathCnx T5,
+	DELLmiProductionTimeConstraintCnx/DELLmiTimeConstraintCnx T6,
+	DELLmiProductionMaterialPathCnx1/DELLmiMaterialPathCnxCust T7, 
+	DELLmiProductionSystemIOCnx/DELLmiProductionSystemIOCnx T8,
+	RFLPLMImplementConnection/RFLPLMImplementConnection T9,
+	DELLmiProductionCandidateResCnx/DELLmiCandidateResourcesCnx T10,
+	DELLmiProductionSystemOutputCnxAbstract/DELLmiProductionSystemOutputCnxAbstract T11,
+	DELAsmAssemblyModelCnx/DELAsmProcessCanUseCnx T12
+	
+	
+
+FROM_ROOTS  [?1?]
+
+ITER = 1
+;    

@@ -1,0 +1,76 @@
+#Prog InterferenceAppli_ExportSimulationInterference (iPLMIDSet :  #In PLMIDSet,oPLMIDSet :  #Out PLMIDSet) : VoidType
+{
+let PLMIDSet1(PLMIDSet)
+let PLMIDSet2(PLMIDSet)
+let PLMIDSet3(PLMIDSet)
+let PLMIDSet4(PLMIDSet)
+let PLMIDSet5(PLMIDSet)
+let PLMIDSet6(PLMIDSet)
+let PLMIDSet7(PLMIDSet)
+let PLMIDSet8(PLMIDSet)
+let PLMIDSet9(PLMIDSet)
+let PLMIDSet10(PLMIDSet)
+let PLMIDSet11(PLMIDSet)
+let PLMRouteSet1 (PLMRouteSet)
+let PLMRouteSet2 (PLMRouteSet)
+let PLMRouteSet3 (PLMRouteSet)
+let PLMRouteSet4 (PLMRouteSet)
+let PLMRouteSet5 (PLMRouteSet)
+let PLMRouteSet6 (PLMRouteSet)
+let PLMRouteSet7 (PLMRouteSet)
+let PLMRouteSet8 (PLMRouteSet)
+let PLMRouteSet9 (PLMRouteSet)
+let PLMRouteSet10 (PLMRouteSet)
+let PLMRouteSet11 (PLMRouteSet)
+
+/* getting categories */
+PLMRouteSet1 = ExecutePLMFunction("SIMObjSimulationGeneric", "sim_retrieveCategories", Restrict(iPLMIDSet, "SIMItfInterference/SIMItfSimulation"))
+PLMIDSet1 = Ids(PLMRouteSet1)
+
+/* getting simulated root from Context category */
+PLMRouteSet2 = ExecutePLMFunction("SIMObjSimulationGeneric", "sim_addSimulatedModel", Restrict(PLMIDSet1, "SIMObjSimulationCategoryAndProdCnx/SIMObjSimulationCategoryReference"))
+PLMIDSet2 = Ids(PLMRouteSet2)
+
+/* expanding simulated root */
+PLMRouteSet3 = ExecutePLMFunction("PRODUCTCFG", "ProductCfg_AddChildrenProduct",  Ids(PLMRouteSet2, "last"))
+PLMIDSet3 = Ids(PLMRouteSet3)
+
+PLMRouteSet4 = ExecutePLMFunction("PRODUCTCFG", "ProductCfg_AddAllRepresentations",  Restrict(PLMIDSet3, "PRODUCTCFG/VPMReference"))
+PLMIDSet4 = Ids(PLMRouteSet4)
+
+/* getting simu rep from Specification category */
+PLMRouteSet5 = ExecutePLMFunction("SIMObjSimulationGeneric", "sim_retrieveSimuRep", Restrict(PLMIDSet1, "SIMObjSimulationCategoryAndProdCnx/SIMObjSimulationCategoryReference"))
+PLMIDSet5 = Ids(PLMRouteSet5)
+
+/* getting interference context from Results category */
+PLMRouteSet6 = ExecutePLMFunction("SIMItfInterference", "PIM_FromCatToItfCtx", Restrict(PLMIDSet1, "SIMObjSimulationCategoryAndProdCnx/SIMObjSimulationCategoryReference"))
+PLMIDSet6 = Ids(PLMRouteSet6)
+
+/* getting interference metric and all aggregated object : connection sca, connection scaToOcc, rep instance and rep reference*/
+PLMRouteSet7 = ExecutePLMFunction("SIMItfInterference", "PIM_FromItfCtxToFullMetric", Restrict(PLMIDSet6, "SIMItfInterfere/SIMItfContextOfInterference"))
+PLMIDSet7 = Ids(PLMRouteSet7)
+
+/* getting reps of parts in clash 
+PLMRouteSet8 = ExecutePLMFunction("SIMItfInterference", "PIM_FromMetricCnxToOcc", Ids(PLMRouteSet7, "last"))
+PLMIDSet8 = Ids(PLMRouteSet8, "all")
+fonction utile seulement pour l'open advanced
+*/
+
+/* Completes with Engineering Connections */
+PLMRouteSet8 = ExecutePLMFunction("CATMCXAssembly", "CATMCXAssembly_AddAllAggregatedMCX", Restrict(PLMIDSet3, "PRODUCTCFG/VPMReference"))
+PLMIDSet8 = Ids(PLMRouteSet8)
+
+/* Completes with PVS filters */
+PLMRouteSet9 = ExecutePLMFunction("SIMItfInterference", "PIM_RetrievePointedPVS", Restrict(PLMIDSet5,"SIMObjSimulationV5Generic/SIMObjSimulationV5RepReferenceGeneric") )
+PLMIDSet9 = Ids(PLMRouteSet9)
+PLMRouteSet10 = ExecutePLMFunction("PLMWspFilter", "PLMWspFilter_RetrieveFilteredRoot", PLMIDSet9 )
+PLMIDSet10 = Ids(PLMRouteSet10)
+
+/* Completes with Private Reps */
+PLMRouteSet11 = ExecutePLMFunction("PRODUCTCFG", "ProductCfg_AddLPPrivateRep",  PLMIDSet2)
+PLMIDSet11 = Ids(PLMRouteSet11)
+
+oPLMIDSet = PLMIDSet1 + PLMIDSet2 + PLMIDSet3 + PLMIDSet4 + PLMIDSet5 + PLMIDSet6 + PLMIDSet7 + PLMIDSet8 + PLMIDSet9 + PLMIDSet10 + PLMIDSet11
+
+}
+

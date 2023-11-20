@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2010, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" Name="DELWkiInstructionDS" Uuid="38ee5ed7-52fc-45dc-bf143ee15809b9cf" UseNames="DELWkiInstruction" >
+<Property Name="OptionalInstallation" Value="Yes" /> 
+	<CAAComment>
+		<ShortRole>Standard DELMIA Work Instruction Text Package</ShortRole>
+		<Role>This package includes default customized DELMIA Work Instruction Text</Role>
+	</CAAComment>
+	<Comment>last update 2010-05-27</Comment>
+
+	<Class Name="DELWkiInstructionReferenceCusto" Uuid="71d4028c-f377-406d-a0f32376c58c5817" SuperName="DELWkiInstructionReference"  >
+
+    <IdentifierSet Name="Identifier"
+        Uuid="61ec8deb-a5ee-4535-9b01aae0cbd1ca1e"
+        IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755"
+        IdentifierNames="PLM_ExternalID V_version" />
+    
+    <CAAComment>
+			<ShortRole>Standard DELMIA Work Instruction Text Reference</ShortRole>
+			<Role>Default customized DELMIA Work Instruction Text Reference</Role>
+		</CAAComment>
+	</Class>
+
+  <RelationClass Name="DELWkiInstructionInstanceCusto" Uuid="203726f8-e019-4137-9682e07639bf377b" SuperName="DELWkiInstructionInstance"  >
+		<CAAComment>
+			<ShortRole>Standard DELMIA Work Instruction Text Instance</ShortRole>
+			<Role>Default customized DELMIA Work Instruction Text Instance</Role>
+		</CAAComment>		
+            <!-- ********************************************************* -->
+            <!-- * Overload(s) of PLMCoreInstance attributes. -->
+            <!-- ********************************************************* -->
+    <SubClause Name="to"   TargetName="DELWkiInstructionReferenceCusto"/>
+	</RelationClass>
+  
+
+</Package>

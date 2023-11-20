@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2006, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" 
+         ModelerType="Top" 
+         Name="DELPPRContextModelProcessCnx"
+         BelongsToModeler="DELPPRContextModel"
+         Uuid="88322ca7-063f-405d-80a2-77ef114fd4a7"
+         UseNames="PLMCORE"
+         CustomerExposition="None">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+        <ShortRole>DELPPRContextModelProcessCnx Modeler Package</ShortRole>
+        <Role>This package describes PPR Context Connection to Process</Role>
+    </CAAComment>
+
+    <Comment>PPR Context Connection to Process</Comment>
+
+    <Class Name="PLMDELPPRProcessCnx"
+           Uuid="A65AD2AF-3F17-4B7D-811799FDDDF81463"
+           SuperName="PLMConnection"
+           Abstract="No"
+           CAAExposition="L1"
+           CustomerExposition="None"      OwnerTypes="VPMReference"
+      
+        >
+      <!-- OwnerTypes="VPMReference"  Integrate this line if you want to declare the aggregation constraint -->
+        <Path Name="DELLinkFromPPRToProcess"
+            Uuid="09ED7D2D-6780-4E51-9FA2B8E7B501900F"
+            RoleName="PLM_PPRContextLink_Process"
+            MultiValuated="Yes"
+            Lower="1"
+            Upper="1"
+         		Type="SemanticRelation" AdaptativeToMinor="No"
+		        SynchroSensitivity="Last"
+                          Orientation="In"
+		        RerouteOnEffectivityChange="No"
+            Semantics="Reference4"/>
+
+        <Simple Name="V_TreeOrder"
+                Uuid="1aab0324-1f11-424c-9554ec2e689e34cc"
+                Type="Double"
+                MultiValuated="No"
+                Protection="Internal">
+            <CAAComment>
+                <ShortRole>Remember the position of the pointed Process relatively to others. Valuated by application.</ShortRole>
+            </CAAComment>
+        </Simple>
+
+        <CAAComment>
+            <ShortRole>The PLMDELPPRProcessCnx.class</ShortRole>
+            <Role>The PLMDELPPRProcessCnx.class</Role>
+        </CAAComment>
+
+      <Method ImplementationType="None">
+        <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      </Method>
+
+    </Class>
+
+  
+</Package>

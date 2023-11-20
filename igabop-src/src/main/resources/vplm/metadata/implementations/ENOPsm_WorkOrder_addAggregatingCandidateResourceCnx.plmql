@@ -1,0 +1,19 @@
+NAVIGATE 
+T0.PLMID, 
+T1.PLMID, 
+T2.PLMID
+FROM PLMDELMIASystemDisciplines/SecondaryCandidateResourceLink T0, DELAsmAssemblyModelCnx/DELAsmProcessCanUseCnx T1, PLMCORE/PLMCoreReference T2
+FROM_ROOTS [?1?]
+ON 
+((
+RELATION ( FROM=PLMDELMIASystemDisciplines/SecondaryCandidateResourceLink TO=PLMCORE/PLMCoreReference THROUGH=POINTSTO ) WITH QUALITY_FILTER ( CATEGORY=ISOWNEDBY ) 
+)
+OR
+(
+RELATION ( FROM=DELAsmAssemblyModelCnx/DELAsmProcessCanUseCnx TO=PLMCORE/PLMCoreReference THROUGH=POINTSTO ) WITH QUALITY_FILTER ( CATEGORY=ISOWNEDBY ) 
+))
+
+;
+
+
+

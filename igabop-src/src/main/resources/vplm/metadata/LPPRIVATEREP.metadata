@@ -1,0 +1,63 @@
+<?xml version="1.0" ?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2007, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified"
+    ModelerType="Top" 
+    BelongsToModeler="PRODUCT" 
+    Name="LPPRIVATEREP"
+    Uuid="0d4f5bc6-662e-4281-b0a2-37d4d2a5b882"
+    UseNames="LPABSTRACT"
+    CustomerExposition="Programmer"
+   >
+
+  <CAAComment>
+    <ShortRole>Common package for internal Representation in Logical and Physical Models</ShortRole>
+    <Role>This package includes the common entities for internal Representation in Logical and Physical Models</Role>
+  </CAAComment>
+
+
+  <Class Name="LPPrivateRepReference"
+    Uuid="c6ecdd83-d91f-4c1c-9910-6e00eb3be49d"
+    SuperName="LPAbstractRepReference"
+    Abbreviation="prep"    
+    Abstract="No"
+    CreateInstName="LPPrivateRepInstance"
+    CustomerExposition="ProgrammerOnly"
+    CustomerExtensible="No"
+    Specializable="No"
+    Searchable="No"
+    >
+    
+    <Property Name="UniqueNamingRule" Value="No"/>    
+    
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+  </Class>
+
+  <RelationClass Name="LPPrivateRepInstance"
+    Uuid="754f4b92-a042-4b1e-838f-dc976543d7a0"
+    SuperName="LPAbstractRepInstance"
+    Abstract="No"
+    CustomerExposition="ProgrammerOnly"
+    CustomerExtensible="No"
+    Specializable="No"
+    >
+    
+    <Property Name="Searchable" Value="No"/>
+  
+    <SubClause Name="from" TargetName="LPAbstractReference"/>
+    <SubClause Name="to"   TargetName="LPPrivateRepReference"/>
+
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </RelationClass>
+
+
+</Package>
+

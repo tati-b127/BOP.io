@@ -1,0 +1,32 @@
+#Prog Kba_ExportAppConfig( iPLMIDSet : #In PLMIDSet, oPLMIDSet : #Out PLMIDSet ) : VoidType
+{
+let RsPureKba              (PLMRouteSet)
+let RsRZipKConfig          (PLMRouteSet)
+let IdsKConfig              (PLMIDSet)
+let IdsPureKba              (PLMIDSet)
+let IdsKAppli               (PLMIDSet)
+let IdsKAppliStructure      (PLMIDSet)
+
+
+/* Get the config(s)' appli(s), with instances */
+IdsKConfig = Restrict( iPLMIDSet , "PLMKbaAppliConfig/PLMKbaAppliConfiguration" )
+RsPureKba = ExecutePLMFunction( "PLMKbaAppliConfig", "kba_expand_config", IdsKConfig )
+IdsPureKba = Ids( RsPureKba )
+
+/* Get config(s)'s zip(s) thru the port(s) */
+RsRZipKConfig = ExecutePLMFunction( "PLMKbaAppliConfig", "kba_navigate_config", IdsKConfig )
+
+
+/* Isolate the appli(s) */
+IdsKAppli = Restrict( IdsPureKba , "PLMKbaApplication/PLMKbaBusinessApplication" )
+
+/* Get the appli(s) structure and dependencies */
+IdsKAppliStructure = ExecutePLMProcedure( "Kba_ExportAppli", IdsKAppli )
+
+
+/* Provide back all that stuff */
+oPLMIDSet = iPLMIDSet
++ IdsPureKba
++ Ids(RsRZipKConfig)
++ IdsKAppliStructure
+}

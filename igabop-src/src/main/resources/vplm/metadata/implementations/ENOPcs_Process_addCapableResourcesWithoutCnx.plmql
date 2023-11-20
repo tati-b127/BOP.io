@@ -1,0 +1,32 @@
+NAVIGATE     
+
+T0.PLMID, T1.PLMID, T2.PLMID
+ 
+
+FROM      
+
+PLMDmtDocument/PLMDMTDocument T0,
+
+PLMWspQuery/PLMWspQuery T1,
+
+PRODUCTCFG/VPMReference T2
+
+FROM_ROOTS[?1?]
+
+ON (RELATION(
+
+FROM=DELAsmAssemblyModelCnx/DELAsmProcessCanUseCnx
+
+TO=PLMDmtDocument/PLMDMTDocument,PLMWspQuery/PLMWspQuery,PRODUCTCFG/VPMReference
+
+THROUGH=POINTSTO)
+	WITH QUALITY_FILTER 
+		(ROLE=DEL_LinkToDocument)
+		OR (ROLE=DEL_PCU_Query)
+		OR (ROLE=DEL_PCU_Result)
+)
+
+ITER = 1
+;
+
+

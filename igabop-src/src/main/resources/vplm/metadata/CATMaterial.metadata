@@ -1,0 +1,201 @@
+<?xml version="1.0"?>
+<!-- edited with XMLSpy v2007 (http://www.altova.com) by DASSAULT SYSTEMES (DASSAULT SYSTEMES) -->
+<!-- ENOVIA DICTIONARY -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2004, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" Name="CATMaterial" Uuid="02cbc368-00db-4f04-9e39a121f34f7fdd" UseNames="PLMCORE" CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+  <CAAComment>
+    <ShortRole>This package includes all the entities of Applied material Model</ShortRole>
+    <Role>This package includes all the entities of Applied material Model</Role>
+  </CAAComment>
+  <Comment>last update 2005-10-10-16.00.00</Comment>
+  <!-- ***************************************** -->
+  <!--Material Connection for Applied Material (derivation from PLMConnection) -->
+  <!-- ***************************************** -->
+  <Class Name="CATMatConnection" Uuid="5d54d217-cace-4fbe-84ff89d8fa177149" SuperName="PLMConnection" Abstract="No" CAAExposition="L1" CustomerExposition="Programmer">
+    <CAAComment>
+      <ShortRole>Applied Material</ShortRole>
+      <Role>Applied Material</Role>
+    </CAAComment>
+    <!-- ***************************************** -->
+    <!--Applied Material attributes-->
+    <!-- ***************************************** -->
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Simple Name="V_CreationVersion" Uuid="26331b62-5978-4bb8-ac0d7027b2caa019" Type="Integer" MultiValuated="No" Protection="External" CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Creation version</ShortRole>
+        <Role>Creation Version</Role>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_Layer" Uuid="637b053b-3c68-42d0-8e081fc0d1f217e6" PLMImpacting="Yes" Type="Integer" MultiValuated="No" Protection="External" CAAExposition="L1">
+      <CAAComment>
+        <ShortRole>Layer Id of covering Material</ShortRole>
+        <Role>Layer Id of covering Material</Role>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_Applied" Uuid="A317A167-5654-4f8a-AAF260C561D9F6FE" Type="Integer" Protection="External" CAAExposition="L1" DefaultValue="1">
+      <CAAComment>
+        <ShortRole>Type of the applied Material (Core, Covering)</ShortRole>
+        <Role>Type of the applied Material (Core, Covering)</Role>
+      </CAAComment>
+      <Property Name="RangeAsEnumName" Value="CATMatAppliedMode"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="Core;Covering"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+      </Range>
+    </Simple>
+    <Simple Name="V_Thickness" Uuid="410AF9F7-C055-4C40-9D28-7DF460971F90" Type="Double" MultiValuated="No" Magnitude ="LENGTH" Protection="External" DefaultValue="0.0001">
+      <CAAComment>
+        <ShortRole>Thickness of covering Material</ShortRole>
+        <Role>Thickness of covering Material</Role>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_Matrix_1" Uuid="55a0f277-7fad-40ce-9a9ee511cfe39d95" Type="Double" MultiValuated="No" Protection="External" CAAExposition="L1">
+      <CAAComment>
+        <ShortRole>Rotation Matrix</ShortRole>
+        <Role>Rotation Matrix</Role>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_Matrix_2" Uuid="072f2c4c-32b7-45dc-88ddefb38996f6a6" Type="Double" MultiValuated="No" Protection="External" CAAExposition="L1">
+      <CAAComment>
+        <ShortRole>Rotation Matrix</ShortRole>
+        <Role>Rotation Matrix</Role>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_Matrix_3" Uuid="7d649b3d-929c-4bf7-a2253a748c782672" Type="Double" MultiValuated="No" Protection="External" CAAExposition="L1">
+      <CAAComment>
+        <ShortRole>Rotation Matrix</ShortRole>
+        <Role>Rotation Matrix</Role>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_Matrix_4" Uuid="7755cc4a-8fd2-448a-9d74b6d5e9fa0a0e" Type="Double" MultiValuated="No" Protection="External" CAAExposition="L1">
+      <CAAComment>
+        <ShortRole>Rotation Matrix</ShortRole>
+        <Role>Rotation Matrix</Role>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_Matrix_5" Uuid="b317916b-a6c6-4167-a12f465e9940f660" Type="Double" MultiValuated="No" Protection="External" CAAExposition="L1">
+      <CAAComment>
+        <ShortRole>Rotation Matrix</ShortRole>
+        <Role>Rotation Matrix</Role>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_Matrix_6" Uuid="04460bcd-988f-41a0-8f72248c70bc8c95" Type="Double" MultiValuated="No" Protection="External" CAAExposition="L1">
+      <CAAComment>
+        <ShortRole>Rotation Matrix</ShortRole>
+        <Role>Rotation Matrix</Role>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_Matrix_7" Uuid="cf99b593-1fc8-414a-a43c55c58ced90b3" Type="Double" MultiValuated="No" Protection="External" CAAExposition="L1">
+      <CAAComment>
+        <ShortRole>Rotation Matrix</ShortRole>
+        <Role>Rotation Matrix</Role>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_Matrix_8" Uuid="6eae36bb-4cd8-48d8-a191e201767bb568" Type="Double" MultiValuated="No" Protection="External" CAAExposition="L1">
+      <CAAComment>
+        <ShortRole>Rotation Matrix</ShortRole>
+        <Role>Rotation Matrix</Role>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_Matrix_9" Uuid="b60b1a91-43fb-4dfc-afb0e6296905270a" Type="Double" MultiValuated="No" Protection="External" CAAExposition="L1">
+      <CAAComment>
+        <ShortRole>Rotation Matrix</ShortRole>
+        <Role>Rotation Matrix</Role>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_Matrix_10" Uuid="a7498025-6bb9-47e3-849bb3dd6673b339" Type="Double" MultiValuated="No" Protection="External" CAAExposition="L1">
+      <CAAComment>
+        <ShortRole>Translation Vector</ShortRole>
+        <Role>Translation Vector</Role>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_Matrix_11" Uuid="db5fbd67-bd0b-40c9-b1bec01110d91194" Type="Double" MultiValuated="No" Protection="External" CAAExposition="L1">
+      <CAAComment>
+        <ShortRole>Translation Vector</ShortRole>
+        <Role>Translation Vector</Role>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_Matrix_12" Uuid="6af8d8ac-b655-4088-ad96628858de3c59" Type="Double" MultiValuated="No" Protection="External" CAAExposition="L1">
+      <CAAComment>
+        <ShortRole>Translation Vector</ShortRole>
+        <Role>Translation Vector</Role>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_MappingType" Uuid="DC17C5EB-38AF-40E9-B911-BD560C13FA3A" Type="Integer" MultiValuated="No"  DefaultValue="0"  Protection="Internal">
+      <CAAComment>
+        <ShortRole>Mapping Operator</ShortRole>
+        <Role>Mapping Operator</Role>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_FocusMode" Uuid="25CBE325-AA9C-4B7C-A915-402BF8D3E4FF" Type="Integer" MultiValuated="No"  DefaultValue="0"  Protection="Internal">
+      <CAAComment>
+        <ShortRole>Focus mode</ShortRole>
+        <Role>Focus mode</Role>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_RepeatU" Uuid="D58C7138-56CA-4BD1-B004-2CB448CC16D1" Type="Double" MultiValuated="No"  DefaultValue="0.0"  Protection="Internal">
+      <CAAComment>
+        <ShortRole>Repeat U</ShortRole>
+        <Role>Repeat U</Role>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_RepeatV" Uuid="60911C8B-338C-4F8F-8804-F376D4580609" Type="Double" MultiValuated="No"  DefaultValue="0.0"  Protection="Internal">
+      <CAAComment>
+        <ShortRole>Repeat V</ShortRole>
+        <Role>Repeat V</Role>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_Angle2D" Uuid="0925C6EA-74DD-464F-9B8C-35957CD42103" Type="Double" MultiValuated="No"  DefaultValue="0.0"  Protection="Internal">
+      <CAAComment>
+        <ShortRole>Angle 2D</ShortRole>
+        <Role>Angle 2D</Role>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_OffsetU" Uuid="A899F4E6-AF5E-426D-BBE7-CC06349DD6A8" Type="Double" MultiValuated="No"  DefaultValue="0.0"  Protection="Internal">
+      <CAAComment>
+        <ShortRole>Offset U</ShortRole>
+        <Role>Offset U</Role>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_OffsetV" Uuid="DCDBCA7B-EFE7-40C9-8752-815E4F0E7B74" Type="Double" MultiValuated="No"  DefaultValue="0.0"  Protection="Internal">
+      <CAAComment>
+        <ShortRole>Offset V</ShortRole>
+        <Role>Offset V</Role>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_ScaleRatio" Uuid="A1B94A85-A7F7-4C36-A58E-8E7B77AA9448" Type="Double" MultiValuated="No"  DefaultValue="0.0" Protection="Internal">
+      <CAAComment>
+        <ShortRole>Scale Ratio</ShortRole>
+        <Role>Scale Ratio</Role>
+      </CAAComment>
+    </Simple>
+    <Path Name="MaterialReference" Uuid="88DB156A-34FB-442d-A4B5-082D076221A8"  MultiValuated="No" RoleName="CATMaterialToReferenceLink" Semantics="Reference3" Orientation="In" Type="SemanticRelation" AdaptativeToMinor="No" SynchroSensitivity="PathAndLast" RerouteOnEffectivityChange="No" />
+    <Path Name="MaterialSupportCore" Uuid="2F2986DD-829C-4f3e-9041-E9A439427E36" MultiValuated="Yes" RoleName="CATMaterialMadeOfLink" Semantics="Reference5" Orientation="Out" Type="SemanticRelation" AdaptativeToMinor="No" SynchroSensitivity="Last" RerouteOnEffectivityChange="No"/>
+    <Path Name="MaterialSupportCovering" Uuid="8F9C2EC9-1154-4e9a-9711-3A6B0E6BF198"  MultiValuated="Yes" RoleName="CATMaterialDressByLink" Semantics="Reference5"  Orientation="Out" Type="SemanticRelation" AdaptativeToMinor="No" SynchroSensitivity="Last" RerouteOnEffectivityChange="No"/>
+    <Path Name="DecalSupport" Uuid="2A1FA60C-5A96-417F-B988-985D72D917C8"  MultiValuated="Yes" RoleName="CATDecalAppliedByLink" Semantics="Reference5"  Orientation="Out" Type="SemanticRelation" AdaptativeToMinor="No" SynchroSensitivity="Last" RerouteOnEffectivityChange="No"/>
+    <!-- Behavior patterns: default values -->
+    <Property Name="LockUnlockAvailability" Value="No"/>
+    <Property Name="TransferOwnershipAvailability" Value="No"/>
+
+  </Class>
+  <Function Name="mat_retrieveAllAppliedMaterial">
+    <Implementation Name="mat_retrieveAllAppliedMaterial" FileLocation="mat_retrieveAllAppliedMaterial.plmql" Language="PLMQL"/>
+    <Signature href="MatSignature"/>
+  </Function>
+  <Function Name="mat_retrieveMatCnxUnderProduct">
+    <Implementation Name="mat_retrieveMatCnxUnderProduct" FileLocation="mat_retrieveMatCnxUnderProduct.plmql" Language="PLMQL"/>
+    <Signature href="MatSignature"/>
+  </Function>
+  <Function Name="mat_retrieveMatRefFromCnx">
+    <Implementation Name="mat_retrieveMatRefFromCnx" FileLocation="mat_retrieveMatRefFromCnx.plmql" Language="PLMQL"/>
+    <Signature href="MatSignature"/>
+  </Function>
+  <Signature id="MatSignature">
+    <Parameter Name="InputIds" Lower="0" Upper="-1" Direction="in" MultiValuated="No" DataType="PLMId"/>
+    <Parameter Name="OutputIds" Lower="0" Upper="-1" Direction="out" MultiValuated="No" DataType="PLMRouteSet"/>
+  </Signature>
+</Package>

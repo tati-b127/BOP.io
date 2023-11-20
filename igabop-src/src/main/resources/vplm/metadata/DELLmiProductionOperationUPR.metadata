@@ -1,0 +1,309 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR DELMIA Execution Production System Application -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2013, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified"
+         ModelerType="Top"
+         Name="DELLmiProductionOperationUPR"
+	       Uuid="29984FBB-4BB5-4fbf-91EB-45D95F3F423F"
+         BelongsToModeler="DELLmiProductionPlan"
+	       UseNames="DELLmiProductionAbstractOperationUPR"
+         CustomerExposition="Programmer">
+
+  <CAAComment>
+    <ShortRole>Abstract Simple Execution Operation </ShortRole>
+    <Role>This package describes the Abstract Simple Execution Operation model on top of DELLmiProductionAbstractOperationUPR</Role>
+  </CAAComment>
+
+  <Comment>last update 2013-06-21</Comment>
+
+
+  <Class Name="DELLmiOperationUPRReference"
+         Uuid="BD0471A7-0CAA-47e3-AEA1-9E7DD960B231"
+         Abstract="Yes"
+         SuperName="DELLmiUPROperationReference"
+         CustomerExposition="Programmer"
+         Specializable="No"
+         CustomerExtensible="No"
+         CreateInstName="DELLmiOperationUPRInstance"
+         >
+
+    <CAAComment>
+      <ShortRole>Abstract Simple Execution Operation Reference</ShortRole>
+      <Role>Abstract Simple Execution Operation Reference</Role>
+    </CAAComment>
+
+    <Property Name="Configurable" Value="No"/>
+    <Property Name="ChangeManagementSupport"    Value="No"/>
+    <Property Name="ChangeManagementReferential"    Value="No"/>
+    <Property Name="ChangeManagementContext"    Value="No"/>
+    <Property Name="NewMajorRevisionAvailability" Value="No"/>
+    <Property Name="EvolutionAvailability" Value="No"/>
+
+    <Simple Name="V_PlannedStartDate"
+            Uuid="04368879-C1C4-417f-BBBE-C002529AE82F"
+            Type="Date"
+            MultiValuated="No"
+ 	          ResetOnCloning="No"
+	          ResetOnNewVersion="No"
+            Protection="Free"
+            CAAExposition="L0">
+      <Property Name="CreateAsDateTime" Value="Yes"/>
+      <CAAComment>
+        <ShortRole>Specified when you planned to start the job.</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_PlannedEndDate"
+            Uuid="70A8F661-F89D-4890-9FF4-BF3DD62BF951"
+            Type="Date"
+ 	          ResetOnCloning="No"
+	          ResetOnNewVersion="No"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0">
+      <Property Name="CreateAsDateTime" Value="Yes"/>
+      <CAAComment>
+        <ShortRole>Specified when you planned to finish the job.</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_ActualStartDate"
+            Uuid="3D6572BA-1D54-41bd-B4B6-1DC4945FB21F"
+            Type="Date"
+ 	          ResetOnCloning="No"
+	          ResetOnNewVersion="No"
+            MultiValuated="No"
+            Protection="External"
+            CAAExposition="L0">
+      <Property Name="CreateAsDateTime" Value="Yes"/>
+      <CAAComment>
+        <ShortRole>Specified when you really started the job.</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_ActualEndDate"
+            Uuid="64D53669-AC2D-4de9-A624-2636C5E71836"
+            Type="Date"
+ 	          ResetOnCloning="No"
+	          ResetOnNewVersion="No"
+            MultiValuated="No"
+            Protection="External"
+            CAAExposition="L0">
+      <Property Name="CreateAsDateTime" Value="Yes"/>
+      <CAAComment>
+        <ShortRole>Specified when you really finished the job.</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_ScheduledStartDate"
+            Uuid="E9BAECB6-DBCF-44a7-966E-95CFF00C3A50"
+            Type="Date"
+            MultiValuated="No"
+ 	          ResetOnCloning="No"
+	          ResetOnNewVersion="No"
+            Protection="Free"
+            CAAExposition="L0">
+      <Property Name="CreateAsDateTime" Value="Yes"/>
+      <CAAComment>
+        <ShortRole>Specified when you need to start the job.</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_ScheduledEndDate"
+            Uuid="77EAD27E-5B52-4442-9D35-9A660CD9FB78"
+            Type="Date"
+ 	          ResetOnCloning="No"
+	          ResetOnNewVersion="No"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0">
+      <Property Name="CreateAsDateTime" Value="Yes"/>
+      <CAAComment>
+        <ShortRole>Specified when you need to finish the job.</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_Scheduled"
+            Uuid="48C7D81A-640C-4fdd-92CF-2DB0D00904C4"
+            Type="Boolean"
+            DefaultValue="false"
+ 	          ResetOnCloning="No"
+	          ResetOnNewVersion="No"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Scheduled.</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_Priority"
+            Uuid="284E7BB4-DA76-4260-8856-C9303FA323DD"
+            Type="Integer"
+            DefaultValue="0"
+ 	          ResetOnCloning="No"
+	          ResetOnNewVersion="No"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Priority.</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_TargetStartDate"
+            Uuid="03C6FA04-9F5E-4135-865F-7351A4484891"
+            Type="Date"
+ 	          ResetOnCloning="No"
+	          ResetOnNewVersion="No"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0">
+      <Property Name="CreateAsDateTime" Value="Yes"/>
+      <CAAComment>
+        <ShortRole>Target Start Date.</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_TargetEndDate"
+            Uuid="ACE558F5-F47E-4922-8B04-1D77853D8BD0"
+            Type="Date"
+ 	          ResetOnCloning="No"
+	          ResetOnNewVersion="No"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0">
+      <Property Name="CreateAsDateTime" Value="Yes"/>
+      <CAAComment>
+        <ShortRole>Target End Date.</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_RemainingTime"
+            Uuid="D563FC8D-B465-48cb-9270-DF562E5F9EAC"
+            Type="Double"
+            Magnitude="TIME"
+ 	          ResetOnCloning="No"
+	          ResetOnNewVersion="No"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Remaining Time.</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_ActualTime"
+             Uuid="39876E24-5E90-4f38-AE9B-2C53A53B7D06"
+             Type="Double"
+             Magnitude="TIME"
+             ResetOnCloning="No"
+             ResetOnNewVersion="No"
+             MultiValuated="No"
+             Protection="Free"
+             CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Actual Time.</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_ScheduledSetupStartDate"
+            Uuid="0CC89CC2-DE3C-4706-9C73-742D45757544"
+            Type="Date"
+            ResetOnCloning="No"
+	          ResetOnNewVersion="No"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0">
+      <Property Name="CreateAsDateTime" Value="Yes"/>
+      <CAAComment>
+        <ShortRole>Scheduled Setup Start Date.</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_ScheduledSetupEndDate"
+            Uuid="727B9696-9622-4820-A196-B1B5DFB20302"
+            Type="Date"
+ 	          ResetOnCloning="No"
+	          ResetOnNewVersion="No"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0">
+      <Property Name="CreateAsDateTime" Value="Yes"/>
+      <CAAComment>
+        <ShortRole>Scheduled Setup End Date.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_Execution_template_name"
+            Uuid="98B4E3F1-1326-4103-852C-2E6517D67009"
+            Type="String"
+            MaxLength="256"
+            DefaultValue="None"
+            MultiValuated="No"
+            Protection="Free"
+	          ResetOnCloning="No"
+	          ResetOnNewVersion="No"
+            Faceted="No"
+            CAAExposition="L0">
+    </Simple>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+
+  </Class>
+
+
+
+  <RelationClass Name="DELLmiOperationUPRInstance"
+		     Uuid="4CA7D686-5931-475f-A821-3C82138A6A97"
+		     Abstract="Yes"
+         SuperName="DELLmiUPROperationInstance"
+         Specializable="No"
+         CustomerExtensible="No"
+         CustomerExposition="Programmer">
+
+    <CAAComment>
+      <ShortRole>Abstract Simple execution Operation Instance</ShortRole>
+      <Role>Abstract Simple Execution Operation Instance</Role>
+    </CAAComment>
+
+    <Property Name="Filtrable" Value="No"/>
+
+    <Simple Name="V_DriftableOperation"
+        Uuid="727121A2-3AB8-451f-82C1-8B5BA2887ACF"
+        Type="Boolean"
+        DefaultValue="false"
+        MultiValuated="No"
+        ResetOnCloning="No"
+        ResetOnNewVersion="No"
+        Protection="Internal"
+        Faceted="No"
+     >
+      <CAAComment>
+        <ShortRole>If true the operation can be drifted on the following system.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_Balanceable"
+        Uuid="30DD4D60-3D2C-4c89-A89C-81BFBE9E00C9"
+        Type="Boolean"
+        DefaultValue="true"
+        MultiValuated="No"
+        ResetOnCloning="No"
+        ResetOnNewVersion="No"
+        Protection="Free"
+        CAAExposition="L0"
+        Faceted="No"
+     >
+      <CAAComment>
+        <ShortRole>If true the operation can be balanced on a system.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <SubClause Name="to"   TargetName="DELLmiOperationUPRReference"/>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+
+  </RelationClass>
+
+
+
+</Package>

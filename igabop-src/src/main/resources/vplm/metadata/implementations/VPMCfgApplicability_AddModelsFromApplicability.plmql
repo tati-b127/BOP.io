@@ -1,0 +1,16 @@
+NAVIGATE
+	T0.physicalid,
+	T0.logicalid,
+	T0.type,
+	T1.PLM_ExternalID,
+	T1.PLMID 
+FROM
+	Class/Model T0,
+	VPMCfgApplicability/VPMCfgApplicability T1
+FROM_ROOTS [?1?]
+ON ( RELATION(
+	FROM=VPMCfgApplicability/VPMCfgApplicability
+	TO=Class/Model 
+	THROUGH=POINTSTO )
+WITH QUALITY_FILTER (ROLE=CFG_CriteriaModel))
+;

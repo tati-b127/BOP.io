@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR RFL System Type Custo 1-->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2006, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" Name="RFLPLMFlowCusto1"
+	Uuid="2f2ecea5-9e1c-4b7f-8ed2550e6e8bae42" 
+	UseNames="RFLPLMFlow" 
+	>
+	
+<Property Name="OptionalInstallation" Value="Yes" /> 
+	<CAAComment>
+		<ShortRole>PLM RFL System Flow Custo Package</ShortRole>
+		<Role>PLM RFL System Flow Custo Package</Role>
+	</CAAComment>
+	
+	<Comment>last update 2007-02-15</Comment>
+	
+    <!-- ***************************************************** -->
+	<!-- *  RFLPLMFlowReferenceCusto1 (RFLPLMFlowReference)  * -->
+	<!-- ***************************************************** -->
+	<Class Name="RFLPLMFlowReferenceCusto1" 
+		Uuid="2de9c2c6-820c-45cd-978d0420ba1cde78" 
+	 
+		SuperName="RFLPLMFlowReference" 
+		SuperRef="d3dd2633-1363-4260-b970455285915fef" 
+		>
+
+    <Simple Name="SpecifiedType" 
+			Uuid="2F311C34-5ED1-498a-B3AF-81B1A63E0535" 
+			Type="String" 
+			MaxLength="40"
+			Mandatory="No" 
+			MultiValuated="No"
+			Protection="Free">
+    </Simple>
+    
+    <IdentifierSet Name="Identifier"
+            Uuid="d2b772c8-b51a-4f83-85734cfe3dd5a509"
+            IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755"
+            IdentifierNames="PLM_ExternalID V_version" />
+ 
+	</Class>
+
+	<!-- ************************************************* -->
+	<!-- * RFLPLMFlowInstanceCusto1 (RFLPLMFlowInstance) * -->
+	<!-- ************************************************* -->
+	<Class Name="RFLPLMFlowInstanceCusto1" 
+		Uuid="38d9459a-f18a-4627-b48d9a07d5345236" 
+		 
+		 
+		 
+		 
+		SuperName="RFLPLMFlowInstance" 
+		SuperRef="f1f206a2-f891-4c43-9f8c54a68aa104f4" 
+		 
+		>
+         	
+	</Class>
+
+</Package>

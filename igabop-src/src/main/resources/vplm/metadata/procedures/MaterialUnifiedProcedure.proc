@@ -1,0 +1,26 @@
+<?xml version="1.0" ?>
+<ProcedurePackage 
+	xmlns="PLMDictionaryProcedure"
+	Name="MaterialUnifiedProcedure">
+			
+	<!-- Export -->
+  <Procedure Name="MaterialUnifiedDesignCompletion">
+    <Implementation Name="MaterialUnifiedDesignCompletion" FileLocation="MaterialUnifiedDesignCompletion.KProc" Language="EKL"/>
+    <Signature href="MaterialUnifiedCompletion_sign"/>
+  </Procedure>
+  <Procedure Name="MaterialUnifiedDetach">
+    <Implementation Name="MaterialUnifiedDetach" FileLocation="MaterialUnifiedDetach.KProc" Language="EKL"/>
+    <Signature href="MaterialUnifiedCompletion_sign"/>
+  </Procedure>
+  <Procedure Name="MaterialUnifiedTSO">
+    <Implementation Name="MaterialUnifiedTSO" FileLocation="MaterialUnifiedTSO.KProc" Language="EKL"/>
+    <Signature href="MaterialUnifiedCompletion_sign"/>
+  </Procedure>
+
+  <Signature id="MaterialUnifiedCompletion_sign">
+    <Parameter Name="InputIds" Lower="0" Upper="-1" MultiValuated="Yes" Direction="in" DataType="PLMId"/>
+    <Parameter Name="OutputIds" Lower="0" Upper="-1" MultiValuated="Yes" Direction="out" DataType="PLMId"/>
+  </Signature>
+
+	
+</ProcedurePackage>

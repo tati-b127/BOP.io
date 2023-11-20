@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR Logical Services VPM Customization -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2012, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" DataRDB_OID="ENODR_RFLLTypeDS" Name="RFLVPMLogicalServicesDS"
+  Uuid="314DF03F-A9FA-43D1-B7AF-7CCA1342D124" 
+  UseNames="RFLVPMLogicalServices" 
+  >
+
+  <Property Name="OptionalInstallation" Value="Yes" /> 
+
+  <CAAComment>
+    <ShortRole>Logical Services Customization Package</ShortRole>
+    <Role>Logical Services Customization Package</Role>
+  </CAAComment>
+
+  <Comment>creation date 2012-11-06</Comment>
+
+  <!-- ********************************************************* -->
+  <!-- *  RFLVPMServicesReferenceDS (RFLVPMServicesReference)  * -->
+  <!-- ********************************************************* -->
+  <Class Name="RFLVPMServicesReferenceDS" 
+    Uuid="397623A4-1929-428E-91D4-C4BE2F715973" 
+
+    SuperName="RFLVPMServicesReference" 
+    SuperRef="47DAE412-9406-4DED-88D2-A771F37982F2" 
+    >
+        <IdentifierSet Name="Identifier"
+            Uuid="B8722270-9597-424F-BDD1-4AEF30927036"
+            IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755"
+            IdentifierNames="PLM_ExternalID V_version" />
+  </Class>
+
+  <!-- ************************************************************************* -->
+  <!-- * RFLVPMServicesExpositionInstanceDS (RFLVPMServicesExpositionInstance) * -->
+  <!-- ************************************************************************* -->
+  <Class Name="RFLVPMServicesExpositionInstanceDS" 
+    Uuid="EFCEA4D6-5B72-44AF-BE0B-B4AA6AE2FA58" 
+
+    SuperName="RFLVPMServicesExpositionInstance" 
+    SuperRef="283DA7FC-4E04-4B56-AD55-51415CE58D0F"
+    >
+  </Class>
+</Package>

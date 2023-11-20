@@ -1,0 +1,36 @@
+#Prog Functional_ExportSystemReference_TSO( iPLMIDSet : #In PLMIDSet, oPLMIDSet : #Out PLMIDSet ) : VoidType
+{
+  let InputPLMIDSetRestrictedToRefs(PLMIDSet)
+  let SetOfFirstLevelAggregatedFctObjects(PLMRouteSet)
+  let SetOfAggregatedFctRepRef(PLMRouteSet)
+  let SetOfPLMRoutesForImplementLinks(PLMRouteSet)
+  let SetOfPLMRoutesForFunctionalPortMapping(PLMRouteSet)
+  let SetOfPLMRoutesForDocuments(PLMRouteSet)
+  let SetOfConfigObjectsPLMIDs(PLMIDSet)
+  let SetOfPLMParameters(PLMRouteSet)
+
+  InputPLMIDSetRestrictedToRefs = Restrict(iPLMIDSet,"RFLPLMFunctional/RFLPLMFunctionalReference")
+ 
+  /* FL aggregated objects (Connections, ports, instances (of all kind) and Rep Inst) */
+  SetOfFirstLevelAggregatedFctObjects = ExecutePLMFunction("RFLPLMFunctional","RFLPLMFunctionalReference_Aggregated1stLvlObjects",InputPLMIDSetRestrictedToRefs)
+  
+  /* Get functional aggregated Rep. */
+  SetOfAggregatedFctRepRef = ExecutePLMFunction("RFLPLMFunctional","RFLPLMFunctionalReference_RepAggregated",InputPLMIDSetRestrictedToRefs)
+   
+  /* Add implement Links connections (resp: MAD) */
+  SetOfPLMRoutesForImplementLinks = ExecutePLMFunction("RFLPLMImplementConnection","RFLPLMImplementConnection_AddAllImplementCnx",InputPLMIDSetRestrictedToRefs)
+
+  /* Add Connections for Functional Ports Mapping (resp: XRN) */
+  SetOfPLMRoutesForFunctionalPortMapping = ExecutePLMFunction("RFLPLMFunctionalConnectorMapping","RFLPLMFunctionalConnectorMapping_AllFctMappingCnx",InputPLMIDSetRestrictedToRefs)
+
+  /* Add PLMDocConnections without documents pointed by these PLMDocConnections (resp: MUT) */
+  SetOfPLMRoutesForDocuments = ExecutePLMFunction("PLMDocConnection","PLMDocConnection_retrieveAllConnections",InputPLMIDSetRestrictedToRefs)
+
+  /*Completes with configuration (resp: LOD)*/
+  SetOfConfigObjectsPLMIDs = ExecutePLMProcedure("Config_GetStructConfig",iPLMIDSet)
+  
+  /* Get AGGREGATED PLMParameters (resp: GMX)*/
+  SetOfPLMParameters = ExecutePLMFunction("PLMParameter", "PAR_nav_aggr_params", InputPLMIDSetRestrictedToRefs)
+  
+  oPLMIDSet = iPLMIDSet + Ids(SetOfFirstLevelAggregatedFctObjects) + Ids(SetOfAggregatedFctRepRef) + SetOfConfigObjectsPLMIDs + Ids(SetOfPLMRoutesForDocuments) +Ids(SetOfPLMRoutesForFunctionalPortMapping) + Ids(SetOfPLMRoutesForImplementLinks) + Ids(SetOfPLMParameters)
+}

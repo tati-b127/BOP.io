@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!-- Edited with Visual Studio 2005 by DASSAULT SYSTEMES (DASSAULT SYSTEMES) -->
+<!-- ENOVIA DICTIONARY -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2007, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" Name="CATAsmSymAbstract" CustomerExposition="Programmer" Uuid="28f0c86b-c130-47d8-a53a-0339af2d229c" UseNames="PLMCORE"
+   >
+   <Comment> Metadata historic :</Comment>
+   <Comment> Creation       18-07-2007 by YFZ</Comment>
+   <Comment> Modification   05-09-2008 by CRX</Comment>
+   <Comment> Modification   02-10-2008 by CRX</Comment>
+   <Comment> Modification   17-11-2009 by WEZ</Comment>
+   <Comment> Modification   04-16-2012 by EWN</Comment>
+	<!-- ABSTRACT ONES -->
+	<Class Name="AsmSymDiscipline" Uuid="039907d9-afca-4ab4-bfe3-522ad3bbe0e2" SuperName="PLMConnection" Abstract="Yes" CustomerExposition="Programmer" Specializable="No" >
+		<Method ImplementationType="AsFather">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+	</Class>   
+</Package>
+

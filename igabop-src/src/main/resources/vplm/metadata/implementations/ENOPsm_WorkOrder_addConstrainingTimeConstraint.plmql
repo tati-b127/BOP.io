@@ -1,0 +1,19 @@
+NAVIGATE 
+T0.PLMID, 
+T1.physicalid, 
+T1.logicalid, 
+T1.majorid, 
+T1.type, 
+T1.name
+FROM DELLmiProductionExecHeaderOperation/DELLmiExecHeaderOperationReference T0, RelationClass/DELLmiExecTimeConstraintRelation T1
+FROM_ROOTS [?1?]
+ON 
+((
+RELATION ( FROM=DELLmiProductionExecHeaderOperation/DELLmiExecHeaderOperationReference TO=RelationClass/DELLmiExecTimeConstraintRelation THROUGH=POINTEDBY ) WITH QUALITY_FILTER ( CATEGORY=ISINSTANCEOF ) 
+THEN RELATION ( FROM=RelationClass/DELLmiExecTimeConstraintRelation TO=DELLmiProductionExecHeaderOperation/DELLmiExecHeaderOperationReference THROUGH=POINTSTO ) WITH QUALITY_FILTER ( CATEGORY=ISOWNEDBY ) 
+))
+
+;
+
+
+

@@ -1,0 +1,148 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY FOR ComponentsFamily Application -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2007, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" CustomerExposition="Programmer"  Name="CATComponentsFamily" BelongsToModeler="CATComponentsFamily" Uuid="C53AA21A-4CEE-48a5-B710-8587E62B58BF" UseNames="PLMCORE"   >
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+  <CAAComment>
+    <ShortRole>Components Family Modeler Package</ShortRole>
+    <Role>This package contains meta datas of components family</Role>
+  </CAAComment>
+  <Comment>Creation 2007-05-29</Comment>
+
+  <!-- ******************************************* -->
+  <!-- *  CATComponentsFamilyReference (PLMCoreReference) * -->
+  <!-- ******************************************* -->
+  <Class Name="CATComponentsFamilyReference" CustomerExposition="Programmer" Uuid="4BF07425-B5A8-4354-A203-72C2AFD4CADA"  Abstract="No" SuperName="PLMCoreReference" DeleteAvailability="Yes" NewMajorRevisionAvailability="No" >
+    <Property Name="IconName"        Value="I_ComponentsFamily"/>
+    <Property Name="Searchable"      Value="Yes"/>
+    <Property Name="PQ_Attributes"   Value="V_Name PLM_ExternalID V_description V_user"/>
+    <CAAComment>
+      <ShortRole>Components Family Reference</ShortRole>
+      <Role>Components Family Reference</Role>
+    </CAAComment>
+    <Simple Name="E_fromExternalId" Uuid="f6ec5ae8-9586-4be1-b744-f93fb8c54a54" Type="String" MaxLength="256"   Protection="Free" CAAExposition="L0"/>
+    <Simple Name="E_versionComment" Uuid="46a0c6e9-f040-425b-8d27-d1713bb866ac" Type="String" MaxLength="256"   Protection="Free" CAAExposition="L0"  ResetOnNewVersion="Yes"  ResetOnCloning="Yes"/>
+    <Simple Name="V_CharacteristicsTitles" Uuid="4A3773B3-4678-4ac4-9273-F2282EA38B32"  Protection="Internal"  Type="String" MultiValuated="Yes" CollectionType="List"  PLMImpacting="No"/>
+    <Simple Name="V_NumberOfElements" Uuid="4400C815-487C-4496-85CF-BAA7AC8B133A" Protection="External"  Type="Integer"  CAAExposition="L0" Faceted="Yes">
+      <Property Name="SIXW" Value="ds6w:items"/>
+    </Simple>
+    <Simple Name="V_RevisionIndex" Uuid="FB66BED2-D202-4dfd-958A-6B8902677BDE" Protection="External" Type="Integer"  CAAExposition="L0"/>
+    <Simple Name="V_RevisionDate" Uuid="AA2C934D-36F6-4544-A00F-73ADBB24F8AA" Protection="External"  Type="Date"  CAAExposition="L0"/>
+    <Simple Name="V_DescriptionId" Uuid="90cdd8b4-2f0f-40ff-9fba-3a1f7bc30601" Protection="Internal"  Type="Integer"  />
+    <Simple Name="V_GenerationOption" Uuid="476d7b6b-3882-4276-9238-f0e2e650238b" Protection="Internal"  Type="Integer"  />
+    <Simple Name="V_FamilyType" Uuid="c5eb633b-5f66-4ae3-9282-a107a14a5687" Type="Integer" Protection="External" CAAExposition="L0" DefaultValue="1" Faceted="Yes">
+      <Property Name="SIXW" Value="ds6w:kind"/>
+      <Property Name="RangeAsEnumName" Value="CATComponentFamilyType"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="CATComponentFamilyStandard;CATComponentFamilyDesign"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+      </Range>
+    </Simple>
+    <!-- PROCEDURES Declaration  -->
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Design"/>
+        <UsedProcedure href="CFYpe_Procedures.proc#Cfy_ExportFamily"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Channel"/>
+        <UsedProcedure href="CFYpe_Procedures.proc#Cfy_ExportFamily"/>
+      </ProcedureForUsage>
+	  <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Remove"/>
+        <UsedProcedure href="CFYpe_Procedures.proc#Cfy_ExportFamily"/>
+      </ProcedureForUsage>
+	  <ProcedureForUsage>
+        <Usage href="ExportScope.meth#TransferSiteOwnership"/>
+        <UsedProcedure href="CFYpe_Procedures.proc#Cfy_ExportFamily"/>
+      </ProcedureForUsage>
+    </Method>
+
+  </Class>
+
+  <!-- **************************************** -->
+  <!-- * Components Family Connection To Generic Model (PLMConnection) * -->
+  <!-- **************************************** -->
+  <Class Name="CATComponentsFamilyGenericConnection" CustomerExposition="Programmer" Uuid="0A758F96-5AB2-44ce-B4A0-980221B8627E" Abstract="No" SuperName="PLMConnection"  >
+    <!-- * Per latest specs, derivation of PLMConnection is now authorized * -->
+    <CAAComment>
+      <ShortRole>Connection to the components family Generic Model</ShortRole>
+      <Role>Connection to the components family Generic Model</Role>
+    </CAAComment>
+    <Path Name="CATComponentsFamilyGeneric" Type="SemanticRelation" Uuid="A1215546-0180-4e6a-BC81-E9BB71083DE9"  MultiValuated="No" RoleName="Default" Semantics="Reference" AdaptativeToMinor="No"		SynchroSensitivity="None"		RerouteOnEffectivityChange="No"/>
+    <Path Name="CATComponentsFamilyParametric" Type="SemanticRelation" Uuid="110B7D17-D620-4d99-A758-5190157A5140" MultiValuated="No" RoleName="Default"  Semantics="Reference" AdaptativeToMinor="No" 		SynchroSensitivity="None" 		RerouteOnEffectivityChange="No"/>
+    <Path Name="CATComponentsFamilyGeneric2" Type="SemanticRelation" Uuid="16c9667f-40fe-4860-8493-b92938d35f18"  MultiValuated="No" RoleName="CFY_GenericModel" Semantics="Reference" AdaptativeToMinor="No" 		SynchroSensitivity="None" 		RerouteOnEffectivityChange="No"/>
+    <Path Name="CATComponentsFamilyParametric2" Type="SemanticRelation" Uuid="f2830fb2-27aa-4eb6-84ca-e2c41a6c2264"  MultiValuated="No" RoleName="CFY_GenericTable"  Semantics="Reference" AdaptativeToMinor="No"		SynchroSensitivity="None"		RerouteOnEffectivityChange="No"/>
+    <Path Name="CATComponentsFamilyVariableParameters" Type="SemanticRelation" Uuid="75a81127-4818-455e-9483-67602f9e3ce9"  MultiValuated="Yes" RoleName="CFY_OverriddenParameters" Semantics="Reference" 	AdaptativeToMinor="No" 		SynchroSensitivity="None" 		RerouteOnEffectivityChange="No"/>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+  <!-- ***************************************** -->
+  <!-- * Components Family RepRef (PLMCoreRepReference) * -->
+  <!-- ***************************************** -->
+  <Class Name="CATComponentsFamilyRepresentation" CustomerExposition="Programmer"  Uuid="C52189A4-BB4C-4087-BDF0-4281BAE89BF6"   Abstract="No" SuperName="PLMCoreRepReference"  CreateInstName="CATComponentsFamilyRepInstance" >
+    <CAAComment>
+      <ShortRole>Components family representation. Contains various information not to be PLM exposed</ShortRole>
+      <Role>Components family representation. Contains various information not to be PLM exposed</Role>
+    </CAAComment>
+    <Property Name="Searchable"      Value="No"/>
+    <Simple Name="E_fromExternalId" Uuid="ac871784-f936-4501-bd38-c446c5cd3d6d"  Type="String" MaxLength="256"  Protection="Free" CAAExposition="L0"/>
+    <Simple Name="E_versionComment" Uuid="e2eac4d4-5c27-49da-ba9b-e20279123ea0"  Type="String" MaxLength="256"  Protection="Free" CAAExposition="L0"  ResetOnNewVersion="Yes"  ResetOnCloning="Yes"/>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+  <UniqueKey Name="CATComponentsFamilyRepUK"
+       Uuid="0f647b6d-1551-42b2-af22-f6af9d0b0683"
+       ClassName="CATComponentsFamilyRepresentation"
+       AttributeNames="PLM_ExternalID" />
+
+  <!-- *************************************** -->
+  <!-- * Components Family RepInst (PLMCoreRepInstance) * -->
+  <!-- *************************************** -->
+  <RelationClass Name="CATComponentsFamilyRepInstance" CustomerExposition="None" Uuid="4F2FDCE7-57DC-4ee5-ADB5-302C5DEBB533"  Abstract="No" SuperName="PLMCoreRepInstance"  >
+    <CAAComment>
+      <ShortRole>Components Family Rep Instance</ShortRole>
+      <Role>Components Family Rep Instance</Role>
+    </CAAComment>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </RelationClass>
+
+  <!-- ******************************* -->
+  <!-- FUNCTIONS Declarations : PLMQL  -->
+  <Function Name="cfy_expand_repref">
+    <Implementation Name="cfy_expand_repref" FileLocation="cfy_expand_repref.plmql" Language="PLMQL"/>
+    <Signature href="CATComponentsFamilySignature"/>
+  </Function>
+  <Function Name="cfy_navigate_genericmodel">
+    <Implementation Name="cfy_navigate_genericmodel" FileLocation="cfy_navigate_genericmodel.plmql" Language="PLMQL"/>
+    <Signature href="CATComponentsFamilySignature"/>
+  </Function>
+  <Function Name="cfy_navigate_genericmodel_rep">
+    <Implementation Name="cfy_navigate_genericmodel_rep" FileLocation="cfy_navigate_genericmodel_rep.plmql" Language="PLMQL"/>
+    <Signature href="CATComponentsFamilySignature"/>
+  </Function>
+  <Function Name="cfy_navigate_resolveditems">
+    <Implementation Name="cfy_navigate_resolveditems" FileLocation="cfy_navigate_resolveditems.plmql" Language="PLMQL"/>
+    <Signature href="CATComponentsFamilySignature"/>
+  </Function>
+  <Function Name="cfy_navigate_connection_item">
+    <Implementation Name="cfy_navigate_connection_item" FileLocation="cfy_navigate_connection_item.plmql" Language="PLMQL"/>
+    <Signature href="CATComponentsFamilySignature"/>
+  </Function>
+
+  <Signature id="CATComponentsFamilySignature">
+    <Parameter Name="InputIds" Lower="0" Upper="-1" Direction="in" MultiValuated="Yes" DataType="PLMId"/>
+    <Parameter Name="OutputIds" Lower="0" Upper="-1" Direction="out" MultiValuated="No" DataType="PLMRouteSet"/>
+  </Signature>
+  <!-- ******************************* -->
+</Package>

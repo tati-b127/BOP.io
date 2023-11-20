@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" Name="DELLmiProductionPickingOperationDS" Uuid="29801F6C-ABCB-4F0A-A2C7-5728B9B7CB40" UseNames="DELLmiProductionPickingOperation" >
+<Property Name="OptionalInstallation" Value="Yes" /> 
+	<CAAComment>
+		<ShortRole>Standard DELMIA Picking Operation Package</ShortRole>
+		<Role>This package includes default customized DELMIA Loading Operation</Role>
+	</CAAComment>
+	<Comment>last update 2017-09-04</Comment>
+
+	<Class Name="DELLmiPickingOperationReferenceCusto" Uuid="136301AA-2119-4798-A31F-1EABC7A48DE2" SuperName="DELLmiPickingOperationReference"  >
+
+    <IdentifierSet Name="Identifier"
+        Uuid="99529245-5952-4898-86E9-AC3E7013668A"
+        IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755"
+        IdentifierNames="PLM_ExternalID V_version" />
+
+    <CAAComment>
+			<ShortRole>Standard DELMIA Picking Operation Reference</ShortRole>
+			<Role>Default customized DELMIA Picking Operation Reference</Role>
+		</CAAComment>
+	</Class>
+
+  <RelationClass Name="DELLmiPickingOperationInstanceCusto" Uuid="772CDF1E-5090-4CF8-B108-F9763B386267" SuperName="DELLmiPickingOperationInstance"  >
+		<CAAComment>
+			<ShortRole>Standard DELMIA Picking Operation Instance</ShortRole>
+			<Role>Default customized DELMIA Picking Operation Instance</Role>
+		</CAAComment>		
+            <!-- ********************************************************* -->
+            <!-- * Overload(s) of PLMCoreInstance attributes. -->
+            <!-- ********************************************************* -->
+    <SubClause Name="to"   TargetName="DELLmiPickingOperationReferenceCusto"/>
+	</RelationClass>
+
+</Package>

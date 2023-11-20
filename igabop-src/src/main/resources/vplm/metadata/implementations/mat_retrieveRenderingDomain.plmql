@@ -1,0 +1,27 @@
+EXPAND 
+
+     T0.PLM_ExternalID, T1.PLM_ExternalID ,T2.PLM_ExternalID ,
+     T0.PLMID, T1.PLMID ,T2.PLMID 
+
+FROM
+
+     CATMaterialRef/CATMatReference T0,
+
+     CATMaterialRef/MaterialDomainInstance T1,
+
+     CATMaterialRef/MaterialDomain T2
+
+FROM_ROOTS[?1?]
+
+WITH ATTRIBUTE_FILTER T2.V_discipline='dsc_matref_rep_Rendering' ITER=1;
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2006, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" Name="PLMPosSettingsEnvironment" Uuid="78C461AC-4399-A25A-6E675C99BA51B710" UseNames="PLMPosResource" CustomerExposition="Programmer" >
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+  <UniqueKey Name="PLMPosSettingsEnvironmentRefUK" Uuid="1DBF0347-DCC9-4094-A59FD589DED11DD7" ClassName="PLMPosSettingsEnvironmentRef" AttributeNames="PLM_ExternalID" />
+	<Class Name="PLMPosSettingsEnvironmentRef"  Uuid="518C5DF4-F136-4C48-8B458F8769581649" Abstract="No" SuperName="PLMPosResourceRef" CreateInstName="PLMPosSettingsEnvironmentInst" CustomerExposition="Programmer" >
+    <Property Name="Searchable" Value="No"/>
+    <Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+	</Class>
+  <RelationClass Name="PLMPosSettingsEnvironmentInst" Uuid="91EA49FA-B8CE-423F-B9A2801DC8786835" Abstract="No" SuperName="PLMPosResourceInst" CustomerExposition="Programmer" >
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <SubClause Name="from"   TargetName="PLMPosResourceCoreRef"/>
+    <SubClause Name="to"   TargetName="PLMPosSettingsEnvironmentRef"/>
+  </RelationClass>
+
+</Package>

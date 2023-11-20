@@ -1,0 +1,14 @@
+EXPAND 
+
+T0.PLM_ExternalID ,T1.PLM_ExternalID, T0.PLMID ,T1.PLMID
+
+
+FROM   SWXSketchMechanismModeler/SWXSketchMechanismRepresentation T0, SWXSketchMechanismModeler/SWXSketchMechanismRepresentation T1
+
+
+FROM_ROOTS  [?1?]
+
+
+ITER=1;
+
+

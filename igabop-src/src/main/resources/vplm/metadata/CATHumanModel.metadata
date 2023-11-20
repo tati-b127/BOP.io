@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2007 (http://www.altova.com) by DASSAULT SYSTEMES (DASSAULT SYSTEMES) -->
+<!-- ENOVIA DICTIONARY -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2013, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" 
+		 BelongsToModeler="CATHumanModel" 
+		 ModelerType="Top" 
+		 Name="CATHumanModel" 
+		 Uuid="CB58568D-19BF-4417-A897-8B81E480874B" 
+		 UseNames="PLMCORE" 
+		 CustomerExposition="Programmer">
+
+  <!--************************************************-->
+  <!--Human Representation Reference-->
+  <!--************************************************-->
+  <Class Name="HumanRepReference"
+		 Uuid="0FC4873C-5BB7-4E01-8C0F-F2CCCDC538EE"
+		 SuperName="PLMCoreRepReference"
+		 Abstract="No"
+		 CAAExposition="L1"
+		 CustomerExposition="Programmer"
+		 Discipline="No" 
+		 Specializable="No" 
+		 CustomerExtensible="No">
+	  <Property Name="NewMajorRevisionAvailability"  Value="Yes"/>
+      <Property Name="ChangeMaturityAvailability"    Value="Yes"/>
+      <Property Name="DeleteAvailability"            Value="Yes"/>
+      <Property Name="LockUnlockAvailability"        Value="Yes"/>
+      <Property Name="TransferOwnershipAvailability" Value="Yes"/>
+      <Property Name="DuplicateAvailability"         Value="Yes"/>
+      <Property Name="EditPropertiesAvailability"    Value="Yes"/>
+      <Property Name="SaveAsNewAvailability"         Value="Yes"/>
+      <Property Name="EvolutionAvailability"         Value="No"/>
+      <Property Name="NewMinorRevisionAvailability"  Value="No"/>
+      <Property Name="Searchable"                    Value="No"/>
+      <Property Name="Newable"                       Value="New"/>
+      <Property Name="IconName"                      Value="I_CATCreativeHumanPLMNew"/>
+      <Property Name="3DIconName"                    Value="I_CATIdeaHumanRep.cgr"/>
+      <Property Name="Configurable"                  Value="No" />
+      <Property Name="Filtrable"                     Value="No" />
+      <Property Name="KweNew_InstanciationMethod"    Value="CATHumanReferenceDelegateInstanciation"/>
+      <Method ImplementationType="None">
+        <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      </Method>
+  </Class>
+  
+  <!--************************************************-->
+  <Class Name="HumanBehaviorRep"
+		 Uuid="F5FBD9A5-4863-43AD-873B-1A2267F20745"
+		 SuperName="PLMCoreRepReference"
+		 Abstract="No"
+		 CAAExposition="L1"
+		 CustomerExposition="Programmer"
+		 Discipline="No" 
+		 Specializable="No" 
+		 CustomerExtensible="No"> 
+      <Property Name="TransferOwnershipAvailability" Value="Yes"/> 
+      <Property Name="EvolutionAvailability"         Value="No"/>
+      <Property Name="NewMinorRevisionAvailability"  Value="No"/>
+      <Property Name="Configurable"                  Value="No" />
+      <Property Name="Filtrable"                     Value="No" /> 
+	  <Property Name="IconName"                      Value="I_CATIdeaHumanRep32"/>
+      <Method ImplementationType="None">
+        <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      </Method>
+  </Class>
+  
+    
+  <!--************************************************-->
+  <Class Name="HumanResourceRep"
+		 Uuid="32194661-2B40-4919-A096-71AC6DECD95C"
+		 SuperName="PLMCoreRepReference"
+		 Abstract="No"
+		 CAAExposition="L1"
+		 CustomerExposition="Programmer"
+		 Discipline="No" 
+		 Specializable="No" 
+		 CustomerExtensible="No"> 
+      <Property Name="TransferOwnershipAvailability" Value="Yes"/> 
+      <Property Name="EvolutionAvailability"         Value="No"/>
+      <Property Name="NewMinorRevisionAvailability"  Value="No"/>
+      <Property Name="Configurable"                  Value="No" />
+      <Property Name="Filtrable"                     Value="No" /> 
+	  <Property Name="IconName"                      Value="I_CATIdeaHumanRep32"/>
+      <Method ImplementationType="None">
+        <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      </Method>
+  </Class>
+  
+  <!--************************************************-->
+  <Class Name="HumanSkeletonRep"
+		 Uuid="65CBF28A-1DB9-42D1-94BF-9B8E2B161C32"
+		 SuperName="PLMCoreRepReference"
+		 Abstract="No"
+		 CAAExposition="L1"
+		 CustomerExposition="Programmer"
+		 Discipline="No" 
+		 Specializable="No" 
+		 CustomerExtensible="No"> 
+      <Property Name="TransferOwnershipAvailability" Value="Yes"/> 
+      <Property Name="EvolutionAvailability"         Value="No"/>
+      <Property Name="NewMinorRevisionAvailability"  Value="No"/>
+      <Property Name="Configurable"                  Value="No" />
+      <Property Name="Filtrable"                     Value="No" /> 
+	  <Property Name="IconName"                      Value="I_CATIdeaHumanRep32"/>
+      <Method ImplementationType="None">
+        <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      </Method>
+  </Class>
+</Package>

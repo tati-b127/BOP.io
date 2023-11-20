@@ -1,0 +1,77 @@
+#Prog VPMEditor_GetChannelCompletionOnReference (iPLMIDSet :  #In PLMIDSet,oPLMIDSet :  #Out PLMIDSet) : VoidType
+ { 
+let PLMRouteSet1(PLMRouteSet)
+let PLMRouteSet2(PLMRouteSet)
+let PLMRouteSet3(PLMRouteSet)
+let PLMRouteSet4(PLMRouteSet)
+let PLMRouteSet5(PLMRouteSet)
+let PLMRouteSet6(PLMRouteSet)
+let PLMRouteSet7(PLMRouteSet)
+let PLMRouteSet8(PLMRouteSet)
+let PLMRouteSet9(PLMRouteSet)
+let PLMRouteSet10(PLMRouteSet)
+let PLMRouteSet11(PLMRouteSet)
+let PLMRouteSet12(PLMRouteSet)
+let rsXCADRepRepInst(PLMRouteSet)
+
+let PLMIDSet1 (PLMIDSet)
+let PLMIDSet1Rep (PLMIDSet)
+let PLMIDSetRestricted(PLMIDSet)
+let PLMIDSetRestrictedRep(PLMIDSet)
+let PLMIDSet_Config (PLMIDSet)
+
+PLMIDSetRestricted = Restrict(iPLMIDSet, "PRODUCTCFG/VPMReference")
+PLMIDSetRestrictedRep = Restrict(iPLMIDSet, "PRODUCTCFG/VPMRepReference")
+
+/*Completes with all VPM Representations(except NavRep), VPMPorts and VPMConnections*/
+PLMRouteSet1 = ExecutePLMFunction("PRODUCTCFG", "ProductCfg_AddVPMRepsPortsAndConnections_PLMChannel", PLMIDSetRestricted)
+PLMIDSet1 = Ids(PLMRouteSet1)
+
+/* To take into accound input Reps and PLMRouteSet1 result */
+PLMIDSet1Rep = PLMIDSetRestrictedRep + Restrict(PLMIDSet1, "PRODUCTCFG/VPMRepReference")
+
+/*Completes with all PrivateRep pointing a VPMReference*/ 
+PLMRouteSet7 = ExecutePLMFunction("PRODUCTCFG", "ProductCfg_AddLPPrivateRepForReference", PLMIDSetRestricted)
+
+/* Completes with XCADRepRepInsts */
+rsXCADRepRepInst = ExecutePLMFunction("XCADAssembly", "XcadAssembly_ExpandVPMRefToXCADRepRepInst", PLMIDSetRestricted)
+
+/* Completes with Ports on Reps */
+PLMRouteSet2 = ExecutePLMFunction("PRODUCTCFG", "ProductCfg_AddVPMPorts", PLMIDSet1Rep)
+
+/*Completes with Implement Link connections */
+PLMRouteSet3 = ExecutePLMFunction("RFLPLMImplementConnection", "RFLPLMImplementConnection_AddAllImplementCnx", PLMIDSetRestricted )
+
+/* Completes with Material*/
+PLMRouteSet4 = ExecutePLMFunction("CATMaterial", "mat_retrieveMatCnxUnderProduct", PLMIDSetRestricted)
+
+/*Completes with Engineering Connections */
+PLMRouteSet5 = ExecutePLMFunction("CATMCXAssembly", "CATMCXAssembly_AddAllAggregatedMCX", PLMIDSetRestricted)
+
+/* Completes with Symmetry */
+PLMRouteSet6 = ExecutePLMFunction("CATAsmSymGeo", "CATAsmSymObj_AddAllSymObj", PLMIDSetRestricted)
+
+/*Completes with PVS Connections */
+PLMRouteSet8 = ExecutePLMFunction("PLMWspSpecFilter", "PLMWspSpecFilter_AddAllAggregatedSpecPVS", PLMIDSetRestricted)
+
+
+/*Completes with Documents Connections */
+PLMRouteSet9 = ExecutePLMFunction("PLMDocConnection", "PLMDocConnection_retrieveAllConnections", PLMIDSetRestricted)
+
+/*Completes with Piping Connections */
+PLMRouteSet10 = ExecutePLMFunction("PLMEnsGrouping", "PLMEnsGrouping_AddGrouping", PLMIDSetRestricted)
+
+/*Completes with configuration */
+PLMIDSet_Config = ExecutePLMProcedure("Config_GetStructConfig", iPLMIDSet)
+
+/*Completes with Logical/Physical Connection */
+PLMRouteSet11 = ExecutePLMFunction("PLMLSRRouteConnection", "PLMLSRRouteConnection_AddLsrCnx", PLMIDSetRestricted)
+
+/*Completes with LPBehaviorMapping connections */
+PLMRouteSet12 = ExecutePLMFunction("LPBehaviorMapping", "LPBehaviorMappingConnection_AddAll", PLMIDSetRestricted)
+
+
+oPLMIDSet = iPLMIDSet + PLMIDSet1 + Ids(PLMRouteSet2) + Ids(PLMRouteSet3) + Ids(PLMRouteSet4) + Ids(PLMRouteSet5) 
+			+ Ids(PLMRouteSet6)+ Ids(PLMRouteSet7) + Ids(rsXCADRepRepInst) + Ids(PLMRouteSet8) + Ids(PLMRouteSet9) + Ids(PLMRouteSet10) + PLMIDSet_Config
+			+ Ids(PLMRouteSet11) + Ids(PLMRouteSet12)
+}

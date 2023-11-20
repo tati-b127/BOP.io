@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2004, All rights reserved -->
+
+<!-- History
+    V6R2010 Added Procedures & Functions for Export
+-->
+
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" Name="PLMConfigRule"
+    Uuid="EE378DF3-A35A-443A-8DC4406047E1CA1E"
+    UseNames="PLMConfigExpression"
+    BelongsToModeler="Configuration"
+    CustomerExposition="Programmer"
+        
+	>
+
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+  <CAAComment>
+    <ShortRole>The Rule Configuration Component Metadata.</ShortRole>
+    <Role>This package includes all the entities of Rule Configuration Model.</Role>
+  </CAAComment>
+
+  <!-- ************************* -->
+  <!-- ABSTRACT CLASS PLMCfgRule -->
+  <!-- ************************* -->
+
+  <Class Name="PLMCfgRule"
+      Uuid="f6cbacbc-c3a4-4eff-bb48743b0bc3dd0d"
+      SuperName="PLMCfgExpression"
+      CustomerExposition="Programmer"
+        >
+
+    <CAAComment>
+      <ShortRole>Abstract rule.class</ShortRole>
+      <Role>Abstract rule.class</Role>
+    </CAAComment>
+
+    <!-- Overloaded Attributes -->
+
+    <!-- New Attributes -->
+
+    <Simple Name="V_RuleType" Uuid="5107a388-a716-4263-97333a54b36ed48f" Type="Integer" Protection="External" CAAExposition="L0" DefaultValue="1">
+      <Property Name="RangeAsEnumName" Value="PLMCfgRuleType"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="INVARIANT;CONTEXTUAL"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+      </Range>
+    </Simple>
+
+    <!-- *********************** -->
+    <!-- PROCEDURES Declaration  -->
+    <!-- *********************** -->
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+  </Class>
+
+</Package>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2011, All rights reserved -->
+
+<!-- History
+    V6R2012x Created
+-->
+
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" Name="VPMCfgCoreExpression"
+    Uuid="88863764-4CC3-4463-8F1BD50F3CA1BAFE"
+    UseNames="PLMCORE"
+    BelongsToModeler="Configuration"
+    CustomerExposition="Programmer">
+
+  <CAAComment>
+    <ShortRole>The Configuration Basic Expression Metadata.</ShortRole>
+    <Role>This package includes the abstract entity VPMCfgCoreExpression for core configuration expression definition.</Role>
+  </CAAComment>
+
+  <!-- *********************************** -->
+  <!-- Abstract Class VPMCfgCoreExpression -->
+  <!-- *********************************** -->
+
+  <Class Name="VPMCfgCoreExpression"
+      Uuid="B3F2BB3F-D233-4bc8-940DA23B01FEF141"
+      SuperName="PLMConnection"
+      Abstract="Yes"
+      CustomerExposition="Programmer"
+      Specializable="No"
+      CustomerExtensible="No">
+
+    <CAAComment>
+      <ShortRole>The VPMCfgCoreExpression.class</ShortRole>
+      <Role>The VPMCfgCoreExpression.class</Role>
+    </CAAComment>
+
+    <!-- ********************** -->
+    <!-- Attributes declaration -->
+    <!-- ********************** -->
+
+    <Simple Name="V_Expression"
+        Uuid="9AEC659B-2AB7-4de6-8723113145829CC7"
+        Type="Binary"
+        MaxLength="20000"
+        MultiValuated="No"
+        PLMImpacting="Yes"
+        Protection="Internal">
+    </Simple>
+
+    <!-- **************************** -->
+    <!-- Path declaration -->
+    <!-- **************************** -->
+
+    <Path Name="V_ExpressionCriteria"
+        Uuid="568F02E0-477D-43d0-AB0586A30B0E8CC1"
+        MultiValuated="Yes"
+        Lower="0"
+        Upper="-1"
+        RoleName="CFG_ExpressionCriteria" Type="SemanticRelation" AdaptativeToMinor="No"
+		SynchroSensitivity="None"
+		RerouteOnEffectivityChange="No"
+        Semantics="Reference"/>
+
+    <Path Name="V_ExpressionImpactingCriteria"
+        Uuid="BC26A20B-7AA2-4d8a-863490508A386A9D"
+        MultiValuated="Yes"
+        Lower="0"
+        Upper="-1"
+        RoleName="CFG_ExpressionImpactingCriteria"	Type="SemanticRelation" AdaptativeToMinor="No"
+		SynchroSensitivity="Last"
+		RerouteOnEffectivityChange="No" Orientation="In"
+        Semantics="Reference4"/>
+
+    <Path Name="V_CriteriaModel"
+        Uuid="2B697735-7092-41bc-B4EBE31A6529E696"
+        MultiValuated="Yes"
+        Lower="0"
+        Upper="-1"
+        RoleName="CFG_CriteriaModel"
+		Type="SemanticRelation" AdaptativeToMinor="No"
+		SynchroSensitivity="None"
+		RerouteOnEffectivityChange="No"
+        Semantics="Reference"/>
+
+    <!-- ********************** -->
+    <!-- Procedures declaration -->
+    <!-- ********************** -->
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+  </Class>
+
+</Package>
+
+

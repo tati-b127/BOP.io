@@ -1,0 +1,34 @@
+NAVIGATE
+T0.PLMID, T0.PLM_ExternalID,
+T1.PLMID, T1.PLM_ExternalID,
+T2.PLMID, T2.PLM_ExternalID
+
+FROM
+PLMPIMInterfere/PLMPIMMetricReference T0,
+PLMPIMInterfereBis/PLMPIMMetricFromSCAToOccurences T1,
+SIMItfInterfere/SIMItfContextOfInterference T2
+
+FROM_ROOTS [?1?]
+
+ON 
+(
+	RELATION
+	(
+		FROM=SIMItfInterfere/SIMItfContextOfInterference
+		TO=PLMPIMInterfere/PLMPIMMetricReference
+		THROUGH=POINTSTO
+	)
+)
+THEN
+(
+	(
+		RELATION
+		(
+			FROM=PLMPIMInterfere/PLMPIMMetricReference
+			TO=PLMPIMInterfereBis/PLMPIMMetricFromSCAToOccurences
+			THROUGH=POINTEDBY
+		)
+		WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY)
+	)
+);
+

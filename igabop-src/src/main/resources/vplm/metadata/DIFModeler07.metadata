@@ -1,0 +1,101 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY FOR DIFModeler07                    -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2010, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified"
+         ModelerType="Top"
+         Name="DIFModeler07"
+         Uuid="AECC1DED-C933-47CA-AA79-5C0848710A59"
+         UseNames="PLMCORE DIFStandard"
+         BelongsToModeler="DIFModeler01"
+         CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>DIF modeler Package (part 7)</ShortRole>
+    <Role>This package describes the DIF model built on top of PLM Core2</Role>
+  </CAAComment>
+
+  <Comment>last update 2012-03-27-14.00.00</Comment>
+
+  <!-- DIFModeler07 provides :                                 -->
+  <!-- DIFSymbolRefStream             PLMCoreRepReference      -->
+  <!-- DIFSymbolRefStreamInstance     PLMCoreRepInstance       -->
+
+  <!-- ********************************************** -->
+  <!-- * DIFSymbolRefStream (PLMCoreRepReference)   * -->
+  <!-- ********************************************** -->
+  <Class Name="DIFSymbolRefStream"
+         Uuid="75A5EE73-8022-4F82-BC12-713E6A0AAEDB"
+         Abstract="No"
+         CreateInstName="DIFSymbolRefStreamInstance"
+         SuperName="PLMCoreRepReference"
+         CustomerExposition="Programmer"
+         Specializable="Yes">
+
+    <CAAComment>
+      <ShortRole>DIF SymbolRefs Representation Reference Object</ShortRole>
+      <Role>DIF SymbolRefs Representation Reference Object</Role>
+    </CAAComment>
+
+    <!-- Simples -->
+    <Simple Name="V_DIFStandardClass" Uuid="62FA7A02-FD1D-4A59-9BAA-E6BCE81F4B59" Type="Integer" Protection="Internal" DefaultValue="1">
+      <Property Name="RangeAsEnumName" Value="DIFStandard.DIFStandardClass"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="ISO;ASME;JIS"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+      </Range>
+    </Simple>
+
+    <Simple Name="V_DIFStandardVersion"
+            Uuid="1800566F-F79C-443D-9F50-B603D4ED5A24"
+            Type="Integer"
+            DefaultValue="0"
+            Protection="Internal"/>
+
+    <!-- PLM New UI/KWE Scripts New -->
+    <Property Name="KweNew_InstanciationMethod" Value="CATDifKBEDelegateInstanciation"/>
+
+    <!-- Advanced search -->
+    <Property Name="Searchable" Value="Yes"/>
+
+    <!-- Export -->
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+  </Class>
+
+  <!-- *************************************************** -->
+  <!-- * DIFSymbolRefStreamInstance (PLMCoreRepInstance) * -->
+  <!-- *************************************************** -->
+  <RelationClass Name="DIFSymbolRefStreamInstance"
+         Uuid="C87E95AE-8B16-476D-BE7B-2146EA187FC5"
+         Abstract="No"
+         SuperName="PLMCoreRepInstance"
+         CustomerExposition="Programmer"
+         Specializable="Yes">
+
+    <CAAComment>
+      <ShortRole>DIF SymbolRefs Representation Instance Object</ShortRole>
+      <Role>DIF SymbolRefs Representation Instance Object</Role>
+    </CAAComment>
+
+    <!-- PLM New UI/KWE Scripts New -->
+    <Property Name="KweNew_InstanciationMethod" Value="CATDifKBEDelegateInstanciation"/>
+
+    <!-- Advanced search -->
+    <Property Name="Searchable" Value="No"/>
+
+    <!-- Export -->
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+    <SubClause Name="from"   TargetName="PLMCoreReference"/>
+    <SubClause Name="to"   TargetName="DIFSymbolRefStream"/>
+
+  </RelationClass>
+
+</Package>

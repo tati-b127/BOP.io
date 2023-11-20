@@ -1,0 +1,588 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY for Ens Logical extensions -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2009, all rights reserved -->
+
+<!-- 
+   =========
+    Package
+   =========
+   xmlns :           Type of model defined. "PLMDictionaryTop", "PLMDictionaryAbstract", "Core", "Custo".
+   ModelerType :     Type of model defined. "Top", "Abstract", "Core", "Custo".  
+   Alias :           Other name for the object. To be removed.
+   UseNames :        Other dictionaries required to define class derivation or extension.
+   UseScopes :       Other dictionaries required to define relationships between entities.
+   ExpositionLevel : "CAA" for all RFLVPM dictonaries, none for FluidSystemsLogical.
+-->
+<Package Name="PLMEnsLogical"
+   Uuid="9a83d051-3510-4d63-81bc-49e80010c23c"
+   xmlns="PLMDictionaryUnified"
+   ModelerType="Top"
+   UseNames="RFLVPMLogical PRODUCTCFG"
+   CustomerExposition="Programmer">
+
+	<CAAComment>
+		<ShortRole>Equipment Logical Package</ShortRole>
+		<Role>This package describes the PLM Ens Logical model on top of RFLVPMLogical Modeler.</Role>
+	</CAAComment>
+	<Comment>Initial creation: LOK JRI Apr 2009</Comment>
+	<Comment>[V6R2013x] New Typing project: ZTB Apr 2012</Comment>
+	<Comment>[V6R2015x] Add Instances Specialization: JRI Apr 2014</Comment>
+	<Comment>[V6R2017x] Add EnsLoop EnsInCLogicalComponent EnsInCLogicalRoute: JRI march 2016</Comment>
+
+	<!-- 
+   ===================
+    Generic equipment
+   ===================
+   Alias :        Other name for the object. To be removed. 
+   Persistent :   The object is persistent in the database.
+   ScopeNames :	Class to extend.
+   ScopeRefs :    Class to extend (Uuid).
+   Protection :   "External" : totally free and optional.
+                  "Free" : DS Modeler required, free generic edition.
+                  "External" : DS Modeler required, external visibility, API edition.
+                  "ExternalRO" : DS Modeler required, external visibility, but no API edition.
+                  "Internal" : DS modeler required, pure internal, but API edition possible.
+                  "InternalRO" : DS modeler required, pure internal, no API edition.
+                  "Private" : totally private attribute (server implementation).
+   Visibility :   "Public"
+   CAAExposition :"L0" : not in 3DXML for review.
+                  "L1" : goes to 3DXML for review.	
+                  (for "Free" and "External" protection only)
+   ClientEditability : "RW" (read/write), "RO" (read-only). 
+                       (not applicable to 3DXML)
+   Magnitude :    Type of parameter, used for formatting.
+-->
+	<Class Name="EnsLogicalEquipment"
+		 Uuid="4f56043c-f634-4511-a65a-dfbef4437066"
+		 Abbreviation="leqt"    
+		 CustomerExposition="Programmer"
+		 SuperName="RFLVPMLogicalReference"
+		 Discipline="Yes"
+		 Specializable="Yes"
+		 CustomerExtensible="Yes"
+		 CreateInstName="EnsLogicalEquipmentInst">
+		<Property Name="MergedExtensionType" Value="PLMEnsLogicalEquipment"/>
+		<Property Name="TypeForDisciplineValuation" Value="EnsLogicalEquipment"/>
+    <Property Name="GroupingType"               Value="EnsLogicalEquipment"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEnsLogicalInstanciation"/>
+		<Property Name="KweNew_ReturnedType" Value="EnsLogicalEquipmentInst"/>
+		<Property  Name="Searchable" Value="Yes"/>
+		<Property Name="PQ_Attributes" Value="PLM_ExternalID V_description V_user V_discipline|EQ|EnsLogicalEquipment"/>
+		<Property Name="IconName" Value="I_EnsLogicalEquipment"/>
+		<Property Name="Newable" Value="All"/>
+		<Property Name="OccurrenceType" Value="LogicalEquipmentOcc"/>
+		<Simple Name="V_Ens_SubType"
+			Uuid="563b3c45-90fc-46d2-b5a7-bf26168fece6"
+			Type="String"
+			MaxLength="100"
+			MultiValuated="No"
+			Protection="Free"
+			CAAExposition="L0" >
+			<Property Name="Controller" 
+                Value="CATEnsLogicalAttributeController"/>
+		</Simple>
+		<Simple Name="V_Ens_PredefinedPartNumber"
+			Uuid="f91fef55-6c4e-4408-84c9-43e7c2177d8d"
+			Type="String"
+			MaxLength="100"
+			MultiValuated="No"
+			Protection="Free"
+			CAAExposition="L0" >
+			<Property Name="Controller" 
+                Value="CATEnsLogicalAttributeController"/>
+		</Simple>
+		<Simple Name="V_Ens_PredefinedPartType"
+			Uuid="ded62f7a-0a4a-4c62-84b4-81fcf8b82f1a"
+			Type="String"
+			MaxLength="100"
+			MultiValuated="No"
+			Protection="Free"
+			CAAExposition="L0" >
+			<Property Name="Controller" 
+                Value="CATEnsLogicalAttributeController"/>
+		</Simple>
+		<Volatile Name="V_Elec_NbConnectorPorts"
+			Uuid="1f1434fc-636a-4a24-ac3f-515aca6fecef"
+			Accessor="CATElecLogicalCkeAttributes"
+			TypeName="Integer"
+			AccessMode="ReadOnly" />
+		<Volatile Name="V_Elec_NbPins"
+			Uuid="3eb1b9d4-4266-4c94-ac04-a6caeb1a88bc"
+			Accessor="CATElecLogicalCkeAttributes"
+			TypeName="Integer"
+			AccessMode="ReadOnly" />
+		<Volatile Name="V_Elec_Ports"
+			Uuid="75eb0552-2ac2-4ed1-883c-a23b414a4c8d"
+			Accessor="CATElecLogicalCkeAttributes"
+			TypeName="List"
+			AccessMode="ReadOnly" />
+		<CAAComment>
+			<ShortRole>PLM Logical Ens Equipment Object</ShortRole>
+			<Role>PLM Logical Ens Equipment Object</Role>
+		</CAAComment>
+	</Class>
+
+	<Extension Name="PLMEnsLogicalEquipment"
+		Uuid="f5b0b96c-d45e-4395-8156-c361c7f00fcf"
+		ScopeNames="RFLVPMLogicalReference"
+		CustomerExposition="Programmer"
+		CAAExposition="L0" >
+		<Property Name="KweNew_InstanciationMethod" Value="CATEnsLogicalInstanciation"/>
+		<Property Name="KweNew_ReturnedType" Value="RFLVPMLogicalInstance"/>
+		<Property Name="OccurrenceType" Value="LogicalEquipmentOcc"/>
+		<Simple Name="V_Ens_SubType"
+		   Uuid="d1569be3-de80-47cb-9cae-059efe3abd98"
+		   Type="String"
+		   MaxLength="100"
+		   MultiValuated="No"
+		   Protection="Free"
+		   CAAExposition="L0" >
+      <Property Name="Controller" 
+                Value="CATEnsLogicalAttributeController"/>
+    </Simple>
+		<Simple Name="V_Ens_PredefinedPartNumber"
+		   Uuid="df8ee706-eef3-4dbb-96e1-6df062380d55"
+		   Type="String"
+		   MaxLength="100"
+		   MultiValuated="No"
+		   Protection="Free"
+		   CAAExposition="L0" />
+		<Simple Name="V_Ens_PredefinedPartType"
+		   Uuid="d5864045-487a-4613-bc99-0f00b739361b"
+		   Type="String"
+		   MaxLength="100"
+		   MultiValuated="No"
+		   Protection="Free"
+		   CAAExposition="L0" />
+		<Volatile Name="V_Elec_NbConnectorPorts"
+		   Uuid="5f3a3d3a-be32-4014-ae14-0a8e71048dd8"
+		   Accessor="CATElecLogicalCkeAttributes"
+		   TypeName="Integer"
+		   AccessMode="ReadOnly" />
+		<Volatile Name="V_Elec_NbPins"
+		   Uuid="3d37bf6b-44c4-4d50-9280-dd933e40a591"
+		   Accessor="CATElecLogicalCkeAttributes"
+		   TypeName="Integer"
+		   AccessMode="ReadOnly" />
+		<Volatile Name="V_Elec_Ports"
+		   Uuid="ffd18c7d-77a8-4dfa-9624-dc9eff9d2034"
+		   Accessor="CATElecLogicalCkeAttributes"
+		   TypeName="List"
+		   AccessMode="ReadOnly" />
+		<CAAComment>
+			<ShortRole>PLM Logical Ens Equipment Object</ShortRole>
+			<Role>PLM Logical Ens Equipment Object</Role>
+		</CAAComment>
+	</Extension>
+	
+  <Class Name="EnsLogicalReferenceEntity"
+		Uuid="d6e63cdd-2bbc-4722-91c8-562c3affc975"
+		Abstract="Yes"
+		CustomerExposition="Programmer"
+		SuperName="RFLVPMLogicalReference"
+		Discipline="Yes">
+		<CAAComment>
+			<ShortRole>Equipment And Systems Logical Reference Entity</ShortRole>
+			<Role>Equipment And Systems Logical Reference Entity</Role>
+		</CAAComment>
+		<Property Name="OccurrenceType" Value="EnsLogicalOcc"/>
+		<Simple Name="V_Ens_SubType"
+			Type="String"
+			Uuid="91d46cec-acd1-4b2e-9a46-52e482ffac67"
+			MaxLength="100"
+			Protection="Free"
+			CAAExposition="L1"
+			MultiValuated="No">
+		<Property Name="Controller"
+			Value="CATEnsLogicalAttributeController"/>
+		</Simple>
+  </Class>
+  <Class Name="EnsLogicalPart"
+		Uuid="63e701a6-b442-4b08-b5d4-42c0997221b1"
+		Abstract="Yes"
+		CustomerExposition="Programmer"
+		SuperName="EnsLogicalReferenceEntity"
+		Discipline="Yes">
+		<CAAComment>
+			<ShortRole>Equipment And Systems Logical Part</ShortRole>
+			<Role>Equipment And Systems Logical Part</Role>
+		</CAAComment>
+		<Property Name="OccurrenceType" Value="EnsLogicalPartOcc"/>
+  </Class>
+  <Class Name="EnsInCLoop"
+		Uuid="5aba6f31-b0f1-43e8-be8b-c95e1cf18109"
+		Abbreviation="incloop"
+		CustomerExposition="Programmer"
+		Specializable="Yes"
+		CustomerExtensible="Yes"
+		SuperName="EnsLogicalReferenceEntity"
+		Discipline="Yes"
+		CreateInstName="EnsInCLoop_Inst">
+		<CAAComment>
+			<ShortRole>Equipment And Systems Loop</ShortRole>
+			<Role>Equipment And Systems Loop Reference</Role>
+		</CAAComment>
+		<Property Name="TypeForDisciplineValuation" Value="EnsInCLoop"/>
+		<Property Name="IconName" Value="I_EnsIncLoop"/>
+		<Property Name="KweNew_InstanciationMethod" Value="CATEnsLogicalInstanciation"/>
+		<Property Name="KweNew_ReturnedType" Value="EnsInCLoop_Inst"/>
+		<Property Name="Newable" Value="Insert"/>
+		<Property Name="OccurrenceType" Value="EnsInCLoopOcc"/>
+  </Class>
+  <Class Name="EnsInCLogicalRoute"
+		Uuid="4b2c057f-beae-4a62-b973-81a4c5d3593e"
+		Abbreviation="incroute"
+		CustomerExposition="Programmer"
+		Specializable="Yes"
+		CustomerExtensible="Yes"
+		SuperName="EnsLogicalReferenceEntity"
+		Discipline="Yes"
+		CreateInstName="EnsInCLogicalRoute_Inst">
+		<CAAComment>
+			<ShortRole>Equipment And Systems Logical Route</ShortRole>
+			<Role>Equipment And Systems Logical Route Reference</Role>
+		</CAAComment>
+		<Property Name="TypeForDisciplineValuation" Value="EnsInCLogicalRoute"/>
+		<Property Name="IconName" Value="I_EnsInCRoute"/>
+		<Property Name="KweNew_InstanciationMethod" Value="CATEnsLogicalInstanciation"/>
+		<Property Name="KweNew_ReturnedType" Value="EnsInCLogicalRoute_Inst"/>
+		<Property Name="Newable" Value="All"/>
+		<Property Name="OccurrenceType" Value="EnsInCRouteOcc"/>
+		<Simple Name="V_Ens_ConnectionType"
+			Type="String"
+			Uuid="abdbf4ea-78da-4741-b7ef-425a6f667915"
+			MaxLength="100"
+			Protection="Free"
+			CAAExposition="L1"
+			MultiValuated="No">
+		<Property Name="Controller"
+			Value="CATEnsLogicalAttributeController"/>
+		</Simple>
+  </Class> 
+  <Class Name="EnsInCLogicalBranch"
+		Uuid="b9e6cc03-b1c3-4af5-be07-81237ef49383"
+		Abbreviation="incbra"
+		CustomerExposition="Programmer"
+		Specializable="Yes"
+		CustomerExtensible="Yes"
+		SuperName="EnsLogicalPart"
+		Discipline="Yes"
+		CreateInstName="EnsInCLogicalBranch_Inst">
+		<CAAComment>
+			<ShortRole>Equipment And Systems Branch</ShortRole>
+			<Role>Equipment And Systems Branch Reference</Role>
+		</CAAComment>
+		<Property Name="TypeForDisciplineValuation" Value="EnsInCLogicalBranch"/>
+		<Property Name="IconName" Value="I_EnsInCBranch"/>
+		<Property Name="KweNew_InstanciationMethod" Value="CATEnsLogicalInstanciation"/>
+		<Property Name="KweNew_ReturnedType" Value="EnsInCLogicalBranch_Inst"/>
+		<Property Name="Newable" Value="All"/>
+		<Property Name="OccurrenceType" Value="EnsInCBranchOcc"/>
+  </Class>
+  <Class Name="EnsInCLogicalComponent"
+		Uuid="43c4dfaf-3c30-4f42-bc42-2a68d2e79827"
+		Abbreviation="inccomp"
+		CustomerExposition="Programmer"
+		Specializable="Yes"
+		CustomerExtensible="Yes"
+		SuperName="EnsLogicalPart"
+		Discipline="Yes"
+		CreateInstName="EnsInCLogicalComponent_Inst">
+		<CAAComment>
+			<ShortRole>Equipment And Systems Logical Component</ShortRole>
+			<Role>Equipment And Systems Logical Component Reference</Role>
+		</CAAComment>
+		<Property Name="TypeForDisciplineValuation" Value="EnsInCLogicalComponent"/>
+		<Property Name="IconName" Value="I_EnsInCComponent"/>
+		<Property Name="KweNew_InstanciationMethod" Value="CATEnsLogicalInstanciation"/>
+		<Property Name="KweNew_ReturnedType" Value="EnsInCLogicalComponent_Inst"/>
+		<Property Name="Newable" Value="All"/>
+		<Property Name="OccurrenceType" Value="EnsInCComponentOcc"/>
+		<Simple Name="V_Ens_MeasuredMagnitude"
+			Type="String"
+			Uuid="4a6f1c52-536d-4756-bee7-d2c7650e4681"
+			MaxLength="100"
+			Protection="Free"
+			CAAExposition="L1"
+			MultiValuated="No">
+		<Property Name="Controller"
+			Value="CATEnsLogicalAttributeController"/>
+		</Simple>
+		<Simple Name="V_Ens_MeasuredModifier" 
+			Type="String" 
+			Uuid="40b161b7-4798-4b06-b5a0-53a198778d73"
+			MaxLength="100"
+			Protection="Free"
+			CAAExposition="L1"
+			MultiValuated="No">
+		<Property Name="Controller" 
+			Value="CATEnsLogicalAttributeController"/>
+		</Simple>
+		<Simple Name="V_Ens_ReadoutFunction"
+			Type="String"
+			Uuid="2769f57e-1c1e-493a-8ac8-bc5883067619"
+			MaxLength="100"
+			Protection="Free"
+			CAAExposition="L1"
+			MultiValuated="No">
+		<Property Name="Controller"
+			Value="CATEnsLogicalAttributeController"/>
+		</Simple>
+		<Simple Name="V_Ens_OutputFunction"
+			Type="String"
+			Uuid="2160d3f4-9566-4880-a38d-8f2853e21eec"
+			MaxLength="100"
+			Protection="Free"
+			CAAExposition="L1"
+			MultiValuated="No">
+			<Property Name="Controller" 
+				Value="CATEnsLogicalAttributeController"/>
+		</Simple>
+		<Simple Name="V_Ens_ReadoutModifier" 
+			Type="String" 
+			Uuid="fba725c6-824c-40ac-ac89-d6d89e5cbe1e" 
+			MaxLength="100" 
+			Protection="Free" 
+			CAAExposition="L1" 
+			MultiValuated="No">
+		<Property Name="Controller"
+			Value="CATEnsLogicalAttributeController"/>
+		</Simple>
+		<Simple Name="V_Ens_Location"
+			Type="String"
+			Uuid="628d92e7-b873-4745-b450-fcbdde39715c" 
+			MaxLength="100" 
+			Protection="Free"	
+			CAAExposition="L1"
+			MultiValuated="No">
+		<Property Name="Controller" 
+			Value="CATEnsLogicalAttributeController"/>
+		</Simple>
+  </Class>
+  
+  <Class Name="EnsLogicalPenetration" Uuid="f4d6e46f-9aaf-4805-9808-303ba19efbbd"
+		CustomerExposition="Programmer"
+		Abbreviation="lprtctn"
+		Abstract="No"
+		SuperName="EnsLogicalReferenceEntity"
+		Discipline="Yes"
+		Specializable="Yes"
+		CustomerExtensible="Yes"
+		CreateInstName="EnsLogicalPenetration_Inst">
+		<CAAComment>
+			<ShortRole>Equipment And Systems Logical Penetration</ShortRole>
+			<Role>Equipment And Systems Logical Penetration Reference</Role>
+		</CAAComment>
+		<Property Name="IconName" Value="I_EnsLogicalPenetration"/>
+		
+		<Property Name="TypeForDisciplineValuation" Value="EnsLogicalPenetration"/>
+		<Property Name="KweNew_InstanciationMethod" Value="CATEnsLogicalInstanciation"/>
+		<Property Name="KweNew_ReturnedType" Value="EnsLogicalPenetration_Inst"/>
+		<Property Name="Newable" Value="All"/>
+		<Property Name="Searchable" Value="Yes"/>
+		<Property Name="PQ_Attributes" Value="PLM_ExternalID V_description V_user V_discipline|EQ|EnsLogicalPenetration"/>
+		<Property Name="OccurrenceType" Value="EnsLPenetrationOcc"/>
+		
+  </Class>
+  
+
+	<!-- *************************************************** -->
+	<!-- * EnsLogicalEquipmentInst (RFLVPMLogicalInstance) * -->
+	<!-- *************************************************** -->
+	<RelationClass Name="EnsLogicalEquipmentInst" Uuid="1fc9a83e-4986-4687-b7df-e2ec654efb76"  
+		 CustomerExposition="Programmer"
+		 SuperName="RFLVPMLogicalInstance"
+		 Discipline="Yes"
+		 Specializable="Yes"
+		 CustomerExtensible="Yes">
+		 <Property Name="KweNew_InstanciationMethod" Value="CATELogDelegateInstanciation"/>
+		 <Property Name="KweNew_ReturnedType" Value="EnsLogicalEquipmentInst"/>
+		 <Property Name="IconName" Value="I_EnsLogicalEquipment"/>
+		 <Simple Name="V_Ens_TagNumber" Uuid="5fa78845-fd98-4349-857e-7a549d45028f" 
+			Type="String"	
+			MaxLength="100"	
+			MultiValuated="No" 
+			Protection="Free" 
+			CAAExposition="L0" >
+		 <Property Name="Controller" 
+			Value="CATEnsLogicalAttributeController"/>
+		 </Simple>
+		 <Simple Name="V_Ens_PredefinedPartNumber"
+			Uuid="89e1c91a-021d-4eb5-926f-233314b63b90"
+			Type="String"
+			MaxLength="100"
+			MultiValuated="No"
+			Protection="Free"
+			CAAExposition="L0" >
+			<Property Name="Controller" 
+                Value="CATEnsLogicalAttributeController"/>
+		</Simple>
+		<Simple Name="V_Ens_PredefinedPartType"
+			Uuid="e5dfbe36-4769-4853-bf57-ab49e7d3a12f"
+			Type="String"
+			MaxLength="100"
+			MultiValuated="No"
+			Protection="Free"
+			CAAExposition="L0" >
+			<Property Name="Controller" 
+                Value="CATEnsLogicalAttributeController"/>
+		</Simple>
+	</RelationClass> 
+	
+	<RelationClass Name="EnsLogicalInstanceEntity" Uuid="abfba4bb-f53c-436d-af25-2d600eef0d51" 
+		CustomerExposition="Programmer" 
+		Abstract="Yes"
+		SuperName="RFLVPMLogicalInstance"
+		Discipline="Yes">
+		<Simple Name="V_Ens_TagNumber" Uuid="9368af3a-f416-4781-b0a8-7f2dbb184300" 
+			Type="String"	
+			MaxLength="100"	
+			MultiValuated="No" 
+			Protection="Free" 
+			CAAExposition="L0" >
+		<Property Name="Controller" 
+			Value="CATEnsLogicalAttributeController"/>
+		</Simple> 
+	</RelationClass>
+	
+	<RelationClass Name="EnsLogicalPart_Inst" Uuid="20a00442-f635-4ef1-81da-079860dfbbd2" 
+		CustomerExposition="Programmer" 
+		Abstract="Yes" 
+		SuperName="EnsLogicalInstanceEntity" 
+		Discipline="Yes">
+	</RelationClass>
+	<RelationClass Name="EnsInCLoop_Inst" Uuid="7c4351fc-45f7-4a74-a590-a069be5eab84" 
+		CustomerExposition="Programmer" 
+		SuperName="EnsLogicalInstanceEntity" 
+		Discipline="Yes" 
+		CustomerExtensible="Yes" 
+		Specializable="Yes">
+		<Property Name="KweNew_InstanciationMethod" Value="CATEnsLogicalInstanciation"/>
+		<Property Name="KweNew_ReturnedType" Value="EnsInCLoop_Inst"/>
+		<Property Name="IconName" Value="I_EnsInCLoop"/>
+	</RelationClass>
+	<RelationClass Name="EnsInCLogicalBranch_Inst" Uuid="82c8dbd4-dc12-4bae-9335-a09c97da90da" 
+		CustomerExposition="Programmer" 
+		SuperName="EnsLogicalPart_Inst" 
+		Discipline="Yes" 
+		CustomerExtensible="Yes" 
+		Specializable="Yes">
+		<Property Name="KweNew_InstanciationMethod" Value="CATEnsLogicalInstanciation"/>
+		<Property Name="KweNew_ReturnedType" Value="EnsInCLogicalBranch_Inst"/>
+		<Property Name="IconName" Value="I_EnsInCBranch"/>
+	</RelationClass>
+	<RelationClass Name="EnsInCLogicalComponent_Inst" Uuid="14025047-ad8d-4499-9460-1c544de69662" 
+		CustomerExposition="Programmer"
+		SuperName="EnsLogicalPart_Inst"
+		Discipline="Yes"
+		CustomerExtensible="Yes"
+		Specializable="Yes">
+		<Property Name="KweNew_InstanciationMethod" Value="CATEnsLogicalInstanciation"/>
+		<Property Name="KweNew_ReturnedType" Value="EnsInCLogicalComponent_Inst"/>
+		<Property Name="IconName" Value="I_EnsInCComponent"/>
+	</RelationClass>
+	<RelationClass Name="EnsInCLogicalRoute_Inst" Uuid="07b5ca26-a2c6-46c9-a3bc-a99be74e0148" 
+		CustomerExposition="Programmer"
+		SuperName="EnsLogicalInstanceEntity" 
+		Discipline="Yes" 
+		CustomerExtensible="Yes" 
+		Specializable="Yes">
+		<Property Name="KweNew_InstanciationMethod" Value="CATEnsLogicalInstanciation"/>
+		<Property Name="KweNew_ReturnedType" Value="EnsInCLogicalRoute_Inst"/>
+		<Property Name="IconName" Value="I_EnsInCRoute"/>
+		<Simple Name="V_Ens_ConnectionMagnitude"
+			Type="String"
+			Uuid="3dbd1016-5462-4fe2-b0e4-e73251e39153"
+			MaxLength="100"
+			Protection="Free"
+			CAAExposition="L1"
+			MultiValuated="No">
+		<Property Name="Controller"
+			Value="CATEnsLogicalAttributeController"/>
+		</Simple>
+	</RelationClass>
+	
+	<RelationClass Name="EnsLogicalPenetration_Inst" Uuid="a22cfdc9-473e-437a-b16b-08cf2c361c18" 
+		CustomerExposition="Programmer"
+		SuperName="EnsLogicalInstanceEntity" 
+		Discipline="Yes" 
+		CustomerExtensible="Yes" 
+		Specializable="Yes">
+		<Property Name="KweNew_InstanciationMethod" Value="CATEnsLogicalInstanciation"/>
+		<Property Name="KweNew_ReturnedType" Value="EnsLogicalPenetration_Inst"/>
+		<Property Name="IconName" Value="I_LogicalPenetration"/>
+		<Simple Name="V_Ens_Crossing"
+			Uuid="b365e01b-7851-4c97-8f8b-3c687f63e948"
+			Type="Boolean"
+			MultiValuated="No"
+			Protection="Free"
+			CAAExposition="L0" >
+			<Property Name="Controller" 
+                Value="CATEnsLogicalAttributeController"/>
+		</Simple>
+		<Simple Name="V_Ens_PredefinedPartNumber"
+			Uuid="7b8ffc5b-8f7f-4810-9918-e237469eb2bc"
+			Type="String"
+			MaxLength="100"
+			MultiValuated="No"
+			Protection="Free"
+			CAAExposition="L0" >
+			<Property Name="Controller" 
+                Value="CATEnsLogicalAttributeController"/>
+		</Simple>
+		<Simple Name="V_Ens_PredefinedPartType"
+			Uuid="5b06efe0-2c96-4139-9b58-a2aed7a31a8a"
+			Type="String"
+			MaxLength="100"
+			MultiValuated="No"
+			Protection="Free"
+			CAAExposition="L0" >
+			<Property Name="Controller" 
+                Value="CATEnsLogicalAttributeController"/>
+		</Simple>
+	</RelationClass>
+	
+  <Extension Name="PLMEnsElectricalProperties" Specializable="No" Uuid="618C85FA-D5C6-40A8-8145-C507F81BE1C0" CustomerExposition="Programmer" ScopeNames="VPMReference RFLVPMLogicalReference">
+    <Simple Name="V_Ens_NominalPower" Uuid="B2451F53-1F40-4BB1-852B-502460642314" Type="Double" MultiValuated="No" Protection="Free" Magnitude="POWER" CAAExposition="L0"/>
+  </Extension>
+  
+  <!-- ********************************************** -->
+  <!-- *                    Ports                   * -->
+  <!-- ********************************************** -->
+  <Class Name="EnsLogicalPortEntity" Uuid="f0b9feee-e026-4c7f-beff-5f8bef00b5bb" Abstract="Yes" CustomerExposition="Programmer" SuperName="RFLVPMLogicalPort" Discipline="Yes">
+	<Simple Name="V_Ens_SubType" Type="String" Uuid="4c3e300a-855d-4648-8bd9-ffa329721c4f" MaxLength="100" Protection="Free" CAAExposition="L1" MultiValuated="No">
+      <Property Name="Controller" Value="CATEnsLogicalAttributeController"/>
+    </Simple> 
+  </Class>
+  <Class Name="EnsInCLogicalPort" Uuid="55d2cbd5-b617-4b59-9ba4-5f653024ef6d" CustomerExposition="Programmer" SuperName="EnsLogicalPortEntity" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes">
+    <Property Name="TypeForDisciplineValuation" Value="EnsInCLogicalPort"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEnsLogicalInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="EnsInCLogicalPort"/>
+    <Property Name="IconName" Value="I_EnsInCLogicalPort"/>
+    <Property Name="Newable" Value="Insert"/>
+    <CAAComment>
+      <ShortRole>Logical Equipment And Systems Port Object</ShortRole>
+      <Role>Logical Equipment And Systems Port Object</Role>
+    </CAAComment>
+  </Class>
+  <Class Name="EnsInCLogicalPortEnd1" Uuid="f1f1952c-01b8-48dd-9b24-4c62e39fd2a2" CustomerExposition="Programmer" SuperName="EnsLogicalPortEntity" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes">
+    <Property Name="TypeForDisciplineValuation" Value="EnsInCLogicalPortEnd1"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEnsLogicalInstanciation"/>
+    <Property Name="IconName" Value="I_EnsInCLogicalPort1"/>
+    <CAAComment>
+      <ShortRole>Logical Equipment And Systems Port Extremity One</ShortRole>
+      <Role>Logical Equipment And Systems Port Extremity One</Role>
+    </CAAComment>
+   </Class>
+   <Class Name="EnsInCLogicalPortEnd2" Uuid="4e1686ff-b7c6-4600-acd1-57a7b861dbd0" CustomerExposition="Programmer" SuperName="EnsLogicalPortEntity" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes">
+    <Property Name="TypeForDisciplineValuation" Value="EnsInCLogicalPortEnd2"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEnsLogicalInstanciation"/>
+    <Property Name="IconName" Value="I_EnsInCLogicalPort2"/>
+    <CAAComment>
+      <ShortRole>Logical Equipment And Systems Port Extremity Two</ShortRole>
+      <Role>Logical Equipment And Systems Port Extremity Two</Role>
+    </CAAComment>
+   </Class>
+
+</Package>

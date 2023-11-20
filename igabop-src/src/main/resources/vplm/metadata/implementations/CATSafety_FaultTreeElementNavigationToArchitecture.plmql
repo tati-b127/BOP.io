@@ -1,0 +1,53 @@
+NAVIGATE   
+	T0.PLMID, T1.PLMID, T2.PLMID, T3.PLMID, T4.PLMID, T5.PLMID
+
+FROM 
+	CATSafetyFaultTreeAnalysis/FaultTreeElement T0,
+	CATSafetyFaultTreeAnalysis/FaultTreeElementStandsFor T1,
+	CATSafety/FailureMode T2,
+	CATSafety/FallibleReference T3,
+	PLMCORE/PLMCoreReference T4,
+	CATSafety/FallibleReferenceStandsFor T5
+
+FROM_ROOTS[?1?]
+ON 
+(		
+	(
+	RELATION
+		(
+		FROM=CATSafetyFaultTreeAnalysis/FaultTreeElement 
+		TO=CATSafetyFaultTreeAnalysis/FaultTreeElementStandsFor 
+		THROUGH=POINTEDBY
+		)
+		WITH QUALITY_FILTER	( CATEGORY=ISOWNEDBY )
+	THEN RELATION
+		(
+		FROM=CATSafetyFaultTreeAnalysis/FaultTreeElementStandsFor 
+		TO=CATSafety/FailureMode 
+		THROUGH=POINTSTO
+		)
+		WITH QUALITY_FILTER	( ROLE=FaultTreeElementStandsFor )
+	THEN RELATION
+		(
+		FROM=CATSafety/FailureMode 
+		TO=CATSafety/FallibleReference 
+		THROUGH=POINTSTO
+		)
+		WITH QUALITY_FILTER	( CATEGORY=ISOWNEDBY )
+	THEN RELATION
+		(
+		FROM=CATSafety/FallibleReference 
+		TO=CATSafety/FallibleReferenceStandsFor 
+		THROUGH=POINTEDBY
+		)
+		WITH QUALITY_FILTER	( CATEGORY=ISOWNEDBY )
+	THEN RELATION
+		(
+		FROM=CATSafety/FallibleReferenceStandsFor 
+		TO=PLMCORE/PLMCoreReference 
+		THROUGH=POINTSTO
+		)
+		WITH QUALITY_FILTER	( ROLE=FallibleReferenceStandsFor )
+	)
+)
+; 

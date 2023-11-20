@@ -1,0 +1,62 @@
+<?xml version="1.0" ?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2004, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" Name="VPMDECCgrViewable"
+    Uuid="2df0f832-11b2-4f8d-bb69-cdd29d24c087"
+    UseNames="VPMDEC PHYSICALABSTRACT"
+    CustomerExposition="Programmer">
+
+  <CAAComment>
+    <ShortRole>DEC CgrViewable Package</ShortRole>
+    <Role>This package includes all the entities of DEC CgrViewable Model</Role>
+  </CAAComment>
+
+  <Class Name="VPMDECCgrViewable"
+       Uuid="9c6937e8-78e2-47bf-888a-39dd145e14e5"
+       Abstract="No"
+       SuperName="PHYSICALAbstract3DRepReference"
+       CAAExposition="L1"
+       CreateInstName="VPMDECCgrViewableInstance"
+       CustomerExposition="Programmer" 
+       DeleteAvailability="No" 
+       NewMajorRevisionAvailability="No">
+    
+    <Property Name="DatabaseName" Value="CgrViewable"/>
+    <Property Name="Searchable"      Value="No"/>
+    <Property Name="IconName"   Value="I_DECPrt"/>
+    <Property Name="3DIconName" Value="DECPrt.cgr"/>
+    <!-- Behavior patterns: default values -->
+    <Property Name="LockUnlockAvailability" Value="No"/>
+    <Property Name="TransferOwnershipAvailability" Value="No"/>
+    
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+   
+  </Class>
+
+
+  <RelationClass Name="VPMDECCgrViewableInstance"
+      Uuid="565a23d0-6905-4f70-a9ed-778e9425345c"   
+      Abstract="No"
+      SuperName="PHYSICALAbstract3DRepInstance"
+      CAAExposition="L1"
+      CustomerExposition="Programmer">
+    
+    <Property Name="DatabaseName" Value="Viewable"/>
+    
+    <SubClause Name="from"   TargetName="VPMDECReference"/>
+    <SubClause Name="to"   TargetName="VPMDECCgrViewable"/>
+
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+  </RelationClass>
+
+
+</Package>
+

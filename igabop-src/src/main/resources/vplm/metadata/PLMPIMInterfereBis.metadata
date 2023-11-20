@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2005, All rights reserved -->
+
+<!--
+@FN7 13:07:19 Clean up to make the file more readable
+@FN7 14:07:31 Change icon for the new metric one
+-->
+
+<Package  xmlns="PLMDictionaryUnified"
+          ModelerType="Top" 
+          Name="PLMPIMInterfereBis" 
+          Uuid="b6f6bfe0-4a58-4bc3-b6c0-57f6d398c90d"
+          UseNames="PLMCORE"
+          CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <!-- ________________________________________________________________________________ -->
+  <!--      PLMPIMMetricFromSCAToOccurences class                                       -->
+  <!-- ________________________________________________________________________________ -->
+  <Class  Name="PLMPIMMetricFromSCAToOccurences"
+          Uuid="4a4d0089-47f7-4749-bf40-a822d062b634"
+          SuperName="PLMConnection"
+          Abstract="No"    
+          CustomerExposition="Programmer">
+
+    <Property Name="IconName" Value="I_Interference_Metric" />
+    <Property Name="3DIconName" Value="PIMNextPreviousNode_3DNAVREP.cgr" />
+
+    <!-- ________________________________________________________________________________ -->
+    <!--      PointedOccurences                                                           -->
+    <!-- ________________________________________________________________________________ -->
+    <Path Name="PointedOccurences"
+                      Uuid="c5834077-73d8-41be-89f0-d3ff9e88c395"
+                      RoleName="PIM_InterferingOccs"
+                   		Type="SemanticRelation" AdaptativeToMinor="No"
+                  		SynchroSensitivity="PathAndLast"
+		                  RerouteOnEffectivityChange="No"
+                      MultiValuated="Yes" Orientation="In"
+                      Lower="2"
+                      Upper="2"
+                      Semantics="Reference3">
+      <Comment>Links from the interference metric to the parts (occurrences) interfering.</Comment>
+    </Path>
+
+    <!-- ________________________________________________________________________________ -->
+    <!--      PointedSCA208                                                               -->
+    <!-- ________________________________________________________________________________ -->
+    <Path Name="PointedSCA208"
+                      Uuid="2117ea73-2b1e-46b5-8c8d-82374fd411eb"
+                      RoleName="PIM_SCA"	
+                      Type="SemanticRelation" AdaptativeToMinor="No"
+		                  SynchroSensitivity="Last"
+		                  RerouteOnEffectivityChange="No" Orientation="In"
+                      MultiValuated="No"
+                      Semantics="Reference4">
+      <Comment>This SR points the SCA (Smallest Common Ancestor) of the 2 parts interfering.</Comment>
+    </Path>
+
+    <!-- EXPORT : no export -->
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+  </Class>
+  
+</Package>

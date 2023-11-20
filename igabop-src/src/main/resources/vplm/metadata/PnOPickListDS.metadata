@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" Name="PnOPickListDS" Uuid="595D4270-9E86-4BC0-871E9336123A8643" UseNames="PLMPosAbstractTable">
+	<Class Name="PLMPosPickListRef"  Uuid="33F7B5BD-6C48-4086-8EB3007633D884C6" Alias="PLMPosPickListRef"  SuperName="PLMPosAbstractTableRef"  SuperRef="3C76C0B7-88F6-4200-AE2908DB8AF236F8" >
+    <Property Name="Searchable" Value="No"/>
+		<IdentifierSet Name="Identifier" Uuid="274B35BE-A2AF-46E0-90F91455342CF540" IdentifierNames="V_row_name" IdentifierUuids="CBCFCBC8-760F-4EB6-8859DCB5C643E13E"/>
+	</Class>
+	<Class Name="PLMPosPickListInst" Uuid="6E2A1723-D49C-486B-ACFE452D04AA78FB" Alias="PLMPosPickListInst" SuperRef="7A65788A-B5C4-47d4-B40EB93F2DE72830" SuperName="PLMPosAbstractTableInst" >
+	</Class>
+</Package>

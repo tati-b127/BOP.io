@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR DELMIA Production System Application -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2018, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified"
+         ModelerType="Top"
+         Name="DELLmiProductionPlan"
+         BelongsToModeler="DELLmiProductionPlan"
+	       Uuid="E88F9B86-0FA2-4769-A927-54ADE03CDD36"
+	       UseNames="DELLmiProductionPlanAbstract"
+         CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>PLM DELMIA Production Plan </ShortRole>
+    <Role>This package describes the PLM DELMIA Production Plan model on top of DELLmiProductionSystem</Role>
+  </CAAComment>
+
+  <Comment>last update 2018-01-19</Comment>
+
+  <Class Name="DELLmiProductionPlanReference"
+        Uuid="0361592E-6229-4169-B400-4BC88D37D8E3"
+        Abstract="No"
+        SuperName="DELSProductionPlanAbstract"
+        CustomerExposition="Programmer"
+        Specializable="Yes"
+        CustomerExtensible="Yes"
+        Abbreviation="pnp"
+        InstantiationOwnerTypes="None">
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELLmiProductionPlanDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="None"/>
+    <Property Name="IconName" Value="I_PPRProductionPlan"/>
+    <Property Name="3DIconName" Value="I_PPRProductionPlan.cgr"/>
+    <Property Name="Newable" Value="All_CAA"/>
+    <Property Name="Searchable" Value="Yes"/>
+
+
+    <CAAComment>
+      <ShortRole>PLM DELMIA Production Plan Reference</ShortRole>
+      <Role>PLM DELMIA Production Plan Reference</Role>
+    </CAAComment>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExchangeScope.meth#XPDM2"/>
+        <UsedProcedure href="ENOPsm_Procedures.proc#ProductionPlan_ExchangeXPDM_XPDM2"/>
+      </ProcedureForUsage>
+    </Method>
+
+  </Class> 
+ 
+</Package>

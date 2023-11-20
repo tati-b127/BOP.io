@@ -1,0 +1,13 @@
+#Prog Validation_PLMChannel ( iPLMIDSet : #In PLMIDSet, oPLMIDSet : #Out PLMIDSet ) : VoidType
+{
+	let PLMIDSetChildren (PLMIDSet)
+	let PLMIDSetReviews (PLMIDSet)
+	
+	/* Retrieve all Children */
+	PLMIDSetChildren = Ids( ExecutePLMFunction("DMUValidationBase", "DMUValidationBase_AddChildren", Restrict(iPLMIDSet, "DMUValidationBase/DMUValidationValidation") ) )
+	
+	/* Retrieve all Reviews and Replies */
+	PLMIDSetReviews = Ids( ExecutePLMFunction("DMUValidationBase", "DMUValidationBase_ExpandAll", Restrict(iPLMIDSet, "DMUValidationBase/DMUValidationValidation") ) )
+
+	oPLMIDSet = PLMIDSetChildren + PLMIDSetReviews
+}

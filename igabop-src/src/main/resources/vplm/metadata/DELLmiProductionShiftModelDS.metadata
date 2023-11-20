@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2010, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" Name="DELLmiProductionShiftModelDS" Uuid="48C40930-9D9B-41bb-9022-22D575B69F39" UseNames="DELLmiProductionShiftModel" >
+<Property Name="OptionalInstallation" Value="Yes" /> 
+	<CAAComment>
+		<ShortRole>Standard DELMIA ShiftModel Package</ShortRole>
+		<Role>This package includes default customized DELMIA ShiftModel</Role>
+	</CAAComment>
+	<Comment>last update 2010-10-15</Comment>
+
+	<Class Name="DELLmiProductionShiftModelReferenceCusto" Uuid="B34AFD90-3820-4591-84E0-6E619803428B" SuperName="DELLmiProductionShiftModelReference"   >
+
+    <IdentifierSet Name="Identifier"
+        Uuid="179000AD-A218-446c-9864-B0E0C3AAFE80"
+        IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755"
+        IdentifierNames="PLM_ExternalID V_version" />
+
+    <CAAComment>
+			<ShortRole>Standard DELMIA ShiftModel Reference</ShortRole>
+			<Role>Default customized DELMIA ShiftModel Reference</Role>
+		</CAAComment>
+	</Class>
+	
+	<Class Name="DELLmiProductionShiftModelInstanceCusto" Uuid="4AA92C08-074B-4fe8-82DF-3B47CC4A259F" SuperName="DELLmiProductionShiftModelInstance"  >
+		<CAAComment>
+			<ShortRole>Standard DELMIA ShiftModel Instance</ShortRole>
+			<Role>Default customized DELMIA ShiftModel Instance</Role>
+		</CAAComment>		
+     	</Class>
+</Package>

@@ -1,0 +1,59 @@
+<?xml version="1.0" ?>
+<ProcedurePackage
+	xmlns="PLMDictionaryProcedure"
+	Name="PLMPos_Procedures">
+
+  <Procedure Name="GetResourceEntries">
+    <Implementation Name="invoke" FileLocation="com.dassault_systemes.pos.resource.ekl.EKLPosFunctionsProcedureCall" Language="JAVA"/>
+    <Signature href="GetResourceEntries_sign"/>
+  </Procedure>
+
+  <Signature id="GetResourceEntries_sign">
+    <Parameter Name="eklfct"    Direction="in"  Order="1" DataType="String" MultiValuated="No"/>
+    <Parameter Name="type"      Direction="in"  Order="2" DataType="String" MultiValuated="No"/>
+    <Parameter Name="condition" Direction="in"  Order="3" DataType="String" MultiValuated="No"/>
+    <Parameter Name="result"    Direction="out" Order="1" DataType="PLMId"  MultiValuated="Yes"/>
+  </Signature>
+
+  <Procedure Name="GetTableValues">
+    <Implementation Name="invoke" FileLocation="com.dassault_systemes.pos.resource.ekl.EKLPosFunctionsProcedureCall" Language="JAVA"/>
+    <Signature href="GetTableValues_sign"/>
+  </Procedure>
+
+  <Signature id="GetTableValues_sign">
+    <Parameter Name="eklfct" Direction="in"  Order="1" DataType="String" MultiValuated="No"/>
+    <Parameter Name="type"   Direction="in"  Order="2" DataType="String" MultiValuated="No"/>
+    <Parameter Name="names"  Direction="in"  Order="3" DataType="String" MultiValuated="Yes"/>
+    <Parameter Name="values" Direction="in"  Order="4" DataType="String" MultiValuated="Yes"/>
+    <Parameter Name="result" Direction="out" Order="1" DataType="String" MultiValuated="Yes"/>
+  </Signature>
+
+	<Procedure Name="GetMultiOwnershipLPAccess">
+		<Implementation Name="invoke" FileLocation="com.dassault_systemes.pos.resource.ekl.EKLPosFunctionsProcedureCall" Language="JAVA"/>
+		<Signature href="GetMultiOwnershipLPAccess_sign"/>
+	</Procedure>
+	
+	<Signature id="GetMultiOwnershipLPAccess_sign">
+		<Parameter Name="eklfct" Direction="in"  Order="1" DataType="String" MultiValuated="No"/>
+		<Parameter Name="inID"   Direction="in"  Order="2" DataType="PLMId"  MultiValuated="No"/>
+		<Parameter Name="inLANG" Direction="in"  Order="3" DataType="String" MultiValuated="No"/>
+		<Parameter Name="outPA"  Direction="out" Order="1" DataType="String" MultiValuated="Yes"/>
+		<Parameter Name="outLA"  Direction="out" Order="2" DataType="String" MultiValuated="Yes"/>
+		<Parameter Name="outNLS" Direction="out" Order="3" DataType="String" MultiValuated="Yes"/>
+	</Signature>
+
+	<Procedure Name="GetMultiOwnership">
+		<Implementation Name="invoke" FileLocation="com.dassault_systemes.pos.resource.ekl.EKLPosFunctionsProcedureCall" Language="JAVA"/>
+		<Signature href="GetMultiOwnership_sign"/>
+	</Procedure>
+	
+	<Signature id="GetMultiOwnership_sign">
+		<Parameter Name="eklfct" Direction="in"  Order="1" DataType="String" MultiValuated="No"/>
+		<Parameter Name="inID"   Direction="in"  Order="2" DataType="PLMId"  MultiValuated="No"/>
+		<Parameter Name="outOrg" Direction="out" Order="1" DataType="String" MultiValuated="Yes"/>
+		<Parameter Name="outPrj" Direction="out" Order="2" DataType="String" MultiValuated="Yes"/>
+		<Parameter Name="outCom" Direction="out" Order="3" DataType="String" MultiValuated="Yes"/>
+		<Parameter Name="outAcc" Direction="out" Order="4" DataType="String" MultiValuated="Yes"/>
+	</Signature>
+
+</ProcedurePackage>

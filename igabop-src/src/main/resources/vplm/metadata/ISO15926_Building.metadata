@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2018, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" Name="ISO15926_Building" Uuid="89673ed4-8027-0000-4523-475b01000000" UseNames="PRODUCTCFG" CustomerExposition="Programmer">
+  <Extension Name="ISO15926_WallDimensions" Abstract="No" ScopeNames="VPMReference VPMInstance" Specializable="No" Uuid="89673ed4-8027-0000-4523-475b02000000" CustomerExposition="Programmer">
+        <Simple Name="ISO15926_Length" Type="Double" Magnitude="LENGTH" DefaultValue="0.0" ResetOnCloning="Yes" ResetOnNewVersion="Yes" UIAccess="ReadWrite" Uuid="89673ed4-8027-0000-4523-475b03000000" Protection="Free" PLMImpacting="No">
+			<Property Name="V6Exportable" Value="TRUE"/>
+			<Property Name="Indexation" Value="TRUE"/>
+		</Simple>
+        <Simple Name="ISO15926_Thickness" Type="Double" Magnitude="LENGTH" DefaultValue="0.0" ResetOnCloning="Yes" ResetOnNewVersion="Yes" UIAccess="ReadWrite" Uuid="89673ed4-8027-0000-4523-475b04000000" Protection="Free" PLMImpacting="No">
+			<Property Name="V6Exportable" Value="TRUE"/>
+			<Property Name="Indexation" Value="TRUE"/>
+	    </Simple>
+        <Simple Name="ISO15926_Height" Type="Double" Magnitude="LENGTH" DefaultValue="0.0" ResetOnCloning="Yes" ResetOnNewVersion="Yes" UIAccess="ReadWrite" Uuid="89673ed4-8027-0000-4523-475b05000000" Protection="Free" PLMImpacting="No">
+			<Property Name="V6Exportable" Value="TRUE"/>
+			<Property Name="Indexation" Value="TRUE"/>
+	    </Simple>
+  </Extension>
+</Package>

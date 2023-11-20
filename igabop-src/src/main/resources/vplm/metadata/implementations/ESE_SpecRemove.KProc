@@ -1,0 +1,20 @@
+/********************************************************************************************************************************/
+/* Remove procedure                                                                                                             */
+/* --> Lev 0 : Propagation to data of type PLMInstance aggregated under the specification.                                      */
+/********************************************************************************************************************************/
+#Prog ESE_SpecRemove ( iPLMIDSet : #In PLMIDSet, oPLMIDSet : #Out PLMIDSet ) : VoidType
+{
+let PLMRouteSetLev0Categories (PLMRouteSet)
+let PLMIDSetLev0Categories (PLMIDSet)
+/********************            - Propagation Lev 0 -                     ***********************************/
+/*************************************************************************************************************/
+/* Getting techno table and parts filter instances by expand from the eng spec specifications                */
+/*************************************************************************************************************/
+PLMRouteSetLev0Categories = ExecutePLMFunction("PLMEnsSpecSpecification", "ESE_SpecCategories2", Restrict(iPLMIDSet, "PLMEnsSpecSpecification/EnsSpecification"))
+PLMIDSetLev0Categories = Ids(PLMRouteSetLev0Categories)
+/**********************/
+/* Returns all PLMIds */
+/**********************/
+oPLMIDSet = iPLMIDSet + PLMIDSetLev0Categories
+}
+

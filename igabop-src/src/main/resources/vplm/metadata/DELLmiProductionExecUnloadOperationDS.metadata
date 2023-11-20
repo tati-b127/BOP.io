@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2009, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" Name="DELLmiProductionExecUnloadOperationDS" Uuid="41ad7203-84d9-4bd5-852c-de7549635a92" UseNames="DELLmiProductionExecUnloadOperation" >
+<Property Name="OptionalInstallation" Value="Yes" /> 
+	<CAAComment>
+		<ShortRole>Standard DELMIA Execution Unloading Operation Package</ShortRole>
+		<Role>This package includes default customized DELMIA Execution Unloading Operation</Role>
+	</CAAComment>
+	<Comment>last update 2009-05-28</Comment>
+
+	<Class Name="DELLmiExecUnloadOperationRefCusto" Uuid="5a86edae-2e22-44a4-93aa-f4ea58e4bcbf" SuperName="DELLmiExecUnloadingOperationReference"  >
+
+    <IdentifierSet Name="Identifier"
+        Uuid="7f8ce55d-1438-477a-96eb-97b781c58171"
+        IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755"
+        IdentifierNames="PLM_ExternalID V_version" />
+
+    <CAAComment>
+			<ShortRole>Standard DELMIA Execution Unloading Operation Reference</ShortRole>
+			<Role>Default customized DELMIA Execution Unloading Operation Reference</Role>
+		</CAAComment>
+	</Class>
+
+  <RelationClass Name="DELLmiExecUnloadOperationInstCusto" Uuid="2b7fa21d-aa44-4a38-98c4-151c9be5ef20" SuperName="DELLmiExecUnloadingOperationInstance"  >
+    <CAAComment>
+      <ShortRole>Standard DELMIA Execution Unloading Operation Instance</ShortRole>
+      <Role>Default customized DELMIA Execution Unloading Operation Instance</Role>
+    </CAAComment>
+    <!-- ********************************************************* -->
+    <!-- * Overload(s) of PLMCoreInstance attributes. -->
+    <!-- ********************************************************* -->
+    <SubClause Name="to"   TargetName="DELLmiExecUnloadOperationRefCusto"/>
+  </RelationClass>
+
+</Package>

@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<!-- Declaration of EKL procedures for 3DXML exports -->
+<ProcedurePackage xmlns="PLMDictionaryProcedure" Name="CATSafety_Procedures">
+	<Procedure Name="SafetyReliabilitySource_ExportChannel">
+		<Implementation Name="SafetyReliabilitySource_ExportChannel" FileLocation="SafetyReliabilitySource_ExportChannel.KProc" Language="EKL"/>
+		<Signature href="ReliabilitySourceExport"/>
+	</Procedure>
+
+	<Procedure Name="SafetyReliabilitySource_ExportDesign">
+		<Implementation Name="SafetyReliabilitySource_ExportDesign" FileLocation="SafetyReliabilitySource_ExportDesign.KProc" Language="EKL"/>
+		<Signature href="ReliabilitySourceExport"/>
+	</Procedure>
+	
+	<Procedure Name="SafetyReliabilitySource_ExportReview">
+		<Implementation Name="SafetyReliabilitySource_ExportReview" FileLocation="SafetyReliabilitySource_ExportReview.KProc" Language="EKL"/>
+		<Signature href="ReliabilitySourceExport"/>
+	</Procedure>
+		
+	<Procedure Name="SafetyFaultTreeElement_ExportChannel">
+		<Implementation Name="SafetyFaultTreeElement_ExportChannel" FileLocation="SafetyFaultTreeElement_ExportChannel.KProc" Language="EKL"/>
+		<Signature href="SafetyExport"/>
+	</Procedure>
+
+	<Procedure Name="SafetyFaultTreeElement_ExportDesign">
+		<Implementation Name="SafetyFaultTreeElement_ExportDesign" FileLocation="SafetyFaultTreeElement_ExportDesign.KProc" Language="EKL"/>
+		<Signature href="SafetyExport"/>
+	</Procedure>
+	
+	<Procedure Name="SafetyFaultTreeElement_ExportReview">
+		<Implementation Name="SafetyFaultTreeElement_ExportReview" FileLocation="SafetyFaultTreeElement_ExportReview.KProc" Language="EKL"/>
+		<Signature href="SafetyExport"/>
+	</Procedure>
+
+  <Procedure Name="SafetyAssessment_ExportChannel">
+    <Implementation Name="SafetyAssessment_ExportChannel" FileLocation="SafetyAssessment_ExportChannel.KProc" Language="EKL"/>
+    <Signature href="SafetyExport"/>
+  </Procedure>
+
+  <Procedure Name="SafetyAssessment_ExportDesign">
+    <Implementation Name="SafetyAssessment_ExportDesign" FileLocation="SafetyAssessment_ExportDesign.KProc" Language="EKL"/>
+    <Signature href="SafetyExport"/>
+  </Procedure>
+
+  <Procedure Name="SafetyAssessment_ExportReview">
+    <Implementation Name="SafetyAssessment_ExportReview" FileLocation="SafetyAssessment_ExportReview.KProc" Language="EKL"/>
+    <Signature href="SafetyExport"/>
+  </Procedure>
+
+  <Signature id="SafetyExport">
+       <Parameter Name="InputIds" Lower="0" Upper="-1" MultiValuated="Yes" Direction="in" DataType="PLMId"/>
+       <Parameter Name="OutputIds" Lower="0" Upper="-1" MultiValuated="Yes" Direction="out" DataType="PLMId"/>
+   </Signature>
+
+  <Signature id="ReliabilitySourceExport">
+       <Parameter Name="InputIds" Lower="0" Upper="-1" MultiValuated="Yes" Direction="in" DataType="PLMId"/>
+       <Parameter Name="OutputIds" Lower="0" Upper="-1" MultiValuated="Yes" Direction="out" DataType="PLMId"/>
+   </Signature>
+
+</ProcedurePackage>

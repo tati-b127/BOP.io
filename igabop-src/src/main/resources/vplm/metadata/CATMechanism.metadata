@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!-- Mechanism DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2012, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" Name="CATMechanism" UseNames="PRODUCTCFG" Uuid="383EBBE8-4838-485E-B508-45EB25B0A339" ModelerType="Top" CustomerExposition="Programmer" >
+
+  <Class Name="Mechanism"
+         Uuid="89bdb553-fa48-4980-aec8-c29921c76a19"
+         Abbreviation="mec"
+         CustomerExposition="Programmer"
+         SuperName="VPMRepReference"
+         Discipline="Yes"
+         Abstract="No"
+         Specializable="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATEKinMechanismRepInstanciate"/>
+    <Property Name="KweNew_ReturnedType" Value="VPMRepInstance"/>
+    <Property Name="Newable" Value="Insert"/>
+    <Property Name="IconName" Value="I_Mechanism"/>
+    
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Remove"/>
+        <UsedProcedure href="ENOVpe_Procedures.proc#VPMEditor_Detach_VPMReferenceVPMRepReference"/>
+      </ProcedureForUsage>
+    </Method>
+  </Class>
+
+</Package>

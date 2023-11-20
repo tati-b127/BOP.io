@@ -1,0 +1,81 @@
+NAVIGATE   
+	T0.PLMID, T1.PLMID, T2.PLMID, T3.PLMID, T4.PLMID, T5.PLMID, T6.PLMID , T7.PLMID, T8.PLMID, T10.PLMID, T11.PLMID, T12.PLMID
+
+FROM 
+	CATSafetyFaultTreeAnalysis/FaultTreeElement T0,
+	CATSafetyFaultTreeAnalysis/FaultTreeElementGraphicalRep T1,
+	CATSafetyFaultTreeAnalysis/FaultTreeElementGraphicalRepInstance T2,
+	CATSafetyFaultTreeAnalysis/FaultTreeElementStandsFor T3,
+	CATSafety/FailureMode T4,
+	CATSafety/FallibleReference T5,
+	PLMCORE/PLMCoreReference T6,
+	CATSafety/ReliabilitySourceFormula T7,
+	CATSafety/ReliabilitySource T8,
+	CATSafetyFaultTreeAnalysis/FaultTreeElementDSFContext T10,
+	CATSafetyFaultTreeAnalysis/FaultTreeElementReuseContext T11,
+	CATSafety/FallibleReferenceStandsFor T12
+
+FROM_ROOTS[?1?]
+ON 
+(		
+	(
+	RELATION
+		(
+		FROM=PLMCORE/PLMCoreReference
+		TO=CATSafety/FallibleReferenceStandsFor 
+		THROUGH=POINTEDBY
+		)
+		WITH QUALITY_FILTER	( ROLE=FallibleReferenceStandsFor )
+    THEN RELATION
+    (
+		  FROM=CATSafety/FallibleReferenceStandsFor
+			TO=CATSafety/FallibleReference
+			THROUGH=POINTSTO
+		)
+		WITH QUALITY_FILTER	( CATEGORY=ISOWNEDBY )
+    THEN RELATION
+		(
+			FROM=CATSafety/FallibleReference 
+			TO=CATSafety/FailureMode 
+			THROUGH=POINTEDBY
+			)
+			WITH QUALITY_FILTER	( CATEGORY=ISOWNEDBY )
+		THEN
+		(
+			(
+				RELATION
+				(
+				FROM=CATSafety/FailureMode 
+		  	TO=CATSafetyFaultTreeAnalysis/FaultTreeElementStandsFor 
+				THROUGH=POINTEDBY
+				)
+				WITH QUALITY_FILTER	( ROLE=FaultTreeElementStandsFor )
+			)
+			OR
+			(
+				RELATION
+				(
+				FROM=CATSafety/FailureMode 
+				TO=CATSafety/ReliabilitySourceFormula 
+				THROUGH=POINTSTO
+				)
+				WITH QUALITY_FILTER	( ROLE=FailureModeHasRateDefinedBy )
+			THEN RELATION
+				(
+				FROM=CATSafety/ReliabilitySourceFormula 
+				TO=CATSafety/ReliabilitySource 
+				THROUGH=POINTSTO
+				)
+				WITH QUALITY_FILTER	( CATEGORY=ISOWNEDBY )
+			)
+		)
+		THEN RELATION
+		(
+			FROM=CATSafetyFaultTreeAnalysis/FaultTreeElementStandsFor
+			TO=CATSafetyFaultTreeAnalysis/FaultTreeElement 
+			THROUGH=POINTSTO
+		)
+		WITH QUALITY_FILTER	( CATEGORY=ISOWNEDBY )
+	)
+)
+; 

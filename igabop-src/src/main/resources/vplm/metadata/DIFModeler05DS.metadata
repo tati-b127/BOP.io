@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY FOR DIFModeler05 - Custo sample     -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2010, All rights reserved -->
+
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" Name="DIFModeler05DS"
+    Uuid="4277BF77-A4C2-48c8-88A3-4CC33FA081AE"
+    UseNames="DIFModeler05">
+  <Property Name="OptionalInstallation" Value="No" />
+
+  <CAAComment>
+    <ShortRole>DIF model 05 - Shape Library - Custo Sample Package</ShortRole>
+    <Role>This package describes a sample customization of Dif Model 05 - Shape Library </Role>
+  </CAAComment>
+
+  <!-- ***************************************************** -->
+  <!-- *  Sample custo of DIFShapeRep (PLMCoreRepReference)* -->
+  <!-- ***************************************************** -->
+
+  <Class Name="DIFShapeRepDS"
+      Uuid="03DE5EBC-65BF-44d0-94BD-672E3B6A355B"
+      SuperName="DIFShapeRep"
+      SuperRef="53801586-C7CE-4813-808A-3E393E6CCC77"
+      CAAExposition="L0">
+
+    <CAAComment>
+      <ShortRole>DIF Shape Library</ShortRole>
+      <Role>Shape Library</Role>
+    </CAAComment>
+
+    <IdentifierSet Name="Identifier"
+                   Uuid="0DB5BCA4-CA23-47b6-963B-7250BCECED68"
+                   IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755"
+                   IdentifierNames="PLM_ExternalID V_version"/>
+  </Class>
+
+</Package>

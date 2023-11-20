@@ -1,0 +1,125 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR DELMIA Production System Application -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified"
+         ModelerType="Top"
+         Name="DELLmiProductionTransferSystem"
+	       Uuid="b886ea00-87a2-47c2-93dc84f27d2b40b4"
+         BelongsToModeler="DELLmiProductionSystem"
+	       UseNames="DELLmiProductionSystemPPR"
+         CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>PLM DELMIA Transfer System </ShortRole>
+    <Role>This package describes the PLM DELMIA Transfer System model on top of DELLmiProductionSystemPPR</Role>
+  </CAAComment>
+
+  <Comment>last update 2012-01-20</Comment>
+  <Comment>last update 2012-10-26</Comment>
+
+  <Class Name="DELLmiTransferSystemReference"
+		     Uuid="e232e698-7b9a-4df9-99d93372baa01914"
+		     Abstract="No"
+         SuperName="DELLmiPPRSystemReference"
+         CustomerExposition="Programmer"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         CreateInstName="DELLmiTransferSystemInstance"
+         Abbreviation="tfs"
+         InstantiationOwnerTypes="DELLmiGeneralSystemReference;DELLmiTransformationSystemReference"
+         >
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELMPProdSystemAdvDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELLmiTransferSystemInstance"/>
+    <Property Name="IconName" Value="I_PPRTransferSystem"/>
+    <Property Name="3DIconName" Value="I_PPRTransferSystem.cgr"/>
+    <Property Name="Newable" Value="Insert_CAA"/>
+    <Property Name="Searchable" Value="Yes"/>
+
+    <CAAComment>
+      <ShortRole>PLM DELMIA Transfer System Reference</ShortRole>
+      <Role>PLM DELMIA Transfer System Reference</Role>
+    </CAAComment>
+
+    <Simple Name="V_EstimatedDistance"
+		        Uuid="9BEF68F5-308D-49ad-B226-3DECF9F762C7"
+		        Type="Double"
+		        Magnitude="LENGTH"
+		        DefaultValue="0.0"
+		        MultiValuated="No"
+		        ResetOnCloning="No"
+		        ResetOnNewVersion="No"
+		        Protection="Free"
+            Faceted="Yes"
+		        CAAExposition="L0"
+		        >
+      <Property Name="SIXW" Value="ds6w:distance"/>
+
+      <CAAComment>
+        <ShortRole>Defines estimated distance of Transport.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_TransferMode" Uuid="77A77260-4A1E-4099-A2EE-A3F395D046B2" Type="Integer" Protection="Free" CAAExposition="L0" DefaultValue="1" Faceted="Yes" ResetOnCloning="No" ResetOnNewVersion="No">
+      <Property Name="RangeAsEnumName" Value="V_TransferMode_Enum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="Continuous;Batch"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+      </Range>
+      <CAAComment>
+        <ShortRole>Defines the transfer mode of the Transfer System. It can be continuous or by Batch. In Batch mode the Batch size is defined by the V_Capacity of the Transfer Operation.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+
+  </Class>
+
+  <RelationClass Name="DELLmiTransferSystemInstance"
+		     Uuid="15c3c8af-c204-4f66-b81236de60a00087"
+		     Abstract="No"
+         SuperName="DELLmiPPRSystemInstance"
+         CustomerExposition="Programmer"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         >
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELMPProdSystemAdvDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELLmiTransferSystemInstance"/>
+
+    <Volatile Name="Reference"
+              Uuid="606901F0-0192-45b2-9EAF-3CDD24AC583C"
+              Accessor="PLMModelerReferenceKweAttribute"
+              TypeName="DELLmiTransferSystemReference"
+              AccessMode="ReadOnly" />
+
+    <CAAComment>
+      <ShortRole>PLM DELMIA Transfer System Instance. Specialization is not supported yet.</ShortRole>
+      <Role>PLM DELMIA Transfer System Instance</Role>
+    </CAAComment>
+
+    <SubClause Name="to"   TargetName="DELLmiTransferSystemReference"/>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+
+  </RelationClass>
+
+</Package>

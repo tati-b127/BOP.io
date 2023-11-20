@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2011, All rights reserved -->
+
+<!-- History
+    V6R2012x Created
+-->
+
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" Name="VPMCfgEffectivity" 
+    Uuid="0D4EAF41-43FC-4f5a-BEEA53B536FFCBC9" 
+    UseNames="VPMCfgCoreExpression"
+    BelongsToModeler="Configuration"
+    CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+		<ShortRole>The Configuration Effectivity Metadata.</ShortRole>
+		<Role>This package includes the entity VPMCfgEffectivity for validity condition definition.</Role>
+    </CAAComment>
+
+    <!-- *********************** -->
+    <!-- Class VPMCfgEffectivity -->
+    <!-- *********************** -->
+	
+    <Class Name="VPMCfgEffectivity" 
+        Uuid="CBD2B699-9707-4b82-9A51D7D5D6485960" 
+        SuperName="VPMCfgCoreExpression" 
+        Abstract="No" 
+		    CustomerExposition="Programmer"
+		    Specializable="No"
+		    CustomerExtensible="No">
+	    
+        <CAAComment>
+            <ShortRole>The VPMCfgEffectivity.class</ShortRole>
+            <Role>The VPMCfgEffectivity.class</Role>
+        </CAAComment>
+		
+        <!-- **************************** -->
+        <!-- Path declaration -->
+        <!-- **************************** -->
+
+        <Path Name="V_FilterableObject"
+            Uuid="012B52BB-D614-4404-B6F9493BC916651E" 
+            MultiValuated="Yes" 
+            Lower="0"
+            Upper="1"
+            RoleName="CFG_FilterableObject" 
+		Type="SemanticRelation" AdaptativeToMinor="No"
+		SynchroSensitivity="Last"
+		RerouteOnEffectivityChange="No" Orientation="Out"
+            Semantics="Reference7"/>
+		    
+        <Path Name="V_InheritedEffectivity"
+            Uuid="D6DFDCB4-7CAC-4a4a-9D44B4E4888E8877"
+            MultiValuated="Yes"
+            Lower="0"
+            Upper="-1"
+            RoleName="CFG_InheritedEffectivity"
+		Type="SemanticRelation" AdaptativeToMinor="No"
+		SynchroSensitivity="Last"
+		RerouteOnEffectivityChange="No" Orientation="In"
+            Semantics="Reference4"/>
+
+        <Path Name="V_InheritedEffectivityModel"
+            Uuid="C1B17038-6C1A-43f5-BFEC2EBEF1A5A799"
+            MultiValuated="Yes"
+		Type="SemanticRelation" AdaptativeToMinor="No"
+		SynchroSensitivity="None"
+		RerouteOnEffectivityChange="No"
+            Lower="0"
+            Upper="-1"
+            RoleName="CFG_InheritedEffectivityModel"
+            Semantics="Reference"/>
+
+        <!-- ********************** -->
+        <!-- Procedures declaration -->      
+        <!-- ********************** -->
+
+        <Method ImplementationType="None">
+            <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+        </Method>
+		
+    </Class>
+
+    <!-- ********************** -->
+    <!-- FUNCTIONS Declarations -->
+    <!-- ********************** -->
+
+    <Function Name="VPMCfgEffectivity_AddEffectivityFromInstance">
+        <Implementation Name="VPMCfgEffectivity_AddEffectivityFromInstance" FileLocation="VPMCfgEffectivity_AddEffectivityFromInstance.plmql" Language="PLMQL"/>
+        <Signature href="VPMCfgEffectivity_FuntionSignatureExport"/>
+    </Function>
+	
+    <Signature id="VPMCfgEffectivity_FuntionSignatureExport">
+        <Parameter Name="InputIds" Lower="0" Upper="-1" Direction="in" MultiValuated="Yes" DataType="PLMId"/>
+        <Parameter Name="OutputIds" Lower="0" Upper="-1" Direction="out" MultiValuated="No" DataType="PLMRouteSet"/>
+    </Signature>
+
+</Package>
+
+

@@ -1,0 +1,133 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR Equipment & Systems Grouping Connection -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2007, All rights reserved -->
+<Package CustomerExposition="Programmer" BelongsToModeler="PLMFluidSystemsLogical" xmlns="PLMDictionaryUnified" ModelerType="Top" Name="PLMEnsGrouping" Uuid="0dee1129-dce3-4238-b734-1a79cb586d82" UseNames="LPABSTRACT">
+  <CAAComment>
+    <ShortRole>Equipment Domain Connections Package</ShortRole>
+    <Role>This package describes the Equipment Domain connections on top of logical modeler.</Role>
+  </CAAComment>
+
+  <Comment>Initial Creation R207 2008-09-12 by AWG</Comment>
+  <Comment>Modified R207 2009-01-16 by AWG - Add Piping_Line_Cnx and Piping_Spool_Cnx</Comment>
+  <Comment>Modified R207 2009-01-29 AWG Export</Comment>
+  <Comment>Modified R207 2009-03-31 AWG CAAComment</Comment>
+  <Comment>Modified R209 2009-12-11 JEC R210 PLE model change. Add Attributes NominalSize, Standard, PipingSpecification</Comment>
+  <Comment>[V6R2013x] New Typing project: ZTB Apr 2012</Comment>
+  <Comment>[V6R2016x] Modify MaxLength on V_Standard and V_PipeSpecification BelongsToModeler=Equipment And Systems: JRI June 2015</Comment>
+
+  <!-- ***************************************************** -->
+  <!-- * PLMEnsConnection (LPAbstractConnection)           * -->
+  <!-- ***************************************************** -->
+
+  <Class Name="PLMEnsGrouping"
+    Uuid="4d29f607-9225-4815-9e2114ab5e70621d"
+    CustomerExposition="Programmer"
+    Abstract="No"
+    SuperName="LPAbstractConnection">
+    <CAAComment>
+      <ShortRole>PLM Line ID Membership Connection</ShortRole>
+      <Role>PLM Line ID Membership Connection</Role>
+    </CAAComment>
+
+    <Simple Name="V_NominalSize"
+            Type="String"
+            Uuid="f6a796d2-419a-4611-b86b-7d51f3b04fb7"
+            MaxLength="80"
+            Protection="External"
+            CAAExposition="L0"
+            MultiValuated="No">
+      <Property Name="Controller" 
+                Value="CATFluidicLogicalPipingLineController"/>
+    </Simple>
+
+    <Simple Name="V_Standard"
+            Type="String"
+            Uuid="7210362e-2d97-4f88-901e-a5aeb3b8174e"
+            MaxLength="100"
+            Protection="External"
+            CAAExposition="L0"
+            MultiValuated="No">
+      <Property Name="Controller" 
+                Value="CATFluidicLogicalPipingLineController"/>
+    </Simple>
+
+    <Simple Name="V_PipeSpecification"
+            Type="String"
+            Uuid="0fbb6e80-45a6-4cc7-adc1-a4fc1da1a1bc"
+            MaxLength="100"
+            Protection="External"
+            CAAExposition="L0"
+            MultiValuated="No">
+      <Property Name="Controller" 
+                Value="CATFluidicLogicalPipingLineController"/>
+    </Simple>
+
+    <Path Name="V_Group"
+                     Uuid="e0b1b689-a18f-469a-bad4a7d625991ac8"
+                     Semantics="Reference7"  Orientation="Out"
+                     RoleName="PLM_EnsGrouping_Group"
+                 		 Type="SemanticRelation" AdaptativeToMinor="No"
+                  	 SynchroSensitivity="Last"
+		                 RerouteOnEffectivityChange="No"
+                     MultiValuated="No" />
+
+    <Path Name="V_Member"
+                     Uuid="15dcf727-ed8d-428f-93bd06ca2491ac7b"
+                     Semantics="Reference"
+                     RoleName="PLM_EnsGrouping_Member"
+                  	 Type="SemanticRelation" AdaptativeToMinor="No"
+                		 SynchroSensitivity="None"
+		                 RerouteOnEffectivityChange="No"
+                     MultiValuated="No" />
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+  </Class>
+
+	<Class Name="Piping_Line_Cnx"
+		 Uuid="6a8e7d32-5c90-4242-b9d9-640d2cece5d6"
+		 CustomerExposition="Programmer"
+		 SuperName="PLMEnsGrouping"
+		 Discipline="Yes">
+		<Property Name="TypeForDisciplineValuation" Value="Piping_Line_Cnx"/>
+    <Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+	</Class>
+
+	<Class Name="Piping_Spool_Cnx"
+		 Uuid="cd0f4b08-cb03-456a-9db7-5313bd31319f"
+		 CustomerExposition="Programmer"
+		 SuperName="PLMEnsGrouping"
+		 Discipline="Yes">
+		<Property Name="TypeForDisciplineValuation" Value="Piping_Spool_Cnx"/>
+    <Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+	</Class>
+	
+	<Class Name="ICLoop_Line_Cnx"
+		 Uuid="69e6e913-3e2f-494b-aa34-3fea3232bc11"
+		 CustomerExposition="Programmer"
+		 SuperName="PLMEnsGrouping"
+		 Discipline="Yes">
+		<Property Name="TypeForDisciplineValuation" Value="ICLoop_Line_Cnx"/>
+    <Property Name="GroupingType"               Value="ICLoop_Line_Cnx"/>
+    <Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+	</Class>
+	
+  <Function Name="PLMEnsGrouping_AddGrouping">
+    <Implementation Name="PLMEnsGrouping_AddGrouping" FileLocation="PLMEnsGrouping_AddGrouping.plmql" Language="PLMQL"/>
+    <Signature href="PLMEnsGroupingFuncSignature"/>
+  </Function>
+  <Signature id="PLMEnsGroupingFuncSignature">
+    <Parameter Name="InputIds" Lower="0" Upper="-1" Direction="in" MultiValuated="Yes" DataType="PLMId"/>
+    <Parameter Name="OutputIds" Lower="0" Upper="-1" Direction="out" MultiValuated="No" DataType="PLMRouteSet"/>
+  </Signature>
+
+</Package>

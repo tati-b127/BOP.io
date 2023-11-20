@@ -1,0 +1,17 @@
+EXPAND
+
+   	T0.PLMID, T1.PLMID, T2.PLMID, T3.PLMID,
+
+   	T0.PLM_ExternalID, T1.PLM_ExternalID, T2.PLM_ExternalID, T3.PLM_ExternalID
+
+FROM
+
+   	PRODUCTCFG/VPMReference T0,
+
+   	PRODUCTCFG/VPMInstance T1,
+
+  	PRODUCTCFG/VPMRepReference T2,
+
+ 	PRODUCTCFG/VPMRepInstance T3
+
+FROM_ROOTS [?1?] ;

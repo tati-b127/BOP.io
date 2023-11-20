@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" DataRDB_OID="ENODR_STITF" Name="ENOSTInterferenceDS" Uuid="1678afa3-bad5-4f85-9802-b209b9f04854"
+         UseNames="SIMItfInterference" UseScopes="EXPERIMENT_ENUMS">
+  <CAAComment>
+    <ShortRole>PLM Interference Customization For ENOVIA SmarTeam</ShortRole>
+    <Role>Tailored to support market needs</Role>
+  </CAAComment>
+
+  <Class Name="ENOSTItfSimulationDS" Uuid="41a14648-5585-42eb-acfc-a01c375fc896"       SuperName="SIMItfSimulation" >
+
+    <Comment>Interference Simulation</Comment>
+
+    <!-- R207: contains experiment status -->
+    <!-- should be exhanged between sites, but currently not -->
+    <Simple Name="E_experimentStatus" Uuid="e7711ae7-d9da-4329-afc6-f974635cd676" Type="Integer" Protection="Free" DefaultValue="1" ResetOnCloning="Yes" ResetOnNewVersion="Yes">
+      <Property Name="RangeAsEnumName" Value="EXPERIMENT_ENUMS.ExperimentStatusEnum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="ExperimentStatusEnum_Undefined;ExperimentStatusEnum_Failed;ExperimentStatusEnum_Balancing;ExperimentStatusEnum_Passed"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+      </Range>
+    </Simple>
+
+    <!-- R206: contains identifier of object from which it is made from  -->
+    <!-- not exhanged between sites -->
+    <Simple Name="E_fromExternalId"
+    Uuid="6b1b6f16-ae35-455d-810e-456e9fc50f82"
+    Type="String"
+    MaxLength="256"
+    MultiValuated="No"
+    Protection="Free"
+          />
+
+    <!-- R206: contains Name comments  -->
+    <!-- not exhanged between sites -->
+    <Simple Name="E_versionComment"
+    Uuid="e2416eb2-42cb-4f66-889b-e2bb84af9d1a"
+    Type="String"
+    MaxLength="256"
+    MultiValuated="No"
+    Protection="Free"
+    ResetOnNewVersion="Yes"
+    ResetOnCloning="Yes"
+              />
+    <IdentifierSet Name="Identifier" Uuid="ed3b99bb-80af-4039-a795-a6a26742c851" IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755" IdentifierNames="PLM_ExternalID V_version"/>
+  </Class>
+
+  <Class Name="ENOSTItfInterferenceDS" Uuid="5042369c-dc66-4bf4-b228-8735ceed18d1"       SuperName="SIMItfInterference">
+    <Comment>Interference Result Connection</Comment>
+  </Class>
+
+</Package>

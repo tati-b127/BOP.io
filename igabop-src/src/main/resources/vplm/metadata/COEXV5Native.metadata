@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY FOR RFL System Type -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2016, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" Name="COEXV5Native" 
+	Uuid="7036972c-eec8-442d-b3b3-09f2d9571c1c" 
+	UseNames="PRODUCTCFG"
+  CustomerExposition="Programmer"         
+>		
+	<!-- ******************************************************************************* -->
+	<!-- *  COEXV5Native applyable on 3DShape / Drawing of former and new typing * -->
+	<!-- ******************************************************************************* -->
+  <Extension Name="COEXISTENCEV5NativeExtension"
+             CustomerExposition="ProgrammerOnly"
+             Uuid="88def59d-b926-4241-bf67-6902aec14610"
+             ScopeNames="VPMRepReference"
+             Searchable="No">
+    <CAAComment>
+      <ShortRole>Extension that can be put on an object to indicate that it is a COEXISTENCE V5 Native representation</ShortRole>
+    </CAAComment>
+  </Extension>
+</Package>

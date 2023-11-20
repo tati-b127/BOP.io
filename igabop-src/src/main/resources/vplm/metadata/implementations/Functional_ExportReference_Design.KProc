@@ -1,0 +1,63 @@
+#Prog Functional_ExportReference_Design ( iPLMIDSet : #In PLMIDSet, oPLMIDSet : #Out PLMIDSet ) : VoidType
+{
+  let SetOfFctTopModelerPLMRoutes(PLMRouteSet)
+  let SetOfFctTopModelerPLMIDs(PLMIDSet)
+  let SetOfFctTopModelerRefPLMIDs(PLMIDSet)
+  let SetOfPLMRoutesForImplementLinks(PLMRouteSet)
+  let SetOfPLMRoutesForFunctionalPortMapping(PLMRouteSet)
+  let SetOfPLMRoutesForDocuments(PLMRouteSet)
+  let SetOfPLMParameters(PLMRouteSet)
+ 
+  /*Local Variables declarations for Export Lib in DESIGN completion*/  
+  let PLMIDSet_FunctionalRep(PLMIDSet)
+  let PLMRouteSet_FRepRefAndRepLibDependancy(PLMRouteSet)
+  let PLMIDSet_FRepRefAndRepLibDependancy(PLMIDSet)
+  let PLMIDSet_FirstRepLibPointed(PLMIDSet)
+  let PLMRouteSet_LibRefRepDependancy(PLMRouteSet)
+  let PLMIDSet_LibRefRepDependancy(PLMIDSet)
+  let PLMRouteSet_RefLib_RepInstLib_RepRefLib_Dependancy(PLMRouteSet)
+  let PLMIDSet_RefLib_RepInstLib_RepRefLib_Dependancy(PLMIDSet)
+  let PLMIDSet_RefLibDependancy(PLMIDSet)
+  let PLMIDSet_BehaviorDataToExport(PLMIDSet)
+  let PLMIDSet_DifModeler(PLMIDSet)
+ 
+   let InputPLMIDSetRestricted(PLMIDSet)
+   InputPLMIDSetRestricted = Restrict(iPLMIDSet,"RFLPLMFunctional/RFLPLMFunctionalReference")
+ 
+ 
+  SetOfFctTopModelerPLMRoutes = ExecutePLMFunction("RFLPLMFunctional","RFLPLMFunctional_AllFctObjects",InputPLMIDSetRestricted)
+  SetOfFctTopModelerPLMIDs = Ids(SetOfFctTopModelerPLMRoutes)
+  SetOfFctTopModelerRefPLMIDs = Restrict(SetOfFctTopModelerPLMIDs,"RFLPLMFunctional/RFLPLMFunctionalReference")
+ 
+  /* Add implement Links connections (resp: LRG) */
+  SetOfPLMRoutesForImplementLinks = ExecutePLMFunction("RFLPLMImplementConnection","RFLPLMImplementConnection_AddAllImplementCnx",SetOfFctTopModelerRefPLMIDs)
+
+  /* Add Connections for Functional Ports Mapping (resp: LST/SVV) */
+  SetOfPLMRoutesForFunctionalPortMapping = ExecutePLMFunction("RFLPLMFunctionalConnectorMapping","RFLPLMFunctionalConnectorMapping_AllFctMappingCnx",SetOfFctTopModelerRefPLMIDs)
+
+  /* Add PLMDocConnections plus documents pointed by these PLMDocConnections (resp:BCC)*/
+  SetOfPLMRoutesForDocuments = ExecutePLMFunction("PLMDocConnection","PLMDocConnection_retrieveAllDocuments",SetOfFctTopModelerRefPLMIDs)
+  
+   /*Get All Functional Rep Ref*/
+  PLMIDSet_FunctionalRep = Restrict(SetOfFctTopModelerPLMIDs, "RFLPLMFunctional/RFLPLMFunctionalRepReference")
+  
+  /*Call on all RepRef Functional (PLMIDSet_FunctionalRep) to get all Behavior RefLib dependency in case of overloaded Discipline*/
+  /*CATSysBehaviorLibrary_GetRepLibPointedByFunctionalRep return Input Functional RepRef+direct pointed Behavior LibRepRef if */
+  /*discipline is overload by a Behavior Discipline (in fact not really based on Discipline, but on SR roles)*/
+  /* resp: SVV/LST */
+  PLMRouteSet_FRepRefAndRepLibDependancy = ExecutePLMFunction("CATSysBehaviorLibrary","CATSysBehaviorLibrary_GetRepLibPointedByFunctionalRep",PLMIDSet_FunctionalRep)
+  PLMIDSet_FRepRefAndRepLibDependancy = Ids(PLMRouteSet_FRepRefAndRepLibDependancy)
+  PLMRouteSet_RefLib_RepInstLib_RepRefLib_Dependancy = ExecutePLMFunction("CATSysBehaviorLibrary","CATSysBehaviorLibrary_GetRefLibFromRepLib", PLMIDSet_FRepRefAndRepLibDependancy)
+  PLMIDSet_RefLib_RepInstLib_RepRefLib_Dependancy  = Ids(PLMRouteSet_RefLib_RepInstLib_RepRefLib_Dependancy)
+  
+  /* Call DBM proc on model (resp JJ4/LST) */
+  PLMIDSet_BehaviorDataToExport = ExecutePLMProcedure("SystemsBehavior_GetDependencies",PLMIDSet_RefLib_RepInstLib_RepRefLib_Dependancy)
+  
+  /* Call DifPresentation proc (resp GVC) */
+  PLMIDSet_DifModeler = ExecutePLMProcedure("DIFModeler_GetAttachedPresentations",SetOfFctTopModelerRefPLMIDs)
+
+  /* Get PLMParameters */
+  SetOfPLMParameters = ExecutePLMFunction("PLMParameter", "PAR_nav_params", SetOfFctTopModelerRefPLMIDs)
+
+  oPLMIDSet = iPLMIDSet + SetOfFctTopModelerPLMIDs + Ids(SetOfPLMRoutesForImplementLinks) + Ids(SetOfPLMRoutesForFunctionalPortMapping) + Ids(SetOfPLMRoutesForDocuments) + PLMIDSet_BehaviorDataToExport + PLMIDSet_DifModeler + Ids(SetOfPLMParameters)
+}

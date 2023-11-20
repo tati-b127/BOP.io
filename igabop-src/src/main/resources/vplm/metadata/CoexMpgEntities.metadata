@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY FOR MAPPING PACKAGE --> <!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified"
+         BelongsToModeler="CoexMpgEntities"
+         ModelerType="Top"
+         Name="CoexMpgEntities"
+         Uuid="B8639919-24FC-4F10-A2DF-9F5B8149BF74"
+         UseNames="ERCoreModeler"
+         Architecture = "All"
+         CustomerExposition="None">
+         <!-- <Property Name="FormerTypingLegacy" Value="Yes"/> -->
+         <CAAComment>
+             <ShortRole>Package for the coexistence mapping V5 V6 for conversion and applicative information.</ShortRole>
+             <Role>This package includes the entity to store several applicative information for coexistence mapping</Role>
+         </CAAComment> 
+         <Comment>Creation 2018-09-04</Comment>
+  
+  <Class Name="CoexMpgConvAppliInfoEntity"
+                Uuid="5FA54DB1-5EA3-4BD3-AE68-B84FF71064EE"
+                SuperName="BusinessType"
+                CustomerExposition="None">
+				
+		<Simple Name="StreamMigrationState"
+			Uuid="4D72B28E-71B5-4EAF-8011-510152E0D5A2"
+			Type="Integer"
+			MultiValuated="No"
+			Protection="Internal" >
+		</Simple>
+		<CAAComment>
+			<ShortRole>Migration state of the stream.</ShortRole>
+			<Role>Inform if the stream have been migration from the IRPC data model to the FlatTable model.</Role>
+		</CAAComment>
+
+		<Simple Name="CompleteDistantId"
+			Uuid="22285CBB-5CC1-4FEC-9CD3-1BC0E447DE50"
+			Type="Clob"
+			MultiValuated="No"
+			Protection="Internal" >
+		</Simple>
+		<CAAComment>
+			<ShortRole>Complete DistantId.</ShortRole>
+			<Role>If the DistantId is too long (more than 335 Bin64 char), so an Hkey is stored in the column and the complete value is stored in that attribute.</Role>
+		</CAAComment>
+				
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+</Package>

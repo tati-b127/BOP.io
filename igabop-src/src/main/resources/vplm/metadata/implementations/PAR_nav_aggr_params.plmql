@@ -1,0 +1,78 @@
+NAVIGATE
+   	T1.physicalid, T1.logicalid, T1.majorid, T1.type, T1.name
+
+FROM
+	Class/PARParameter T1
+
+FROM_ROOTS
+	[?1?]
+
+ON
+	(
+		(RELATION 
+			(FROM=Class/Requirement
+			TO=RelationClass/ParameterAggregation
+			THROUGH=POINTEDBY
+			)
+			WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY)
+		)
+		OR
+		(RELATION 
+			(FROM=Class/Requirement
+			TO=RelationClass/ParameterComposition
+			THROUGH=POINTEDBY
+			)
+			WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY)
+		)
+		OR
+		(RELATION 
+			(FROM=Class/Part
+			TO=RelationClass/ParameterAggregation
+			THROUGH=POINTEDBY
+			)
+			WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY)
+		)
+		OR
+		(RELATION 
+			(FROM=Class/Part
+			TO=RelationClass/ParameterComposition
+			THROUGH=POINTEDBY
+			)
+			WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY)
+		)
+		OR
+		(RELATION 
+			(FROM=PLMCORE/PLMCoreReference
+			TO=RelationClass/ParameterAggregation
+			THROUGH=POINTEDBY
+			)
+			WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY)
+		)
+		OR
+		(RELATION 
+			(FROM=PLMCORE/PLMCoreReference
+			TO=RelationClass/ParameterComposition
+			THROUGH=POINTEDBY
+			)
+			WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY)
+		)
+	)
+THEN
+	(RELATION 
+		(FROM=RelationClass/ParameterAggregation
+		TO=Class/PARParameter
+		THROUGH=POINTSTO
+		)
+		WITH QUALITY_FILTER (CATEGORY=ISINSTANCEOF)
+	)
+	OR
+	(RELATION 
+		(FROM=RelationClass/ParameterComposition
+		TO=Class/PARParameter
+		THROUGH=POINTSTO
+		)
+		WITH QUALITY_FILTER (CATEGORY=ISINSTANCEOF)
+	)
+
+ITER = 1 ;
+

@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR RFL Logical 3D Rep DS -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2007, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" DataRDB_OID="ENODR_RFLL3DDS" Name="RFLVPMLogical3DRepDS"
+	Uuid="a9be79e8-7d78-4c88-8fd4-db4a7f2a095c" 
+	UseNames="RFLVPMLogical3DRep" 
+	>
+	
+<Property Name="OptionalInstallation" Value="Yes" /> 
+	<CAAComment>
+		<ShortRole>PLM RFL Logical 3D Rep Custo Package</ShortRole>
+		<Role>PLM RFL Logical 3D Rep Custo Package</Role>
+	</CAAComment>
+	
+	<Comment>last update 2007-09-26</Comment>
+	
+  <!-- ***************************************************************** -->
+	<!-- *  RFLVPMLogical3DRepReferenceDS (RFLVPMLogical3DRepReference)  * -->
+	<!-- ***************************************************************** -->
+		
+	<Class Name="RFLVPMLogical3DRepReferenceDS" 
+		Uuid="18defcfc-c141-459b-b35e-435bcbbb221a" 	 		 
+		SuperName="RFLVPMLogical3DRepReference" 		 
+		>
+
+        <IdentifierSet Name="Identifier"
+            Uuid="3d3cc68f-a56c-4796-87a2-45e9353441fa"
+            IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755"
+            IdentifierNames="PLM_ExternalID V_version" />
+ 
+	</Class>
+
+	<!-- ************************************************************* -->
+	<!-- * RFLVPMLogical3DRepInstanceDS (RFLVPMLogical3DRepInstance) * -->
+	<!-- ************************************************************* -->
+	
+	<Class Name="RFLVPMLogical3DRepInstanceDS" 
+		Uuid="f75a7200-c322-4d86-af53-f5b463b1edea" 
+		SuperName="RFLVPMLogical3DRepInstance" 		 
+		>
+        	
+	</Class>
+
+</Package>

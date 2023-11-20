@@ -1,0 +1,81 @@
+<?xml version="1.0" ?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<Package Name="VCOProject"
+         xmlns="PLMDictionaryUnified"
+         Uuid="57eadd6e-4eac-43e8-9814-91a872a59cd0"
+         CustomerExposition="Programmer"
+         UseNames="PLMCORE" Deprecated="Yes">
+
+       <CAAComment>
+           <ShortRole>Composer</ShortRole>
+           <Role>This package includes the top level entities in a Composer project.</Role>
+       </CAAComment>
+
+
+  <!-- * VCOReference (PLMCoreReference) * -->
+  <Class Name="VCOReference"
+         Uuid="bae98986-dd36-466c-a628-57d9261942aa"
+         Abstract="No"
+         SuperName="PLMCoreReference"
+         CustomerExposition="ProgrammerOnly" Deprecated="Yes"
+>
+    <CAAComment>
+      <ShortRole>Composer Reference</ShortRole>
+      <Role>Anchor point for Composer Projects</Role>
+    </CAAComment>
+
+    <Property Name="Searchable" Value="Yes"/>
+
+    <!-- * Methods * -->
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+
+  <!-- * VCORepresentation (PLMCoreRepReference) * -->
+  <Class Name="VCORepresentation"
+       Uuid="b2456994-9307-404b-b654-79ad31b5978d"
+       Abstract="No"
+       SuperName="PLMCoreRepReference"
+         CustomerExposition="ProgrammerOnly" Deprecated="Yes"
+>
+       <CAAComment>
+           <ShortRole>Composer Representation</ShortRole>
+           <Role>All data of a Composer Project</Role>
+       </CAAComment>
+
+       <Property Name="Searchable" Value="No"/>
+
+       <!-- * simple attributes * -->
+
+
+    <!-- * Methods * -->
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+
+<!-- * VCORepInstance (PLMCoreRepInstance) * -->
+  <RelationClass Name="VCORepInstance"
+       Uuid="0f8c7251-d595-4d9e-b302-830295ca938d"
+       Abstract="No"
+       SuperName="PLMCoreRepInstance"
+         CustomerExposition="ProgrammerOnly" Deprecated="Yes"
+>
+  
+       <!-- * simple attributes * -->
+       <!-- * Subclause * -->
+ <SubClause Name="to"   TargetName="VCORepresentation"/>
+
+  <!-- * Methods * -->
+  <Method ImplementationType="None">
+    <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+  </Method>
+</RelationClass>
+
+</Package>
+ 

@@ -1,0 +1,9 @@
+EXPAND 
+	T0.PLMID, T0.PLM_ExternalID,
+	T0.PLMID, T1.PLM_ExternalID,
+	T2.PLMID, T2.PLM_ExternalID
+FROM
+CATSafety/ReliabilitySource T0,
+CATSafety/ReliabilitySourceSubSource T1,
+CATSafety/ReliabilitySourceFormula T2
+FROM_ROOTS[?1?];

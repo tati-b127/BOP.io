@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2012, All rights reserved -->
+
+<Package CustomerExposition = "Programmer" ModelerType = "Top" Name = "RoadElementIfc" UseNames = "RoadElement" Uuid = "5C9E7380-6DD2-42B6-924C-A12916E8F1FB" xmlns = "PLMDictionaryUnified">
+  <Extension CustomerExposition = "Programmer" Name = "IfcRoadElement" ScopeNames = "RoadElement" Uuid = "A3FB1268-7578-4391-A5A9-12638A098556">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcRoadElement_ObjectType" Protection = "Free" Type = "String" Uuid = "A3FB1268-7578-4391-A5A9-1ad52eb2ea5e"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcRoadElement_Tag" Protection = "Free" Type = "String" Uuid = "A3FB1268-7578-4391-A5A9-ed12431a92f4"/>
+    <Simple CAAExposition = "L0" DefaultValue = "99" Name = "IfcRoadElement_PredefinedType" Protection = "Free" Type = "Integer" Uuid = "8E281954-F396-47D8-9459-ACEB2A9F9136">
+      <Property Name = "RangeAsEnumName" Value = "IfcRoadElementTypeEnum"/>
+      <Property Name = "RangeAsEnumAuthorizedValues" Value = "USERDEFINED;NOTDEFINED"/>
+      <Range>
+        <Equal>98</Equal>
+        <Equal>99</Equal>
+      </Range>
+    </Simple>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcRoadElementType" ScopeNames = "RoadElementType" Uuid = "8181DA37-4C2E-4A91-AA19-2D262F5F68D7">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcRoadElementType_Tag" Protection = "Free" Type = "String" Uuid = "8181DA37-4C2E-4A91-AA19-cc2a36316812"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcRoadElementType_ElementType" Protection = "Free" Type = "String" Uuid = "8181DA37-4C2E-4A91-AA19-4fccfb51960c"/>
+    <Simple CAAExposition = "L0" DefaultValue = "99" Name = "IfcRoadElementType_PredefinedType" Protection = "Free" Type = "Integer" Uuid = "1B61EB69-4DB7-4887-8697-7C01CA9A62AB">
+      <Property Name = "RangeAsEnumName" Value = "IfcRoadElementTypeEnum"/>
+      <Property Name = "RangeAsEnumAuthorizedValues" Value = "USERDEFINED;NOTDEFINED"/>
+      <Range>
+        <Equal>98</Equal>
+        <Equal>99</Equal>
+      </Range>
+    </Simple>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcQto_DS_RoadOtherElementBaseQuantities" ScopeNames = "RoadOtherElement RoadOtherElementType" Uuid = "73448B21-3A6A-4AB6-A4B1-80496E0F46AF">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcQto_DS_RoadOtherElementBaseQuantities_MethodOfMeasurement" Protection = "Free" Type = "String" Uuid = "73448B21-3A6A-4AB6-A4B1-14b1550b5f09"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcQto_DS_RoadOtherElementBaseQuantities_Height" Protection = "Free" Type = "Double" Uuid = "1AE057B8-EA77-428F-B97D-F4A2067AB60F"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcQto_DS_RoadOtherElementBaseQuantities_Length" Protection = "Free" Type = "Double" Uuid = "38A15177-6E3D-443F-B36C-750027A61495"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcQto_DS_RoadOtherElementBaseQuantities_Width" Protection = "Free" Type = "Double" Uuid = "CAB407F1-113E-4D87-860D-6017CD464C5C"/>
+    <Simple CAAExposition = "L0" Magnitude = "AREA" Name = "IfcQto_DS_RoadOtherElementBaseQuantities_GrossSurfaceArea" Protection = "Free" Type = "Double" Uuid = "99F38EDC-C997-4FBD-BCA3-053F67855548"/>
+    <Simple CAAExposition = "L0" Magnitude = "AREA" Name = "IfcQto_DS_RoadOtherElementBaseQuantities_NetSurfaceArea" Protection = "Free" Type = "Double" Uuid = "813CF2FC-9C00-480C-ACA6-1D2EC2C657F9"/>
+    <Simple CAAExposition = "L0" Magnitude = "VOLUME" Name = "IfcQto_DS_RoadOtherElementBaseQuantities_GrossVolume" Protection = "Free" Type = "Double" Uuid = "04A31DB6-6ECA-427E-B4E5-04C130AE7C81"/>
+    <Simple CAAExposition = "L0" Magnitude = "VOLUME" Name = "IfcQto_DS_RoadOtherElementBaseQuantities_NetVolume" Protection = "Free" Type = "Double" Uuid = "F9C0DAE0-B83D-4F71-BA56-562D5C6FCCF2"/>
+    <Simple CAAExposition = "L0" Magnitude = "MASS" Name = "IfcQto_DS_RoadOtherElementBaseQuantities_GrossWeight" Protection = "Free" Type = "Double" Uuid = "F380E2C7-ABAA-435B-B137-41FE54D88660"/>
+    <Simple CAAExposition = "L0" Magnitude = "MASS" Name = "IfcQto_DS_RoadOtherElementBaseQuantities_NetWeight" Protection = "Free" Type = "Double" Uuid = "ADDCCBAC-3D97-4CAB-8329-45AE58C8C05F"/>
+  </Extension>
+</Package>

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR RFL System Type Custo 1-->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2006, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" Name="RFLPLMFlowExpositionCusto1"
+	Uuid="FA49EFB1-CFF8-4235-97C3-DCCAA886F0EF" 
+	UseNames="RFLPLMFlowExposition" 
+	>
+  <Property Name="OptionalInstallation" Value="No" />
+	<CAAComment>
+		<ShortRole>PLM RFL System Flow Exposition Custo Package</ShortRole>
+		<Role>PLM RFL System Flow Exposition Custo Package</Role>
+	</CAAComment>
+	
+	<Comment>last update 2011-10-26</Comment>
+	
+	<!-- ************************************************* -->
+	<!-- * RFLPLMFlowExpositionInstanceCusto1 (RFLPLMFlowExpositionInstance) * -->
+	<!-- ************************************************* -->
+	<Class Name="RFLPLMFlowExpositionInstanceCusto1" 
+		Uuid="078074A9-8976-4dd5-9009-08C72B9AD9C9" 
+		SuperName="RFLPLMFlowExpositionInstance" 
+		SuperRef="21B5B36C-D539-4a7a-A8F1-E9754FBA1735" 
+		>
+	</Class>
+
+</Package>

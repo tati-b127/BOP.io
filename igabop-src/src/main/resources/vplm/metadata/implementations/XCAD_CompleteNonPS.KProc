@@ -1,0 +1,28 @@
+#Prog XCAD_CompleteNonPS (iPLMIDSet : #In PLMIDSet, oPLMIDSet : #Out PLMIDSet) : VoidType
+{
+  /* Variables */
+  let PLMIDSet_Rep (PLMIDSet)
+  let PLMIDSet_RefIn (PLMIDSet)
+  let PLMIDSet_RepIn (PLMIDSet)
+  let PLMIDSet_Ref1 (PLMIDSet)
+  let PLMIDSet_Ref2 (PLMIDSet)
+
+  /* filter input */
+  PLMIDSet_RefIn = Restrict (iPLMIDSet, "PLMCORE/PLMCoreReference")
+
+  /* filter input */
+  PLMIDSet_RepIn = Restrict (iPLMIDSet, "PLMCORE/PLMCoreRepReference")
+
+  /* retrieve dependencies from NonPS */
+  PLMIDSet_Rep = Ids (ExecutePLMFunction ("XCADModeler", "XCAD_GetDependenciesRefToRep",PLMIDSet_RefIn))
+
+  /* retrieve dependencies from NonPS */
+  PLMIDSet_Ref1 = Ids (ExecutePLMFunction ("XCADModeler", "XCAD_GetDependenciesRefToRef",PLMIDSet_RefIn))
+
+  /* retrieve dependencies from NonPS */
+  PLMIDSet_Ref2 = Ids (ExecutePLMFunction ("XCADModeler", "XCAD_GetDependenciesRepToRef",PLMIDSet_RepIn))
+
+  /* build output */
+  oPLMIDSet = iPLMIDSet + PLMIDSet_Rep + PLMIDSet_Ref1 + PLMIDSet_Ref2
+
+}

@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2005, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" Name="PLMChgMAO" Uuid="b8d20a77-c92a-0000-020a100536000000" UseNames="PLMChgActionBase" BelongsToModeler="PLMChgActionBase" CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+  <CAAComment>
+    <ShortRole>Change Management Manual Affected Objects Package</ShortRole>
+    <Role>This package includes the Concrete entity for Change Management Manual Affected Objects Connections</Role>
+  </CAAComment>
+  <Comment>last update 2005-11-09-15.51.00</Comment>
+  <!-- *************************************** -->
+  <!-- * PLMMAO (PLMAssociatedData)   * -->
+  <!-- *************************************** -->
+  <Class Name="PLMChgMAO" Uuid="b8d20c0d-5ad3-0000-020a100536000000" Abstract="No" SuperName="PLMChgAssociatedData" CustomerExposition="Programmer">
+    <CAAComment>
+      <ShortRole>Change Management Manual Affected Object</ShortRole>
+      <Role>Concrete entity for Change Management Manual Affected Object Connections - "output" objects impacted by a modification which are added to the action</Role>
+    </CAAComment>
+
+    <!-- *********************** -->
+    <!-- Properties Declaration  -->
+    <!-- *********************** -->
+    <Property Name="IconName"  Value="I_Action_AffectedObject_22"/>
+    <Property Name="3DIconName"  Value="ActionAffectedObjectNavRep.cgr"/>
+
+    <!-- *********************** -->
+    <!-- PROCEDURES Declaration  -->
+    <!-- *********************** -->
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    
+  </Class>
+
+  <!-- ********************** -->
+  <!-- FUNCTIONS Declarations -->
+  <!-- ********************** -->
+
+  <Function Name="PLMChgMAO_AddOutputObjects">
+    <Implementation Name="PLMChgMAO_AddOutputObjects" FileLocation="PLMChgMAO_AddOutputObjects.plmql" Language="PLMQL"/>
+    <Signature href="PLMChgMAO_FunctionSignatureExport"/>
+  </Function>
+
+  <Signature id="PLMChgMAO_FunctionSignatureExport">
+    <Parameter Name="InputIds" Lower="0" Upper="-1" Direction="in" MultiValuated="Yes" DataType="PLMId"/>
+    <Parameter Name="OutputIds" Lower="0" Upper="-1" Direction="out" MultiValuated="No" DataType="PLMRouteSet"/>
+  </Signature>
+  
+</Package>

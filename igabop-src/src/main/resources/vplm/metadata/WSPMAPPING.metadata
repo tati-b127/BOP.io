@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2004, All rights reserved -->
+<Package xmlns="PLMDictionaryCore" Name="WSPMAPPING" Uuid="5A724F28-82A5-49bb-872E-62C7B3C5F596"  CustomerExposition="Programmer"
+  ModelerType="Core"
+  >
+
+
+	<!-- ******************* -->
+	<!-- WspTableEntry -->
+	<!-- ******************* -->
+
+	
+	<Class Name="WspTableEntry" Uuid="777AFA78-3B9D-4b3b-B6F1-C29ECDC565CA"  Abstract="Yes"  CustomerExposition="Programmer">
+
+		<!-- 
+			These four attributes represent the exploded view of the Workspace PLMID.
+			Only the physicalid can be put in a where clause.
+		-->
+		<Simple Name="physicalidworkspace" Uuid="0DE43518-3570-4465-891C-0E2C3B4B2F99" Type="Binary" MaxLength="16"  MultiValuated="No" Protection="Internal" SetOnlyOnce="AtCreation"/>
+		<Simple Name="logicalidworkspace" Uuid="5A93B110-F317-4446-A717-A0C219A7BA57" Type="Binary" MaxLength="16"  MultiValuated="No" Protection="Internal" SetOnlyOnce="AtCreation"/>
+        <Simple Name="majoridworkspace" Uuid="5A93D110-F317-4946-A817-A0C219A7BC57" Type="Binary" MaxLength="16"  MultiValuated="No" Protection="Internal" SetOnlyOnce="AtCreation"/>
+		<Simple Name="typeworkspace" Uuid="776A4C11-3B9F-4a89-B6CE-1B33C67B17D4" Type="String" MaxLength="255"  MultiValuated="No" Protection="Internal" SetOnlyOnce="AtCreation"/>
+
+		<!-- 
+			These four attributes represent the exploded view of the corresponding parent Workspace PLMID.
+			Only the physicalid can be put in a where clause.
+		-->
+		<Simple Name="physicalidparentworkspace" Uuid="094CDA3D-1CFC-4ff7-BEFB-71602C130040" Type="Binary" MaxLength="16" MultiValuated="No" Protection="Internal" SetOnlyOnce="AtCreation"/>
+		<Simple Name="logicalidparentworkspace" Uuid="0555ACF9-1947-4e82-BBBA-783D45C8642E" Type="Binary" MaxLength="16"  MultiValuated="No" Protection="Internal" SetOnlyOnce="AtCreation"/>
+        <Simple Name="majoridparentworkspace" Uuid="0585ACA9-1941-4b83-BCBA-783E45A9642E" Type="Binary" MaxLength="16" MultiValuated="No" Protection="Internal" SetOnlyOnce="AtCreation"/>
+		<Simple Name="typeparentworkspace" Uuid="D5B13B59-DAE8-4b8a-A9EA-906F616E61C4" Type="String" MaxLength="255" MultiValuated="No" Protection="Internal" SetOnlyOnce="AtCreation"/>
+		
+		<!-- 
+			These four attributes represent the exploded view of the entity PLMID.
+			Only the physicalid can be put in a where clause.
+		-->
+		<Simple Name="physicalidobject" Uuid="7B214A5E-2989-4a55-8C19-A2955BCEB0CF" Type="Binary" MaxLength="16" MultiValuated="No" Protection="Internal" SetOnlyOnce="AtCreation"/>
+		<Simple Name="logicalidobject" Uuid="610552CD-A6B0-49bc-88E1-C2D3D012B36C" Type="Binary" MaxLength="16"  MultiValuated="No" Protection="Internal" SetOnlyOnce="AtCreation"/>
+        <Simple Name="majoridobject" Uuid="810666CD-A2B0-44bc-82E1-B2D3D012CF4C" Type="Binary" MaxLength="16"  MultiValuated="No" Protection="Internal" SetOnlyOnce="AtCreation"/>
+		<Simple Name="typeobject" Uuid="98DDA3AE-5A9C-4d00-8111-E12EFE6B7C84" Type="String" MaxLength="255"  MultiValuated="No" Protection="Internal" SetOnlyOnce="AtCreation"/>
+
+		<!-- 
+			These four attributes represent the exploded view of the PLMID of the corresponding entity in the parent workspace.
+			Only the physicalid can be put in a where clause.
+		-->
+		<Simple Name="physicalidobjectinparentworkspace" Uuid="F901613D-05CC-441f-AB60-5F4B527A5C4B" Type="Binary" MaxLength="16" MultiValuated="No" Protection="Internal" SetOnlyOnce="AtCreation"/>
+		<Simple Name="logicalidobjectinparentworkspace" Uuid="FE782FC0-B2AA-41e7-843E-514D457BBF8A" Type="Binary" MaxLength="16"  MultiValuated="No" Protection="Internal" SetOnlyOnce="AtCreation"/>
+        <Simple Name="majoridobjectinparentworkspace" Uuid="FB783DC0-B2DD-47e3-823E-A14D457AAF8A" Type="Binary" MaxLength="16" MultiValuated="No" Protection="Internal" SetOnlyOnce="AtCreation"/>
+		<Simple Name="typeobjectinparentworkspace" Uuid="F5004AD5-0622-4852-A242-F8A6ADCEAD9C" Type="String" MaxLength="255" MultiValuated="No" Protection="Internal" SetOnlyOnce="AtCreation"/>
+
+		<!-- 
+			CompCES: CEStamp of the last operation of Synchronization or Delivery
+		-->
+		<Simple Name="CompCES" Uuid="2B5D208C-A119-42e5-912F-E4FD766E9EB6"  Type="String"   MultiValuated="No" Protection="Internal" SetOnlyOnce="AtCreation" MaxLength="255"/>
+
+		<!-- 
+			status: the status of the object in the Workspace 
+		-->
+		<Simple Name="status" Uuid="E645D9AB-F784-492c-9D8F-B59EB376F562"   Type="Integer" TargetName="statusValue"  DefaultValueName="" MultiValuated="No" Protection="Internal" SetOnlyOnce="AtCreation"/>
+
+		<!-- 
+			InDesign: the fact the object has been set 'in design' by the workspace user or not
+		-->
+		<Simple Name="InDesign" Uuid="69452506-DCD4-40e2-AEA2-DECE19F94CED"  Type="Boolean"   MultiValuated="No" Protection="Internal" SetOnlyOnce="AtCreation" MaxLength="32"/>
+		
+		<!-- 
+			wslocalreserve: true if the object is reserved locally in the workspace
+		-->
+		<Simple Name="wslocalreserve" Uuid="E49B2CDB-64AC-43C4-A7A7-705B4165F366" Type="Boolean" MultiValuated="No" Protection="Internal" SetOnlyOnce="AtCreation"/>
+		
+		<!-- 
+			wsparentreserve: true if the object is reserved in the workspace and in scope of its parent workspace
+		-->
+		<Simple Name="wsparentreserve" Uuid="8278904C-C521-41B7-8BAE-8D75713848DF"  Type="Boolean" MultiValuated="No" Protection="Internal" SetOnlyOnce="AtCreation"/>
+		
+		<Property Name="VPLMAdminClass"       Value = "Yes"/>
+		
+	</Class>
+
+<!-- Possible values for status -->
+<Enum Name="statusValue" Uuid="C57DA46F-02CF-49c9-BEA3-80A5893474DE">
+	<Enumerator Name="" Value="1" Uuid="9638415D-13DB-4093-97F6-929A192936F1" />
+	<Enumerator Name="New" Value="2" Uuid="C181BA51-F078-47aa-A7E5-D7AE93FBCAC1" />
+	<Enumerator Name="Modified" Value="3" Uuid="9DFD83E2-CF1E-484b-A95E-6415C66988F5" />
+	<Enumerator Name="Deleted" Value="4" Uuid="F5239A64-BAF5-408c-9F50-7144DDC2E6B6" />
+</Enum>
+
+</Package>
+
+

@@ -1,0 +1,12 @@
+#Prog Logical_ExportSystemInstance_PLMChannel (iPLMIDSet :  #In PLMIDSet,oPLMIDSet :  #Out PLMIDSet) : VoidType
+{
+  let InputPLMIDSetRestrictedToInstances(PLMIDSet)
+  let SetOfConfigObjectsPLMIDs(PLMIDSet)
+
+  InputPLMIDSetRestrictedToInstances = Restrict(iPLMIDSet,"RFLVPMLogical/RFLVPMLogicalInstance")
+ 
+  /*Completes with configuration */
+  SetOfConfigObjectsPLMIDs = ExecutePLMProcedure("Config_GetStructConfig",InputPLMIDSetRestrictedToInstances)
+  
+  oPLMIDSet = iPLMIDSet + SetOfConfigObjectsPLMIDs
+}

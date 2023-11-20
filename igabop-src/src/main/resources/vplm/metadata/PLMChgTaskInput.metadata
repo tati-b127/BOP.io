@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2005, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top"  Name="PLMChgTaskInput" Uuid="b98c08ff-64e5-0000-020a100536000000" UseNames="PLMChgBase" BelongsToModeler="PLMChgActionBase" CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+  <CAAComment>
+    <ShortRole>Change Management Task Input Package</ShortRole>
+    <Role>This package includes the Concrete entity for Change Management Task Input Connections</Role>
+  </CAAComment>
+  <Comment>last update 2006-12-05-09.00.00</Comment>
+  <!-- *************************************** -->
+  <!-- * PLMChgTaskInput (PLMChgInput)       * -->
+  <!-- *************************************** -->
+  <Class Name="PLMChgTaskInput" Uuid="b8d1ef01-529b-0000-020a100536000000" Abstract="No" SuperName="PLMChgInput" CustomerExposition="Programmer">
+    <CAAComment>
+      <ShortRole>Change Management Task Input</ShortRole>
+      <Role>Concrete entity for Change Management Task Input Connections - Tasks necessary as input to accomplish a modification and which have to be added to the action</Role>
+    </CAAComment>
+
+    <!-- *********************** -->
+    <!-- Properties Declaration  -->
+    <!-- *********************** -->
+    <Property Name="IconName"  Value="I_Action_InputAssociatedObject_22"/>
+    <Property Name="3DIconName"  Value="ActionInputAssociatedObjectNavRep.cgr"/>
+
+    <Simple Name="V_ProgressStatus" Uuid="6abb8e7c-04b6-4724-8d523fd2d46f74cb" Type="Integer" Protection="Internal" DefaultValue="1">
+      <Property Name="RangeAsEnumName" Value="PLMChgProgressStatusValues"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="NotStarted;InWork;Implemented;NoActionNeeded"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+      </Range>
+      <CAAComment>
+        <ShortRole>Enter administrator/user assessment of progress of work on an input</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_GrantedModification" Uuid="8ad47c4a-8bf9-44ec-812d-5a0507606430" Type="Integer"  MultiValuated="No" Protection="Internal">
+      <CAAComment>
+        <ShortRole>list of rights to be granted to the ECA's owner on the affected item </ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <!-- *********************** -->
+    <!-- PROCEDURES Declaration  -->
+    <!-- *********************** -->
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+  </Class>
+
+  <!-- ********************** -->
+  <!-- FUNCTIONS Declarations -->
+  <!-- ********************** -->
+
+  <Function Name="PLMChgTaskInput_AddInputObjects">
+    <Implementation Name="PLMChgTaskInput_AddInputObjects" FileLocation="PLMChgTaskInput_AddInputObjects.plmql" Language="PLMQL"/>
+    <Signature href="PLMChgTaskInput_FunctionSignatureExport"/>
+  </Function>
+
+  <Signature id="PLMChgTaskInput_FunctionSignatureExport">
+    <Parameter Name="InputIds" Lower="0" Upper="-1" Direction="in" MultiValuated="Yes" DataType="PLMId"/>
+    <Parameter Name="OutputIds" Lower="0" Upper="-1" Direction="out" MultiValuated="No" DataType="PLMRouteSet"/>
+  </Signature>
+
+</Package>

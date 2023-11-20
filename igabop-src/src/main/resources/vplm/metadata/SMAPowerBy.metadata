@@ -1,0 +1,38 @@
+<?xml version="1.0" ?>
+
+<!-- SIMULIA PowerBy Dictionary  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2018, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" 
+    ModelerType="Top" 
+    Name="SMAPowerBy"
+    Uuid="bb3fb4cc-3f44-42e5-b895-b63f6913974f"
+    UseNames="PRODUCTCFG SIMObjSimulationV5Generic"
+    BelongsToModeler="SMAPowerBy" 
+    CustomerExposition="Programmer">
+
+    <CAAComment>
+        <ShortRole>SIMULIA PowerBy Modeler Package</ShortRole>
+        <Role>This package includes IRPC extensions for SIMULIA PowerBy modeler.</Role>
+    </CAAComment>
+
+  <!-- File Tree Representation Extension -->
+  <Extension Name="SMAFileTreeRepExtension" 
+      Uuid="d1359732-c847-4af4-a26d-fb866b5726cc"
+      CustomerExposition="ProgrammerOnly"
+      ScopeNames="VPMRepReference;SIMObjSimulationV5RepReferenceGeneric"
+	  Specializable="No"
+      Searchable="No" >
+  
+    <!-- File Tree Manifest -->
+    <Simple Name="Manifest"
+      Uuid="9c565d44-97c8-4fd7-92fd-59ab44c338e4"
+      Type="String"
+      Protection="External"
+      MultiValuated="No"
+      UIAccess="ReadOnly" >
+    </Simple>
+  
+  </Extension>
+
+</Package>

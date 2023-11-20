@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+<ProcedurePackage 
+	xmlns="PLMDictionaryProcedure"
+	Name="RGNProcAttach">
+
+	<Procedure Name="CATRgnProcAttach">
+		<Implementation Name="invoke" FileLocation="com.dassault_systemes.catrgn.reportNav.remoteProc.CATRgnReportProc" Language="JAVA"/>
+		<Signature href="CATRgnProcAttach_sign"/>
+	</Procedure>
+	
+	<Signature id="CATRgnProcAttach_sign">
+		<Parameter Name="inCommand" MultiValuated="No" Direction="in" Order="1" DataType="String"/>
+		<Parameter Name="inIDs" MultiValuated="Yes" Direction="in" Order="2" DataType="String"/>
+		<Parameter Name="outString" MultiValuated="No" Direction="out" Order="1" DataType="String"/>
+	</Signature>
+		
+</ProcedurePackage>

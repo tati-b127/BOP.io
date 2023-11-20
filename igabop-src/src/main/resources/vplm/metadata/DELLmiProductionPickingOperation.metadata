@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR DELMIA Production System Application -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified"
+         ModelerType="Top"
+         Name="DELLmiProductionPickingOperation"
+	     Uuid="11DDEB71-D0BF-48c9-B6FF-5DE594918158"
+         BelongsToModeler="DELLmiProductionSystem"
+	     UseNames="DELLmiProductionOperationPPR"
+         CustomerExposition="Programmer">
+	<!--<Property Name="FormerTypingLegacy" Value="Yes"/>-->
+
+	<CAAComment>
+		<ShortRole>PLM DELMIA Picking Operation </ShortRole>
+		<Role>This package describes the PLM DELMIA Picking Operation model on top of DELLmiProductionOperationPPR</Role>
+	</CAAComment>
+
+	<Comment>last update 2017-03-21</Comment>
+
+	<Class Name="DELLmiPickingOperationReference"
+		   Uuid="62660A4F-8DB4-4154-80FC-490D3747B541"
+		   Abstract="No"
+		   SuperName="DELLmiOperationPPRReference"
+		   CustomerExposition="Programmer"
+		   Specializable="Yes"
+		   CustomerExtensible="Yes"
+		   CreateInstName="DELLmiPickingOperationInstance"
+		   Abbreviation="pope"
+		   InstantiationOwnerTypes="DELLmiGeneralOperationReference;DELLmiHeaderOperationReference;DELLmiExecHeaderOperationReference"
+         >
+		
+		<Property Name="DMCDerivable" Value="Yes"/>
+		<Property Name="KweNew_InstanciationMethod" Value="DELMPProdSystemAdvDelegateInstanciation"/>
+		<Property Name="KweNew_ReturnedType" Value="DELLmiPickingOperationInstance"/>
+		<Property Name="IconName" Value="I_PPRSeqPicking"/>
+		<Property Name="3DIconName" Value="I_PPRSeqPicking.cgr"/>
+		<Property Name="Newable" Value="Insert_CAA"/>
+		<Property Name="Searchable" Value="Yes"/>
+
+		<Simple Name="V_MaterialScrap"
+				Uuid="F194B7B0-F9E0-4de6-AAD1-732168CFFAD7"
+				Type="Double"
+				DefaultValue="0.0"
+				MultiValuated="No"
+				Protection="Free"
+				CAAExposition="L0">
+		</Simple>
+
+		<CAAComment>
+			<ShortRole>PLM DELMIA Picking Operation Reference</ShortRole>
+			<Role>PLM DELMIA Picking Operation Reference</Role>
+		</CAAComment>
+
+		<Method ImplementationType="AsFather">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+		
+		<Method ImplementationType="AsFather">
+			<RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+		</Method>
+
+	</Class>
+
+	<RelationClass Name="DELLmiPickingOperationInstance"
+				   Uuid="893873E2-8219-4bb9-BBE4-66EB10C99758"
+			       Abstract="No"
+			       SuperName="DELLmiOperationPPRInstance"
+		           CustomerExposition="Programmer"
+		           Specializable="Yes"
+		           CustomerExtensible="Yes">
+
+		<Property Name="DMCDerivable" Value="Yes"/>
+		<Property Name="KweNew_InstanciationMethod" Value="DELMPProdSystemAdvDelegateInstanciation"/>
+		<Property Name="KweNew_ReturnedType" Value="DELLmiPickingOperationInstance"/>
+
+		<CAAComment>
+			<ShortRole>PLM DELMIA Picking Operation Instance.</ShortRole>
+			<Role>PLM DELMIA Picking Operation Instance</Role>
+		</CAAComment>
+
+		<Volatile Name="Reference"
+				  Uuid="0A1AC401-3C44-4cb9-9750-47D2A800734F"
+				  Accessor="PLMModelerReferenceKweAttribute"
+				  TypeName="DELLmiPickingOperationReference"
+				  AccessMode="ReadOnly" />
+
+		<SubClause Name="to"   TargetName="DELLmiPickingOperationReference"/>
+
+		<Method ImplementationType="AsFather">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+		
+		<Method ImplementationType="AsFather">
+			<RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+		</Method>
+
+	</RelationClass>
+
+</Package>

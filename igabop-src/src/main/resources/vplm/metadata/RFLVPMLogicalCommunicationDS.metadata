@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR RFL Logical Application Custo 1-->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2006, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" DataRDB_OID="ENODR_RFLLCDS" Name="RFLVPMLogicalCommunicationDS"
+	Uuid="A14AD98D-D3B7-49ff-9C01-8A59E4C55774" 
+	UseNames="RFLVPMLogicalCommunication" 
+	>
+
+<Property Name="OptionalInstallation" Value="Yes" /> 
+	<CAAComment>
+		<ShortRole>PLM Logical Communication Customization sample Package</ShortRole>
+		<Role>This package describes a Customization of PLM Logical Communication model</Role>
+	</CAAComment>
+	
+	<Comment>last update 2007-02-22</Comment>
+	
+	<!-- ************************************************************************************ -->
+	<!-- *  RFLPLMLogicalReferenceCommunicationDS (RFLVPMLogicalCommunicationReference) * -->
+	<!-- ************************************************************************************ -->
+
+	<Class Name="RFLVPMLogicalCommunicationReferenceDS" 
+		Uuid="038A625C-5E6D-46b3-932F-A19FC17770BC" 
+
+		SuperName="RFLVPMLogicalCommunicationReference" 
+		SuperRef="df51c026-160d-436c-8fb9-cefed32e14db" 
+		 
+		>
+
+		<CAAComment>
+			<ShortRole>Customized PLM Logical Communication Reference Object</ShortRole>
+			<Role>Customized PLM Logical Communication Reference Object</Role>
+		</CAAComment>
+
+        <IdentifierSet Name="Identifier"
+            Uuid="59F4F77C-9846-4b54-B379-A34EFF5C37F7"
+            IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755"
+            IdentifierNames="PLM_ExternalID V_version" />
+	</Class>
+
+	<!-- ********************************************************************************* -->
+	<!-- * RFLVPMLogicalCommunicationInstanceDS (RFLVPMLogicalCommunicationInstance) * -->
+	<!-- ********************************************************************************* -->
+
+	<Class Name="RFLVPMLogicalCommunicationInstanceDS" 
+		Uuid="F23F69A4-A7C0-4d77-8E4B-F7C5FD77C5B7" 
+
+		SuperName="RFLVPMLogicalCommunicationInstance" 
+		SuperRef="6238c98e-f878-4954-be2f-26dcf0fb7f61" 
+		 
+		>
+
+		<CAAComment>
+			<ShortRole>Customized PLM Logical Communication Instance Object</ShortRole>
+			<Role>Customized PLM Logical Communication Instance Object</Role>
+		</CAAComment>
+
+	</Class>
+
+</Package>

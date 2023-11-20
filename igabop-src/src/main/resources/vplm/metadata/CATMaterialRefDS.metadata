@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!--DASSAULT SYSTEMES (DASSAULT SYSTEMES) -->
+<!-- ENOVIA DICTIONARY -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2004, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" DataRDB_OID="ENODR_CATMATREFD" Name="CATMaterialRefDS" Uuid="55E5DDCE-B861-48f7-B7436F5962E5708A" UseNames="CATMaterialRef" Alias="Material Reference Concretized">
+<Property Name="OptionalInstallation" Value="Yes" /> 
+	<Comment>last update 2006-01-10-16.00.00</Comment>
+	<!--************************************************-->
+	<!--Material Reference DS Customization (derivated from Material Reference ) Concrete-->
+	<!--************************************************-->
+	<Class Name="CATMatReferenceDS" Uuid="D95B3619-C213-44fd-A9A512E4E96B9FB6" Alias="Material Reference DS Customization"   SuperName="CATMatReference" SuperRef="0BC080AF-0DE1-4997-BEA547CEBB4C84B2"    >
+		<IdentifierSet Name="identifier" Uuid="8415595A-06BE-4e9d-96EB50B6CED1B029" IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB" IdentifierNames="PLM_ExternalID"/>
+	</Class>
+	<Class Name="MaterialDomainDS" Uuid="d4e6a151-432e-424e-85bf-b046d70da9b8" Alias="Material Reference Representation DS Customization"   SuperName="MaterialDomain" SuperRef="8718c808-5c46-4fdb-8a7d-07d8a4b6786c"     >
+		<IdentifierSet Name="identifier" Uuid="f90507fe-318e-4c8d-a394-6ef22e7e71da" IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB" IdentifierNames="PLM_ExternalID"/>
+	</Class>
+	<Class Name="MaterialDomainInstanceDS" Uuid="ad116c71-a9ef-423f-bc76-7ca0d161125e" Alias="Material Reference Representation Instance DS Customization"   SuperName="MaterialDomainInstance" SuperRef="aeee2ad5-1230-4195-ab91-fee5852ca6a2"     />
+ <Class Name="CATMatRefInstanceDS" Uuid="B6DB1A58-17B1-4bc2-948F-0AF656710B14" Alias="Material Reference Instance DS Customization"   SuperName="CATMatRefInstance" SuperRef="A6A6BEE5-B0AA-43a2-BB2C-CEA0840E2F48"     />
+</Package>

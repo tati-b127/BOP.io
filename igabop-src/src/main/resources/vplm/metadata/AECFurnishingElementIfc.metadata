@@ -1,0 +1,181 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2012, All rights reserved -->
+
+<Package CustomerExposition = "Programmer" ModelerType = "Top" Name = "AECFurnishingElementIfc" UseNames = "AECFurnishingElement AECIfc" Uuid = "e9bbdb53-dde5-4db0-98b1-bb04c14d7ba3" xmlns = "PLMDictionaryUnified">
+  <Extension CustomerExposition = "Programmer" Name = "IfcFurnishingElement" ScopeNames = "AecFurnishingElement" Uuid = "8f8e1275-4d87-4e33-a20f-714294633a00">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcFurnishingElement_ObjectType" Protection = "Free" Type = "String" Uuid = "8f8e1275-4d87-4e33-a20f-1ad52eb2ea5e"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcFurnishingElement_Tag" Protection = "Free" Type = "String" Uuid = "8f8e1275-4d87-4e33-a20f-ed12431a92f4"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcFurnishingElementType" ScopeNames = "AecFurnishingElementType" Uuid = "21da94b1-917e-4269-b83d-2a151d116c4a">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcFurnishingElementType_Tag" Protection = "Free" Type = "String" Uuid = "21da94b1-917e-4269-b83d-cc2a36316812"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcFurnishingElementType_ElementType" Protection = "Free" Type = "String" Uuid = "21da94b1-917e-4269-b83d-4fccfb51960c"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcFurniture" ScopeNames = "AecFurnishingElement" Uuid = "397ad185-d010-4e97-89de-eb7de9ff75ac">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcFurniture_ObjectType" Protection = "Free" Type = "String" Uuid = "397ad185-d010-4e97-89de-1ad52eb2ea5e"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcFurniture_Tag" Protection = "Free" Type = "String" Uuid = "397ad185-d010-4e97-89de-ed12431a92f4"/>
+    <Simple CAAExposition = "L0" DefaultValue = "9" Name = "IfcFurniture_PredefinedType" Protection = "Free" Type = "Integer" Uuid = "3e6babc9-3575-46ce-a782-677fc6246ca2">
+      <Property Name = "RangeAsEnumName" Value = "IfcFurnitureTypeEnum"/>
+      <Property Name = "RangeAsEnumAuthorizedValues" Value = "CHAIR;TABLE;DESK;BED;FILECABINET;SHELF;SOFA;USERDEFINED;NOTDEFINED"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+        <Equal>5</Equal>
+        <Equal>6</Equal>
+        <Equal>7</Equal>
+        <Equal>8</Equal>
+        <Equal>9</Equal>
+      </Range>
+    </Simple>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcFurnitureType" ScopeNames = "AecFurnishingElementType" Uuid = "f6fbbcfb-0813-420a-9b4a-6f71ebb138d7">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcFurnitureType_Tag" Protection = "Free" Type = "String" Uuid = "f6fbbcfb-0813-420a-9b4a-cc2a36316812"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcFurnitureType_ElementType" Protection = "Free" Type = "String" Uuid = "f6fbbcfb-0813-420a-9b4a-4fccfb51960c"/>
+    <Simple CAAExposition = "L0" DefaultValue = "3" Name = "IfcFurnitureType_AssemblyPlace" Protection = "Free" Type = "Integer" Uuid = "9b22e6bd-282c-4bd4-ae9d-f98310728db7">
+      <Property Name = "RangeAsEnumName" Value = "AECIfc.IfcAssemblyPlaceEnum"/>
+      <Property Name = "RangeAsEnumAuthorizedValues" Value = "SITE;FACTORY;NOTDEFINED"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+      </Range>
+    </Simple>
+    <Simple CAAExposition = "L0" DefaultValue = "9" Name = "IfcFurnitureType_PredefinedType" Protection = "Free" Type = "Integer" Uuid = "52f1d36d-1f71-40ab-a1c1-3bb82bf71fe9">
+      <Property Name = "RangeAsEnumName" Value = "IfcFurnitureTypeEnum"/>
+      <Property Name = "RangeAsEnumAuthorizedValues" Value = "CHAIR;TABLE;DESK;BED;FILECABINET;SHELF;SOFA;USERDEFINED;NOTDEFINED"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+        <Equal>5</Equal>
+        <Equal>6</Equal>
+        <Equal>7</Equal>
+        <Equal>8</Equal>
+        <Equal>9</Equal>
+      </Range>
+    </Simple>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcSystemFurnitureElement" ScopeNames = "AecFurnishingElement" Uuid = "9a9ecaf8-4321-429c-91bf-c3df5469eeee">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcSystemFurnitureElement_ObjectType" Protection = "Free" Type = "String" Uuid = "9a9ecaf8-4321-429c-91bf-1ad52eb2ea5e"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcSystemFurnitureElement_Tag" Protection = "Free" Type = "String" Uuid = "9a9ecaf8-4321-429c-91bf-ed12431a92f4"/>
+    <Simple CAAExposition = "L0" DefaultValue = "4" Name = "IfcSystemFurnitureElement_PredefinedType" Protection = "Free" Type = "Integer" Uuid = "6fa13e13-c07e-4117-b640-265fd57bfef1">
+      <Property Name = "RangeAsEnumName" Value = "IfcSystemFurnitureElementTypeEnum"/>
+      <Property Name = "RangeAsEnumAuthorizedValues" Value = "PANEL;WORKSURFACE;USERDEFINED;NOTDEFINED"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+      </Range>
+    </Simple>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcSystemFurnitureElementType" ScopeNames = "AecFurnishingElementType" Uuid = "9b064016-0a62-4586-b274-c187b400322c">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcSystemFurnitureElementType_Tag" Protection = "Free" Type = "String" Uuid = "9b064016-0a62-4586-b274-cc2a36316812"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcSystemFurnitureElementType_ElementType" Protection = "Free" Type = "String" Uuid = "9b064016-0a62-4586-b274-4fccfb51960c"/>
+    <Simple CAAExposition = "L0" DefaultValue = "4" Name = "IfcSystemFurnitureElementType_PredefinedType" Protection = "Free" Type = "Integer" Uuid = "19379139-e86b-4c70-9621-1c6b3f700dce">
+      <Property Name = "RangeAsEnumName" Value = "IfcSystemFurnitureElementTypeEnum"/>
+      <Property Name = "RangeAsEnumAuthorizedValues" Value = "PANEL;WORKSURFACE;USERDEFINED;NOTDEFINED"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+      </Range>
+    </Simple>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcPset_FurnitureTypeChair" ScopeNames = "AecFurnishingElement AecFurnishingElementType" Uuid = "cc958581-72c0-4900-af36-3a07894274e0">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_FurnitureTypeChair_SeatingHeight" Protection = "Free" Type = "Double" Uuid = "204f8a58-73fd-4b0a-b93e-536b84369330"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_FurnitureTypeChair_HighestSeatingHeight" Protection = "Free" Type = "Double" Uuid = "eccdebfa-34c9-471d-8bf6-fb7fa25033bc"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_FurnitureTypeChair_LowestSeatingHeight" Protection = "Free" Type = "Double" Uuid = "3ddbe2aa-8122-4532-ae65-1f7ecc3bc148"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcPset_FurnitureTypeCommon" ScopeNames = "AecFurnishingElement AecFurnishingElementType" Uuid = "9d384dd7-ea9a-45f4-8280-2b26b5fb313a">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_FurnitureTypeCommon_Reference" Protection = "Free" Type = "String" Uuid = "C5FE4A72-C2B3-4CAF-B611-669FEC61C595"/>
+    <Simple CAAExposition = "L0" DefaultValue = "UNSET" MaxLength = "255" Name = "IfcPset_FurnitureTypeCommon_Status" Protection = "Free" Type = "String" Uuid = "FF656CEA-53E9-4444-9BBA-2AD156700EAC">
+      <Range>
+        <Equal>NEW</Equal>
+        <Equal>EXISTING</Equal>
+        <Equal>DEMOLISH</Equal>
+        <Equal>TEMPORARY</Equal>
+        <Equal>OTHER</Equal>
+        <Equal>NOTKNOWN</Equal>
+        <Equal>UNSET</Equal>
+      </Range>
+    </Simple>
+    <Simple CAAExposition = "L0" Name = "IfcPset_FurnitureTypeCommon_Description" Protection = "Free" Type = "String" Uuid = "6638a10e-7cb0-4d10-a8dd-af955151e571"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_FurnitureTypeCommon_Style" Protection = "Free" Type = "String" Uuid = "fb9252ae-703c-4d61-90ee-4f807e9d76aa"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_FurnitureTypeCommon_NominalHeight" Protection = "Free" Type = "Double" Uuid = "a0e88f4a-218f-4294-ae33-0ffb8ed0fdc5"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_FurnitureTypeCommon_NominalLength" Protection = "Free" Type = "Double" Uuid = "ebe15471-6f97-4cab-bb91-f50badbbf616"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_FurnitureTypeCommon_NominalDepth" Protection = "Free" Type = "Double" Uuid = "9e3a374e-aca4-40f1-8988-3100119ff666"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_FurnitureTypeCommon_MainColor" Protection = "Free" Type = "String" Uuid = "fe052515-ee9d-4c4d-9431-bbf6504275ca"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_FurnitureTypeCommon_IsBuiltIn" Protection = "Free" Type = "Boolean" Uuid = "f4672d60-d1f7-498f-b535-f3d21c457bda"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcPset_FurnitureTypeDesk" ScopeNames = "AecFurnishingElement AecFurnishingElementType" Uuid = "c49548ef-db35-4a41-822b-a75bdb6fdb32">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" Magnitude = "AREA" Name = "IfcPset_FurnitureTypeDesk_WorksurfaceArea" Protection = "Free" Type = "Double" Uuid = "fce3eb38-2d4a-4720-ad1f-9fd3d46dd3c9"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcPset_FurnitureTypeFileCabinet" ScopeNames = "AecFurnishingElement AecFurnishingElementType" Uuid = "8436d683-d595-44f8-aac2-db043b27ab84">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_FurnitureTypeFileCabinet_WithLock" Protection = "Free" Type = "Boolean" Uuid = "2470fe5a-f392-4859-affa-6be9768c0f53"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcPset_FurnitureTypeTable" ScopeNames = "AecFurnishingElement AecFurnishingElementType" Uuid = "bf8c209e-930e-4769-94c1-d8c56e19486c">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" Magnitude = "AREA" Name = "IfcPset_FurnitureTypeTable_WorksurfaceArea" Protection = "Free" Type = "Double" Uuid = "08d9838b-5d1d-459d-965d-1cfa62c8c521"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_FurnitureTypeTable_NumberOfChairs" Protection = "Free" Type = "Integer" Uuid = "dceb27ad-0fb0-415b-be16-87e3d6c55a51"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcPset_SystemFurnitureElementTypeCommon" ScopeNames = "AecFurnishingElement AecFurnishingElementType" Uuid = "caa7b564-4856-4569-92aa-b0ec140498ad">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_SystemFurnitureElementTypeCommon_IsUsed" Protection = "Free" Type = "Boolean" Uuid = "2235080e-6fc7-4664-a290-cc991b15c004"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_SystemFurnitureElementTypeCommon_GroupCode" Protection = "Free" Type = "String" Uuid = "cafae629-05a8-4420-a658-5d9a5af365d3"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_SystemFurnitureElementTypeCommon_NominalWidth" Protection = "Free" Type = "Double" Uuid = "e0288b84-60eb-48b4-9238-9e6cd720dc91"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_SystemFurnitureElementTypeCommon_NominalHeight" Protection = "Free" Type = "Double" Uuid = "9d3298d1-fbcf-422b-a733-6b5e2472c569"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_SystemFurnitureElementTypeCommon_Finishing" Protection = "Free" Type = "String" Uuid = "7c7bf9c5-d0d5-497a-8150-dca4a459aebb"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcPset_SystemFurnitureElementTypePanel" ScopeNames = "AecFurnishingElement AecFurnishingElementType" Uuid = "b512902f-fb2e-4ad0-a9e5-ea7df568f2e3">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_SystemFurnitureElementTypePanel_HasOpening" Protection = "Free" Type = "Boolean" Uuid = "bad8905e-4870-4ad4-9dab-dd43710ef7c9"/>
+    <Simple CAAExposition = "L0" DefaultValue = "UNSET" MaxLength = "255" Name = "IfcPset_SystemFurnitureElementTypePanel_FurniturePanelType" Protection = "Free" Type = "String" Uuid = "066cf2ee-981f-4aca-b09f-1a61a72d6f06">
+      <Range>
+        <Equal>ACOUSTICAL</Equal>
+        <Equal>GLAZED</Equal>
+        <Equal>HORZ_SEG</Equal>
+        <Equal>MONOLITHIC</Equal>
+        <Equal>OPEN</Equal>
+        <Equal>ENDS</Equal>
+        <Equal>DOOR</Equal>
+        <Equal>SCREEN</Equal>
+        <Equal>OTHER</Equal>
+        <Equal>NOTKNOWN</Equal>
+        <Equal>UNSET</Equal>
+        <Equal></Equal>
+      </Range>
+    </Simple>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_SystemFurnitureElementTypePanel_NominalThickness" Protection = "Free" Type = "Double" Uuid = "ea225d65-8ef3-4631-b3e8-eb1aa5f80255"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcPset_SystemFurnitureElementTypeWorkSurface" ScopeNames = "AecFurnishingElement AecFurnishingElementType" Uuid = "2bb94110-5296-41c3-ba2f-a81804ec1a59">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_SystemFurnitureElementTypeWorkSurface_UsePurpose" Protection = "Free" Type = "String" Uuid = "f360f61c-ecdf-4610-88d2-4e96fbe02bfb"/>
+    <Simple CAAExposition = "L0" DefaultValue = "UNSET" MaxLength = "255" Name = "IfcPset_SystemFurnitureElementTypeWorkSurface_SupportType" Protection = "Free" Type = "String" Uuid = "d15b1459-fac5-4720-968d-4008dd0fccca">
+      <Range>
+        <Equal>FREESTANDING</Equal>
+        <Equal>SUPPORTED</Equal>
+        <Equal>OTHER</Equal>
+        <Equal>NOTKNOWN</Equal>
+        <Equal>UNSET</Equal>
+        <Equal></Equal>
+      </Range>
+    </Simple>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_SystemFurnitureElementTypeWorkSurface_HangingHeight" Protection = "Free" Type = "Double" Uuid = "7d37f5c3-796d-4433-b383-d86804ea63ec"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_SystemFurnitureElementTypeWorkSurface_NominalThickness" Protection = "Free" Type = "Double" Uuid = "ced90f81-1864-47c8-a381-4c6d43b5a1ef"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_SystemFurnitureElementTypeWorkSurface_ShapeDescription" Protection = "Free" Type = "String" Uuid = "3d09be6f-f160-4009-bbdb-595e69eaa6ae"/>
+  </Extension>
+</Package>

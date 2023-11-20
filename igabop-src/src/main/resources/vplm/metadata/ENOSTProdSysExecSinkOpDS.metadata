@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2009, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" Name="ENOSTProdSysExecSinkOpDS" Uuid="8cd9f9e8-53b2-422c-8815-92ce1ac83314" UseNames="DELLmiProductionExecSinkOperation" >
+	<CAAComment>
+		<ShortRole>PLM Customization of DELMIA Sink Operation for SMB</ShortRole>
+		<Role>PLM Customization of DELMIA Sink Operation for SMB</Role>
+	</CAAComment>
+	<Comment>last update 2009-05-29</Comment>
+
+	<Class Name="ENOSTExecSinkOpRefCusto" Uuid="cd2026cc-b49b-4bad-b9ba-482da7256bda" SuperName="DELLmiExecSinkOperationReference" SuperRef="23e94ebb-07c8-4041-8e88-6a60f9a0a429"  >
+
+    <Simple Name="E_fromExternalId"
+            Uuid="2c8e7b73-94cf-48e0-8ba7-716d0740fcd1"
+            Alias="Definition"
+            Type="String"
+            MaxLength="256"
+            Mandatory="No"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"/>
+    <Simple Name="E_versionComment"
+            Uuid="aa778101-1e5d-4b0b-83e2-cc5f53af49da"
+            Alias="Version Comment"
+            Type="String"
+            MaxLength="256"
+            Mandatory="No"
+            MultiValuated="No"
+            Protection="Free"
+            ResetOnNewVersion="Yes"
+            ResetOnCloning="Yes"
+            CAAExposition="L0"/>
+    <IdentifierSet Name="E_identifier"
+                   Uuid="4ec8a00a-e419-4704-a1ab-de4ea01d442c"
+                   IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755"
+                   IdentifierNames="PLM_ExternalID V_version"/>
+
+    <CAAComment>
+			<ShortRole>PLM Customization of DELMIA Execution Sink Operation Reference for SMB</ShortRole>
+			<Role>PLM Customization of DELMIA Execution Sink Operation Reference for SMB</Role>
+		</CAAComment>
+	</Class>
+
+  <RelationClass Name="ENOSTExecSinkOpInstCusto" Uuid="1893e144-6926-4b65-8732-088539f1b5f9" SuperName="DELLmiExecSinkOperationInstance" SuperRef="a86740f7-623a-44cb-9eac-105c3e119dae"  >
+		<CAAComment>
+			<ShortRole>PLM Customization of DELMIA Execution Sink Operation Instance for SMB</ShortRole>
+			<Role>PLM Customization of DELMIA Execution Sink Operation Instance for SMB</Role>
+		</CAAComment>		
+            <!-- ********************************************************* -->
+            <!-- * Overload(s) of PLMCoreInstance attributes. -->
+			<!-- ********************************************************* -->
+    <SubClause Name="to"   TargetName="ENOSTExecSinkOpRefCusto"/>
+    </RelationClass>
+</Package>

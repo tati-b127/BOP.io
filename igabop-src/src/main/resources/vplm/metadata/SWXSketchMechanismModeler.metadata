@@ -1,0 +1,42 @@
+<?xml version="1.0" ?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2004, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" 
+         ModelerType="Top" 
+         Name="SWXSketchMechanismModeler" 
+         Uuid="B17330AD-05C0-4B45-A6E0-5A1EB642E3D8"
+         CustomerExposition="Programmer"
+         UseNames="PLMCORE" 
+         UseProcedures="SWXSketchMechanismModeler_Procedures">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+  <CAAComment>
+    <ShortRole>SWXSketchMechanismModeler</ShortRole>
+    <Role>SWXSketchMechanismModeler</Role>
+  </CAAComment>
+
+  <Class Name="SWXSketchMechanismRepresentation" Uuid="D7204723-7AE0-44DD-B950-9493D7D35261"
+         SuperName="PLMCoreRepReference" Abstract="No" Abbreviation="skm" CustomerExposition="Programmer"  >
+
+    <Property Name="Searchable" Value="Yes"/>
+
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Design"/>
+        <UsedProcedure href="SWXSketchMechanismModeler_Procedures.proc#SWXSketchMechanismModeler_GetAllRepresentations"/>
+      </ProcedureForUsage>
+    </Method>
+
+    </Class>
+
+  <Function Name="SWXSketchMechanismModeler_AddRep">
+    <Implementation Name="SWXSketchMechanismModeler_AddRep" FileLocation="SWXSketchMechanismModeler_AddRep.plmql" Language="PLMQL"/>
+    <Signature href="SWXSketchMechanismModelerSignature"/>
+  </Function>
+
+  <Signature id="SWXSketchMechanismModelerSignature">
+    <Parameter Name="InputIds" Lower="0" Upper="-1" Direction="in" MultiValuated="Yes" DataType="PLMId"/>
+    <Parameter Name="OutputIds" Lower="0" Upper="-1" Direction="out" MultiValuated="No" DataType="PLMRouteSet"/>
+  </Signature>  
+  
+</Package>
+

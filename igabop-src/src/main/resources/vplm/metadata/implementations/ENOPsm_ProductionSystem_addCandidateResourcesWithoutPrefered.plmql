@@ -1,0 +1,47 @@
+NAVIGATE     
+
+T0.PLMID, T1.PLMID, T2.PLMID
+ 
+
+FROM        
+
+DELLmiProductionCandidateResCnx/DELLmiCandidateResourcesCnx T0,
+PRODUCTCFG/VPMInstance T1,
+PRODUCTCFG/VPMReference T2
+
+FROM_ROOTS[?1?]
+
+ON RELATION(     
+
+FROM=DELLmiProductionSystemAbstract/DELLmiAbstractProductionEntity
+
+TO=DELLmiProductionCandidateResCnx/DELLmiCandidateResourcesCnx
+
+THROUGH=POINTEDBY )
+
+WITH QUALITY_FILTER(CATEGORY=ISOWNEDBY)
+
+
+THEN ((RELATION(     
+
+FROM=DELLmiProductionCandidateResCnx/DELLmiCandidateResourcesCnx
+
+TO=PRODUCTCFG/VPMInstance
+
+THROUGH=POINTSTO) WITH QUALITY_FILTER(ROLE=DEL_LinkToResources))
+
+OR
+
+(RELATION(
+
+FROM=DELLmiProductionCandidateResCnx/DELLmiCandidateResourcesCnx
+
+TO=PRODUCTCFG/VPMReference
+
+THROUGH=POINTSTO) WITH QUALITY_FILTER(ROLE=DEL_LinkToResources)))
+
+
+ITER=1;
+
+
+

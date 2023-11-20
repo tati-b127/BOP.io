@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2012, All rights reserved -->
+
+<Package CustomerExposition = "Programmer" ModelerType = "Top" Name = "RailwaySpatialStructureElementIfc" UseNames = "AECCommonSpatialStructureElementIfc;RailwaySpatialStructureElement" Uuid = "9D529520-F802-4229-B9D7-28243CCA4C76" xmlns = "PLMDictionaryUnified">
+  <Extension CustomerExposition = "Programmer" Name = "IfcRailway" ScopeNames = "Railway" Uuid = "480E2F0F-DE88-41FA-85A4-A4021161AB1D">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcRailway_ObjectType" Protection = "Free" Type = "String" Uuid = "480E2F0F-DE88-41FA-85A4-1ad52eb2ea5e"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcRailway_LongName" Protection = "Free" Type = "String" Uuid = "480E2F0F-DE88-41FA-85A4-47d2c9dc49ee"/>
+    <Simple CAAExposition = "L0" DefaultValue = "2" Name = "IfcRailway_CompositionType" Protection = "Free" Type = "Integer" Uuid = "480E2F0F-DE88-41FA-85A4-f65bd56122dd">
+      <Property Name = "RangeAsEnumName" Value = "AECCommonSpatialStructureElementIfc.IfcElementCompositionEnum"/>
+      <Property Name = "RangeAsEnumAuthorizedValues" Value = "COMPLEX;ELEMENT;PARTIAL"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+      </Range>
+    </Simple>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcRailwayPart" ScopeNames = "RailwayPart" Uuid = "FBE00A64-D1D4-42B5-9B5B-48284875514A">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcRailwayPart_ObjectType" Protection = "Free" Type = "String" Uuid = "FBE00A64-D1D4-42B5-9B5B-1ad52eb2ea5e"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcRailwayPart_LongName" Protection = "Free" Type = "String" Uuid = "FBE00A64-D1D4-42B5-9B5B-47d2c9dc49ee"/>
+    <Simple CAAExposition = "L0" DefaultValue = "2" Name = "IfcRailwayPart_CompositionType" Protection = "Free" Type = "Integer" Uuid = "FBE00A64-D1D4-42B5-9B5B-f65bd56122dd">
+      <Property Name = "RangeAsEnumName" Value = "AECCommonSpatialStructureElementIfc.IfcElementCompositionEnum"/>
+      <Property Name = "RangeAsEnumAuthorizedValues" Value = "COMPLEX;ELEMENT;PARTIAL"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+      </Range>
+    </Simple>
+    <Simple CAAExposition = "L0" DefaultValue = "99" Name = "IfcRailwayPart_PredefinedType" Protection = "Free" Type = "Integer" Uuid = "53AF9232-01C3-457A-B19C-241AEC2CFB58">
+      <Property Name = "RangeAsEnumName" Value = "IfcRailwayPartTypeEnum"/>
+      <Property Name = "RangeAsEnumAuthorizedValues" Value = "STRETCH;SWITCH;USERDEFINED;NOTDEFINED"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>98</Equal>
+        <Equal>99</Equal>
+      </Range>
+    </Simple>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcRailwayPartType" ScopeNames = "RailwayPartType" Uuid = "872D833D-B554-4C6B-A6FB-80FDEDC5E17E">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcRailwayPartType_Tag" Protection = "Free" Type = "String" Uuid = "872D833D-B554-4C6B-A6FB-cc2a36316812"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcRailwayPartType_ElementType" Protection = "Free" Type = "String" Uuid = "872D833D-B554-4C6B-A6FB-d84421a52c4a"/>
+    <Simple CAAExposition = "L0" DefaultValue = "99" Name = "IfcRailwayPartType_PredefinedType" Protection = "Free" Type = "Integer" Uuid = "1FB76AE3-0D31-421B-B92A-8A2F02506887">
+      <Property Name = "RangeAsEnumName" Value = "IfcRailwayPartTypeEnum"/>
+      <Property Name = "RangeAsEnumAuthorizedValues" Value = "STRETCH;SWITCH;USERDEFINED;NOTDEFINED"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>98</Equal>
+        <Equal>99</Equal>
+      </Range>
+    </Simple>
+  </Extension>
+</Package>

@@ -1,0 +1,135 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR DELMIA Execution Production System Application -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2018, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" 
+         ModelerType="Top"
+         Name="DELLmiProductionExecHeaderOperation"
+	       Uuid="F07D6342-C4D1-4ce8-B464-5A66636320B0"
+         BelongsToModeler="DELLmiProductionPlan"
+	       UseNames="DELLmiProductionOperationUPR" 
+         CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>Execution Header Operation </ShortRole>
+    <Role>This package describes the Execution Header Operation model on top of DELLmiProductionOperationUPR</Role>
+  </CAAComment>
+
+  <Comment>last update 2018-01-23</Comment>
+
+  <Class Name="DELLmiExecHeaderOperationReference"
+		     Uuid="45A9C292-9900-4850-922B-CA0283D03FBD"
+		     Abstract="No"
+    		 SuperName="DELLmiOperationUPRReference"
+         CustomerExposition="Programmer"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         CreateInstName="DELLmiExecHeaderOperationInstance"
+         Abbreviation="whop"
+         InstantiationOwnerTypes="DELLmiWorkOrderReference"
+         >
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELLmiExecOpDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELLmiExecHeaderOperationInstance"/>
+    <Property Name="IconName" Value="I_PPRSeqExecHeader"/>
+    <Property Name="3DIconName" Value="I_PPRSeqExecHeader.cgr"/>
+    <Property Name="Newable" Value="Insert_CAA"/>
+    <Property Name="Searchable" Value="Yes"/>
+
+    <CAAComment>
+      <ShortRole>Execution Header Operation Reference</ShortRole>
+      <Role>Execution Header Operation Reference. Specialization is not supported yet.</Role>
+    </CAAComment>
+
+
+    <Simple Name="V_UseGanttTimeSolver"
+           Uuid="5F9E57ED-4E40-40fb-A22F-7B3E3AB19CC9"
+           Type="Boolean"
+           DefaultValue="true"
+           MultiValuated="No"
+           ResetOnCloning="No"
+           ResetOnNewVersion="No"
+           Protection="Free"
+           CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>If true the Time solver wil be used for Gantt display of operation with children. If no it will be the TimeMode that will be used.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_ManageVariant"
+            Uuid="E7F3C85A-F2C1-426d-8B5D-870194D6CE19"
+            Type="Boolean"
+            DefaultValue="false"
+            MultiValuated="No"
+            ResetOnCloning="No"
+            ResetOnNewVersion="No"
+            Protection="Free"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>If true the operation is dedicated to management of variants, else it is just a structural operation.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_Interruptible"
+            Uuid="1BCE4098-12CA-4aee-8553-856E0ECB09AC"
+            Type="Boolean"
+            DefaultValue="true"
+            MultiValuated="No"
+            Protection="Free"
+  	        ResetOnCloning="No"
+	          ResetOnNewVersion="No"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Interruptible.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+
+
+  </Class>
+
+  <RelationClass Name="DELLmiExecHeaderOperationInstance"
+		     Uuid="547E4A19-7F8C-4aed-A959-D8BBBCF104ED"
+		     Abstract="No"
+    		 SuperName="DELLmiOperationUPRInstance"
+         CustomerExposition="Programmer"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         >
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELLmiExecOpDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELLmiExecHeaderOperationInstance"/>
+    
+    <CAAComment>
+      <ShortRole>Execution Header Operation Instance</ShortRole>
+      <Role>Execution Header Operation Instance. Specialization is not supported yet.</Role>
+    </CAAComment>
+
+    <Volatile Name="Reference" 
+              Uuid="B465D4C3-0529-47e3-AC74-2251E2B1716A" 
+              Accessor="PLMModelerReferenceKweAttribute" 
+              TypeName="DELLmiExecHeaderOperationReference" 
+              AccessMode="ReadOnly" />
+
+    <SubClause Name="to"   TargetName="DELLmiExecHeaderOperationReference"/>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+
+
+  </RelationClass>
+
+</Package>

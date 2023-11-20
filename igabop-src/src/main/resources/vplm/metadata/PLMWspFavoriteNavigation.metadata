@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2007, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" Name="PLMWspFavoriteNavigation" BelongsToModeler="PLMWspContext" Uuid="6db33a8d-82c4-4c3d-82f93c966968b9d7" UseNames="PLMWspFavorite" CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+  <CAAComment>
+		<ShortRole>Favorite Navigation Package</ShortRole>
+		<Role>This package includes base object of Favorite Navigation Model</Role>
+	</CAAComment>
+	<Comment>last update 2007-08-27-12.00.00</Comment>
+	<!-- ***************************************************** -->
+	<!-- *    PLMWspFavoriteNavigation (PLMWspFavorite)      * -->
+  <!-- ***************************************************** -->
+  <Class Name="PLMWspFavoriteNavigation" Uuid="baf928f9-825c-47bd-b7870cf3cb152306" SuperName="PLMWspFavorite" Abstract="No" CustomerExposition="Programmer">
+    <CAAComment>
+			<ShortRole>Favorite Navigation object</ShortRole>
+			<Role>This object captures a navigation editor definition</Role>
+		</CAAComment>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope" />
+    </Method>
+    <Property Name="IconName" Value="I_FavoriteNavigation"/>
+	</Class>
+
+  
+</Package>

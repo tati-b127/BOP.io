@@ -1,0 +1,20 @@
+EXPAND
+T0.PLMID, T1.PLMID ,T2.PLMID ,T3.PLMID ,T4.PLMID ,T5.PLMID ,T6.PLMID ,T7.PLMID ,T8.PLMID ,T9.PLMID, T10.PLMID, T11.PLMID, T11.V_discipline 
+FROM
+DELFmiFunctionalModelPrerequisiteCnx/DELFmiProcessPrerequisiteCnx T0,
+DELFmiFunctionalModelPrereqMatCnx/DELFmiProcessPrereqMaterializationCnx T1,
+DELFmiFunctionalModelPrerequisitePort/DELFmiProcessPrerequisitePort T2,
+DELFmiFunctionalModelPrecedenceCnx/DELFmiProcessPrecedenceCnx T3,
+DELFmiFunctionalModelPrecedencePort/DELFmiProcessPrecedencePort T4,
+DELFmiFunctionalModelPrerequisiteCnx1/DELFmiProcessPrerequisiteCnxCust T5,
+DELFmiFunctionalModelPrecedenceCnx1/DELFmiProcessPrecedenceCnxCust T6,
+DELAsmAssemblyModelCnx/DELAsmProcessCanUseCnx T7,
+DELFmiFunctionalModel/DELFmiFunctionRepresentationInstance T8,
+PLMAssignmentFilter/PLMAssignmentFilterCnx T9,
+PLMRequirementSpecifyHowToCnxAbstract/PLMReqSpecifyHowToCnxAbstract T10,
+PLMHistorizationCnx/PLMHistoLinkCnx T11
+
+FROM_ROOTS [?1?]
+WITH ATTRIBUTE_FILTER((T11.V_discipline='HistorizationLinkRefRef'))
+
+ITER = 1;

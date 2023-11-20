@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2012, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" 
+         ModelerType="Top" 
+         Name="DELLmiProductionSystemIOCnxAbstract"
+         BelongsToModeler="DELLmiProductionSystem"
+         Uuid="B676006F-8A8F-4400-984C-9072056C2949"
+         UseNames="PLMCORE"
+         CustomerExposition="Programmer">
+
+	<CAAComment>
+		<ShortRole>DELLmiProductionSystemIOCnxAbstract Modeler Package</ShortRole>
+		<Role>This package describes DELLmiProductionSystemIOCnxAbstract connection.</Role>
+	</CAAComment>
+
+
+	<!-- IO Connection Abstract -->
+	<Class  Name="DELLmiProductionSystemIOCnxAbstract"
+		      Uuid="5534EEFC-A163-41C2-8A96-473E6419957B"
+		      Abstract="Yes"
+		      SuperName="PLMConnection"
+		      Specializable="No"
+		      CustomerExtensible="No"
+		      CustomerExposition="Programmer">
+			
+			<Path Name="DELLinkToSytemIOPort"
+			    Uuid="1DAE41A3-CA2B-407c-A3D7-0B8E044BF962"
+			    MultiValuated="No"
+          RoleName="DEL_LinkToSystemIOPort"		
+          Type="SemanticRelation" AdaptativeToMinor="Yes"
+          SynchroSensitivity="None"
+          RerouteOnEffectivityChange="No"
+        Semantics="Reference"/>
+			
+		    <Method ImplementationType="None">
+			    <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+			</Method>
+		
+	</Class>
+
+</Package>

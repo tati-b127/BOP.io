@@ -1,0 +1,18 @@
+#Prog VPMEditor_GetChannelCompletionOnInstance (iPLMIDSet :  #In PLMIDSet,oPLMIDSet :  #Out PLMIDSet) : VoidType
+{ 
+
+let PLMRouteSet1(PLMRouteSet)
+
+let PLMID_Instance (PLMIDSet)
+let PLMIDSet_Config (PLMIDSet)
+
+/*Completes with all PrivateRep pointing a VPMInstance*/
+PLMID_Instance = Restrict(iPLMIDSet, "PRODUCTCFG/VPMInstance")
+PLMRouteSet1 = ExecutePLMFunction("PRODUCTCFG", "ProductCfg_AddLPPrivateRepForInstance", PLMID_Instance)
+
+/*Completes with configuration */
+PLMIDSet_Config = ExecutePLMProcedure("Config_GetStructConfig", PLMID_Instance)
+
+oPLMIDSet = iPLMIDSet + Ids(PLMRouteSet1)+ PLMIDSet_Config
+
+}

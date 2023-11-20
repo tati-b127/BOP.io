@@ -1,0 +1,122 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" DataRDB_OID="ENODR_KBA_APP_DS"
+	Name="PLMKbaApplicationDS" 
+	Uuid="4af776e5-242a-46c3-a73a-98118516d84b"
+	UseNames="PLMKbaApplication"
+	Alias="PLM Knowledge Business Applications -- DS Default Custo of Applications' Modeler"
+	
+>
+<Property Name="OptionalInstallation" Value="Yes" /> 
+    <CAAComment>
+        <ShortRole>PLM Knowledge Business Applications -- Applications' Modeler</ShortRole>
+        <Role>This package describes the DS (default) Customization of Knowledge Business Applications on top of PLM Core</Role>
+    </CAAComment>
+    <Comment>Created by PHB (2007-01-22)</Comment>
+  
+  
+    <!-- ************************************************* -->
+    <!-- *  PLMKbaBusinessApplicationDS (PLMCoreReference) * -->
+    <!-- ************************************************* -->
+    <Class Name="PLMKbaBusinessApplicationDS"
+		 Alias="PLMKbaBusinessApplicationDS"
+		 Uuid="f70eadc0-74d6-457a-95bc-c7eab4608988"		
+		 
+		 
+		 
+		 
+		 SuperName="PLMKbaBusinessApplication"
+		 SuperRef="fc9ac7f0-0180-4eb6-a88cbbf46ea8ce67"
+		 
+		 
+	>
+      <CAAComment>
+            <ShortRole>Knowledge Business Application (Reference)</ShortRole>
+            <Role>PLM Knowledge Business Application -- Reference Object</Role>
+        </CAAComment>
+
+      <IdentifierSet 
+        Name="Identifier"
+        Uuid="41546433-28a4-4cec-abf6-c1244142a61e"
+        IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755"
+        IdentifierNames="PLM_ExternalID V_version"
+        />
+
+    </Class>
+
+
+  <!-- ********************************************************* -->
+  <!-- *  PLMKbaConfigCompositionItemDS (PLMCoreInstance) * -->
+  <!-- ********************************************************* -->
+  <Class Name="PLMKbaConfigCompositionItemDS"
+   Alias="PLMKbaConfigCompositionItemDS"
+   Uuid="83195d66-2ba0-4812-be68-b38ce4ee66dc"		
+   
+   
+   
+   
+   SuperName="PLMKbaConfigCompositionItem"
+   SuperRef="5d1fe775-e520-4f6a-81326d9beb4c6dc8"
+   
+   
+	>
+
+    <IdentifierSet 
+      Name="Identifier"
+      Uuid="c2606f83-9e06-40d7-b437-8a9739f866fc"
+      IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB"
+      IdentifierNames="PLM_ExternalID"
+        />
+
+    <CAAComment>
+      <ShortRole>DS Knowledge Business Applicative Configuration Composition Item (Instance)</ShortRole>
+      <Role>PLM Knowledge Business Applicative Configuration Composition Item - Custo of Instance Object</Role>
+    </CAAComment>
+  </Class>
+
+
+  <!-- ********************************************************** -->
+    <!-- *  PLMKbaAppliResolutionElementDS (PLMConnection)		  * -->
+    <!-- ********************************************************** -->
+    <Class Name="PLMKbaAppliResolutionElementDS"
+		 Alias="PLMKbaAppliResolutionElementDS"
+		 Uuid="68288811-75b0-464d-982d-84e77250dac8"		
+		 
+		 
+		 
+		 
+		 SuperName="PLMKbaAppliResolutionElement"
+		 SuperRef="376af2d4-f806-4fc0-b801-f33f0df2bded"
+		 
+		 
+	  >
+      <CAAComment>
+            <ShortRole>Application Resolution Element (Connection)</ShortRole>
+            <Role>PLM Knowledge Business Application Resolution Element -- Connection Object</Role>
+        </CAAComment>
+    </Class>
+
+
+  <!-- ********************************************************** -->
+  <!-- *  PLMKbaAppliPublishedDefinition (PLMPort)		  * -->
+  <!-- ********************************************************** -->
+  <Class Name="PLMKbaAppliPublishedDefinitionDS"
+   Alias="PLMKbaAppliPublishedDefinitionDS"
+   Uuid="3552588b-b13b-44a6-aa00-ef5dc58b0db7"		
+   
+   
+   
+   
+   SuperName="PLMKbaAppliPublishedDefinition"
+   SuperRef="8f412cbe-4117-4705-9ace-99146bb7e3ac"
+   
+   
+	 >
+    <CAAComment>
+      <ShortRole>Application Published Definition (Port)</ShortRole>
+      <Role>PLM Knowledge Business Application Published Definition -- Port Object</Role>
+    </CAAComment>
+  </Class>
+
+</Package>

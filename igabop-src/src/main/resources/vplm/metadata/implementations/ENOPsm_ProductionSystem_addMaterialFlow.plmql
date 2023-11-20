@@ -1,0 +1,9 @@
+EXPAND  
+  	T0.PLMID
+
+ FROM 
+	DELLmiProductionMaterialPathCnx1/DELLmiMaterialPathCnxCust T0
+
+FROM_ROOTS  [?1?]
+DEPTH=1
+;    

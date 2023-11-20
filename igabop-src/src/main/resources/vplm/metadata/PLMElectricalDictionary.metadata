@@ -1,0 +1,599 @@
+<?xml version="1.0"?>
+<!-- edited with XMLSpy v2007 (http://www.altova.com) by DASSAULT SYSTEMES (DASSAULT SYSTEMES) -->
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2005, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" CustomerExposition="Programmer" Name="PLMElectricalDictionary" Uuid="832B0720-0000-644F-417CC64F00090D4F" UseNames="PRODUCTCFG">
+
+  <!--
+   ========================================================== 
+    Reference Class Declarations - New typing 
+   ==========================================================
+ -->
+  <!--  electrical geometry  -->
+  <Class Name="ElectricalGeometry" Discipline="Yes" CustomerExposition="Programmer" Abbreviation="elegeo" CustomerExtensible="Yes" Specializable="Yes" SuperName="VPMReference" Abstract="No" Uuid="8F184B7F-E4B4-4758-9889-3E2A5F31E58A">
+    <Simple Name="V_Elec_SubType" Uuid="2899F0B8-ADDE-4583-A688-1C2C49968291" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Property Name="IconName" Value="I_ElectricalGeometry"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="Newable" Value="All"/>
+    <Property Name="MergedExtensionType" Value="PLMEleRefGeoBundle"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEPLMNewElectricalGeometry"/>
+    <Property Name="3DPartAvailability" Value="ReferenceOnly"/>
+    <Property Name="OccurrenceType" Value="ElectricalGeometryOccurrence"/>
+  </Class>
+  <!--  physical system  -->
+  <Class Name="Electrical3DSystem" Discipline="Yes" CustomerExposition="Programmer" Abbreviation="elesys" CustomerExtensible="Yes" Specializable="Yes" SuperName="VPMReference" Abstract="No" Uuid="5454C7D5-633A-4928-B0EF-17997F81B63F">
+    <Simple Name="V_Elec_SubType" Uuid="1533AF92-E27C-4369-853E-DC901BDDCC53" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Property Name="IconName" Value="I_Electrical3DSystem"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="Newable" Value="New"/>
+    <Property Name="MergedExtensionType" Value="PLMEleRefBundle"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEPLMNewElectrical3DSystem"/>
+    <Property Name="3DPartAvailability" Value="ReferenceOnly"/>
+    <Property Name="OccurrenceType" Value="Electrical3DSystemOccurrence"/>
+  </Class>
+  <!-- branch geometry  -->
+  <Class Name="ElectricalBranchGeometry" Discipline="Yes" CustomerExposition="Programmer" Abbreviation="elebranch" CustomerExtensible="Yes" Specializable="Yes" SuperName="VPMReference" Abstract="No" Uuid="7F5D1F82-F279-4687-BB8B-D7A3363BDA17">
+    <Simple Name="V_Elec_SubType" Uuid="49B3AC00-3624-4777-9285-ED27FCC51051" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Property Name="IconName" Value="I_ElectricalBranchGeometry"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="Newable" Value="All"/>
+    <Property Name="MergedExtensionType" Value="PLMEleRefMultiBranchable"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEPLMNewElectricalBranchGeometry"/>
+    <Property Name="3DPartAvailability" Value="UserChoice3DPartDefault"/>
+    <Property Name="OccurrenceType" Value="ElectricalBranchGeometryOccurrence"/>
+  </Class>
+  <!--  conductor - conductor group  -->
+  <Class Name="ElecConductor" Discipline="Yes" Uuid="6E009EA1-9FBA-4523-8F8F-28977E95BEE2" CustomerExposition="Programmer" CustomerExtensible="Yes" Specializable="No" SuperName="VPMReference" Abstract="No">
+    <Simple Name="V_Elec_SubType" Uuid="7B90BCC2-71FF-4058-A74E-4EAD586D2098" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_Bend_Radius" Uuid="6B43A5E1-2D5D-4005-8B8B-7B3CFE006EDE" Type="Double" MultiValuated="No" Protection="Free" Magnitude="LENGTH" CAAExposition="L0"/>
+    <Simple Name="V_Elec_Diameter" Uuid="B8F487C1-5C73-4897-A809-CDDF730EFB76" Type="Double" MultiValuated="No" Protection="Free" Magnitude="LENGTH" CAAExposition="L0"/>
+    <Simple Name="V_Elec_Color" Uuid="37292D3D-7797-4833-A93E-E80DB61D5441" Type="String" MaxLength="20" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_Line_Weight" Uuid="6DADAB0C-A8A9-4535-BF8D-39C2A2A30B90" Type="Double" MultiValuated="No" Protection="Free" Magnitude="LINEMASS" CAAExposition="L0"/>
+    <Property Name="3DPartAvailability" Value="ReferenceOnly"/>
+    <Property Name="OccurrenceType" Value="ElecConductorOccurrence"/>
+  </Class>
+  <Class Name="Elec3DConductor" Discipline="Yes" Specializable="Yes" Abbreviation="elecond" Uuid="B3E4F981-B4B3-4655-9F25-EC336C08A559" SuperName="ElecConductor" CustomerExposition="Programmer">
+    <Simple Name="V_Elec_SectionArea" Uuid="4B39BB28-C122-4823-8899-58870C4197C5" Type="Double" MultiValuated="No" Protection="Free" Magnitude="AREA" CAAExposition="L0"/>
+    <Property Name="IconName" Value="I_Elec3DConductor"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="Newable" Value="New"/>
+    <Property Name="MergedExtensionType" Value="PLMEleRefWire"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEPLMNewElec3DConductor"/>
+    <Property Name="TypeForDisciplineValuation" Value="ElecConductor"/>
+    <Property Name="GroupingType"               Value="ElecConductor"/>
+    <Property Name="3DPartAvailability" Value="ReferenceOnly"/>
+    <Property Name="OccurrenceType" Value="Elec3DConductorOccurrence"/>
+  </Class>
+  <Class Name="Elec3DConductorGroup" Discipline="Yes" Specializable="Yes" Abbreviation="elecondgrp"  Uuid="90F991B8-4F3B-4962-BBE8-FA06CACA4ADD" SuperName="ElecConductor" CustomerExposition="Programmer">
+    <Simple Name="V_Elec_Wire_Length_Coeff" Uuid="68CEFA8B-37EE-4147-8CAB-88B845852D3B" Type="Double" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_WireGroup_Type" Uuid="6F639B6C-F8A8-4324-B0D5-E58C9139B0B2" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Property Name="IconName" Value="I_Elec3DConductorGroup"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="Newable" Value="New"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEPLMNewElec3DConductorGroup"/>
+    <Property Name="MergedExtensionType" Value="PLMEleRefWireGroup"/>
+    <Property Name="TypeForDisciplineValuation" Value="ElecConductor"/>
+    <Property Name="GroupingType"               Value="ElecConductor"/>
+    <Property Name="3DPartAvailability" Value="ReferenceOnly"/>
+    <Property Name="OccurrenceType" Value="Elec3DConductorGroupOccurrence"/>
+   </Class>
+  <!--
+   ========================================================== 
+    Port Class Declarations - New typing 
+   ==========================================================
+ -->
+  <!-- Electrical Port  -->
+  <Class Name="ElecPort" Discipline="Yes" Abstract="No" CustomerExposition="Programmer" CustomerExtensible="No" Specializable="No" SuperName="VPMPort" Uuid="e02d086b-ccdd-44c6-b783-e5251e5990f9">
+    <Simple Name="V_Elec_Extra_Length" Uuid="C8E631C9-4C68-4875-888E-BE132D9A4E57" Type="Double" MultiValuated="No" Protection="Free" Magnitude="LENGTH" CAAExposition="L0"/>
+    <Simple Name="V_Elec_Diameter" Uuid="E6938ED2-99B6-4394-BBE2-607FE20CB4A3" Type="Double" MultiValuated="No" Protection="Free" Magnitude="LENGTH" CAAExposition="L0"/>
+    <Simple Name="V_Elec_Width" Uuid="CEE5A9A8-A52E-4302-B883-E6C03D380D80" Type="Double" MultiValuated="No" Protection="Free" Magnitude="LENGTH" CAAExposition="L0"/>
+    <Simple Name="V_Elec_Thickness" Uuid="0574ED32-12A2-4b41-A720-D6F11039C0D0" Type="Double" MultiValuated="No" Protection="Free" Magnitude="LENGTH" CAAExposition="L0"/>
+    <Simple Name="V_Elec_SubType" Uuid="BECE63BF-65B4-454e-851D-B8A4F1B91BEC" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+  </Class>
+  <Class Name="Elec3DCavity" Discipline="Yes" Specializable="Yes" Abstract="No" CustomerExposition="Programmer" SuperName="ElecPort" Uuid="0D4DD98E-ACCF-478c-804A-28EEC6B42980">
+    <Property Name="IconName" Value="I_Elec3DCavity"/>
+    <Property Name="TypeForDisciplineValuation" Value="ElecPort"/>
+    <Property Name="GroupingType"               Value="ElecPort"/>
+    <Property Name="MergedExtensionType" Value="PLMEleRefStdCnctPt"/>
+  </Class>
+  <Class Name="Elec3DConnectorConnectionPoint" Discipline="Yes" Specializable="Yes" Abstract="No" CustomerExposition="Programmer" SuperName="ElecPort" Uuid="2E0E3469-AF6C-421a-A019-5E929BC7A1B9">
+    <Property Name="IconName" Value="I_Elec3DConnectorConnectionPoint"/>
+    <Property Name="TypeForDisciplineValuation" Value="ElecPort"/>
+    <Property Name="GroupingType"               Value="ElecPort"/>
+    <Property Name="MergedExtensionType" Value="PLMEleRefStdCnctPt"/>
+  </Class>
+  <Class Name="Elec3DBackShellConnectionPoint" Discipline="Yes" Specializable="Yes" Abstract="No" CustomerExposition="Programmer" SuperName="ElecPort" Uuid="46CF8D80-82D8-4abd-AC75-9D13B05F4CE5">
+    <Property Name="IconName" Value="I_Elec3DBackShellConnectionPoint"/>
+    <Property Name="TypeForDisciplineValuation" Value="ElecPort"/>
+    <Property Name="GroupingType"               Value="ElecPort"/>
+    <Property Name="MergedExtensionType" Value="PLMEleRefStdCnctPt"/>
+  </Class>
+  <Class Name="Elec3DShellConnectionPoint" Discipline="Yes" Specializable="Yes" Abstract="No" CustomerExposition="Programmer" SuperName="ElecPort" Uuid="74B82154-55CE-4fa2-817C-913D174330B4">
+    <Property Name="IconName" Value="I_Elec3DShellConnectionPoint"/>
+    <Property Name="TypeForDisciplineValuation" Value="ElecPort"/>
+    <Property Name="GroupingType"               Value="ElecPort"/>
+    <Property Name="MergedExtensionType" Value="PLMEleRefStdCnctPt"/>
+  </Class>
+  <Class Name="Elec3DSegmentConnectionPoint" Discipline="Yes" Specializable="Yes" Abstract="No" CustomerExposition="Programmer" SuperName="ElecPort" Uuid="1C2295A1-BEFA-4ec0-A51A-3FCAF9084AEB">
+    <Property Name="IconName" Value="I_Elec3DSegmentConnectionPoint"/>
+    <Property Name="TypeForDisciplineValuation" Value="ElecPort"/>
+    <Property Name="GroupingType"               Value="ElecPort"/>
+    <Property Name="MergedExtensionType" Value="PLMEleRefStdCnctPt"/>
+  </Class>
+  <Class Name="Elec3DSegmentPositionPoint" Discipline="Yes" Specializable="Yes" Abstract="No" CustomerExposition="Programmer" SuperName="ElecPort" Uuid="7F3C2834-FADD-4cb7-842B-9309B7B2448F">
+    <Property Name="IconName" Value="I_Elec3DSegmentPositionPoint"/>
+    <Property Name="TypeForDisciplineValuation" Value="ElecPort"/>
+    <Property Name="GroupingType"               Value="ElecPort"/>
+    <Property Name="MergedExtensionType" Value="PLMEleRefStdCnctPt"/>
+  </Class>
+  <Class Name="Elec3DSplicePositionPoint" Discipline="Yes" Specializable="Yes" Abstract="No" CustomerExposition="Programmer" SuperName="ElecPort" Uuid="90D97568-357E-4c43-A98B-F5524AE73FE4">
+    <Property Name="IconName" Value="I_Elec3DSplicePositionPoint"/>
+    <Property Name="TypeForDisciplineValuation" Value="ElecPort"/>
+    <Property Name="GroupingType"               Value="ElecPort"/>
+    <Property Name="MergedExtensionType" Value="PLMEleRefStdCnctPt"/>
+  </Class>
+  <Class Name="Elec3DCavityConnectionPoint" Discipline="Yes" Specializable="Yes" Abstract="No" CustomerExposition="Programmer" SuperName="ElecPort" Uuid="FD044036-F299-42fc-96BF-D2952CA5D508">
+    <Property Name="IconName" Value="I_Elec3DCavityConnectionPoint"/>
+    <Property Name="TypeForDisciplineValuation" Value="ElecPort"/>
+    <Property Name="GroupingType"               Value="ElecPort"/>
+    <Property Name="MergedExtensionType" Value="PLMEleRefStdCnctPt"/>
+  </Class>
+  <Class Name="ElecPortV5" Discipline="Yes" Abstract="No" Uuid="ACA17CCE-B418-484b-989C-661F5EB77F87" CustomerExposition="Programmer" CustomerExtensible="No" Specializable="No" SuperName="ElecPort">
+    <Simple Name="V_Elec_Representation" Uuid="3BA1EBDE-50EF-4a43-940B-B00DAE1E8732" Type="String" MaxLength="100" MultiValuated="No" Protection="Internal"/>
+    <Simple Name="V_Elec_Related_Geo1" Uuid="41F0C8FE-E974-45f1-A994-B57535C6D826" Type="String" MaxLength="100" MultiValuated="No" Protection="Internal"/>
+    <Simple Name="V_Elec_Related_Geo2" Uuid="99875C33-200B-4c2f-A281-0DBD2D408684" Type="String" MaxLength="100" MultiValuated="No" Protection="Internal"/>
+  </Class>
+  <Class Name="Elec3DCavityV5" Discipline="Yes" Abstract="No" CustomerExposition="Programmer" SuperName="ElecPortV5" Uuid="641A6D91-F352-470d-B4B2-F895E3C7B7EE">
+    <Property Name="IconName" Value="I_ElecCavity"/>
+    <Property Name="TypeForDisciplineValuation" Value="ElecPort"/>
+    <Property Name="GroupingType"               Value="ElecPort"/>
+    <Property Name="MergedExtensionType" Value="PLMEleRefMultiCnctPt"/>
+  </Class>
+  <Class Name="Elec3DConnectorConnectionPointV5" Discipline="Yes" Abstract="No" CustomerExposition="Programmer" SuperName="ElecPortV5" Uuid="46E3BB46-FD05-48a9-BD9C-12DBDF9BAFC6">
+    <Property Name="IconName" Value="I_Elec3DConnectorConnectionPointV5"/>
+    <Property Name="TypeForDisciplineValuation" Value="ElecPort"/>
+    <Property Name="GroupingType"               Value="ElecPort"/>
+    <Property Name="MergedExtensionType" Value="PLMEleRefMultiCnctPt"/>
+  </Class>
+  <Class Name="Elec3DBackShellConnectionPointV5" Discipline="Yes" Abstract="No" CustomerExposition="Programmer" SuperName="ElecPortV5" Uuid="5EDD5925-A73B-47bc-B585-2B0276AEE881">
+    <Property Name="IconName" Value="I_Elec3DBackShellConnectionPointV5"/>
+    <Property Name="TypeForDisciplineValuation" Value="ElecPort"/>
+    <Property Name="GroupingType"               Value="ElecPort"/>
+    <Property Name="MergedExtensionType" Value="PLMEleRefMultiCnctPt"/>
+  </Class>
+  <Class Name="Elec3DShellConnectionPointV5" Discipline="Yes" Abstract="No" CustomerExposition="Programmer" SuperName="ElecPortV5" Uuid="4AA1D041-B7EC-4fbe-863F-BA4A0E4FC1AC">
+    <Property Name="IconName" Value="I_Elec3DShellConnectionPointV5"/>
+    <Property Name="TypeForDisciplineValuation" Value="ElecPort"/>
+    <Property Name="GroupingType"               Value="ElecPort"/>
+    <Property Name="MergedExtensionType" Value="PLMEleRefMultiCnctPt"/>
+  </Class>
+  <Class Name="Elec3DSegmentConnectionPointV5" Discipline="Yes" Abstract="No" CustomerExposition="Programmer" SuperName="ElecPortV5" Uuid="40341F1E-8F47-4c41-BAAD-56A4C4E6EA44">
+    <Property Name="IconName" Value="I_Elec3DSegmentConnectionPointV5"/>
+    <Property Name="TypeForDisciplineValuation" Value="ElecPort"/>
+    <Property Name="GroupingType"               Value="ElecPort"/>
+    <Property Name="MergedExtensionType" Value="PLMEleRefMultiCnctPt"/>
+  </Class>
+  <Class Name="Elec3DSegmentPositionPointV5" Discipline="Yes" Abstract="No" CustomerExposition="Programmer" SuperName="ElecPortV5" Uuid="C0C30985-2E68-4ce8-9E1C-3BACA562F4DA">
+    <Property Name="IconName" Value="I_Elec3DSegmentPositionPointV5"/>
+    <Property Name="TypeForDisciplineValuation" Value="ElecPort"/>
+    <Property Name="GroupingType"               Value="ElecPort"/>
+    <Property Name="MergedExtensionType" Value="PLMEleRefMultiCnctPt"/>
+  </Class>
+  <Class Name="Elec3DSplicePositionPointV5" Discipline="Yes" Abstract="No" CustomerExposition="Programmer" SuperName="ElecPortV5" Uuid="FAB338DC-6731-4f3e-8D4D-65100AEFFEFF">
+    <Property Name="IconName" Value="I_Elec3DSplicePositionPointV5"/>
+    <Property Name="TypeForDisciplineValuation" Value="ElecPort"/>
+    <Property Name="GroupingType"               Value="ElecPort"/>
+    <Property Name="MergedExtensionType" Value="PLMEleRefMultiCnctPt"/>
+  </Class>
+  <Class Name="Elec3DCavityConnectionPointV5" Discipline="Yes" Abstract="No" CustomerExposition="Programmer" SuperName="ElecPortV5" Uuid="0B60D3CB-C408-4315-B692-F30A49FF31EB">
+    <Property Name="IconName" Value="I_Elec3DCavityConnectionPointV5"/>
+    <Property Name="TypeForDisciplineValuation" Value="ElecPort"/>
+    <Property Name="GroupingType"               Value="ElecPort"/>
+    <Property Name="MergedExtensionType" Value="PLMEleRefMultiCnctPt"/>
+  </Class>
+  <!--
+   ========================================================== 
+    Representation Class Declarations - New typing 
+   ==========================================================
+-->
+  <!--  physical system repository  -->
+  <Class Name="ElectricalConductorRepository" Discipline="Yes" CustomerExposition="Programmer" Abbreviation="elerepsys" SuperName="VPMRepReference" Uuid="1594CAD6-2F43-4230-BF07-98B15399C781">
+  </Class>
+  <!--  formboard repository  -->
+  <Class Name="FlatteningRepository" Discipline="Yes" CustomerExposition="Programmer" Abbreviation="elerepflt" SuperName="VPMRepReference" Uuid="e83d2ffc-bcf0-4fa2-8195-7baa08fb78f5">
+  </Class>
+  <Class Name="ElecSymbol2DRep" CustomerExposition="Programmer" Discipline="Yes"  Abbreviation="elereppln" SuperName="VPMRepReference" Uuid="97535B98-F6EE-4614-B414-232F5367DCDE">
+    <Property Name="Newable" Value="No"/>
+    <Property Name="Searchable" Value="No"/>
+  </Class>
+  <!--
+   ========================================================== 
+    Discipline Extension Declarations - New typing 
+   ==========================================================
+-->
+  <!--  protections  -->
+  <Extension Name="ElecProtection" Discipline="Yes" Uuid="A24C70D6-F15D-4228-B8B8-09C24E19BBFB" CustomerExposition="Programmer" ScopeNames="VPMReference">
+    <Simple Name="V_Elec_SubType" Uuid="84DCC092-BD16-4826-BBBF-996823A40596" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_Line_Type" Uuid="88CBFEE4-EDF7-42cb-8C66-B22C37BE093F" Type="Integer" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_Line_Weight" Uuid="1CF68390-A651-41ff-8ED6-C65235385B5B" Type="Double" MultiValuated="No" Protection="Free" Magnitude="LINEMASS" CAAExposition="L0"/>
+    <Simple Name="V_Elec_Preferred_Length" Uuid="CAE401AD-223B-4f5c-BDCF-085FD71F9F0B" Type="Double" MultiValuated="No" Protection="Free" Magnitude="LENGTH" CAAExposition="L0"/>
+    <Simple Name="V_Elec_Flexibility" Uuid="CDF35EEF-E887-40b3-9A5C-0917C54B8694" Type="Integer" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_Annotation" Uuid="22AC3784-8847-471f-AF54-0B4FF8E70DF0" Type="String" MaxLength="80" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_External_Reference" Uuid="CAFC195D-5C90-4d11-ACF0-F26FB4380ED0" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+  </Extension>
+  <Extension Name="Elec3DAdaptiveProtection" Discipline="Yes" Specializable="Yes" Uuid="0BD9EB59-921C-46da-91DB-958C6B560821" SuperName="ElecProtection" CustomerExposition="Programmer">
+    <Simple Name="V_Elec_Thickness" Uuid="E220E0FE-BEF7-4565-8D9E-ED762CCBAC00" Type="Double" MultiValuated="No" Protection="Free" Magnitude="LENGTH" CAAExposition="L0"/>
+    <Property Name="IconName" Value="I_PLMEleRefInternalAdaptiveProtection"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="MergedExtensionType" Value="PLMEleRefInternalAdaptiveProtection"/>
+    <Property Name="TypeForDisciplineValuation" Value="ElecProtection"/>
+    <Property Name="GroupingType"               Value="ElecProtection"/>
+  </Extension>
+  <Extension Name="Elec3DFixedProtection" Discipline="Yes" Specializable="Yes" Uuid="A2F6B243-B931-426d-A534-45AAD10DD343" SuperName="ElecProtection" CustomerExposition="Programmer">
+    <Simple Name="V_Elec_Bend_Radius" Uuid="CA4BD581-7949-4915-9D7A-A33F7F695BBF" Type="Double" MultiValuated="No" Protection="Free" Magnitude="LENGTH" CAAExposition="L0"/>
+    <Simple Name="V_Elec_Inner_Diameter" Uuid="0E1D80A5-569E-4688-BF65-FAACDDFD9D96" Type="Double" MultiValuated="No" Protection="Free" Magnitude="LENGTH" CAAExposition="L0"/>
+    <Simple Name="V_Elec_Thickness" Uuid="FBD27C30-62D9-4663-899D-E24F7926BC2B" Type="Double" MultiValuated="No" Protection="Free" Magnitude="LENGTH" CAAExposition="L0"/>
+    <Property Name="IconName" Value="I_PLMEleRefInternalFixedProtection"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="MergedExtensionType" Value="PLMEleRefInternalFixedProtection"/>
+    <Property Name="TypeForDisciplineValuation" Value="ElecProtection"/>
+    <Property Name="GroupingType"               Value="ElecProtection"/>
+  </Extension>
+  <Extension Name="Elec3DTapeProtection" Discipline="Yes" Specializable="Yes" Uuid="D6A30663-29EF-4f43-83C8-9E1FF3E4A93E" SuperName="ElecProtection" CustomerExposition="Programmer">
+    <Simple Name="V_Elec_Tape_Thickness" Uuid="99A9853B-B85D-479f-9C83-1CB5DBFBB068" Type="Double" MultiValuated="No" Protection="Free" Magnitude="LENGTH" CAAExposition="L0"/>
+    <Simple Name="V_Elec_Tape_Width" Uuid="BC0B9099-649C-4494-AFA1-8CD61D68E07D" Type="Double" MultiValuated="No" Protection="Free" Magnitude="LENGTH" CAAExposition="L0"/>
+    <Property Name="IconName" Value="I_PLMEleRefInternalTapeProtection"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="MergedExtensionType" Value="PLMEleRefInternalTapeProtection"/>
+    <Property Name="TypeForDisciplineValuation" Value="ElecProtection"/>
+    <Property Name="GroupingType"               Value="ElecProtection"/>
+  </Extension>
+  <Extension Name="Elec3DCorrugatedProtection" Discipline="Yes" Specializable="Yes" Uuid="64FA5816-10BB-4eaa-B8AB-3647F37544BD" SuperName="ElecProtection" CustomerExposition="Programmer">
+    <Simple Name="V_Elec_Bend_Radius" Uuid="365A5BD4-403B-4d27-A627-EB19661EE1C7" Type="Double" MultiValuated="No" Protection="Free" Magnitude="LENGTH" CAAExposition="L0"/>
+    <Simple Name="V_Elec_Inner_Diameter" Uuid="819E616E-E0F4-49ce-8BE7-9A559B44FECB" Type="Double" MultiValuated="No" Protection="Free" Magnitude="LENGTH" CAAExposition="L0"/>
+    <Simple Name="V_Elec_Thickness" Uuid="9CF1E47D-C75D-4751-AB8D-9C764479482E" Type="Double" MultiValuated="No" Protection="Free" Magnitude="LENGTH" CAAExposition="L0"/>
+    <Property Name="IconName" Value="I_PLMEleRefInternalCorrugatedProtection"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="MergedExtensionType" Value="PLMEleRefInternalCorrugatedProtection"/>
+    <Property Name="TypeForDisciplineValuation" Value="ElecProtection"/>
+    <Property Name="GroupingType"               Value="ElecProtection"/>
+  </Extension>
+  <!--  devices  -->
+  <Extension Name="ElecPart" Discipline="Yes" Abstract="No" Uuid="F5E47ED0-8E8F-4ce6-B27E-7060359F2FE6" CustomerExposition="Programmer" ScopeNames="VPMReference">
+    <Simple Name="V_Elec_SubType" Uuid="ABF5DD89-5587-4a8c-B2EF-23BAE9BEB90C" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_External_Reference" Uuid="4F006FC8-3929-4c6c-80A4-555F7313AE67" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Property Name="OccurrenceType" Value="ElecPartOccurrence"/>
+  </Extension>
+  <Extension Name="Elec3DShell" Discipline="Yes" Specializable="Yes" Uuid="C797E42A-BCCE-44ab-ABBE-C2D96447B5FE" SuperName="ElecPart" CustomerExposition="Programmer">
+    <Simple Name="V_Elec_MatingWith" Uuid="197EE2A0-B029-4e28-A0BB-D7A68BD642BC" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Property Name="IconName" Value="I_PLMEleRefConnectorShell"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="MergedExtensionType" Value="PLMEleRefConnectorShell"/>
+    <Property Name="TypeForDisciplineValuation" Value="ElecPart"/>
+    <Property Name="GroupingType"               Value="ElecPart"/>
+    <Property Name="OccurrenceType" Value="Elec3DShellOccurrence"/>
+  </Extension>
+  <Extension Name="Elec3DTerminalBlock" Discipline="Yes" Specializable="Yes" Uuid="890908AC-B0E9-41b7-A8AC-3B0B752529B0" SuperName="ElecPart" CustomerExposition="Programmer">
+    <Simple Name="V_Elec_MatingWith" Uuid="1A8D6859-E2B7-4b46-9DC7-55D187CA9772" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_NumberOfPins" Uuid="6B8E4519-4263-499e-A0D3-791ED19462C6" Type="Integer" MultiValuated="No" Protection="External" CAAExposition="L0"/>
+    <Property Name="IconName" Value="I_PLMEleRefTerminalBlock"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="MergedExtensionType" Value="PLMEleRefTerminalBlock"/>
+    <Property Name="TypeForDisciplineValuation" Value="ElecPart"/>
+    <Property Name="GroupingType"               Value="ElecPart"/>
+    <Property Name="OccurrenceType" Value="Elec3DTerminalBlockOccurrence"/>
+  </Extension>
+  <Extension Name="Elec3DSingleInsertConnector" Discipline="Yes" Specializable="Yes" Uuid="2526EC61-6E35-45ba-A0C2-2046EE6FA44A" SuperName="ElecPart" CustomerExposition="Programmer">
+    <Simple Name="V_Elec_MatingWith" Uuid="43A2058E-E8C1-4acd-9664-C841A97268A1" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_NumberOfPins" Uuid="6310A4B9-9059-467a-9112-9A1750B7B97D" Type="Integer" MultiValuated="No" Protection="External" CAAExposition="L0"/>
+    <Property Name="IconName" Value="I_PLMEleRefSingleInsertConnector"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="MergedExtensionType" Value="PLMEleRefSingleInsertConnector"/>
+    <Property Name="TypeForDisciplineValuation" Value="ElecPart"/>
+    <Property Name="GroupingType"               Value="ElecPart"/>
+    <Property Name="OccurrenceType" Value="Elec3DSingleInsertConnectorOccurrence"/>
+  </Extension>
+  <Extension Name="Elec3DStud" Discipline="Yes" Specializable="Yes" Uuid="2EEF10DD-3BA0-4365-A21E-19ABB9F96289" SuperName="ElecPart" CustomerExposition="Programmer">
+    <Simple Name="V_Elec_MatingWith" Uuid="8C09C3FC-06B8-4751-B64C-241C4DA7585D" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_NumberOfPins" Uuid="497B8902-95F1-4b04-BB2F-527474592009" Type="Integer" MultiValuated="No" Protection="External" CAAExposition="L0"/>
+    <Property Name="IconName" Value="I_PLMEleRefStud"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="MergedExtensionType" Value="PLMEleRefStud"/>
+    <Property Name="TypeForDisciplineValuation" Value="ElecPart"/>
+    <Property Name="GroupingType"               Value="ElecPart"/>
+    <Property Name="OccurrenceType" Value="Elec3DStudOccurrence"/>
+  </Extension>
+  <Extension Name="Elec3DBackShell" Discipline="Yes" Specializable="Yes" Uuid="E79DBDF6-09CE-4973-9C18-DF7E70160DFC" SuperName="ElecPart" CustomerExposition="Programmer">
+    <Simple Name="V_Elec_MatingWith" Uuid="0EBDD40E-B9BF-42d5-A966-BCCAA409C67B" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_Extra_Length" Uuid="D03253B5-9534-406b-AF4A-EF926A403835" Type="Double" MultiValuated="No" Protection="Free" Magnitude="LENGTH" CAAExposition="L0"/>
+    <Property Name="IconName" Value="I_PLMEleRefBackShell"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="MergedExtensionType" Value="PLMEleRefBackShell"/>
+    <Property Name="TypeForDisciplineValuation" Value="ElecPart"/>
+    <Property Name="GroupingType"               Value="ElecPart"/>
+    <Property Name="OccurrenceType" Value="Elec3DBackShellOccurrence"/>
+  </Extension>
+  <Extension Name="Elec3DTerminalStrip" Discipline="Yes" Specializable="Yes" Uuid="22085B89-E94C-40ab-A6BB-33906A8E8A9B" SuperName="ElecPart" CustomerExposition="Programmer">
+    <Simple Name="V_Elec_MatingWith" Uuid="1B1574B1-F55D-4c20-8C63-EF5A0B823AC6" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_NumberOfPins" Uuid="006D2B36-AB17-41d2-8102-F5F4CCCA0437" Type="Integer" MultiValuated="No" Protection="External" CAAExposition="L0"/>
+    <Property Name="IconName" Value="I_PLMEleRefTerminalStrip"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="MergedExtensionType" Value="PLMEleRefTerminalStrip"/>
+    <Property Name="TypeForDisciplineValuation" Value="ElecPart"/>
+    <Property Name="GroupingType"               Value="ElecPart"/>
+    <Property Name="OccurrenceType" Value="Elec3DTerminalStripOccurrence"/>
+  </Extension>
+  <Extension Name="Elec3DContact" Discipline="Yes" Specializable="Yes" Uuid="A529012F-793D-403f-B3B5-EBBB4B585297" SuperName="ElecPart" CustomerExposition="Programmer">
+    <Simple Name="V_Elec_MatingWith" Uuid="6B6702B6-D610-4edd-93CA-05C79AAD24C4" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_OutsideDiameter" Uuid="229A759F-C492-4d6b-8AF9-36760584839F" Type="Double" MultiValuated="No" Protection="Free" Magnitude="LENGTH" CAAExposition="L0"/>
+    <Simple Name="V_Elec_SectionArea" Uuid="DE7A53CA-7919-4ad6-A35B-B0D20CB5F2D1" Type="Double" MultiValuated="No" Protection="Free" Magnitude="AREA" CAAExposition="L0"/>
+    <Property Name="IconName" Value="I_PLMEleRefContact"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="MergedExtensionType" Value="PLMEleRefContact"/>
+    <Property Name="TypeForDisciplineValuation" Value="ElecPart"/>
+    <Property Name="GroupingType"               Value="ElecPart"/>
+    <Property Name="OccurrenceType" Value="Elec3DContactOccurrence"/>
+  </Extension>
+  <Extension Name="Elec3DSplice" Discipline="Yes" Specializable="Yes" Uuid="D47A20CD-EEBF-4ea8-9FDD-9C7A156793EF" SuperName="ElecPart" CustomerExposition="Programmer">
+    <Simple Name="V_Elec_NumberOfPins" Uuid="413F7276-AE73-44ed-B8CD-290C2F7E2964" Type="Integer" MultiValuated="No" Protection="External" CAAExposition="L0"/>
+    <Simple Name="V_Elec_Length" Uuid="49C2F65E-541F-4cd4-AE81-8E92D537CFEE" Type="Double" MultiValuated="No" Protection="Free" Magnitude="LENGTH" CAAExposition="L0"/>
+    <Simple Name="V_Elec_Equivalent_Thickness" Uuid="94E660C1-77F3-461d-9E04-8D22DCB2E1E0" Type="Double" MultiValuated="No" Protection="Free" Magnitude="LENGTH" CAAExposition="L0"/>
+    <Property Name="IconName" Value="I_PLMEleRefSplice"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="MergedExtensionType" Value="PLMEleRefSplice"/>
+    <Property Name="TypeForDisciplineValuation" Value="ElecPart"/>
+    <Property Name="GroupingType"               Value="ElecPart"/>
+    <Property Name="OccurrenceType" Value="Elec3DSpliceOccurrence"/>
+  </Extension>
+  <Extension Name="Elec3DFillerPlug" Discipline="Yes" Specializable="Yes" Uuid="94DFDEE3-E36B-4d95-BC8A-45C2DA3AC8B4" SuperName="ElecPart" CustomerExposition="Programmer">
+    <Simple Name="V_Elec_MatingWith" Uuid="62906FD1-63CA-4391-B046-A240C2DE9DF8" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Property Name="IconName" Value="I_PLMEleRefFillerPlug"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="MergedExtensionType" Value="PLMEleRefFillerPlug"/>
+    <Property Name="TypeForDisciplineValuation" Value="ElecPart"/>
+    <Property Name="GroupingType"               Value="ElecPart"/>
+    <Property Name="OccurrenceType" Value="Elec3DFillerPlugOccurrence"/>
+  </Extension>
+  <Extension Name="Elec3DMultiInsertConnector" Discipline="Yes" Specializable="Yes"  Uuid="0DFF279C-4794-4fef-BC86-8E9FF69517E2" SuperName="ElecPart" CustomerExposition="Programmer">
+    <Simple Name="V_Elec_MatingWith" Uuid="FFB33E1E-2FE6-4bbc-8770-1ECECAB66ED2" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Property Name="IconName" Value="I_PLMEleRefMultiInsertConnector"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="MergedExtensionType" Value="PLMEleRefMultiInsertConnector"/>
+    <Property Name="TypeForDisciplineValuation" Value="ElecPart"/>
+    <Property Name="GroupingType"               Value="ElecPart"/>
+    <Property Name="OccurrenceType" Value="Elec3DMultiInsertConnectorOccurrence"/>
+  </Extension>
+  <!-- MountingEquipment  -->
+  <Extension Name="MountingEquipment" Discipline="Yes" Specializable="Yes" Uuid="abe00e74-c2a4-4855-886e-0c89080d6053" CustomerExposition="Programmer" ScopeNames="VPMReference">
+    <Simple Name="V_Elec_SubType" Uuid="822A0C50-9E85-4058-A7BF-3B2F1A1FAA27" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_External_Reference" Uuid="D7D2EE6E-80FF-44d5-966F-BFC19305972C" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_NumberOfPins" Uuid="3FF5C019-CE54-435c-8D53-AECA5B8C0B08" Type="Integer" MultiValuated="No" Protection="External" CAAExposition="L0"/>
+    <Simple Name="V_Elec_MatingWith" Uuid="06659C57-C1BB-406b-B774-35EBF29BF0E1" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Property Name="IconName" Value="I_PLMEleRefMountingEquipment"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="MergedExtensionType" Value="PLMEleRefMountingEquipment"/>
+    <Property Name="TypeForDisciplineValuation" Value="MountingEquipment"/>
+    <Property Name="GroupingType"               Value="MountingEquipment"/>
+    <Property Name="OccurrenceType" Value="MountingEquipmentOccurrence"/>
+  </Extension>
+  
+  <!--
+   ========================================================== 
+   V1  extensions ( deprecated attributes cleaned  ) 
+   ==========================================================
+ -->
+  <Extension Name="PLMEleRefBundle" Uuid="836EDEDB-0000-3EA0-4181159500031FD5" CustomerExposition="Programmer" ScopeNames="VPMReference">
+    <Simple Name="V_Elec_SubType" Uuid="838C052E-0000-21EE-41EF7EF1000D57C0" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+  </Extension>
+  <Extension Name="PLMEleRefGeoBundle" Uuid="836EDEDB-0000-3EA3-418115960006874A" CustomerExposition="Programmer" ScopeNames="VPMReference">
+    <Simple Name="V_Elec_SubType" Uuid="838C052E-0000-21F1-41EF7F1400074BB1" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+  </Extension>
+  <Extension Name="PLMEleRefMountingEquipment" Uuid="832B0720-0000-6C85-417CE7A50001E05E" CustomerExposition="Programmer" ScopeNames="VPMReference">
+    <Simple Name="V_Elec_SubType" Uuid="838C052E-0000-2203-41EF7FE60000162E" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_External_Reference" Uuid="838C052E-0000-317F-41EFBD9200009770" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_NumberOfPins" Uuid="832B0720-0000-08E1-41B5DB02000983FD" Type="Integer" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_MatingWith" Uuid="838C052E-0000-56A0-43CB83960007C569" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+  </Extension>
+  <Extension Name="PLMEleRefConnectorShell" Uuid="832B0720-0000-6C88-417CE7B6000B36CA" CustomerExposition="Programmer" ScopeNames="VPMReference">
+    <Property Name="OccurrenceType" Value="Elec3DShellOccurrence"/>
+    <Simple Name="V_Elec_SubType" Uuid="838C052E-0000-224A-41EF7FF80008316C" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_External_Reference" Uuid="838C052E-0000-317C-41EFBD91000ABE48" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_MatingWith" Uuid="838C052E-0000-56A3-43CB8397000D1439" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+  </Extension>
+  <Extension Name="PLMEleRefTerminalBlock" Uuid="832B0720-0000-6C8B-417CE7C6000C6D82" CustomerExposition="Programmer" ScopeNames="VPMReference">
+    <Property Name="OccurrenceType" Value="Elec3DTerminalBlockOccurrence"/>
+    <Simple Name="V_Elec_SubType" Uuid="838C052E-0000-224D-41EF80110001B163" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_External_Reference" Uuid="838C052E-0000-3179-41EFBD910005DDB9" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_NumberOfPins" Uuid="832B0720-0000-08E4-41B5DB1A0005C222" Type="Integer" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_MatingWith" Uuid="838C052E-0000-56A6-43CB83980008E6A9" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+  </Extension>
+  <Extension Name="PLMEleRefSingleInsertConnector" Uuid="832B0720-0000-6C91-417CE7EA0003B21E" CustomerExposition="Programmer" ScopeNames="VPMReference">
+    <Property Name="OccurrenceType" Value="Elec3DSingleInsertConnectorOccurrence"/>
+    <Simple Name="V_Elec_SubType" Uuid="838C052E-0000-2253-41EF80390004EE07" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_External_Reference" Uuid="838C052E-0000-3173-41EFBD90000C17C7" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_NumberOfPins" Uuid="832B0720-0000-08EA-41B5DB67000D18E0" Type="Integer" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_MatingWith" Uuid="838C052E-0000-56AC-43CB839900080BB4" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+  </Extension>
+  <Extension Name="PLMEleRefEquipment" Uuid="832B0720-0000-6C8E-417CE7D800037A6A" CustomerExposition="Programmer" ScopeNames="VPMReference">
+    <Simple Name="V_Elec_SubType" Uuid="838C052E-0000-2250-41EF802500027209" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_External_Reference" Uuid="838C052E-0000-3176-41EFBD91000174C2" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_NumberOfPins" Uuid="832B0720-0000-08E7-41B5DB54000DDD4D" Type="Integer" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_MatingWith" Uuid="838C052E-0000-56A9-43CB83990001555F" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+  </Extension>
+  <Extension Name="PLMEleRefStud" Uuid="832B0720-0000-6C94-417CE7F900043E73" CustomerExposition="Programmer" ScopeNames="VPMReference">
+    <Property Name="OccurrenceType" Value="Elec3DStudOccurrence"/>
+    <Simple Name="V_Elec_SubType" Uuid="838C052E-0000-2256-41EF804E000B455F" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_External_Reference" Uuid="838C052E-0000-3170-41EFBD900007AE08" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_NumberOfPins" Uuid="832B0720-0000-08ED-41B5DB7D00013C77" Type="Integer" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_MatingWith" Uuid="838C052E-0000-56AF-43CB8399000E6476" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+  </Extension>
+  <Extension Name="PLMEleRefBackShell" Uuid="832B0720-0000-6C97-417CE80B00028FF7" CustomerExposition="Programmer" ScopeNames="VPMReference">
+    <Property Name="OccurrenceType" Value="Elec3DBackShellOccurrence"/>
+    <Simple Name="V_Elec_SubType" Uuid="838C052E-0000-2259-41EF805E00059E30" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_External_Reference" Uuid="838C052E-0000-316D-41EFBD9000032C60" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_Extra_Length" Uuid="832B0720-0000-6C9A-417CE81900043C74" Type="Double" MultiValuated="No" Protection="Free" Magnitude="LENGTH" CAAExposition="L0"/>
+    <Simple Name="V_Elec_MatingWith" Uuid="838C052E-0000-56B2-43CB839A0005A35E" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+  </Extension>
+  <Extension Name="PLMEleRefTerminalStrip" Uuid="832B0720-0000-6C9D-417CE82600018F31" CustomerExposition="Programmer"   ScopeNames="VPMReference">
+    <Property Name="OccurrenceType" Value="Elec3DTerminalStripOccurrence"/>
+    <Simple Name="V_Elec_SubType" Uuid="838C052E-0000-225C-41EF80740006D80C" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_NumberOfPins" Uuid="832B0720-0000-08F3-41B5DBA2000995AA" Type="Integer" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_External_Reference" Uuid="838C052E-0000-316A-41EFBD8F000E057A" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_MatingWith" Uuid="838C052E-0000-56B5-43CB839A000CC6B5" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+  </Extension>
+  <Extension Name="PLMEleRefContact" Uuid="832B0720-0000-6CA0-417CE836000D0CBD" CustomerExposition="Programmer"   ScopeNames="VPMReference">
+    <Property Name="OccurrenceType" Value="Elec3DContactOccurrence"/>
+    <Simple Name="V_Elec_SubType" Uuid="838C052E-0000-2F03-41EFB93B00064577" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_External_Reference" Uuid="838C052E-0000-3167-41EFBD8F000964AE" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_OutsideDiameter" Uuid="836BA102-0000-5C79-436A318E000915C0" Type="Double" MultiValuated="No" Protection="Free" Magnitude="LENGTH" CAAExposition="L0"/>
+    <Simple Name="V_Elec_SectionArea" Uuid="836BA102-0000-5C7C-436A318F0002F0A2" Type="Double" MultiValuated="No" Protection="Free" Magnitude="AREA" CAAExposition="L0"/>
+    <Simple Name="V_Elec_MatingWith" Uuid="838C052E-0000-56B8-43CB839B0004FE43" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+  </Extension>
+  <Extension Name="PLMEleRefSplice" Uuid="832B0720-0000-6CA3-417CE842000BCCA7" CustomerExposition="Programmer"   ScopeNames="VPMReference">
+    <Property Name="OccurrenceType" Value="Elec3DSpliceOccurrence"/>
+    <Simple Name="V_Elec_SubType" Uuid="838C052E-0000-2F06-41EFB95D00016722" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_External_Reference" Uuid="838C052E-0000-3164-41EFBD8F0004E52C" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_NumberOfPins" Uuid="832B0720-0000-090F-41B5DBB4000D0A2B" Type="Integer" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_Length" Uuid="518bc374-b4a7-4f8a-8e9dcf60a4c00c8e" Type="Double" MultiValuated="No" Protection="Free" Magnitude="LENGTH" CAAExposition="L0"/>
+    <Simple Name="V_Elec_Equivalent_Thickness" Uuid="f183bc89-3e1a-40ae-8d18b5584cbe4d6e" Type="Double" MultiValuated="No" Protection="Free" Magnitude="LENGTH" CAAExposition="L0"/>
+  </Extension>
+  <Extension Name="PLMEleRefFillerPlug" Uuid="832B0720-0000-6CEF-417CE87300070DAE" CustomerExposition="Programmer"   ScopeNames="VPMReference">
+    <Property Name="OccurrenceType" Value="Elec3DFillerPlugOccurrence"/>
+    <Simple Name="V_Elec_SubType" Uuid="838C052E-0000-2F4C-41EFB974000318CC" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_External_Reference" Uuid="838C052E-0000-3161-41EFBD8F00007AD4" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_MatingWith" Uuid="838C052E-0000-56BB-43CB839B000BD1CB" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+  </Extension>
+  <Extension Name="PLMEleRefMultiBranchable" Uuid="832B0720-0000-6AF7-417CE1640009F7C2" CustomerExposition="Programmer"   ScopeNames="VPMReference">
+    <Simple Name="V_Elec_SubType" Uuid="838C052E-0000-21F4-41EF7F370007AB25" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+  </Extension>
+  <Extension Name="PLMEleRefWire" Uuid="832B0720-0000-6BEA-417CE60C0006C1C5" CustomerExposition="Programmer"   ScopeNames="VPMReference">
+    <Property Name="OccurrenceType" Value="Elec3DConductorOccurrence"/>
+    <Simple Name="V_Elec_SubType" Uuid="838C052E-0000-21FD-41EF7F870008CEE8" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_Bend_Radius" Uuid="838C052E-0000-3152-41EFBD8D00077164" Type="Double" MultiValuated="No" Protection="Free" Magnitude="LENGTH" CAAExposition="L0"/>
+    <Simple Name="V_Elec_Diameter" Uuid="838C052E-0000-3155-41EFBD8D000CAE97" Type="Double" MultiValuated="No" Protection="Free" Magnitude="LENGTH" CAAExposition="L0"/>
+    <Simple Name="V_Elec_Color" Uuid="832B0720-0000-6C3C-417CE71900052320" Type="String" MaxLength="20" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_Line_Weight" Uuid="832B0720-0000-08DE-41B5DAD60005FE26" Type="Double" MultiValuated="No" Protection="Free" Magnitude="LINEMASS" CAAExposition="L0"/>
+    <Simple Name="V_Elec_SectionArea" Uuid="836BA102-0000-5C76-436A318C000CF241" Type="Double" MultiValuated="No" Protection="Free" Magnitude="AREA" CAAExposition="L0"/>
+  </Extension>
+  <Extension Name="PLMEleRefWireGroup" Uuid="832B0720-0000-6C82-417CE74300032AD7" CustomerExposition="Programmer"   ScopeNames="VPMReference">
+    <Property Name="OccurrenceType" Value="Elec3DConductorGroupOccurrence"/>
+    <Simple Name="V_Elec_SubType" Uuid="838C052E-0000-2200-41EF7FBE00075C35" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_Bend_Radius" Uuid="832B0720-0000-6C30-417CE698000B2980" Type="Double" MultiValuated="No" Protection="Free" Magnitude="LENGTH" CAAExposition="L0"/>
+    <Simple Name="V_Elec_Diameter" Uuid="832B0720-0000-6C36-417CE6F100067F7C" Type="Double" MultiValuated="No" Protection="Free" Magnitude="LENGTH" CAAExposition="L0"/>
+    <Simple Name="V_Elec_Color" Uuid="838C052E-0000-3158-41EFBD8E0002558A" Type="String" MaxLength="20" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_Line_Weight" Uuid="832B0720-0000-6C39-417CE704000137CF" Type="Double" MultiValuated="No" Protection="Free" Magnitude="LINEMASS" CAAExposition="L0"/>
+    <Simple Name="V_Elec_Wire_Length_Coeff" Uuid="838C052E-0000-620A-422707F70002BFCD" Type="Double" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_WireGroup_Type" Uuid="838C052E-0000-6054-42270080000A3A18" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+  </Extension>
+  <Extension Name="PLMEleRefMultiInsertConnector" Uuid="836BA102-0000-14FB-42F32AA7000C43B7" CustomerExposition="Programmer"   ScopeNames="VPMReference">
+    <Property Name="OccurrenceType" Value="Elec3DMultiInsertConnectorOccurrence"/>
+    <Simple Name="V_Elec_SubType" Uuid="836BA102-0000-14FF-42F32AF20009DF95" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_External_Reference" Uuid="836BA102-0000-1502-42F32B38000513CA" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_MatingWith" Uuid="838C052E-0000-56BE-43CB839C0003AC67" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+  </Extension>
+  <Extension Name="PLMEleRefStdCnctPt" Uuid="836BA102-0000-6AD1-42EF32E700082E73" CustomerExposition="Programmer"   ScopeNames="VPMPort">
+    <Simple Name="V_Elec_Port_Type" Uuid="836BA102-0000-6AD4-42EF32EE00057D40" Type="Integer" MultiValuated="No" Protection="Internal"/>
+    <Simple Name="V_Elec_Extra_Length" Uuid="F677CCBD-C8D3-41c4-A0E2-4C094A9D4CE4" Type="Double" MultiValuated="No" Protection="Free" Magnitude="LENGTH" CAAExposition="L0"/>
+    <Simple Name="V_Elec_Diameter" Uuid="026CA6B0-42DD-47fd-8FBA-40BC5986BDC5" Type="Double" MultiValuated="No" Protection="Free" Magnitude="LENGTH" CAAExposition="L0"/>
+    <Simple Name="V_Elec_Width" Uuid="2FBFD040-1783-4aeb-BD40-A5C4A182F710" Type="Double" MultiValuated="No" Protection="Free" Magnitude="LENGTH" CAAExposition="L0"/>
+    <Simple Name="V_Elec_Thickness" Uuid="DA67A0F3-4D57-4618-80B8-73341C9A3AE7" Type="Double" MultiValuated="No" Protection="Free" Magnitude="LENGTH" CAAExposition="L0"/>
+    <Simple Name="V_Elec_SubType" Uuid="FF83B561-DF09-4245-A796-8C747933AA10" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+  </Extension>
+  <Extension Name="PLMEleRefMultiCnctPt" Uuid="836BA102-0000-6AC5-42EF32BC0009660B" CustomerExposition="Programmer"   ScopeNames="VPMPort">
+    <Simple Name="V_Elec_Port_Type" Uuid="836BA102-0000-6AC8-42EF32C8000C814B" Type="Integer" MultiValuated="No" Protection="Internal"/>
+    <Simple Name="V_Elec_Representation" Uuid="836BA102-0000-6ACB-42EF32D2000B61F5" Type="String" MaxLength="100" MultiValuated="No" Protection="Internal"/>
+    <Simple Name="V_Elec_Related_Geo1" Uuid="836BA102-0000-6ACE-42EF32DA000EACBC" Type="String" MaxLength="100" MultiValuated="No" Protection="Internal"/>
+    <Simple Name="V_Elec_Related_Geo2" Uuid="836BA102-0000-124E-42F31F80000B4D62" Type="String" MaxLength="100" MultiValuated="No" Protection="Internal"/>
+    <Simple Name="V_Elec_Extra_Length" Uuid="718494B2-40EE-42bf-93BE-E16667F9301D" Type="Double" MultiValuated="No" Protection="Free" Magnitude="LENGTH" CAAExposition="L0"/>
+    <Simple Name="V_Elec_Diameter" Uuid="3B9CFC33-A095-4210-89FB-E8809803494E" Type="Double" MultiValuated="No" Protection="Free" Magnitude="LENGTH" CAAExposition="L0"/>
+    <Simple Name="V_Elec_Width" Uuid="1AF779D5-FE88-4059-AD4C-26CD928790D5" Type="Double" MultiValuated="No" Protection="Free" Magnitude="LENGTH" CAAExposition="L0"/>
+    <Simple Name="V_Elec_Thickness" Uuid="6CE0EB90-6CFA-4a6b-8753-5229AE57BD44" Type="Double" MultiValuated="No" Protection="Free" Magnitude="LENGTH" CAAExposition="L0"/>
+    <Simple Name="V_Elec_SubType" Uuid="5926D8F8-2340-4601-B248-0E148987CBEA" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+  </Extension>
+  <Extension Name="PLMEleRefInternalAdaptiveProtection" Uuid="836BA102-0000-5040-45091649000AE4C6" CustomerExposition="Programmer"   ScopeNames="VPMReference">
+    <Simple Name="V_Elec_SubType" Uuid="836BA102-0000-5043-4509164F000B818E" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_Line_Type" Uuid="836BA102-0000-5046-4509165500054209" Type="Integer" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_Line_Weight" Uuid="836BA102-0000-5049-4509165B00057FC6" Type="Double" MultiValuated="No" Protection="Free" Magnitude="LINEMASS" CAAExposition="L0"/>
+    <Simple Name="V_Elec_Preferred_Length" Uuid="836BA102-0000-504C-450916610007AE0E" Type="Double" MultiValuated="No" Protection="Free" Magnitude="LENGTH" CAAExposition="L0"/>
+    <Simple Name="V_Elec_Flexibility" Uuid="7A1F347F-101B-40C6-B4CA-FC0B63094087" Type="Integer" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_Annotation" Uuid="E72AC664-20ED-4312-A675-D518C1833C07" Type="String" MaxLength="80" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_Thickness" Uuid="AD4084F8-2C14-4D14-A547-F5C8FF896dE6" Type="Double" MultiValuated="No" Protection="Free" Magnitude="LENGTH" CAAExposition="L0"/>
+    <Simple Name="V_Elec_External_Reference" Uuid="5D1BC50F-B60C-4c72-8956-43C8B7B33EF1" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+  </Extension>
+  <Extension Name="PLMEleRefInternalFixedProtection" Uuid="836BA102-0000-5028-4509160C000267ED" CustomerExposition="Programmer"   ScopeNames="VPMReference">
+    <Simple Name="V_Elec_SubType" Uuid="836BA102-0000-502B-45091618000B94A9" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_Line_Type" Uuid="836BA102-0000-502E-45091620000130A5" Type="Integer" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_Line_Weight" Uuid="836BA102-0000-5031-450916270002E3A0" Type="Double" MultiValuated="No" Protection="Free" Magnitude="LINEMASS" CAAExposition="L0"/>
+    <Simple Name="V_Elec_Preferred_Length" Uuid="836BA102-0000-5034-4509162E000570A4" Type="Double" MultiValuated="No" Protection="Free" Magnitude="LENGTH" CAAExposition="L0"/>
+    <Simple Name="V_Elec_Bend_Radius" Uuid="836BA102-0000-5037-4509163600054E12" Type="Double" MultiValuated="No" Protection="Free" Magnitude="LENGTH" CAAExposition="L0"/>
+    <Simple Name="V_Elec_Inner_Diameter" Uuid="836BA102-0000-503A-4509163C000EF0AD" Type="Double" MultiValuated="No" Protection="Free" Magnitude="LENGTH" CAAExposition="L0"/>
+    <Simple Name="V_Elec_Thickness" Uuid="836BA102-0000-503D-450916430006C0C7" Type="Double" MultiValuated="No" Protection="Free" Magnitude="LENGTH" CAAExposition="L0"/>
+    <Simple Name="V_Elec_Flexibility" Uuid="40AB9B2D-3A86-4E07-9574-61834C6EAEF4" Type="Integer" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_Annotation" Uuid="4CC562E0-F629-4AC9-8651-6597FA2B8EB9" Type="String" MaxLength="80" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_External_Reference" Uuid="1413385E-3B26-4139-8EFB-4FAAC804302C" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+  </Extension>
+  <Extension Name="PLMEleRefInternalTapeProtection" Uuid="836BA102-0000-504F-450916670008097C" CustomerExposition="Programmer"   ScopeNames="VPMReference">
+    <Simple Name="V_Elec_SubType" Uuid="836BA102-0000-5052-4509166D00070DAF" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_Line_Type" Uuid="836BA102-0000-5055-450916730002868D" Type="Integer" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_Line_Weight" Uuid="836BA102-0000-5058-4509167F0008FB7F" Type="Double" MultiValuated="No" Protection="Free" Magnitude="LINEMASS" CAAExposition="L0"/>
+    <Simple Name="V_Elec_Preferred_Length" Uuid="836BA102-0000-505B-450916850009B477" Type="Double" MultiValuated="No" Protection="Free" Magnitude="LENGTH" CAAExposition="L0"/>
+    <Simple Name="V_Elec_Tape_Thickness" Uuid="836BA102-0000-5061-4509168C000EB581" Type="Double" MultiValuated="No" Protection="Free" Magnitude="LENGTH" CAAExposition="L0"/>
+    <Simple Name="V_Elec_Tape_Width" Uuid="836BA102-0000-5064-45091694000B06A0" Type="Double" MultiValuated="No" Protection="Free" Magnitude="LENGTH" CAAExposition="L0"/>
+    <Simple Name="V_Elec_Flexibility" Uuid="4BB9E7DB-8CC5-4D18-8751-C8613B5F403E" Type="Integer" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_Annotation" Uuid="C0277716-9D32-4807-BD8D-364C94476800" Type="String" MaxLength="80" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_External_Reference" Uuid="7F487D06-B0E2-4b2c-9333-074884DEEAF2" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+  </Extension>
+  <Extension Name="PLMEleRefInternalCorrugatedProtection" Uuid="836BA102-0000-506A-450916A40003EC92" CustomerExposition="Programmer"   ScopeNames="VPMReference">
+    <Simple Name="V_Elec_SubType" Uuid="836BA102-0000-506D-450916A9000A054E" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_Line_Type" Uuid="836BA102-0000-5070-450916B000027B8B" Type="Integer" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_Line_Weight" Uuid="836BA102-0000-5073-450916B700088999" Type="Double" MultiValuated="No" Protection="Free" Magnitude="LINEMASS" CAAExposition="L0"/>
+    <Simple Name="V_Elec_Preferred_Length" Uuid="836BA102-0000-5076-450916C00001EBAE" Type="Double" MultiValuated="No" Protection="Free" Magnitude="LENGTH" CAAExposition="L0"/>
+    <Simple Name="V_Elec_Bend_Radius" Uuid="836BA102-0000-5079-450916CB00284E7E" Type="Double" MultiValuated="No" Protection="Free" Magnitude="LENGTH" CAAExposition="L0"/>
+    <Simple Name="V_Elec_Inner_Diameter" Uuid="836BA102-0000-5096-450919DF00075C58" Type="Double" MultiValuated="No" Protection="Free" Magnitude="LENGTH" CAAExposition="L0"/>
+    <Simple Name="V_Elec_Thickness" Uuid="836BA102-0000-5099-450919E9000A4B78" Type="Double" MultiValuated="No" Protection="Free" Magnitude="LENGTH" CAAExposition="L0"/>
+    <Simple Name="V_Elec_Flexibility" Uuid="2B42B166-057D-411E-9B21-1CD0FAD0BF01" Type="Integer" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_Annotation" Uuid="046BEF57-F789-4191-89D7-588D5C10B2EB" Type="String" MaxLength="80" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_External_Reference" Uuid="FDC4E241-6A6A-454f-8FE9-DBD5BAD37181" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+  </Extension>  
+  
+  <!--
+   ========================================================== 
+   deprecated extensions ( never used ) 
+   ==========================================================
+ -->
+  <Extension Name="PLMEleRefCavityCnctPt" Uuid="838C052E-0000-56C1-43CB839C000A7E72" CustomerExposition="Programmer"   ScopeNames="VPMPort">
+    <Simple Name="V_Elec_MatingWith" Uuid="838C052E-0000-56C4-43CB839D0002AC42" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_SubType" Uuid="B45DC037-E5E2-4722-9781-37C583AECCB3" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+  </Extension>
+  <Extension Name="PLMEleRefBackShellCnctPt" Uuid="838C052E-0000-56C7-43CB839D000A35CF" CustomerExposition="Programmer"   ScopeNames="VPMPort">
+    <Simple Name="V_Elec_MatingWith" Uuid="838C052E-0000-56CA-43CB839E00026DD1" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_SubType" Uuid="C2A2E899-770F-4459-A7F7-EF05AF0E9E01" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+  </Extension>
+  <Extension Name="PLMEleRefCavity" Uuid="838C052E-0000-56F8-43CB84CC0007C999" CustomerExposition="Programmer"   ScopeNames="VPMPort">
+    <Simple Name="V_Elec_MatingWith" Uuid="838C052E-0000-56FB-43CB84CD00043C78" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_SignalID" Uuid="838C052E-0000-56FE-43CB84CE00047F3B" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_Extra_Length" Uuid="c45ac342-0445-a440-9a949fa46ba9eb11" Type="Double" MultiValuated="No" Protection="Free" CAAExposition="L0" Magnitude="LENGTH"/>
+    <Simple Name="V_Elec_SubType" Uuid="7F1099FC-F2ED-4255-A7B8-E60F4933F8E8" Type="String" MaxLength="100" Protection="Free" CAAExposition="L0"/>
+  </Extension>
+  <Extension Name="PLMEleRefConnectorCnctPt" Uuid="838C052E-0000-5701-43CB84CE000AFB00" CustomerExposition="Programmer"   ScopeNames="VPMPort">
+    <Simple Name="V_Elec_MatingWith" Uuid="838C052E-0000-5704-43CB84CF0001EC30" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_SubType" Uuid="AD77CEDA-35FD-4253-8096-49445C6D064D" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+  </Extension>
+  <Extension Name="PLMEleRefShellCnctPt" Uuid="838C052E-0000-5707-43CB84CF0008A324" CustomerExposition="Programmer"   ScopeNames="VPMPort">
+    <Simple Name="V_Elec_MatingWith" Uuid="838C052E-0000-570A-43CB84CF000EDB13" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Elec_SubType" Uuid="7486EFE0-7B43-4933-BBE9-E83780B6C5A1" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+  </Extension>
+  <!--
+   ========================================================== 
+   FUNCTIONS Declarations : here are declared PLMQL Functions
+   ==========================================================
+ -->
+  <Function Name="Electrical_AddBranchGeometryShape">
+    <Implementation Name="Electrical_AddBranchGeometryShape" FileLocation="Electrical_AddBranchGeometryShape.plmql" Language="PLMQL"/>
+    <Signature href="ELEAddBranchGeometryShape"/>
+  </Function>
+  <Signature id="ELEAddBranchGeometryShape">
+    <Parameter Name="InputIds" Lower="0" Upper="-1" Direction="in" MultiValuated="Yes" DataType="PLMId"/>
+    <Parameter Name="OutputIds" Lower="0" Upper="-1" Direction="out" MultiValuated="No" DataType="PLMRouteSet"/>
+  </Signature>
+</Package>

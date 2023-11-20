@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2012, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" Name="PLMCollaborativeExchange" UseNames="" CustomerExposition="Programmer" Uuid="C1F62D03-1D68-43F6-8703-1BE22EA74037">
+
+  <Extension Name="PLMCollaborativeExchangeExt" Uuid="FA88629C-0525-456D-B4F4-28E9DE121DEE" Abstract="No" Specializable="No" ScopeNames="" CustomerExposition="ProgrammerOnly">
+    <!-- 'typesToDelete' is the list of types to delete -->
+    <Simple Name="typesToDelete" Uuid="B8C07634-E73A-44A5-A07A-50F5C3A9E557" Type="String" Protection="Free" MaxLength="128" MultiValuated="Yes" CollectionType="List" CAAExposition="L0"/>
+    <!-- 'typesToIgnoreInDelete' is the list of types to ignore -->
+    <Simple Name="typesToIgnoreInDelete" Uuid="9FE1B06C-07C7-484E-AC73-0F6D3F56C8BB" Type="String" Protection="Free" MaxLength="128" MultiValuated="Yes" CollectionType="List" CAAExposition="L0"/>
+    <!-- ENUM attribute -->
+    <!-- 'objectSynchronizationMode' is the reconciliation mode in case of Multisite -->
+    <Simple Name="objectSynchronizationMode" Uuid="B177B8E7-830F-446F-9113-91CBE18C8595" Type="Integer" Protection="External" CAAExposition="L0" DefaultValue="1">
+      <Property Name="RangeAsEnumName" Value="objectSynchronizationModeEnum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="addUpdate;addReference;referenceOnly"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+      </Range>
+    </Simple>
+  </Extension>
+</Package>

@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2007, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" 
+		ModelerType="Top" 
+		CustomerExposition="Programmer" 
+		Name="CATSysFMUBehaviorLibrary" 
+		Uuid="64044DB6-FC3D-4a6e-8729-EB3D47B3FC13" 
+		UseNames="RFLVPMLogical"
+		BelongsToModeler="CATSysBehaviorLibrary"
+		>
+	<CAAComment>
+		<ShortRole>PLM CATSysFMUBehaviorLibrary Class Package</ShortRole>
+		<Role>This package describes Behavior Reps managing FMUs on top of FL Modeler</Role>
+	</CAAComment>
+	
+	<Class Name="LogicalMDBehaviorRepRef" 
+			Uuid="E5F5E6D4-9A71-49b6-8541-D10525451A55" 
+			Discipline="Yes"
+			CustomerExposition="Programmer" 
+			CustomerExtensible="No"
+			Specializable="No"
+			Abstract="Yes" 
+			SuperName="RFLVPMLogicalRepReference"
+		>
+		<Simple Name="ConnectorsMappingTable" 
+				Uuid="17F9C92C-AFE9-4F50-B573-DB5B11FE10D4" 
+				Type="String" 
+				Protection="Internal" 
+				MultiValuated="Yes" 
+				PLMImpacting="Yes" />
+		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+	</Class>
+
+	<Class Name="LogicalFMUBehaviorRepRef" 
+			Uuid="AB565BC5-CA96-46d1-9A14-DBAED844AE96" 
+			Discipline="Yes"
+			CustomerExposition="Programmer" 
+			CustomerExtensible="No" 
+			Specializable="No" 
+			Abstract="No" 
+			SuperName="LogicalMDBehaviorRepRef" 
+			Abbreviation="fmurep"
+		>
+		<Property Name="Searchable" Value="No"/>
+	    <Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+	</Class>
+
+	<Class Name="LogicalSimulationBehaviorRepRef" 
+			Uuid="D5941D11-F7C1-44ab-9604-DBC823D80560" 
+			Discipline="Yes"
+			CustomerExposition="Programmer" 
+			CustomerExtensible="No" 
+			Specializable="No" 
+			Abstract="No" 
+			SuperName="LogicalMDBehaviorRepRef" 
+			Abbreviation="simfmu"
+		>
+		<Simple Name="SimulationType" 
+				Uuid="85EBD726-3556-40D7-A44D-4CFD2003DA8A" 
+				Type="String" 
+				Protection="Internal" 
+				MultiValuated="No" />
+		<Property Name="Searchable" Value="No"/>
+	    <Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+	</Class>	
+
+</Package>

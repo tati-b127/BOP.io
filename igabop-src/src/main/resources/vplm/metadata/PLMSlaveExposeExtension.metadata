@@ -1,0 +1,27 @@
+<?xml version="1.0" ?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2004, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" Name="PLMSlaveExposeExtension"  CustomerExposition="Programmer"
+    Uuid="dabeaf66-6501-4e6d-8ffb-4aa49ac18373"
+    UseNames="PRODUCTCFG"
+   >
+
+    <CAAComment>
+        <ShortRole>Infrastructure PLMPackage</ShortRole>
+        <Role>Be careful. Only use this Package for manage BlackBox in DC and Smarteam Provider</Role>
+    </CAAComment>
+
+
+
+    <Extension Name="PLMSlaveExpose" CustomerExposition="Programmer"
+        Uuid="dfdc9bdd-7f73-4aaf-b1a6-ee9e873e3966"
+        ScopeNames="VPMReference VPMRepReference VPMInstance VPMRepInstance"
+        CAAExposition="L0"
+        >
+    </Extension>
+
+
+</Package>
+ 

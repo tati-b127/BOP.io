@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" Name="ENOSTWkiDataCollectDS" Uuid="b65ea46e-db34-4944-a97e970b5f9a354d" UseNames="DELWkiDataCollect" >
+	<CAAComment>
+		<ShortRole>PLM Customization of DELMIA Work Instruction DataCollect for SMB</ShortRole>
+		<Role>PLM Customization of DELMIA Work Instruction DataCollect for SMB</Role>
+	</CAAComment>
+	<Comment>last update 2010-07-01</Comment>
+
+	<Class Name="ENOSTWkiDataCollectReferenceCusto" Uuid="d16da83d-e4ad-456c-8062ea4b9702ea5e" SuperName="DELWkiDataCollectReference" SuperRef="fbc3ce41-ae86-4916-8bc604a48e30e157"  >
+
+    <Simple Name="E_fromExternalId"
+            Uuid="93c9e866-3cf0-4dd7-a5a9f74a71317d27"
+            Alias="Definition"
+            Type="String"
+            MaxLength="256"
+            Mandatory="No"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"/>
+    <Simple Name="E_versionComment"
+            Uuid="70966f9f-06ff-4dc4-a1db36aea92942f2"
+            Alias="Version Comment"
+            Type="String"
+            MaxLength="256"
+            Mandatory="No"
+            MultiValuated="No"
+            Protection="Free"
+            ResetOnNewVersion="Yes"
+            ResetOnCloning="Yes"
+            CAAExposition="L0"/>
+    <IdentifierSet Name="E_identifier"
+                   Uuid="f13d918f-c36b-4765-8beb2fd847ba9f4e"
+                   IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755"
+                   IdentifierNames="PLM_ExternalID V_version"/>
+
+    <CAAComment>
+			<ShortRole>PLM Customization of DELMIA DELMIA Work Instruction DataCollect Reference for SMB</ShortRole>
+			<Role>PLM Customization of DELMIA DELMIA Work Instruction DataCollect Reference for SMB</Role>
+		</CAAComment>
+	</Class>
+
+  <RelationClass Name="ENOSTWkiDataCollectInstanceCusto" Uuid="bcf50ba9-89ca-44e3-82f2966499b1a3ae" SuperName="DELWkiDataCollectInstance" SuperRef="2ea23dd8-6cf3-43ff-bf3107e5d941ee09"  >
+		<CAAComment>
+			<ShortRole>PLM Customization of DELMIA Work Instruction DataCollect Instance for SMB</ShortRole>
+			<Role>PLM Customization of DELMIA Work Instruction DataCollect Instance for SMB</Role>
+		</CAAComment>		
+            <!-- ********************************************************* -->
+            <!-- * Overload(s) of PLMCoreInstance attributes. -->
+            <!-- ********************************************************* -->
+    <SubClause Name="to"   TargetName="ENOSTWkiDataCollectReferenceCusto"/>
+  </RelationClass>
+
+</Package>

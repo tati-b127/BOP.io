@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY for E/E Editor -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2012, all rights reserved -->
+
+<Package Name="SoftwareArchitecture"
+    Uuid="38D7540B-C946-4250-9C1D-7297F2E875F4"
+    xmlns="PLMDictionaryUnified"
+    ModelerType="Top"
+    BelongsToModeler="SoftwareArchitecture"
+	CustomerExposition="Programmer"
+	UseNames="RFLVPMLogical" >
+
+	<CAAComment>
+        <ShortRole>Software Architecture Package</ShortRole>
+        <Role>This package describes the PLM Software Architecture package on top of RFLVPMLogical Modeler.</Role>
+	</CAAComment>
+	<Comment>Initial creation: A58 Feb 2012</Comment>
+	<Property Name="OptionalInstallation" Value="Yes" /> 
+
+<!-- ************************** -->
+<!-- AtomicComponentType : RFLVPMLogicalReference -->
+<!-- ************************** -->
+	<Class 
+		Name="EEAtomicComponentType"
+		Uuid="9BDA3EA6-F096-4c4f-9C56-1AD14F5A6DEF"
+		Abstract="No"
+		Specializable="Yes"
+		CustomerExposition="Programmer"
+		CustomerExtensible="Yes"
+		Discipline="Yes"
+		SuperName="RFLVPMLogicalReference"
+		CreateInstName="EEComponentPrototype"
+		Abbreviation="eeact">
+		<Property Name="IconName" Value="EEAtomicComponentType"/>
+		<Property Name="Newable" Value="All"/>
+		<Property Name="Searchable" Value="Yes"/>
+		<Property Name="Configurable" Value="Yes"/>
+		<Property Name="KweNew_InstanciationMethod" Value="CATELogDelegateInstanciation"/>
+	  <Property Name="KweNew_ReturnedType" Value="EEComponentPrototype"/>
+		<Simple Name="handleTerminationAndRestart"
+			Uuid="2D3137D4-1409-416c-B483-4F35D23AFA95" 
+			Protection="ExternalIN"
+			Type="Integer" 
+			DefaultValue="1">
+			<Property Name="RangeAsEnumName" Value="HandleTerminationAndRestartEnum"/>
+			<Property Name="RangeAsEnumAuthorizedValues" Value="noSupport;canBeTerminated;canBeTerminatedAndRestarted"/>
+			<Range>
+				<Equal>1</Equal>
+				<Equal>2</Equal>
+				<Equal>3</Equal>
+			</Range>
+		</Simple>
+		<Method ImplementationType="AsFather">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+	</Class>
+<!-- **************************************************** -->
+<!-- *  EEComponentPrototype :  RFLVPMLogicalInstance  * -->
+<!-- **************************************************** -->
+	<RelationClass 
+		Name="EEComponentPrototype"
+		Uuid="23F952F8-951C-491a-A7A7-445943EB3F06"
+		Abstract="No"
+		Specializable="Yes"
+		CustomerExposition="Programmer"
+		CustomerExtensible="Yes"
+		Discipline="Yes"
+		SuperName="RFLVPMLogicalInstance">
+		<Property Name="IconName" Value="EEComponentPrototype"/>
+		<Property Name="Newable" Value="Insert"/>
+		<Property Name="Searchable" Value="Yes"/>
+		<Property Name="Filtrable" Value="Yes"/>
+		<Property Name="KweNew_InstanciationMethod" Value="CATELogDelegateInstanciation"/>
+		<Property Name="KweNew_ReturnedType" Value="EEComponentPrototype"/>
+	</RelationClass>
+<!-- **************************************************** -->
+<!-- *  EEAtomicComponentTypeRep :  RFLVPMLogicalRepReference  * -->
+<!-- **************************************************** -->
+	<Class Name="EEAtomicComponentTypeRep" 
+		Uuid="7E57EEEE-A477-4E4E-A2AA-D67BA48E15AA" 
+		SuperName="RFLVPMLogicalRepReference" 
+		Specializable="Yes"
+		CreateInstName="RFLVPMLogicalRepInstance"
+		CustomerExposition="Programmer"
+		InstantiationOwnerTypes="EEAtomicComponentType"
+		Discipline="Yes"
+		Abbreviation="eeacr">
+		<CAAComment>
+			<ShortRole>AtomicComponentType Rep Reference Object</ShortRole>
+			<Role>AtomicComponentType Rep Reference Object</Role>
+		</CAAComment>
+		<Property Name="KweNew_InstanciationMethod" Value="CATELogDelegateInstanciation"/>
+	   	<Property Name="KweNew_ReturnedType" Value="RFLVPMLogicalRepInstance"/>
+	</Class>
+</Package>

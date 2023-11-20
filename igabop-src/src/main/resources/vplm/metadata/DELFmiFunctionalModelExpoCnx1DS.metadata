@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2010, All rights reserved -->
+
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" Name="DELFmiFunctionalModelExpoCnx1DS" Uuid="c5e0c9e0-0fd6-4e63-96f1-0679d19a4b3f" UseNames="DELFmiFunctionalModelExpositionCnx1" >
+	
+<Property Name="OptionalInstallation" Value="Yes" /> 
+	<CAAComment>
+		<ShortRole>Package to customize Process Prerequisite Exposition connection</ShortRole>
+		<Role>Package to customize package DELFmiFunctionalModelExpositionCnx1 for Process Prerequisite Exposition connection</Role>
+	</CAAComment>
+	
+	<Class Name="DELFmiProcessExpoCnxCustDS"  Uuid="0f6b85a8-29e8-40f1-ae02-610259ce9cc9"
+		SuperName="DELFmiProcessExpositionCnxCust" >
+
+		<CAAComment>
+			<ShortRole>PLM Customization for Process Prerequisite Exposition connection</ShortRole>
+			<Role>PLM Customization for Process Prerequisite Exposition connection "DELFmiProcessExpositionCnxCust"</Role>
+		</CAAComment>
+
+	</Class>
+	
+</Package>

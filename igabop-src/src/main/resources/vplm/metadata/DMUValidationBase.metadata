@@ -1,0 +1,229 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR Validation Application -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2006, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified"
+         ModelerType="Top"
+         UseProcedures="ENOVAL_Procedures"
+         BelongsToModeler="DMUValidationAbstract"
+         Name="DMUValidationBase"
+         Uuid="c4883106-47c1-4ecf-81355566dffac4a1"
+         UseNames="DMUValidationAbstract EXPERIMENT_ENUMS PLMCORE"
+         CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>Validation Base Modeler Package</ShortRole>
+    <Role>This package describes the Validation modeler</Role>
+  </CAAComment>
+
+  <Comment>Creation 2006-03-14 LJE</Comment>
+
+  <Class Name="DMUValidationValidation"
+         Uuid="a1cc12bc-2b56-4512-8986ba64ec7ea5c7"
+         Abstract="No"
+         SuperName="DMUValidationValidationAbstract"
+         CustomerExposition="Programmer"
+         Specializable="Yes"
+         Abbreviation="rvw"
+         DeleteAvailability="Yes">
+
+    <CAAComment>
+      <ShortRole>Validation Object</ShortRole>
+      <Role>Validation Object supports all necessary information for the DMDR process</Role>
+    </CAAComment>
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="IconName" Value="I_VALValidation"/>
+    <Property Name="3DIconName" Value="I_VALValidation.cgr"/>
+    <Property Name="Newable" Value="New_Offline"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATVALValidationNewFactory"/>
+    <Property Name="ChangeManagementReferential" Value="Yes"/>
+    <Property Name="ManageAccessAvailability"    Value="Yes"/>
+
+    <Simple Name="V_Validation_Type" Uuid="38772119-51ec-4b8a-b08924864fb876a9" Type="Integer" Protection="Free" CAAExposition="L0" DefaultValue="1" Faceted="Yes">
+      <Property Name="SIXW" Value="ds6w:kind"/>
+      <Property Name="RangeAsEnumName" Value="DMUValidationType"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="Product;Simulation;Image;RFL;PPR;Shape"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+        <Equal>5</Equal>
+        <Equal>6</Equal>
+      </Range>
+    </Simple>
+
+    <Simple Name="V_experimentStatus" Uuid="3d33e3b4-ccff-46da-a5fe-9dabbc8f82ea" Type="Integer" Protection="Free" CAAExposition="L0" DefaultValue="1" ResetOnCloning="Yes" ResetOnNewVersion="Yes">
+      <Property Name="RangeAsEnumName" Value="EXPERIMENT_ENUMS.ExperimentStatusEnum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="ExperimentStatusEnum_Undefined;ExperimentStatusEnum_Failed;ExperimentStatusEnum_Balancing;ExperimentStatusEnum_Passed"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+      </Range>
+    </Simple>
+
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Remove"/>
+        <UsedProcedure href="ENOVAL_Procedures.proc#Validation_Complete"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#TransferSiteOwnership"/>
+        <UsedProcedure href="ENOVAL_Procedures.proc#Validation_Complete"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Design"/>
+        <UsedProcedure href="ENOVAL_Procedures.proc#Validation_Complete"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Channel"/>
+        <UsedProcedure href="ENOVAL_Procedures.proc#Validation_PLMChannel"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Review_V6"/>
+        <UsedProcedure href="ENOVAL_Procedures.proc#Validation_Complete"/>
+      </ProcedureForUsage>
+    </Method>
+  </Class>
+
+  <Class Name="DMUValidationCheck"
+         Uuid="85c22a1a-0aef-4fe5-9224bc50c869be1a"
+         Abstract="No"
+         SuperName="PLMConnection"
+         CustomerExposition="Programmer"
+         Specializable="Yes" OwnerTypes="DMUValidationValidation"
+         Abbreviation="chk">
+    <!-- OwnerTypes="DMUValidationValidation"  Integrate this line if you want to declare the aggregation constraint -->
+
+    <CAAComment>
+      <ShortRole>Check Object</ShortRole>
+      <Role>Check Object exposes a check that has to be performed during the Validation</Role>
+    </CAAComment>
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="IconName" Value="I_VALCheck"/>
+    <Property Name="3DIconName" Value="I_VALCheck.cgr"/>
+    <Property Name="Newable" Value="Insert_Offline"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATVALCheckNewFactory"/>
+    <Property Name="Searchable" Value="No"/>
+
+    <Simple Name="V_Validation_Checkstate" Uuid="b0b90cdd-3d4a-4a91-ade03f71df1dbd48" Type="Integer" Protection="Free" CAAExposition="L0" DefaultValue="1">
+      <Property Name="RangeAsEnumName" Value="DMUValidationCheckstate"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="Unknown;OK;KO"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+      </Range>
+    </Simple>
+    <Path Name="V_Validation_Check"
+                     Uuid="f7c58cb0-7f3e-4fa8-a956e7ad6c0ae557"
+                     Lower="0"
+                     Upper="-1"
+                     MultiValuated="Yes"
+                     RoleName="DMU_Checked_Requirement"
+                 		 Type="SemanticRelation" AdaptativeToMinor="No"
+                		 SynchroSensitivity="PathAndLast"
+		                 RerouteOnEffectivityChange="No"
+                      Orientation="In"
+                     Semantics="Reference3"/>
+    <Path Name="V_Validation_Chklval"
+                     Uuid="41f334e9-12e4-49cd-9297b14509005d6c"
+                     MultiValuated="No"
+                     RoleName="DMU_Impacted_Validation"
+                     Type="SemanticRelation" AdaptativeToMinor="No"
+                      Orientation="Out"
+		                 SynchroSensitivity="Last"
+		                 RerouteOnEffectivityChange="No"
+                     Semantics="Reference5"/>
+    <Path Name="V_Validation_Concern"
+                     Uuid="2f413594-0de5-49c3-814ec1341e0cb22f"
+                     Lower="0"
+                     Upper="-1"
+                     MultiValuated="Yes"
+                     RoleName="DMU_Involved_Concern"
+                  	 Type="SemanticRelation" AdaptativeToMinor="No"
+                      Orientation="In"
+		                 SynchroSensitivity="PathAndLast"
+                		 RerouteOnEffectivityChange="No"
+                     Semantics="Reference3"/>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+  <Class Name="DMUValidationExposedPresentation"
+         Uuid="92862e3a-edb6-43f8-b0e391ab0afc9f80"
+         Abstract="No"
+         SuperName="PLMPort"
+         CustomerExposition="Programmer"
+         Specializable="Yes"
+OwnerTypes="DMUValidationValidation"
+         Abbreviation="hlt">
+    <!-- OwnerTypes="DMUValidationValidation"  Integrate this line if you want to declare the aggregation constraint -->
+
+    <CAAComment>
+      <ShortRole>Presentation Object</ShortRole>
+      <Role>Presentation Object exposes the relevant Presentations inside the Validation</Role>
+    </CAAComment>
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="IconName" Value="I_VALConcern"/>
+    <Property Name="3DIconName" Value="I_VALConcern.cgr"/>
+    <Property Name="Newable" Value="Insert_Offline"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATVALExposedPresentationNewFactory"/>
+    <!-- Behavior patterns: default values -->
+    <Property Name="TransferOwnershipAvailability" Value="No"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="ChangeManagementReferential" Value="Yes"/>
+    <Property Name="ManageAccessAvailability"    Value="Yes"/>
+
+    <Simple Name="V_Validation_Presentationrating" Uuid="7336046b-30c1-40f4-873a-e87997bac81f" Type="Integer" Protection="Free" CAAExposition="L0" DefaultValue="1">
+      <Property Name="RangeAsEnumName" Value="DMUValidationPresentationrating"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="Undefined;Low;Medium;High;Verified"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+        <Equal>5</Equal>
+      </Range>
+    </Simple>
+    <Path Name="V_Validation_Presentation"
+                     Uuid="991e7f95-2e84-4b64-a9bbec708416cd7d"
+                     MultiValuated="No"
+                     RoleName="DMU_Exposed_Presentation"		Type="SemanticRelation" AdaptativeToMinor="No"
+		SynchroSensitivity="PathAndLast"
+		RerouteOnEffectivityChange="No"
+                      Orientation="In"
+                     Semantics="Reference3"/>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+  <Function Name="DMUValidationBase_AddChildren">
+    <Implementation Name="DMUValidationBase_AddChildren" FileLocation="DMUValidationBase_AddChildren.plmql" Language="PLMQL"/>
+    <Signature href="ENOVAL_FunctionSignature"/>
+  </Function>
+  <Function Name="DMUValidationBase_ExpandAll">
+    <Implementation Name="DMUValidationBase_ExpandAll" FileLocation="DMUValidationBase_ExpandAll.plmql" Language="PLMQL"/>
+    <Signature href="ENOVAL_FunctionSignature"/>
+  </Function>
+  <Function Name="DMUValidationBase_AddContexts">
+    <Implementation Name="DMUValidationBase_AddContexts" FileLocation="DMUValidationBase_AddContexts.plmql" Language="PLMQL"/>
+    <Signature href="ENOVAL_FunctionSignature"/>
+  </Function>
+  <Signature id="ENOVAL_FunctionSignature">
+    <Parameter Name="InputIds" Lower="0" Upper="-1" Direction="in" MultiValuated="Yes" DataType="PLMId"/>
+    <Parameter Name="OutputIds" Lower="0" Upper="-1" Direction="out" MultiValuated="No" DataType="PLMRouteSet"/>
+  </Signature>
+</Package>

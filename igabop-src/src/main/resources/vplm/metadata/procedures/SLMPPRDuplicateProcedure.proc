@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<ProcedurePackage xmlns="PLMDictionaryProcedure" Name="SLMPPRDuplicateProcedure">
+  <Procedure Name="SLMPPRDuplicateProcedure">
+    <Implementation Name="execute" FileLocation="com.dassault_systemes.vplm.PPRBase.remoteProc.SLMPPRDuplicateProc" Language="JAVA"/>
+    <Signature href="SLMPPRDuplicateProcedureSignature"/>
+  </Procedure>
+  
+  <Signature id="SLMPPRDuplicateProcedureSignature">
+    <Parameter Name="InputPLMIDs" MultiValuated="Yes" Direction="in" DataType="PLMId"/>
+    <Parameter Name="KeepConnections" MultiValuated="Yes" Direction="in" DataType="Boolean"/>
+    <Parameter Name="result" MultiValuated="Yes" Direction="out" DataType="PLMId"/>
+  </Signature>
+  
+</ProcedurePackage>

@@ -1,0 +1,129 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR DELMIA Work Instruction Application -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2010, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified"
+         ModelerType="Top"
+         Name="DELWkiAlert"
+	       Uuid="79e21dad-af71-47ae-9ea5f1cbe48c0434"
+  	     BelongsToModeler="DELWkiWorkInstructionPPR"
+	       UseNames="DELLmiProductionOperation DELWkiWorkInstructionPPR"
+	       CustomerExposition="Programmer"  >
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>PLM DELMIA Work Instruction Alert </ShortRole>
+    <Role>This package describes the PLM DELMIA Work Instruction Alert model on top of DELWkiWorkInstructionPPR</Role>
+  </CAAComment>
+
+  <Comment>last update 2012-07-03</Comment>
+
+  <Class Name="DELWkiAlertReference"
+         Uuid="677fb193-a969-4378-8ffba884b14c3e02"
+         Abstract="No"
+   		   SuperName="DELWkiPPRReference"
+         Specializable="No"
+         CustomerExtensible="No"
+         CreateInstName="DELWkiAlertInstance"
+		     CustomerExposition="Programmer"
+         Abbreviation="wia">
+
+    <Property Name="KweNew_InstanciationMethod" Value="DELWorkInstructionDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELWkiAlertInstance"/>
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="IconName" Value="I_WI_Alert"/>
+    <Property Name="3DIconName" Value="I_WI_Alert.cgr"/>
+    <Property Name="Newable" Value="No"/>
+    <Property Name="Searchable" Value="Yes"/>
+
+    <CAAComment>
+      <ShortRole>PLM DELMIA Work Instruction Alert Reference</ShortRole>
+      <Role>PLM DELMIA Work Instruction Alert Reference</Role>
+    </CAAComment>
+
+    <Simple Name="V_WIAlert_Message"
+            Uuid="44516601-7332-4eff-9d28e61afb3007e7"
+            Type="String"
+            MultiValuated="No"
+            Protection="Free"
+            Faceted="Yes"
+            CAAExposition="L0">
+      <Property Name="SIXW" Value="ds6w:constituent"/>
+      <CAAComment>
+        <ShortRole>The Instruction message to inform the Shop Floor worker about safety warning or a change in an established (long running) process.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_WIAlert_ShowMode" Uuid="56f19bca-ac6e-4805-b7cad90e1ae36cb9" Type="Integer" Protection="Free" CAAExposition="L0" DefaultValue="1" Faceted="Yes">
+      <Property Name="RangeAsEnumName" Value="DELLmiProductionOperation.DELWkiAlert_ShowMode_Enum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="ShowOnce;ShowAlways"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+      </Range>
+      <CAAComment>
+        <ShortRole>This is used to specify whether the Alert needs to be shown to the worker always or only once.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_WIAlert_TrackConfirmation"
+            Uuid="3b930490-71f9-4ef2-967ed2e9d01f1a84"
+            Type="Boolean"
+            DefaultValue="true"
+            MultiValuated="No"
+            Protection="Free"
+            Faceted="Yes"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>This is used to specify whether the Worker’s acknowledgement of the Alert is to be tracked.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+
+  </Class>
+
+
+  <RelationClass Name="DELWkiAlertInstance"
+         Uuid="0217def4-9028-4843-a2071330e2621e7f"
+		     Abstract="No"
+    		 SuperName="DELWkiPPRInstance"
+         Specializable="No"
+         CustomerExtensible="No"
+		     CustomerExposition="Programmer">
+
+    <Property Name="KweNew_InstanciationMethod" Value="DELWorkInstructionDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELWkiAlertInstance"/>
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="IconName" Value="I_WI_Alert"/>
+    <Property Name="3DIconName" Value="I_WI_Alert.cgr"/>
+    <Property Name="Filtrable" Value="Yes"/>
+
+    <CAAComment>
+      <ShortRole>PLM DELMIA Work Instruction Alert Instance</ShortRole>
+      <Role>PLM DELMIA Work Instruction Alert Instance</Role>
+    </CAAComment>
+
+    <Volatile Name="Reference"
+              Uuid="B836CFE0-71FD-41e0-9790-E195B4035D54"
+              Accessor="PLMModelerReferenceKweAttribute"
+              TypeName="DELWkiAlertReference"
+              AccessMode="ReadOnly"/>
+
+    <SubClause Name="to"   TargetName="DELWkiAlertReference"/>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+
+  </RelationClass>
+
+</Package>

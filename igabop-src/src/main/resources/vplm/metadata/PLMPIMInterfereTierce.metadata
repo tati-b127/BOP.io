@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+<!-- edited with XMLSpy v2007 (http://www.altova.com) by ﻿DS (DASSAULT SYSTEMES) -->
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2005, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" 
+  ModelerType="Top" 
+  Name="PLMPIMInterfereTierce"         
+  Uuid="c6a39120-8285-4a45-845b-0aef76b62d20" 
+  UseNames="PLMCORE"
+  CustomerExposition="Programmer"
+  >
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <!-- ********************************************************************************* -->
+  <!-- *    PLMPIMMetricSCAConnection (PLMConnection)                                  * -->
+  <!-- * explanations:                                                                 * -->
+  <!-- * you cannot customize this connection so Abstract="No"                         * -->
+  <!-- ********************************************************************************* -->
+  <Class Name="PLMPIMMetricSCAConnection"
+    Uuid="333e53d9-e6b1-41f6-acb3-fe791162dd77"
+    SuperName="PLMConnection"
+    Abstract="No"
+	CustomerExposition="Programmer"
+  >
+    <!-- ________________________________________________________________________ -->
+    <!-- BAD ROLE TEMPORARY                                                       -->
+    <!-- RoleName="PIM_SCA"                                                       -->
+    <!-- RoleRef="219381c7-d538-4ae0-9746-32eb431ace16"                           -->
+    <!-- RoleName="Default"                                                       -->
+    <!-- RoleRef="6965751D-1DD2-11B2-B44D0003BA353BFB"                            -->
+    <!-- ________________________________________________________________________ -->
+    <Path Name="PointedSCA"
+      Uuid="b4bb75ef-dfd5-483a-8119-3099ae967c20"
+      RoleName="PIM_SCA"
+   		Type="SemanticRelation" AdaptativeToMinor="No"
+		  SynchroSensitivity="Last"
+		  RerouteOnEffectivityChange="No"
+      MultiValuated="No" Orientation="In"
+      Semantics="Reference4">
+      <Comment>This connection points the SCA (Smallest Common Ancestor, + petit pere commun en Francais).</Comment>
+    </Path>
+    <!-- EXPORT : no export -->
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+  <!-- *********************************************************************************************** -->
+  <!-- *    PLMPIMGeometricResultRepInstance (->PLMCoreRepInstance)                                  * -->
+  <!-- * explanations:                                                                               * -->
+  <!-- * you cannot customize this PLMCoreRepInstance so Abstract="No"                               * -->
+  <!-- *********************************************************************************************** -->
+  <RelationClass Name="PLMPIMGeometricResultRepInstance"
+    Uuid="4d8bfa94-69a4-4406-b065-8f0d9756787e"
+    SuperName="PLMCoreRepInstance"
+    Abstract="No"
+	CustomerExposition="Programmer"
+      >
+    <Comment>Representation instance to store clash specs on the Simulation object</Comment>
+    <!-- EXPORT : no export -->
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </RelationClass>
+  <!-- ********************************************************************************* -->
+  <!-- * PLMPIMGeometricResultRepReference (->PLMCoreRepReference)                     * -->
+  <!-- * explanations:                                                          * -->
+  <!-- * you cannot customize this PLMCoreRepReference so Abstract="No"                * -->
+  <!-- ********************************************************************************* -->
+  <Class Name="PLMPIMGeometricResultRepReference"
+    Uuid="dbb433ef-c424-40b1-9f79-82a347233920"
+    SuperName="PLMCoreRepReference"
+    Abstract="No"
+	CustomerExposition="Programmer" 
+    NewMajorRevisionAvailability="No"
+  >
+    <!-- ________________________________________________________________________ -->
+    <!-- IdSet sur PLM_ExternalID et V_version (numéro unique généré,             -->
+    <!-- et attribut planqué la plupart du temps, ou tout le temps via les masks) -->
+    <!-- Display Name sur V_Name (ta règle de naming doit pouvoir s’implémenter)  -->
+    <!-- ________________________________________________________________________ -->
+    <!--IdentifierSet Name="Identifier" Uuid="f4a7b201-11e5-4f65-9570-ec637e92151a" IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755" IdentifierNames="PLM_ExternalID V_version"/-->
+    <!---->
+    <Comment>Representation reference to store clash specs on the Simulation object</Comment>
+    <!-- ________________________________________________________ -->
+    <!--  attributes.that you find on the rep ref                 -->
+    <!-- ________________________________________________________ -->
+    <!-- ________________________________________________________________________________ -->
+    <!--      V_Factory_Stream (appears on level R207)                                    -->
+    <!-- ________________________________________________________________________________ -->
+    <!-- V_Factory_Stream -->
+    <Simple Name="V_Factory_Stream"
+      Uuid="9A5B8B93-1108-497d-9F9B-6F584CD4B8F4"
+      Protection="Internal"
+      Type="String"
+      MaxLength="20"
+      DefaultValue="PLMPIMGRStreamFact">
+      <Comment>factory used to create the stream attached to the rep ref</Comment>
+    </Simple>
+    <!-- EXPORT : no export -->
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+</Package>

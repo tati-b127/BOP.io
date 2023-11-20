@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2007 (http://www.altova.com) by DASSAULT SYSTEMES (DASSAULT SYSTEMES) -->
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" Name="SIMObjSimulation" Uuid="ed13e0f5-9cb7-4144-91155a9f35a6f0a0" UseNames="PLMCORE;EXPERIMENT_ENUMS" CustomerExposition="None">
+  <Class Name="SIMObjSimulationRepReference" Uuid="fa5d448a-3120-4728-9c419e89fbe5fdfa" Abstract="Yes" SuperName="PLMCoreRepReference" CustomerExposition="None" CreateInstName="SIMObjSimulationRepInstance" NewMajorRevisionAvailability="No">
+    <Property Name="Searchable" Value="No"/>
+    <!-- Behavior patterns: default values -->
+    <Property Name="SaveAsNewAvailability" Value="No"/>   
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+  <RelationClass Name="SIMObjSimulationRepInstance" Uuid="4205b398-2187-4e9f-85c3cb64e6f18ad2" Abstract="Yes" SuperName="PLMCoreRepInstance" CustomerExposition="None">
+    <Property Name="Searchable" Value="No"/>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </RelationClass>
+  <Class Name="SIMObjSimulationConnection" Uuid="aa43a633-d22d-4523-a293482aa9005ac8" Abstract="Yes" SuperName="PLMConnection" CustomerExposition="None">
+    <Property Name="Searchable" Value="No"/>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+  <Class Name="SIMObjSimulationObject" Uuid="9c5b4cdd-68e4-4603-ab8cf741e10b6cb8" Abstract="Yes" SuperName="PLMCoreReference" CustomerExposition="None" DeleteAvailability="Yes">
+    <Property Name="Searchable" Value="Yes"/>
+    <!-- Behavior patterns: default values -->
+    <Property Name="SaveAsNewAvailability" Value="No"/>   
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Simple Name="V_SimObj_InternalIdentifier" Uuid="d2ad22d7-109f-4509-a6e169bcb1289daa" Type="String" MaxLength="64" Protection="External" CAAExposition="L0"/>
+    <Simple Name="V_experimentStatus" Uuid="3a29616e-8e1a-48ad-9244-43d04fe6203f" Type="Integer" Protection="Free" CAAExposition="L0" DefaultValue="1" ResetOnCloning="Yes" ResetOnNewVersion="Yes">
+      <Property Name="RangeAsEnumName" Value="EXPERIMENT_ENUMS.ExperimentStatusEnum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="ExperimentStatusEnum_Undefined;ExperimentStatusEnum_Failed;ExperimentStatusEnum_Balancing;ExperimentStatusEnum_Passed"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+      </Range>
+    </Simple>
+    <Comment>Base object for simulation</Comment>
+  </Class>
+  <Class Name="SIMObjSimulationPort" Uuid="60A7FD59-7E16-4fbd-B0C9-0BFC325C68AA" Abstract="Yes" SuperName="PLMPort" CustomerExposition="None">
+    <Property Name="Searchable" Value="No"/>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+</Package>

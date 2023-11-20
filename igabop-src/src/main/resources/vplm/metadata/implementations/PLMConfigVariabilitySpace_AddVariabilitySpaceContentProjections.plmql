@@ -1,0 +1,16 @@
+NAVIGATE
+	T0.PLM_ExternalID, 
+	T0.PLMID, 
+	T1.PLM_ExternalID,
+	T1.PLMID, 
+	T2.physicalid,
+	T2.logicalid,
+	T2.type 
+FROM
+	"PLMCORE/PLMCoreReference" T0, 
+	"PLMCORE/PLMPort" T1,
+	"RelationClass/VPLM Projection" T2 
+FROM_ROOTS [?1?]
+ON (   RELATION(FROM="PLMCORE/PLMCoreReference" TO="RelationClass/VPLM Projection" THROUGH=POINTEDBY) WITH QUALITY_FILTER (CATEGORY=ISINSTANCEOF) 
+	OR RELATION(FROM="PLMCORE/PLMPort" TO="RelationClass/VPLM Projection" THROUGH=POINTEDBY) WITH QUALITY_FILTER (CATEGORY=ISINSTANCEOF) ) 
+;

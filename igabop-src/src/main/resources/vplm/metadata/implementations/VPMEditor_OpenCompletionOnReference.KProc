@@ -1,0 +1,28 @@
+#Prog VPMEditor_OpenCompletionOnReference (iPLMIDSet :  #In PLMIDSet,oPLMIDSet :  #Out PLMIDSet) : VoidType
+{
+let DecorableSet(PLMIDSet)
+let DecorationRouteSet(PLMRouteSet)
+let DecorationSet (PLMIDSet)
+
+let DecorableRepSet(PLMIDSet)
+let PortOnRepRouteSet(PLMRouteSet)
+let PortOnRepSet (PLMIDSet)
+
+let MaterialCnxSet (PLMIDSet)
+let MaterialRouteSet (PLMRouteSet )
+let MaterialSet (PLMIDSet)
+
+/* Completes with all Representations(except NavRep), Ports and Connections */
+DecorableSet = Restrict(iPLMIDSet, "PLMCORE/PLMCoreReference")
+DecorationRouteSet = ExecutePLMFunction("PRODUCTCFG", "ProductCfg_Decorate_AllReps", DecorableSet)
+DecorationSet = iPLMIDSet + Ids(DecorationRouteSet)
+
+/* Completes with Ports on Reps */
+DecorableRepSet = Restrict(DecorationSet, "PRODUCTCFG/VPMRepReference")
+PortOnRepRouteSet = ExecutePLMFunction("PRODUCTCFG", "ProductCfg_AddVPMPorts", DecorableRepSet)
+PortOnRepSet = Ids(PortOnRepRouteSet)
+
+/* Retrieve pointed materials */
+MaterialSet  =  ExecutePLMProcedure(  "MatDataFromCnxForOpen",  DecorationSet )
+oPLMIDSet = DecorationSet + MaterialSet + PortOnRepSet
+}

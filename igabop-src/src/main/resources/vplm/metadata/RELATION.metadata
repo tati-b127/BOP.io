@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2004, All rights reserved -->
+<Package xmlns="PLMDictionaryCore" Name="RELATION" Uuid="89DA6907-1DD2-11B2-B44B0003BA353BFB" ModelerType="Core" UseScopes="RELATION_ENUMS"  CustomerExposition="Programmer" Deprecated="Yes" >
+
+	<!-- ******************* -->
+	<!-- VPMSemanticRelation -->
+	<!-- ******************* -->
+	<!-- Internal entity supporting the path relationship main entity -->
+	<!-- This class uuid is the one you should copy to your metadata as the TargetRef on the relationship tag -->
+	<Class Name="VPMSemanticRelation" Uuid="BCE14D09-1DD1-11B2-B44B0003BA353BFB"   Abstract="No" CustomerExposition="ProgrammerOnly" Deprecated="Yes">
+		<!-- Entity owning the main path relationship entity -->
+
+		<!-- Per-Instance Semantics -->
+		<Simple Name="C_Semantics" Uuid="B2D2C017-1B70-0000-0280030CC2000000"  Type="Integer" TargetName="C_SemanticsEnum"  MultiValuated="No" Protection="Free"/>
+
+		<!-- Role of the path relationship -->
+		<Simple Name="C_Role" Uuid="FF3A0C2B-1DD1-11B2-B44C0003BA353BFB" Type="Integer"  TargetName="C_RoleEnum" MultiValuated="No"  Protection="Free"/>
+		<!-- Relationship's Relative identifier. Unique in scope of Owner -->
+		<Simple Name="V_IDRel" Uuid="05FAA5E3-1DD2-11B2-B44C0003BA353BFB"  Type="Integer"  MultiValuated="No" Protection="Free"/>
+
+		<!-- Path elements owned by the semantic relationship -->
+		<!-- Index for applicative ordering. Not unique in owner's scope. Unique for a given subrelationship -->
+		<Simple Name="C_AppIndex" Uuid="C83BCEE4-458E-B000-0028003155E00000"  Type="Integer" MultiValuated="No" Protection="Free"/>
+
+	</Class>
+
+	<!-- *************** -->
+	<!-- VPMPathElement  -->
+	<!-- *************** -->
+	<!-- Internal entity supporting the path element -->
+	<Class Name="VPMPathElement" Uuid="069E2245-1DD2-11B2-B44C0003BA353BFB"   Abstract="No"  CustomerExposition="Programmer" Deprecated="Yes">
+	
+		<!-- Entity owning the main path relationship entity -->
+
+		<Simple Name="C_LogicalID"
+			Uuid="6E6A0A1B-AC1A-4E98-8504C84E9CEADF21"
+			Visibility="Private"
+			AccessMode="Read"
+			Type="Binary"
+			MaxLength="16"
+			Mandatory="No"
+			Protection="User"
+			MultiValuated="No"/>
+	
+		<!-- Owner SR for performance -->
+		<Simple Name="C_AttrName" Uuid="354758BB-1DD2-11B2-B4510003BA353BFB"  Type="Binary" MaxLength="16"  MultiValuated="No" Protection="User"/>
+		
+		<!-- Proxy value for the Update-Stamp of the pointed object -->
+		<Simple Name="C_ProxyStamp" Uuid="0709A1E1-1DD2-11B2-B44C0003BA353BFB"  Type="Integer" MultiValuated="No" Protection="User"/>
+		
+		<!-- Boolean stating whether this element's proxy-stamp is relevant to the Update status on this link -->
+		<Simple Name="C_IsRelevant" Uuid="08EA8F1B-1DD2-11B2-B44C0003BA353BFB"  Type="Boolean" MultiValuated="No" Protection="User"/>
+
+		<!-- Impact graph performance -->
+		<Simple Name="C_HashPrev1"      Uuid="B25E66C6-6E9A-0000-0280030F51000000"  Type="Integer" MultiValuated="No" Protection="User"/>
+		<Simple Name="C_HashPrev2"      Uuid="B27C6814-7D90-0000-0280030F51000000"  Type="Integer" MultiValuated="No" Protection="User"/>
+		<Simple Name="C_HashNext1"      Uuid="B25E65DC-E87B-0000-0280030F51000000" Type="Integer"  MultiValuated="No" Protection="User"/>
+		<Simple Name="C_HashNext2"      Uuid="B25E66AD-1DDC-0000-0280030F51000000" Type="Integer"  MultiValuated="No" Protection="User"/>
+
+	</Class>
+</Package>

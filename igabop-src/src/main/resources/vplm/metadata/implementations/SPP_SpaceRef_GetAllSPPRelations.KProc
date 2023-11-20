@@ -1,0 +1,25 @@
+#Prog SPP_SpaceRef_GetAllSPPRelations (iPLMIDSet :  #In PLMIDSet,oPLMIDSet :  #Out PLMIDSet) : VoidType
+  {let idsInputSpaceRef(PLMIDSet)
+let route(PLMRouteSet)
+let idsSpaceRefRep(PLMIDSet)
+let idsReferenceRestricted(PLMIDSet)
+let idsFromSidePhysical(PLMIDSet)
+let idsFromSideLogical(PLMIDSet)
+let idsRequirementRestricted(PLMIDSet)
+let idsFromSideRequirement(PLMIDSet)
+
+idsInputSpaceRef = Restrict(iPLMIDSet, "PLMSpacePlanning/SPP_SpaceRef")
+route = ExecutePLMFunction("PLMSpacePlanning","SPP_SpaceRef_addAllConnectedSPPRelation", idsInputSpaceRef)
+
+idsSpaceRefRep = ExecutePLMProcedure("VPMEditor_GetAllRepresentations", idsInputSpaceRef)
+
+idsReferenceRestricted = Restrict( Ids(route), "LPABSTRACT/LPAbstractReference")
+idsFromSidePhysical = ExecutePLMProcedure("VPMEditor_GetAllWithoutRepresentations", idsReferenceRestricted)
+
+idsFromSideLogical = ExecutePLMProcedure("Logical_ExportReference_Decoration", idsReferenceRestricted)
+
+idsRequirementRestricted = Restrict( Ids(route), "Class/Requirement")
+idsFromSideRequirement = ExecutePLMProcedure("Rmt_Requirement_ExportCompletion", idsRequirementRestricted)
+
+oPLMIDSet = Ids(route) + idsSpaceRefRep + idsFromSidePhysical + idsFromSideLogical + idsFromSideRequirement
+}

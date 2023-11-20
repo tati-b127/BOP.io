@@ -1,0 +1,44 @@
+<?xml version="1.0" ?>
+
+<!-- ENOVIA DICTIONARY FOR Abstract Functional Flow -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2011, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" BelongsToModeler="RFLPLMFunctional" CustomerExposition="None" Name="RFLPLMFlowAbstract" 
+	Uuid="AA0CAB9D-E814-4822-8E7F-59E1435264E0" 
+	UseNames="PLMCORE"
+>
+		
+	<Comment>last update 2011-10-11</Comment>
+
+	<!-- ************************************************* -->
+	<!-- * FunctionalAbstractFlowInstance (PLMCoreInstance) * -->
+	<!-- ************************************************* -->
+
+	<RelationClass Name="FunctionalAbstractFlowInstance" 
+		Uuid="D93794C4-6A7C-4fcc-9B7B-D328FB32D042" 
+		Abstract="Yes" 
+		SuperName="PLMCoreInstance" 
+		CustomerExposition="None">
+
+		<Simple Name="V_Identifier" Uuid="FB6AAE39-D6FB-4ec5-978F-CCD6EE070AA9" 
+            	Protection="ExternalIN" 
+            	Type="String" 
+            	MaxLength="100" 
+            	MultiValuated="No" 
+            	PLMImpacting="No" 
+            	CAAExposition="L1"
+			>
+            
+            <Property Name="SetOnlyOnce" Value="AtCreation"/>
+          	<CAAComment>
+            	<ShortRole>Identifier of every kind of Flow instance</ShortRole>
+          	</CAAComment>
+		</Simple>
+		
+        <Method ImplementationType="None">
+            <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+        </Method>
+	</RelationClass>
+
+</Package>
+

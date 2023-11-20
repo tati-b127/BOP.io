@@ -1,0 +1,153 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY FOR DIFModelerAbstract02                    -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2010, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified"
+         ModelerType="Top"
+         Name="DIFModelerAbstractSheet"
+         Uuid="40C5E8AF-767B-440F-9D06-EFD8D6607773"
+         UseNames="PLMCORE"
+         CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>DIF Abstract model</ShortRole>
+    <Role>This package describes the DIF Abstract model built on top of PLMCore</Role>
+  </CAAComment>
+
+  <Comment>last update 2013-01-14-14.00.00</Comment>
+
+  <!-- DIFModelerAbstract02 provides :              -->
+  <!-- DIFSheetOrientationKind    Enum              -->
+  <!-- DIFFormatKind              Enum              -->
+  <!-- DIFFormatOrientationKind   Enum              -->
+  <!-- DIFSheetFrameKind          Enum              -->
+  <!-- DIFAbstractSheet           PLMCoreReference  -->
+  <!-- DIFAbstractSheetInstance   PLMCoreInstance   -->
+
+  <!-- ******************************************* -->
+  <!-- *  DIFAbstractSheet (PLMCoreReference)    * -->
+  <!-- ******************************************* -->
+  <!-- CustomerExposition: whether Type projected in the KWE dictionary -->
+  <Class Name="DIFAbstractSheet"
+         Uuid="7DC94BA4-2F2A-45A4-B100-F012056B8E86"
+         Abstract="Yes"
+         SuperName="PLMCoreReference"
+         CustomerExposition="Programmer">
+
+    <CAAComment>
+      <ShortRole>DIF Abstract Sheet Reference Object</ShortRole>
+      <Role>DIF Abstract Sheet Reference Object</Role>
+    </CAAComment>
+
+    <!-- Simples -->
+    <!-- Note:                                             -->
+    <!-- CAAExposition: Whether Type projected in 3DXML    -->
+    <!--                L0 (no) L1 (yes)                   -->
+    <!-- Protection: Availability in generic UI functions  -->
+
+    <Simple Name="V_DIFOrientation" Uuid="D773E9FF-1BF1-435D-AA60-044F3E27A6C3" Type="Integer" Protection="External" CAAExposition="L0" DefaultValue="1">
+      <Property Name="RangeAsEnumName" Value="DIFSheetOrientationKind"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="Landscape;Portrait"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+      </Range>
+    </Simple>
+
+    <Simple Name="V_DIFFormatName"
+            Uuid="C91C7F58-BE0B-4812-96D9-03F5B79281C0"
+            Type="String"
+            DefaultValue="Format"
+            CAAExposition="L0"
+            Protection="External"/>
+
+    <Simple Name="V_DIFFormatType" Uuid="BDD5D634-FD88-4FEF-A501-F72B8C7D1F45" Type="Integer" Protection="External" CAAExposition="L0" DefaultValue="2">
+      <Property Name="RangeAsEnumName" Value="DIFFormatKind"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="Standard;Custom"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+      </Range>
+    </Simple>
+
+    <Simple Name="V_DIFFormatWidth"
+            Uuid="4CCF9E73-15ED-4344-A792-9E2812282631"
+            Type="Double"
+            DefaultValue="297.0"
+            CAAExposition="L0"
+            Protection="External"/>
+
+    <Simple Name="V_DIFFormatHeight"
+            Uuid="1C2707F3-6584-44E4-81D3-1665FA6A040A"
+            Type="Double"
+            DefaultValue="210.0"
+            CAAExposition="L0"
+            Protection="External"/>
+
+    <Simple Name="V_DIFFormatOrientation" Uuid="8F46486B-9D2F-4650-AFA0-2A7FBA248BE0" Type="Integer" Protection="External" CAAExposition="L0" DefaultValue="3">
+      <Property Name="RangeAsEnumName" Value="DIFFormatOrientationKind"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="LandscapeOnly;PortraitOnly;Any"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+      </Range>
+    </Simple>
+
+    <Simple Name="V_DIFFrame" Uuid="1F91FA6E-EA43-4E79-B563-370B95C481D4" Type="Integer" Protection="External" CAAExposition="L0" DefaultValue="1">
+      <Property Name="RangeAsEnumName" Value="DIFSheetFrameKind"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="Shown;Hidden"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+      </Range>
+    </Simple>
+
+    <Simple Name="V_PrintAreaActivation"
+            Uuid="4A40FF27-64BC-4609-8FF5-88CBA4EA4815"
+            Type="Boolean"
+            DefaultValue="False"
+            Protection="Internal"/>
+
+    <Simple Name="V_PrintAreaData"
+            Uuid="F61B0E4C-BB51-4C74-9288-ED7968C1F396"
+            Type="Double"
+            CollectionType="List"
+            MultiValuated="Yes"
+            Protection="Internal"/>
+
+    <!-- Export -->
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+  </Class>
+
+  <!-- ****************************************************** -->
+  <!-- * DIFAbstractSheetInstance (PLMCoreInstance)         * -->
+  <!-- ****************************************************** -->
+  <!-- CustomerExposition: whether Type projected in the KWE dictionary           -->
+  <RelationClass Name="DIFAbstractSheetInstance"
+         Uuid="BD56537C-1DFA-4BF1-8BCA-875E42CBC48A"
+         Abstract="No"
+         SuperName="PLMCoreInstance"
+         CustomerExposition="Programmer">
+
+    <CAAComment>
+      <ShortRole>DIF Abstract Sheet Instance Object</ShortRole>
+      <Role>DIF Abstract Sheet Instance Object</Role>
+    </CAAComment>
+
+    <!-- Export -->
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+    <Volatile Name="Reference" Uuid="705EE21E-38BE-4DBB-B78B-ED2AB97FD6FD" Accessor="PLMModelerReferenceKweAttribute" TypeName="DIFAbstractSheet" AccessMode="ReadOnly" >
+      <Property Name="ServerAccessor" Value="com.dassault_systemes.vplm.modelerBaseNav.services.PLMInstance_Reference_Accessor"/>
+    </Volatile>
+    
+
+  </RelationClass>
+
+</Package>

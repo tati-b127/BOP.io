@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2006, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" Name="PLMPosService" Uuid="2567B0EA-7C50-4E87-810087312BA78913" UseNames="PLMPosResource" CustomerExposition="Programmer" >
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+  <UniqueKey Name="PLMPosServiceRefUK" Uuid="B3F79A00-92EE-474f-A498A959448449E2" ClassName="PLMPosServiceRef" AttributeNames="PLM_ExternalID" />
+	<Class Name="PLMPosServiceRef" Uuid="5370E99D-4F43-4A59-A4364736AC65D371" Abstract="No" SuperName="PLMPosResourceRef" CreateInstName="PLMPosServiceInst" CustomerExposition="Programmer" >
+    <Property Name="Searchable" Value="No"/>
+    <Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+	</Class>
+  <RelationClass Name="PLMPosServiceInst" Uuid="BB659786-8FCD-4293-8DFC3E09DEC80D58" Abstract="No" SuperName="PLMPosResourceInst" CustomerExposition="Programmer" >
+ 		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+    <SubClause Name="from"   TargetName="PLMPosResourceCoreRef"/>
+    <SubClause Name="to"   TargetName="PLMPosServiceRef"/>
+  </RelationClass>
+
+</Package>

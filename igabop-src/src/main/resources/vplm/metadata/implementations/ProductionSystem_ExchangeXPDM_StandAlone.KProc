@@ -1,0 +1,47 @@
+#Prog ProductionSystem_ExchangeXPDM_StandAlone (iPLMIDSet :  #In PLMIDSet,oPLMIDSet :  #Out PLMIDSet) : VoidType
+  {
+let PLMRouteSet3 (PLMRouteSet)
+let PLMRouteSet5 (PLMRouteSet)
+let PLMRouteSet6 (PLMRouteSet)
+let PLMRouteSet10 (PLMRouteSet)
+let PLMRouteSet11 (PLMRouteSet)
+let PLMRouteSetDRPorts  (PLMRouteSet)
+
+let PLMIDSet3 (PLMIDSet)
+let PLMIDSet5 (PLMIDSet)
+let PLMIDSet6 (PLMIDSet)
+let PLMIDSet10 (PLMIDSet)
+let PLMIDSet11 (PLMIDSet)
+let PLMIDSetProcessRef(PLMIDSet)
+let PLMIDSetDRPorts(PLMIDSet)
+
+/* Retrieves Implemented Process Scope from Systems References*/
+PLMRouteSet3 = ExecutePLMFunction("RFLPLMImplementConnection", "RFLPLMImplementConnection_AddAllImplementedComponents", iPLMIDSet )
+PLMIDSet3 = Ids(PLMRouteSet3,"all")
+
+/* Retrieves Candidate Resources Scopes from System or Operation References */
+PLMRouteSet5 = ExecutePLMFunction("DELPPRContextModel", "ENOPsm_ProductionSystem_addCandidateResourcesScope", iPLMIDSet )
+PLMIDSet5 = Ids(PLMRouteSet5,"all")
+
+/* Retrieves Candidate Resources from System or Operation References */
+PLMRouteSet6 = ExecutePLMFunction("DELPPRContextModel", "ENOPsm_ProductionSystem_addCandidateResources", iPLMIDSet )
+PLMIDSet6 = Ids(PLMRouteSet6,"all")
+
+/* Retrieves all references and aggregating references from products instances*/
+PLMRouteSet11 = ExecutePLMFunction("DELPPRContextModel", "ENOPpr_PPRData_addRefAndAggregatingRef", Restrict(PLMIDSet6, "PRODUCTCFG/VPMInstance")
+)
+PLMIDSet11 = Ids(PLMRouteSet11,"all")
+
+/* Retrieves Capable Resources from System or Operation References */
+PLMRouteSet10 = ExecutePLMFunction("DELPPRContextModel", "ENOPcs_Process_addCapableResources", iPLMIDSet)
+PLMIDSet10 = Ids(PLMRouteSet10,"all")
+
+
+/*Retrieves the Data Requierement Ports for Process, to avoid creation of implicit DR Ports that will creates incoherence*/
+PLMIDSetProcessRef = Restrict(PLMIDSet3, "DELFmiFunctionalModel/DELFmiFunctionReference")
+PLMRouteSetDRPorts = ExecutePLMFunction("DELFmiFunctionalModel", "DELFmiFunctionModel_expandDRPorts", PLMIDSetProcessRef)
+PLMIDSetDRPorts = Ids(PLMRouteSetDRPorts,"all")
+
+oPLMIDSet = iPLMIDSet + PLMIDSet3 + PLMIDSet5 + PLMIDSet6 + PLMIDSet10 + PLMIDSet11 + PLMIDSetDRPorts
+
+}

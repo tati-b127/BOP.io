@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2010, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" Name="DELWkiExecAlertDS" Uuid="f4dc048a-e30b-4cce-9cf1686d156ff4e3" UseNames="DELWkiExecAlert" >
+<Property Name="OptionalInstallation" Value="Yes" /> 
+	<CAAComment>
+		<ShortRole>Standard DELMIA Work Instruction Execution Alert Package</ShortRole>
+		<Role>This package includes default customized DELMIA Work Instruction Execution Alert</Role>
+	</CAAComment>
+	<Comment>last update 2010-09-30</Comment>
+
+	<Class Name="DELWkiExecAlertReferenceCusto" Uuid="9be234c0-8616-4182-8ac69f69dd6fa413" SuperName="DELWkiExecAlertReference"  >
+
+    <IdentifierSet Name="Identifier"
+        Uuid="cb1a3bc2-f8d0-4009-8c245fb5c381b843"
+        IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755"
+        IdentifierNames="PLM_ExternalID V_version" />
+    
+    <CAAComment>
+			<ShortRole>Standard DELMIA Work Instruction Execution Alert Reference</ShortRole>
+			<Role>Default customized DELMIA Work Instruction Execution Alert Reference</Role>
+		</CAAComment>
+	</Class>
+
+  <RelationClass Name="DELWkiExecAlertInstanceCusto" Uuid="00d18ea3-72c3-4419-b480945bc165150f" SuperName="DELWkiExecAlertInstance"  >
+    <CAAComment>
+      <ShortRole>Standard DELMIA Work Instruction Execution Alert Instance</ShortRole>
+      <Role>Default customized DELMIA Work Instruction Execution Alert Instance</Role>
+    </CAAComment>
+    <!-- ********************************************************* -->
+    <!-- * Overload(s) of PLMCoreInstance attributes. -->
+    <!-- ********************************************************* -->
+    <SubClause Name="to"   TargetName="DELWkiExecAlertReferenceCusto"/>
+  </RelationClass>
+
+
+</Package>

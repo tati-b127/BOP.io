@@ -1,0 +1,35 @@
+NAVIGATE      
+
+T0.physicalid, T0.logicalid, T0.majorid, T0.type, T0.name,
+T1.physicalid, T1.logicalid, T1.majorid, T1.type, T1.name,
+T2.PLMID, T2.PLM_ExternalID
+
+FROM     
+
+"Class/Internal Material" T0,
+"RelationClass/AbstractUsingDomains" T1,
+CATMaterialRef/MaterialDomain T2
+
+
+FROM_ROOTS
+
+	[?1?]
+
+ON 
+	RELATION
+	(
+	 FROM="Class/Internal Material"
+	 TO="RelationClass/AbstractUsingDomains"
+	 THROUGH=POINTEDBY
+	) 
+	WITH QUALITY_FILTER  (CATEGORY=ISOWNEDBY)
+
+THEN 
+	RELATION
+	(
+	 FROM="RelationClass/AbstractUsingDomains"
+	 TO=CATMaterialRef/MaterialDomain 
+	 THROUGH=POINTSTO
+	)
+	WITH QUALITY_FILTER (CATEGORY=ISINSTANCEOF);
+

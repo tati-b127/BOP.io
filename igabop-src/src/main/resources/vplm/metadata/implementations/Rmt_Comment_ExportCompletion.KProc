@@ -1,0 +1,22 @@
+#Prog Rmt_Comment_ExportCompletion( iPLMIDSet : #In PLMIDSet, oPLMIDSet : #Out PLMIDSet ) : VoidType
+{
+let IdsComments                 (PLMIDSet)
+let IdsDocs                     (PLMIDSet)
+let CommDocs                    (PLMRouteSet)
+let IdsOnlyDocs                 (PLMIDSet)
+let IdsDocsAndScope             (PLMIDSet)
+
+/* Get the comments */
+IdsComments = Restrict( iPLMIDSet , "Class/Comment" )
+
+/* Get the reference documents of the all reqs (subreqs included) */
+CommDocs = ExecutePLMFunction( "Comment", "rmt_nav_comm_docs", IdsComments )
+IdsDocs = Ids(CommDocs)
+IdsOnlyDocs = Restrict( IdsDocs, "Class/DOCUMENTS" )
+IdsDocsAndScope = ExecutePLMProcedure( "DocumentCompletion", IdsOnlyDocs )
+
+/* Provide back all that stuff */
+oPLMIDSet = iPLMIDSet
++ IdsDocs
++ IdsDocsAndScope
+}

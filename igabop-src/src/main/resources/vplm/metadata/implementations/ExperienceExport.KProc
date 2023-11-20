@@ -1,0 +1,59 @@
+#Prog ExperienceExport (iPLMIDSet :  #In PLMIDSet,oPLMIDSet :  #Out PLMIDSet) : VoidType
+  {let Ids_PointedExps(PLMIDSet)
+/* let Ids_PointedExpsStructure(PLMIDSet) */
+let Ids_PointedAssets(PLMIDSet)
+let Ids_RefPrds(PLMIDSet)
+let Ids_RepRefPrds(PLMIDSet)
+let Ids_RefLogical(PLMIDSet)
+let Ids_RefMaterial(PLMIDSet)
+let Ids_RefSimu(PLMIDSet)
+let Ids_RefAmbiance(PLMIDSet)
+
+let Rts_PointedExps(PLMRouteSet)
+let Rts_PointedAssets(PLMRouteSet)
+let Rts_RepRefPrds(PLMRouteSet)
+
+/* step 1 : retrieve pointed Experience  */
+/*------------------------------------------------------*/
+/* step 1.A : Retrieve SR */
+Rts_PointedExps=ExecutePLMFunction("PLMExpAbstract3DExperience","PLMExp_getSRPointedExps",iPLMIDSet)
+Ids_PointedExps=Ids(Rts_PointedExps)
+
+/* step 2 : Export Pointed Experience  */
+/*------------------------------------------------------*/
+/* Ids_PointedExpsStructure = ExecutePLMProcedure("ExperienceExport",  Ids_PointedExps ) */
+
+/* step 3 : retrieve Pointed Asset */
+/*------------------------------------------------------*/
+/*step 1.B : Retrieve pointed Asset*/
+Rts_PointedAssets=ExecutePLMFunction("PLMExpAbstract3DExperience","PLMExp_getSRPointedAssets",Ids_PointedExps)
+Ids_PointedAssets=Ids(Rts_PointedAssets)
+
+/* step 4 : Export Pointed Asset */
+/*------------------------------------------------------*/
+/*step 1.C : Export Asset Structure*/
+Rts_RepRefPrds = ExecutePLMFunction("PRODUCTCFG", "ProductCfg_AddChildrenProduct", Restrict(Ids_PointedAssets, "PRODUCTCFG/VPMReference")) 
+Ids_RefPrds = Ids(Rts_RepRefPrds)
+
+/* calling Product Procedure*/
+Ids_RepRefPrds  =  ExecutePLMProcedure(  "VPMEditor_GetAllRepresentations",  Ids_RefPrds ) 
+
+/* Logical */
+Ids_RefLogical = ExecutePLMProcedure("Logical_ExportReference_Design",Restrict(Ids_PointedAssets, "RFLVPMLogical/RFLVPMLogicalReference"))
+
+/* Material */
+Ids_RefMaterial = ExecutePLMProcedure("MaterialReferenceExport",Restrict(Ids_PointedAssets, "CATMaterialRef/CATMatReference"))
+
+/* MSR */
+/* Simulated_Open procedure doesn't work for some reason */
+Ids_RefSimu = ExecutePLMProcedure("SimulationOpen_GenerativeStress",Restrict(Ids_PointedAssets, "SIMObjSimulation/SIMObjSimulationObject"))
+
+/* Ambiance */
+Ids_RefAmbiance = ExecutePLMProcedure("EnvironmentExport",Restrict(Ids_PointedAssets, "PLM3DXAmbienceEnvironment/AmbienceEnvironment"))
+
+/* Results = Input Exp + PointedAsset + structure of each asset + pointed Exp*/
+/*TODO add recursive call, but it's forbiden + Ids_PointedExpsStructure */
+/*------------------------------------------------------*/
+oPLMIDSet = iPLMIDSet + Ids_PointedExps + Ids_PointedAssets + Ids_RefPrds + Ids_RepRefPrds + Ids_RefLogical + Ids_RefMaterial + Ids_RefSimu + Ids_RefAmbiance 
+
+}

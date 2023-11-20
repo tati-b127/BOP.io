@@ -1,0 +1,124 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR DELMIA Production System Application -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified"
+         ModelerType="Top"
+         Name="DELLmiProductionOperationPPR"
+         BelongsToModeler="DELLmiProductionSystem"
+	       Uuid="A317E2E5-1A29-4517-852D-06E326ABF95C"
+	       UseNames="DELLmiProductionAbstractOperationPPR"
+         CustomerExposition="Programmer">
+
+  <CAAComment>
+    <ShortRole>PLM DELMIA Abstract Simple Operation </ShortRole>
+    <Role>This package describes the PLM DELMIA Abstract PPR Operation model on top of DELLmiProductionOperation</Role>
+  </CAAComment>
+
+  <Comment>last update 2012-01-20</Comment>
+
+
+  <Class Name="DELLmiOperationPPRReference"
+         Uuid="4663B3C1-A94F-483c-868F-BBC57D2C2EB2"
+         Abstract="Yes"
+         SuperName="DELLmiPPROperationReference"
+         CustomerExposition="Programmer"
+         Specializable="No"
+         CustomerExtensible="No"
+         CreateInstName="DELLmiOperationPPRInstance"
+         >
+
+    <CAAComment>
+      <ShortRole>PLM DELMIA Abstract PPR Operation Reference</ShortRole>
+      <Role>PLM DELMIA Abstract PPR Operation Reference</Role>
+    </CAAComment>
+
+    <Property Name="Configurable" Value="Yes"/>
+    <Property Name="ChangeManagementSupport" Value="Yes"/>
+    <Property Name="ChangeManagementReferential"    Value="Yes"/>
+    <Property Name="ChangeManagementContext"    Value="Yes"/>
+
+    <Simple Name="V_Execution_template_name"
+            Uuid="3333B654-4C98-4406-A656-9799428194B2"
+            Type="String"
+            MaxLength="256"
+            DefaultValue="None"
+            MultiValuated="No"
+            Protection="Free"
+	          ResetOnCloning="No"
+	          ResetOnNewVersion="No"
+            Faceted="No"
+            CAAExposition="L0">
+    </Simple>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+
+  </Class>
+
+
+
+  <RelationClass Name="DELLmiOperationPPRInstance"
+		     Uuid="5CB9BD20-02F2-443f-894A-EF54F07544DF"
+		     Abstract="Yes"
+         SuperName="DELLmiPPROperationInstance"
+         Specializable="No"
+         CustomerExtensible="No"
+         CustomerExposition="Programmer">
+
+    <CAAComment>
+      <ShortRole>PLM DELMIA Abstract PPR Operation Instance</ShortRole>
+      <Role>PLM DELMIA Abstract PPR Operation Instance</Role>
+    </CAAComment>
+
+    <Property Name="Filtrable" Value="Yes"/>
+
+    <Simple Name="V_DriftableOperation"
+        Uuid="36B3EE71-353A-420D-8858-44220AD5F11D"
+        Type="Boolean"
+        DefaultValue="false"
+        MultiValuated="No"
+        ResetOnCloning="No"
+        ResetOnNewVersion="No"
+        Protection="Internal"
+        Faceted="No"
+     >
+      <CAAComment>
+        <ShortRole>If true the operation can be drifted on the following system.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_Balanceable"
+        Uuid="346D45FF-1AFC-4DA1-B48D-1DBCC3ADE3C9"
+        Type="Boolean"
+        DefaultValue="true"
+        MultiValuated="No"
+        ResetOnCloning="No"
+        ResetOnNewVersion="No"
+        Protection="Free"
+        CAAExposition="L0"
+        Faceted="No"
+     >
+      <CAAComment>
+        <ShortRole>If true the operation can be balanced on a system.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <SubClause Name="to"   TargetName="DELLmiOperationPPRReference"/>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+
+  </RelationClass>
+
+
+
+</Package>

@@ -1,0 +1,48 @@
+#Prog ExperienceExport_Channel (iPLMIDSet :  #In PLMIDSet,oPLMIDSet :  #Out PLMIDSet) : VoidType
+  {
+let Ids_SRPointedExps(PLMIDSet)
+let Ids_SRPointedAssets(PLMIDSet)
+let Ids_OpenedPrds(PLMIDSet)
+let Ids_OpenedLogical(PLMIDSet)
+let Ids_OpenedSimu(PLMIDSet)
+let Ids_OpenedAmbiance(PLMIDSet)
+
+let Rts_SRPointedExps(PLMRouteSet)
+let Rts_SRPointedAssets(PLMRouteSet)
+let Rts_ChildrenPrds(PLMRouteSet)
+
+
+/* step 1 : Export Asset */
+/*------------------------------------------------------*/
+/* step 1.A : Retrieve SR */
+Rts_SRPointedExps=ExecutePLMFunction("PLMExpAbstract3DExperience","PLMExp_getSRPointedExps",iPLMIDSet)
+Ids_SRPointedExps=Ids(Rts_SRPointedExps)
+
+/*step 1.B : Retrieve pointed Asset*/
+Rts_SRPointedAssets=ExecutePLMFunction("PLMExpAbstract3DExperience","PLMExp_getSRPointedAssets",Ids_SRPointedExps)
+Ids_SRPointedAssets=Ids(Rts_SRPointedAssets)
+
+/*step 1.C : Export Asset Structure*/
+Rts_ChildrenPrds = ExecutePLMFunction("PRODUCTCFG", "ProductCfg_AddChildrenProduct", Restrict(Ids_SRPointedAssets, "PRODUCTCFG/VPMReference")) 
+Ids_OpenedPrds = ExecutePLMProcedure("VPMEditor_OpenCompletionOnReference",Ids(Rts_ChildrenPrds))
+
+/* Logical */
+Ids_OpenedLogical = ExecutePLMProcedure("Logical_ExportReference_Design",Restrict(Ids_SRPointedAssets, "RFLVPMLogical/RFLVPMLogicalReference"))
+
+/* MSR */
+/* Simulated_Open procedure doesn't work for some reason */
+Ids_OpenedSimu = ExecutePLMProcedure("SimulationOpen_GenerativeStress",Restrict(Ids_SRPointedAssets, "SIMObjSimulation/SIMObjSimulationObject"))
+
+/* Ambiance */
+Ids_OpenedAmbiance = ExecutePLMProcedure("EnvironmentExport",Restrict(Ids_SRPointedAssets, "PLM3DXAmbienceEnvironment/AmbienceEnvironment"))
+
+/* Step 2 : retrieve pointed Experience */
+/*------------------------------------------------------*/
+Rts_SRPointedExps=ExecutePLMFunction("PLMExpAbstract3DExperience","PLMExp_getSRPointedExps",iPLMIDSet)
+Ids_SRPointedExps=Ids(Rts_SRPointedExps)
+
+/* Results = Input Exp + PointedAsset + structure of each asset + pointed Exp*/
+/*------------------------------------------------------*/
+oPLMIDSet = iPLMIDSet + Ids_SRPointedExps + Ids_SRPointedAssets + Ids_OpenedPrds + Ids_OpenedLogical + Ids_OpenedSimu + Ids_SRPointedExps + Ids_OpenedAmbiance 
+
+}

@@ -1,0 +1,242 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2009, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" 
+         Name="PLMCATIASystemsDisciplines" 
+         CustomerExposition="Programmer" 
+         UseNames="RFLPLMFunctionalSubRep RFLVPMLogicalSubRep" 
+         Uuid="739CFF54-6CEF-4157-952F-D6F0BA2B1614" 
+         ModelerType="Top">
+  
+<Class Name="Picture"
+	Uuid="78ef084f-5b79-432b-9139-6dbeca348770"
+  Abstract="No"
+	CustomerExposition="Programmer"
+	SuperName="FunctionalDSContentRepReference"
+  CAAExposition="L0"
+  Discipline="Yes"
+  Abbreviation="fpi">
+  <Property Name="KweNew_InstanciationMethod" Value="CATKBEDelegateInstanciationFL"/>
+  <Property Name="Newable" Value="Insert" />
+  <Property Name="IconName" Value="I_VPMNavFctPictRep"/>
+  <Property Name="3DIconName" Value="I_3DFctPictureRep.cgr"/>
+  <Method ImplementationType="AsFather">
+    <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+  </Method>
+</Class>
+ <Class Name="Schema"
+	Uuid="bdc2b5ad-4dae-4ee6-9679-0e7d6406283e"
+  Abstract="No"
+	CustomerExposition="Programmer"
+	SuperName="FunctionalDSContentRepReference"
+  CAAExposition="L0"
+  Discipline="Yes"
+  Abbreviation="f2d">
+   <Property Name="IconName" Value="I_VPMNavFct2DMainView"/>
+   <Property Name="3DIconName" Value="I_3DFct2DMainView.cgr"/>
+   <Method ImplementationType="AsFather">
+    <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+  </Method>
+</Class>
+<Class Name="Schema_User"
+	Uuid="5c75cb54-1c21-4082-9139-3f31fc582d57"
+  Abstract="No"
+	CustomerExposition="Programmer"
+	SuperName="FunctionalDSContentRepReference"
+  CAAExposition="L0"
+  Discipline="Yes">
+  <Property Name="IconName" Value="I_VPMNavFct2DMainView"/>
+  <Property Name="3DIconName" Value="I_3DFct2DMainView.cgr"/>
+  <Method ImplementationType="AsFather">
+    <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+  </Method>
+</Class>
+<Class Name="Schema_Snapshot"
+	Uuid="ccc1ad44-4be6-4024-a870-68bd2cb94726"
+  Abstract="No"
+	CustomerExposition="Programmer"
+	SuperName="FunctionalDSContentRepReference"
+  CAAExposition="L0"
+  Discipline="Yes"
+  Abbreviation="f2s">
+  <Property Name="KweNew_InstanciationMethod" Value="CATKBEDelegateInstanciationFL"/>
+  <Property Name="Newable" Value="Insert" />
+  <Property Name="IconName" Value="I_VPMNavFctSchemaSnapshotRep"/>
+  <Property Name="3DIconName" Value="I_3DFctSchemaSnapshotRep.cgr"/>
+  <Method ImplementationType="AsFather">
+    <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+  </Method>
+</Class>
+<Class Name="Schema_Flat"
+	Uuid="8756f7a7-af0f-458d-a656-6d43d5f1b5dd"
+  Abstract="No"
+	CustomerExposition="Programmer"
+	SuperName="FunctionalDSContentRepReference"
+  CAAExposition="L0"
+  Discipline="Yes">
+  <Property Name="IconName" Value="I_VPMNavFct2DMainView"/>
+  <Property Name="3DIconName" Value="I_3DFct2DMainView.cgr"/>
+  <Method ImplementationType="AsFather">
+    <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+  </Method>
+</Class>
+<Class Name="Schema_Impl"
+	Uuid="8407b22e-1f38-4f2c-8a54-17daf6d9fe1f"
+  Abstract="No"
+	CustomerExposition="Programmer"
+	SuperName="FunctionalDSContentRepReference"
+  CAAExposition="L0"
+  Discipline="Yes">
+  <Property Name="IconName" Value="I_VPMNavFct2DMainView"/>
+  <Property Name="3DIconName" Value="I_3DFct2DMainView.cgr"/>
+  <Method ImplementationType="AsFather">
+    <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+  </Method>
+</Class>
+<Class Name="Schema_Alternative"
+	Uuid="08f7a262-0067-4dd6-be41-fd2fec2dd4c9"
+  Abstract="No"
+	CustomerExposition="Programmer"
+	SuperName="FunctionalDSContentRepReference"
+  CAAExposition="L0"
+  Discipline="Yes">
+  <Property Name="IconName" Value="I_VPMNavFct2DMainView"/>
+  <Property Name="3DIconName" Value="I_3DFct2DMainView.cgr"/>
+  <Method ImplementationType="AsFather">
+    <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+  </Method>
+</Class>
+<Class Name="Schema_Log"
+	Uuid="F422A6F1-E35E-42c2-A0CD-EF604B2E1E5A"
+  Abstract="No"
+	CustomerExposition="Programmer"
+	SuperName="LogicalDSContentRepReference"
+  CAAExposition="L0"
+  Discipline="Yes"
+  Abbreviation="l2d">
+  <Property Name="IconName" Value="I_VPMNavLog2DMainView"/>
+  <Property Name="3DIconName" Value="I_3DLog2DMainView.cgr"/>
+  <Method ImplementationType="AsFather">
+    <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+  </Method>
+</Class>
+<Class Name="Schema_User_Log"
+	Uuid="AE613120-58B8-489f-B133-A306D7EB0476"
+  Abstract="No"
+	CustomerExposition="Programmer"
+	SuperName="LogicalDSContentRepReference"
+  CAAExposition="L0"
+  Discipline="Yes">
+  <Property Name="IconName" Value="I_VPMNavLog2DMainView"/>
+  <Property Name="3DIconName" Value="I_3DLog2DMainView.cgr"/>
+  <Method ImplementationType="AsFather">
+    <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+  </Method>
+</Class>
+<Class Name="Schema_Flat_Log"
+	Uuid="82E7FBB0-163A-4c26-B479-0DC745B7EFC0"
+  Abstract="No"
+	CustomerExposition="Programmer"
+	SuperName="LogicalDSContentRepReference"
+  CAAExposition="L0"
+  Discipline="Yes">
+  <Property Name="IconName" Value="I_VPMNavLog2DMainView"/>
+  <Property Name="3DIconName" Value="I_3DLog2DMainView.cgr"/>
+  <Method ImplementationType="AsFather">
+    <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+  </Method>
+</Class>
+<Class Name="Schema_Impl_Log"
+	Uuid="A3C93E63-F654-4074-ABD8-21B7F2A8388F"
+  Abstract="No"
+	CustomerExposition="Programmer"
+	SuperName="LogicalDSContentRepReference"
+  CAAExposition="L0"
+  Discipline="Yes">
+  <Property Name="IconName" Value="I_VPMNavLog2DMainView"/>
+  <Property Name="3DIconName" Value="I_3DLog2DMainView.cgr"/>
+  <Method ImplementationType="AsFather">
+    <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+  </Method>
+</Class>
+<Class Name="Schema_Alternative_Log"
+	Uuid="95BD2C73-0644-4187-8CF5-5B4955FC8EE7"
+  Abstract="No"
+	CustomerExposition="Programmer"
+	SuperName="LogicalDSContentRepReference"
+  CAAExposition="L0"
+  Discipline="Yes">
+  <Property Name="IconName" Value="I_VPMNavLog2DMainView"/>
+  <Property Name="3DIconName" Value="I_3DLog2DMainView.cgr"/>
+  <Method ImplementationType="AsFather">
+    <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+  </Method>
+</Class>
+<Class Name="Schema_Snapshot_Log"
+	Uuid="36BCE353-D2BD-400f-98D3-1CBC4F754A1A"
+  Abstract="No"
+	CustomerExposition="Programmer"
+	SuperName="LogicalDSContentRepReference"
+  CAAExposition="L0"
+  Discipline="Yes"
+  Abbreviation="l2s">
+  <Property Name="KweNew_InstanciationMethod" Value="CATKBEDelegateInstanciationFL"/>
+  <Property Name="Newable" Value="Insert" />
+  <Property Name="IconName" Value="I_VPMNavLogSchemaSnapshotRep"/>
+  <Property Name="3DIconName" Value="I_3DLogSchemaSnapshotRep.cgr"/>
+  <Method ImplementationType="AsFather">
+    <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+  </Method>
+</Class>
+<Class Name="Picture_Log"
+	Uuid="AA3A16DC-509A-4f81-8AC6-DDE2E7EEB8DD"
+  Abstract="No"
+	CustomerExposition="Programmer"
+	SuperName="LogicalDSContentRepReference"
+  CAAExposition="L0"
+  Discipline="Yes"
+  Abbreviation="lpi">
+  <Property Name="KweNew_InstanciationMethod" Value="CATKBEDelegateInstanciationFL"/>
+  <Property Name="Newable" Value="Insert" />
+  <Property Name="IconName" Value="I_VPMNavLogPictRep"/>
+  <Property Name="3DIconName" Value="I_3DLogPictureRep.cgr"/>
+  <Method ImplementationType="AsFather">
+    <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+  </Method>
+</Class>
+<Class Name="Symbol_Fct"
+	Uuid="8C34DC66-32BB-4de0-9804-651A96225276"
+  Abstract="No"
+	CustomerExposition="Programmer"
+	SuperName="FunctionalDSContentRepReference"
+  CAAExposition="L0"
+  Discipline="Yes"
+  Abbreviation="syf">
+  <Property Name="KweNew_InstanciationMethod" Value="CATKBEDelegateInstanciationFL"/>
+  <Property Name="Newable" Value="Insert" />
+  <Property Name="IconName" Value="I_VPMNavFctSymbolRep"/>
+  <Property Name="3DIconName" Value="I_3DFctSymbolRep.cgr"/>
+  <Method ImplementationType="AsFather">
+    <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+  </Method>
+</Class>
+<Class Name="Symbol_Log"
+	Uuid="577B857D-8BC6-436f-AE9B-DCAF51AB9D81"
+  Abstract="No"
+	CustomerExposition="Programmer"
+	SuperName="LogicalDSContentRepReference"
+  CAAExposition="L0"
+  Discipline="Yes"
+  Abbreviation="syl">
+  <Property Name="KweNew_InstanciationMethod" Value="CATKBEDelegateInstanciationFL"/>
+  <Property Name="Newable" Value="Insert" />
+  <Property Name="IconName" Value="I_VPMNavLogSymbolRep"/>
+  <Property Name="3DIconName" Value="I_3DLogSymbolRep.cgr"/>
+  <Method ImplementationType="AsFather">
+    <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+  </Method>
+</Class>
+
+</Package>
+

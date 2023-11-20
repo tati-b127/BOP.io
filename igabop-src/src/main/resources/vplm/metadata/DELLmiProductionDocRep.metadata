@@ -1,0 +1,127 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR DELMIA Production System Application -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified"
+         ModelerType="Top"
+         Name="DELLmiProductionDocRep"
+	       Uuid="98ae3f43-f0c5-4944-b7fb91bfb94526b6"
+         BelongsToModeler="DELLmiProductionSystem"
+	       UseNames="PLMCORE"
+         CustomerExposition="Programmer"
+         UseProcedures="PPR_Procedures">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>PLM DELMIA Documentation Rep</ShortRole>
+    <Role>This package describes the PLM DELMIA Documentation Rep on top of PLMCore</Role>
+  </CAAComment>
+
+  <Comment>last update 2012-01-20</Comment>
+
+  <Class Name="DELLmiDocRepReference"
+         CustomerExposition="Programmer"
+		     Uuid="9394aab9-256b-4c89-871e3229e4c9884d"
+         Abstract="No"
+         SuperName="PLMCoreRepReference"
+		     Specializable="No"
+         CustomerExtensible="No"
+         CreateInstName="DELLmiDocRepInstance"
+         InstantiationOwnerTypes="DELLmiProductionSystemReference;DELLmiOperationReference">
+
+    <Property Name="Newable" Value="No"/>
+    <Property Name="Searchable" Value="No"/>
+    <Property Name="IterationAvailability" Value="Yes"/>
+
+    <CAAComment>
+      <ShortRole>PLM DELMIA Documentation Rep Reference</ShortRole>
+      <Role>PLM DELMIA Documentation Rep Reference</Role>
+    </CAAComment>
+
+    <Simple Name="E_fromExternalId"
+            Uuid="12DCDE33-F614-457e-B3EC-EF4960023E90"
+            Type="String"
+            MaxLength="256"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0">
+    </Simple>
+    <Simple Name="E_versionComment"
+            Uuid="74D4A536-C620-4e58-A8E8-3C4DE9290169"
+            Type="String"
+            MaxLength="256"
+            MultiValuated="No"
+            Protection="Free"
+            ResetOnNewVersion="Yes"
+            ResetOnCloning="Yes"
+            CAAExposition="L0">
+    </Simple>
+    <Simple Name="V_DocRep_StreamIdentifier"
+         Uuid="1AFDCE04-0468-493e-ABF4-34F7AD0ADE31"
+         Type="String"
+         MultiValuated="No"
+         MaxLength="256"
+ 	       ResetOnCloning="No"
+	       ResetOnNewVersion="No"
+         Protection="Internal"
+         Faceted="No">
+      <CAAComment>
+        <ShortRole>Internal attribute use to defined the stream identifier.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#TransferSiteOwnership"/>
+        <UsedProcedure href="PPR_Procedures.proc#PPR_TSO_StandAlone"/>
+      </ProcedureForUsage>
+    </Method>
+
+  </Class>
+
+
+  <RelationClass Name="DELLmiDocRepInstance"
+         CustomerExposition="Programmer"
+		     Uuid="05ca1090-9350-4b66-8ec9652765882af9"
+         Abstract="No"
+         SuperName="PLMCoreRepInstance"
+	       Specializable="No"
+         CustomerExtensible="No">
+
+    <CAAComment>
+      <ShortRole>PLM DELMIA Documentation Rep Instance</ShortRole>
+      <Role>PLM DELMIA Documentation Rep Instance</Role>
+    </CAAComment>
+
+    <SubClause Name="from" TargetName="DELLmiAbstractProductionEntity"/>
+    <SubClause Name="to"   TargetName="DELLmiDocRepReference"/>
+
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#TransferSiteOwnership"/>
+        <UsedProcedure href="PPR_Procedures.proc#PPR_TSO_StandAlone"/>
+      </ProcedureForUsage>
+    </Method>
+
+  </RelationClass>
+
+
+
+  <!-- FUNCTIONS Declarations : here are declared PLMQL Functions -->
+  <Function Name="DELLmiProductionDocRep_addLinkToProcess">
+    <Implementation Name="DELLmiProductionDocRep_addLinkToProcess" FileLocation="DELLmiProductionDocRep_addLinkToProcess.plmql" Language="PLMQL"/>
+    <Signature href="DELLmiProductionDocRepSignature"/>
+  </Function>
+
+  <Signature id="DELLmiProductionDocRepSignature">
+    <Parameter Name="InputIds" Lower="0" Upper="-1" Direction="in" MultiValuated="Yes" DataType="PLMId"/>
+    <Parameter Name="OutputIds" Lower="0" Upper="-1" Direction="out" MultiValuated="No" DataType="PLMRouteSet"/>
+  </Signature>
+  <!-- ********************************************************* -->
+
+</Package>
+
+

@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2010, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified"
+         ModelerType="Top"
+         Name="PLMRequirementGlobalSpecifyHowToCnx"
+         Uuid="F0F4C11A-D4D4-4011-AE8F-F653EE2DBF2A"
+         BelongsToModeler="PLMRequirementSpecifyHowToCnx"
+         UseNames="PLMRequirementSpecifyHowToCnxAbstract"
+         CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>PLM Requirement Global Specify How To Modeler </ShortRole>
+    <Role>This package describes the PLM Requirement Global Specify How To Modeler model on top of PLM Core</Role>
+  </CAAComment>
+
+  <Comment>last update 2012-01-20</Comment>
+
+  <Class Name="PLMReqGlobalSpecifyHowToCnx"
+         Uuid="D8BE438E-3271-4afe-ADBF-3070F48A776B"
+         SuperName="PLMReqSpecifyHowToCnxAbstract"
+         Abstract="No"
+         Specializable="No"
+         CustomerExtensible="No"
+         CustomerExposition="Programmer"
+        >
+
+
+
+    <CAAComment>
+      <ShortRole>The PLMReqSpecifyHowToCnx.class</ShortRole>
+      <Role>The PLMReqSpecifyHowToCnx.class is a connection that links a PLM reference to the requirement it is required to follow.</Role>
+    </CAAComment>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+  </Class>
+
+
+</Package>

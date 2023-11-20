@@ -1,0 +1,4 @@
+#Prog BR_Export( iPLMIDSet : #In PLMIDSet, oPLMIDSet : #Out PLMIDSet ) : VoidType
+{
+  oPLMIDSet = iPLMIDSet
+}

@@ -1,0 +1,30 @@
+NAVIGATE
+T0.PLMID
+FROM
+RFLPLMImplementConnection/RFLPLMImplementConnection T0
+FROM_ROOTS [?1?]
+ON
+((
+RELATION(FROM= PLMCORE/PLMCoreReference TO= RFLPLMImplementConnection/RFLPLMImplementConnection THROUGH=POINTEDBY) WITH QUALITY_FILTER (ROLE=PLM_ImplementLink_Source AND CATEGORY=Reference5)
+)
+OR
+(
+RELATION(FROM= PLMCORE/PLMCoreInstance TO= RFLPLMImplementConnection/RFLPLMImplementConnection THROUGH=POINTEDBY) WITH QUALITY_FILTER (ROLE=PLM_ImplementLink_Source AND CATEGORY=Reference5)
+)
+OR
+(
+RELATION(FROM= PLMCORE/PLMCoreInstance TO= RFLPLMImplementConnection/RFLPLMImplementConnection THROUGH=POINTEDBY) WITH QUALITY_FILTER (ROLE=PLM_ImplementLink_Source AND CATEGORY=Reference5)
+)
+OR
+(
+RELATION(FROM= PLMCORE/PLMCoreInstance TO= RFLPLMImplementConnection/RFLPLMImplementConnection THROUGH=POINTEDBY) WITH QUALITY_FILTER (ROLE=PLM_ImplementLink_Source AND CATEGORY=Reference5)
+)
+OR
+(
+RELATION(FROM= PLMCORE/PLMCoreInstance TO= RFLPLMImplementConnection/RFLPLMImplementConnection THROUGH=POINTEDBY) WITH QUALITY_FILTER (ROLE=PLM_ImplementLink_Source AND CATEGORY=Reference5)
+)
+OR
+(
+RELATION(FROM= PLMCORE/PLMPort TO= RFLPLMImplementConnection/RFLPLMImplementConnection THROUGH=POINTEDBY) WITH QUALITY_FILTER (ROLE=PLM_ImplementLink_Source AND CATEGORY=Reference5)
+))
+ITER=1;

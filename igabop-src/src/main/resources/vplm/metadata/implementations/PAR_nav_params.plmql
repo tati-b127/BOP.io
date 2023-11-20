@@ -1,0 +1,120 @@
+NAVIGATE
+   	T1.physicalid, T1.logicalid, T1.type, T1.name,
+	T2.PLMID, T2.PLM_ExternalID,
+   	T3.physicalid, T3.logicalid, T3.type, T3.name,
+   	T4.physicalid, T4.logicalid, T4.type,
+	T5.physicalid, T5.logicalid, T5.type,
+	T6.physicalid, T6.logicalid, T6.type, T6.name,
+	T7.physicalid, T7.logicalid, T7.type
+
+FROM
+	Class/Requirement T1,
+	PLMCORE/PLMCoreReference T2,
+	Class/PARParameter T3,
+	RelationClass/ParameterUsage T4,
+	RelationClass/ParameterAggregation T5,
+	Class/Part T6,
+	RelationClass/ParameterComposition T7
+
+FROM_ROOTS
+	[?1?]
+
+ON
+	(RELATION 
+		(FROM=Class/Requirement
+		TO=RelationClass/ParameterUsage
+		THROUGH=POINTEDBY
+		)
+		WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY)
+	)
+	OR
+	(RELATION 
+		(FROM=Class/Requirement
+		TO=RelationClass/ParameterAggregation
+		THROUGH=POINTEDBY
+		)
+		WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY)
+	)
+	OR
+	(RELATION 
+		(FROM=Class/Requirement
+		TO=RelationClass/ParameterComposition
+		THROUGH=POINTEDBY
+		)
+		WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY)
+	)
+	OR
+		(RELATION 
+		(FROM=Class/Part
+		TO=RelationClass/ParameterUsage
+		THROUGH=POINTEDBY
+		)
+		WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY)
+	)
+	OR
+	(RELATION 
+		(FROM=Class/Part
+		TO=RelationClass/ParameterAggregation
+		THROUGH=POINTEDBY
+		)
+		WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY)
+	)
+	OR
+	(RELATION 
+		(FROM=Class/Part
+		TO=RelationClass/ParameterComposition
+		THROUGH=POINTEDBY
+		)
+		WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY)
+	)
+	OR
+	(RELATION 
+		(FROM=PLMCORE/PLMCoreReference
+		TO=RelationClass/ParameterUsage
+		THROUGH=POINTEDBY
+		)
+		WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY)
+	)
+	OR
+	(RELATION 
+		(FROM=PLMCORE/PLMCoreReference
+		TO=RelationClass/ParameterAggregation
+		THROUGH=POINTEDBY
+		)
+		WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY)
+	)
+	OR
+	(RELATION 
+		(FROM=PLMCORE/PLMCoreReference
+		TO=RelationClass/ParameterComposition
+		THROUGH=POINTEDBY
+		)
+		WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY)
+	)
+THEN
+	(RELATION 
+		(FROM=RelationClass/ParameterUsage
+		TO=Class/PARParameter
+		THROUGH=POINTSTO
+		)
+		WITH QUALITY_FILTER (CATEGORY=ISINSTANCEOF)
+	)
+	OR
+	(RELATION 
+		(FROM=RelationClass/ParameterAggregation
+		TO=Class/PARParameter
+		THROUGH=POINTSTO
+		)
+		WITH QUALITY_FILTER (CATEGORY=ISINSTANCEOF)
+	)
+	OR
+	(RELATION 
+		(FROM=RelationClass/ParameterComposition
+		TO=Class/PARParameter
+		THROUGH=POINTSTO
+		)
+		WITH QUALITY_FILTER (CATEGORY=ISINSTANCEOF)
+	)
+
+ITER = 1 ;
+

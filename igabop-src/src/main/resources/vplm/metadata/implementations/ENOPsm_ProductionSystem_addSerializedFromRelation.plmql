@@ -1,0 +1,23 @@
+NAVIGATE 
+T0.PLMID, 
+T1.PLMID,
+T2.physicalid, 
+T2.logicalid, 
+T2.majorid, 
+T2.type, 
+T2.name
+FROM DELLmiProductionSystemUPR/DELLmiUPRSystemReference T0, DELLmiProductionAbstractOperationUPR/DELLmiUPROperationReference T1, RelationClass/DELIsSerializedFrom T2
+FROM_ROOTS [?1?]
+ON 
+((
+RELATION ( FROM=DELLmiProductionSystemUPR/DELLmiUPRSystemReference TO=RelationClass/DELIsSerializedFrom THROUGH=POINTEDBY ) WITH QUALITY_FILTER ( CATEGORY=ISOWNEDBY ) 
+)
+OR
+(
+RELATION ( FROM=DELLmiProductionAbstractOperationUPR/DELLmiUPROperationReference TO=RelationClass/DELIsSerializedFrom THROUGH=POINTEDBY ) WITH QUALITY_FILTER ( CATEGORY=ISOWNEDBY ) 
+))
+
+;
+
+
+

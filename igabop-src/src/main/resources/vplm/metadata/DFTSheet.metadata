@@ -1,0 +1,166 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY FOR DIFModeler02                    -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2010, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" 
+         ModelerType="Top" 
+         Name="DFTSheet" 
+         Uuid="64778350-2B82-403E-8B41-F27427CEE5E8" 
+         UseNames="DIFModeler01 DIFModelerAbstractSheet PLMCORE"
+         BelongsToModeler="CATDraftingDiscipline"
+         CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>DFT Model</ShortRole>
+    <Role>This package describes the DFT model built on top of DIF and PLMCore</Role>
+  </CAAComment>
+
+  <Comment>last update 2013-01-14-14.00.00</Comment>
+    
+  <!-- DFTSheet provides :                                            -->
+  <!-- DFTSheet               DIFAbstractSheet/PLMCoreReference       -->
+  <!-- DFTSheetInstance       DIFAbstractSheetInstace/PLMCoreInstance -->
+  <!-- DFTSheetStream         PLMCoreRepReference                     -->
+  <!-- DFTSheetStreamInstance PLMCoreRepInstance                      -->
+
+  <!-- ******************************************* -->
+  <!-- *  DFTSheet (DIFAbstractSheet)            * -->
+  <!-- ******************************************* -->
+  <!-- CustomerExposition: whether Type projected in the KWE dictionary           -->
+  <!-- Specializable     : whether Type customizable by the customer (new typing) -->
+  <Class Name="DFTSheet" 
+         Uuid="5F51467A-E90D-4A70-AE96-8FB13D3CF552" 
+         Abstract="No" 
+         SuperName="DIFAbstractSheet" 
+         Abbreviation="dsht"
+         CreateInstName="DFTSheetInstance"
+         CustomerExposition="Programmer"
+         Specializable="Yes">
+ 
+    <CAAComment>
+      <ShortRole>DFT Sheet Reference Object</ShortRole>
+      <Role>DFT Sheet Reference Object</Role>
+    </CAAComment>
+
+   <!-- Configuration -->
+    <Property Name="Configurable" Value="Yes"/>
+
+    <!-- PLM New UI/KWE Scripts New -->
+    <Property Name="Newable" Value="All"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATDftKBEDelegateInstanciation"/>
+
+    <!-- Custo Package -->
+    <Property Name="DMCDerivable" Value="Yes"/>
+
+    <!-- Icon and 3D Icon -->
+    <Property Name="IconName" Value="I_VPMNavDrawing"/>
+    <Property Name="3DIconName" Value="DefaultDrawingNavrep.cgr"/>
+
+    <!-- Export -->
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+  </Class>
+
+  <!-- ********************************************** -->
+  <!-- * DFTSheetInstance (PLMCoreInstance)         * -->
+  <!-- ********************************************** -->
+  <!-- CustomerExposition: whether Type projected in the KWE dictionary           -->
+  <!-- Specializable     : whether Type customizable by the customer (new typing) -->
+  <RelationClass Name="DFTSheetInstance" 
+         Uuid="BEA3183D-BBB9-4BB9-A312-E9AAD98E38A9" 
+         Abstract="No" 
+         SuperName="DIFAbstractSheetInstance"
+         CustomerExposition="Programmer"
+         Specializable="Yes">
+
+    <CAAComment>
+      <ShortRole>DFT  Sheet Instance Object</ShortRole>
+      <Role>DFT Sheet Instance Object</Role>
+    </CAAComment>
+
+   
+    <!-- Subclauses -->
+    <SubClause Name="from"   TargetName="DIFLayout"/>
+    <SubClause Name="to"   TargetName="DFTSheet"/>
+
+    <!-- Configuration -->
+    <Property Name="Filtrable" Value="Yes"/>
+
+    <!-- PLM New UI/KWE Scripts New -->
+    <Property Name="KweNew_InstanciationMethod" Value="CATDftKBEDelegateInstanciation"/>
+
+    <!-- Custo Package -->
+    <Property Name="DMCDerivable" Value="Yes"/>
+
+    <!-- Icon and 3D Icon -->
+    <Property Name="IconName" Value="I_VPMNavDftSheet"/>
+
+    <!-- Export -->
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+  </RelationClass>
+
+  <!-- ***************************************** -->
+  <!-- * DFTSheetStream (PLMCoreRepReference)  * -->
+  <!-- ***************************************** -->
+  <!-- CustomerExposition: whether Type projected in the KWE dictionary           -->
+  <Class Name="DFTSheetStream" 
+         Uuid="6322F0BC-9B50-4DB9-A412-FD8076EC1F1E" 
+         Abstract="No" 
+         CreateInstName="DFTSheetStreamInstance"
+         SuperName="PLMCoreRepReference"
+         CustomerExposition="None">
+
+    <CAAComment>
+      <ShortRole>DFT  Sheet Stream Representation Reference Object</ShortRole>
+      <Role>DFT Sheet Stream Representation Reference Object</Role>
+    </CAAComment>
+
+    <!-- Advanced search -->
+    <Property Name="Searchable" Value="No"/>
+
+   <!-- Mandatory property because of CustomerExposition value (none) -->
+   <!-- Unique name for this "private" rep is not required            -->
+   <Property Name="UniqueNamingRule" Value="No"/>
+      
+    <!-- Export -->
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+  </Class>
+
+  <!-- *********************************************** -->
+  <!-- * DFTSheetStreamInstance (PLMCoreRepInstance) * -->
+  <!-- *********************************************** -->
+  <!-- CustomerExposition: whether Type projected in the KWE dictionary           -->
+  <RelationClass Name="DFTSheetStreamInstance" 
+         Uuid="6E5E9DF0-46B3-4BAC-B8F2-875A3D142075" 
+         Abstract="No" 
+         CustomerExposition="None"
+         SuperName="PLMCoreRepInstance">
+
+    <CAAComment>
+      <ShortRole>DFT Sheet Stream Representation Instance Object</ShortRole>
+      <Role>DFT Sheet Stream Representation Instance Object</Role>
+    </CAAComment>
+
+    <!-- RelationShips -->
+    <SubClause Name="from"   TargetName="DFTSheet"/>
+    <SubClause Name="to"   TargetName="DFTSheetStream"/>
+
+    <!-- Advanced search -->
+    <Property Name="Searchable" Value="No"/>
+
+    <!-- Export -->
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+  </RelationClass>
+
+</Package>

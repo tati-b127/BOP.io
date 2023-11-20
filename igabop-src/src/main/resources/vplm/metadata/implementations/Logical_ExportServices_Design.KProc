@@ -1,0 +1,12 @@
+#Prog Logical_ExportServices_Design (iPLMIDSet :  #In PLMIDSet,oPLMIDSet :  #Out PLMIDSet) : VoidType
+  {
+  let InputPLMIDSetRestrictedToRefs(PLMIDSet)
+  let SetOfPLMLogicalInterfaceRep(PLMRouteSet)
+
+  InputPLMIDSetRestrictedToRefs = Restrict(iPLMIDSet,"RFLVPMLogicalServices/RFLVPMServicesReference")
+ 
+  /* Expand the Logical Interface Rep (resp: F1T) */
+  SetOfPLMLogicalInterfaceRep = ExecutePLMFunction("RFLVPMLogicalInterfaceRep","RFLVPMLogicalInterfaceRep_Expand",InputPLMIDSetRestrictedToRefs)
+   
+  oPLMIDSet = iPLMIDSet + Ids(SetOfPLMLogicalInterfaceRep)
+}

@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2009, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" Name="ENOSTProdSysExecSourceOpDS" Uuid="c7d6d959-b38b-4852-a4c3-8d1acf407378" UseNames="DELLmiProductionExecSourceOperation" >
+	<CAAComment>
+		<ShortRole>PLM Customization of DELMIA Execution Source Operation for SMB</ShortRole>
+		<Role>PLM Customization of DELMIA Execution Source Operation for SMB</Role>
+	</CAAComment>
+	<Comment>last update 2008-05-29</Comment>
+
+	<Class Name="ENOSTExecSourceOpRefCusto" Uuid="414d963c-5196-4ff2-8595-c7da5ce45081" SuperName="DELLmiExecSourceOperationReference" SuperRef="70259a17-947d-4534-aac2-4bcd5bce9d6c"  >
+
+    <Simple Name="E_fromExternalId"
+            Uuid="0dc6a979-96e2-4383-b559-3ce8d4490f19"
+            Alias="Definition"
+            Type="String"
+            MaxLength="256"
+            Mandatory="No"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"/>
+    <Simple Name="E_versionComment"
+            Uuid="1ac03331-0df4-49d5-a3f1-98a7924bf29a"
+            Alias="Version Comment"
+            Type="String"
+            MaxLength="256"
+            Mandatory="No"
+            MultiValuated="No"
+            Protection="Free"
+            ResetOnNewVersion="Yes"
+            ResetOnCloning="Yes"
+            CAAExposition="L0"/>
+    <IdentifierSet Name="E_identifier"
+                   Uuid="e43fec33-13b6-4667-a99a-c1a4d5663b2b"
+                   IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755"
+                   IdentifierNames="PLM_ExternalID V_version"/>
+
+    <CAAComment>
+			<ShortRole>PLM Customization of DELMIA Execution Source Operation Reference for SMB</ShortRole>
+			<Role>PLM Customization of DELMIA Execution Source Operation Reference for SMB</Role>
+		</CAAComment>
+	</Class>
+
+  <RelationClass Name="ENOSTExecSourceOpInstCusto" Uuid="d9368797-f7b2-4270-9fd6-bae36b8ec1ff" SuperName="DELLmiExecSourceOperationInstance" SuperRef="a3369ee0-35e6-4fa8-8398-db9640f3aef2"  >
+		<CAAComment>
+			<ShortRole>PLM Customization of Execution DELMIA Source Operation Instance for SMB</ShortRole>
+			<Role>PLM Customization of Execution DELMIA Source Operation Instance for SMB</Role>
+		</CAAComment>		
+            <!-- ********************************************************* -->
+            <!-- * Overload(s) of PLMCoreInstance attributes. -->
+            <!-- ********************************************************* -->
+    <SubClause Name="to"   TargetName="ENOSTExecSourceOpRefCusto"/>
+  </RelationClass>
+</Package>

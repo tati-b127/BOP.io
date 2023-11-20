@@ -1,0 +1,27 @@
+#Prog EKLODT_TestBasicExpand( iPLMIDSet : #In PLMIDSet, oPLMIDSet : #Out PLMIDSet ) : VoidType
+{
+	let PLMRouteSet1 (PLMRouteSet)
+	let PLMRouteSet2 (PLMRouteSet)
+	let PLMRouteSet3 (PLMRouteSet)
+	let PLMIDSet1 (PLMIDSet)
+	let PLMIDSet2 (PLMIDSet)
+	let PLMIDSet2bis (PLMIDSet)
+	let PLMIDSet3 (PLMIDSet)
+	let PLMIDSet3bis (PLMIDSet)
+	
+	/* Expand all */
+	PLMRouteSet1 = ExecutePLMFunction("PLMStructGenerator", "PLMStructGenerator_Expand1", iPLMIDSet)
+	PLMIDSet1 = Ids( PLMRouteSet1, "last" )
+	
+	/* Navigate to get representations */
+	PLMRouteSet2 = ExecutePLMFunction("PLMStructGenerator", "PLMStructGenerator_Expand2", PLMIDSet1)
+	PLMIDSet2 = Ids( PLMRouteSet2 )
+	PLMIDSet2bis = Restrict( PLMIDSet2, "PLMStructGenerator/PLMSGRepReference" )
+	
+	/* Navigate to get pointed representations */
+	PLMRouteSet3 = ExecutePLMFunction("PLMStructGenerator", "PLMStructGenerator_Navigate1", PLMIDSet2bis)
+	PLMIDSet3 = Ids( PLMRouteSet3, "all" ) 
+	PLMIDSet3bis = Ids( PLMRouteSet3, "nodes" )
+	
+	oPLMIDSet = PLMIDSet3bis
+}

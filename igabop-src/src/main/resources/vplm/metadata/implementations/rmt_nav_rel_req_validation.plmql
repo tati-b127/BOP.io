@@ -1,0 +1,26 @@
+NAVIGATE
+
+   	T1.physicalid , T1.logicalid , T1.type , T1.name ,
+   	T2.physicalid , T2.logicalid , T2.type
+
+FROM
+
+	"Class/Test Case" T1,
+
+	"RelationClass/Requirement Validation" T2
+
+FROM_ROOTS
+
+	[?1?]
+
+ON
+
+	(RELATION 
+		(FROM="RelationClass/Requirement Validation"
+		 TO="Class/Test Case"
+		 THROUGH=POINTSTO
+		 )
+		 WITH QUALITY_FILTER (CATEGORY=ISINSTANCEOF)
+	)
+
+ITER = 1 ;

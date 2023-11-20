@@ -1,0 +1,23 @@
+NAVIGATE     
+
+T0.PLMID 
+ 
+FROM      
+
+PLMCORE/PLMCoreReference T0
+
+FROM_ROOTS[?1?]
+
+ON  (RELATION(
+
+FROM=PLMPrototypeCnx/PLMPrototypeInstantiationCnx
+
+TO=PLMCORE/PLMCoreReference
+
+THROUGH=POINTSTO) WITH QUALITY_FILTER (ROLE=PLM_LinkToPrototypeObject))
+
+ITER = 1
+
+;
+
+

@@ -1,0 +1,129 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR DELMIA Production System Application -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified"
+         ModelerType="Top"
+         Name="DELLmiProductionStorageSystem"
+	       Uuid="f53dbfde-1d16-4c39-95a780bc7b343af7"
+         BelongsToModeler="DELLmiProductionSystem"
+	       UseNames="DELLmiProductionSystemPPR DELLmiProductionSystem"
+         CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>PLM DELMIA Storage System </ShortRole>
+    <Role>This package describes the PLM DELMIA Storage System model on top of DELLmiProductionSystemPPR</Role>
+  </CAAComment>
+
+  <Comment>last update 2012-01-20</Comment>
+
+  <Class Name="DELLmiStorageSystemReference"
+		     Uuid="053add28-7866-4537-92fc76653fb2be83"
+     		 Abstract="No"
+         SuperName="DELLmiPPRSystemReference"
+         CustomerExposition="Programmer"
+         Specializable="No"
+         CustomerExtensible="Yes"
+         CreateInstName="DELLmiStorageSystemInstance"
+         Abbreviation="sts"
+         InstantiationOwnerTypes="DELLmiGeneralSystemReference;DELLmiTransformationSystemReference">
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELMPProdSystemAdvDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELLmiStorageSystemInstance"/>
+    <Property Name="IconName" Value="I_PPRGeneralSystem"/>
+    <Property Name="3DIconName" Value="I_PPRGeneralSystem.cgr"/>
+    <Property Name="Newable" Value="No"/>
+    <Property Name="Searchable" Value="No"/>
+
+    <Simple Name="V_ArrivalMode" Uuid="e98f1ba9-07ef-4da1-ab57ca6d45c58b84" Type="Integer" Protection="Free" CAAExposition="L0" DefaultValue="1" Faceted="Yes">
+      <Property Name="RangeAsEnumName" Value="DELLmiProductionSystem.DELLmi_ArrivalMode_Enum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="Sequential;Any;AllTogether"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+      </Range>
+    </Simple>
+
+    <Simple Name="V_ArrivalTimeMode" Uuid="d8a549c4-9486-4211-b7fc-982c497e1396" Type="Integer" Protection="Free" CAAExposition="L0" DefaultValue="1" Faceted="Yes">
+      <Property Name="RangeAsEnumName" Value="DELLmiProductionSystem.DELLmi_ArrivalTimeMode_Enum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="Random;Schedule;OnSignal"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+      </Range>
+    </Simple>
+
+    <Simple Name="V_QueingMode" Uuid="6dee2c8c-9d2a-45c8-861aa3174e6d4f41" Type="Integer" Protection="Free" CAAExposition="L0" DefaultValue="1" Faceted="Yes">
+      <Property Name="RangeAsEnumName" Value="DELLmiProductionSystem.DELLmi_QueingMode_Enum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="FIFO;LIFO;Priority"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+      </Range>
+    </Simple>
+
+    <Simple Name="V_InitialDelay"
+            Uuid="df7fd7c5-ab3b-4879-920096314422a103"
+            Type="Double"
+            Magnitude="TIME"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0">
+    </Simple>
+
+    <CAAComment>
+      <ShortRole>PLM DELMIA Storage System Reference</ShortRole>
+      <Role>PLM DELMIA Storage System Reference</Role>
+    </CAAComment>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+
+  </Class>
+
+  <RelationClass Name="DELLmiStorageSystemInstance"
+		     Uuid="68accbd4-bee9-42b6-ae395641176c6ea9"
+		     Abstract="No"
+         SuperName="DELLmiPPRSystemInstance"
+         CustomerExposition="Programmer"
+         Specializable="Yes"
+         CustomerExtensible="Yes">
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELMPProdSystemAdvDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELLmiStorageSystemInstance"/>
+
+    <CAAComment>
+      <ShortRole>PLM DELMIA Storage System Instance. Specialization is not supported yet.</ShortRole>
+      <Role>PLM DELMIA Storage System Instance</Role>
+    </CAAComment>
+
+    <Volatile Name="Reference"
+              Uuid="81C5C29E-C0DA-4e39-A094-EACD12E7CFE7"
+              Accessor="PLMModelerReferenceKweAttribute"
+              TypeName="DELLmiStorageSystemReference"
+              AccessMode="ReadOnly" />
+
+    <SubClause Name="to"   TargetName="DELLmiStorageSystemReference"/>
+
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+
+  </RelationClass>
+
+
+</Package>

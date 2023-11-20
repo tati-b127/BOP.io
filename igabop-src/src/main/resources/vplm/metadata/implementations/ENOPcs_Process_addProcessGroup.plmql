@@ -1,0 +1,8 @@
+EXPAND
+	T0.PLMID
+FROM
+	PLMGroupOfInstancesModel/PLMGroupOfInstances T0
+FROM_ROOTS [?1?]
+
+WITH ATTRIBUTE_FILTER T0.V_discipline='GroupOfProcessInstance'
+;

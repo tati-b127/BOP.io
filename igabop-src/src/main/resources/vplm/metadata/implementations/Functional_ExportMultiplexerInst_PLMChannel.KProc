@@ -1,0 +1,12 @@
+#Prog Functional_ExportMultiplexerInst_PLMChannel( iPLMIDSet : #In PLMIDSet, oPLMIDSet : #Out PLMIDSet ) : VoidType
+{
+  let InputPLMIDSetRestrictedToMuxInstances(PLMIDSet)
+  let SetOfConfigObjectsPLMIDs(PLMIDSet)
+
+  InputPLMIDSetRestrictedToMuxInstances = Restrict(iPLMIDSet,"RFLPLMFunctionalCommunication/RFLPLMFunctionalCommunicationInstance")
+ 
+  /*Completes with configuration */
+  SetOfConfigObjectsPLMIDs = ExecutePLMProcedure("Config_GetStructConfig",InputPLMIDSetRestrictedToMuxInstances)
+  
+  oPLMIDSet = iPLMIDSet + SetOfConfigObjectsPLMIDs
+}

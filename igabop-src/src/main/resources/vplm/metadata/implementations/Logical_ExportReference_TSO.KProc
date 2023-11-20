@@ -1,0 +1,48 @@
+#Prog Logical_ExportReference_TSO (iPLMIDSet :  #In PLMIDSet,oPLMIDSet :  #Out PLMIDSet) : VoidType
+{
+  let InputPLMIDSetRestrictedToRefs(PLMIDSet)
+  let SetOfPLMRoutesForFirstLevelLogObjects(PLMRouteSet)
+  let SetOfPLMRoutesForAggregatedLogRep(PLMRouteSet)
+  let SetOfPLMRoutesForImplementLinks(PLMRouteSet)
+  let SetOfPLMRoutesForLogicalPortMapping(PLMRouteSet)
+  let SetOfPLMRoutesForDocuments(PLMRouteSet)
+  let SetOfPLMRoutesFor3DForSystemsApp(PLMRouteSet)
+  let SetOfPLMRoutesForLogicalElectricalApp(PLMRouteSet)
+  let SetOfPLMRoutesForLogicalPipingApp(PLMRouteSet)
+  let SetOfConfigObjectsPLMIDs(PLMIDSet)
+  let SetOfPLMParameters(PLMRouteSet)
+  
+  InputPLMIDSetRestrictedToRefs = Restrict(iPLMIDSet,"RFLVPMLogical/RFLVPMLogicalReference")
+ 
+  /* Get logical connections, ports, type instances and references, rep instances and references directly aggregated under the logical reference (1st level) (resp: F1T) */
+  SetOfPLMRoutesForFirstLevelLogObjects = ExecutePLMFunction("RFLVPMLogical","RFLVPMLogicalReference_Aggregated1stLvlObjects",InputPLMIDSetRestrictedToRefs)
+  
+  /* Get logical aggregated Rep references (resp: F1T) */
+  SetOfPLMRoutesForAggregatedLogRep = ExecutePLMFunction("RFLVPMLogical","RFLVPMLogicalReference_RepAggregated",InputPLMIDSetRestrictedToRefs)
+  
+  /* Add implement Links connections (resp: MAD) */
+  SetOfPLMRoutesForImplementLinks = ExecutePLMFunction("RFLPLMImplementConnection","RFLPLMImplementConnection_AddAllImplementCnx",InputPLMIDSetRestrictedToRefs)
+
+  /* Add Connection for Logical Port Mapping (resp: XRN/LST/SVV) */
+  SetOfPLMRoutesForLogicalPortMapping = ExecutePLMFunction("RFLVPMLogicalPortMapping","RFLVPMLogicalPortMapping_AllLogMappingCnx",InputPLMIDSetRestrictedToRefs)
+
+  /* Add PLMDocConnections without documents pointed by these PLMDocConnections (resp: MUT) */
+  SetOfPLMRoutesForDocuments = ExecutePLMFunction("PLMDocConnection","PLMDocConnection_retrieveAllConnections",InputPLMIDSetRestrictedToRefs)
+
+  /* Add Allocation Connection of 'PLM 3D Layout For Systems' application (resp: LOK) */
+  SetOfPLMRoutesFor3DForSystemsApp = ExecutePLMFunction("PLMLFSAllocationConnection","PLMLFSAllocationConnection_AddLfsCnx",InputPLMIDSetRestrictedToRefs)
+
+  /* Add Connection of 'Logical Electrical' application (resp: JRI) */
+  SetOfPLMRoutesForLogicalElectricalApp = ExecutePLMFunction("PLMElectricalLogical","PLMElectricalLogical_AddEleCnx",InputPLMIDSetRestrictedToRefs)
+ 
+  /* Add Connection of 'Logical Piping' application (resp: JRI) */
+  SetOfPLMRoutesForLogicalPipingApp = ExecutePLMFunction("PLMEnsGrouping","PLMEnsGrouping_AddGrouping",InputPLMIDSetRestrictedToRefs)
+ 
+  /*Completes with configuration (resp: LOD)*/
+  SetOfConfigObjectsPLMIDs = ExecutePLMProcedure("Config_GetStructConfig",iPLMIDSet)
+
+  /* Get aggregated PLMParameters (resp: GMX)*/
+  SetOfPLMParameters = ExecutePLMFunction("PLMParameter", "PAR_nav_aggr_params", InputPLMIDSetRestrictedToRefs)
+
+  oPLMIDSet = iPLMIDSet + Ids(SetOfPLMRoutesForFirstLevelLogObjects) + Ids(SetOfPLMRoutesForAggregatedLogRep) + Ids(SetOfPLMRoutesForImplementLinks) + Ids(SetOfPLMRoutesForLogicalPortMapping) + Ids(SetOfPLMRoutesForDocuments) + Ids(SetOfPLMRoutesFor3DForSystemsApp) + Ids(SetOfPLMRoutesForLogicalElectricalApp) + Ids(SetOfPLMRoutesForLogicalPipingApp) + SetOfConfigObjectsPLMIDs + Ids(SetOfPLMParameters)
+}

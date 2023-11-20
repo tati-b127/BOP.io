@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY FOR FOLDER_ROOT Application Custo DS-->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2005, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" DataRDB_OID="ENODR_FLDFROOTDS" Name="ENOFLD_FOLDER_ROOT_DS" 
+    Uuid="6C6F357F-1C49-4729-AD98-8BEE927083F7"
+    UseNames="ENOFLD_FOLDER_ROOT"
+    Alias="Folder Root Sample Customization"
+    >
+
+    <CAAComment>
+        <ShortRole>FolderRoot customization Package</ShortRole>
+        <Role>This package includes Root Folder Model</Role>
+    </CAAComment>
+
+    <Comment>last update 2006-11-16-00.00.00</Comment>
+
+    <!-- *************************************************** -->
+    <!-- * ENOFLD_DS_FolderRootReference(PLMCoreReference) * -->
+    <!-- *************************************************** -->
+ 
+    <Class Name="ENOFLD_DS_FolderRootReference"
+        Uuid="A060A044-2391-4FB8-A2FF-589E01A487F2"
+        
+        
+
+        SuperName="ENOFLD_FolderRootReference" SuperRef="ce84bc2e-ca56-4de4-b8fc-e4940ca1ab2b"
+        >
+
+	  <CAAComment>
+	    <ShortRole>Root Folder customization</ShortRole>
+	    <Role>Root Folder customization</Role>
+	  </CAAComment>
+
+        <IdentifierSet Name="Identifier"
+            Uuid="CD7A9581-555A-4155-822D-A8128ff69C4D"
+            IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB"
+            IdentifierNames="PLM_ExternalID" />
+        
+    </Class>
+ 
+</Package>

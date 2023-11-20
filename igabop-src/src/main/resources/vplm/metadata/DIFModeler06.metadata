@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY FOR DIFModeler06                    -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2011, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" 
+         ModelerType="Top" 
+         Name="DIFModeler06" 
+         Uuid="0EA50879-7E4B-4039-8016-B4CCF5DA8263" 
+         UseNames="DIFModeler03"
+         BelongsToModeler="DIFModeler01"
+         CustomerExposition="None">
+
+  <CAAComment>
+    <ShortRole>DIF modeler Package (part 6)</ShortRole>
+    <Role>This package describes the DIF model built on top of PLM Core2</Role>
+  </CAAComment>
+
+  <Comment>last update 2012-03-27-14.00.00</Comment>
+  
+  <!-- DIFModeler06 provides :                  -->
+  <!-- DIFSchema            Discipline          -->
+
+  <Class Name="DIFSchema"
+         Discipline="Yes"
+	       Uuid="3624F967-BF44-49AF-B29A-E0E6E5D365EF"
+	       SuperName="DIFViewStream"
+         CustomerExposition="None">
+
+    <!-- PLM New UI/KWE Scripts New -->
+    <Property Name="KweNew_InstanciationMethod" Value="CATDifKBEDelegateInstanciation"/>
+
+    <!-- Advanced search -->
+    <Property Name="Searchable" Value="No"/>
+
+    <!-- Export -->
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+  </Class>  
+  
+</Package>

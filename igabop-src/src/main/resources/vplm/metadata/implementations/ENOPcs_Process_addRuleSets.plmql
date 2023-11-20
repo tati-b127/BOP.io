@@ -1,0 +1,38 @@
+NAVIGATE     
+
+T0.PLMID, T1.PLMID 
+ 
+
+FROM      
+
+PLMPropagationRuleSetCnx/PLMRuleSetPropagationCnx T0,
+
+PLMKnowHowRuleSet/PLMRuleSet T1
+
+FROM_ROOTS[?1?]
+
+ON ( RELATION(     
+
+FROM=DELFmiFunctionalModel/DELFmiFunctionReference     
+
+TO=PLMPropagationRuleSetCnx/PLMRuleSetPropagationCnx 
+
+THROUGH=POINTEDBY )
+
+WITH QUALITY_FILTER(CATEGORY=ISOWNEDBY))
+
+
+
+THEN (RELATION(
+
+FROM=PLMPropagationRuleSetCnx/PLMRuleSetPropagationCnx
+
+TO=PLMKnowHowRuleSet/PLMRuleSet
+
+THROUGH=POINTSTO))
+
+
+
+;
+
+

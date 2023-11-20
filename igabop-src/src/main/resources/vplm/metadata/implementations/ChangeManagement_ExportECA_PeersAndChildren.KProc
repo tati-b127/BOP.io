@@ -1,0 +1,23 @@
+#Prog ChangeManagement_ExportECA_PeersAndChildren( iPLMIDSet : #In PLMIDSet, oPLMIDSet : #Out PLMIDSet ) : VoidType
+{
+
+/* Declaration - Aggregated */
+let PLMIDSetAggregated (PLMIDSet)
+let PLMRouteSetAggregated (PLMRouteSet)
+
+/* Declaration - Peers */
+let PLMIDSetPeers (PLMIDSet)
+let PLMRouteSetPeers (PLMRouteSet)
+
+/* Get Aggregated */
+PLMIDSetAggregated = Restrict(iPLMIDSet, "PLMChgActionBase/PLMActionBase")
+PLMRouteSetAggregated = ExecutePLMFunction("PLMChgActionBase", "PLMChgActionBase_GetAggregated", PLMIDSetAggregated)
+
+/* Get Peers */
+PLMIDSetPeers = Restrict(Ids(PLMRouteSetAggregated), "PLMChgPeer/PLMChgPeer")
+PLMRouteSetPeers = ExecutePLMFunction("PLMChgActionBase", "PLMChgActionBase_GetPeers", PLMIDSetPeers)
+
+/* Fill output ID set */
+oPLMIDSet = iPLMIDSet + Ids(PLMRouteSetAggregated) + Ids(PLMRouteSetPeers)
+
+}

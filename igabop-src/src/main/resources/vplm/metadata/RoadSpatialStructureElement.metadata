@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2012, All rights reserved -->
+
+<Package CustomerExposition = "Programmer" ModelerType = "Top" Name = "RoadSpatialStructureElement" UseNames = "CivilEngineeringSpatialStructureElement" Uuid = "48F3DB28-EE26-4BC6-888A-357ECA895ABE" xmlns = "PLMDictionaryUnified">
+  <Class Abbreviation = "rod" CustomerExposition = "Programmer" Discipline = "Yes" Name = "Road" SuperName = "RoadSpatialStructureElement" Uuid = "14E77A4C-D572-46A0-BA95-C6FB1F72797F">
+    <Property Name = "IconName" Value = "I_Road"/>
+    <Property Name = "3DIconName" Value = "I_Road.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATEAECDelegateInstanciation"/>
+    <Property Name = "KweNew_ReturnedType" Value = "VPMInstance"/>
+    <Property Name = "Newable" Value = "All_Offline_CAA"/>
+    <Property Name = "InstantiationOwnerTypes" Value = "PPRContext;AecOtherSpatialStructureElement;AecSite;Building;BuildingStorey;Dam;GeoUndergroundMine;Road;RoadOtherSpatialStructureElement;Tunnel"/>
+    <Property Name = "3DPartAvailability" Value = "UserChoiceReferenceDefault"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "RoadInterchange" SuperName = "RoadPart" Uuid = "FD77EAEB-9550-45C9-B66D-FE3D0E4DE640">
+    <Property Name = "IconName" Value = "I_RoadInterchange"/>
+    <Property Name = "3DIconName" Value = "I_RoadInterchange.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATEAECDelegateInstanciation"/>
+    <Property Name = "KweNew_ReturnedType" Value = "VPMInstance"/>
+    <Property Name = "Newable" Value = "All_Offline_CAA"/>
+    <Property Name = "InstantiationOwnerTypes" Value = "PPRContext;AecOtherSpatialStructureElement;AecSite;Road;RoadInterchange;RoadOtherSpatialStructureElement"/>
+    <Property Name = "3DPartAvailability" Value = "UserChoiceReferenceDefault"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "RoadInterchangeType" SuperName = "RoadPartType" Uuid = "2B7666F1-2E45-4E86-8D90-27E6ADE9EA13">
+    <Property Name = "IconName" Value = "I_RoadInterchangeType"/>
+    <Property Name = "3DIconName" Value = "I_RoadInterchangeType.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATCbaObjectTypeDelegateInstanciation"/>
+    <Property Name = "Newable" Value = "New_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "ReferenceOnly"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "RoadOtherSpatialStructureElement" Specializable = "Yes" SuperName = "RoadPart" Uuid = "118F5C9F-79BF-4F40-B39E-180EA4A070A5">
+    <Property Name = "IconName" Value = "I_RoadOtherSpatialStructureElement"/>
+    <Property Name = "3DIconName" Value = "I_RoadOtherSpatialStructureElement.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATEAECDelegateInstanciation"/>
+    <Property Name = "KweNew_ReturnedType" Value = "VPMInstance"/>
+    <Property Name = "Newable" Value = "All_Offline_CAA"/>
+    <Property Name = "InstantiationOwnerTypes" Value = "PPRContext;AecOtherSpatialStructureElement;Road;RoadInterchange;RoadOtherSpatialStructureElement;RoadRamp;RoadStretch"/>
+    <Property Name = "3DPartAvailability" Value = "UserChoiceReferenceDefault"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "RoadOtherSpatialStructureElementType" Specializable = "Yes" SuperName = "RoadPartType" Uuid = "39C6BCA6-5BAE-46F0-9341-B8E4777C83BE">
+    <Property Name = "IconName" Value = "I_RoadOtherSpatialStructureElementType"/>
+    <Property Name = "3DIconName" Value = "I_RoadOtherSpatialStructureElementType.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATCbaObjectTypeDelegateInstanciation"/>
+    <Property Name = "Newable" Value = "New_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "ReferenceOnly"/>
+  </Class>
+  <Class Abstract = "Yes" CustomerExposition = "Programmer" Discipline = "Yes" Name = "RoadPart" SuperName = "RoadSpatialStructureElement" Uuid = "00E69549-5FD4-4460-BFDE-8E9D1875BC3B"/>
+  <Class Abstract = "Yes" CustomerExposition = "Programmer" Discipline = "Yes" Name = "RoadPartType" SuperName = "RoadSpatialStructureElementType" Uuid = "4D981EBA-8F87-4471-BB06-CF84BD853E7F"/>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "RoadRamp" SuperName = "RoadPart" Uuid = "EFE7ED11-91C8-4ECE-814F-A6DEE23A460B">
+    <Property Name = "IconName" Value = "I_RoadRamp"/>
+    <Property Name = "3DIconName" Value = "I_RoadRamp.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATEAECDelegateInstanciation"/>
+    <Property Name = "KweNew_ReturnedType" Value = "VPMInstance"/>
+    <Property Name = "Newable" Value = "All_Offline_CAA"/>
+    <Property Name = "InstantiationOwnerTypes" Value = "PPRContext;AecOtherSpatialStructureElement;Road;RoadInterchange;RoadOtherSpatialStructureElement;RoadRamp;RoadStretch"/>
+    <Property Name = "3DPartAvailability" Value = "UserChoiceReferenceDefault"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "RoadRampType" SuperName = "RoadPartType" Uuid = "8F6E64F2-6E90-4657-8327-5F5C7F42A998">
+    <Property Name = "IconName" Value = "I_RoadRampType"/>
+    <Property Name = "3DIconName" Value = "I_RoadRampType.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATCbaObjectTypeDelegateInstanciation"/>
+    <Property Name = "Newable" Value = "New_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "ReferenceOnly"/>
+  </Class>
+  <Class Abstract = "Yes" CustomerExposition = "Programmer" Discipline = "Yes" Name = "RoadSpatialStructureElement" SuperName = "CivilEngineeringSpatialStructureElement" Uuid = "1F21D152-F932-4636-B64C-B680F5097A63">
+    <Property Name = "GroupingType" Value = "RoadSpatialStructureElement"/>
+  </Class>
+  <Class Abstract = "Yes" CustomerExposition = "Programmer" Discipline = "Yes" Name = "RoadSpatialStructureElementType" SuperName = "CivilEngineeringSpatialStructureElementType" Uuid = "6481840D-E5E2-42B5-A300-70627528AAE8">
+    <Property Name = "GroupingType" Value = "RoadSpatialStructureElementType"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "RoadStretch" SuperName = "RoadPart" Uuid = "175B6CB5-E5F4-4E6E-9774-30039D9A59B9">
+    <Property Name = "IconName" Value = "I_RoadStretch"/>
+    <Property Name = "3DIconName" Value = "I_RoadStretch.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATEAECDelegateInstanciation"/>
+    <Property Name = "KweNew_ReturnedType" Value = "VPMInstance"/>
+    <Property Name = "Newable" Value = "All_Offline_CAA"/>
+    <Property Name = "InstantiationOwnerTypes" Value = "PPRContext;AecOtherSpatialStructureElement;Road;RoadInterchange;RoadOtherSpatialStructureElement;RoadStretch"/>
+    <Property Name = "3DPartAvailability" Value = "UserChoiceReferenceDefault"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "RoadStretchType" SuperName = "RoadPartType" Uuid = "79C1B02C-EBEC-4C50-A0BD-AE306E249FDD">
+    <Property Name = "IconName" Value = "I_RoadStretchType"/>
+    <Property Name = "3DIconName" Value = "I_RoadStretchType.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATCbaObjectTypeDelegateInstanciation"/>
+    <Property Name = "Newable" Value = "New_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "ReferenceOnly"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "RoadType" SuperName = "RoadSpatialStructureElementType" Uuid = "6853F63E-B714-481B-909B-D6FF718568E4">
+    <Property Name = "IconName" Value = "I_RoadType"/>
+    <Property Name = "3DIconName" Value = "I_RoadType.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATCbaObjectTypeDelegateInstanciation"/>
+    <Property Name = "Newable" Value = "New_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "ReferenceOnly"/>
+  </Class>
+</Package>

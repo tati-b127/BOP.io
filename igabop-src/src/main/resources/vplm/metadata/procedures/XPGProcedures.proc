@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<ProcedurePackage 
+	xmlns="PLMDictionaryProcedure"
+	Name="XPGProcedures">
+
+	<!-- Send Event for object(s) corresponding to IDs -->
+	<Procedure Name="SendXPGEventWithID">
+		<Implementation Name="invoke" FileLocation="com.ds.enovia.XPG.Event.Proc" Language="Java" /> 
+		<Signature href="SendXPGEventWithIDSignature" /> 
+	</Procedure>
+	<Signature id="SendXPGEventWithIDSignature">
+		<Parameter Name="inEventName"  MultiValuated="No"   Direction="in" Order="1" DataType="String" /> 
+		<Parameter Name="inIDList"          MultiValuated="Yes"  Direction="in" Order="2" DataType="PLMId" />
+		<Parameter Name="inOptions"       MultiValuated="Yes"  Direction="in" Order="3" DataType="String" />
+		<Parameter Name="out"                MultiValuated="Yes"  Direction="out" Order="1" DataType="String" />
+	</Signature>
+
+</ProcedurePackage>

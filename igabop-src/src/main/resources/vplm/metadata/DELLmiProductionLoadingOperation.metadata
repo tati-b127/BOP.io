@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR DELMIA Production System Application -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified"
+         ModelerType="Top"
+         Name="DELLmiProductionLoadingOperation"
+	       Uuid="99385d61-01e4-469d-a0b5b6fb5e5a06cf"
+         BelongsToModeler="DELLmiProductionSystem"
+	       UseNames="DELLmiProductionOperationPPR"
+         CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>PLM DELMIA Loading Operation </ShortRole>
+    <Role>This package describes the PLM DELMIA Loading Operation model on top of DELLmiProductionOperationPPR</Role>
+  </CAAComment>
+
+  <Comment>last update 2011-01-20</Comment>
+
+  <Class Name="DELLmiLoadingOperationReference"
+		     Uuid="57bf60e0-84e3-4516-97c7459f658d4ad1"
+      	 Abstract="No"
+    	   SuperName="DELLmiOperationPPRReference"
+         CustomerExposition="Programmer"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         CreateInstName="DELLmiLoadingOperationInstance"
+         Abbreviation="lop"
+         InstantiationOwnerTypes="DELLmiGeneralSystemReference;DELLmiWorkPlanSystemReference;DELLmiTransformationSystemReference;DELLmiGeneralOperationReference;DELLmiInterruptOperationReference;DELLmiHeaderOperationReference;DELLmiExecHeaderOperationReference"
+         >
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELMPProdSystemAdvDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELLmiLoadingOperationInstance"/>
+    <Property Name="IconName" Value="I_PPRSeqLoading"/>
+    <Property Name="3DIconName" Value="I_PPRSeqLoading.cgr"/>
+    <Property Name="Newable" Value="Insert_CAA"/>
+    <Property Name="Searchable" Value="Yes"/>
+
+    <Simple Name="V_MaterialScrap"
+            Uuid="DC4001F0-D948-4015-A78A-085E2EA333F6"
+	          Type="Double"
+	          DefaultValue="0.0"
+	          MultiValuated="No"
+	          Protection="Free"
+	          CAAExposition="L0">
+    </Simple>
+    
+    <CAAComment>
+      <ShortRole>PLM DELMIA Loading Operation Reference</ShortRole>
+      <Role>PLM DELMIA Loading Operation Reference</Role>
+    </CAAComment>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+
+
+  </Class>
+
+  <RelationClass Name="DELLmiLoadingOperationInstance"
+		     Uuid="ae04b8f2-cec0-4749-8ed76400c7bab466"
+		     Abstract="No"
+    		 SuperName="DELLmiOperationPPRInstance"
+         CustomerExposition="Programmer"
+         Specializable="Yes"
+         CustomerExtensible="Yes">
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELMPProdSystemAdvDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELLmiLoadingOperationInstance"/>
+
+    <CAAComment>
+      <ShortRole>PLM DELMIA Loading Operation Instance. Specialization is not supported yet.</ShortRole>
+      <Role>PLM DELMIA Loading Operation Instance</Role>
+    </CAAComment>
+
+    <Volatile Name="Reference"
+              Uuid="B22F9EAE-A02F-46d1-AA18-B02CDA8119DC"
+              Accessor="PLMModelerReferenceKweAttribute"
+              TypeName="DELLmiLoadingOperationReference"
+              AccessMode="ReadOnly" />
+
+    <SubClause Name="to"   TargetName="DELLmiLoadingOperationReference"/>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+
+
+  </RelationClass>
+
+</Package>

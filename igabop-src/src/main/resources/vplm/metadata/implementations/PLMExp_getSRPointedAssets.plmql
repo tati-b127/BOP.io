@@ -1,0 +1,1 @@
+NAVIGATE      T0.PLM_ExternalID,     T0.PLMID,	 T1.PLM_ExternalID,     T1.PLMIDFROM     PLMCORE/PLMCoreReference T0,	 PLMCORE/PLMCoreRepReference  T1FROM_ROOTS [?1?]ON RELATION	(		FROM=PLMExpAbstract3DExperience/Abstract3DExperienceObject		TO=PLMCORE/PLMCoreReference,PLMCORE/PLMCoreRepReference		THROUGH=POINTSTO	)	WITH QUALITY_FILTER (ROLE=PLMExp_toAsset);  

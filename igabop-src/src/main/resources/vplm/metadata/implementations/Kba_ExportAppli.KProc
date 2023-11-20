@@ -1,0 +1,27 @@
+#Prog Kba_ExportAppli (iPLMIDSet :  #In PLMIDSet,oPLMIDSet :  #Out PLMIDSet) : VoidType
+  {
+let RsPureKba              (PLMRouteSet)
+let IdsPureKba0             (PLMIDSet)
+let IdsPureKba              (PLMIDSet)
+let IdsKCompL1              (PLMIDSet)
+let IdsKCompStructure       (PLMIDSet)
+
+
+/* Get the appli(s)' component(s), with instances */
+IdsPureKba0 = Restrict( iPLMIDSet , "PLMKbaApplication/PLMKbaBusinessApplication" )
+RsPureKba = ExecutePLMFunction( "PLMKbaApplication", "kba_expand_appli", IdsPureKba0 )
+IdsPureKba = Ids( RsPureKba )
+
+
+/* Isolate the component(s) */
+IdsKCompL1 = Restrict( IdsPureKba , "PLMKbaAppliComponent/PLMKbaAppliComponent" )
+
+/* Get the component(s) structure and dependencies */
+IdsKCompStructure = ExecutePLMProcedure( "Kba_ExportAppComp", IdsKCompL1 )
+
+
+/* Provide back all that stuff */
+oPLMIDSet = iPLMIDSet
++ IdsPureKba
++ IdsKCompStructure
+}

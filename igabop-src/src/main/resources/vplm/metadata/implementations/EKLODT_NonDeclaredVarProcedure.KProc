@@ -1,0 +1,18 @@
+#Prog EKLODT_NonDeclaredVarProcedure( iPLMIDSet : #In PLMIDSet, oPLMIDSet : #Out PLMIDSet ) : VoidType
+{
+    
+	let PLMIDSet2(PLMIDSet)
+	let PLMRouteSet1(PLMRouteSet)
+	let PLMRouteSet2(PLMRouteSet)
+	
+	/* expand 1 level */
+	PLMRouteSet1 = ExecutePLMFunction("PLMStructGenerator", "PLMStructGenerator_Expand1", iPLMIDSet)
+	PLMIDSet1 = Ids(PLMRouteSet1, "last")
+	
+	/* expand 1 level from last PLMID */
+	PLMRouteSet2 = ExecutePLMFunction("PLMStructGenerator", "PLMStructGenerator_Expand2", PLMIDSet1)
+	PLMIDSet2 = Ids(PLMRouteSet2, "last")
+
+	oPLMIDSet = PLMIDSet1 + PLMIDSet2
+}
+

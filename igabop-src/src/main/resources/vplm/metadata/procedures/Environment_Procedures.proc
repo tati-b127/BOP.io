@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!-- edited with XMLSpy v2007 (http://www.altova.com) by DASSAULT SYSTEMES (DASSAULT SYSTEMES) -->
+<ProcedurePackage xmlns="PLMDictionaryProcedure" Name="Environment_Procedures">
+  <Procedure Name="EnvironmentExport">
+    <Implementation Name="EnvironmentExport" FileLocation="EnvironmentExport.KProc" Language="EKL"/>
+    <Signature href="Environment_ProcedureSignature"/>
+  </Procedure>
+  <Signature id="Environment_ProcedureSignature">
+    <Parameter Name="InputIds" Lower="0" Upper="-1" MultiValuated="Yes" Direction="in" DataType="PLMId"/>
+    <Parameter Name="OutputIds" Lower="0" Upper="-1" MultiValuated="Yes" Direction="out" DataType="PLMId"/>
+  </Signature> 
+</ProcedurePackage>
+

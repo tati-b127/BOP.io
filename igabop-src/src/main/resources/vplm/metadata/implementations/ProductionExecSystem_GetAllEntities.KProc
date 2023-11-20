@@ -1,0 +1,94 @@
+/*********************************************************************************************************************************/
+/* Export procedure for Execution Production System                                                                              */
+/* --> Retrieves all agregated PLM objects (References, Ref Instances, Rep References, Rep Instances, Ports and Connections)     */
+/* --> for DAG Process, Production system and Resource																			 */
+/*********************************************************************************************************************************/
+#Prog ProductionExecSystem_GetAllEntities( iPLMIDSet : #In PLMIDSet, oPLMIDSet : #Out PLMIDSet ) : VoidType
+{
+	let PLMRouteSet1 (PLMRouteSet)
+	let PLMRouteSet2 (PLMRouteSet)
+	let PLMRouteSet3 (PLMRouteSet)
+	let PLMRouteSet4 (PLMRouteSet)
+	let PLMRouteSetA1 (PLMRouteSet)
+	let PLMRouteSetB1 (PLMRouteSet)
+	let PLMRouteSetB2 (PLMRouteSet)
+	let PLMRouteSetB3 (PLMRouteSet)
+	let PLMRouteSetB4 (PLMRouteSet)
+
+	
+	let PLMRouteSetA (PLMRouteSet)
+	let PLMRouteSetB (PLMRouteSet)	
+	
+	let PLMIDSet1 (PLMIDSet)
+	let PLMIDSet4 (PLMIDSet)
+	let PLMIDSet5 (PLMIDSet)
+	let PLMIDSetA (PLMIDSet)
+	let PLMIDSetB (PLMIDSet)
+	let PLMIDSetB1 (PLMIDSet)
+	let PLMIDSetB3 (PLMIDSet)
+
+	let restrictedPLMIDSet (PLMIDSet)
+	restrictedPLMIDSet = Restrict(iPLMIDSet, "PLMCORE/PLMCoreReference")
+	
+
+
+	/*************************************************************************************************************/
+	/* Retrieves PLMIDs of aggregated objects for System and Operations linked structures from System        */
+	/*************************************************************************************************************/  	
+	
+	/* Retrieves all aggregated references and ref. instances for PRODUCTS and RESOURCES */
+	PLMRouteSet1 = ExecutePLMFunction("DELLmiProductionSystemAbstract", "ENOPsm_ProductionSystem_addAllEntities", restrictedPLMIDSet)
+	
+	/* Retrieves implement links to Functional Processes from SYSTEMS Roots */
+    /* As the function to retrieve impl links only expands one level, we have to call it , firstly on all root systems (iPLMIDSet) , secondly on all aggregated op and systems  (PLMIDSet1) */
+	PLMRouteSet2 = ExecutePLMFunction("RFLPLMImplementConnection", "RFLPLMImplementConnection_AddAllImplementCnx", Restrict(iPLMIDSet, "PLMCORE/PLMCoreReference"))
+	PLMIDSet1 = Ids (PLMRouteSet1,"all")
+	PLMRouteSet3 = ExecutePLMFunction("RFLPLMImplementConnection", "RFLPLMImplementConnection_AddAllImplementCnx", Restrict(PLMIDSet1 , "PLMCORE/PLMCoreReference"))
+
+	/* Retrieves Candidate Resources from SYSTEMS References */
+	PLMRouteSet4 = ExecutePLMFunction("DELPPRContextModel", "ENOPsm_ProductionSystem_addCandidateResources", Restrict(PLMIDSet1 , "DELLmiProductionSystem/DELLmiProductionSystemReference"))
+	PLMIDSet4 = Ids(PLMRouteSet4, "all")
+	/* Retrieves all aggregated representations (references / instances) */
+	PLMIDSet5 = ExecutePLMProcedure("PhysicalResource_GetAllEntities", Restrict(PLMIDSet4, "PLMCORE/PLMCoreReference"))
+
+	/*************************************************************************************************************/
+	/* Retrieves PLMIDs of aggregated objects for PROCESSES linked structures                                    */
+	/*************************************************************************************************************/  	
+	
+	/* Retrieves PLMids of connected PROCESSES */
+	PLMRouteSetA = ExecutePLMFunction("DELLmiProductionSystem", "ENOEps_ExecProductionSystem_addAllConnectedProcesses", restrictedPLMIDSet)
+	
+	/* Retrieves all entities aggregated by PROCESSES Roots */
+	PLMIDSetA = Ids (PLMRouteSetA,"all")
+	PLMRouteSetA1 = ExecutePLMFunction("DELFmiFunctionalModel", "DELFmiFunctionalModel_addAllProcessEntities", Restrict(PLMIDSetA, "PLMCORE/PLMCoreReference"))
+	
+	/************************************************************************************************************/
+	/* Retrieves historized entities UPR->PPR																	*/
+	/************************************************************************************************************/
+	PLMIDSetB3 = Ids (PLMRouteSetA1,"all")
+	PLMRouteSetB3 = ExecutePLMFunction("PLMHistorizationCnx", "PLMHistorizationCnx_addHistoEntities", Restrict(PLMIDSetB3, "PLMCORE/PLMCoreReference"))
+	
+	/* Complete instance with their reference and father */
+	PLMRouteSetB4 = ExecutePLMFunction("DELPPRContextModel", "ENOPpr_PPRData_addRefAndAggregatingRef", Restrict(PLMIDSetB3, "PLMCORE/PLMCoreInstance"))
+	
+
+
+	/*************************************************************************************************************/
+	/* Retrieves PLMIDs of aggregated objects for RESOURCES linked structures                                      */
+	/*************************************************************************************************************/  	
+	
+	/* Retrieves PLMids of connected RESOURCES */	
+	PLMRouteSetB = ExecutePLMFunction("DELLmiProductionSystem", "ENOEps_ExecProductionSystem_addAllConnectedResources", restrictedPLMIDSet)
+	
+	PLMIDSetB = Ids(PLMRouteSetB, "all")
+	/* Retrieves all aggregated representations (references / instances) */
+	PLMIDSetB1 = ExecutePLMProcedure("PhysicalResource_GetAllEntities", PLMIDSetB)
+
+	/* Retrieves all aggregated connections for PRODUCTS and RESOURCES */
+	PLMRouteSetB2 = ExecutePLMFunction("DELPPRContextModel", "ENOPcx_PPRContext_addAllConnections", Restrict(PLMIDSetB1, "PRODUCTCFG/VPMReference"))
+
+	/**********************/
+	/* Returns all PLMIds */
+	/**********************/
+	oPLMIDSet = iPLMIDSet + Ids(PLMRouteSet1) + Ids(PLMRouteSet2) + Ids(PLMRouteSet3) + Ids(PLMRouteSetA) + Ids(PLMRouteSetA1) + Ids(PLMRouteSetB) + PLMIDSetB1 + Ids(PLMRouteSetB2) + PLMIDSet4 + PLMIDSet5 + Ids(PLMRouteSetB3) + Ids (PLMRouteSetB4)
+}

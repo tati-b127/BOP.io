@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR RFL Requirement Chapter Application Custo 1-->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2006, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" DataRDB_OID="ENODR_RFLRChC1" Name="RFLPLMReqChapterCusto1"
+	Uuid="571c8862-e78a-4342-b408b49e6d1f5209" 
+	UseNames="RFLPLMReqChapter" 
+	Alias="PLM RFL Requirement Chapter Model Customization 1" 
+>
+	
+<Property Name="OptionalInstallation" Value="Yes" /> 
+	<CAAComment>
+		<ShortRole>PLM Requirement Chapter Customization 1 Package</ShortRole>
+		<Role>This package describes a Customization of PLM Requirement Chapter model</Role>
+	</CAAComment>
+	
+	<Comment>last update 2007-04-10-19.00.00</Comment>
+	
+	<!-- ******************************************************************* -->
+	<!-- *  RFLPLMReqChapterCusto1 (RFLPLMReqChapterReference) * -->
+	<!-- ******************************************************************* -->
+
+
+  <Class Name="RFLPLMReqChapterReferenceCusto1" 
+		Alias="RFLPLMRequirementReferenceCusto1" 
+		Uuid="963d2470-0268-4ab7-82fbf22a15fd4947"
+		 
+		 
+		SuperName="RFLPLMReqChapterReference" 
+		SuperRef="5d140b22-0587-4474-9c3620d5a2d196d0"
+		>
+
+		<CAAComment>
+			<ShortRole>Customized PLM Requirement Chapter Reference Object</ShortRole>
+			<Role>Customized PLM Requirement Chapter Reference Object</Role>
+		</CAAComment>
+		
+	    <IdentifierSet Name="Identifier"
+            Uuid="1578ee92-2e7a-4e7b-9c34c6498cf3c6d1"
+            IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755"
+            IdentifierNames="PLM_ExternalID V_version" />	
+            
+	</Class>
+
+	<!-- ************************************************************************* -->
+	<!-- * RFLPLMReqChapterInstanceCusto1 (RFLPLMReqChapterInstance) * -->
+	<!-- ************************************************************************* -->
+
+	<Class Name="RFLPLMReqChapterInstanceCusto1" 
+		Alias="RFLPLMReqChapterInstanceCusto1" 
+		Uuid="8d92e77d-07d5-4f3c-9863ab27d84636fa" 
+		 
+		 
+		 
+		 
+		SuperName="RFLPLMReqChapterInstance" 
+		SuperRef="5535f169-778c-4206-9b3c2662d237bf51" 
+		 
+		>
+
+		<CAAComment>
+			<ShortRole>Customized PLM Requirement Chapter Instance Object</ShortRole>
+			<Role>Customized PLM Requirement Chapter Instance Object</Role>
+		</CAAComment>
+	</Class>
+
+	<!-- ************************************************************ -->
+	<!-- * RFLPLMReqChapterPortCusto1 () * -->
+  <!-- ************************************************************ -->
+
+  <!-- ************************************************************************ -->
+  <!-- * RFLPLMReqChapterConnectionCusto1 () * -->
+	<!-- ************************************************************************ -->
+
+   <!-- ********************************************************************************* -->
+   <!-- * RFLPLMReqChapterRepReferenceCusto1 (RFLPLMReqChapterRepReference) * -->
+   <!-- ********************************************************************************* -->
+
+    <!-- ************************************************** -->
+    <!-- * RFLPLMReqChapterRepInstanceCusto1 (RFLPLMReqChapterRepInstance) * -->
+    <!-- ************************************************** -->
+     
+</Package>

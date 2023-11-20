@@ -1,0 +1,6 @@
+#Prog Human_ExportHumanReps (iPLMIDSet : #In PLMIDSet, oPLMIDSet : #Out PLMIDSet) : VoidType
+{
+  let PLMIDSet_RepRefs (PLMIDSet)
+  PLMIDSet_RepRefs = Restrict (iPLMIDSet, "PRODUCTCFG/VPMRepReference")
+  oPLMIDSet = Ids (ExecutePLMFunction ("PRODUCTCFG","Human_GetFather",PLMIDSet_RepRefs))
+}

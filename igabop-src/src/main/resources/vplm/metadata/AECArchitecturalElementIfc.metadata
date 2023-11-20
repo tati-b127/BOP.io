@@ -1,0 +1,1040 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2012, All rights reserved -->
+
+<Package CustomerExposition = "Programmer" ModelerType = "Top" Name = "AECArchitecturalElementIfc" UseNames = "AECArchitecturalElement" Uuid = "69412e02-224a-482e-9f6f-63fd93ab435c" xmlns = "PLMDictionaryUnified">
+  <Extension CustomerExposition = "Programmer" Name = "IfcChimney" ScopeNames = "AecChimney" Uuid = "89aec0c3-db92-458d-801f-8b24212374df">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcChimney_ObjectType" Protection = "Free" Type = "String" Uuid = "89aec0c3-db92-458d-801f-1ad52eb2ea5e"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcChimney_Tag" Protection = "Free" Type = "String" Uuid = "89aec0c3-db92-458d-801f-ed12431a92f4"/>
+    <Simple CAAExposition = "L0" DefaultValue = "2" Name = "IfcChimney_PredefinedType" Protection = "Free" Type = "Integer" Uuid = "9ed03f14-1ecc-48db-aaf0-5ed761eb6180">
+      <Property Name = "RangeAsEnumName" Value = "IfcChimneyTypeEnum"/>
+      <Property Name = "RangeAsEnumAuthorizedValues" Value = "USERDEFINED;NOTDEFINED"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+      </Range>
+    </Simple>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcChimneyType" ScopeNames = "AecChimneyType" Uuid = "1d9519cf-d71e-4d94-88da-6ce415c29c59">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcChimneyType_Tag" Protection = "Free" Type = "String" Uuid = "1d9519cf-d71e-4d94-88da-cc2a36316812"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcChimneyType_ElementType" Protection = "Free" Type = "String" Uuid = "1d9519cf-d71e-4d94-88da-4fccfb51960c"/>
+    <Simple CAAExposition = "L0" DefaultValue = "2" Name = "IfcChimneyType_PredefinedType" Protection = "Free" Type = "Integer" Uuid = "009fb650-1764-45fa-8b87-d7bbe5f7221b">
+      <Property Name = "RangeAsEnumName" Value = "IfcChimneyTypeEnum"/>
+      <Property Name = "RangeAsEnumAuthorizedValues" Value = "USERDEFINED;NOTDEFINED"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+      </Range>
+    </Simple>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcCovering" ScopeNames = "AecCovering" Uuid = "bb98fc03-c2d8-4e25-82d7-a69dd718442d">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcCovering_ObjectType" Protection = "Free" Type = "String" Uuid = "bb98fc03-c2d8-4e25-82d7-1ad52eb2ea5e"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcCovering_Tag" Protection = "Free" Type = "String" Uuid = "bb98fc03-c2d8-4e25-82d7-ed12431a92f4"/>
+    <Simple CAAExposition = "L0" DefaultValue = "12" Name = "IfcCovering_PredefinedType" Protection = "Free" Type = "Integer" Uuid = "d301bf62-dc84-4d77-bb13-3a2577b0686c">
+      <Property Name = "RangeAsEnumName" Value = "IfcCoveringTypeEnum"/>
+      <Property Name = "RangeAsEnumAuthorizedValues" Value = "CEILING;FLOORING;CLADDING;ROOFING;MOLDING;SKIRTINGBOARD;INSULATION;MEMBRANE;SLEEVING;WRAPPING;USERDEFINED;NOTDEFINED"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+        <Equal>5</Equal>
+        <Equal>6</Equal>
+        <Equal>7</Equal>
+        <Equal>8</Equal>
+        <Equal>9</Equal>
+        <Equal>10</Equal>
+        <Equal>11</Equal>
+        <Equal>12</Equal>
+      </Range>
+    </Simple>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcCoveringType" ScopeNames = "AecCoveringType" Uuid = "9acb950c-4cda-4117-990d-bb2877acbb0a">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcCoveringType_Tag" Protection = "Free" Type = "String" Uuid = "9acb950c-4cda-4117-990d-cc2a36316812"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcCoveringType_ElementType" Protection = "Free" Type = "String" Uuid = "9acb950c-4cda-4117-990d-4fccfb51960c"/>
+    <Simple CAAExposition = "L0" DefaultValue = "12" Name = "IfcCoveringType_PredefinedType" Protection = "Free" Type = "Integer" Uuid = "e6308468-f3c5-40db-8d6c-d4a9e877ef41">
+      <Property Name = "RangeAsEnumName" Value = "IfcCoveringTypeEnum"/>
+      <Property Name = "RangeAsEnumAuthorizedValues" Value = "CEILING;FLOORING;CLADDING;ROOFING;MOLDING;SKIRTINGBOARD;INSULATION;MEMBRANE;SLEEVING;WRAPPING;USERDEFINED;NOTDEFINED"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+        <Equal>5</Equal>
+        <Equal>6</Equal>
+        <Equal>7</Equal>
+        <Equal>8</Equal>
+        <Equal>9</Equal>
+        <Equal>10</Equal>
+        <Equal>11</Equal>
+        <Equal>12</Equal>
+      </Range>
+    </Simple>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcCurtainWall" ScopeNames = "AecCurtainWall" Uuid = "df50eef3-78ae-4841-b8d4-9d050bdfbaa0">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcCurtainWall_ObjectType" Protection = "Free" Type = "String" Uuid = "df50eef3-78ae-4841-b8d4-1ad52eb2ea5e"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcCurtainWall_Tag" Protection = "Free" Type = "String" Uuid = "df50eef3-78ae-4841-b8d4-ed12431a92f4"/>
+    <Simple CAAExposition = "L0" DefaultValue = "2" Name = "IfcCurtainWall_PredefinedType" Protection = "Free" Type = "Integer" Uuid = "78f34a05-a4b0-4474-95c6-2e051567ceaa">
+      <Property Name = "RangeAsEnumName" Value = "IfcCurtainWallTypeEnum"/>
+      <Property Name = "RangeAsEnumAuthorizedValues" Value = "USERDEFINED;NOTDEFINED"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+      </Range>
+    </Simple>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcCurtainWallType" ScopeNames = "AecCurtainWallType" Uuid = "e2653342-7e44-499c-9168-d6db7642c96d">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcCurtainWallType_Tag" Protection = "Free" Type = "String" Uuid = "e2653342-7e44-499c-9168-cc2a36316812"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcCurtainWallType_ElementType" Protection = "Free" Type = "String" Uuid = "e2653342-7e44-499c-9168-4fccfb51960c"/>
+    <Simple CAAExposition = "L0" DefaultValue = "2" Name = "IfcCurtainWallType_PredefinedType" Protection = "Free" Type = "Integer" Uuid = "110957f4-efbf-44da-b61b-5c98bc7bc620">
+      <Property Name = "RangeAsEnumName" Value = "IfcCurtainWallTypeEnum"/>
+      <Property Name = "RangeAsEnumAuthorizedValues" Value = "USERDEFINED;NOTDEFINED"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+      </Range>
+    </Simple>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcDoor" ScopeNames = "AecDoor" Uuid = "4561af82-2e37-4b28-8931-21e4f44c230b">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcDoor_ObjectType" Protection = "Free" Type = "String" Uuid = "4561af82-2e37-4b28-8931-1ad52eb2ea5e"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcDoor_Tag" Protection = "Free" Type = "String" Uuid = "4561af82-2e37-4b28-8931-ed12431a92f4"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcDoor_OverallHeight" Protection = "Free" Type = "Double" Uuid = "464f0f22-2236-47cb-a2ea-cc7bbce43b4d"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcDoor_OverallWidth" Protection = "Free" Type = "Double" Uuid = "b904ed9c-fa02-4a42-af35-86594843abba"/>
+    <Simple CAAExposition = "L0" DefaultValue = "1" Name = "IfcDoor_PredefinedType" Protection = "Free" Type = "Integer" Uuid = "39ab69b7-4948-4eba-8cad-094ae2e5ebfc">
+      <Property Name = "RangeAsEnumName" Value = "IfcDoorTypeEnum"/>
+      <Property Name = "RangeAsEnumAuthorizedValues" Value = "DOOR;GATE;TRAPDOOR;USERDEFINED;NOTDEFINED"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+        <Equal>5</Equal>
+      </Range>
+    </Simple>
+    <Simple CAAExposition = "L0" DefaultValue = "20" Name = "IfcDoor_OperationType" Protection = "Free" Type = "Integer" Uuid = "82cbfa76-a812-45a8-bb8c-a8c05a8fd210">
+      <Property Name = "RangeAsEnumName" Value = "IfcDoorTypeOperationEnum"/>
+      <Property Name = "RangeAsEnumAuthorizedValues" Value = "SINGLE_SWING_LEFT;SINGLE_SWING_RIGHT;DOUBLE_DOOR_SINGLE_SWING;DOUBLE_DOOR_SINGLE_SWING_OPPOSITE_LEFT;DOUBLE_DOOR_SINGLE_SWING_OPPOSITE_RIGHT;DOUBLE_SWING_LEFT;DOUBLE_SWING_RIGHT;DOUBLE_DOOR_DOUBLE_SWING;SLIDING_TO_LEFT;SLIDING_TO_RIGHT;DOUBLE_DOOR_SLIDING;FOLDING_TO_LEFT;FOLDING_TO_RIGHT;DOUBLE_DOOR_FOLDING;REVOLVING;ROLLINGUP;SWING_FIXED_LEFT;SWING_FIXED_RIGHT;USERDEFINED;NOTDEFINED"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+        <Equal>5</Equal>
+        <Equal>6</Equal>
+        <Equal>7</Equal>
+        <Equal>8</Equal>
+        <Equal>9</Equal>
+        <Equal>10</Equal>
+        <Equal>11</Equal>
+        <Equal>12</Equal>
+        <Equal>13</Equal>
+        <Equal>14</Equal>
+        <Equal>15</Equal>
+        <Equal>16</Equal>
+        <Equal>17</Equal>
+        <Equal>18</Equal>
+        <Equal>19</Equal>
+        <Equal>20</Equal>
+      </Range>
+    </Simple>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcDoorStandardCase" ScopeNames = "AecDoor" Uuid = "2ceae9ec-2793-4b98-a627-ef160368a620">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcDoorStandardCase_ObjectType" Protection = "Free" Type = "String" Uuid = "2ceae9ec-2793-4b98-a627-1ad52eb2ea5e"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcDoorStandardCase_Tag" Protection = "Free" Type = "String" Uuid = "2ceae9ec-2793-4b98-a627-ed12431a92f4"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcDoorStandardCase_OverallHeight" Protection = "Free" Type = "Double" Uuid = "2ceae9ec-2793-4b98-a627-cc7bbce43b4d"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcDoorStandardCase_OverallWidth" Protection = "Free" Type = "Double" Uuid = "2ceae9ec-2793-4b98-a627-86594843abba"/>
+    <Simple CAAExposition = "L0" DefaultValue = "1" Name = "IfcDoorStandardCase_PredefinedType" Protection = "Free" Type = "Integer" Uuid = "2ceae9ec-2793-4b98-a627-094ae2e5ebfc">
+      <Property Name = "RangeAsEnumName" Value = "IfcDoorTypeEnum"/>
+      <Property Name = "RangeAsEnumAuthorizedValues" Value = "DOOR;GATE;TRAPDOOR;USERDEFINED;NOTDEFINED"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+        <Equal>5</Equal>
+      </Range>
+    </Simple>
+    <Simple CAAExposition = "L0" DefaultValue = "20" Name = "IfcDoorStandardCase_OperationType" Protection = "Free" Type = "Integer" Uuid = "2ceae9ec-2793-4b98-a627-a8c05a8fd210">
+      <Property Name = "RangeAsEnumName" Value = "IfcDoorTypeOperationEnum"/>
+      <Property Name = "RangeAsEnumAuthorizedValues" Value = "SINGLE_SWING_LEFT;SINGLE_SWING_RIGHT;DOUBLE_DOOR_SINGLE_SWING;DOUBLE_DOOR_SINGLE_SWING_OPPOSITE_LEFT;DOUBLE_DOOR_SINGLE_SWING_OPPOSITE_RIGHT;DOUBLE_SWING_LEFT;DOUBLE_SWING_RIGHT;DOUBLE_DOOR_DOUBLE_SWING;SLIDING_TO_LEFT;SLIDING_TO_RIGHT;DOUBLE_DOOR_SLIDING;FOLDING_TO_LEFT;FOLDING_TO_RIGHT;DOUBLE_DOOR_FOLDING;REVOLVING;ROLLINGUP;SWING_FIXED_LEFT;SWING_FIXED_RIGHT;USERDEFINED;NOTDEFINED"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+        <Equal>5</Equal>
+        <Equal>6</Equal>
+        <Equal>7</Equal>
+        <Equal>8</Equal>
+        <Equal>9</Equal>
+        <Equal>10</Equal>
+        <Equal>11</Equal>
+        <Equal>12</Equal>
+        <Equal>13</Equal>
+        <Equal>14</Equal>
+        <Equal>15</Equal>
+        <Equal>16</Equal>
+        <Equal>17</Equal>
+        <Equal>18</Equal>
+        <Equal>19</Equal>
+        <Equal>20</Equal>
+      </Range>
+    </Simple>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcDoorType" ScopeNames = "AecDoorType" Uuid = "bd346b53-9813-4371-b412-5a425b0f2878">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcDoorType_Tag" Protection = "Free" Type = "String" Uuid = "bd346b53-9813-4371-b412-cc2a36316812"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcDoorType_ElementType" Protection = "Free" Type = "String" Uuid = "bd346b53-9813-4371-b412-4fccfb51960c"/>
+    <Simple CAAExposition = "L0" DefaultValue = "5" Name = "IfcDoorType_PredefinedType" Protection = "Free" Type = "Integer" Uuid = "eba60609-f646-410c-ae36-01e894990e89">
+      <Property Name = "RangeAsEnumName" Value = "IfcDoorTypeEnum"/>
+      <Property Name = "RangeAsEnumAuthorizedValues" Value = "DOOR;GATE;TRAPDOOR;USERDEFINED;NOTDEFINED"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+        <Equal>5</Equal>
+      </Range>
+    </Simple>
+    <Simple CAAExposition = "L0" DefaultValue = "20" Name = "IfcDoorType_OperationType" Protection = "Free" Type = "Integer" Uuid = "ca3de10e-7263-4c6a-a42b-88e010e51c09">
+      <Property Name = "RangeAsEnumName" Value = "IfcDoorTypeOperationEnum"/>
+      <Property Name = "RangeAsEnumAuthorizedValues" Value = "SINGLE_SWING_LEFT;SINGLE_SWING_RIGHT;DOUBLE_DOOR_SINGLE_SWING;DOUBLE_DOOR_SINGLE_SWING_OPPOSITE_LEFT;DOUBLE_DOOR_SINGLE_SWING_OPPOSITE_RIGHT;DOUBLE_SWING_LEFT;DOUBLE_SWING_RIGHT;DOUBLE_DOOR_DOUBLE_SWING;SLIDING_TO_LEFT;SLIDING_TO_RIGHT;DOUBLE_DOOR_SLIDING;FOLDING_TO_LEFT;FOLDING_TO_RIGHT;DOUBLE_DOOR_FOLDING;REVOLVING;ROLLINGUP;SWING_FIXED_LEFT;SWING_FIXED_RIGHT;USERDEFINED;NOTDEFINED"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+        <Equal>5</Equal>
+        <Equal>6</Equal>
+        <Equal>7</Equal>
+        <Equal>8</Equal>
+        <Equal>9</Equal>
+        <Equal>10</Equal>
+        <Equal>11</Equal>
+        <Equal>12</Equal>
+        <Equal>13</Equal>
+        <Equal>14</Equal>
+        <Equal>15</Equal>
+        <Equal>16</Equal>
+        <Equal>17</Equal>
+        <Equal>18</Equal>
+        <Equal>19</Equal>
+        <Equal>20</Equal>
+      </Range>
+    </Simple>
+    <Simple CAAExposition = "L0" Name = "IfcDoorType_ParameterTakesPrecedence" Protection = "Free" Type = "Boolean" Uuid = "47daa9a4-cc65-4a1e-862e-d3f3e603b581"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcRailing" ScopeNames = "AecRailing" Uuid = "43956457-0876-4be3-ab2f-313de87db9e3">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcRailing_ObjectType" Protection = "Free" Type = "String" Uuid = "43956457-0876-4be3-ab2f-1ad52eb2ea5e"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcRailing_Tag" Protection = "Free" Type = "String" Uuid = "43956457-0876-4be3-ab2f-ed12431a92f4"/>
+    <Simple CAAExposition = "L0" DefaultValue = "5" Name = "IfcRailing_PredefinedType" Protection = "Free" Type = "Integer" Uuid = "21f4d0bc-f7b8-42dc-b0ee-bafb484654fd">
+      <Property Name = "RangeAsEnumName" Value = "IfcRailingTypeEnum"/>
+      <Property Name = "RangeAsEnumAuthorizedValues" Value = "HANDRAIL;GUARDRAIL;BALUSTRADE;USERDEFINED;NOTDEFINED"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+        <Equal>5</Equal>
+      </Range>
+    </Simple>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcRailingType" ScopeNames = "AecRailingType" Uuid = "dca94f5f-b570-41f4-9883-2c87a9d83fc2">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcRailingType_Tag" Protection = "Free" Type = "String" Uuid = "dca94f5f-b570-41f4-9883-cc2a36316812"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcRailingType_ElementType" Protection = "Free" Type = "String" Uuid = "dca94f5f-b570-41f4-9883-4fccfb51960c"/>
+    <Simple CAAExposition = "L0" DefaultValue = "5" Name = "IfcRailingType_PredefinedType" Protection = "Free" Type = "Integer" Uuid = "052015da-a2e9-4787-b82f-3e2a05847378">
+      <Property Name = "RangeAsEnumName" Value = "IfcRailingTypeEnum"/>
+      <Property Name = "RangeAsEnumAuthorizedValues" Value = "HANDRAIL;GUARDRAIL;BALUSTRADE;USERDEFINED;NOTDEFINED"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+        <Equal>5</Equal>
+      </Range>
+    </Simple>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcRamp" ScopeNames = "AecRamp" Uuid = "6cb05460-8ce3-4a34-b288-ef5e06dec53c">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcRamp_ObjectType" Protection = "Free" Type = "String" Uuid = "6cb05460-8ce3-4a34-b288-1ad52eb2ea5e"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcRamp_Tag" Protection = "Free" Type = "String" Uuid = "6cb05460-8ce3-4a34-b288-ed12431a92f4"/>
+    <Simple CAAExposition = "L0" DefaultValue = "1" Name = "IfcRamp_PredefinedType" Protection = "Free" Type = "Integer" Uuid = "17cfdda0-c4a2-4488-a48f-47677b9727ca">
+      <Property Name = "RangeAsEnumName" Value = "IfcRampTypeEnum"/>
+      <Property Name = "RangeAsEnumAuthorizedValues" Value = "STRAIGHT_RUN_RAMP;TWO_STRAIGHT_RUN_RAMP;QUARTER_TURN_RAMP;TWO_QUARTER_TURN_RAMP;HALF_TURN_RAMP;SPIRAL_RAMP;USERDEFINED;NOTDEFINED"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+        <Equal>5</Equal>
+        <Equal>6</Equal>
+        <Equal>7</Equal>
+        <Equal>8</Equal>
+      </Range>
+    </Simple>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcRampFlight" ScopeNames = "AecRampFlight" Uuid = "c97398c6-bb9d-4b54-8637-f28af4b8b4f1">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcRampFlight_ObjectType" Protection = "Free" Type = "String" Uuid = "c97398c6-bb9d-4b54-8637-1ad52eb2ea5e"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcRampFlight_Tag" Protection = "Free" Type = "String" Uuid = "c97398c6-bb9d-4b54-8637-ed12431a92f4"/>
+    <Simple CAAExposition = "L0" DefaultValue = "1" Name = "IfcRampFlight_PredefinedType" Protection = "Free" Type = "Integer" Uuid = "c8b0205b-c335-44ba-95c2-241821bc1856">
+      <Property Name = "RangeAsEnumName" Value = "IfcRampFlightTypeEnum"/>
+      <Property Name = "RangeAsEnumAuthorizedValues" Value = "STRAIGHT;SPIRAL;USERDEFINED;NOTDEFINED"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+      </Range>
+    </Simple>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcRampFlightType" ScopeNames = "AecRampFlightType" Uuid = "9e9e0685-4798-44d7-8660-ab60ce2b79ff">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcRampFlightType_Tag" Protection = "Free" Type = "String" Uuid = "9e9e0685-4798-44d7-8660-cc2a36316812"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcRampFlightType_ElementType" Protection = "Free" Type = "String" Uuid = "9e9e0685-4798-44d7-8660-4fccfb51960c"/>
+    <Simple CAAExposition = "L0" DefaultValue = "1" Name = "IfcRampFlightType_PredefinedType" Protection = "Free" Type = "Integer" Uuid = "e066d971-9840-4db7-ae0b-fcbc0cfe9162">
+      <Property Name = "RangeAsEnumName" Value = "IfcRampFlightTypeEnum"/>
+      <Property Name = "RangeAsEnumAuthorizedValues" Value = "STRAIGHT;SPIRAL;USERDEFINED;NOTDEFINED"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+      </Range>
+    </Simple>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcRampType" ScopeNames = "AecRampType" Uuid = "a7e3e9bd-f735-4f34-90bd-ed990d1bed5e">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcRampType_Tag" Protection = "Free" Type = "String" Uuid = "a7e3e9bd-f735-4f34-90bd-cc2a36316812"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcRampType_ElementType" Protection = "Free" Type = "String" Uuid = "a7e3e9bd-f735-4f34-90bd-4fccfb51960c"/>
+    <Simple CAAExposition = "L0" DefaultValue = "1" Name = "IfcRampType_PredefinedType" Protection = "Free" Type = "Integer" Uuid = "243cf861-7f93-4be4-a6cb-755453d96801">
+      <Property Name = "RangeAsEnumName" Value = "IfcRampTypeEnum"/>
+      <Property Name = "RangeAsEnumAuthorizedValues" Value = "STRAIGHT_RUN_RAMP;TWO_STRAIGHT_RUN_RAMP;QUARTER_TURN_RAMP;TWO_QUARTER_TURN_RAMP;HALF_TURN_RAMP;SPIRAL_RAMP;USERDEFINED;NOTDEFINED"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+        <Equal>5</Equal>
+        <Equal>6</Equal>
+        <Equal>7</Equal>
+        <Equal>8</Equal>
+      </Range>
+    </Simple>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcRoof" ScopeNames = "AecRoof" Uuid = "13a9b1ea-7aa5-4697-8763-d93cdb7c644d">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcRoof_ObjectType" Protection = "Free" Type = "String" Uuid = "13a9b1ea-7aa5-4697-8763-1ad52eb2ea5e"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcRoof_Tag" Protection = "Free" Type = "String" Uuid = "13a9b1ea-7aa5-4697-8763-ed12431a92f4"/>
+    <Simple CAAExposition = "L0" DefaultValue = "1" Name = "IfcRoof_PredefinedType" Protection = "Free" Type = "Integer" Uuid = "8ba01630-387c-44e4-9a82-f204dfa8c13a">
+      <Property Name = "RangeAsEnumName" Value = "IfcRoofTypeEnum"/>
+      <Property Name = "RangeAsEnumAuthorizedValues" Value = "FLAT_ROOF;SHED_ROOF;GABLE_ROOF;HIP_ROOF;HIPPED_GABLE_ROOF;GAMBREL_ROOF;MANSARD_ROOF;BARREL_ROOF;RAINBOW_ROOF;BUTTERFLY_ROOF;PAVILION_ROOF;DOME_ROOF;FREEFORM;USERDEFINED;NOTDEFINED"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+        <Equal>5</Equal>
+        <Equal>6</Equal>
+        <Equal>7</Equal>
+        <Equal>8</Equal>
+        <Equal>9</Equal>
+        <Equal>10</Equal>
+        <Equal>11</Equal>
+        <Equal>12</Equal>
+        <Equal>13</Equal>
+        <Equal>14</Equal>
+        <Equal>15</Equal>
+      </Range>
+    </Simple>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcRoofType" ScopeNames = "AecRoofType" Uuid = "8e1cda9c-7cf9-41b7-a319-a7827a552e81">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcRoofType_Tag" Protection = "Free" Type = "String" Uuid = "8e1cda9c-7cf9-41b7-a319-cc2a36316812"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcRoofType_ElementType" Protection = "Free" Type = "String" Uuid = "8e1cda9c-7cf9-41b7-a319-4fccfb51960c"/>
+    <Simple CAAExposition = "L0" DefaultValue = "1" Name = "IfcRoofType_PredefinedType" Protection = "Free" Type = "Integer" Uuid = "b0319afc-ea71-4260-9d22-8a312adffd11">
+      <Property Name = "RangeAsEnumName" Value = "IfcRoofTypeEnum"/>
+      <Property Name = "RangeAsEnumAuthorizedValues" Value = "FLAT_ROOF;SHED_ROOF;GABLE_ROOF;HIP_ROOF;HIPPED_GABLE_ROOF;GAMBREL_ROOF;MANSARD_ROOF;BARREL_ROOF;RAINBOW_ROOF;BUTTERFLY_ROOF;PAVILION_ROOF;DOME_ROOF;FREEFORM;USERDEFINED;NOTDEFINED"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+        <Equal>5</Equal>
+        <Equal>6</Equal>
+        <Equal>7</Equal>
+        <Equal>8</Equal>
+        <Equal>9</Equal>
+        <Equal>10</Equal>
+        <Equal>11</Equal>
+        <Equal>12</Equal>
+        <Equal>13</Equal>
+        <Equal>14</Equal>
+        <Equal>15</Equal>
+      </Range>
+    </Simple>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcShadingDevice" ScopeNames = "AecShadingDevice" Uuid = "6deb21b5-c494-49a1-a78e-5d3176a026c4">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcShadingDevice_ObjectType" Protection = "Free" Type = "String" Uuid = "6deb21b5-c494-49a1-a78e-1ad52eb2ea5e"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcShadingDevice_Tag" Protection = "Free" Type = "String" Uuid = "6deb21b5-c494-49a1-a78e-ed12431a92f4"/>
+    <Simple CAAExposition = "L0" DefaultValue = "1" Name = "IfcShadingDevice_PredefinedType" Protection = "Free" Type = "Integer" Uuid = "01ebf062-9afc-4350-baea-73554a6f65c7">
+      <Property Name = "RangeAsEnumName" Value = "IfcShadingDeviceTypeEnum"/>
+      <Property Name = "RangeAsEnumAuthorizedValues" Value = "JALOUSIE;SHUTTER;AWNING;USERDEFINED;NOTDEFINED"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+        <Equal>5</Equal>
+      </Range>
+    </Simple>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcShadingDeviceType" ScopeNames = "AecShadingDeviceType" Uuid = "e523bdbe-adcb-4cce-be00-6ef175ae3a0e">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcShadingDeviceType_Tag" Protection = "Free" Type = "String" Uuid = "e523bdbe-adcb-4cce-be00-cc2a36316812"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcShadingDeviceType_ElementType" Protection = "Free" Type = "String" Uuid = "e523bdbe-adcb-4cce-be00-4fccfb51960c"/>
+    <Simple CAAExposition = "L0" DefaultValue = "1" Name = "IfcShadingDeviceType_PredefinedType" Protection = "Free" Type = "Integer" Uuid = "bd0615b0-9988-49da-991c-c1e6fa721e69">
+      <Property Name = "RangeAsEnumName" Value = "IfcShadingDeviceTypeEnum"/>
+      <Property Name = "RangeAsEnumAuthorizedValues" Value = "JALOUSIE;SHUTTER;AWNING;USERDEFINED;NOTDEFINED"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+        <Equal>5</Equal>
+      </Range>
+    </Simple>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcStair" ScopeNames = "AecStair" Uuid = "ded8f260-3718-4e76-a9f7-ad6a7a79d842">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcStair_ObjectType" Protection = "Free" Type = "String" Uuid = "ded8f260-3718-4e76-a9f7-1ad52eb2ea5e"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcStair_Tag" Protection = "Free" Type = "String" Uuid = "ded8f260-3718-4e76-a9f7-ed12431a92f4"/>
+    <Simple CAAExposition = "L0" DefaultValue = "1" Name = "IfcStair_PredefinedType" Protection = "Free" Type = "Integer" Uuid = "48f8b7d1-5a4a-46bd-9ccf-77ba64b67549">
+      <Property Name = "RangeAsEnumName" Value = "IfcStairTypeEnum"/>
+      <Property Name = "RangeAsEnumAuthorizedValues" Value = "STRAIGHT_RUN_STAIR;TWO_STRAIGHT_RUN_STAIR;QUARTER_WINDING_STAIR;QUARTER_TURN_STAIR;HALF_WINDING_STAIR;HALF_TURN_STAIR;TWO_QUARTER_WINDING_STAIR;TWO_QUARTER_TURN_STAIR;THREE_QUARTER_WINDING_STAIR;THREE_QUARTER_TURN_STAIR;SPIRAL_STAIR;DOUBLE_RETURN_STAIR;CURVED_RUN_STAIR;TWO_CURVED_RUN_STAIR;USERDEFINED;NOTDEFINED"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+        <Equal>5</Equal>
+        <Equal>6</Equal>
+        <Equal>7</Equal>
+        <Equal>8</Equal>
+        <Equal>9</Equal>
+        <Equal>10</Equal>
+        <Equal>11</Equal>
+        <Equal>12</Equal>
+        <Equal>13</Equal>
+        <Equal>14</Equal>
+        <Equal>15</Equal>
+        <Equal>16</Equal>
+      </Range>
+    </Simple>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcStairFlight" ScopeNames = "AecStairFlight" Uuid = "9d6e05ce-f863-48d0-8ee8-fb5cb8bf56ea">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcStairFlight_ObjectType" Protection = "Free" Type = "String" Uuid = "9d6e05ce-f863-48d0-8ee8-1ad52eb2ea5e"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcStairFlight_Tag" Protection = "Free" Type = "String" Uuid = "9d6e05ce-f863-48d0-8ee8-ed12431a92f4"/>
+    <Simple CAAExposition = "L0" Name = "IfcStairFlight_NumberOfRiser" Protection = "Free" Type = "Integer" Uuid = "bbadbd1a-f134-4bf9-bea2-f46d8e46cca0"/>
+    <Simple CAAExposition = "L0" Name = "IfcStairFlight_NumberOfTreads" Protection = "Free" Type = "Integer" Uuid = "2d08168c-d54f-45c3-ac4d-02550e076105"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcStairFlight_RiserHeight" Protection = "Free" Type = "Double" Uuid = "674fd366-d293-4294-aa72-cb2227206c93"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcStairFlight_TreadLength" Protection = "Free" Type = "Double" Uuid = "efc660e7-b6a2-4456-8768-5bf542e7ed28"/>
+    <Simple CAAExposition = "L0" DefaultValue = "1" Name = "IfcStairFlight_PredefinedType" Protection = "Free" Type = "Integer" Uuid = "9f2a60f4-7b23-4d15-a3d3-440d51dfafdd">
+      <Property Name = "RangeAsEnumName" Value = "IfcStairFlightTypeEnum"/>
+      <Property Name = "RangeAsEnumAuthorizedValues" Value = "STRAIGHT;WINDER;SPIRAL;CURVED;FREEFORM;USERDEFINED;NOTDEFINED"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+        <Equal>5</Equal>
+        <Equal>6</Equal>
+        <Equal>7</Equal>
+      </Range>
+    </Simple>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcStairFlightType" ScopeNames = "AecStairFlightType" Uuid = "95a87983-c65e-4ef2-856e-1e33b940909a">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcStairFlightType_Tag" Protection = "Free" Type = "String" Uuid = "95a87983-c65e-4ef2-856e-cc2a36316812"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcStairFlightType_ElementType" Protection = "Free" Type = "String" Uuid = "95a87983-c65e-4ef2-856e-4fccfb51960c"/>
+    <Simple CAAExposition = "L0" DefaultValue = "1" Name = "IfcStairFlightType_PredefinedType" Protection = "Free" Type = "Integer" Uuid = "a8048340-57f9-4e84-8841-1a0043dc05f8">
+      <Property Name = "RangeAsEnumName" Value = "IfcStairFlightTypeEnum"/>
+      <Property Name = "RangeAsEnumAuthorizedValues" Value = "STRAIGHT;WINDER;SPIRAL;CURVED;FREEFORM;USERDEFINED;NOTDEFINED"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+        <Equal>5</Equal>
+        <Equal>6</Equal>
+        <Equal>7</Equal>
+      </Range>
+    </Simple>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcStairType" ScopeNames = "AecStairType" Uuid = "b0364c03-4e7a-44e4-b11d-fd86dd5a0233">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcStairType_Tag" Protection = "Free" Type = "String" Uuid = "b0364c03-4e7a-44e4-b11d-cc2a36316812"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcStairType_ElementType" Protection = "Free" Type = "String" Uuid = "b0364c03-4e7a-44e4-b11d-4fccfb51960c"/>
+    <Simple CAAExposition = "L0" DefaultValue = "1" Name = "IfcStairType_PredefinedType" Protection = "Free" Type = "Integer" Uuid = "8484200a-84f7-4de9-b3a5-41e2247758a5">
+      <Property Name = "RangeAsEnumName" Value = "IfcStairTypeEnum"/>
+      <Property Name = "RangeAsEnumAuthorizedValues" Value = "STRAIGHT_RUN_STAIR;TWO_STRAIGHT_RUN_STAIR;QUARTER_WINDING_STAIR;QUARTER_TURN_STAIR;HALF_WINDING_STAIR;HALF_TURN_STAIR;TWO_QUARTER_WINDING_STAIR;TWO_QUARTER_TURN_STAIR;THREE_QUARTER_WINDING_STAIR;THREE_QUARTER_TURN_STAIR;SPIRAL_STAIR;DOUBLE_RETURN_STAIR;CURVED_RUN_STAIR;TWO_CURVED_RUN_STAIR;USERDEFINED;NOTDEFINED"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+        <Equal>5</Equal>
+        <Equal>6</Equal>
+        <Equal>7</Equal>
+        <Equal>8</Equal>
+        <Equal>9</Equal>
+        <Equal>10</Equal>
+        <Equal>11</Equal>
+        <Equal>12</Equal>
+        <Equal>13</Equal>
+        <Equal>14</Equal>
+        <Equal>15</Equal>
+        <Equal>16</Equal>
+      </Range>
+    </Simple>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcWindow" ScopeNames = "AecWindow" Uuid = "c43ff3f0-27e2-4d2d-92c0-066f306cecb2">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcWindow_ObjectType" Protection = "Free" Type = "String" Uuid = "c43ff3f0-27e2-4d2d-92c0-1ad52eb2ea5e"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcWindow_Tag" Protection = "Free" Type = "String" Uuid = "c43ff3f0-27e2-4d2d-92c0-ed12431a92f4"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcWindow_OverallHeight" Protection = "Free" Type = "Double" Uuid = "eeb1153d-e981-4a4c-bbd8-8496472218b2"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcWindow_OverallWidth" Protection = "Free" Type = "Double" Uuid = "0ac3ab2b-ebbe-4493-9694-4e01d58e6753"/>
+    <Simple CAAExposition = "L0" DefaultValue = "1" Name = "IfcWindow_PredefinedType" Protection = "Free" Type = "Integer" Uuid = "bc16b116-90e2-43f7-ade8-37fc34f8fe5f">
+      <Property Name = "RangeAsEnumName" Value = "IfcWindowTypeEnum"/>
+      <Property Name = "RangeAsEnumAuthorizedValues" Value = "WINDOW;SKYLIGHT;LIGHTDOME;USERDEFINED;NOTDEFINED"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+        <Equal>5</Equal>
+      </Range>
+    </Simple>
+    <Simple CAAExposition = "L0" DefaultValue = "1" Name = "IfcWindow_PartitioningType" Protection = "Free" Type = "Integer" Uuid = "d13e324c-734f-411a-a505-2fc3cd5019c8">
+      <Property Name = "RangeAsEnumName" Value = "IfcWindowTypePartitioningEnum"/>
+      <Property Name = "RangeAsEnumAuthorizedValues" Value = "SINGLE_PANEL;DOUBLE_PANEL_VERTICAL;DOUBLE_PANEL_HORIZONTAL;TRIPLE_PANEL_VERTICAL;TRIPLE_PANEL_BOTTOM;TRIPLE_PANEL_TOP;TRIPLE_PANEL_LEFT;TRIPLE_PANEL_RIGHT;TRIPLE_PANEL_HORIZONTAL;USERDEFINED;NOTDEFINED"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+        <Equal>5</Equal>
+        <Equal>6</Equal>
+        <Equal>7</Equal>
+        <Equal>8</Equal>
+        <Equal>9</Equal>
+        <Equal>10</Equal>
+        <Equal>11</Equal>
+      </Range>
+    </Simple>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcWindowStandardCase" ScopeNames = "AecWindow" Uuid = "17fbd0c7-67c3-4f81-b0be-7ea65ee8c2b8">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcWindowStandardCase_ObjectType" Protection = "Free" Type = "String" Uuid = "17fbd0c7-67c3-4f81-b0be-1ad52eb2ea5e"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcWindowStandardCase_Tag" Protection = "Free" Type = "String" Uuid = "17fbd0c7-67c3-4f81-b0be-ed12431a92f4"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcWindowStandardCase_OverallHeight" Protection = "Free" Type = "Double" Uuid = "17fbd0c7-67c3-4f81-b0be-8496472218b2"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcWindowStandardCase_OverallWidth" Protection = "Free" Type = "Double" Uuid = "17fbd0c7-67c3-4f81-b0be-4e01d58e6753"/>
+    <Simple CAAExposition = "L0" DefaultValue = "1" Name = "IfcWindowStandardCase_PredefinedType" Protection = "Free" Type = "Integer" Uuid = "17fbd0c7-67c3-4f81-b0be-37fc34f8fe5f">
+      <Property Name = "RangeAsEnumName" Value = "IfcWindowTypeEnum"/>
+      <Property Name = "RangeAsEnumAuthorizedValues" Value = "WINDOW;SKYLIGHT;LIGHTDOME;USERDEFINED;NOTDEFINED"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+        <Equal>5</Equal>
+      </Range>
+    </Simple>
+    <Simple CAAExposition = "L0" DefaultValue = "1" Name = "IfcWindowStandardCase_PartitioningType" Protection = "Free" Type = "Integer" Uuid = "17fbd0c7-67c3-4f81-b0be-2fc3cd5019c8">
+      <Property Name = "RangeAsEnumName" Value = "IfcWindowTypePartitioningEnum"/>
+      <Property Name = "RangeAsEnumAuthorizedValues" Value = "SINGLE_PANEL;DOUBLE_PANEL_VERTICAL;DOUBLE_PANEL_HORIZONTAL;TRIPLE_PANEL_VERTICAL;TRIPLE_PANEL_BOTTOM;TRIPLE_PANEL_TOP;TRIPLE_PANEL_LEFT;TRIPLE_PANEL_RIGHT;TRIPLE_PANEL_HORIZONTAL;USERDEFINED;NOTDEFINED"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+        <Equal>5</Equal>
+        <Equal>6</Equal>
+        <Equal>7</Equal>
+        <Equal>8</Equal>
+        <Equal>9</Equal>
+        <Equal>10</Equal>
+        <Equal>11</Equal>
+      </Range>
+    </Simple>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcWindowType" ScopeNames = "AecWindowType" Uuid = "8a3ac391-5ef2-4353-ab39-70e06c4c3627">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcWindowType_Tag" Protection = "Free" Type = "String" Uuid = "8a3ac391-5ef2-4353-ab39-cc2a36316812"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcWindowType_ElementType" Protection = "Free" Type = "String" Uuid = "8a3ac391-5ef2-4353-ab39-4fccfb51960c"/>
+    <Simple CAAExposition = "L0" DefaultValue = "1" Name = "IfcWindowType_PredefinedType" Protection = "Free" Type = "Integer" Uuid = "49e291ef-8497-4b07-9ee7-546eea08aa7b">
+      <Property Name = "RangeAsEnumName" Value = "IfcWindowTypeEnum"/>
+      <Property Name = "RangeAsEnumAuthorizedValues" Value = "WINDOW;SKYLIGHT;LIGHTDOME;USERDEFINED;NOTDEFINED"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+        <Equal>5</Equal>
+      </Range>
+    </Simple>
+    <Simple CAAExposition = "L0" DefaultValue = "1" Name = "IfcWindowType_PartitioningType" Protection = "Free" Type = "Integer" Uuid = "4572bc95-cbb2-46fb-ba60-d60b2324176d">
+      <Property Name = "RangeAsEnumName" Value = "IfcWindowTypePartitioningEnum"/>
+      <Property Name = "RangeAsEnumAuthorizedValues" Value = "SINGLE_PANEL;DOUBLE_PANEL_VERTICAL;DOUBLE_PANEL_HORIZONTAL;TRIPLE_PANEL_VERTICAL;TRIPLE_PANEL_BOTTOM;TRIPLE_PANEL_TOP;TRIPLE_PANEL_LEFT;TRIPLE_PANEL_RIGHT;TRIPLE_PANEL_HORIZONTAL;USERDEFINED;NOTDEFINED"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+        <Equal>5</Equal>
+        <Equal>6</Equal>
+        <Equal>7</Equal>
+        <Equal>8</Equal>
+        <Equal>9</Equal>
+        <Equal>10</Equal>
+        <Equal>11</Equal>
+      </Range>
+    </Simple>
+    <Simple CAAExposition = "L0" Name = "IfcWindowType_ParameterTakesPrecedence" Protection = "Free" Type = "Boolean" Uuid = "dbb82f77-9a86-498c-a11d-0828c4e84c89"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcPset_ChimneyCommon" ScopeNames = "AecChimney AecChimneyType" Uuid = "901DA3A1-F53A-4070-9946-361DF13B0F5C">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_ChimneyCommon_Reference" Protection = "Free" Type = "String" Uuid = "B41918E2-C07D-40AD-A95D-A1C04E43C915"/>
+    <Simple CAAExposition = "L0" DefaultValue = "UNSET" MaxLength = "255" Name = "IfcPset_ChimneyCommon_Status" Protection = "Free" Type = "String" Uuid = "09773E83-A143-4B8B-BBB2-F2823C800309">
+      <Range>
+        <Equal>NEW</Equal>
+        <Equal>EXISTING</Equal>
+        <Equal>DEMOLISH</Equal>
+        <Equal>TEMPORARY</Equal>
+        <Equal>OTHER</Equal>
+        <Equal>NOTKNOWN</Equal>
+        <Equal>UNSET</Equal>
+        <Equal></Equal>
+      </Range>
+    </Simple>
+    <Simple CAAExposition = "L0" Name = "IfcPset_ChimneyCommon_NumberOfDrafts" Protection = "Free" Type = "Double" Uuid = "98E3421C-AF0B-48A5-8D17-FADAB2A3F546"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_ChimneyCommon_IsExternal" Protection = "Free" Type = "Boolean" Uuid = "9CE1D989-35F4-4031-BEDA-0C675EB99AA1"/>
+    <Simple CAAExposition = "L0" Magnitude = "THERMALTRANSMITTANCE" Name = "IfcPset_ChimneyCommon_ThermalTransmittance" Protection = "Free" Type = "Double" Uuid = "008B1242-C1A6-4B29-B426-92E9B8E3165C"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_ChimneyCommon_LoadBearing" Protection = "Free" Type = "Boolean" Uuid = "64FB417C-A903-4678-BCB1-83A453C2FF0C"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_ChimneyCommon_FireRating" Protection = "Free" Type = "String" Uuid = "FAA774AD-0AB4-4565-A12F-11291687178B"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcPset_CoveringCeiling" ScopeNames = "AecCovering AecCoveringType" Uuid = "9EDDC25B-FA16-4E96-99FB-71A720E6186D">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" Magnitude = "Ratio" Name = "IfcPset_CoveringCeiling_Permeability" Protection = "Free" Type = "Double" Uuid = "79AA2494-D6AD-44C6-A6BE-A0AE06CBC4AC"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_CoveringCeiling_TileLength" Protection = "Free" Type = "Double" Uuid = "610BA477-1463-4643-940D-0F772E717C32"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_CoveringCeiling_TileWidth" Protection = "Free" Type = "Double" Uuid = "189C51E3-D993-400A-946B-E3DDED994A67"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcPset_CoveringCommon" ScopeNames = "AecCovering AecCoveringType" Uuid = "1A931408-7B5E-4B5C-AB9C-9F043417C0A3">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_CoveringCommon_Reference" Protection = "Free" Type = "String" Uuid = "D28F2416-4E73-4A94-AC5A-A50CEEF4B824"/>
+    <Simple CAAExposition = "L0" DefaultValue = "UNSET" MaxLength = "255" Name = "IfcPset_CoveringCommon_Status" Protection = "Free" Type = "String" Uuid = "ECC4F49E-B990-4665-9E90-2B78CA52ADC0">
+      <Range>
+        <Equal>NEW</Equal>
+        <Equal>EXISTING</Equal>
+        <Equal>DEMOLISH</Equal>
+        <Equal>TEMPORARY</Equal>
+        <Equal>OTHER</Equal>
+        <Equal>NOTKNOWN</Equal>
+        <Equal>UNSET</Equal>
+        <Equal></Equal>
+      </Range>
+    </Simple>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_CoveringCommon_FireRating" Protection = "Free" Type = "String" Uuid = "0FC02FC7-5730-42FF-AAB6-A7773060B190"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_CoveringCommon_AcousticRating" Protection = "Free" Type = "String" Uuid = "AC175D59-D954-4A4D-A2E6-65C15D4568F2"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_CoveringCommon_FlammabilityRating" Protection = "Free" Type = "String" Uuid = "18387E44-D875-492A-B790-B9CCFF8EC04D"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_CoveringCommon_FragilityRating" Protection = "Free" Type = "String" Uuid = "BC70FE61-DFAA-40C0-A979-4CF8769488D6"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_CoveringCommon_SurfaceSpreadOfFlame" Protection = "Free" Type = "String" Uuid = "87880C47-1B2E-4C48-9846-F3AA41F5F98F"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_CoveringCommon_Combustible" Protection = "Free" Type = "Boolean" Uuid = "F8025F85-8B6A-47C0-9911-E4B6EEEF29BD"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_CoveringCommon_IsExternal" Protection = "Free" Type = "Boolean" Uuid = "3AD330B1-9FEA-4B46-A4F7-1A34FE938C64"/>
+    <Simple CAAExposition = "L0" Magnitude = "THERMALTRANSMITTANCE" Name = "IfcPset_CoveringCommon_ThermalTransmittance" Protection = "Free" Type = "Double" Uuid = "9E3CE991-5806-4875-9658-5926AF66A4ED"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_CoveringCommon_Finish" Protection = "Free" Type = "String" Uuid = "2A0E7CC8-B493-4538-87D3-AB9460C44A7A"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcPset_CoveringFlooring" ScopeNames = "AecCovering AecCoveringType" Uuid = "8D8E8082-F13A-460F-B982-618FB789AFA4">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_CoveringFlooring_HasNonSkidSurface" Protection = "Free" Type = "Boolean" Uuid = "1FC00CE1-2419-4079-AAB4-3F902BFA4054"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_CoveringFlooring_HasAntiStaticSurface" Protection = "Free" Type = "Boolean" Uuid = "9C1355FC-C84F-48C7-B041-C9E908F61AD5"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcPset_CurtainWallCommon" ScopeNames = "AecCurtainWall AecCurtainWallType" Uuid = "350306D9-68EC-44DC-95F0-B173F86C3CDB">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_CurtainWallCommon_Reference" Protection = "Free" Type = "String" Uuid = "B586BD23-24BC-4F4B-B337-B607E84D48CC"/>
+    <Simple CAAExposition = "L0" DefaultValue = "UNSET" MaxLength = "255" Name = "IfcPset_CurtainWallCommon_Status" Protection = "Free" Type = "String" Uuid = "2B9EDF43-AE21-4754-B7BB-BD7863B740E9">
+      <Range>
+        <Equal>NEW</Equal>
+        <Equal>EXISTING</Equal>
+        <Equal>DEMOLISH</Equal>
+        <Equal>TEMPORARY</Equal>
+        <Equal>OTHER</Equal>
+        <Equal>NOTKNOWN</Equal>
+        <Equal>UNSET</Equal>
+        <Equal></Equal>
+      </Range>
+    </Simple>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_CurtainWallCommon_AcousticRating" Protection = "Free" Type = "String" Uuid = "1962B732-D74C-454D-ACEE-22C0F2A49935"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_CurtainWallCommon_FireRating" Protection = "Free" Type = "String" Uuid = "BCCE1B90-37D3-4CD7-B1C2-BC48473832CD"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_CurtainWallCommon_Combustible" Protection = "Free" Type = "Boolean" Uuid = "0C19874F-CCD0-4647-ABF4-56DF5C40F830"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_CurtainWallCommon_SurfaceSpreadOfFlame" Protection = "Free" Type = "String" Uuid = "8B4D1063-33EF-40ED-A8ED-CDA965B3A8CD"/>
+    <Simple CAAExposition = "L0" Magnitude = "THERMALTRANSMITTANCE" Name = "IfcPset_CurtainWallCommon_ThermalTransmittance" Protection = "Free" Type = "Double" Uuid = "8B8C744F-C017-4092-8DF0-A94FC3630213"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_CurtainWallCommon_IsExternal" Protection = "Free" Type = "Boolean" Uuid = "1CB9E819-F8C5-441F-A5F8-C8F74CB0702D"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcPset_DoorCommon" ScopeNames = "AecDoor AecDoorType" Uuid = "D58A522D-D065-40F5-85D6-C5D2DD430566">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_DoorCommon_Reference" Protection = "Free" Type = "String" Uuid = "667292AC-38EB-499D-9DC4-D528B035769B"/>
+    <Simple CAAExposition = "L0" DefaultValue = "UNSET" MaxLength = "255" Name = "IfcPset_DoorCommon_Status" Protection = "Free" Type = "String" Uuid = "55E95113-B89C-4143-AA9E-29C265BBB970">
+      <Range>
+        <Equal>NEW</Equal>
+        <Equal>EXISTING</Equal>
+        <Equal>DEMOLISH</Equal>
+        <Equal>TEMPORARY</Equal>
+        <Equal>OTHER</Equal>
+        <Equal>NOTKNOWN</Equal>
+        <Equal>UNSET</Equal>
+        <Equal></Equal>
+      </Range>
+    </Simple>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_DoorCommon_FireRating" Protection = "Free" Type = "String" Uuid = "EC7AA84B-2626-4C53-8517-1803C6C76FC7"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_DoorCommon_AcousticRating" Protection = "Free" Type = "String" Uuid = "E2FEA6CC-5A48-45A4-ADFE-F468B768A438"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_DoorCommon_SecurityRating" Protection = "Free" Type = "String" Uuid = "8FB2C495-F597-4C46-9750-2A5477E32FEB"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_DoorCommon_DurabilityRating" Protection = "Free" Type = "String" Uuid = "504772B1-0FA7-4199-A44B-8998C1632516"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_DoorCommon_HygrothermalRating" Protection = "Free" Type = "String" Uuid = "05986952-2DF9-48D1-84F6-02CA9CCB69B0"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_DoorCommon_WaterTightnessRating" Protection = "Free" Type = "String" Uuid = "384AE845-7DB2-4C72-8054-A9D8D733B87C"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_DoorCommon_MechanicalLoadRating" Protection = "Free" Type = "String" Uuid = "186A3C43-8886-493F-B666-B6ADD35D7A19"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_DoorCommon_WindLoadRating" Protection = "Free" Type = "String" Uuid = "0BD9BF2F-9CBA-4ED0-848E-A666FEC18CFD"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_DoorCommon_IsExternal" Protection = "Free" Type = "Boolean" Uuid = "CA368669-D14D-4A7C-89F9-E921D63F44B5"/>
+    <Simple CAAExposition = "L0" Magnitude = "VOL_FLOW" Name = "IfcPset_DoorCommon_Infiltration" Protection = "Free" Type = "Double" Uuid = "0582B4B6-3F6B-4108-BD28-71F69226129E"/>
+    <Simple CAAExposition = "L0" Magnitude = "THERMALTRANSMITTANCE" Name = "IfcPset_DoorCommon_ThermalTransmittance" Protection = "Free" Type = "Double" Uuid = "878B2903-CA50-4626-A614-31BEDD8D0295"/>
+    <Simple CAAExposition = "L0" Magnitude = "Ratio" Name = "IfcPset_DoorCommon_GlazingAreaFraction" Protection = "Free" Type = "Double" Uuid = "E624DC97-DA2E-4256-9E07-29D3FEFBE44A"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_DoorCommon_HandicapAccessible" Protection = "Free" Type = "Boolean" Uuid = "C0B9213F-40B4-45B3-B81C-EE4963F07728"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_DoorCommon_FireExit" Protection = "Free" Type = "Boolean" Uuid = "3C6BA624-FF49-4615-A8DC-D2C50EAD0238"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_DoorCommon_HasDrive" Protection = "Free" Type = "Boolean" Uuid = "D60A5576-C9CE-41D4-A8E2-BEB105C65BD6"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_DoorCommon_SelfClosing" Protection = "Free" Type = "Boolean" Uuid = "E7503399-9E2D-4AF7-9954-1D9E44A26743"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_DoorCommon_SmokeStop" Protection = "Free" Type = "Boolean" Uuid = "232F3CF0-97ED-4A33-862C-F5B1C5BB5DF5"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcPset_DoorWindowGlazingType" ScopeNames = "AecDoor AecWindow AecDoorType AecWindowType" Uuid = "3d29a8a5-dffe-4ce8-8e32-2810d831f557">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_DoorWindowGlazingType_GlassLayers" Protection = "Free" Type = "Integer" Uuid = "acd1cbf7-c09d-4137-bf0c-c7440668b2e0"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_DoorWindowGlazingType_GlassThickness1" Protection = "Free" Type = "Double" Uuid = "11e7733b-f8ec-4011-8514-d48e28c478d4"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_DoorWindowGlazingType_GlassThickness2" Protection = "Free" Type = "Double" Uuid = "2d885072-6de1-4bdd-8325-570b948b7976"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_DoorWindowGlazingType_GlassThickness3" Protection = "Free" Type = "Double" Uuid = "b372b150-2577-459e-bf2c-82e70923fa53"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_DoorWindowGlazingType_FillGas" Protection = "Free" Type = "String" Uuid = "748a157c-72c1-4476-a3ba-dd76b7074333"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_DoorWindowGlazingType_GlassColor" Protection = "Free" Type = "String" Uuid = "703533b2-6b67-4a70-8092-895f39f3870c"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_DoorWindowGlazingType_IsTempered" Protection = "Free" Type = "Boolean" Uuid = "41b0dbf3-4459-453b-9a60-a55d726a3edb"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_DoorWindowGlazingType_IsLaminated" Protection = "Free" Type = "Boolean" Uuid = "767c05e5-f0ce-4892-bc65-edc7981d4f90"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_DoorWindowGlazingType_IsCoated" Protection = "Free" Type = "Boolean" Uuid = "b3549bd7-b8fe-45d1-8675-cb3f86e0f4b3"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_DoorWindowGlazingType_IsWired" Protection = "Free" Type = "Boolean" Uuid = "156738e3-b34b-4559-9e7e-ac16f58f92be"/>
+    <Simple CAAExposition = "L0" Magnitude = "Ratio" Name = "IfcPset_DoorWindowGlazingType_VisibleLightReflectance" Protection = "Free" Type = "Double" Uuid = "cd4bd473-0018-4ca8-8b9d-b1b84dc13bfd"/>
+    <Simple CAAExposition = "L0" Magnitude = "Ratio" Name = "IfcPset_DoorWindowGlazingType_VisibleLightTransmittance" Protection = "Free" Type = "Double" Uuid = "947ccf05-f26c-4d22-971e-e49f004cfdd4"/>
+    <Simple CAAExposition = "L0" Magnitude = "Ratio" Name = "IfcPset_DoorWindowGlazingType_SolarAbsorption" Protection = "Free" Type = "Double" Uuid = "0f1744b9-1dd9-42a7-999a-5167552b17ba"/>
+    <Simple CAAExposition = "L0" Magnitude = "Ratio" Name = "IfcPset_DoorWindowGlazingType_SolarReflectance" Protection = "Free" Type = "Double" Uuid = "ae72ca16-ad9b-4eaa-9c73-d02c3f983df9"/>
+    <Simple CAAExposition = "L0" Magnitude = "Ratio" Name = "IfcPset_DoorWindowGlazingType_SolarTransmittance" Protection = "Free" Type = "Double" Uuid = "d7d46514-714a-4445-81c7-41a1b033ebbb"/>
+    <Simple CAAExposition = "L0" Magnitude = "Ratio" Name = "IfcPset_DoorWindowGlazingType_SolarHeatGainTransmittance" Protection = "Free" Type = "Double" Uuid = "79f95966-ee6c-4ab4-a2e6-9ac3a3c0af2b"/>
+    <Simple CAAExposition = "L0" Magnitude = "Ratio" Name = "IfcPset_DoorWindowGlazingType_ShadingCoefficient" Protection = "Free" Type = "Double" Uuid = "f841d3aa-5180-419d-90fb-f33b0c960b98"/>
+    <Simple CAAExposition = "L0" Magnitude = "THERMALTRANSMITTANCE" Name = "IfcPset_DoorWindowGlazingType_ThermalTransmittanceSummer" Protection = "Free" Type = "Double" Uuid = "373306c4-0b9a-4d3f-8111-9a4295d9ca4b"/>
+    <Simple CAAExposition = "L0" Magnitude = "THERMALTRANSMITTANCE" Name = "IfcPset_DoorWindowGlazingType_ThermalTransmittanceWinter" Protection = "Free" Type = "Double" Uuid = "0978547f-41c2-4810-adfb-853f03c4f943"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcPset_DoorWindowShadingType" ScopeNames = "AecDoor AecWindow AecDoorType AecWindowType" Uuid = "ea8c64a3-6f8e-4da0-9020-04b5ae35bd77">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" Magnitude = "Ratio" Name = "IfcPset_DoorWindowShadingType_ShadingCoefficient" Protection = "Free" Type = "Double" Uuid = "4ae818d9-2ea5-4827-8114-d691e5df159c"/>
+    <Simple CAAExposition = "L0" Magnitude = "Ratio" Name = "IfcPset_DoorWindowShadingType_ExternalShadingCoefficient" Protection = "Free" Type = "Double" Uuid = "e11aa80f-66ef-406b-b100-4958cbfd4745"/>
+    <Simple CAAExposition = "L0" Magnitude = "Ratio" Name = "IfcPset_DoorWindowShadingType_InternalShadingCoefficient" Protection = "Free" Type = "Double" Uuid = "d8b0bcfa-4e37-4eea-a40d-c9cb7ffee802"/>
+    <Simple CAAExposition = "L0" Magnitude = "Ratio" Name = "IfcPset_DoorWindowShadingType_InsetShadingCoefficient" Protection = "Free" Type = "Double" Uuid = "b9afbca4-0b0f-4f80-94c5-28ed60e5b205"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcPset_RailingCommon" ScopeNames = "AecRailing AecRailingType" Uuid = "B8ED68B7-A0AB-4D74-B1CF-73E7E39DCB6A">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_RailingCommon_Reference" Protection = "Free" Type = "String" Uuid = "AC7B2988-0878-4D77-9D28-0106A7550E46"/>
+    <Simple CAAExposition = "L0" DefaultValue = "UNSET" MaxLength = "255" Name = "IfcPset_RailingCommon_Status" Protection = "Free" Type = "String" Uuid = "DA1E2869-B3DF-4B4E-8E30-363F60AED52D">
+      <Range>
+        <Equal>NEW</Equal>
+        <Equal>EXISTING</Equal>
+        <Equal>DEMOLISH</Equal>
+        <Equal>TEMPORARY</Equal>
+        <Equal>OTHER</Equal>
+        <Equal>NOTKNOWN</Equal>
+        <Equal>UNSET</Equal>
+        <Equal></Equal>
+      </Range>
+    </Simple>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_RailingCommon_Height" Protection = "Free" Type = "Double" Uuid = "C56DB77D-0989-4C58-BDC9-04B07A4CF0BF"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_RailingCommon_Diameter" Protection = "Free" Type = "Double" Uuid = "EE02C9CD-B128-40F6-BA88-2C7086267AE7"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_RailingCommon_IsExternal" Protection = "Free" Type = "Boolean" Uuid = "99C1372C-739E-4B9C-ADBF-A6C7170BEC8D"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcPset_RampCommon" ScopeNames = "AecRamp AecRampType" Uuid = "F2C8F6F9-5692-43F6-AC0D-AA26D0FBEC72">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_RampCommon_Reference" Protection = "Free" Type = "String" Uuid = "9A3656D7-8A1C-4706-AF5C-216B80F1CFF6"/>
+    <Simple CAAExposition = "L0" DefaultValue = "UNSET" MaxLength = "255" Name = "IfcPset_RampCommon_Status" Protection = "Free" Type = "String" Uuid = "3115BBAC-BD24-4FA6-B93A-A741E0A63BFA">
+      <Range>
+        <Equal>NEW</Equal>
+        <Equal>EXISTING</Equal>
+        <Equal>DEMOLISH</Equal>
+        <Equal>TEMPORARY</Equal>
+        <Equal>OTHER</Equal>
+        <Equal>NOTKNOWN</Equal>
+        <Equal>UNSET</Equal>
+        <Equal></Equal>
+      </Range>
+    </Simple>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_RampCommon_RequiredHeadroom" Protection = "Free" Type = "Double" Uuid = "3F2401F9-1F4E-41A3-B00C-D558800EB5A8"/>
+    <Simple CAAExposition = "L0" Magnitude = "ANGLE" Name = "IfcPset_RampCommon_RequiredSlope" Protection = "Free" Type = "Double" Uuid = "D0B207FF-D249-4FC0-B43A-0A73ACBA8A9D"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_RampCommon_IsExternal" Protection = "Free" Type = "Boolean" Uuid = "51B5EF89-C9A6-4442-8DE8-DD394AEE8002"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_RampCommon_FireRating" Protection = "Free" Type = "String" Uuid = "CDA540E6-55CF-4BE3-BDC9-FB28278BB9A9"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_RampCommon_FireExit" Protection = "Free" Type = "Boolean" Uuid = "BAA5BFFB-68EC-4C81-8851-407733008259"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_RampCommon_HandicapAccessible" Protection = "Free" Type = "Boolean" Uuid = "57823DCC-4C33-47C6-BB9E-1058146CD2E5"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_RampCommon_HasNonSkidSurface" Protection = "Free" Type = "Boolean" Uuid = "19F9635F-5291-4C22-8AE6-0A1BC402C674"/>
+    <Simple CAAExposition = "L0" Magnitude = "THERMALTRANSMITTANCE" Name = "IfcPset_RampCommon_ThermalTransmittance" Protection = "Free" Type = "Double" Uuid = "3C66AF53-A966-44A5-8750-99E6C4BCF509"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_RampCommon_LoadBearing" Protection = "Free" Type = "Boolean" Uuid = "1CD5CE48-C838-441F-A93F-5738917B940D"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcPset_RampFlightCommon" ScopeNames = "AecRampFlight AecRampFlightType" Uuid = "E5B83460-103D-4DB9-97C6-E8468AE28DB0">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_RampFlightCommon_Reference" Protection = "Free" Type = "String" Uuid = "736BA261-36AC-49AC-B078-BB9857C1CA25"/>
+    <Simple CAAExposition = "L0" DefaultValue = "UNSET" MaxLength = "255" Name = "IfcPset_RampFlightCommon_Status" Protection = "Free" Type = "String" Uuid = "1E972CB4-1820-4B57-AF35-0017B6719DDF">
+      <Range>
+        <Equal>NEW</Equal>
+        <Equal>EXISTING</Equal>
+        <Equal>DEMOLISH</Equal>
+        <Equal>TEMPORARY</Equal>
+        <Equal>OTHER</Equal>
+        <Equal>NOTKNOWN</Equal>
+        <Equal>UNSET</Equal>
+        <Equal></Equal>
+      </Range>
+    </Simple>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_RampFlightCommon_Headroom" Protection = "Free" Type = "Double" Uuid = "03F8D275-6467-4745-B2FA-09561173C7EE"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_RampFlightCommon_ClearWidth" Protection = "Free" Type = "Double" Uuid = "DACCB5EE-F07E-4F53-8E8A-BE29D3F3484B"/>
+    <Simple CAAExposition = "L0" Magnitude = "ANGLE" Name = "IfcPset_RampFlightCommon_Slope" Protection = "Free" Type = "Double" Uuid = "8B30A8BC-9CC8-4D1F-88EB-248D5C76536B"/>
+    <Simple CAAExposition = "L0" Magnitude = "ANGLE" Name = "IfcPset_RampFlightCommon_CounterSlope" Protection = "Free" Type = "Double" Uuid = "33D5AE35-E0F4-4145-96F8-52BCD326571C"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcPset_RoofCommon" ScopeNames = "AecRoof AecRoofType" Uuid = "204B5D52-3EF3-487C-91BA-84E21C6A6772">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_RoofCommon_Reference" Protection = "Free" Type = "String" Uuid = "76F20D3A-F06A-4687-B63E-F2F9271F0F7D"/>
+    <Simple CAAExposition = "L0" DefaultValue = "UNSET" MaxLength = "255" Name = "IfcPset_RoofCommon_Status" Protection = "Free" Type = "String" Uuid = "A8599E49-32D7-4DAD-879C-F9B9C32ABF61">
+      <Range>
+        <Equal>NEW</Equal>
+        <Equal>EXISTING</Equal>
+        <Equal>DEMOLISH</Equal>
+        <Equal>TEMPORARY</Equal>
+        <Equal>OTHER</Equal>
+        <Equal>NOTKNOWN</Equal>
+        <Equal>UNSET</Equal>
+        <Equal></Equal>
+      </Range>
+    </Simple>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_RoofCommon_AcousticRating" Protection = "Free" Type = "String" Uuid = "5B32BC19-DAC8-4160-98EF-D40315B25BFD"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_RoofCommon_FireRating" Protection = "Free" Type = "String" Uuid = "306A78E9-6B55-4789-AC45-E8206758594D"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_RoofCommon_IsExternal" Protection = "Free" Type = "Boolean" Uuid = "142F619B-D97D-4538-AB33-0401D66A7F5B"/>
+    <Simple CAAExposition = "L0" Magnitude = "THERMALTRANSMITTANCE" Name = "IfcPset_RoofCommon_ThermalTransmittance" Protection = "Free" Type = "Double" Uuid = "28DF43A7-189E-4B76-ABD0-1ADA90F7507F"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_RoofCommon_LoadBearing" Protection = "Free" Type = "Boolean" Uuid = "B490FA56-5D66-4543-95B8-804D94FB634E"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcPset_ShadingDeviceCommon" ScopeNames = "AecShadingDevice AecShadingDeviceType" Uuid = "119256FB-FDDE-4294-8AA1-F64E7F20CBD4">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_ShadingDeviceCommon_Reference" Protection = "Free" Type = "String" Uuid = "FD4AFA1D-3FD8-4672-8465-1D15BB21E549"/>
+    <Simple CAAExposition = "L0" DefaultValue = "UNSET" MaxLength = "255" Name = "IfcPset_ShadingDeviceCommon_Status" Protection = "Free" Type = "String" Uuid = "777E3B57-83A6-4A00-B0CC-F6E2C9FA7335">
+      <Range>
+        <Equal>NEW</Equal>
+        <Equal>EXISTING</Equal>
+        <Equal>DEMOLISH</Equal>
+        <Equal>TEMPORARY</Equal>
+        <Equal>OTHER</Equal>
+        <Equal>NOTKNOWN</Equal>
+        <Equal>UNSET</Equal>
+        <Equal></Equal>
+      </Range>
+    </Simple>
+    <Simple CAAExposition = "L0" DefaultValue = "UNSET" MaxLength = "255" Name = "IfcPset_ShadingDeviceCommon_ShadingDeviceType" Protection = "Free" Type = "String" Uuid = "3B8870F1-C0D6-417B-A5C7-16E6926DEF16">
+      <Range>
+        <Equal>FIXED</Equal>
+        <Equal>MOVABLE</Equal>
+        <Equal>OVERHANG</Equal>
+        <Equal>SIDEFIN</Equal>
+        <Equal>OTHER</Equal>
+        <Equal>NOTKNOWN</Equal>
+        <Equal>UNSET</Equal>
+        <Equal></Equal>
+      </Range>
+    </Simple>
+    <Simple CAAExposition = "L0" Name = "IfcPset_ShadingDeviceCommon_IsExternal" Protection = "Free" Type = "Boolean" Uuid = "0AD68923-6C70-4ECD-9978-45AFDBBAD560"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_ShadingDeviceCommon_MechanicalOperated" Protection = "Free" Type = "Boolean" Uuid = "D6D280B0-7D46-4507-9DF3-ED71D125C0D2"/>
+    <Simple CAAExposition = "L0" Magnitude = "THERMALTRANSMITTANCE" Name = "IfcPset_ShadingDeviceCommon_ThermalTransmittance" Protection = "Free" Type = "Double" Uuid = "CEDFC6D0-952B-4350-9F0A-806B8739EE54"/>
+    <Simple CAAExposition = "L0" Magnitude = "Ratio" Name = "IfcPset_ShadingDeviceCommon_SolarTransmittance" Protection = "Free" Type = "Double" Uuid = "444AE4EF-7BE1-4237-AC47-EF79D12E1C56"/>
+    <Simple CAAExposition = "L0" Magnitude = "Ratio" Name = "IfcPset_ShadingDeviceCommon_VisibleLightTransmittance" Protection = "Free" Type = "Double" Uuid = "E9E8CBD1-7629-4F24-B68E-B8C9BA639B67"/>
+    <Simple CAAExposition = "L0" Magnitude = "Ratio" Name = "IfcPset_ShadingDeviceCommon_SolarReflectance" Protection = "Free" Type = "Double" Uuid = "7CD67748-A271-4381-A799-66090F6A824A"/>
+    <Simple CAAExposition = "L0" Magnitude = "Ratio" Name = "IfcPset_ShadingDeviceCommon_VisibleLightReflectance" Protection = "Free" Type = "Double" Uuid = "A7DA37B1-7F60-4740-BD45-BF66633EB9A2"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_ShadingDeviceCommon_Roughness" Protection = "Free" Type = "String" Uuid = "040D83CA-9AA3-49A0-B98F-48435BBBA361"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_ShadingDeviceCommon_SurfaceColor" Protection = "Free" Type = "String" Uuid = "B33341EA-BDAC-4A52-9373-264A65CB8BEA"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcPset_ShadingDevicePHistory" ScopeNames = "AecShadingDevice AecShadingDeviceType" Uuid = "56023DB2-E5CC-4B9D-B871-403C832D7266">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_ShadingDevicePHistory_TiltAngle" Protection = "Free" Type = "String" Uuid = "679B6631-6D2A-4552-BE54-ED7C4833D116"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_ShadingDevicePHistory_Azimuth" Protection = "Free" Type = "String" Uuid = "9BED0607-A816-4C7C-9034-D4FC3C11E064"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcPset_StairCommon" ScopeNames = "AecStair AecStairType" Uuid = "A352FAF9-9D61-4F1B-BACC-5165B59E5AE9">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_StairCommon_Reference" Protection = "Free" Type = "String" Uuid = "777DD94C-2E17-48F6-8F74-0354A384A967"/>
+    <Simple CAAExposition = "L0" DefaultValue = "UNSET" MaxLength = "255" Name = "IfcPset_StairCommon_Status" Protection = "Free" Type = "String" Uuid = "3FC20008-C9DB-4FAC-9150-D795F5437276">
+      <Range>
+        <Equal>NEW</Equal>
+        <Equal>EXISTING</Equal>
+        <Equal>DEMOLISH</Equal>
+        <Equal>TEMPORARY</Equal>
+        <Equal>OTHER</Equal>
+        <Equal>NOTKNOWN</Equal>
+        <Equal>UNSET</Equal>
+        <Equal></Equal>
+      </Range>
+    </Simple>
+    <Simple CAAExposition = "L0" Name = "IfcPset_StairCommon_NumberOfRiser" Protection = "Free" Type = "Double" Uuid = "7ED773E1-226C-4063-9A09-1491236DEF9E"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_StairCommon_NumberOfTreads" Protection = "Free" Type = "Double" Uuid = "40F52036-786F-47AB-8848-97D52F46A0A7"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_StairCommon_RiserHeight" Protection = "Free" Type = "Double" Uuid = "D0985423-3B91-499C-BB21-D8C8BB19F066"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_StairCommon_TreadLength" Protection = "Free" Type = "Double" Uuid = "3F03C503-56FF-47D3-813C-DB79CE4673CC"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_StairCommon_NosingLength" Protection = "Free" Type = "Double" Uuid = "4902C515-13F4-40F0-BD15-66229864AC64"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_StairCommon_WalkingLineOffset" Protection = "Free" Type = "Double" Uuid = "964E1F04-9325-48D3-B785-1749835F2C48"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_StairCommon_TreadLengthAtOffset" Protection = "Free" Type = "Double" Uuid = "FC1111C9-7ADC-4DDF-B634-FF73762EBA48"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_StairCommon_TreadLengthAtInnerSide" Protection = "Free" Type = "Double" Uuid = "D3689960-2616-4036-83E3-17C5CFA5CBAE"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_StairCommon_WaistThickness" Protection = "Free" Type = "Double" Uuid = "37FDDF3E-9FED-42E6-83DF-C2C71A4C5A83"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_StairCommon_RequiredHeadroom" Protection = "Free" Type = "Double" Uuid = "D8F0EB31-041B-45EF-B999-FB642E304FE6"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_StairCommon_IsExternal" Protection = "Free" Type = "Boolean" Uuid = "7CA7858F-8E38-4F4E-B858-07B38797122F"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_StairCommon_FireRating" Protection = "Free" Type = "String" Uuid = "D55BA2B5-7853-407D-90CF-64D92A512047"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_StairCommon_FireExit" Protection = "Free" Type = "Boolean" Uuid = "85C7A056-0F04-4EEB-92EA-FEB8464CB4AF"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_StairCommon_HandicapAccessible" Protection = "Free" Type = "Boolean" Uuid = "A3452E8E-B0BC-41BD-A090-AD4B687561C2"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_StairCommon_HasNonSkidSurface" Protection = "Free" Type = "Boolean" Uuid = "DF0AD679-EA6A-4E7B-93EF-BFEC5B64BC54"/>
+    <Simple CAAExposition = "L0" Magnitude = "THERMALTRANSMITTANCE" Name = "IfcPset_StairCommon_ThermalTransmittance" Protection = "Free" Type = "Double" Uuid = "7A8370AB-5E5D-484E-B13E-2186B352AE46"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_StairCommon_LoadBearing" Protection = "Free" Type = "Boolean" Uuid = "D702F6AC-ACC5-44B8-BF7B-73D2097C5680"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcPset_StairFlightCommon" ScopeNames = "AecStairFlight AecStairFlightType" Uuid = "0629DAB7-B740-4D46-82DF-8F0517088681">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_StairFlightCommon_Reference" Protection = "Free" Type = "String" Uuid = "612D88FB-5C45-479D-9BD3-CAD513F8E9E7"/>
+    <Simple CAAExposition = "L0" DefaultValue = "UNSET" MaxLength = "255" Name = "IfcPset_StairFlightCommon_Status" Protection = "Free" Type = "String" Uuid = "055626EA-FF4F-413C-AAA4-C511504E1BF8">
+      <Range>
+        <Equal>NEW</Equal>
+        <Equal>EXISTING</Equal>
+        <Equal>DEMOLISH</Equal>
+        <Equal>TEMPORARY</Equal>
+        <Equal>OTHER</Equal>
+        <Equal>NOTKNOWN</Equal>
+        <Equal>UNSET</Equal>
+        <Equal></Equal>
+      </Range>
+    </Simple>
+    <Simple CAAExposition = "L0" Name = "IfcPset_StairFlightCommon_NumberOfRiser" Protection = "Free" Type = "Double" Uuid = "DCA7E5C4-E803-44AD-AE68-F5C917E7F131"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_StairFlightCommon_NumberOfTreads" Protection = "Free" Type = "Double" Uuid = "6BAC0910-BD4B-4C81-97A9-CF2517DD6EB9"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_StairFlightCommon_RiserHeight" Protection = "Free" Type = "Double" Uuid = "D6DD3AB2-4628-42BA-8D37-375961D7BAB2"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_StairFlightCommon_TreadLength" Protection = "Free" Type = "Double" Uuid = "FA6E4CF4-EB6D-46CE-BF11-30635980B179"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_StairFlightCommon_NosingLength" Protection = "Free" Type = "Double" Uuid = "A12773E4-D900-43C3-BDF1-11D600A33679"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_StairFlightCommon_WalkingLineOffset" Protection = "Free" Type = "Double" Uuid = "2E4BADFD-72B8-41B5-8596-C63F5E65EBC0"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_StairFlightCommon_TreadLengthAtOffset" Protection = "Free" Type = "Double" Uuid = "6BB25675-8C6C-401F-B75B-B50C59363B15"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_StairFlightCommon_TreadLengthAtInnerSide" Protection = "Free" Type = "Double" Uuid = "A3C8966A-1176-4076-AF92-E7282D84A667"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_StairFlightCommon_Headroom" Protection = "Free" Type = "Double" Uuid = "A93225C4-878E-4D9A-B939-E335D5D2DF70"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_StairFlightCommon_WaistThickness" Protection = "Free" Type = "Double" Uuid = "372D110C-1D5E-4746-AC82-82504674B1A9"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcPset_WindowCommon" ScopeNames = "AecWindow AecWindowType" Uuid = "10B2B612-DC2F-4073-B31A-499D3275C385">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_WindowCommon_Reference" Protection = "Free" Type = "String" Uuid = "3E974569-6D80-4944-BB2D-D7A7D40FA0B5"/>
+    <Simple CAAExposition = "L0" DefaultValue = "UNSET" MaxLength = "255" Name = "IfcPset_WindowCommon_Status" Protection = "Free" Type = "String" Uuid = "A1FE0DD6-8A2E-449F-8B5B-96C938738EA2">
+      <Range>
+        <Equal>NEW</Equal>
+        <Equal>EXISTING</Equal>
+        <Equal>DEMOLISH</Equal>
+        <Equal>TEMPORARY</Equal>
+        <Equal>OTHER</Equal>
+        <Equal>NOTKNOWN</Equal>
+        <Equal>UNSET</Equal>
+        <Equal></Equal>
+      </Range>
+    </Simple>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_WindowCommon_AcousticRating" Protection = "Free" Type = "String" Uuid = "F8F31BE4-593C-42B0-85E5-D3835DE8FD48"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_WindowCommon_FireRating" Protection = "Free" Type = "String" Uuid = "CF77D3CE-97FB-47A2-8F66-1430A41A7D2E"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_WindowCommon_SecurityRating" Protection = "Free" Type = "String" Uuid = "158134C3-E772-42B7-8470-081F83C0D913"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_WindowCommon_IsExternal" Protection = "Free" Type = "Boolean" Uuid = "3B691CE7-4DFD-44F9-92F7-76C1E346B7D6"/>
+    <Simple CAAExposition = "L0" Magnitude = "VOL_FLOW" Name = "IfcPset_WindowCommon_Infiltration" Protection = "Free" Type = "Double" Uuid = "539C8076-1389-47CA-872F-6D86BC2B1ADA"/>
+    <Simple CAAExposition = "L0" Magnitude = "THERMALTRANSMITTANCE" Name = "IfcPset_WindowCommon_ThermalTransmittance" Protection = "Free" Type = "Double" Uuid = "86FF78C0-A46F-486F-924A-2BCF34A9DA54"/>
+    <Simple CAAExposition = "L0" Magnitude = "Ratio" Name = "IfcPset_WindowCommon_GlazingAreaFraction" Protection = "Free" Type = "Double" Uuid = "BA8730EB-C162-4B4D-BDBA-D1FA0A0251C7"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_WindowCommon_HasSillExternal" Protection = "Free" Type = "Boolean" Uuid = "C1F6CDCD-FA35-43D1-BD1D-59D92B40BA27"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_WindowCommon_HasSillInternal" Protection = "Free" Type = "Boolean" Uuid = "126D433D-1A3C-4F14-96A0-9363E30E2438"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_WindowCommon_HasDrive" Protection = "Free" Type = "Boolean" Uuid = "C0005272-4E25-41AE-AF80-76274B069573"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_WindowCommon_SmokeStop" Protection = "Free" Type = "Boolean" Uuid = "18BAB643-6AB7-417F-93B9-E16D9700E422"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_WindowCommon_FireExit" Protection = "Free" Type = "Boolean" Uuid = "78D0784A-A9DE-42D0-BBB0-6122AD348F54"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_WindowCommon_WaterTightnessRating" Protection = "Free" Type = "String" Uuid = "1AF619D6-44D5-4528-AD76-F9FA60599096"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_WindowCommon_MechanicalLoadRating" Protection = "Free" Type = "String" Uuid = "FDAEB162-D94A-40B4-938B-E3CE2F1121EB"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_WindowCommon_WindLoadRating" Protection = "Free" Type = "String" Uuid = "50839053-9908-407F-BCCA-A06B9329F27A"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcQto_ChimneyBaseQuantities" ScopeNames = "AecChimney AecChimneyType" Uuid = "3144904D-3152-4DC5-94E8-4BE84DDDD5D6">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcQto_ChimneyBaseQuantities_MethodOfMeasurement" Protection = "Free" Type = "String" Uuid = "3144904D-3152-4DC5-94E8-14b1550b5f09"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcQto_ChimneyBaseQuantities_Length" Protection = "Free" Type = "Double" Uuid = "AACDD5EE-4471-41C5-A52E-3C2C5D23CAD7"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcQto_CoveringBaseQuantities" ScopeNames = "AecCovering AecCoveringType" Uuid = "A0CB3803-091C-4EE4-815E-5A343C5EA12E">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcQto_CoveringBaseQuantities_MethodOfMeasurement" Protection = "Free" Type = "String" Uuid = "A0CB3803-091C-4EE4-815E-14b1550b5f09"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcQto_CoveringBaseQuantities_Width" Protection = "Free" Type = "Double" Uuid = "CE445D75-9955-4523-859A-B6077354541A"/>
+    <Simple CAAExposition = "L0" Magnitude = "AREA" Name = "IfcQto_CoveringBaseQuantities_GrossArea" Protection = "Free" Type = "Double" Uuid = "DC9A653B-505F-46E0-8269-49183ADC820C"/>
+    <Simple CAAExposition = "L0" Magnitude = "AREA" Name = "IfcQto_CoveringBaseQuantities_NetArea" Protection = "Free" Type = "Double" Uuid = "E64FAFF0-CB6A-4A70-A1E7-C711B0F29925"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcQto_CurtainWallQuantities" ScopeNames = "AecCurtainWall AecCurtainWallType" Uuid = "87A8B861-91BE-41F2-871E-6DEBCBAE926B">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcQto_CurtainWallQuantities_MethodOfMeasurement" Protection = "Free" Type = "String" Uuid = "87A8B861-91BE-41F2-871E-14b1550b5f09"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcQto_CurtainWallQuantities_Length" Protection = "Free" Type = "Double" Uuid = "E47A4143-A9D4-46AC-807D-168913F8AE45"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcQto_CurtainWallQuantities_Height" Protection = "Free" Type = "Double" Uuid = "1D5A4BC3-4545-4591-B1BE-4D198D71D352"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcQto_CurtainWallQuantities_Width" Protection = "Free" Type = "Double" Uuid = "C79C96E3-0030-4F24-B6BD-1FB9B2045EEA"/>
+    <Simple CAAExposition = "L0" Magnitude = "AREA" Name = "IfcQto_CurtainWallQuantities_GrossSideArea" Protection = "Free" Type = "Double" Uuid = "5DF2F0B4-D442-44B4-8E44-45B0C3294359"/>
+    <Simple CAAExposition = "L0" Magnitude = "AREA" Name = "IfcQto_CurtainWallQuantities_NetSideArea" Protection = "Free" Type = "Double" Uuid = "2576A1AC-7087-42C7-9717-7497CE3E74E1"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcQto_DoorBaseQuantities" ScopeNames = "AecDoor AecDoorType" Uuid = "AC7D9176-AD08-4BB5-8348-D94BA0E38890">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcQto_DoorBaseQuantities_MethodOfMeasurement" Protection = "Free" Type = "String" Uuid = "AC7D9176-AD08-4BB5-8348-14b1550b5f09"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcQto_DoorBaseQuantities_Width" Protection = "Free" Type = "Double" Uuid = "8A166A75-61C3-497D-B813-997DFB979356"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcQto_DoorBaseQuantities_Height" Protection = "Free" Type = "Double" Uuid = "883D9651-4686-48AD-B0D4-D6453D510B2E"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcQto_DoorBaseQuantities_Perimeter" Protection = "Free" Type = "Double" Uuid = "19080C99-EFB2-46B7-9500-4D665B9549EA"/>
+    <Simple CAAExposition = "L0" Magnitude = "AREA" Name = "IfcQto_DoorBaseQuantities_Area" Protection = "Free" Type = "Double" Uuid = "6F3BF6B7-2D8E-4AEB-9DAC-2D7E6BAED20D"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcQto_RailingBaseQuantities" ScopeNames = "AecRailing AecRailingType" Uuid = "64F217CD-03BA-4972-AFB6-293FE1C614C7">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcQto_RailingBaseQuantities_MethodOfMeasurement" Protection = "Free" Type = "String" Uuid = "64F217CD-03BA-4972-AFB6-14b1550b5f09"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcQto_RailingBaseQuantities_Length" Protection = "Free" Type = "Double" Uuid = "30EC0BB8-6166-484F-9196-01D4B8EA9ACD"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcQto_RampFlightBaseQuantities" ScopeNames = "AecRampFlight AecRampFlightType" Uuid = "41C0EDEB-5AF0-4724-869B-D856CC360910">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcQto_RampFlightBaseQuantities_MethodOfMeasurement" Protection = "Free" Type = "String" Uuid = "41C0EDEB-5AF0-4724-869B-14b1550b5f09"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcQto_RampFlightBaseQuantities_Length" Protection = "Free" Type = "Double" Uuid = "E0ADEE76-96ED-4F5B-A54A-0E1C44F5290F"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcQto_RampFlightBaseQuantities_Width" Protection = "Free" Type = "Double" Uuid = "124C338A-7413-49B7-A4D5-BD4C00DC2F2D"/>
+    <Simple CAAExposition = "L0" Magnitude = "AREA" Name = "IfcQto_RampFlightBaseQuantities_GrossArea" Protection = "Free" Type = "Double" Uuid = "2380CC60-1C44-4C93-B16A-9BB4ACF3E7EF"/>
+    <Simple CAAExposition = "L0" Magnitude = "AREA" Name = "IfcQto_RampFlightBaseQuantities_NetArea" Protection = "Free" Type = "Double" Uuid = "0690499B-CA44-45F9-8EC0-C3BD80CEB757"/>
+    <Simple CAAExposition = "L0" Magnitude = "VOLUME" Name = "IfcQto_RampFlightBaseQuantities_GrossVolume" Protection = "Free" Type = "Double" Uuid = "21BC39DB-C6CB-48A4-AD97-97AF9AE64132"/>
+    <Simple CAAExposition = "L0" Magnitude = "VOLUME" Name = "IfcQto_RampFlightBaseQuantities_NetVolume" Protection = "Free" Type = "Double" Uuid = "2092957E-75C6-4003-B6B3-9D7C3D8EE096"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcQto_RoofBaseQuantities" ScopeNames = "AecRoof AecRoofType" Uuid = "E8C2E314-7E11-45CA-8807-B9DA6E87F2E6">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcQto_RoofBaseQuantities_MethodOfMeasurement" Protection = "Free" Type = "String" Uuid = "E8C2E314-7E11-45CA-8807-14b1550b5f09"/>
+    <Simple CAAExposition = "L0" Magnitude = "AREA" Name = "IfcQto_RoofBaseQuantities_GrossArea" Protection = "Free" Type = "Double" Uuid = "C1F37751-CD38-4037-BDB3-CD95749AC471"/>
+    <Simple CAAExposition = "L0" Magnitude = "AREA" Name = "IfcQto_RoofBaseQuantities_NetArea" Protection = "Free" Type = "Double" Uuid = "81689F43-77AF-4387-89FC-A7994A2CC8CA"/>
+    <Simple CAAExposition = "L0" Magnitude = "AREA" Name = "IfcQto_RoofBaseQuantities_ProjectedArea" Protection = "Free" Type = "Double" Uuid = "F093ECFD-235A-4C45-9781-83156FB6921F"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcQto_StairFlightBaseQuantities" ScopeNames = "AecStairFlight AecStairFlightType" Uuid = "8E9FE507-A3A3-4694-8649-BC8A572AA1FE">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcQto_StairFlightBaseQuantities_MethodOfMeasurement" Protection = "Free" Type = "String" Uuid = "8E9FE507-A3A3-4694-8649-14b1550b5f09"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcQto_StairFlightBaseQuantities_Length" Protection = "Free" Type = "Double" Uuid = "06E8C54A-7023-4EBB-88C8-C08C382348DC"/>
+    <Simple CAAExposition = "L0" Magnitude = "VOLUME" Name = "IfcQto_StairFlightBaseQuantities_GrossVolume" Protection = "Free" Type = "Double" Uuid = "F8173F5C-2BAC-4DEA-84EA-3CF5C427DF64"/>
+    <Simple CAAExposition = "L0" Magnitude = "VOLUME" Name = "IfcQto_StairFlightBaseQuantities_NetVolume" Protection = "Free" Type = "Double" Uuid = "4DBE805B-D80B-47D4-8DCE-02038413C57A"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcQto_WindowBaseQuantities" ScopeNames = "AecWindow AecWindowType" Uuid = "F667931F-1AFD-46E7-88DA-130DAB212972">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcQto_WindowBaseQuantities_MethodOfMeasurement" Protection = "Free" Type = "String" Uuid = "F667931F-1AFD-46E7-88DA-14b1550b5f09"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcQto_WindowBaseQuantities_Width" Protection = "Free" Type = "Double" Uuid = "73A6433D-E13A-4E59-AEE9-2101FBFF5084"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcQto_WindowBaseQuantities_Height" Protection = "Free" Type = "Double" Uuid = "D448AC3A-71F7-4B7A-9652-B1E2A6686C84"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcQto_WindowBaseQuantities_Perimeter" Protection = "Free" Type = "Double" Uuid = "CA8537CC-82D8-4193-AE48-5E7E7D912018"/>
+    <Simple CAAExposition = "L0" Magnitude = "AREA" Name = "IfcQto_WindowBaseQuantities_Area" Protection = "Free" Type = "Double" Uuid = "683E4A38-FD1B-4920-87E9-DD242235DC2F"/>
+  </Extension>
+</Package>

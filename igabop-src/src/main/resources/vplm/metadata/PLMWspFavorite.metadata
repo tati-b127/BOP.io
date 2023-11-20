@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2007, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" Name="PLMWspFavorite" BelongsToModeler="PLMWspContext" Uuid="58b9c1cb-f621-4c94-924e04b4b25da6ce" UseNames="PLMWspContext" CustomerExposition="Programmer">
+	<CAAComment>
+		<ShortRole>Favorite Reference Package</ShortRole>
+		<Role>This package includes the reference entity of Favorite Model</Role>
+	</CAAComment>
+	<Comment>last update 2007-08-27-12.00.00</Comment>
+	<!-- *************************************** -->
+	<!-- *    PLMWspFavorite (PLMWspReference) * -->
+	<!-- *************************************** -->
+	<Class Name="PLMWspFavorite" Uuid="4cbb194f-47a9-4776-a2b77530f3752836" Abstract="Yes" SuperName="PLMWspReference" CustomerExposition="Programmer" DeleteAvailability="Yes">
+    <CAAComment>
+      <ShortRole>Reference object</ShortRole>
+      <Role>Base root object of the Favorite model</Role>
+    </CAAComment>
+    <!--
+             *********************************************************
+             * Specific attributes.                                  *
+             ********************************************************* -->
+    <Simple Name="V_FavoriteDataType" Uuid="8e8cb3b7-01cf-4a1f-bc3f9c6a5555f66a" Type="String" MaxLength="150" MultiValuated="No" Protection="Internal">
+      <CAAComment>
+        <ShortRole>Type of the PLM data captured by the favorite</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_FavoriteApp" Uuid="6d80166a-192b-4d0f-96d5287b5f4f6ddd" Type="String" MaxLength="150" MultiValuated="No" Protection="External" CAAExposition="L0">
+      <Property Name="SIXW" Value="ds6w:app"/>
+      <CAAComment>
+        <ShortRole>Name of the App captured by the Favorite</ShortRole>
+      </CAAComment>
+    </Simple>
+    
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope" />
+    </Method>
+    <Property Name="IconName" Value="I_FavoriteMain"/>
+  </Class>
+ </Package>
+

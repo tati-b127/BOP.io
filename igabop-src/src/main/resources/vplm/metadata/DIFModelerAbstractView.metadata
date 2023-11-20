@@ -1,0 +1,170 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY FOR DIFModelerAbstractView          -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2014, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified"
+         ModelerType="Top"
+         Name="DIFModelerAbstractView"
+         Uuid="0628F6B4-79B9-4BE3-8343-304AC2849B94"
+         UseNames="PLMCORE"
+         CustomerExposition="Programmer">
+
+  <CAAComment>
+    <ShortRole>DIF Abstract model</ShortRole>
+    <Role>This package describes the DIF Abstract model built on top of PLMCore</Role>
+  </CAAComment>
+
+  <Comment>last update 2013-01-14-14.00.00</Comment>
+
+  <!-- DIFModelerAbstractView provides :            -->
+  <!-- DIFAbstractView           PLMCoreReference   -->
+  <!-- DIFAbstractViewInstance   PLMCoreInstance    -->
+
+
+  <!-- ******************************************* -->
+  <!-- *  DIFAbstractView (PLMCoreReference)    * -->
+  <!-- ******************************************* -->
+  <!-- CustomerExposition: whether Type projected in the KWE dictionary -->
+  <Class Name="DIFAbstractView"
+         Uuid="6197AD33-7C8A-434F-A541-047972592652"
+         Abstract="Yes"
+         SuperName="PLMCoreReference"
+         CustomerExposition="Programmer">
+
+    <CAAComment>
+      <ShortRole>DIF Abstract View Reference Object</ShortRole>
+      <Role>DIF Abstract View Reference Object</Role>
+    </CAAComment>
+
+    <!-- Simples -->
+    <Simple Name="V_DIFFrame" Uuid="603019F2-C074-4D67-AF01-217D2A8CE95D" Type="Integer" Protection="External" CAAExposition="L0" DefaultValue="1">
+      <Property Name="RangeAsEnumName" Value="DIFViewFrameKind"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="Shown;Hidden"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+      </Range>
+    </Simple>
+
+    <Simple Name="V_DIF3DMatrix"
+            Uuid="DDA4D089-815F-46FF-AA26-B3F6D50B135D"
+            Type="Double"
+            MultiValuated="Yes"
+            CollectionType="List"
+            Protection="Internal"/>
+
+    <!-- Add attribute scale to the reference instead of the instance because -->
+    <!-- we are not able to manage scale on instance for now                  -->
+    <!-- (problem with text visualization, review, and many others)           -->
+    <Simple Name="V_DIFScale"
+           Uuid="75749404-C1A5-4484-821E-B09D74612245"
+           Type="Double"
+           DefaultValue="1.0"
+           Protection="External">
+      <CAAComment>
+        <ShortRole>3D Position Matrix</ShortRole>
+        <Role>3D Position Matrix :set of 12 doubles</Role>
+      </CAAComment>
+    </Simple>
+
+    <!-- Add attribute to check where the scale value is store on 2019x and upper: Undefined, OnReference or OnInstance           -->
+    <!-- By default, the flag is set to undefined for model created before R421. The scale was positionned on reference           -->
+    <!-- on a released level, so we had to put a flag on a feature to check the scale status of the view. But the feature         -->
+    <!-- cannot be access without loading the container, so to access the status in all context (web, review mode...)             -->
+    <!-- we have to but an attribute on the plm objet. The state of the scale can be check at feature level and the view can be   -->
+    <!-- migrated to an identified state. For the data in an undefined state a migration batch can propagate the value from the   -->
+    <!-- feature to the plm data.                                                                                                 -->
+    <Simple Name="V_DIFScaleStatus"
+            Uuid="049BF2C0-3EDB-4875-A4BA-1981881AEFDB"
+            Type="String"
+            MaxLength="255"
+            Protection="External"
+            CAAExposition="L0"
+            DefaultValue="Undefined">
+      <Range>
+        <Equal>Undefined</Equal>
+        <Equal>OnReference</Equal>
+        <Equal>OnInstance</Equal>
+      </Range>
+    </Simple>
+
+    <!-- Export -->
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+  </Class>
+
+  <!-- ****************************************************** -->
+  <!-- * DIFAbstractViewInstance (PLMCoreInstance)         * -->
+  <!-- ****************************************************** -->
+  <!-- CustomerExposition: whether Type projected in the KWE dictionary           -->
+  <RelationClass Name="DIFAbstractViewInstance"
+         Uuid="87BE37C2-2BE5-4CAA-814A-8F058247B96D"
+         Abstract="Yes"
+         SuperName="PLMCoreInstance"
+         CustomerExposition="Programmer">
+
+    <CAAComment>
+      <ShortRole>DIF Abstract View Instance Object</ShortRole>
+      <Role>DIF Abstract View Instance Object</Role>
+    </CAAComment>
+
+    <!-- Simples -->
+    <Simple Name="V_DIFPosX"
+            Uuid="7221A49C-5393-4C05-93C2-6F2C9DDB1FDF"
+            Type="Double"
+            DefaultValue="0.0"
+            CAAExposition="L0"
+            Protection="External"/>
+
+    <Simple Name="V_DIFPosY"
+            Uuid="8192D836-1594-4B58-B8AF-FAFCDCCD8FA6"
+            Type="Double"
+            DefaultValue="0.0"
+            CAAExposition="L0"
+            Protection="External"/>
+
+    <Simple Name="V_DIFScale"
+            Uuid="0A1FCA12-FECE-4247-8C34-87A3F9666A52"
+            Type="Double"
+            DefaultValue="1.0"
+            CAAExposition="L0"
+            Protection="External"/>
+
+    <Simple Name="V_DIFAngle"
+            Uuid="D118D05F-4C63-42ED-A76F-C7C0498E3E4C"
+            Type="Double"
+            DefaultValue="0.0"
+            CAAExposition="L0"
+            Protection="External"/>
+
+    <Simple Name="V_DIFAPHideShowMode"
+            Uuid="5130E421-2C5F-4D65-BFD9-12916B49E9A0"
+            Type="Boolean"
+            DefaultValue="TRUE"
+            Protection="Internal"/>
+
+    <Simple Name="V_DIFAPCutMode"
+            Uuid="F862B2F8-848E-4B33-B0B4-4DDB8F309091"
+            Type="Boolean"
+            DefaultValue="TRUE"
+            Protection="Internal"/>
+
+    <Simple Name="V_DIFAPViewSelectionMode"
+            Uuid="1300B7C0-180F-49B3-A2CE-B4A13F8EA151"
+            Type="Boolean"
+            DefaultValue="TRUE"
+            Protection="Internal"/>
+
+    <Volatile Name="Reference" Uuid="874EEA75-FF64-4EDB-84B8-DA04007868A0" Accessor="PLMModelerReferenceKweAttribute" TypeName="DIFAbstractView" AccessMode="ReadOnly" >
+      <Property Name="ServerAccessor" Value="com.dassault_systemes.vplm.modelerBaseNav.services.PLMInstance_Reference_Accessor"/>
+    </Volatile>
+
+    <!-- Export -->
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+  </RelationClass>
+
+</Package>

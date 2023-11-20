@@ -1,0 +1,8 @@
+EXPAND
+T0.PLMID, T1.PLMID ,T2.PLMID ,T3.PLMID 
+FROM
+DELFmiFunctionalModel/DELFmiFunctionReference T0,
+DELFmiFunctionalModel/DELFmiFunctionInstance T1,
+DELFmiFunctionalModel/DELFmiFunctionRepresentationReference T2,
+DELFmiFunctionalModel/DELFmiFunctionRepresentationInstance T3
+FROM_ROOTS [?1?];

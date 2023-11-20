@@ -1,0 +1,53 @@
+NAVIGATE
+T0.PLM_ExternalID, 
+T0.PLMID, 
+T5.physicalid, T6.physicalid, T7.physicalid, T8.physicalid, T9.physicalid, T10.physicalid, T11.physicalid,
+T5.logicalid, T6.logicalid, T7.logicalid, T8.logicalid, T9.logicalid, T10.logicalid, T11.logicalid, 
+T5.type, T6.type, T7.type, T8.type, T9.type, T10.type, T11.type, 
+T5.name, T6.name, T7.name
+FROM
+RFLPLMImplementConnection/RFLPLMImplementConnection T0,
+Class/Requirement T5,
+"Class/Requirement Specification" T6,
+"Class/Requirement Group" T7,
+"RelationClass/Specification Structure" T8,
+"RelationClass/Sub Requirement" T9,
+"RelationClass/Sub Requirement Group" T10,
+"RelationClass/Requirement Group Content" T11
+FROM_ROOTS [?1?]
+ON
+((
+RELATION(FROM= PLMCORE/PLMCoreReference TO= RFLPLMImplementConnection/RFLPLMImplementConnection THROUGH=POINTEDBY) WITH QUALITY_FILTER (ROLE=PLM_ImplementLink_Source AND CATEGORY=Reference5)
+THEN RELATION(FROM= RFLPLMImplementConnection/RFLPLMImplementConnection TO= Class/Requirement THROUGH=POINTSTO) WITH QUALITY_FILTER (ROLE=PLM_ImplementLink_Target AND CATEGORY=Reference3)
+)
+OR
+(
+RELATION(FROM= PLMCORE/PLMCoreReference TO= RFLPLMImplementConnection/RFLPLMImplementConnection THROUGH=POINTEDBY) WITH QUALITY_FILTER (ROLE=PLM_ImplementLink_Source AND CATEGORY=Reference5)
+THEN RELATION(FROM= RFLPLMImplementConnection/RFLPLMImplementConnection TO= "Class/Requirement Specification" THROUGH=POINTSTO) WITH QUALITY_FILTER (ROLE=PLM_ImplementLink_Target AND CATEGORY=Reference3)
+)
+OR
+(
+RELATION(FROM= PLMCORE/PLMCoreReference TO= RFLPLMImplementConnection/RFLPLMImplementConnection THROUGH=POINTEDBY) WITH QUALITY_FILTER (ROLE=PLM_ImplementLink_Source AND CATEGORY=Reference5)
+THEN RELATION(FROM= RFLPLMImplementConnection/RFLPLMImplementConnection TO= "Class/Requirement Group" THROUGH=POINTSTO) WITH QUALITY_FILTER (ROLE=PLM_ImplementLink_Target AND CATEGORY=Reference3)
+)
+OR
+(
+RELATION(FROM= PLMCORE/PLMCoreInstance TO= RFLPLMImplementConnection/RFLPLMImplementConnection THROUGH=POINTEDBY) WITH QUALITY_FILTER (ROLE=PLM_ImplementLink_Source AND CATEGORY=Reference5)
+THEN RELATION(FROM= RFLPLMImplementConnection/RFLPLMImplementConnection TO= "RelationClass/Specification Structure" THROUGH=POINTSTO) WITH QUALITY_FILTER (ROLE=PLM_ImplementLink_Target AND CATEGORY=Reference3)
+)
+OR
+(
+RELATION(FROM= PLMCORE/PLMCoreInstance TO= RFLPLMImplementConnection/RFLPLMImplementConnection THROUGH=POINTEDBY) WITH QUALITY_FILTER (ROLE=PLM_ImplementLink_Source AND CATEGORY=Reference5)
+THEN RELATION(FROM= RFLPLMImplementConnection/RFLPLMImplementConnection TO= "RelationClass/Sub Requirement" THROUGH=POINTSTO) WITH QUALITY_FILTER (ROLE=PLM_ImplementLink_Target AND CATEGORY=Reference3)
+)
+OR
+(
+RELATION(FROM= PLMCORE/PLMCoreInstance TO= RFLPLMImplementConnection/RFLPLMImplementConnection THROUGH=POINTEDBY) WITH QUALITY_FILTER (ROLE=PLM_ImplementLink_Source AND CATEGORY=Reference5)
+THEN RELATION(FROM= RFLPLMImplementConnection/RFLPLMImplementConnection TO= "RelationClass/Sub Requirement Group" THROUGH=POINTSTO) WITH QUALITY_FILTER (ROLE=PLM_ImplementLink_Target AND CATEGORY=Reference3)
+)
+OR
+(
+RELATION(FROM= PLMCORE/PLMCoreInstance TO= RFLPLMImplementConnection/RFLPLMImplementConnection THROUGH=POINTEDBY) WITH QUALITY_FILTER (ROLE=PLM_ImplementLink_Source AND CATEGORY=Reference5)
+THEN RELATION(FROM= RFLPLMImplementConnection/RFLPLMImplementConnection TO= "RelationClass/Requirement Group Content" THROUGH=POINTSTO) WITH QUALITY_FILTER (ROLE=PLM_ImplementLink_Target AND CATEGORY=Reference3)
+))
+ITER=1;

@@ -1,0 +1,17 @@
+EXPAND 
+   T0.PLMID, T1.PLMID, T2.PLMID, T3.PLMID,
+   T0.PLM_ExternalID, T1.PLM_ExternalID, T2.PLM_ExternalID, T3.PLM_ExternalID   
+
+FROM 
+  RFLVPMLogical3DRep/RFLVPMLogical3DRepReference T0,
+  RFLVPMLogical3DRep/RFLVPMLogical3DRepInstance T1,
+  RFLVPMLogical/RFLVPMLogicalRepReference T2,
+  RFLVPMLogical/RFLVPMLogicalRepInstance T3
+
+FROM_ROOTS [?1?]
+
+WITH ATTRIBUTE_FILTER( (T0.V_isOnceInstantiable = 'TRUE') OR (T2.V_isOnceInstantiable = 'TRUE') )
+
+ITER=1
+;
+

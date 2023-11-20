@@ -1,0 +1,19 @@
+NAVIGATE
+  T0.PLMID
+
+FROM
+  PLMKnowHowRuleSet/PLMRuleSet T0
+
+FROM_ROOTS [?1?]
+
+ON (
+  RELATION (
+    FROM=PRODUCTCFG/VPMRepReference
+    TO=PLMKnowHowRuleSet/PLMRuleSet
+    THROUGH=POINTSTO
+  )
+  WITH QUALITY_FILTER (CATEGORY=Reference4 AND ROLE=KWE_ImportedRuleSet)
+)
+
+ITER = 1
+;

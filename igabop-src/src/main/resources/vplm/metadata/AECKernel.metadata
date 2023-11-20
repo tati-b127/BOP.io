@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2012, All rights reserved -->
+
+<Package CustomerExposition = "Programmer" ModelerType = "Top" Name = "AECKernel" UseNames = "CATComponentBasedDesign;PRODUCTCFG" Uuid = "d57b6156-ddc5-4ffa-9ed8-81bcbe9aa488" xmlns = "PLMDictionaryUnified">
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "AecAlignmentType" SuperName = "AecObjectType" Uuid = "FED15F22-1EEB-407D-BAAE-E656123FAC5B">
+    <Property Name = "IconName" Value = "I_AecAlignmentType"/>
+    <Property Name = "3DIconName" Value = "I_AecAlignmentType.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATCbaObjectTypeDelegateInstanciation"/>
+    <Property Name = "Newable" Value = "New_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "ReferenceOnly"/>
+  </Class>
+  <Class Abbreviation = "aec" Abstract = "Yes" CustomerExposition = "Programmer" Discipline = "Yes" Name = "AecBOAbstract" SuperName = "VPMReference" Uuid = "c98c423e-d182-439c-91ad-e23bd6c0b2fb"/>
+  <Class Abstract = "Yes" CustomerExposition = "Programmer" Discipline = "Yes" Name = "AecElement" SuperName = "AecBOAbstract" Uuid = "09405ac9-8a4b-4a00-b3ed-3a0f2977df04"/>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "AecElementAssembly" SuperName = "AecElement" Uuid = "2c48bfca-f3e0-4015-bd99-051daace4ecc">
+    <Property Name = "IconName" Value = "I_AecElementAssembly"/>
+    <Property Name = "3DIconName" Value = "I_AecElementAssembly.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATEAECDelegateInstanciation"/>
+    <Property Name = "KweNew_ReturnedType" Value = "VPMInstance"/>
+    <Property Name = "Newable" Value = "All_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "ReferenceOnly"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "AecElementAssemblyType" SuperName = "AecElementType" Uuid = "72b66392-ae4c-41a0-8e9b-c2550c1a1a3a">
+    <Property Name = "IconName" Value = "I_AecElementAssemblyType"/>
+    <Property Name = "3DIconName" Value = "I_AecElementAssemblyType.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATCbaObjectTypeDelegateInstanciation"/>
+    <Property Name = "Newable" Value = "New_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "ReferenceOnly"/>
+  </Class>
+  <Class Abstract = "Yes" CustomerExposition = "Programmer" Discipline = "Yes" Name = "AecElementType" SuperName = "AecObjectType" Uuid = "B66B9ED5-20A6-44B7-81CB-69C46E2F69D0"/>
+  <Comment>AecItfAbstract is not generated since abstract</Comment>
+  <Class Abbreviation = "aect" Abstract = "Yes" CustomerExposition = "Programmer" Discipline = "Yes" Name = "AecObjectType" SuperName = "ObjectTypeReference" Uuid = "672c02b0-ccee-460f-890b-fc9b7a78cec0"/>
+  <Class Abstract = "Yes" CustomerExposition = "Programmer" Discipline = "Yes" Name = "AecSpatialStructureElement" SuperName = "AecBOAbstract" Uuid = "be8ddc10-dbeb-4c6b-afae-a2d7f39395f0">
+    <Property Name = "InstantiationOwnerTypes" Value = "PPRContext;AecSpatialStructureElement"/>
+  </Class>
+</Package>

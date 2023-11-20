@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top"  Name="CATSysFLExecution" CustomerExposition="Programmer"
+   Uuid="72114712-5721-409c-bac4-f6d0143e0645" UseNames="RFLVPMLogical RFLPLMFunctional"
+   BelongsToModeler="RFLVPMLogical">
+  <Comment>last update the 2010-12-14 at 11:00:00</Comment>
+
+  <Class Name="Behavior_FL_3D"
+          Uuid="6ab99695-abf4-437c-9a33-38c462d16311"
+          Abbreviation="bfl3d"
+          CustomerExposition="None"
+    			SuperName="RFLVPMLogicalRepReference"
+    			Discipline="Yes">
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Property Name="Searchable" Value="No"/>
+    <Property Name="KweNew_InstanciationMethod" Value="Behavior_FL_3D_KWEFactory"/>
+  </Class>
+
+  <Class Name="Behavior_Link3D_FunRepRef"
+       Uuid="395f07b0-0767-11e0-81e0-0800200c9a66"
+	     CustomerExposition="None"
+       SuperName="RFLPLMFunctionalRepReference"
+       Discipline="Yes">
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Property Name="Searchable" Value="No"/>
+    <Property Name="KweNew_InstanciationMethod" Value="Behavior_FL_3D_KWEFactory"/>
+  </Class>
+
+  <Class Name="Behavior_Link3D_LogRepRef"
+       Uuid="395f07b1-0767-11e0-81e0-0800200c9a66"
+	     CustomerExposition="Programmer"
+       SuperName="RFLVPMLogicalRepReference"
+       Discipline="Yes">
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Property Name="Searchable" Value="No"/>
+    <Property Name="KweNew_InstanciationMethod" Value="Behavior_FL_3D_KWEFactory"/>
+  </Class>
+
+
+</Package>

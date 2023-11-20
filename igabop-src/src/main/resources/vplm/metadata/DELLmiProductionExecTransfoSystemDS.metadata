@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2009, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" Name="DELLmiProductionExecTransfoSystemDS" Uuid="f14ee9f6-c94d-4846-b0c0-d550faa0144f" UseNames="DELLmiProductionExecTransfoSystem" >
+<Property Name="OptionalInstallation" Value="Yes" /> 
+	<CAAComment>
+		<ShortRole>Standard DELMIA Execution Transformation System Package</ShortRole>
+		<Role>This package includes default customized DELMIA Execution Transformation System </Role>
+	</CAAComment>
+	<Comment>last update 2009-05-28</Comment>
+
+	<Class Name="DELLmiExecTransfoSystemRefCusto" Uuid="30c17865-9445-462e-b934-b036d1f4de9b" SuperName="DELLmiExecTransfoSystemReference"  >
+
+    <IdentifierSet Name="Identifier"
+        Uuid="656c8ff5-8d2b-49ef-81cc-55a0109bce4c"
+        IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755"
+        IdentifierNames="PLM_ExternalID V_version" />
+
+    <CAAComment>
+			<ShortRole>Standard DELMIA Execution Transformation System Reference</ShortRole>
+			<Role>Default customized DELMIA Execution Transformation System Reference</Role>
+		</CAAComment>
+	</Class>
+
+  <RelationClass Name="DELLmiExecTransfoSystemInstCusto" Uuid="3a59c656-8adc-4460-a70b-e1ab6bc5bc83" SuperName="DELLmiExecTransfoSystemInstance"   >
+    <CAAComment>
+      <ShortRole>Standard DELMIA Execution Transformation System Instance</ShortRole>
+      <Role>Default customized DELMIA Execution Transformation System Instance</Role>
+    </CAAComment>
+    <!-- ********************************************************* -->
+    <!-- * Overload(s) of PLMCoreInstance attributes. -->
+    <!-- ********************************************************* -->
+    <SubClause Name="to"   TargetName="DELLmiExecTransfoSystemRefCusto"/>
+  </RelationClass>
+
+</Package>

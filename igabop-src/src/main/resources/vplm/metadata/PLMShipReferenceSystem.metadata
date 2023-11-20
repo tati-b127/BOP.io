@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2012, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified"
+         ModelerType="Top"
+         CustomerExposition="Programmer"
+         Name="PLMShipReferenceSystem"
+         UseNames="PRODUCTCFG"
+         Uuid="f4d38830-7208-4ee3-ba91-ae40cdfe9fd4"
+         BelongsToModeler="PLMSpacePlanning">
+  <CAAComment>
+    <ShortRole>Space Reference System Package</ShortRole>
+    <Role>This package describes Space Reference System data.</Role>
+  </CAAComment>
+
+  <Class Name="SRS_Reference_Planes"
+    Uuid="079e0449-3496-47a3-be79-42d1e2dacc9c"
+    Abbreviation="SRS"
+    Abstract="No"
+    CustomerExposition="Programmer"
+    SuperName="VPMReference"
+    Discipline="Yes"
+    Specializable="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATESrsDelegateInstanciation"/>
+    <Property Name="Newable" Value="All"/>
+    <Property Name="IconName" Value="I_SrsSystem_PLMNew"/>
+    <Property Name="KweDisciplineAttributeValue" Value="SRS_Reference_Planes"/>
+    <Property Name="3DPartAvailability" Value="3DPartOnly"/>
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+  
+</Package>

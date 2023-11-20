@@ -1,0 +1,14 @@
+NAVIGATE
+	T0.physicalid , T0.logicalid ,T0.majorid, T0.type , T0.name ,
+   	T1.physicalid , T1.logicalid ,T1.majorid, T1.type ,
+	T2.PLMID
+FROM
+	Class/DEL_BlendingTable T0,
+	RelationClass/DELBT_IsConsumedBy T1,
+	DELLmiProductionPlug/DELLmiProductionPlugReference T2
+
+FROM_ROOTS [?1?]
+ON	
+	RELATION (FROM=Class/DEL_BlendingTable TO=RelationClass/DELBT_IsConsumedBy THROUGH=POINTEDBY)WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY)
+	THEN RELATION (FROM=RelationClass/DELBT_IsConsumedBy TO=DELLmiProductionPlug/DELLmiProductionPlugReference THROUGH=POINTSTO) WITH QUALITY_FILTER (CATEGORY=ISINSTANCEOF)
+ITER=1;

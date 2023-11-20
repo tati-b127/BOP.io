@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2013, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" CustomerExposition="Programmer" ModelerType="Top" Name="PLMProductionSystemTypePackage" Uuid="4678cd5a-be26-4114-8f68-e81f5af3a037" UseNames="PLMCORE" >
+	<CAAComment>
+		<ShortRole>Fake modelers</ShortRole>
+		<Role>This package includes the fake DELMIA Modeler</Role>
+	</CAAComment>
+	<Comment>last update 2013-03-17</Comment>
+	<!-- ******************************* -->
+	<!-- * PLMOperation (PLMCoreReference) * -->
+	<!-- ******************************* -->
+  <Extension Name="PLMOperation"  CustomerExposition="ProgrammerOnly" Uuid="8d8a853e-8e79-4a23-8c62-1f3c6f293ed3" Abstract="Yes" ScopeNames="PLMCoreReference"  Searchable="No" >
+    <Volatile Name="Requirements" Uuid="ba468615-a357-4b17-ab13-9bd541e4c7ab" AccessMode="ReadOnly" Accessor="DELPLMLmKWRequirements_CompAtt" TypeName="List">
+    </Volatile>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Extension>
+  <Extension Name="PLMSystem"  CustomerExposition="ProgrammerOnly" Uuid="c34b2337-18d4-49b7-8743-6ff404c8a2ed" Abstract="Yes" ScopeNames="PLMCoreReference"  Searchable="No" >
+    <Volatile Name="ProcessOfEachScope" Uuid="703a4f83-097b-49f0-8c9d-7a8c3019ef4b" AccessMode="ReadOnly" Accessor="DELMPProdSystemKWProcessScope_CompAtt" TypeName="List">
+    </Volatile>
+    <Volatile Name="Requirements" Uuid="65d9a1ba-4ed5-4af1-a94e-01df5107a05b" AccessMode="ReadOnly" Accessor="DELPLMLmKWRequirements_CompAtt" TypeName="List">
+    </Volatile>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Extension>
+  <Extension Name="PLMOperationInstance"  CustomerExposition="ProgrammerOnly" Uuid="f83e1679-47fd-44b0-ba17-80ae0fcf039f" Abstract="Yes" ScopeNames="PLMCoreInstance"  Searchable="No" >
+    <Volatile Name="Reference" Uuid="b150026e-ae69-48ff-bd2c-6b8f39dadae6" AccessMode="ReadOnly" Accessor="DELPLMLmKWReference_CompAtt" TypeName="PLMOperation">
+    </Volatile>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Extension>
+  <Extension Name="PLMSystemInstance"  CustomerExposition="ProgrammerOnly" Uuid="10d7d955-c2ba-40bd-8bcd-42396aeeb55e" Abstract="Yes" ScopeNames="PLMCoreInstance"  Searchable="No" >
+    <Volatile Name="ProcessOfEachScope" Uuid="038c0612-3c02-415c-8bb4-f1e21701d4f8" AccessMode="ReadOnly" Accessor="DELMPProdSystemKWProcessScope_CompAtt" TypeName="List">
+    </Volatile>
+    <Volatile Name="Reference" Uuid="d8d68a15-d2e7-48f0-968c-ad734a3f581d" AccessMode="ReadOnly" Accessor="DELPLMLmKWReference_CompAtt" TypeName="PLMSystem">
+    </Volatile>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Extension>
+  
+</Package>

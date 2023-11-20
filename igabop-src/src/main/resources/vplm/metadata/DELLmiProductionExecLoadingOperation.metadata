@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR DELMIA Production System Application -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2009, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" 
+         ModelerType="Top" 
+         Name="DELLmiProductionExecLoadingOperation"
+	       Uuid="d311b3fc-65fc-4b1a-bfa0-f73ab21e6290"
+         BelongsToModeler="DELLmiProductionPlan"
+	       UseNames="DELLmiProductionOperationUPR"
+         CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>Execution Loading Operation. OBSOLETE. Not used in current applications </ShortRole>
+    <Role>This package describes the Execution Loading Operation model on top of DELLmiProductionOperationUPR</Role>
+  </CAAComment>
+
+  <Comment>last update 2009-05-25</Comment>
+  <Comment>last update 2013-06-21</Comment>
+
+  <Class Name="DELLmiExecLoadingOperationReference"
+		     Uuid="d0531a9d-d986-4ed6-99db-2e1b8890dcb6"
+      	 Abstract="No"
+    	   SuperName="DELLmiOperationUPRReference"
+         CustomerExposition="Programmer"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         CreateInstName="DELLmiExecLoadingOperationInstance"
+         Abbreviation="wlop"
+         InstantiationOwnerTypes="DELLmiExecGeneralSystemReference;DELLmiExecTransfoSystemReference;DELLmiExecGeneralOperationReference;DELLmiExecInterruptOperationReference;DELLmiWorkOrderReference"
+        >
+    <!-- we want only support InstantiationOwnerTypes="DELLmiWorkOrderReference"-->
+    <!-- we keep all for historical reasons"-->
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELLmiExecOpDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELLmiExecLoadingOperationInstance"/>
+    <Property Name="IconName" Value="I_PPRSeqExecLoading"/>
+    <Property Name="3DIconName" Value="I_PPRSeqExecLoading.cgr"/>
+    <Property Name="Newable" Value="Insert_CAA"/>
+    <Property Name="Searchable" Value="Yes"/>
+
+    <CAAComment>
+      <ShortRole>Loading Operation Reference</ShortRole>
+      <Role>Loading Operation Reference. Specialization is not supported yet.</Role>
+    </CAAComment>
+
+    <Simple Name="V_MaterialScrap" 
+            Uuid="23BD3019-5EB4-449b-BFAB-0BD4050CE9C5"
+	          Type="Double"
+	          DefaultValue="0.0"
+	          MultiValuated="No"
+	          Protection="Free"
+	          CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Defines the Scrap/Yield lost by the operation.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+	  <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+
+
+  </Class>
+
+  <RelationClass Name="DELLmiExecLoadingOperationInstance"
+		     Uuid="541d8654-8810-4a06-8ba9-5b0569d53f6b"
+		     Abstract="No"
+    		 SuperName="DELLmiOperationUPRInstance"
+         CustomerExposition="Programmer"
+         Specializable="Yes"
+         CustomerExtensible="Yes">
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELLmiExecOpDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELLmiExecLoadingOperationInstance"/>
+    <CAAComment>
+      <ShortRole>Execution Loading Operation Instance</ShortRole>
+      <Role>Execution Loading Operation Instance. Specialization is not supported yet.</Role>
+    </CAAComment>
+
+    <Volatile Name="Reference" 
+              Uuid="C3C62929-20C1-4a71-8306-C923C6FA6E54" 
+              Accessor="PLMModelerReferenceKweAttribute" 
+              TypeName="DELLmiExecLoadingOperationReference" 
+              AccessMode="ReadOnly" />
+
+    <SubClause Name="to"   TargetName="DELLmiExecLoadingOperationReference"/>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+<Method ImplementationType="None">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+
+
+  </RelationClass>
+
+</Package>

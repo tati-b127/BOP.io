@@ -1,0 +1,11 @@
+EXPAND 
+  T1.PLMID, T2.PLMID
+
+FROM 
+  XCADAssembly/XCADAssemblyRepReference T1,
+  XCADAssembly/XCADAssemblyRepInstance T2
+
+FROM_ROOTS  [?1?]
+
+DEPTH=1
+;

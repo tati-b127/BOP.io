@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY for Ens Specifications Editor -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2011, all rights reserved -->
+
+<!-- 
+   =========
+    Package
+   =========       
+-->
+
+    <Package xmlns="PLMDictionaryUnified"
+             CustomerExposition="Programmer"
+             ModelerType="Top"
+             Name="PLMEnsSpecCnxLogicalToSpecBase"
+             Uuid="DAF19B8A-876D-428E-8257-6E4829D148C2"
+             UseNames="PLMCORE">
+
+      <CAAComment>
+         <ShortRole>Logical to specification base connection Package</ShortRole>
+         <Role>This package describes the base connection between a RFLP logical reference and an Ens Specification.</Role>
+      </CAAComment>
+      <Comment>Initial creation: PA GLY Feb 2011</Comment>
+      <Comment>Review for V6R2012: JLN PGT PYR DRL JLM SLI ASG LBH GLY Dec 2010</Comment>
+      <Comment>Ens Specifications Logical to Ens specification base connection</Comment>      
+  
+      <!-- 
+   ==========================================================================================
+    Ens LogicalToSpecBase connection (abstract connection to be specialized by applications)     
+   ==========================================================================================  
+        -->
+
+      <Class Name="EnsSpecCnxLogicalToSpecBase"
+             Uuid="350C87A2-ABC5-4B63-B58E-4B867B9794C4"
+             CustomerExposition="Programmer"
+             Abstract="Yes"
+             SuperName="PLMConnection" OwnerTypes="PLMCoreReference"
+             Specializable="Yes"
+             CustomerExtensible="No">
+        <Property Name="Searchable"      Value="No"/>
+        <Path Name="V_EnsSpec_LogicalToSpec_Base"
+           Uuid="F38586DA-2F48-4AF5-AF58-528A36ACFC9C"
+           RoleName="EnsSpec_LogicalToSpec_Base"
+           Semantics="Reference"	
+           Type="SemanticRelation" AdaptativeToMinor="No"
+		       SynchroSensitivity="None"
+		       RerouteOnEffectivityChange="No"
+           MultiValuated="Yes"
+           Lower="0"
+           Upper="-1" />
+        <Method ImplementationType="None">
+          <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+        </Method>
+      </Class>     
+</Package>

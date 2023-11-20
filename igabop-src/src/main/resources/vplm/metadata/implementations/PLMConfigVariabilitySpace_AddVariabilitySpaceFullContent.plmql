@@ -1,0 +1,16 @@
+EXPAND
+	T0.PLM_ExternalID, 
+	T0.PLMID, 
+	T1.PLM_ExternalID,
+	T1.PLMID, 
+	T2.PLM_ExternalID,
+	T2.PLMID, 
+	T3.PLM_ExternalID,
+	T3.PLMID 
+FROM
+	PLMCORE/PLMCoreReference T0, 
+	PLMCORE/PLMCoreInstance T1,
+	PLMConfigInclusionRule/PLMCfgInclusionRule T2,
+	PLMCORE/PLMPort T3
+FROM_ROOTS [?1?] 
+;

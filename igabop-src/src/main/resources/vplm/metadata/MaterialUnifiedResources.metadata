@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2012, All rights reserved -->
+<Package
+    xmlns="PLMDictionaryUnified" 
+    ModelerType="Top" 
+    Name="MaterialUnifiedResources" 
+    Uuid="1372b64f-3e47-4367-8a1a-c07f5e0d35f8"
+    UseProcedures="MaterialUnifiedProcedure"
+    CustomerExposition="None"
+    >
+  <Function Name="mcc_retrieveAllAppliedMaterial">
+    <Implementation Name="mcc_retrieveAllAppliedMaterial" FileLocation="mcc_retrieveAllAppliedMaterial.plmql" Language="PLMQL"/>
+    <Signature href="MatUnifiedSignature"/>
+  </Function>
+  <Function Name="mcc_retrieveCnx">
+    <Implementation Name="mcc_retrieveCnx" FileLocation="mcc_retrieveCnx.plmql" Language="PLMQL"/>
+    <Signature href="MatUnifiedSignature"/>
+  </Function>
+  <Function Name="mcc_retrieveDomains">
+    <Implementation Name="mcc_retrieveDomains" FileLocation="mcc_retrieveDomains.plmql" Language="PLMQL"/>
+    <Signature href="MatUnifiedSignature"/>
+  </Function>
+  <Function Name="mcc_retrieveDomainsUsing">
+    <Implementation Name="mcc_retrieveDomainsUsing" FileLocation="mcc_retrieveDomainsUsing.plmql" Language="PLMQL"/>
+    <Signature href="MatUnifiedSignature"/>
+  </Function>
+  <Signature id="MatUnifiedSignature">
+    <Parameter Name="InputIds" Lower="0" Upper="-1" Direction="in" MultiValuated="No" DataType="PLMId"/>
+    <Parameter Name="OutputIds" Lower="0" Upper="-1" Direction="out" MultiValuated="No" DataType="PLMRouteSet"/>
+  </Signature>
+    
+ </Package>

@@ -1,0 +1,30 @@
+<?xml version="1.0" ?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2006, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" Name="PLMPosResource" Uuid="A1DC456C-A915-4715-86D8CC190112B97F" UseNames="PLMCORE PLMPosResourceCore" CustomerExposition="Programmer" UseProcedures="PLMPos_Procedures" >
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+  <Class Name="PLMPosResourceRef" Uuid="C0147785-F772-4491-AABB0E0639B80CCD" Abstract="Yes" SuperName="PLMPosResourceCoreRef" CreateInstName="PLMPosResourceInst" CustomerExposition="None">
+ 		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+		<Simple Name="V_rsc_discipline" Uuid="C964AAB3-74F0-4E46-A32C7DAD8754D650" MultiValuated="No" Type="String" MaxLength="64"  PLMImpacting="No" Protection="Free" CAAExposition="L0"/>
+	</Class>
+	<RelationClass Name="PLMPosResourceInst" Uuid="86F4B32F-F2F1-43C9-85EA14A9741FA48A" Abstract="Yes" SuperName="PLMPosResourceCoreInst" CustomerExposition="None">
+ 		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+		<Simple Name="V_order" Uuid="4597C80D-7C08-44A7-B81DDCB7752B006F" MultiValuated="No" Type="Integer" PLMImpacting="No" Protection="Free" CAAExposition="L0"/>
+	</RelationClass>
+	<Class Name="PLMPosDeliverableCnx" Uuid="99142A5C-F32C-4EB3-B7AE117831C36A4C" Abstract="No" SuperName="PLMConnection" CustomerExposition="Programmer"                                     OwnerTypes="PLMPosResourceRef"
+>
+ 		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+    <!-- OwnerTypes="PLMPosResourceRef"  Integrate this line if you want to declare the aggregation constraint FB025717-36D4-4374-AC81946DBBD95BE4 -->
+
+    <Path Name="V_deliverables" Uuid="DCA5DCF8-B1D0-4C82-948011AE70D7352C"  MultiValuated="Yes" Lower="0" Upper="-1" Semantics="Reference"  RoleName="Default" Type="SemanticRelation" AdaptativeToMinor="No"		SynchroSensitivity="None"		RerouteOnEffectivityChange="No"/>
+		<Simple Name="V_dlv_type" Uuid="2740E3F1-ED26-4779-A7E3807EFFE908F1" MultiValuated="No" Type="String" MaxLength="64"  PLMImpacting="No" Protection="Free" CAAExposition="L0"/>
+	</Class>
+</Package>

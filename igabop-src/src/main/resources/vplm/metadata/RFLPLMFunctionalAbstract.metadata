@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR RFL Functional Application -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2006, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" BelongsToModeler="RFLPLMFunctional" Name="RFLPLMFunctionalAbstract" 
+	Uuid="4c621501-2dab-4009-9b1e52f591a77f49" 
+	UseNames="PLMCORE"
+  CustomerExposition="None"         
+>
+	
+	<CAAComment>
+		<ShortRole>PLM RFL Functional Abstract Package</ShortRole>
+		<Role>This package describes the PLM Functional Abstract model on top of PLM Core</Role>
+	</CAAComment>
+	
+	<Comment>last update 2007-02-15</Comment>
+	
+	<!-- *********************************************************** -->
+	<!-- *  RFLPLMFunctionalAbstractReference (PLMCoreReference)   * -->
+	<!-- *********************************************************** -->		
+
+	<Class Name="RFLPLMFunctionalAbstractReference" 
+		Uuid="1c39f198-2b94-4c41-be3843efed6d58cc" 
+		CustomerExposition="None"
+		Abstract="Yes" 
+		SuperName="PLMCoreReference" 
+    DeleteAvailability="Yes">
+
+		<CAAComment>
+			<ShortRole>PLM Functional Abstract Reference Object</ShortRole>
+			<Role>PLM Function Abstract Reference Object</Role>
+		</CAAComment>
+
+        	<Method ImplementationType="None">
+            	<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+        	</Method>
+		
+	</Class>
+
+</Package>

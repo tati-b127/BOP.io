@@ -1,0 +1,51 @@
+NAVIGATE
+T0.PLMID, T1.PLMID, T2.PLMID, T3.logicalid, T3.physicalid, T3.majorid, T3.type, T4.logicalid, T4.physicalid, T4.majorid, T4.type
+FROM
+DELFmiFunctionalModelImplementCnx/DELFmiProcessImplementCnx T0,
+PLMCORE/PLMCoreReference T1,
+PLMCORE/PLMCoreInstance T2,
+RelationClass/EBOM T3,
+Class/Part T4
+FROM_ROOTS [?1?]
+ON
+(
+	(
+		(
+			RELATION(FROM= PLMCORE/PLMCoreReference TO= DELFmiFunctionalModelImplementCnx/DELFmiProcessImplementCnx THROUGH=POINTEDBY) WITH QUALITY_FILTER (ROLE=PLM_ImplementLink_Source AND CATEGORY=Reference5)
+		)
+		THEN 
+		(
+			RELATION(FROM= DELFmiFunctionalModelImplementCnx/DELFmiProcessImplementCnx TO= PLMCORE/PLMCoreReference,PLMCORE/PLMCoreInstance,Class/Part THROUGH=POINTSTO) WITH QUALITY_FILTER (ROLE=PLM_ImplementLink_Target AND CATEGORY=Reference3)
+		)
+	)
+	OR
+	(
+		(
+			RELATION(FROM= PLMCORE/PLMCoreInstance TO= DELFmiFunctionalModelImplementCnx/DELFmiProcessImplementCnx THROUGH=POINTEDBY) WITH QUALITY_FILTER (ROLE=PLM_ImplementLink_Source AND CATEGORY=Reference5)
+		)
+		THEN 
+		(
+			RELATION(FROM= DELFmiFunctionalModelImplementCnx/DELFmiProcessImplementCnx TO= PLMCORE/PLMCoreInstance THROUGH=POINTSTO) WITH QUALITY_FILTER (ROLE=PLM_ImplementLink_Target AND CATEGORY=Reference3)
+		)
+	)
+	OR
+	(
+			RELATION(FROM= PLMCORE/PLMCoreInstance TO= PLMCORE/PLMCoreInstance THROUGH=POINTSTO) WITH QUALITY_FILTER (ROLE=PLM_ImplementLink_Target AND CATEGORY=Reference3)
+	)
+	OR
+	(
+			RELATION(FROM= PLMCORE/PLMCoreInstance TO= RelationClass/EBOM THROUGH=POINTSTO) WITH QUALITY_FILTER (ROLE=PLM_ImplementLink_Target)
+	)
+	OR
+	(
+		(
+			RELATION(FROM= PLMCORE/PLMCoreInstance TO= DELFmiFunctionalModelImplementCnx/DELFmiProcessImplementCnx THROUGH=POINTEDBY) WITH QUALITY_FILTER (ROLE=PLM_ImplementLink_Source AND CATEGORY=Reference5)
+		)
+		THEN 
+		(
+			RELATION(FROM= DELFmiFunctionalModelImplementCnx/DELFmiProcessImplementCnx TO= RelationClass/EBOM THROUGH=POINTSTO) WITH QUALITY_FILTER (ROLE=PLM_ImplementLink_Target AND CATEGORY=Reference3)
+		)
+	)
+)
+
+ITER=1;

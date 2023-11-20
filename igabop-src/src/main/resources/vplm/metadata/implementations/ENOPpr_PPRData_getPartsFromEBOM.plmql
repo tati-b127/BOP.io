@@ -1,0 +1,12 @@
+NAVIGATE
+T0.logicalid, T0.physicalid, T0.majorid, T0.type, T1.logicalid, T1.physicalid, T1.majorid, T1.type
+FROM
+RelationClass/EBOM T0,
+Class/Part T1
+FROM_ROOTS [?1?]
+ON
+(
+		RELATION(FROM= RelationClass/EBOM TO= Class/Part THROUGH=POINTSTO) WITH QUALITY_FILTER ( CATEGORY=ISINSTANCEOF ) OR ( CATEGORY=ISOWNEDBY )
+)
+
+ITER=1;

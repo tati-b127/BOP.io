@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2015, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" Name="CATSafety"
+	Uuid="f8a237b3-f281-4601-919b-51b9a19febb4" UseNames="PLMCORE RFLPLMFunctional RFLVPMLogical"
+	CustomerExposition="Programmer" ModelerType="Top" Architecture="Web">
+	<Class Name="FallibleReference" Uuid="9041061c-2600-4770-905b-10ae115f38ee"
+		SuperName="PLMCoreReference" Specializable="Yes" CustomerExtensible="Yes"
+		CustomerExposition="Programmer" ObjectNature="Independent" IconName="FallibleReference">
+		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope" />
+		</Method>
+	</Class>
+	<Class Name="FailureMode" Uuid="64957adb-5d34-455e-add8-a61fa6454aa6"
+		SuperName="PLMConnection" Specializable="Yes" CustomerExtensible="Yes"
+		CustomerExposition="Programmer" OwnerTypes="FallibleReference"
+		Searchable="Yes" IconName="FailureMode">
+		<Path Name="hasRateDefinedBy" Uuid="3b375190-cd6d-43a2-b887-6753c6da9d90"
+			Type="SemanticRelation" Orientation="In" SynchroSensitivity="PathAndLast"
+			Protection="External" RerouteOnEffectivityChange="No" MultiValuated="Yes"
+			TargetNames="ReliabilitySourceFormula" RoleName="FailureModeHasRateDefinedBy"
+			Semantics="Reference3" />
+		<Path Name="affects" Uuid="5315489b-c81d-4de4-824b-3ba6b9e84686"
+			Type="SemanticRelation" Orientation="In" SynchroSensitivity="PathAndLast"
+			Protection="External" RerouteOnEffectivityChange="No" MultiValuated="Yes"
+			TargetNames="RFLPLMFunctionalConnector;RFLVPMLogicalPort" RoleName="FailureModeAffects"
+			Semantics="Reference3" />
+		<Simple Name="Percentage" Uuid="234ac238-6edc-46df-a641-441657bf9967"
+			Type="Double" Protection="ExternalIN" PLMImpacting="Yes"
+			DefaultValue="0.0" CAAExposition="L0">
+			<Range>
+				<Between>
+					<Min>0.0</Min>
+				</Between>
+				<Between>
+					<Max>1.0</Max>
+				</Between>
+			</Range>
+		</Simple>
+		<Simple Name="IsDependentSystemFault" Uuid="470166df-cc06-4249-a584-ddf6309f6d2e"
+			Type="Boolean" DefaultValue="false" Protection="ExternalIN"
+			PLMImpacting="Yes" CAAExposition="L0" Faceted="Yes" />
+		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope" />
+		</Method>
+	</Class>
+	<Class Name="FallibleReferenceHasRateDefinedBy" Uuid="a31e9281-c68b-4892-b761-1cdb56023634"
+		CustomerExposition="Programmer" SuperName="PLMConnection" OwnerTypes="FallibleReference">
+		<Path Name="hasRateDefinedBy" MultiValuated="Yes" Type="SemanticRelation"
+			Uuid="883e6fe9-75e8-48af-83c2-c5c326792b59" Orientation="In"
+			SynchroSensitivity="PathAndLast" Protection="External"
+			RerouteOnEffectivityChange="No" TargetNames="ReliabilitySourceFormula"
+			RoleName="FallibleReferenceHasRateDefinedBy" Semantics="Reference3" />
+		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope" />
+		</Method>
+	</Class>
+	<Class Uuid="be56cf15-343b-4d21-bc85-2c1911035ec0" Name="FallibleReferenceStandsFor"
+		CustomerExposition="Programmer" SuperName="PLMPort" OwnerTypes="FallibleReference">
+		<Path Name="standsFor" Uuid="1c7c2921-b0ab-43b0-b8a7-4f46ab64e4cb"
+			Orientation="In" SynchroSensitivity="PathAndLast" Protection="External"
+			RerouteOnEffectivityChange="No" MultiValuated="No" Type="SemanticRelation"
+			TargetNames="PLMCoreReference" RoleName="FallibleReferenceStandsFor"
+			Semantics="Reference3" />
+		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope" />
+		</Method>
+	</Class>
+	<Class Uuid="26a80cc0-dda5-4159-b998-e20a55a53357" Name="ReliabilitySource"
+		SuperName="PLMCoreReference" CustomerExtensible="Yes"
+		CustomerExposition="Programmer" ObjectNature="Independent" IconName="ReliabilitySource">
+		<Method ImplementationType="Self">
+			<RealizeMethodType href="ExportScope.meth#ExportScope" />
+			<ProcedureForUsage>
+				<Usage href="ExportScope.meth#Design" />
+				<UsedProcedure
+					href="CATSafety_Procedures.proc#SafetyReliabilitySource_ExportDesign" />
+			</ProcedureForUsage>
+			<ProcedureForUsage>
+				<Usage href="ExportScope.meth#Review" />
+				<UsedProcedure
+					href="CATSafety_Procedures.proc#SafetyReliabilitySource_ExportReview" />
+			</ProcedureForUsage>
+			<ProcedureForUsage>
+				<Usage href="ExportScope.meth#Channel" />
+				<UsedProcedure
+					href="CATSafety_Procedures.proc#SafetyReliabilitySource_ExportChannel" />
+			</ProcedureForUsage>
+		</Method>
+	</Class>
+	<RelationClass Uuid="199d11f1-b100-4cf5-95b4-bd401cccd05e"
+		Name="ReliabilitySourceSubSource" SuperName="PLMCoreInstance"
+		CustomerExposition="Programmer">
+		<Simple Name="Code" Uuid="6f759a0f-8a76-4672-91da-4c54df719e08"
+			Type="String" Protection="ExternalIN" PLMImpacting="Yes" MaxLength="255"
+			CAAExposition="L0" />
+		<SubClause Name="from" TargetName="ReliabilitySource" />
+		<SubClause Name="to" TargetName="ReliabilitySource" />
+		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope" />
+		</Method>
+	</RelationClass>
+	<Class Uuid="2cc5e3b5-9e80-46a7-ac05-d196d4ed81b2" Name="ReliabilitySourceFormula"
+		CustomerExposition="Programmer" Specializable="Yes"
+		CustomerExtensible="Yes" SuperName="PLMPort" OwnerTypes="ReliabilitySource" IconName="ReliabilitySourceFormula">
+		<Simple Name="Code" Uuid="5297437d-bf52-483d-bb1c-24a9b36d56fd"
+			Type="String" Protection="ExternalIN" PLMImpacting="Yes" MaxLength="255"
+			CAAExposition="L0" />
+		<Simple Name="Expression" Uuid="1384285c-aa17-4625-8095-b24b13f696d6"
+			Type="String" Protection="ExternalIN" PLMImpacting="Yes" MaxLength="4096"
+			CAAExposition="L0" />
+		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope" />
+		</Method>
+	</Class>
+	<Class Name="ReliabilityFormulaSetRep" Uuid="1b9ab68e-892c-4e24-b891-a3b632dc56f9"
+		SuperName="PLMCoreRepReference" CustomerExposition="None">
+		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope" />
+		</Method>
+	</Class>
+	<RelationClass Name="ReliabilityFormulaSetRepInstance"
+		Uuid="e48fdf6f-18e5-49cb-b593-7ebb61a40bfe" CustomerExposition="None"
+		SuperName="PLMCoreRepInstance">
+		<SubClause Name="from" TargetName="ReliabilitySource" />
+		<SubClause Name="to" TargetName="ReliabilityFormulaSetRep" />
+		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope" />
+		</Method>
+	</RelationClass>
+
+	<Function Name="CATSafety_GetReliabilitySourceFormula">
+		<Implementation Name="CATSafety_GetReliabilitySourceFormula"
+			FileLocation="CATSafety_GetReliabilitySourceFormula.plmql" Language="PLMQL" />
+		<Signature href="DefaultSignature" />
+	</Function>
+
+	<Signature id="DefaultSignature">
+		<Parameter Name="InputIds" Lower="0" Upper="-1" Direction="in"
+			MultiValuated="Yes" DataType="PLMId" />
+		<Parameter Name="OutputIds" Lower="0" Upper="-1" Direction="out"
+			MultiValuated="No" DataType="PLMRouteSet" />
+	</Signature>
+</Package>

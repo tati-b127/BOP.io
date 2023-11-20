@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+
+<Package xmlns="PLMDictionaryTop" ModelerType="Top" CustomerExposition="Programmer" Name="PLMSpaceAllocation" Uuid="7179ccf6-a6b8-49c4-aafc-c101a273bdfc" UseNames="RFLVPMLogical RFLPLMImplementConnection RFLVPMLogical3DRep">
+  <CAAComment>
+    <ShortRole>Space Allocation Package</ShortRole>
+    <Role>This package describes Space Allocation data on top of logical modeler.</Role>
+  </CAAComment>
+  <ApplicationService Name="PLMSpaceAllocationR208" Uuid="3aee553e-b3b8-4b8a-a61d-7440b9473e5b" ReleaseLevel="208.208"/>
+
+  <Comment>Initial creation: BCY 2008-10-30</Comment>
+  <Comment>Modified by AWG 2009-01-16 Space_Allocation_3DRep</Comment>
+  <Comment>Modified by AWG 2009-01-29 Export</Comment>
+  <Comment>Modified by AWG 2009-06-12 R208</Comment>
+  
+	<Extension Name="SplLogVol"  Uuid="b35b7ef7-de60-4616-b6f9-2c1edcd86b94" CustomerExposition="Programmer" CAAExposition="L0" Abstract="No"  ScopeNames="RFLVPMLogicalReference">
+    <CAAComment>
+      <ShortRole>PLM Space Volume Object</ShortRole>
+      <Role>PLM Space Volume Object</Role>
+    </CAAComment>
+    <Simple Name="V_VolumeCategory" Type="String" Uuid="3ab91144-ea2f-4040-8dc5-11ac4d7d60c5"   MaxLength="40" Protection="Free" CAAExposition="L0"  MultiValuated="No"/>
+    <ApplicationServiceReference ApplicationServiceRef="3aee553e-b3b8-4b8a-a61d-7440b9473e5b" Creation="Yes"/>
+    <CAAComment> 
+      <ShortRole>Volume Category</ShortRole>
+      <Role>The category of the space volume</Role>
+    </CAAComment>
+    <Simple Name="V_Volume" Type="Double" Uuid="ba750b36-9709-429e-9c85-a59d4eef88b4" Magnitude="VOLUME" Protection="External" CAAExposition="L0"  MultiValuated="No"/>
+    <CAAComment>
+      <ShortRole>Volume</ShortRole>
+      <Role>The volume of the space volume</Role>
+    </CAAComment>
+    <Simple Name="V_SurfaceArea" Type="Double" Uuid="201f9565-ac5d-46fb-bdb9-8aec5dd50e9c"  Magnitude="AREA" Protection="External" CAAExposition="L0" MultiValuated="No"/>
+    <CAAComment>
+      <ShortRole>Surface Area</ShortRole>
+      <Role>The total surface area of the space volume</Role>
+    </CAAComment>
+  </Extension>
+  
+  <Discipline Name="Space_Allocation"
+	  Uuid="2d264079-7062-4a79-8fb1-58ca0673e5a4"
+	  CreationMode="Yes"
+        CustomerExposition="None"
+	  TypeNames="RFLVPMLogicalReference">
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Discipline>
+  <Discipline Name="Space_Allocation_3DRep"
+	  Uuid="b28c6905-03b4-4ba7-b195-29f198dffc12"
+	  CreationMode="Yes"
+        CustomerExposition="None"
+	  TypeNames="RFLVPMLogical3DRepReference">
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Discipline>
+  <Discipline Name="Space_Allocation_Splitter"
+    Uuid="2a829662-561a-4c27-955c-fb550b9e1c6a"
+    CreationMode="Yes"
+    CustomerExposition="None"
+    TypeNames="RFLVPMLogical3DRepReference">
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Discipline>
+  
+</Package>

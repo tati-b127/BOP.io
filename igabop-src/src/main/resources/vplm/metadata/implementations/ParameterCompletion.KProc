@@ -1,0 +1,11 @@
+#Prog ParameterCompletion( iPLMIDSet : #In PLMIDSet, oPLMIDSet : #Out PLMIDSet ) : VoidType
+{
+let PLMIDSet1(PLMIDSet)
+let PLMRouteSet1 (PLMRouteSet)
+	
+/* get files from document */
+PLMRouteSet1 = ExecutePLMFunction("PLMParameter", "PAR_nav_params", iPLMIDSet)
+PLMIDSet1 = Ids(PLMRouteSet1)
+	
+oPLMIDSet = PLMIDSet1
+}

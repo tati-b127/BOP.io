@@ -1,0 +1,26 @@
+EXPAND  
+  	T0.PLM_ExternalID, T1.PLM_ExternalID, 
+	T8.PLM_ExternalID, 
+	T10.PLM_ExternalID,
+	T15.PLM_ExternalID, T16.PLM_ExternalID,
+	T18.PLM_ExternalID,
+  	T0.PLMID, T1.PLMID, 
+	T8.PLMID, 
+	T10.PLMID,
+	T15.PLMID, T16.PLMID,
+	T18.PLMID
+	
+	
+
+ FROM 
+	DELLmiProductionTransferOperation/DELLmiTransferOperationReference T0, DELLmiProductionTransferOperation/DELLmiTransferOperationInstance T1,
+	DELLmiProductionSystemIOPort/DELLmiProdSystemIOPort T8, 
+	DELLmiProductionCandidateResCnx/DELLmiCandidateResourcesCnx T10,
+	DELLmiProductionPlug/DELLmiProductionPlugReference T15, DELLmiProductionPlug/DELLmiProductionPlugInstance T16,
+	DELLmiProductionSystemIOCnx/DELLmiProductionSystemIOCnx T18 
+	
+	
+
+FROM_ROOTS  [?1?]
+DEPTH=1
+;    

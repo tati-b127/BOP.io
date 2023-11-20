@@ -1,0 +1,128 @@
+<?xml version="1.0" ?>
+
+<!-- PRODUCT DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2018, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" 
+    ModelerType="Top" 
+    BelongsToModeler="PRODUCT" 
+    Name="PRODUCTPGPPMR"
+    Uuid="B7BCCB77-3C6D-44C4-88E6-67B984C09140"
+    UseNames="PRODUCTCFG"
+    CustomerExposition="Programmer">
+
+  <Property Name="WithoutLocationControl" Value="Yes"/>
+  
+  <CAAComment>
+    <ShortRole>PGPPMR Package</ShortRole>
+    <Role>This package includes all the entities and extensions involved in the PGP and PMR.</Role>
+  </CAAComment>
+
+  <Extension Name="PGPShowExtension"
+        Uuid="75C62BB9-E00D-4DFE-A492-188B011AA5A5"
+        CustomerExposition="ProgrammerOnly"
+        ScopeNames="VPMReference;VPMInstance;VPMRepInstance;VPMRepReference;SemanticRelation">
+
+    <Simple Name="V_PGP_Show"
+      Uuid="A684A2DB-27C0-4F2A-ABB0-8B59EB23774C"
+      Type="Boolean"
+      Protection="Internal"
+      DefaultValue="true">
+    </Simple>
+  </Extension>
+
+  <Extension Name="PGPPickExtension"
+        Uuid="03F1B2D4-E691-4686-9FC8-AB4E4BF6480C"
+        CustomerExposition="ProgrammerOnly"
+        ScopeNames="VPMReference;VPMInstance;VPMRepInstance;VPMRepReference;SemanticRelation">
+
+    <Simple Name="V_PGP_Pick"
+      Uuid="B4FA9CA0-5739-4474-8FD5-4AE7ECD9DBAE"
+      Type="Boolean"
+      Protection="Internal"
+      DefaultValue="true">
+    </Simple>
+  </Extension>
+  
+  <Extension Name="PGPColorExtension"
+      Uuid="DB062AB1-B156-4414-BB4C-FA5B74508178"
+      CustomerExposition="ProgrammerOnly"
+      ScopeNames="VPMReference;VPMInstance;VPMRepInstance;VPMRepReference;SemanticRelation">
+
+    <Simple Name="V_PGP_ColorRGB"
+      Uuid="957FA1B2-DDBF-4A42-9035-5F4322CC6BCF"
+      Type="Integer"
+      Protection="Internal"
+      DefaultValue="0"
+      MultiValuated="Yes">
+      <Range>
+        <Between>
+          <MinEqual>0</MinEqual>
+        </Between>
+        <Between>
+          <MaxEqual>255</MaxEqual>
+        </Between>
+      </Range>
+    </Simple>  
+  </Extension>
+
+  <Extension Name="PGPOpacityExtension"
+        Uuid="9431AF9D-CE5C-402F-A432-7FE5D772057E"
+        CustomerExposition="ProgrammerOnly"
+        ScopeNames="VPMReference;VPMInstance;VPMRepInstance;VPMRepReference;SemanticRelation">
+
+    <Simple Name="V_PGP_Opacity"
+      Uuid="AFC32B6B-BB80-4316-98C1-643441646944"
+      Type="Integer"
+      Protection="Internal"
+      DefaultValue="255">
+      <Range>
+        <Between>
+          <MinEqual>0</MinEqual>
+        </Between>
+        <Between>
+          <MaxEqual>255</MaxEqual>
+        </Between>
+      </Range>
+    </Simple>
+  </Extension>
+
+  <Extension Name="PGPWidthExtension"
+        Uuid="F234D647-C1B6-4DA2-B302-EEF3AECDFF8B"
+        CustomerExposition="ProgrammerOnly"
+        ScopeNames="VPMReference;VPMInstance;VPMRepInstance;VPMRepReference;SemanticRelation">
+
+    <Simple Name="V_PGP_Width"
+      Uuid="CCC2D2BE-77B5-406B-958C-1B6031514998"
+      Type="Integer"
+      Protection="Internal"
+      DefaultValue="1">
+    </Simple>
+  </Extension>
+
+  <Extension Name="PGPLineTypeExtension"
+        Uuid="BBFADEDC-D5F1-45F9-A95C-112439AFB96B"
+        CustomerExposition="ProgrammerOnly"
+        ScopeNames="VPMReference;VPMInstance;VPMRepInstance;VPMRepReference;SemanticRelation">
+
+    <Simple Name="V_PGP_LineType"
+      Uuid="B88EE866-A927-4883-9478-045B2D83AFB0"
+      Type="Integer"
+      Protection="Internal"
+      DefaultValue="1">
+    </Simple>
+  </Extension>
+
+  <Extension Name="PGPInheritanceExtension"
+      Uuid="1A9D947A-5771-475B-980E-BFB7D004EDEE"
+      CustomerExposition="ProgrammerOnly"
+      ScopeNames="VPMReference;VPMInstance;VPMRepInstance;VPMRepReference;SemanticRelation">
+
+    <Simple Name="V_PGP_Inheritance"
+      Uuid="18D29152-D1D4-4665-B94C-8A0BB1FF19D8"
+      Type="Integer"
+      Protection="Internal"
+      DefaultValue="1111">
+    </Simple>
+  </Extension>  
+</Package>

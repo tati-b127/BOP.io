@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2010, All rights reserved -->
+
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" Name="PLMPrototypeCnxDS" Uuid="908088D1-BD22-456a-AAB6-E05181417AAA" UseNames="PLMPrototypeCnx" Alias="Package Prototype connection Custo">
+	
+<Property Name="OptionalInstallation" Value="Yes" /> 
+	<CAAComment>
+		<ShortRole>Package to customize Prototype connection</ShortRole>
+		<Role>Package to customize package PLMPrototypeCnx for Prototype connection</Role>
+	</CAAComment>
+	
+	<Class Name="PLMPrototypeInstantiationCnxCustDS" Alias="Prototype connection DS" Uuid="3E67E143-3E85-4144-96B8-D45752357DE8"
+		SuperName="PLMPrototypeInstantiationCnx" SuperRef="23FCCA48-A7BB-4615-A9CF-E1C1BC9EBE6B">
+
+		<CAAComment>
+			<ShortRole>PLM Customization for Prototype connection</ShortRole>
+			<Role>PLM Customization for Prototype connection "PLMPrototypeInstantiationCnx"</Role>
+		</CAAComment>
+
+	</Class>
+	
+</Package>

@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2006, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" 
+         ModelerType="Top" 
+         Name="DELRmiResourceModelImplCnx"
+         Uuid="98BF9DB8-1851-4A92-890A9717A255C123"
+         UseNames="PLMCORE"
+         CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+        <ShortRole>DELRmiResourceModelImplCnx Modeler Package</ShortRole>
+        <Role>This package describes Resource Implement Connection to Process. Obsolete</Role>
+    </CAAComment>
+
+    <Comment>Resource Implement Connection. Obsolete data</Comment>
+
+    <Class Name="PLMDELImplCnx"
+        CustomerExposition="Programmer"
+        Uuid="7FAC8D48-8BB8-4F5A-BD8AA8CC1E4C6C15"
+        SuperName="PLMConnection"
+        Abstract="No"
+        CAAExposition="L1" OwnerTypes="VPMReference"
+        >
+      <!-- OwnerTypes="VPMReference"  Integrate this line if you want to declare the aggregation constraint -->
+         <Path Name="DELLinkToImplementedFunction"
+            Uuid="351F04BE-0AF4-41D4-B21DF514DD69F393"
+            MultiValuated="No"
+            RoleName="PLM_ImplementLink_Target"
+         		Type="SemanticRelation" AdaptativeToMinor="No"
+		        SynchroSensitivity="PathAndLast"
+		        RerouteOnEffectivityChange="No"
+                           Orientation="In"
+            Semantics="Reference3"/>
+
+        <Path Name="DELLinkFromImplementingResource"
+            Uuid="C5A01369-ACAC-42D6-8F382C75EAA4711F"
+            MultiValuated="No"
+            RoleName="PLM_ImplementLink_Source"
+         		Type="SemanticRelation" AdaptativeToMinor="No"
+		        SynchroSensitivity="Last"
+		        RerouteOnEffectivityChange="Yes"
+                          Orientation="Out"
+            Semantics="Reference5"/>
+
+        <CAAComment>
+            <ShortRole>The DELRmiResourceModelImplCnx.class</ShortRole>
+            <Role>The DELRmiResourceModelImplCnx.class</Role>
+        </CAAComment>
+
+      <Method ImplementationType="None">
+        <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      </Method>
+
+    </Class>
+
+
+</Package>

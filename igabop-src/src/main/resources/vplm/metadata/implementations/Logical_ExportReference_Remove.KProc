@@ -1,0 +1,16 @@
+#Prog Logical_ExportReference_Remove (iPLMIDSet :  #In PLMIDSet,oPLMIDSet :  #Out PLMIDSet) : VoidType
+{
+  let InputPLMIDSetRestrictedToRefs(PLMIDSet)
+  let SetOfPLMRoutesForAggregatedLogRep(PLMRouteSet)
+  let SetOfPLMParameters(PLMRouteSet)
+  
+  InputPLMIDSetRestrictedToRefs = Restrict(iPLMIDSet,"RFLVPMLogical/RFLVPMLogicalReference")
+ 
+  /* Get logical aggregated Rep references (resp: F1T) */
+  SetOfPLMRoutesForAggregatedLogRep = ExecutePLMFunction("RFLVPMLogical","RFLVPMLogicalReference_RepAggregated",InputPLMIDSetRestrictedToRefs)
+  
+  /* Get aggregated PLMParameters (resp: GMX)*/
+  SetOfPLMParameters = ExecutePLMFunction("PLMParameter", "PAR_nav_aggr_params", InputPLMIDSetRestrictedToRefs)
+
+  oPLMIDSet = iPLMIDSet + Ids(SetOfPLMRoutesForAggregatedLogRep) + Ids(SetOfPLMParameters)
+}

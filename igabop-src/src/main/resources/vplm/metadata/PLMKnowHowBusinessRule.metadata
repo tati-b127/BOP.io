@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" CustomerExposition="Programmer" BelongsToModeler="PLMKnowHowRule" Name="PLMKnowHowBusinessRule" Uuid="97ce1dd0-e9bd-4b59-b2c0438f5b89d47f" UseNames="PLMKnowHowRuleBaseComponent" UseProcedures="BR_Procedures">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+  <CAAComment>
+    <ShortRole>KnowHow Business Rule Package</ShortRole>
+    <Role>This package includes the Business Rule entities of KnowHow Rule Model</Role>
+  </CAAComment>
+  <Comment>Last update 2008-09-08</Comment>
+
+  <!-- ************************************** -->
+  <!-- * PLMBusinessRule (PLMCoreReference) * -->
+  <!-- ************************************** -->
+  <Class Name="PLMBusinessRule" CustomerExposition="Programmer"  Uuid="94d80e70-50c3-49b8-815d55dd2d356567" Abstract="No" SuperName="PLMRuleBaseComponent"  Abbreviation="br" DeleteAvailability="Yes" >
+    <Property Name="IconName"        Value="I_PLMBusinessRule"/>
+    <Property Name="Searchable"      Value="Yes"/>
+    <Property Name="Newable"         Value="New"/>
+    <Property Name="PQ_Attributes"   Value="PLM_ExternalID V_user"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATKBEDelegateInstanciationRule"/>
+    <CAAComment>
+      <ShortRole>PLM Business Rule</ShortRole>
+      <Role>PLM Business Rule</Role>
+    </CAAComment>
+
+    <!-- ********************************************************* -->
+    <!-- * SMB specific attributes (modeler not customizable)    * -->
+    <!-- ********************************************************* -->
+    <Simple Name="E_fromExternalId" Uuid="dbae01be-5a1b-4eeb-94ea-0421ae830237" Type="String" MaxLength="256"   Protection="Free" CAAExposition="L0"/>
+    <Simple Name="E_versionComment" Uuid="854c1a24-60e4-4c1c-83bb-f0e9065e11fb" Type="String" MaxLength="256"   Protection="Free" CAAExposition="L0"  ResetOnNewVersion="Yes"  ResetOnCloning="Yes"/>
+
+    <!-- ********************************************************* -->
+    <!-- * Elementary PLMBusinessRule attributes                 * -->
+    <!-- ********************************************************* -->
+    <Simple Name="V_OpeningId" Uuid="24b22994-fa2c-4fbe-bbf59501a7001b2e" Type="String"  MaxLength="80" Protection="External" CAAExposition="L0" Faceted="Yes">
+      <Property Name="SIXW" Value="ds6w:fulfills"/>
+      <CAAComment>
+        <ShortRole>The PLM Opening identifier of the Business Rule</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_ExecutionType" Uuid="c4beb466-0618-4343-ac87-32ff56118291" Type="Integer" Protection="External" CAAExposition="L0" DefaultValue="1" Faceted="Yes">
+      <Property Name="SIXW" Value="ds6w:kind"/>
+      <Property Name="RangeAsEnumName" Value="ExecutionTypeEnum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="BRValidation;BRComputation;BRExecution"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+      </Range>
+      <CAAComment>
+        <ShortRole>The type of the Business Rule execution</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_hasPrecedence" Uuid="30be6cae-1c0d-41ad-bd3f-ad196050c149" Type="String" Protection="ExternalIN" DefaultValue="Unknown">
+      <Property Name="SIXW" Value="ds6w:kind"/>
+      <Range>
+        <Equal>Unknown</Equal>
+        <Equal>No</Equal>
+        <Equal>Yes</Equal>
+      </Range>
+      <CAAComment>
+        <ShortRole>To state whether the current the Business Rule, applicable on a given Type, has precedence over another Business Rule matching the same criteria and applicable on a subType of the given Type</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Design"/>
+        <UsedProcedure href="BR_Procedures.proc#BR_Export"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Channel"/>
+        <UsedProcedure href="BR_Procedures.proc#BR_Export"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Remove"/>
+        <UsedProcedure href="BR_Procedures.proc#BR_Export"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#TransferSiteOwnership"/>
+        <UsedProcedure href="BR_Procedures.proc#BR_Export"/>
+      </ProcedureForUsage>
+    </Method>
+  </Class>
+
+</Package>

@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2005, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" DataRDB_OID="ENODR_DOCACT" Name="DocumentationActionDS" Uuid="10e33725-9b27-4d5e-9d4d7744c3568668" UseNames="PLMChgDocumentationAction" >
+<Property Name="OptionalInstallation" Value="Yes" /> 
+	<CAAComment>
+		<ShortRole>Standard Documentation Action Package</ShortRole>
+		<Role>This package includes the entities of the Standard Documentation Action Reference and Standard Documentation Child Action Instance - these are default customized change entities</Role>
+	</CAAComment>
+	<Comment>last update 2006-12-05-09.00.00</Comment>
+	<!-- *************************************** -->
+	<!-- * PLMDocActionCusto(PLMDocumentationAction)   * -->
+	<!-- *************************************** -->
+	<Class Name="PLMDocActionCusto" Uuid="0e14ab3e-904b-4781-90d8d394797a6874"     SuperName="PLMDocumentationAction"  >
+		<CAAComment>
+			<ShortRole>Standard Documentation Action Reference</ShortRole>
+			<Role>Standard Action Reference for Documentation - - this is a default customized Documentation Action</Role>
+		</CAAComment>
+    <IdentifierSet Name="Identifier" Uuid="e0b80d29-070c-4685-8a4400075846fe78" IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB" IdentifierNames="PLM_ExternalID"/>
+	</Class>
+	<!-- *************************************** -->
+	<!-- * PLMDocChildActionCusto(PLMDocChildAction)   * -->
+	<!-- *************************************** -->
+  <RelationClass Name="PLMDocChildActionCusto" Uuid="dff3bcc0-4ed1-4e29-acf5-32d0e01b3900"     SuperName="PLMDocChildAction"   >
+    <CAAComment>
+      <ShortRole>Standard Documentation Child Action Instance</ShortRole>
+      <Role>Standard Child Action Instance for Documentation - - this is a default customized Documentation Child Action</Role>
+    </CAAComment>
+    <!--
+             *********************************************************
+             * Overload(s) of PLMCoreInstance attributes.
+             ********************************************************* -->
+    <SubClause Name="to"   TargetName="PLMDocActionCusto"/>
+  </RelationClass>
+
+</Package>

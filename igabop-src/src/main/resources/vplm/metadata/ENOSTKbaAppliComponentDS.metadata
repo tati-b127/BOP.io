@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2010, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" DataRDB_OID="ENODR_ST_KBA_CMP"
+	Name="ENOSTKbaAppliComponentDS"
+	Uuid="AB24FCFA-F316-4658-A64C-8A909C62AB53"
+	UseNames="PLMKbaAppliComponent"
+	Alias="PLM Knowledge Business Applications -- SMB Custo of Applications Components Modeler"
+>
+    <CAAComment>
+        <ShortRole>PLM Knowledge Business Applications -- Applicative Component Modeler</ShortRole>
+        <Role>This package describes the SMB Customization of Knowledge Applicative Components on top of PLM Core</Role>
+    </CAAComment>
+    <Comment>Created by FRH (2010-05-17)</Comment>
+    
+    <!-- ******************************************************* -->
+    <!-- *  ENOSTKbaAppliComponent (PLMKbaAppliComponent) * -->
+    <!-- ******************************************************* -->
+    <Class Name="ENOSTKbaAppliComponent"
+		 Alias="ENOSTKbaAppliComponent"
+		 Uuid="FF16CE9F-2BF5-4d35-A081-518B43281570"		
+		 SuperName="PLMKbaAppliComponent"
+		 SuperRef="59a2ca08-53c2-4885-849fc7700e3de3f7"
+     >
+      <CAAComment>
+            <ShortRole>Knowledge Business Application (Reference)</ShortRole>
+            <Role>PLM Knowledge Business Application -- Reference Object</Role>
+        </CAAComment>
+
+      <IdentifierSet 
+        Name="Identifier"
+        Uuid="663D8956-BBC9-44bc-A0E9-69C54B4D1AAD"
+        IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755"
+        IdentifierNames="PLM_ExternalID V_version"
+        />
+      <Simple Name="E_fromExternalId" Uuid="07D22EFC-4E72-42fc-BD41-6D4DF00E8DB1" Alias="Definition" Type="String" MaxLength="256" Mandatory="No" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+      <Simple Name="E_versionComment" Uuid="444AEF82-CDB1-4051-8B54-C24AD2B6DC88" Alias="Version Comment" Type="String" MaxLength="256" Mandatory="No" MultiValuated="No" Protection="Free" CAAExposition="L0"  ResetOnNewVersion="Yes"  ResetOnCloning="Yes"/>
+
+    </Class>
+
+
+  <!-- *************************************************************** -->
+  <!-- *  ENOSTKbaAppliCompositionItem (PLMKbaConfigCompositionItem) * -->
+  <!-- *************************************************************** -->
+  <Class Name="ENOSTKbaAppliCompositionItem"
+   Alias="ENOSTKbaAppliCompositionItem"
+   Uuid="81A63390-4AFA-4bb5-8F78-063357799363"		
+   SuperName="PLMKbaAppliCompositionItem"
+   SuperRef="690b4019-bfd3-49a3-b331e52be219c54d"
+  >
+    <CAAComment>
+      <ShortRole>SMB Knowledge Business Applicative Configuration Composition Item (Instance)</ShortRole>
+      <Role>PLM Knowledge Business Applicative Configuration Composition Item - SMB Instance Object</Role>
+    </CAAComment>
+  </Class>
+
+</Package>

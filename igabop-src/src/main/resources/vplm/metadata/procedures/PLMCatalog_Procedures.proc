@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<ProcedurePackage 
+	xmlns="PLMDictionaryProcedure"
+	Name="PLMCatalog_Procedures">
+	<Procedure Name="PLMCatalog_ExportSelf">
+		<Implementation Name="PLMCatalog_ExportSelf" FileLocation="PLMCatalog_ExportSelf.KProc" Language="EKL"/>
+		<Signature href="Catalog_ProcedureSignatureExport"/>
+	</Procedure>
+	<Procedure Name="Clg_ExportCatalog">
+		<Implementation Name="Clg_ExportCatalog" FileLocation="Clg_ExportCatalog.KProc" Language="EKL"/>
+		<Signature href="Catalog_ProcedureSignatureExport"/>
+	</Procedure>
+	<Procedure Name="Clg_ExportChapter">
+		<Implementation Name="Clg_ExportChapter" FileLocation="Clg_ExportChapter.KProc" Language="EKL"/>
+		<Signature href="Catalog_ProcedureSignatureExport"/>
+	</Procedure>
+	<Signature id="Catalog_ProcedureSignatureExport">
+		<Parameter Name="InputIds" Lower="0" Upper="-1" MultiValuated="Yes" Direction="in" DataType="PLMId"/>
+		<Parameter Name="OutputIds" Lower="0" Upper="-1" MultiValuated="Yes" Direction="out" DataType="PLMId"/>
+	</Signature>
+</ProcedurePackage>
+

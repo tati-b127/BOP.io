@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2011, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" Name="ParameterProcedure" Uuid="8D6B9151-4210-4FAC-89AA-1FA971F013B2" UseProcedures="ParameterCompletion" CustomerExposition="None">
+	<CAAComment>
+		<ShortRole>XPG Event Management Procedures For Parameter</ShortRole>
+		<Role>This package includes the procedures for sending events from V6 to XPDM systems</Role>
+	</CAAComment>
+	<Comment>last update 2011-2-05-18.00.00</Comment>
+</Package>

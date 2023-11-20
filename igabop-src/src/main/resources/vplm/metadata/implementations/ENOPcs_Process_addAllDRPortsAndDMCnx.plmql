@@ -1,0 +1,17 @@
+EXPAND     
+
+T0.PLMID, T1.PLMID
+ 
+
+FROM      
+
+DELFmiFunctionalModelPrereqMatCnx/DELFmiProcessPrereqMaterializationCnx T0,
+
+DELFmiFunctionalModelPrerequisitePort/DELFmiProcessPrerequisitePort T1
+
+
+FROM_ROOTS[?1?]
+
+;
+
+

@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2006, All rights reserved -->
+<!-- [chd:04.03.2014] disparition definitive de InterfaceImplementation --> 
+<Package xmlns="PLMDictionaryUnified"  ModelerType="Top" BelongsToModeler="ENOWSP_WORKSPACE" Name="ENOWSP_WORKSPACE_ROOT" Uuid="991c9f4a-afdc-4ea7-9562-866aa25316cc" UseNames="ENOFLD_ABSTRACT_ROOT" CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+  <CAAComment>
+		<ShortRole>Workspace Root Package</ShortRole>
+		<Role>This package includes Workspace Root Model</Role>
+	</CAAComment>
+  <Comment>last update 2009-05-28-00.00.00</Comment>
+	<!-- ********************************************* -->
+	<!-- * Workspace Root reference                  * -->
+	<!-- ********************************************* -->
+	<Class Name="ENOWSP_WorkpaceRootRef" Uuid="a352411f-176f-4b57-b341-9a1807d64eed" Abstract="No" SuperName="ENOFLD_AbstractRootReference" CustomerExposition="Programmer" NewMajorRevisionAvailability="No">
+		<CAAComment>
+			<ShortRole>Workspace Reference</ShortRole>
+			<Role>Workspace Reference</Role>
+		</CAAComment>
+        <Property Name="Searchable" Value="No"/>
+    	<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+    <Property Name="IconName" Value="I_DWSPWorkspace"/>
+    <Property Name="3DIconName" Value="Workspace_3DNAVREP.cgr"/>
+	</Class>
+
+  <!-- ************************************* -->
+  <!-- *Workspace Root reference unique key* -->
+  <!-- ************************************* -->
+  <UniqueKey Name="ENOWSP_WORKSPACE_ROOT"
+           Uuid="6931c251-5c67-4331-9e12-664a0b7a36e2"
+           ClassName="ENOWSP_WorkpaceRootRef"
+           AttributeNames="PLM_ExternalID"/>
+  
+  </Package>

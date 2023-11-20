@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR DELMIA Production System Application -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2009, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" 
+         ModelerType="Top" 
+         Name="DELLmiProductionExecUnloadOperation"
+	       Uuid="82f73e55-699a-49af-82f2-c26ef867a746"
+         BelongsToModeler="DELLmiProductionPlan"
+	       UseNames="DELLmiProductionOperationUPR"
+         CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>Execution Unloading Operation. OBSOLETE. Not used in current applications </ShortRole>
+    <Role>This package describes the Execution Unloading Operation model on top of DELLmiProductionOperationUPR</Role>
+  </CAAComment>
+
+  <Comment>last update 2009-05-25</Comment>
+  <Comment>last update 2013-06-21</Comment>
+
+  <Class Name="DELLmiExecUnloadingOperationReference"
+		     Uuid="7e5cb56a-5924-49b1-a77c-5435ae264ec2"
+		     Abstract="No"
+         SuperName="DELLmiOperationUPRReference"
+         CustomerExposition="Programmer"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         CreateInstName="DELLmiExecUnloadingOperationInstance"
+         Abbreviation="wuop"
+         InstantiationOwnerTypes="DELLmiExecGeneralSystemReference;DELLmiExecTransfoSystemReference;DELLmiExecGeneralOperationReference;DELLmiExecInterruptOperationReference;DELLmiWorkOrderReference"
+         >
+    <!-- we want only support InstantiationOwnerTypes="DELLmiWorkOrderReference"-->
+    <!-- we keep all for historical reasons"-->
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELLmiExecOpDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELLmiExecUnloadingOperationInstance"/>
+    <Property Name="IconName" Value="I_PPRSeqExecUnloading"/>
+    <Property Name="3DIconName" Value="I_PPRSeqExecUnloading.cgr"/>
+    <Property Name="Newable" Value="Insert_CAA"/>
+    <Property Name="Searchable" Value="Yes"/>
+
+    <CAAComment>
+      <ShortRole>Execution Unloading Operation Reference.</ShortRole>
+      <Role>Execution Unloading Operation Reference. Specialization is not supported yet.</Role>
+    </CAAComment>
+
+	  <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+	<Method ImplementationType="None">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+
+
+  </Class>
+
+  <RelationClass Name="DELLmiExecUnloadingOperationInstance"
+		     Uuid="3c93f618-3ff5-4b44-8141-a2975f3707c6"
+		     Abstract="No"
+         SuperName="DELLmiOperationUPRInstance"
+         CustomerExposition="Programmer"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         >
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELLmiExecOpDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELLmiExecUnloadingOperationInstance"/>
+    
+    <CAAComment>
+      <ShortRole>Execution Unloading Operation Instance.</ShortRole>
+      <Role>Execution Unloading Operation Instance. Specialization is not supported yet.</Role>
+    </CAAComment>
+
+    <Volatile Name="Reference" 
+              Uuid="D6A17572-32CA-4476-81F9-9A2B58B7ED55" 
+              Accessor="PLMModelerReferenceKweAttribute" 
+              TypeName="DELLmiExecUnloadingOperationReference" 
+              AccessMode="ReadOnly" />
+
+    <SubClause Name="to"   TargetName="DELLmiExecUnloadingOperationReference"/>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+<Method ImplementationType="None">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+
+
+  </RelationClass>
+
+</Package>

@@ -1,0 +1,205 @@
+NAVIGATE
+
+	T0.logicalid 	, T1.logicalid	, T2.logicalid ,	T3.logicalid ,	T4.logicalid ,	T5.logicalid ,	T6.logicalid ,	T7.logicalid ,	T8.logicalid ,   T9.logicalid,		T10.PLMID , T11.logicalid , T12.logicalid ,
+	T0.physicalid	, T1.physicalid	, T2.physicalid ,	T3.physicalid ,	T4.physicalid ,	T5.physicalid ,	T6.physicalid ,	T7.physicalid ,	T8.physicalid ,  T9.physicalid, T11.physicalid , T12.physicalid ,
+   	T0.type			, T1.type		, T2.type ,			T3.type ,		T4.type ,		T5.type ,		T6.type ,		T7.type ,		T8.type ,        T9.type,		T11.type ,			T12.type
+
+FROM
+	Class/SIMULATIONS T0 ,
+	
+	"Class/Simulation Folders" T1 ,
+	
+	"RelationClass/Simulation Category" T2 ,
+	
+	"Class/Simulation Folder" T3 ,
+	
+	"RelationClass/Simulation SubFolder" T4 ,
+	
+	Class/DOCUMENTS T5 ,
+	
+	"RelationClass/Simulation Content - Owned" T6 ,
+	
+	"RelationClass/Simulation Input" T7 ,
+	
+	"RelationClass/Simulation Output" T8 ,
+	
+	"RelationClass/Simulation Content - Referenced" T9 ,
+	
+	PLMCORE/PLMCoreReference T10 ,
+	
+	"Class/Requirement" T11 ,
+	
+	"Class/PARParameter" T12
+	
+FROM_ROOTS
+
+	[?1?]
+
+ON
+
+(
+	(
+		RELATION
+			(FROM=Class/SIMULATIONS TO="RelationClass/Simulation Category" THROUGH=POINTEDBY)
+			WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY)
+		THEN RELATION
+			(FROM="RelationClass/Simulation Category" TO="Class/Simulation Folders" THROUGH=POINTSTO) 
+			WITH QUALITY_FILTER (CATEGORY=ISINSTANCEOF)
+	)	
+	
+OR
+
+	(
+		RELATION
+			(FROM="Class/Simulation Folders" TO="RelationClass/Simulation SubFolder" THROUGH=POINTEDBY) 
+			WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY)
+		THEN RELATION
+			(FROM="RelationClass/Simulation SubFolder" TO="Class/Simulation Folder" THROUGH=POINTSTO) 
+			WITH QUALITY_FILTER (CATEGORY=ISINSTANCEOF)
+	)
+
+OR
+
+	(
+		RELATION
+			(FROM="Class/Simulation Folders" TO="RelationClass/Simulation Content - Owned" THROUGH=POINTEDBY) 
+			WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY) 
+		THEN RELATION
+			(FROM="RelationClass/Simulation Content - Owned" TO=Class/DOCUMENTS THROUGH=POINTSTO) 
+			WITH QUALITY_FILTER (CATEGORY=ISINSTANCEOF)
+	)
+	
+OR
+
+	(
+		RELATION
+			(FROM="Class/Simulation Folders" TO="RelationClass/Simulation Content - Referenced" THROUGH=POINTEDBY) 
+			WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY) 
+		THEN RELATION
+			(FROM="RelationClass/Simulation Content - Referenced" TO=Class/DOCUMENTS THROUGH=POINTSTO) 
+			WITH QUALITY_FILTER (CATEGORY=ISINSTANCEOF)
+	)
+	
+OR
+
+	(
+		RELATION
+			(FROM="Class/Simulation Folders" TO="RelationClass/Simulation Content - Referenced" THROUGH=POINTEDBY) 
+			WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY) 
+		THEN RELATION
+			(FROM="RelationClass/Simulation Content - Referenced" TO="Class/Requirement" THROUGH=POINTSTO) 
+			WITH QUALITY_FILTER (CATEGORY=ISINSTANCEOF)
+	)
+	
+OR
+
+	(
+		RELATION
+			(FROM="Class/Simulation Folders" TO="RelationClass/Simulation Content - Referenced" THROUGH=POINTEDBY) 
+			WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY) 
+		THEN RELATION
+			(FROM="RelationClass/Simulation Content - Referenced" TO="Class/PARParameter" THROUGH=POINTSTO) 
+			WITH QUALITY_FILTER (CATEGORY=ISINSTANCEOF)
+	)
+	
+OR
+
+	(
+		RELATION
+			(FROM="Class/Simulation Folders" TO="RelationClass/Simulation Content - Referenced" THROUGH=POINTEDBY) 
+			WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY) 
+		THEN RELATION
+			(FROM="RelationClass/Simulation Content - Referenced" TO=PLMCORE/PLMCoreReference THROUGH=POINTSTO) 
+			WITH QUALITY_FILTER (CATEGORY=ISINSTANCEOF)
+	)
+	
+OR
+
+	(
+		RELATION
+			(FROM=Class/SIMULATIONS TO="RelationClass/Simulation Input" THROUGH=POINTEDBY) 
+			WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY) 
+		THEN RELATION
+			(FROM="RelationClass/Simulation Input" TO=Class/DOCUMENTS THROUGH=POINTSTO) 
+			WITH QUALITY_FILTER (CATEGORY=ISINSTANCEOF)
+	)
+
+OR
+
+	(
+		RELATION
+			(FROM=Class/SIMULATIONS TO="RelationClass/Simulation Output" THROUGH=POINTEDBY) 
+			WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY) 
+		THEN RELATION
+			(FROM="RelationClass/Simulation Output" TO=Class/DOCUMENTS THROUGH=POINTSTO) 
+			WITH QUALITY_FILTER (CATEGORY=ISINSTANCEOF)
+	)
+	
+OR
+
+	(
+		RELATION
+			(FROM=Class/SIMULATIONS TO="RelationClass/Simulation Input" THROUGH=POINTEDBY) 
+			WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY) 
+		THEN RELATION
+			(FROM="RelationClass/Simulation Input" TO=PLMCORE/PLMCoreReference THROUGH=POINTSTO) 
+			WITH QUALITY_FILTER (CATEGORY=ISINSTANCEOF)
+	)
+
+OR
+
+	(
+		RELATION
+			(FROM=Class/SIMULATIONS TO="RelationClass/Simulation Output" THROUGH=POINTEDBY) 
+			WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY) 
+		THEN RELATION
+			(FROM="RelationClass/Simulation Output" TO=PLMCORE/PLMCoreReference THROUGH=POINTSTO) 
+			WITH QUALITY_FILTER (CATEGORY=ISINSTANCEOF)
+	)
+
+OR
+
+	(
+		RELATION
+			(FROM=Class/SIMULATIONS TO="RelationClass/Simulation Input" THROUGH=POINTEDBY) 
+			WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY) 
+		THEN RELATION
+			(FROM="RelationClass/Simulation Input" TO="Class/Requirement" THROUGH=POINTSTO) 
+			WITH QUALITY_FILTER (CATEGORY=ISINSTANCEOF)
+	)
+
+OR
+
+	(
+		RELATION
+			(FROM=Class/SIMULATIONS TO="RelationClass/Simulation Output" THROUGH=POINTEDBY) 
+			WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY) 
+		THEN RELATION
+			(FROM="RelationClass/Simulation Output" TO="Class/Requirement" THROUGH=POINTSTO) 
+			WITH QUALITY_FILTER (CATEGORY=ISINSTANCEOF)
+	)
+	
+OR
+
+	(
+		RELATION
+			(FROM=Class/SIMULATIONS TO="RelationClass/Simulation Input" THROUGH=POINTEDBY) 
+			WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY) 
+		THEN RELATION
+			(FROM="RelationClass/Simulation Input" TO="Class/PARParameter" THROUGH=POINTSTO) 
+			WITH QUALITY_FILTER (CATEGORY=ISINSTANCEOF)
+	)
+
+OR
+
+	(
+		RELATION
+			(FROM=Class/SIMULATIONS TO="RelationClass/Simulation Output" THROUGH=POINTEDBY) 
+			WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY) 
+		THEN RELATION
+			(FROM="RelationClass/Simulation Output" TO="Class/PARParameter" THROUGH=POINTSTO) 
+			WITH QUALITY_FILTER (CATEGORY=ISINSTANCEOF)
+	)
+)
+
+ITER = 999;

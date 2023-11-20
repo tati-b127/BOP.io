@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2004, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top"  Name="PLMDocConnectionDiscipline" Uuid="8E79742A-E56C-4f95-9CF2-BBD54018DCB9" UseNames="PLMDocConnection"   BelongsToModeler="Document" CustomerExposition="Programmer">
+	<CAAComment>
+		<ShortRole>PLMDocConnection connects any object to PLMDMTDocument. </ShortRole>
+	</CAAComment>
+	<Class Name="DmtDocument"
+		Uuid="611d8e49-2848-4b6e-b833-34edfd867030"
+        Discipline="Yes"
+        CustomerExposition="Programmer"
+		SuperName="PLMDocConnection">
+	  <Method ImplementationType="None">
+		<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+	  </Method>
+	</Class>
+</Package>
+

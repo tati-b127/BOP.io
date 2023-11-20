@@ -1,0 +1,124 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR RFL Requirement Specification Application Custo 1-->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2006, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" DataRDB_OID="ENODR_RFLRSpcC1" Name="RFLPLMReqSpecificationCusto1"
+	Uuid="adc8054e-1b1f-46e1-a940db14b071f394" 
+	UseNames="RFLPLMReqSpecification" 
+	Alias="PLM RFL Requirement Specification Model Customization 1" 
+>
+	
+<Property Name="OptionalInstallation" Value="Yes" /> 
+	<CAAComment>
+		<ShortRole>PLM Requirement Specification Customization 1 Package</ShortRole>
+		<Role>This package describes a Customization of PLM Requirement Specification model</Role>
+	</CAAComment>
+	
+	<Comment>last update 2007-04-10-19.00.00</Comment>
+	
+	<!-- ******************************************************************* -->
+	<!-- *  RFLPLMReqSpecificationCusto1 (RFLPLMReqSpecificationReference) * -->
+	<!-- ******************************************************************* -->
+
+
+  <Class Name="RFLPLMReqSpecificationReferenceCusto1" 
+		Alias="RFLPLMReqSpecificationReferenceCusto1" 
+		Uuid="7acc90bb-e77d-4686-97a196fa56fb26f3"
+		 
+		 
+		SuperName="RFLPLMReqSpecificationReference" 
+		SuperRef="0638130a-b60a-4005-b17efa781c058c4e"
+		>
+
+		<CAAComment>
+			<ShortRole>Customized PLM Requirement Specification Reference Object</ShortRole>
+			<Role>Customized PLM Requirement Specification Reference Object</Role>
+		</CAAComment>
+		
+	    <IdentifierSet Name="Identifier"
+            Uuid="a5a4a7b3-5cb7-454f-ba31822515f65c8e"
+            IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755"
+            IdentifierNames="PLM_ExternalID V_version" />	
+            
+	</Class>
+
+	<!-- ************************************************************************* -->
+	<!-- * RFLPLMReqSpecificationInstanceCusto1 (RFLPLMReqSpecificationInstance) * -->
+	<!-- ************************************************************************* -->
+
+	<Class Name="RFLPLMReqSpecificationInstanceCusto1" 
+		Alias="RFLPLMReqSpecificationInstanceCusto1" 
+		Uuid="3a5903c7-cc79-40f9-9147346968c53559" 
+		 
+		 
+		 
+		 
+		SuperName="RFLPLMReqSpecificationInstance" 
+		SuperRef="0955fc1b-b871-4ddf-834f74c1b320a8a1" 
+		 
+		>
+
+		<CAAComment>
+			<ShortRole>Customized PLM Requirement Specification Instance Object</ShortRole>
+			<Role>Customized PLM Requirement Specification Instance Object</Role>
+		</CAAComment>
+	</Class>
+
+	<!-- ************************************************************ -->
+	<!-- * RFLPLMReqSpecificationPortCusto1 () * -->
+  <!-- ************************************************************ -->
+
+  <!-- ************************************************************************ -->
+  <!-- * RFLPLMReqSpecificationConnectionCusto1 () * -->
+	<!-- ************************************************************************ -->
+
+   <!-- ********************************************************************************* -->
+   <!-- * RFLPLMReqSpecificationRepReferenceCusto1 (RFLPLMReqSpecificationRepReference) * -->
+   <!-- ********************************************************************************* -->
+
+    <Class Name="RFLPLMReqSpecificationRepReferenceCusto1"
+    	Alias="RFLPLMReqSpecificationRepReferenceCusto1" 
+        Uuid="1fbdfa89-ecb5-4fac-a03ec67151cafb02"
+        
+        
+        
+        
+        SuperName="RFLPLMReqSpecificationRepReference"
+        SuperRef="afb5825a-bf99-4f79-9afe17141bf11f16"
+        
+        >
+        
+	    <IdentifierSet Name="Identifier"
+            Uuid="6e600643-b003-454a-a93ac0496f38a18e"
+            IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755"
+            IdentifierNames="PLM_ExternalID V_version" />	
+
+		<CAAComment>
+			<ShortRole>Customized PLM Requirement Specification Rep Reference Custo1 Object</ShortRole>
+			<Role>Customized PLM Requirement Specification Rep Reference Custo1 Object</Role>
+		</CAAComment>
+      </Class>
+      
+    <!-- ************************************************** -->
+    <!-- * RFLPLMRequirementRepInstanceCusto1 (PLMCoreRepInstance) * -->
+    <!-- ************************************************** -->
+
+    <Class Name="RFLPLMReqSpecificationRepInstanceCusto1"
+    	  Alias="RFLPLMReqSpecificationRepInstanceCusto1" 
+        Uuid="afa5b22f-5ad5-4b3f-9699ac7affc1dce9"
+        
+        
+        
+        
+        SuperName="RFLPLMReqSpecificationRepInstance"
+        SuperRef="0e1e6109-3f9a-4e1a-80ff1f35418540c4"
+        
+        >
+
+		<CAAComment>
+			<ShortRole>Customized PLM Requirement Specification Rep Instance Custo1 Object</ShortRole>
+			<Role>Customized PLM Requirement Specification Rep Instance Custo1 Object</Role>
+		</CAAComment>        
+        
+    </Class>        
+</Package>

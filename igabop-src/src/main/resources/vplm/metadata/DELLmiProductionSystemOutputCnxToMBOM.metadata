@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2006, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" 
+         ModelerType="Top" 
+         Name="DELLmiProductionSystemOutputCnxToMBOM"
+         BelongsToModeler="DELLmiProductionSystem"
+         Uuid="26961163-509F-440C-BA5B-687B314CD522"
+         UseNames="DELLmiProductionSystemOutputCnxAbstract"
+         CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+		<ShortRole>DELLmiProductionSystemOutputCnxToMBOM Modeler Package</ShortRole>
+		<Role>This package describes DELLmiProductionSystemOutputCnxToMBOM connection.</Role>
+	</CAAComment>
+
+	<!-- IO Connection to MBOM -->
+	<Class  Name="DELLmiProductionSystemOutputCnxToMBOM"
+		      Uuid="0A967E89-07E7-4692-8880-0F6A2CC18D47"
+		      Abstract="No"
+		      SuperName="DELLmiProductionSystemOutputCnxAbstract"
+		      Specializable="No"
+		      CustomerExtensible="No"
+		      CustomerExposition="Programmer">
+		  
+		  <Path Name="DELLinkToMBOM"
+			    Uuid="7C2784D3-34D0-42BC-B07A-2306FC83D327"
+			    MultiValuated="No"
+          RoleName="DEL_LinkToMBOM"		
+          Type="SemanticRelation" AdaptativeToMinor="No"
+          SynchroSensitivity="None"
+          RerouteOnEffectivityChange="No"
+        Semantics="Reference"/>	   
+			
+			<Simple Name="V_InTransit" 
+			    Uuid="CD52E760-D949-48E1-B265-826F8235850A" 
+			    Type="Boolean" 
+			    Protection="External" 
+			    MultiValuated="No"
+			    CAAExposition="L0" 
+			    DefaultValue="false"
+			    ResetOnCloning="No"
+			    ResetOnNewVersion="No"/>
+			
+			<Method ImplementationType="None">
+			  <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+			</Method>
+			
+	</Class>
+
+</Package>

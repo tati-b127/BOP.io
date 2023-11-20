@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2010, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" 
+         ModelerType="Top" 
+         Name="PLMPrototype" 
+         Uuid="AC84E75E-4DE9-463d-85CC-1EF3839791F4" 
+         BelongsToModeler="PLMPrototype"
+         CustomerExposition="Programmer"
+         UseNames="PLMCORE">
+<Comment>PLM Prototype Modeler</Comment>
+
+
+  <Extension Name="PLM_HasDegreeOfFreedom"
+             Uuid="D3C6B2D1-C867-4768-A102-FF119A5A4937"
+             ScopeNames="PLMCoreReference"
+             CustomerExposition="Programmer"
+             Specializable="No">
+    <CAAComment>
+      <ShortRole>Prototype Extension</ShortRole>
+    </CAAComment>
+    <Simple Name="V_ListOfDOFs"
+            Uuid="13847EF4-D8F5-4af1-9CBE-0E49654522C0"
+			      Type="String"
+            MaxLength="256"
+			      MultiValuated="Yes"
+            CollectionType="List"
+            DefaultValue="ZeroLengthDefaultValue"
+			      ResetOnCloning="No"
+            ResetOnNewVersion="No"
+            Protection="External"
+            Faceted="Yes"
+            CAAExposition="L0">
+      <Property Name="SIXW" Value="ds6w:dOF"/>
+    </Simple>
+    <Simple Name="V_DomainUsage"
+            Uuid="13201482-AB88-4240-A472-6AFF3F2BAFD7"
+			      Type="String"
+            MaxLength="256"
+			      MultiValuated="No"
+            DefaultValue="ZeroLengthDefaultValue"
+			      ResetOnCloning="No"
+            ResetOnNewVersion="No"
+            Protection="External"
+            CAAExposition="L0">
+      <Property Name="SetOnlyOnce" Value="Later"/>
+    </Simple>
+  </Extension>
+
+</Package>

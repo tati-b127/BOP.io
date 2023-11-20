@@ -1,0 +1,183 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY for Ens Specifications Editor  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, all rights reserved -->
+<!-- MODIF PA DEB 27/08/2014 : BelongsToModeler="Engineering Specifications" ==> BelongsToModeler="PLMEnsSpecSpecification" : MODIF PA FIN 27/08/2014 -->
+
+<!-- 
+   =========
+    Package
+   =========    
+-->
+<!-- MODIF PA DEB 27/08/2014 -->
+<Package xmlns="PLMDictionaryUnified"
+         CustomerExposition="Programmer"
+         ModelerType="Top"
+         BelongsToModeler="PLMEnsSpecSpecification"  
+         Name="PLMEnsSpecPartsFilter"
+         Uuid="9389818E-D13F-42a9-8C82-869DFB779C9A"            
+         UseNames="PLMCORE">
+<!-- MODIF PA FIN 27/08/2014 -->
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>Ens Specifications Parts' filter Package</ShortRole>
+    <Role>This package describes the Ens parts' filters used in Ens Specifications model.</Role>
+  </CAAComment>
+  <Comment>Initial creation: PA GLY Feb 2011</Comment>
+  <Comment>Review for V6R2012: JLN PGT PYR DRL JLM SLI ASG LBH GLY Dec 2010</Comment>
+  <Comment>Ens parts' filtering</Comment>
+
+  <!-- 
+   ==================================
+    EnsFilter (PLM Reference)
+    MODIF PA DEB 12/12/2012 Abstract="No" following the use of Discipline="Yes" for specialized entities MODIF PA FIN 12/12/2012
+   ==================================
+-->  
+  <Class Name="EnsFilter"
+         Uuid="3367ACEC-6EBD-4981-BFE7-C6D91AB47432"
+         Abbreviation="epf" 
+         CustomerExposition="Programmer"
+         Abstract="No"
+         SuperName="PLMCoreReference"
+         Specializable="Yes"
+         CustomerExtensible="No"
+         CreateInstName="EnsFilterInstance" 
+         DeleteAvailability="Yes">
+    <Property Name="IconName"        Value="I_TreeEngFilter"/>
+    <Property Name="3DIconName"        Value="I3D_EngSpec_PartsFilter.cgr"/>
+    <Property Name="Searchable"      Value="Yes"/>
+    <Property Name="PQ_Attributes"   Value="PLM_ExternalID V_description V_user"/>
+    <!-- MODIF PA DEB 30/03/2016 -->
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation_NotSupported"/>
+    <!-- MODIF PA FIN 30/03/2016 -->
+    <CAAComment>
+      <ShortRole>Ens filter object</ShortRole>
+      <Role>This object representing an Ens parts' filter</Role>
+    </CAAComment>
+
+    <Simple Name="V_SpecDescription" Uuid="9AD45AAE-ED79-430a-B93B-5DFA0BD16A42" Type="String" MultiValuated="No" MaxLength="100" Protection="Free" CAAExposition="L0"/>
+    <CAAComment>
+      <ShortRole>Specification description</ShortRole>
+      <Role>Specification description</Role>
+    </CAAComment>
+
+    <Simple Name="V_ProvidedPartTypes" Uuid="014FF413-8518-4fa4-993B-AE0B5FF982ED" Type="String" MultiValuated="No" MaxLength="500" Protection="Free" CAAExposition="L0"/>
+    <CAAComment>
+      <ShortRole>V6 PLM Parts types provided by the ens filter</ShortRole>
+      <Role>V6 PLM Parts types provided by the ens filter</Role>
+    </CAAComment>    
+    
+    <!--
+     MODIF PA DEB 17/05/2013
+    -->
+    <Simple Name="V_DeclaredProvidedPartTypes" Uuid="8C967022-C6E9-4335-A851-99C38B3665D9" Type="String" CollectionType="List" MultiValuated="Yes" MaxLength="128" Protection="External" CAAExposition="L0"/>
+    <CAAComment>
+      <ShortRole>V6 PLM Parts types provided by the ens filter : list of V6 dico types provided by the filter</ShortRole>
+      <Role>V6 PLM Parts types provided by the ens filter : list of V6 dico types provided by the filter</Role>
+    </CAAComment>
+    <!--
+     MODIF PA FIN 17/05/2013      
+    -->
+    <!-- MODIF PA DEB 30/03/2016 -->
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <UsedProcedure href="PLMEnsPartsFilter_Procedures.proc#ESE_PartsFilterExport"/>
+        <Usage href="ExportScope.meth#Design"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <UsedProcedure href="PLMEnsPartsFilter_Procedures.proc#ESE_PartsFilterExport"/>
+        <Usage href="ExportScope.meth#Review"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <UsedProcedure href="PLMEnsPartsFilter_Procedures.proc#ESE_PartsFilterExport"/>
+        <Usage href="ExportScope.meth#Channel"/>        
+      </ProcedureForUsage>     
+      <ProcedureForUsage>
+        <UsedProcedure href="PLMEnsPartsFilter_Procedures.proc#ESE_PartsFilterRemove"/>
+        <Usage href="ExportScope.meth#Remove"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <UsedProcedure href="PLMEnsPartsFilter_Procedures.proc#ESE_PartsFilterRemove"/>
+        <Usage href="ExportScope.meth#TransferSiteOwnership"/>
+      </ProcedureForUsage>
+    </Method>
+    <!-- MODIF PA FIN 30/03/2016 -->
+  </Class>  
+
+  <!-- 
+   ==================================
+    EnsFilterInstance (PLM Instance)
+   ==================================
+-->
+  <RelationClass Name="EnsFilterInstance"
+         Uuid="D596360E-7022-446d-BBD2-7EA57FB4D9CA"
+         CustomerExposition="Programmer"
+         Abstract="No" 
+         SuperName="PLMCoreInstance">        
+        
+    <CAAComment>
+      <ShortRole>Ens filter instance object</ShortRole>
+      <Role>This object representing an instance of Ens parts' filter under an Ens specification</Role>
+    </CAAComment>
+    <SubClause Name="from"   TargetName="EnsSpecification"/>
+    <SubClause Name="to"   TargetName="EnsFilter"/>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </RelationClass>
+
+  <!-- 
+   ======================================================
+    EnsFilterRepReference (PLM RepReference)
+   ======================================================
+-->
+
+  <Class Name="EnsFilterRepReference"
+         Uuid="A0ABC9BF-8DA0-4377-AAEF-8D4473E0AE36"
+         Abbreviation="epfrep"
+         CustomerExposition="Programmer"
+         Abstract="No" 
+         SuperName="PLMCoreRepReference"
+         Specializable="No"
+         CustomerExtensible="No"
+         CreateInstName="EnsFilterRepInstance">
+    
+    <Property Name="Searchable"      Value="No"/>
+    
+    <CAAComment>
+      <ShortRole>Ens filter rep reference object</ShortRole>
+      <Role>This Ens filter rep reference object is an internal object carrying the definition of the parts' filter as an xml</Role>
+    </CAAComment>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>    
+  </Class>
+  
+  <!-- 
+   ====================================================
+    EnsFilterRepInstance (PLM RepInstance)
+   ====================================================
+-->
+
+  <RelationClass Name="EnsFilterRepInstance"
+         Uuid="86D32266-4587-4b67-994F-61DF072385CD"
+         CustomerExposition="Programmer"
+         Abstract="No"
+         SuperName="PLMCoreRepInstance">
+    <CAAComment>
+      <ShortRole>Ens filter rep instance object</ShortRole>
+      <Role>This Ens filter rep instance object is an internal object allowing in link with the EnsFilterRepReference to carry the definition of the parts' filter as an xml</Role>
+    </CAAComment>
+    <SubClause Name="from"   TargetName="EnsFilter"/>
+    <SubClause Name="to"   TargetName="EnsFilterRepReference"/>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </RelationClass>  
+</Package>
+
+
+

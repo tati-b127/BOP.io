@@ -1,0 +1,24 @@
+#Prog Logical_ExportMultiplexerRef_PLMChannel (iPLMIDSet :  #In PLMIDSet,oPLMIDSet :  #Out PLMIDSet) : VoidType
+{
+  let InputPLMIDSetRestrictedToRefs(PLMIDSet)
+  let SetOfPLMRoutesMuxObjects(PLMRouteSet)
+  let SetOfMuxObjectsPLMIDs(PLMIDSet)
+  let SetOfTypeRefsPLMIDsToExpand(PLMIDSet)
+  let SetOfTypesPLMIDs(PLMIDSet)
+  let SetOfConfigObjectsPLMIDs(PLMIDSet)
+
+  InputPLMIDSetRestrictedToRefs = Restrict(iPLMIDSet,"RFLVPMLogicalCommunication/RFLVPMLogicalCommunicationReference")
+ 
+  /* Get ports, type instances under the logical communication reference (resp: LRG) */
+  SetOfPLMRoutesMuxObjects = ExecutePLMFunction("RFLVPMLogical","RFLVPMLogical_Get1stLevelObjects",InputPLMIDSetRestrictedToRefs)
+   
+  /*Completes with complete expand of Type definitions (resp : LRG) */
+  SetOfMuxObjectsPLMIDs = Ids(SetOfPLMRoutesMuxObjects)
+  SetOfTypeRefsPLMIDsToExpand = Restrict(SetOfMuxObjectsPLMIDs,"RFLVPMSystemType/RFLVPMSystemTypeReference")
+  SetOfTypesPLMIDs = ExecutePLMProcedure("Logical_ExportType_PLMChannel",SetOfTypeRefsPLMIDsToExpand)
+  
+  /*Completes with configuration */
+  SetOfConfigObjectsPLMIDs = ExecutePLMProcedure("Config_GetStructConfig",InputPLMIDSetRestrictedToRefs)
+  
+  oPLMIDSet = iPLMIDSet + SetOfMuxObjectsPLMIDs + SetOfTypesPLMIDs + SetOfConfigObjectsPLMIDs
+}

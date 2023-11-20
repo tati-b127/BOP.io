@@ -1,0 +1,60 @@
+NAVIGATE
+
+   	T1.physicalid , T1.logicalid , T1.type , T1.name ,
+   	T2.physicalid , T2.logicalid , T2.type , T2.name ,
+   	T3.physicalid , T3.logicalid , T3.type ,
+   	T4.physicalid , T4.logicalid , T4.type
+
+FROM
+
+	Class/Requirement T1,
+
+	Class/PlmParameter T2,
+
+	"RelationClass/ParameterUsage" T3,
+
+	"RelationClass/ParameterAggregation" T4
+
+FROM_ROOTS
+
+	[?1?]
+
+ON
+
+(
+	(RELATION 
+		(FROM=Class/Requirement
+		 TO="RelationClass/ParameterUsage"
+		 THROUGH=POINTEDBY
+		 )
+		 WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY)
+	)
+	OR
+	(RELATION 
+		(FROM=Class/Requirement
+		 TO="RelationClass/ParameterAggregation"
+		 THROUGH=POINTEDBY
+		 )
+		 WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY)
+	)
+)
+THEN
+(
+	(RELATION 
+		(FROM="RelationClass/ParameterUsage"
+		 TO=Class/PlmParameter
+		 THROUGH=POINTSTO
+		 )
+		 WITH QUALITY_FILTER (CATEGORY=ISINSTANCEOF)
+	)
+	OR
+	(RELATION 
+		(FROM="RelationClass/ParameterAggregation"
+		 TO=Class/PlmParameter
+		 THROUGH=POINTSTO
+		 )
+		 WITH QUALITY_FILTER (CATEGORY=ISINSTANCEOF)
+	)
+)
+
+ITER = 1 ;

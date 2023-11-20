@@ -1,0 +1,53 @@
+<?xml version="1.0" ?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2006, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" BelongsToModeler="Folder" Name="ENOFLD_ABSTRACT_ROOT"
+    Uuid="4960abb2-5925-4185-af2a-8a508b3e64e0"
+    UseNames="ENOFLD_CORE"
+	  CustomerExposition="Programmer"
+   >
+
+    <CAAComment>
+        <ShortRole>Abstract FolderRoot Package</ShortRole>
+        <Role>This package includes Abstract Root Folder Model</Role>
+    </CAAComment>
+
+    <Comment>last update 2006-11-16-00.00.00</Comment>
+
+    <!-- ****************************************************************** -->
+    <!-- * ENOFLD_AbstractRootReference(PLMCoreReference): abstract class * -->
+    <!-- ****************************************************************** -->
+
+    <Class Name="ENOFLD_AbstractRootReference"
+        Uuid="ab7d1bf0-5eab-4ed7-9f71-66713517301a"
+        CustomerExposition="Programmer"
+        Abstract="Yes"
+        SuperName="ENOFLD_CoreReference" 
+        NewMajorRevisionAvailability="No">
+      <Property Name="Searchable" Value="No"/>
+
+	 <CAAComment>
+	    <ShortRole>Abstract Root Folder</ShortRole>
+	    <Role>Abstract Root Folder</Role>
+	 </CAAComment>
+
+       <!-- ********************************************************* -->
+       <!-- * Elementary Abstract Root attributes                   * -->
+       <!-- ********************************************************* -->
+
+        <Simple Name="Environment"
+                Uuid="15eda952-118c-42c4-b89e-53afede8e639"
+                Type="String"
+                MaxLength="256"
+                MultiValuated="No"
+                Protection="Internal">
+        </Simple>
+
+     <Method ImplementationType="None">
+       <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+     </Method>
+
+   </Class>
+
+</Package>

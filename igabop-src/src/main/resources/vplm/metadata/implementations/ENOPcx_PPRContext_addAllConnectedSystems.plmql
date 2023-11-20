@@ -1,0 +1,19 @@
+NAVIGATE
+	T0.PLMID, T1.PLMID
+FROM
+	DELPPRContextModelSystemCnx/PLMDELPPRSystemCnx  T0,
+	DELLmiProductionSystem/DELLmiProductionSystemReference T1
+FROM_ROOTS [?1?]
+ON ( RELATION(
+	FROM=PRODUCTCFG/VPMReference
+	TO=DELPPRContextModelSystemCnx/PLMDELPPRSystemCnx
+	THROUGH=POINTEDBY)
+WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY) )
+THEN (
+RELATION(
+	FROM=DELPPRContextModelSystemCnx/PLMDELPPRSystemCnx 
+	TO=DELLmiProductionSystem/DELLmiProductionSystemReference
+	THROUGH=POINTSTO)
+)
+;
+

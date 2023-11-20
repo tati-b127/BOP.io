@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+
+<Package xmlns="PLMDictionaryTop" ModelerType="Top" Name="PLMREChannelPlug" Uuid="1f1d9b87-8ba5-4e5b-b26f-86915d6f4bdd"  UseNames="PLMCORE">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <!-- ******************** -->
+<!-- PLMREChannelPlug     -->
+<!-- ******************** -->
+
+
+<Class Name="PLMREChannelPlug" Uuid="85100c5d-ac8f-4678-9bd3-b1b7d3ab8334" SuperName="PLMCoreReference" CAAExposition="L0">
+<Property Name="Searchable" Value="No"/>
+<Method ImplementationType="None">
+<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+</Method>
+<!-- ID of the channel -->
+<Simple Name="V_ChannelId" Uuid="650ab4c7-ce3c-43ff-894a-265a8f160a36"    MultiValuated="No"  Type="Binary" MaxLength="16"  Protection="Internal"/>
+<!-- ID of the plug -->
+<Simple Name="V_PlugId" Uuid="5fd2e2c6-9ed5-4a7c-bda6-4ac6e9308d94"  MultiValuated="No"  Type="Binary" MaxLength="16"  Protection="Internal"/> 
+<!-- peer physical repository id -->
+<Simple Name="V_PeerPRIId" Uuid="5fd2e2c6-9ed5-4a7c-bda6-4ac6e9308d93"   MultiValuated="No"  Type="Binary" MaxLength="16"  Protection="Internal"/>
+<!-- status of the plug : active / deleted / refused -->
+<Simple Name="V_LifeCycleStatus" Uuid="2ce83f76-1819-4413-bc66-b01fea245c3a"    MultiValuated="No"  Type="String" MaxLength="60"  Protection="Internal"/>
+<!-- last status of the peer plug : unknown / active / deleted / refused -->
+<Simple Name="V_PeerLifeCycleStatus" Uuid="769fe3ce-92bb-481f-ad9e-6c6816278df8"  MultiValuated="No"  Type="String" MaxLength="60"  Protection="Internal"/>
+<!-- last generated revision number -->
+<Simple Name="V_RevisionNumber" Uuid="7d6368d4-80f0-4ba8-aa1f-ec0624c03729"  MultiValuated="No"  Type="String" MaxLength="60"  Protection="Internal"/>
+<!-- type of the plug regarding the exchange : CD  / EE -->
+<Simple Name="V_ExchangeMode" Uuid="244e04f4-68fb-4fd9-93b4-9e8af7004c94"  MultiValuated="No"  Type="String" MaxLength="60"   Protection="Internal"/>
+<!-- last revision processed from peer plug -->
+<Simple Name="V_LastSyncRevision" Uuid="701ea4aa-90ac-4762-bafe-1eee97595547"   MultiValuated="No"  Type="String" MaxLength="60"  Protection="Internal"/>
+<!-- Channel Ids are unique -->
+<IdentifierSet Name="Identifier" Uuid="39bd420e-58c5-4496-809d-9ebadf931fa8" IdentifierNames="V_ChannelId" IdentifierUuids="650ab4c7-ce3c-43ff-894a-265a8f160a36" />
+</Class>
+</Package>
+

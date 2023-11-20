@@ -1,0 +1,1072 @@
+<?xml version="1.0" ?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+
+<Package xmlns="PLMDictionaryResources"
+    Name="PLMCoreSemanticRelations"
+    Uuid="D0783E02-F6FF-0000-020AE83044000000"
+    ModelerType="Resources"
+    >
+
+<!-- ======================================== -->
+<!-- ====            UFO section         ==== -->    
+<!-- ======================================== -->  
+
+
+
+<!--Metadata for RFLPFunctional-->
+  <SemanticRelation
+  Name="RFLPLMFunctional-Publish-Reference3"
+  Uuid="293C5448-2B60-47cc-9F7A-22DD3A14E032"
+  AllowedTargetPath="Path">
+    <SRContextConstraint Name="Functional1" ContextType="Implicit"/>
+    <SRPatternConstraint Name="FPort" IdCode="1024"  LastAuthorizedTypeExpr="[RFLPLMFlow/RFLPLMFlowInstance]" ValidityCheck="Owner.V_Owner.type belongsTo [RFLPLMFunctional/RFLPLMFunctionalReference]">
+      <PathOfInstances MinDepth="0" MaxDepth="0"/>
+    </SRPatternConstraint>
+    <SRPatternConstraint Name="FPortMuxDemux" IdCode="1025" LastAuthorizedTypeExpr="[RFLPLMFlow/RFLPLMFlowInstance]" ValidityCheck="Owner.V_Owner.type belongsTo [RFLPLMFunctionalCommunication/RFLPLMFunctionalCommunicationReference]" >
+      <PathOfInstances MinDepth="0" MaxDepth="1">
+        <AllInstancesPath AuthorizedTypeExpr="[RFLPLMFlow/RFLPLMFlowInstance]"/>
+      </PathOfInstances>
+    </SRPatternConstraint>
+  </SemanticRelation>
+
+  <SemanticRelation Name="RFLPLMFunctional-RFLPLM_FunctionalCnx_Ext-Reference4"
+            Uuid="1379A4A5-F3DC-47da-867D-B09A671B97F4"
+            AllowedTargetPath="Path">
+    <SRContextConstraint Name="Functional2" ContextType="Implicit"/>
+    <SRPatternConstraint Name="Sibling" IdCode="1234" LastAuthorizedTypeExpr="[RFLPLMFunctional/RFLPLMFunctionalConnector]">
+      <PathOfInstances MinDepth="1" MaxDepth="1">
+        <AllInstancesPath AuthorizedTypeExpr="[RFLPLMFunctional/RFLPLMFunctionalInstance],[RFLPLMFunctionalCommunication/RFLPLMFunctionalCommunicationInstance]"/>
+      </PathOfInstances>
+    </SRPatternConstraint>
+    <SRPatternConstraint Name="ParentChild" IdCode="1234" LastAuthorizedTypeExpr="[RFLPLMFunctional/RFLPLMFunctionalConnector]">
+      <PathOfInstances MinDepth="0" MaxDepth="0" />
+    </SRPatternConstraint>
+
+	<SRPatternConstraint Name="SiblingInterface" IdCode="1026" LastAuthorizedTypeExpr="[RFLPLMFlowExposition/RFLPLMFlowExpositionInstance]">
+      <PathOfInstances MinDepth="1" MaxDepth="1">
+        <AllInstancesPath AuthorizedTypeExpr="[RFLPLMFunctional/RFLPLMFunctionalInstance]"/>
+      </PathOfInstances>
+    </SRPatternConstraint>
+    <SRPatternConstraint Name="ParentChildInterface" IdCode="1027" LastAuthorizedTypeExpr="[RFLPLMFlowExposition/RFLPLMFlowExpositionInstance]">
+      <PathOfInstances MinDepth="0" MaxDepth="0"/>
+    </SRPatternConstraint>
+    <SRPatternConstraint Name="SiblingInterfaceStructured" IdCode="1028" LastAuthorizedTypeExpr="[RFLPLMFlow/RFLPLMFlowInstance]">
+      <PathOfInstances MinDepth="2">
+        <AllInstancesPath AuthorizedTypeExpr="[RFLPLMFunctional/RFLPLMFunctionalInstance],[RFLPLMFlowExposition/RFLPLMFlowExpositionInstance],[RFLPLMFlow/RFLPLMFlowInstance]"/>
+      </PathOfInstances>
+    </SRPatternConstraint>
+    <SRPatternConstraint Name="ParentChildInterfaceStructured" IdCode="1029" LastAuthorizedTypeExpr="[RFLPLMFlow/RFLPLMFlowInstance]">
+      <PathOfInstances MinDepth="1">
+        <AllInstancesPath AuthorizedTypeExpr="[RFLPLMFlowExposition/RFLPLMFlowExpositionInstance],[RFLPLMFlow/RFLPLMFlowInstance]"/>
+      </PathOfInstances>
+    </SRPatternConstraint>
+  </SemanticRelation>
+
+  <!-- Metadata for RFLVPMLogical -->
+  <SemanticRelation
+  Name="RFLVPMLogical-LogicalType-Reference3"
+  Uuid="e8f0ef55-6bea-4f72-a583-b2cc8f1553f2"
+  AllowedTargetPath="Path">
+    <SRContextConstraint Name="Logical1" ContextType="Implicit"/>
+    <SRPatternConstraint Name="LPort" IdCode="1024"  LastAuthorizedTypeExpr="[RFLVPMSystemType/RFLVPMSystemTypeInstance]" ValidityCheck="Owner.V_Owner.type belongsTo [RFLVPMLogical/RFLVPMLogicalReference]">
+      <PathOfInstances MinDepth="0" MaxDepth="0"/>
+    </SRPatternConstraint>
+    <SRPatternConstraint Name="LPortMuxDemux" IdCode="1025" LastAuthorizedTypeExpr="[RFLVPMSystemType/RFLVPMSystemTypeInstance]" ValidityCheck="Owner.V_Owner.type belongsTo [RFLVPMLogicalCommunication/RFLVPMLogicalCommunicationReference]" >
+      <PathOfInstances MinDepth="0" MaxDepth="1">
+        <AllInstancesPath AuthorizedTypeExpr="[RFLVPMSystemType/RFLVPMSystemTypeInstance]"/>
+      </PathOfInstances>
+    </SRPatternConstraint>
+  </SemanticRelation>
+
+  <SemanticRelation Name="RFLVPMLogical-LogicalPorts-Reference4"
+            Uuid="7babfc21-aa9b-457a-a4a0-b6254d0147d4"
+            AllowedTargetPath="Path">
+    <SRContextConstraint Name="Logical2" ContextType="Implicit"/>
+    <SRPatternConstraint Name="Sibling" IdCode="1234" LastAuthorizedTypeExpr="[RFLVPMLogical/RFLVPMLogicalPort]">
+      <PathOfInstances MinDepth="1" MaxDepth="1">
+        <AllInstancesPath AuthorizedTypeExpr="[RFLVPMLogical/RFLVPMLogicalInstance],[RFLVPMLogicalCommunication/RFLVPMLogicalCommunicationInstance]"/>
+      </PathOfInstances>
+    </SRPatternConstraint>
+    <SRPatternConstraint Name="ParentChild" IdCode="1234" LastAuthorizedTypeExpr="[RFLVPMLogical/RFLVPMLogicalPort]">
+      <PathOfInstances MinDepth="0" MaxDepth="0" />
+    </SRPatternConstraint>
+
+    <SRPatternConstraint Name="SiblingInterface" IdCode="1030" LastAuthorizedTypeExpr="[RFLVPMSystemTypeExposition/RFLVPMSystemTypeExpositionInstance]">
+      <PathOfInstances MinDepth="1" MaxDepth="1">
+        <AllInstancesPath AuthorizedTypeExpr="[RFLVPMLogical/RFLVPMLogicalInstance]"/>
+      </PathOfInstances>
+    </SRPatternConstraint>
+    <SRPatternConstraint Name="ParentChildInterface" IdCode="1031" LastAuthorizedTypeExpr="[RFLVPMSystemTypeExposition/RFLVPMSystemTypeExpositionInstance]">
+      <PathOfInstances MinDepth="0" MaxDepth="0"/>
+    </SRPatternConstraint>
+    <SRPatternConstraint Name="SiblingInterfaceStructured" IdCode="1032" LastAuthorizedTypeExpr="[RFLVPMSystemType/RFLVPMSystemTypeInstance]">
+      <PathOfInstances MinDepth="2">
+        <AllInstancesPath AuthorizedTypeExpr="[RFLVPMLogical/RFLVPMLogicalInstance],[RFLVPMSystemTypeExposition/RFLVPMSystemTypeExpositionInstance],[RFLVPMSystemType/RFLVPMSystemTypeInstance]"/>
+      </PathOfInstances>
+    </SRPatternConstraint>
+    <SRPatternConstraint Name="ParentChildInterfaceStructured" IdCode="1033" LastAuthorizedTypeExpr="[RFLVPMSystemType/RFLVPMSystemTypeInstance]">
+      <PathOfInstances MinDepth="1">
+        <AllInstancesPath AuthorizedTypeExpr="[RFLVPMSystemTypeExposition/RFLVPMSystemTypeExpositionInstance],[RFLVPMSystemType/RFLVPMSystemTypeInstance]"/>
+      </PathOfInstances>
+    </SRPatternConstraint>
+	
+    <SRPatternConstraint Name="SiblingServices" IdCode="1034" LastAuthorizedTypeExpr="[RFLVPMLogicalServices/RFLVPMServicesExpositionInstance]">
+      <PathOfInstances MinDepth="1" MaxDepth="1">
+        <AllInstancesPath AuthorizedTypeExpr="[RFLVPMLogical/RFLVPMLogicalInstance]"/>
+      </PathOfInstances>
+    </SRPatternConstraint>
+    <SRPatternConstraint Name="ParentChildServices" IdCode="1035" LastAuthorizedTypeExpr="[RFLVPMLogicalServices/RFLVPMServicesExpositionInstance]">
+      <PathOfInstances MinDepth="0" MaxDepth="0"/>
+    </SRPatternConstraint>
+  </SemanticRelation>
+
+  <SemanticRelation Name="RFLVPMLogicalPublication-Publish-Reference3"
+            Uuid="01E1147B-1763-4519-AFF4-BA96600CDE8F"
+            AllowedTargetPath="Path">
+    <SRContextConstraint Name="LogicalPub" ContextType="Implicit"/>
+    <!-- Simple Publication:
+         - Target     : IN a Logical Rep (3D or not) Reference.
+         - RepInstance: [RFLVPMLogical/RFLVPMLogicalRepInstance], [RFLVPMLogical3DRep/RFLVPMLogical3DRepInstance]
+         - Path       : Size = 0->n, Type = [RFLVPMLogical/RFLVPMLogicalInstance],[RFLVPMLogicalCommunication/RFLVPMLogicalCommunicationInstance],[RFLVPMLogical/RFLVPMLogicalRepInstance],[RFLVPMLogical3DRep/RFLVPMLogical3DRepInstance].
+     -->
+    <SRPatternConstraint Name="Publish" IdCode="1" LastAuthorizedTypeExpr="[RFLVPMLogical/RFLVPMLogicalRepReference],[RFLVPMLogical3DRep/RFLVPMLogical3DRepReference]">
+      <PathOfInstances>
+        <AllInstancesPath AuthorizedTypeExpr="[RFLVPMLogical/RFLVPMLogicalInstance],[RFLVPMLogicalCommunication/RFLVPMLogicalCommunicationInstance],[RFLVPMLogical/RFLVPMLogicalRepInstance],[RFLVPMLogical3DRep/RFLVPMLogical3DRepInstance]"/>
+      </PathOfInstances>
+    </SRPatternConstraint>
+    <!-- Publication of Publication:
+         - Target      : A Logical Publication
+         - Rep Instance: null
+         - Path        : Size = 1->n, Type = [RFLVPMLogical/RFLVPMLogicalInstance], [RFLVPMLogicalCommunication/RFLVPMLogicalCommunicationInstance].
+     -->
+    <SRPatternConstraint Name="PublishAPub" IdCode="2" LastAuthorizedTypeExpr="[RFLVPMLogicalPublication/RFLVPMLogicalPublication]">
+      <PathOfInstances MinDepth="1">
+        <AllInstancesPath AuthorizedTypeExpr="[RFLVPMLogical/RFLVPMLogicalInstance],[RFLVPMLogicalCommunication/RFLVPMLogicalCommunicationInstance]"/>
+      </PathOfInstances>
+    </SRPatternConstraint>
+  </SemanticRelation>
+
+  <!-- Metadata for Functional Process modeler -->  
+  <SemanticRelation Name="DELFmiFunctionalModelPrecedenceCnx1-DELFmi_PrecedenceCst_Target-Reference3"
+                    Uuid="3d452156-cacc-4e4a-8be6-123fc564c164"
+                    AllowedTargetPath="Path"
+                    >
+    <SRContextConstraint Name="Context" ContextType="Implicit" ></SRContextConstraint>
+    <SRPatternConstraint Name="Sibling" IdCode="401"
+                         LastAuthorizedTypeExpr="[DELFmiFunctionalModelPrecedencePort/DELFmiProcessPrecedencePort]"
+                         ValidityCheck="Owner.V_Owner.type belongsTo [DELFmiFunctionalModel/DELFmiFunctionReference]"
+                         >
+      <PathOfInstances MinDepth="1" MaxDepth="1">
+        <AllInstancesPath AuthorizedTypeExpr="[DELFmiFunctionalModel/DELFmiFunctionInstance]"/>
+      </PathOfInstances>
+    </SRPatternConstraint>
+  </SemanticRelation>
+
+  <SemanticRelation Name="DELFmiFunctionalModelPrecedenceCnx1-DELFmi_PrecedenceCst_Source-Reference5"
+                    Uuid="8346db1a-a01e-47f9-9336-bd34ba350154"
+                    AllowedTargetPath="Path"
+                    >
+    <SRContextConstraint Name="Context" ContextType="Implicit" ></SRContextConstraint>
+    <SRPatternConstraint Name="Sibling" IdCode="402"
+                         LastAuthorizedTypeExpr="[DELFmiFunctionalModelPrecedencePort/DELFmiProcessPrecedencePort]"
+                         ValidityCheck="Owner.V_Owner.type belongsTo [DELFmiFunctionalModel/DELFmiFunctionReference]"
+                         >
+      <PathOfInstances MinDepth="1" MaxDepth="1">
+        <AllInstancesPath AuthorizedTypeExpr="[DELFmiFunctionalModel/DELFmiFunctionInstance]"/>
+      </PathOfInstances>
+    </SRPatternConstraint>
+  </SemanticRelation>
+
+  <SemanticRelation Name="DELFmiFunctionalModelPrerequisiteCnx1-DELFmi_PrerequisiteCst_Target-Reference3"
+                    Uuid="8df97cbf-585c-49af-a5ea-7758c69c8e7d"
+                    AllowedTargetPath="Path">
+    <SRContextConstraint Name="Context" ContextType="Implicit" ></SRContextConstraint>
+    <SRPatternConstraint Name="Sibling" IdCode="403"
+                         LastAuthorizedTypeExpr="[DELFmiFunctionalModelPrerequisitePort/DELFmiProcessPrerequisitePort]"
+                         ValidityCheck="Owner.V_Owner.type belongsTo [DELFmiFunctionalModel/DELFmiFunctionReference]"
+                         >
+      <PathOfInstances MinDepth="1" MaxDepth="1">
+        <AllInstancesPath AuthorizedTypeExpr="[DELFmiFunctionalModel/DELFmiFunctionInstance]"/>
+      </PathOfInstances>
+    </SRPatternConstraint>
+  </SemanticRelation>
+
+  <SemanticRelation Name="DELFmiFunctionalModelPrerequisiteCnx1-DELFmi_PrerequisiteCst_Source-Reference5"
+                    Uuid="c489561a-6e1e-4703-b37e-ff712d3a38d1"
+                    AllowedTargetPath="Path"
+                    >
+    <SRContextConstraint Name="Context" ContextType="Implicit" ></SRContextConstraint>
+    <SRPatternConstraint Name="Sibling" IdCode="404"
+                         LastAuthorizedTypeExpr="[DELFmiFunctionalModelPrerequisitePort/DELFmiProcessPrerequisitePort]"
+                         ValidityCheck="Owner.V_Owner.type belongsTo [DELFmiFunctionalModel/DELFmiFunctionReference]"
+                         >
+      <PathOfInstances MinDepth="1" MaxDepth="1">
+        <AllInstancesPath AuthorizedTypeExpr="[DELFmiFunctionalModel/DELFmiFunctionInstance]"/>
+      </PathOfInstances>
+    </SRPatternConstraint>
+  </SemanticRelation>
+
+  <SemanticRelation Name="DELFmiFunctionalModelExpositionCnx1-DELFmi_ExpositionCnx_Target-Reference3"
+                    Uuid="c8bf284d-25b6-4dd7-a2cd-243df2cb53b8"
+                    AllowedTargetPath="Path"
+                    >
+    <SRContextConstraint Name="Context" ContextType="Implicit" ></SRContextConstraint>
+
+    <SRPatternConstraint Name="PrerequisiteExpositionTarget" IdCode="405"
+                         LastAuthorizedTypeExpr="[DELFmiFunctionalModelPrerequisitePort/DELFmiProcessPrerequisitePort]"
+                         ValidityCheck="(Owner.V_Owner.type belongsTo [DELFmiFunctionalModel/DELFmiFunctionReference]) ## (Owner.Relation(DELFmi_ExpositionCnx_Source,Reference5) follows PrerequisiteExpositionSource)"
+                         >
+      <PathOfInstances MinDepth="1" MaxDepth="1">
+        <AllInstancesPath AuthorizedTypeExpr="[DELFmiFunctionalModel/DELFmiFunctionInstance]"/>
+      </PathOfInstances>
+    </SRPatternConstraint>
+
+    <SRPatternConstraint Name="PrecedenceExpositionTarget" IdCode="406"
+                         LastAuthorizedTypeExpr="[DELFmiFunctionalModelPrecedencePort/DELFmiProcessPrecedencePort]"
+                         ValidityCheck="(Owner.V_Owner.type belongsTo [DELFmiFunctionalModel/DELFmiFunctionReference]) ## (Owner.Relation(DELFmi_ExpositionCnx_Source,Reference5) follows PrecedenceExpositionSource)"
+                         >
+      <PathOfInstances MinDepth="1" MaxDepth="1">
+        <AllInstancesPath AuthorizedTypeExpr="[DELFmiFunctionalModel/DELFmiFunctionInstance]"/>
+      </PathOfInstances>
+    </SRPatternConstraint>
+    
+  </SemanticRelation>
+
+  <SemanticRelation Name="DELFmiFunctionalModelExpositionCnx1-DELFmi_ExpositionCnx_Source-Reference5"
+                    Uuid="b9520dcb-ee47-46cd-a0cc-3eb2796352e2"
+                    AllowedTargetPath="Path"
+                    >
+    <SRContextConstraint Name="Context" ContextType="Implicit" ></SRContextConstraint>
+
+    <SRPatternConstraint Name="PrerequisiteExpositionSource" IdCode="407"
+                         LastAuthorizedTypeExpr="[DELFmiFunctionalModelPrerequisitePort/DELFmiProcessPrerequisitePort]"
+                         ValidityCheck="Owner.V_Owner.type belongsTo [DELFmiFunctionalModel/DELFmiFunctionReference]" >
+                         <!--ValidityCheck="(Owner.V_Owner.type belongsTo [DELFmiFunctionalModel/DELFmiFunctionReference]) ## (Owner.Relation(DELFmi_ExpositionCnx_Target,Reference3) follows PrerequisiteExpositionTarget)" >-->
+      <PathOfInstances MinDepth="0" MaxDepth="0"/>
+    </SRPatternConstraint>
+
+
+    <SRPatternConstraint Name="PrecedenceExpositionSource" IdCode="408"
+                         LastAuthorizedTypeExpr="[DELFmiFunctionalModelPrecedencePort/DELFmiProcessPrecedencePort]"
+                         ValidityCheck="Owner.V_Owner.type belongsTo [DELFmiFunctionalModel/DELFmiFunctionReference]" >
+                         <!--ValidityCheck="(Owner.V_Owner.type belongsTo [DELFmiFunctionalModel/DELFmiFunctionReference]) ## (Owner.Relation(DELFmi_ExpositionCnx_Target,Reference3) follows PrecedenceExpositionTarget)" >-->
+      <PathOfInstances MinDepth="0" MaxDepth="0"/>
+    </SRPatternConstraint>
+
+  </SemanticRelation>
+
+  <SemanticRelation Name="DELFmiFunctionalModelPrereqMatCnx-DELFmi_PrereqMaterialization_Target-Reference3"
+                    Uuid="f4c7e0b0-4cf7-4491-b140-0b00c667aa24"
+                    AllowedTargetPath="Simple"
+                    >
+
+    <SRPatternConstraint Name="DataMaterializationTarget" IdCode="409"
+                         LastAuthorizedTypeExpr="[PRODUCTCFG/VPMReference]"
+                         ValidityCheck="Owner.V_Owner.type belongsTo [DELFmiFunctionalModel/DELFmiFunctionReference]"
+                         >
+    </SRPatternConstraint>
+  </SemanticRelation>
+
+  <SemanticRelation Name="DELFmiFunctionalModelPrereqMatCnx-DELFmi_PrereqMaterialization_Source-Reference5"
+                    Uuid="5fa07153-bf5b-4804-9cd5-0674d32bb5f5"
+                    AllowedTargetPath="Path"
+                    >
+    <SRContextConstraint Name="Context" ContextType="Implicit" ></SRContextConstraint>
+
+    <SRPatternConstraint Name="DataMaterializationSource" IdCode="410"
+                         LastAuthorizedTypeExpr="[DELFmiFunctionalModelPrerequisitePort/DELFmiProcessPrerequisitePort]"
+                         ValidityCheck="Owner.V_Owner.type belongsTo [DELFmiFunctionalModel/DELFmiFunctionReference]"
+                         >
+      <PathOfInstances MinDepth="0" MaxDepth="0"/>
+    </SRPatternConstraint>
+  </SemanticRelation>
+  
+  <!--Metadata for MCX-->
+  <SemanticRelation  Name="MCX_ImpactedOut" Uuid="6E6DF43C-1234-4b85-A88E-60433325DEA0" MinorSensitive="No">
+    <SRPatternConstraint Name="MovableProduct" IdCode="1" LastAuthorizedTypeExpr="[PRODUCTCFG/VPMInstance]">
+      <PathOfInstances EndsWithAMovable="true" ></PathOfInstances>
+    </SRPatternConstraint>
+    <SRPatternConstraint Name="Coupling" IdCode="8" LastAuthorizedTypeExpr="[CATMCXAssembly/CATMCXMechanicalConnection]">
+      <PathOfInstances MinDepth="0" MaxDepth="0">
+      </PathOfInstances>
+    </SRPatternConstraint>
+    <SRPatternConstraint Name="TemplateMCX" IdCode="11" LastAuthorizedTypeExpr="[CATMCXAssembly/CATMCXMechanicalConnection]">
+      <PathOfInstances MinDepth="1" MaxDepth="1">
+        <InstancePath PositionInPath="1" AuthorizedTypeExpr="[PRODUCTCFG/VPMInstance]"/>
+      </PathOfInstances>
+    </SRPatternConstraint>
+  </SemanticRelation>
+  <SemanticRelation  Name="MCX_ImpactedIn" Uuid="0076D01B-3B8C-4a55-9910-C66D4327AAA9" MinorSensitive="No">
+    <SRPatternConstraint Name="MovableProduct" IdCode="2" LastAuthorizedTypeExpr="[PRODUCTCFG/VPMInstance]">
+      <PathOfInstances EndsWithAMovable="true" ></PathOfInstances>
+    </SRPatternConstraint>
+    <SRPatternConstraint Name="MCXOnRep" IdCode="3" LastAuthorizedTypeExpr="[PRODUCTCFG/VPMRepInstance]" />
+    <SRPatternConstraint Name="Coupling" IdCode="4" LastAuthorizedTypeExpr="[CATMCXAssembly/CATMCXMechanicalConnection]">
+      <PathOfInstances MinDepth="0" MaxDepth="0" >
+      </PathOfInstances>
+    </SRPatternConstraint>
+    <SRPatternConstraint Name="SymCtion" IdCode="9" LastAuthorizedTypeExpr="[CATAsmSymGeo/CATAsmSymmetryGeo]" />
+
+  </SemanticRelation>
+
+  <SemanticRelation  Name="MCX_Support" Uuid="09D4552D-3941-4b28-947C-EE69A21194A5" MinorSensitive="No">
+    <SRPatternConstraint Name="SupportIn" IdCode="5" LastAuthorizedTypeExpr="[PRODUCTCFG/VPMRepReference],[PRODUCTCFG/VPMInstance],[PRODUCTCFG/VPMPort],[CATMCXAssembly/CATMCXMechanicalConnection],[CATAsmSymGeo/CATAsmSymmetryGeo]">
+      <PathOfInstances>
+        <BeginWithPath RelationDefinition="Owner.Relation(MCX_ImpactedIn,Reference3)" />
+      </PathOfInstances>
+    </SRPatternConstraint>
+    <SRPatternConstraint Name="SupportOut" IdCode="6" LastAuthorizedTypeExpr="[PRODUCTCFG/VPMRepReference],[PRODUCTCFG/VPMInstance],[PRODUCTCFG/VPMPort],[CATMCXAssembly/CATMCXMechanicalConnection]">
+      <PathOfInstances>
+        <BeginWithPath RelationDefinition="Owner.Relation(MCX_ImpactedOut,Reference5)" />
+      </PathOfInstances>
+    </SRPatternConstraint>
+    <SRPatternConstraint Name="SymGeomCtion" IdCode="10" LastAuthorizedTypeExpr="[CATAsmSymGeo/CATAsmSymmetryGeo]">
+      <PathOfInstances MinDepth="0" MaxDepth="1" >
+      </PathOfInstances>
+    </SRPatternConstraint>
+  </SemanticRelation>
+  <SemanticRelation  Name="MCX_Reference" Uuid="8A094781-3770-4b95-A6AA-DE3DA25876D9" MinorSensitive="No">
+    <SRPatternConstraint Name="Ref" IdCode="7" LastAuthorizedTypeExpr="[CATMCXAssembly/CATMCXMechanicalConnection],[CATMCXAssembly/CATMCXMechanicalConnectionInstance]">
+      <PathOfInstances MinDepth="1" MaxDepth="1">
+        <InstancePath PositionInPath="1" AuthorizedTypeExpr="[PRODUCTCFG/VPMInstance]"/>
+      </PathOfInstances>
+    </SRPatternConstraint>
+  </SemanticRelation>
+  <SemanticRelation  Name="MCX_ExtendedSpecification" Uuid="7BFFFB2F-856B-4226-9368-2F0F87DB3B70"/>
+
+  <!--Metadata for Kinmatics-->
+  <SemanticRelation  Name="KIN_MechanismAssembly" Uuid="5D788130-2FE8-4B50-B08A-D171AD40CA7C">
+    <SRContextConstraint Name="Context" ContextType="Implicit"/>
+    <SRPatternConstraint Name="SubMechanism" IdCode="1907" LastAuthorizedTypeExpr="[CATMechanism/Mechanism]">
+      <PathOfInstances MinDepth="1">
+      </PathOfInstances>
+    </SRPatternConstraint>
+  </SemanticRelation>
+
+  <SemanticRelation  Name="KIN_Joints" Uuid="08DA05B8-502C-46A3-B698-1A8DF4BA6E9A">
+    <SRContextConstraint Name="Context" ContextType="Implicit"/>
+    <SRPatternConstraint Name="Joint" IdCode="1908" LastAuthorizedTypeExpr="[CATMCXAssembly/CATMCXMechanicalConnection]">
+      <PathOfInstances MinDepth="0" MaxDepth="0">
+      </PathOfInstances>
+    </SRPatternConstraint>
+  </SemanticRelation>
+
+  <SemanticRelation  Name="KIN_Cmd_Joint" Uuid="573E3578-8DF5-4E52-BC8F-1B9EB414AA97">
+    <SRContextConstraint Name="Context" ContextType="Implicit"/>
+    <SRPatternConstraint Name="Joint" IdCode="1909" LastAuthorizedTypeExpr="[CATMCXAssembly/CATMCXMechanicalConnection]">
+      <PathOfInstances MinDepth="0" MaxDepth="0">
+      </PathOfInstances>
+    </SRPatternConstraint>
+  </SemanticRelation>
+
+  <SemanticRelation  Name="KIN_DressupJoint" Uuid="8AC59A61-1907-4F07-9CC2-7A6829D15F16">
+    <SRContextConstraint Name="Context" ContextType="Implicit"/>
+    <SRPatternConstraint Name="Joint" IdCode="1910" LastAuthorizedTypeExpr="[CATMCXAssembly/CATMCXMechanicalConnection]">
+      <PathOfInstances MinDepth="0" MaxDepth="0">
+      </PathOfInstances>
+    </SRPatternConstraint>
+  </SemanticRelation>
+
+  <!--Metadata for material-->
+
+  <SemanticRelation
+    Name="CATMaterialToReferenceLink"
+    Uuid="7EA73B20-E98E-49b3-97BA-1FFDF1665C0B"
+    AllowedTargetPath="Simple">
+    <SRPatternConstraint
+      Name="LinkToMaterialCore"
+      IdCode="42"
+      ValidityCheck="Owner.type belongsTo [CATMaterial/CATMatConnection,dsc_mat_cnx_Core]"
+      LastAuthorizedTypeExpr="[CATMaterialRef/CATMatReference,dsc_matref_ref_Core]"
+      />
+    <SRPatternConstraint Name="LinkToMaterialCovering"
+                         IdCode="43"
+                         ValidityCheck="Owner.type belongsTo [CATMaterial/CATMatConnection,dsc_mat_cnx_Covering]"
+                         LastAuthorizedTypeExpr="[CATMaterialRef/CATMatReference,dsc_matref_ref_Covering]"
+                         />
+    <SRPatternConstraint Name="LinkToMaterialCoreVector"
+                         IdCode="50"
+                         ValidityCheck="Owner.type belongsTo [CATMaterial/CATMatConnection,dsc_mat_cnx_Core]"
+                         LastAuthorizedTypeExpr="[CATMaterialRef/CATMatPort,dsc_matref_ref_CorePort]"
+                         />
+    <SRPatternConstraint Name="LinkToMaterialCoveringVector"
+                         IdCode="51"
+                         ValidityCheck="Owner.type belongsTo [CATMaterial/CATMatConnection,dsc_mat_cnx_Covering]"
+                         LastAuthorizedTypeExpr="[CATMaterialRef/CATMatPort,dsc_matref_ref_CoveringPort]"
+                          />
+  </SemanticRelation>
+
+  <SemanticRelation
+    Name="CATMaterialMadeOfLink"
+    Uuid="B6CC006D-3E86-4e41-A15E-D8B5B7FBA18C"
+    AllowedTargetPath="Path[0 lte size lte 1]"
+    >
+    <SRContextConstraint Name="Core" ContextType="Implicit"/>
+    <SRPatternConstraint Name="Core"
+                         IdCode="44"
+                         LastAuthorizedTypeExpr="[PRODUCTCFG/VPMReference],[PRODUCTCFG/VPMRepInstance],[PRODUCTCFG/VPMRepReference],[CATMCXAssembly/CATMCXMechanicalConnection]"
+                         ValidityCheck="Owner.type belongsTo [CATMaterial/CATMatConnection,dsc_mat_cnx_Core]">
+      <PathOfInstances>
+        <AllInstancesPath AuthorizedTypeExpr="[PRODUCTCFG/VPMRepInstance]"  />
+      </PathOfInstances>
+    </SRPatternConstraint>
+  </SemanticRelation>
+
+  <SemanticRelation
+    Name="CATMaterialDressByLink"
+    Uuid="FF878F66-EF87-46c8-9754-F079C61F288F"
+    AllowedTargetPath="Path"
+    >
+    <SRContextConstraint Name="Covering" ContextType="Implicit" />
+    <SRPatternConstraint Name="Covering"
+                         IdCode="45"
+                         ValidityCheck="Owner.type belongsTo [CATMaterial/CATMatConnection,dsc_mat_cnx_Covering]"
+                         LastAuthorizedTypeExpr="[PRODUCTCFG/VPMReference],[PRODUCTCFG/VPMInstance],[PRODUCTCFG/VPMRepInstance],[PRODUCTCFG/VPMRepReference]">
+      <PathOfInstances>
+        <AllInstancesPath AuthorizedTypeExpr="[PRODUCTCFG/VPMInstance]"  />
+      </PathOfInstances>
+    </SRPatternConstraint>
+  </SemanticRelation>
+
+  <SemanticRelation  Name="CATMaterialRefElement-CATMaterialRefCnxToStream-Reference3"
+		                 Uuid="7F4EBD73-4C3A-4268-B296-B2AD90F5341A"
+		                 AllowedTargetPath="Path[1]">
+    <SRContextConstraint Name="CATMatRefElemConnection_stream" ContextType="Implicit" />
+    <SRPatternConstraint Name="CATMatRefElemConnection_stream"
+             IdCode="46"
+             ValidityCheck="Owner.type belongsTo [CATMaterialRefElement/CATMatRefElemConnection,dsc_matrefelem_cnx_SmaBehavior]"
+             LastAuthorizedTypeExpr="[CATMaterialRef/MaterialDomain,dsc_matref_rep_SmaOptions]">
+      <PathOfInstances>
+        <AllInstancesPath AuthorizedTypeExpr="[CATMaterialRef/MaterialDomainInstance]"  />
+      </PathOfInstances>
+    </SRPatternConstraint>
+  </SemanticRelation>
+
+  <SemanticRelation  Name="CATMaterialRefElement-CATMaterialRefCnxToFather-Reference"
+		  Uuid="36686135-FE56-4206-A423-6C8275745BC5">
+    <SRContextConstraint Name="Link_IG" ContextType="Implicit" />
+    <SRPatternConstraint Name="Link_IG" IdCode="47" LastAuthorizedTypeExpr="[CATMaterialRef/CATMatReference]"/>
+  </SemanticRelation>
+
+  <SemanticRelation  Name="CATMaterialRef-CATMaterialRefCnxToStream-Reference3"
+		  Uuid="2AE89A82-E382-4b7c-AA29-07D18491899B"
+		  AllowedTargetPath="Path">
+    <SRContextConstraint Name="CATMatRefConnection_stream" ContextType="Implicit" />
+    <SRPatternConstraint Name="CATMatRefConnection_stream"
+                         IdCode="48"
+                         LastAuthorizedTypeExpr="[CATMaterialRef/MaterialDomainInstance]"/>
+  </SemanticRelation>
+
+  <SemanticRelation  Name="CATMaterialRef-CATMaterialRefCnxToFather-Reference5"
+		  Uuid="4FCB5519-D163-4cd6-A2DE-7978DA5049F1"  >
+    <SRPatternConstraint Name="Link_IG" IdCode="47" />
+  </SemanticRelation>
+
+  <SemanticRelation  Name="CATMatPort_ActiveMatLink"
+		  Uuid="E166332C-FBD1-4afd-9C5C-1D124D07FBE4"
+		  AllowedTargetPath="Path">
+    <SRContextConstraint Name="CATMatPort_ActiveMatLink" ContextType="Implicit" />
+    <SRPatternConstraint Name="LinkCorePortToCoreMaterial"
+                         IdCode="49"
+                         ValidityCheck="Owner.type belongsTo [CATMaterialRefElement/CATMatPort,dsc_matref_ref_CorePort]"
+                         LastAuthorizedTypeExpr="[CATMaterialRef/CATMatReference,dsc_matref_ref_Core]">
+      <PathOfInstances>
+        <AllInstancesPath AuthorizedTypeExpr="[CATMaterialRef/CATMatRefInstance]"  />
+      </PathOfInstances>
+    </SRPatternConstraint>
+    <SRPatternConstraint Name="LinkCoveringPortToCoveringMaterial"
+                         IdCode="52"
+                         ValidityCheck="Owner.type belongsTo [CATMaterialRefElement/CATMatPort,dsc_matref_ref_CoveringPort]"
+                         LastAuthorizedTypeExpr="[CATMaterialRef/CATMatReference,dsc_matref_ref_Covering]">
+      <PathOfInstances>
+        <AllInstancesPath AuthorizedTypeExpr="[CATMaterialRef/CATMatRefInstance]"  />
+      </PathOfInstances>
+    </SRPatternConstraint>
+  </SemanticRelation>
+  
+  <!--Metadata for PRODUCT-->
+	
+   <SemanticRelation Name="PRODUCTCFG-Publish-Reference3"
+						Uuid="4b857ed8-bf2b-4d73-9e24-737ff60118c7"
+						AllowedTargetPath="Path">
+    <SRContextConstraint Name="ProductPub" ContextType="Implicit"/>
+    <SRPatternConstraint Name="Publish" IdCode="1" LastAuthorizedTypeExpr="[PRODUCTCFG/VPMReference],[PRODUCTCFG/VPMRepReference]">
+      <PathOfInstances>
+        <AllInstancesPath AuthorizedTypeExpr="[PRODUCTCFG/VPMInstance],[PRODUCTCFG/VPMRepInstance]"/>
+      </PathOfInstances>
+    </SRPatternConstraint>
+    <SRPatternConstraint Name="PublishAPub" IdCode="2" LastAuthorizedTypeExpr="[PRODUCTCFG/VPMPort]">
+      <PathOfInstances MinDepth="1">
+        <AllInstancesPath AuthorizedTypeExpr="[PRODUCTCFG/VPMInstance]"/>
+      </PathOfInstances>
+    </SRPatternConstraint>
+     <SRPatternConstraint Name="PublishAPubOnRep" IdCode="3" LastAuthorizedTypeExpr="[PRODUCTCFG/VPMPort]">
+       <PathOfInstances MinDepth="1">
+         <AllInstancesPath AuthorizedTypeExpr="[PRODUCTCFG/VPMInstance],[PRODUCTCFG/VPMRepInstance]"/>
+       </PathOfInstances>
+     </SRPatternConstraint>
+  </SemanticRelation>
+  
+  <!--data describing the relational integrity rules for Implement Links (LRG/june/25/2010)-->
+  <SemanticRelation Name="RFLPLMImplementConnection-PLM_ImplementLink_Source-Reference5" Uuid="acee3652-7e63-47ac-94b1-156396eadde0" AllowedTargetPath="Path">
+    <SRContextConstraint Name="ImplicitCtxForImplemented" ContextType="Implicit"/>
+  
+  <!-- PRODUCT modeler -->	
+    <SRPatternConstraint Name="SourceProductRef"
+	                     IdCode="1"
+						 ValidityCheck="(Owner.V_Owner.type belongsTo [PRODUCTCFG/VPMReference]) ## (Owner.Relation(PLM_ImplementLink_Target,Reference3) follows ReqProjReqRef,ReqProjReqSpecRef,LogicalRef,ReqSpecification,Requirement)"
+						 LastAuthorizedTypeExpr="[PRODUCTCFG/VPMReference]">
+	</SRPatternConstraint>
+    <SRPatternConstraint Name="SourceProductInst"
+	                     IdCode="2"
+						 ValidityCheck="(Owner.V_Owner.type belongsTo [PRODUCTCFG/VPMReference]) ## (Owner.Relation(PLM_ImplementLink_Target,Reference3) follows ReqProjCommonInst,ReqProjReqInst,LogicalInst,LogicalCnx,SpecStructure,SubRequirement)"
+						 LastAuthorizedTypeExpr="[PRODUCTCFG/VPMInstance]">
+	</SRPatternConstraint>
+    <!-- V6R2014 -->
+    <SRPatternConstraint Name="SrcPrdRef02" IdCode="3"
+						 ValidityCheck="(Owner.V_Owner.type belongsTo [PRODUCTCFG/VPMReference]) ## (Owner.Relation(PLM_ImplementLink_Target,Reference3) follows TargetReqGroup,FunctionalRef)"
+						 LastAuthorizedTypeExpr="[PRODUCTCFG/VPMReference]">
+    </SRPatternConstraint>
+    <SRPatternConstraint Name="SrcPrdInst02" IdCode="4"
+						 ValidityCheck="(Owner.V_Owner.type belongsTo [PRODUCTCFG/VPMReference]) ## (Owner.Relation(PLM_ImplementLink_Target,Reference3) follows TargetSubReqGroup,TargetReqGroupContent,FunctionalInst)"
+						 LastAuthorizedTypeExpr="[PRODUCTCFG/VPMInstance]">
+    </SRPatternConstraint>
+
+    <SRPatternConstraint Name="SrcPrdPortPublication" IdCode="3001"
+						 ValidityCheck="(Owner.V_Owner.type belongsTo [PRODUCTCFG/VPMReference]) ## (Owner.Relation(PLM_ImplementLink_Target,Reference3) follows Requirement)"
+						 LastAuthorizedTypeExpr="[PRODUCTCFG/VPMPort]">
+    </SRPatternConstraint>
+	
+	<SRPatternConstraint Name="SrcPrdRef" IdCode="3002"
+						 ValidityCheck="(Owner.V_Owner.type belongsTo [PRODUCTCFG/VPMReference]) ## (Owner.Relation(PLM_ImplementLink_Target,Reference3) follows TgtPrdPublicationPort)"
+						 LastAuthorizedTypeExpr="[PRODUCTCFG/VPMReference]">
+    </SRPatternConstraint>
+
+    <!-- LOGICAL modeler -->	
+    <SRPatternConstraint Name="SourceLogicalRef"
+	                     IdCode="10"
+						 ValidityCheck="(Owner.V_Owner.type belongsTo [RFLVPMLogical/RFLVPMLogicalReference]) ## (Owner.Relation(PLM_ImplementLink_Target,Reference3) follows ReqProjReqRef,ReqProjReqSpecRef,FunctionalRef,ReqSpecification,Requirement)"
+						 LastAuthorizedTypeExpr="[RFLVPMLogical/RFLVPMLogicalReference]">
+	</SRPatternConstraint>
+    <SRPatternConstraint Name="SourceLogicalInst"
+	                     IdCode="11"
+						 ValidityCheck="(Owner.V_Owner.type belongsTo [RFLVPMLogical/RFLVPMLogicalReference]) ## (Owner.Relation(PLM_ImplementLink_Target,Reference3) follows ReqProjCommonInst,ReqProjReqInst,FunctionalInst,FunctionalCnx,SpecStructure,SubRequirement)"
+						 LastAuthorizedTypeExpr="[RFLVPMLogical/RFLVPMLogicalInstance]">
+		<PathOfInstances MinDepth="0">
+		    <AllInstancesPath AuthorizedTypeExpr="[RFLVPMLogical/RFLVPMLogicalInstance]"/>
+		</PathOfInstances>
+	</SRPatternConstraint>
+    <SRPatternConstraint Name="SourceLogicalPort"
+	                     IdCode="12"
+						 ValidityCheck="(Owner.V_Owner.type belongsTo [RFLVPMLogical/RFLVPMLogicalReference]) ## (Owner.Relation(PLM_ImplementLink_Target,Reference3) follows FunctionalPort)"
+						 LastAuthorizedTypeExpr="[RFLVPMLogical/RFLVPMLogicalPort]">
+	</SRPatternConstraint>
+    <!-- V6R2014 -->
+    <SRPatternConstraint Name="SrcLogRef02" IdCode="13"
+						 ValidityCheck="(Owner.V_Owner.type belongsTo [RFLVPMLogical/RFLVPMLogicalReference]) ## (Owner.Relation(PLM_ImplementLink_Target,Reference3) follows TargetReqGroup)"
+						 LastAuthorizedTypeExpr="[RFLVPMLogical/RFLVPMLogicalReference]">
+    </SRPatternConstraint> 
+    <SRPatternConstraint Name="SrcLogInst02" IdCode="14"
+						 ValidityCheck="(Owner.V_Owner.type belongsTo [RFLVPMLogical/RFLVPMLogicalReference]) ## (Owner.Relation(PLM_ImplementLink_Target,Reference3) follows TargetSubReqGroup,TargetReqGroupContent)"
+						 LastAuthorizedTypeExpr="[RFLVPMLogical/RFLVPMLogicalInstance]">
+      <PathOfInstances MinDepth="0">
+        <AllInstancesPath AuthorizedTypeExpr="[RFLVPMLogical/RFLVPMLogicalInstance]"/>
+      </PathOfInstances>
+    </SRPatternConstraint>
+    <SRPatternConstraint Name="SrcLogItf" IdCode="15"
+						 ValidityCheck="(Owner.V_Owner.type belongsTo [RFLVPMLogical/RFLVPMLogicalReference]) ## (Owner.Relation(PLM_ImplementLink_Target,Reference3) follows FunctionalPort,Target_FlowExpInst)"
+						 LastAuthorizedTypeExpr="[RFLVPMSystemTypeExposition/RFLVPMSystemTypeExpositionInstance],[RFLVPMLogical/RFLVPMLogicalPort]">
+      <PathOfInstances MinDepth="0">
+        <AllInstancesPath AuthorizedTypeExpr="[RFLVPMLogical/RFLVPMLogicalInstance]"/>
+      </PathOfInstances>
+    </SRPatternConstraint>
+
+    <!-- V6R2015X -->
+    <SRPatternConstraint Name="SrcLogRefIntraDag" IdCode="16"
+						 ValidityCheck="(Owner.V_Owner.type belongsTo [RFLVPMLogical/RFLVPMLogicalReference]) ## (Owner.Relation(PLM_ImplementLink_Target,Reference3) follows LogicalRef)"
+						 LastAuthorizedTypeExpr="[RFLVPMLogical/RFLVPMLogicalReference]">
+    </SRPatternConstraint> 
+    <SRPatternConstraint Name="SrcLogInstIntraDag" IdCode="17"
+						 ValidityCheck="(Owner.V_Owner.type belongsTo [RFLVPMLogical/RFLVPMLogicalReference]) ## (Owner.Relation(PLM_ImplementLink_Target,Reference3) follows LogicalInst)"
+						 LastAuthorizedTypeExpr="[RFLVPMLogical/RFLVPMLogicalInstance]">
+      <PathOfInstances MinDepth="0">
+        <AllInstancesPath AuthorizedTypeExpr="[RFLVPMLogical/RFLVPMLogicalInstance]"/>
+      </PathOfInstances>
+    </SRPatternConstraint>
+    <SRPatternConstraint Name="SrcLogItfIntraDag" IdCode="18"
+          ValidityCheck="(Owner.V_Owner.type belongsTo [RFLVPMLogical/RFLVPMLogicalReference]) ## (Owner.Relation(PLM_ImplementLink_Target,Reference3) follows LogicalPort,Target_SystemTypeExpInst,Target_SystemTypeInst,Target_FlowInst,SpecStructure,SubRequirement,FunctionalInst)"
+          LastAuthorizedTypeExpr="[RFLVPMSystemTypeExposition/RFLVPMSystemTypeExpositionInstance],[RFLVPMLogical/RFLVPMLogicalPort]">
+      <PathOfInstances MinDepth="0">
+        <AllInstancesPath AuthorizedTypeExpr="[RFLVPMLogical/RFLVPMLogicalInstance]"/>
+      </PathOfInstances>
+    </SRPatternConstraint>
+    <SRPatternConstraint Name="SrcLogElePinToEEStructuredInterfaceIntraDag" IdCode="210"
+						 ValidityCheck="(Owner.V_Owner.type belongsTo [RFLVPMLogical/RFLVPMLogicalReference]) ## (Owner.Relation(PLM_ImplementLink_Target,Reference3) follows Target_EEStructuredInterface)"
+						 LastAuthorizedTypeExpr="[PLMElectricalLogical/EleLogicalPin]">
+      <PathOfInstances MinDepth="0">
+        <AllInstancesPath AuthorizedTypeExpr="[RFLVPMLogical/RFLVPMLogicalInstance]"/>
+      </PathOfInstances>
+    </SRPatternConstraint>
+    
+    <!-- SystemType reference and instance -->
+    <SRPatternConstraint Name="SrcLogSystemTypeRefIntraDag" IdCode="211"
+               ValidityCheck="(Owner.V_Owner.type belongsTo [RFLVPMSystemType/RFLVPMSystemTypeReference]) ## (Owner.Relation(PLM_ImplementLink_Target,Reference3) follows LogicalSystemTypeRef,FunctionalFlowRef,Requirement,ReqSpecification,Target_FctREF)"
+               LastAuthorizedTypeExpr="[RFLVPMSystemType/RFLVPMSystemTypeReference]">
+    </SRPatternConstraint>
+    <SRPatternConstraint Name="SrcSystmTypeInst" IdCode="19"
+     ValidityCheck="(Owner.V_Owner.type belongsTo [RFLVPMLogical/RFLVPMLogicalReference]) ## (Owner.Relation(PLM_ImplementLink_Target,Reference3) follows Target_SystemTypeExpInst,Target_SystemTypeInst,SpecStructure,SubRequirement,Target_FlowInst,Target_FlowExpInst,LogicalPort,FunctionalInst)"
+     LastAuthorizedTypeExpr="[RFLVPMSystemType/RFLVPMSystemTypeInstance]">
+      <PathOfInstances MinDepth="0">
+        <AllInstancesPath AuthorizedTypeExpr="[RFLVPMLogical/RFLVPMLogicalInstance],[RFLVPMSystemTypeExposition/RFLVPMSystemTypeExpositionInstance],[RFLVPMSystemType/RFLVPMSystemTypeInstance]"/>
+      </PathOfInstances>
+    </SRPatternConstraint>
+	
+    <!-- FUNCTIONAL modeler -->	
+    <SRPatternConstraint Name="SourceFunctionalRef"
+	                     IdCode="20"
+						 ValidityCheck="(Owner.V_Owner.type belongsTo [RFLPLMFunctional/RFLPLMFunctionalReference]) ## (Owner.Relation(PLM_ImplementLink_Target,Reference3) follows ReqProjReqRef,ReqProjReqSpecRef,ReqSpecification,Requirement)"
+						 LastAuthorizedTypeExpr="[RFLPLMFunctional/RFLPLMFunctionalReference]">
+	</SRPatternConstraint>
+    <SRPatternConstraint Name="SourceFunctionalInst"
+	                     IdCode="21"
+						 ValidityCheck="(Owner.V_Owner.type belongsTo [RFLPLMFunctional/RFLPLMFunctionalReference]) ## (Owner.Relation(PLM_ImplementLink_Target,Reference3) follows ReqProjCommonInst,ReqProjReqInst,SpecStructure,SubRequirement)"
+						 LastAuthorizedTypeExpr="[RFLPLMFunctional/RFLPLMFunctionalInstance]">
+		<PathOfInstances MinDepth="0">
+		    <AllInstancesPath AuthorizedTypeExpr="[RFLPLMFunctional/RFLPLMFunctionalInstance]"/>
+		</PathOfInstances>
+	</SRPatternConstraint>
+    <!-- V6R2014 -->
+    <SRPatternConstraint Name="SrcFctRef02" IdCode="22"
+						 ValidityCheck="(Owner.V_Owner.type belongsTo [RFLPLMFunctional/RFLPLMFunctionalReference]) ## (Owner.Relation(PLM_ImplementLink_Target,Reference3) follows TargetReqGroup)"
+						 LastAuthorizedTypeExpr="[RFLPLMFunctional/RFLPLMFunctionalReference]">
+    </SRPatternConstraint>
+    <SRPatternConstraint Name="SrcFctInst02" IdCode="23"
+						 ValidityCheck="(Owner.V_Owner.type belongsTo [RFLPLMFunctional/RFLPLMFunctionalReference]) ## (Owner.Relation(PLM_ImplementLink_Target,Reference3) follows TargetSubReqGroup,TargetReqGroupContent)"
+						 LastAuthorizedTypeExpr="[RFLPLMFunctional/RFLPLMFunctionalInstance]">
+      <PathOfInstances MinDepth="0">
+        <AllInstancesPath AuthorizedTypeExpr="[RFLPLMFunctional/RFLPLMFunctionalInstance]"/>
+      </PathOfInstances>
+    </SRPatternConstraint>
+    <!-- V6R2015X -->
+    <SRPatternConstraint Name="SrcFctItfIntraDag" IdCode="24"
+						 ValidityCheck="(Owner.V_Owner.type belongsTo [RFLPLMFunctional/RFLPLMFunctionalReference]) ## (Owner.Relation(PLM_ImplementLink_Target,Reference3) follows FunctionalPort,Target_FlowExpInst,Target_FlowInst,SpecStructure,SubRequirement)"
+						 LastAuthorizedTypeExpr="[RFLPLMFlowExposition/RFLPLMFlowExpositionInstance],[RFLPLMFunctional/RFLPLMFunctionalConnector]">
+      <PathOfInstances MinDepth="0">
+        <AllInstancesPath AuthorizedTypeExpr="[RFLPLMFunctional/RFLPLMFunctionalInstance]"/>
+      </PathOfInstances>
+    </SRPatternConstraint>
+    <SRPatternConstraint Name="SrcFctRefIntraDag" IdCode="25"
+						 ValidityCheck="(Owner.V_Owner.type belongsTo [RFLPLMFunctional/RFLPLMFunctionalReference]) ## (Owner.Relation(PLM_ImplementLink_Target,Reference3) follows FunctionalRef)"
+						 LastAuthorizedTypeExpr="[RFLPLMFunctional/RFLPLMFunctionalReference]">
+    </SRPatternConstraint>
+    <SRPatternConstraint Name="SrcFctInstIntraDag" IdCode="26"
+						 ValidityCheck="(Owner.V_Owner.type belongsTo [RFLPLMFunctional/RFLPLMFunctionalReference]) ## (Owner.Relation(PLM_ImplementLink_Target,Reference3) follows FunctionalInst,FunctionalCnx)"
+						 LastAuthorizedTypeExpr="[RFLPLMFunctional/RFLPLMFunctionalInstance]">
+      <PathOfInstances MinDepth="0">
+        <AllInstancesPath AuthorizedTypeExpr="[RFLPLMFunctional/RFLPLMFunctionalInstance]"/>
+      </PathOfInstances>
+    </SRPatternConstraint>
+    <!-- Flow reference and instance-->
+    <SRPatternConstraint Name="SrcFctFlowRefIntraDag" IdCode="27"
+						 ValidityCheck="(Owner.V_Owner.type belongsTo [RFLPLMFlow/RFLPLMFlowReference]) ## (Owner.Relation(PLM_ImplementLink_Target,Reference3) follows FunctionalFlowRef,Requirement,ReqSpecification)"
+						 LastAuthorizedTypeExpr="[RFLPLMFlow/RFLPLMFlowReference]">
+    </SRPatternConstraint>
+    <SRPatternConstraint Name="SrcFlowInst" IdCode="28"
+     ValidityCheck="(Owner.V_Owner.type belongsTo [RFLPLMFunctional/RFLPLMFunctionalReference]) ## (Owner.Relation(PLM_ImplementLink_Target,Reference3) follows SpecStructure,SubRequirement,Target_FlowInst,Target_FlowExpInst,FunctionalPort)"
+     LastAuthorizedTypeExpr="[RFLPLMFlow/RFLPLMFlowInstance]">
+      <PathOfInstances MinDepth="0">
+        <AllInstancesPath AuthorizedTypeExpr="[RFLPLMFunctional/RFLPLMFunctionalInstance],[RFLPLMFlowExposition/RFLPLMFlowExpositionInstance],[RFLPLMFlow/RFLPLMFlowInstance]"/>
+      </PathOfInstances>
+    </SRPatternConstraint>
+	
+	
+    <!-- PRODUCTION SYSTEM modeler -->	
+    <SRPatternConstraint Name="SourceProductionSystemRef"
+	                     IdCode="30"
+						 ValidityCheck="(Owner.V_Owner.type belongsTo [DELLmiProductionSystem/DELLmiProductionSystemReference],[DELLmiProductionOperation/DELLmiOperationReference]) ## (Owner.Relation(PLM_ImplementLink_Target,Reference3) follows FctProcessRef)"
+						 LastAuthorizedTypeExpr="[DELLmiProductionGeneralSystem/DELLmiGeneralSystemReference],[DELLmiProductionTransformationSystem/DELLmiTransformationSystemReference],[DELLmiProductionTransferSystem/DELLmiTransferSystemReference],[DELLmiProductionStorageSystem/DELLmiStorageSystemReference],[DELLmiProductionExecGeneralSystem/DELLmiExecGeneralSystemReference],[DELLmiProductionExecTransfoSystem/DELLmiExecTransfoSystemReference],[DELLmiProductionExecTransferSystem/DELLmiExecTransferSystemReference],[DELLmiProductionExecStorageSystem/DELLmiExecStorageSystemReference],[DELLmiWorkOrder/DELLmiWorkOrderReference]">
+	</SRPatternConstraint>
+
+    <SRPatternConstraint Name="Source_ProdSystemRef_WorkPlan" 
+                         IdCode="31"
+						 ValidityCheck="(Owner.V_Owner.type belongsTo [DELLmiProductionSystem/DELLmiProductionSystemReference]) ## (Owner.Relation(PLM_ImplementLink_Target,Reference3) follows Target_DELLmiWorkPlanSystemReference)"
+						 LastAuthorizedTypeExpr="[DELLmiProductionGeneralSystem/DELLmiGeneralSystemReference],[DELLmiProductionTransformationSystem/DELLmiTransformationSystemReference],[DELLmiProductionTransferSystem/DELLmiTransferSystemReference],[DELLmiProductionStorageSystem/DELLmiStorageSystemReference]">
+    </SRPatternConstraint>
+
+    <SRPatternConstraint Name="Source_WorkPlan_ProcessRef" 
+                         IdCode="32"
+						 ValidityCheck="(Owner.V_Owner.type belongsTo [DELLmiProductionWorkplanSystem/DELLmiWorkPlanSystemReference]) ## (Owner.Relation(PLM_ImplementLink_Target,Reference3) follows FctProcessRef)"
+						 LastAuthorizedTypeExpr="[DELLmiProductionWorkplanSystem/DELLmiWorkPlanSystemReference]">
+    </SRPatternConstraint>
+
+    <SRPatternConstraint Name="Source_DELLmiOperationPPRInstance" IdCode="33"
+                         ValidityCheck="(Owner.Relation(PLM_ImplementLink_Target,Reference3) follows FctProcessRef,FctProcessInst,FctProcessPreqPort,Target_DELLmiOperationPPRInstance)"
+                         LastAuthorizedTypeExpr="[DELLmiProductionOperationPPR/DELLmiOperationPPRInstance]" />
+
+    <SRPatternConstraint Name="Source_DELLmiUnloadingOperationInstance" IdCode="34"
+                         ValidityCheck="(Owner.Relation(PLM_ImplementLink_Target,Reference3) follows FctProcessRef,FctProcessInst,FctProcessPreqPort,Target_DELLmiUnloadingOperationInstance)"
+                         LastAuthorizedTypeExpr="[DELLmiProductionUnloadingOperation/DELLmiUnloadingOperationInstance]" />
+
+    <!-- PRODUCTION OPERATION modeler -->	
+    <SRPatternConstraint Name="SourceProductionOperationInst" IdCode="40"
+                         ValidityCheck="(Owner.V_Owner.type belongsTo [DELLmiProductionSystem/DELLmiProductionSystemReference],[DELLmiProductionOperation/DELLmiOperationReference]) ## (Owner.Relation(PLM_ImplementLink_Target,Reference3) follows FctProcessRef,FctProcessInst,FctProcessPreqPort)"
+                         LastAuthorizedTypeExpr="[DELLmiProductionExecGeneralOperation/DELLmiExecGeneralOperationInstance],[DELLmiProductionExecBufferOperation/DELLmiExecBufferOperationInstance],[DELLmiProductionExecCurveOperation/DELLmiExecCurveOperationInstance],[DELLmiProductionExecInterruptOperation/DELLmiExecInterruptOperationInstance],[DELLmiProductionExecLoadingOperation/DELLmiExecLoadingOperationInstance],[DELLmiProductionExecPunctualOperation/DELLmiExecPunctualOperationInstance],[DELLmiProductionExecRemoveMaterialOp/DELLmiExecRemoveMaterialOpInstance],[DELLmiProductionExecSinkOperation/DELLmiExecSinkOperationInstance],[DELLmiProductionExecSourceOperation/DELLmiExecSourceOperationInstance],[DELLmiProductionExecTransferOperation/DELLmiExecTransferOperationInstance],[DELLmiProductionExecUnloadOperation/DELLmiExecUnloadingOperationInstance],[DELLmiProductionExecPickingOperation/DELLmiExecPickingOperationInstance],[DELLmiProductionExecHeaderOperation/DELLmiExecHeaderOperationInstance]" />
+
+    <SRPatternConstraint Name="Source_DELLmiSystemPPRInstance" IdCode="35"
+                         ValidityCheck="(Owner.Relation(PLM_ImplementLink_Target,Reference3) follows FctProcessRef,FctProcessInst,FctProcessPreqPort,Target_DELLmiSystemPPRInstance)"
+                         LastAuthorizedTypeExpr="[DELLmiProductionSystemPPR/DELLmiPPRSystemInstance]" />
+
+    <SRPatternConstraint Name="Target_DELLmiSystemPPRInstance" IdCode="143" LastAuthorizedTypeExpr="[DELLmiProductionSystemPPR/DELLmiPPRSystemInstance]" />
+
+  </SemanticRelation>
+
+  <SemanticRelation Name="RFLPLMImplementConnection-PLM_ImplementLink_Target-Reference3"
+                    Uuid="829E55B5-C110-474e-81F0-3F7ECB8F79C7"
+					AllowedTargetPath="Path">
+    <SRContextConstraint Name="Tgt_REFContext"
+                         ContextType="Explicit"
+                         ValidityCheck="Owner.Relation(PLM_ImplementLink_Target,Reference3) follows Target_ReqREF,Target_FctREF,Target_LogREF,Target_FctPrcsREF,Target_ProdSysREF,TgtPrdPublicationPort,LogicalSystemTypeRef,FunctionalFlowRef" />
+    <SRContextConstraint Name="ExplicitCtxForImplementing"
+                         ContextType="Explicit"
+                         ValidityCheck="Owner.Relation(PLM_ImplementLink_Target,Reference3) follows Target_ReqOIC,Target_FctOIC,Target_LogOIC,Target_FctPrcsOIC,Target_ProdSysOIC,Target_PPRSys,Target_SystemTypeInst,Target_FlowInst"
+                         ContextDefinition="Owner.V_Owner.InverseRelation(PLM_ImplementLink_Source,Reference5).Relation(PLM_ImplementLink_Target,Reference3).PointedComponent"/>
+    <SRPatternConstraint Name="Target_ReqREF"
+                        IdCode="1000"
+                         LastAuthorizedTypeExpr="[Requirement],[Requirement Specification],[Requirement Group]"/>
+    <SRPatternConstraint Name="Target_FctREF"
+                        IdCode="1001"
+                         LastAuthorizedTypeExpr="[RFLPLMFunctional/RFLPLMFunctionalReference]"/>
+    <SRPatternConstraint Name="Target_LogREF"
+                        IdCode="1002"
+                         LastAuthorizedTypeExpr="[RFLVPMLogical/RFLVPMLogicalReference]"/>
+    <SRPatternConstraint Name="Target_FctPrcsREF"
+                        IdCode="1003"
+                         LastAuthorizedTypeExpr="[DELFmiFunctionalModel/DELFmiFunctionReference]"/>
+    <SRPatternConstraint Name="Target_ProdSysREF"
+                        IdCode="1004"
+                         LastAuthorizedTypeExpr="[DELLmiProductionWorkplanSystem/DELLmiWorkPlanSystemReference]"/>
+    <SRPatternConstraint Name="Target_ReqOIC"
+                        IdCode="1010"
+                         LastAuthorizedTypeExpr="[Specification Structure],[Sub Requirement],[Sub Requirement Group],[Requirement Group Content]"/>
+    <SRPatternConstraint Name="Target_FctOIC"
+                        IdCode="1011"
+                         LastAuthorizedTypeExpr="[RFLPLMFunctional/RFLPLMFunctionalInstance],[RFLPLMFunctional/RFLPLMFunctionalConnection],[RFLPLMFunctional/RFLPLMFunctionalConnector],[RFLPLMFlowExposition/RFLPLMFlowExpositionInstance]"/>
+    <SRPatternConstraint Name="Target_LogOIC"
+                        IdCode="1012"
+                         LastAuthorizedTypeExpr="[RFLVPMLogical/RFLVPMLogicalInstance],[RFLVPMLogical/RFLVPMLogicalConnection]"/>
+    <SRPatternConstraint Name="Target_FctPrcsOIC"
+                        IdCode="1013"
+                         LastAuthorizedTypeExpr="[DELFmiFunctionalModel/DELFmiFunctionInstance],[DELFmiFunctionalModelPrerequisitePort/DELFmiProcessPrerequisitePort]"/>
+    <SRPatternConstraint Name="Target_ProdSysOIC"
+                        IdCode="1014"
+                         LastAuthorizedTypeExpr="[DELLmiProductionOperationPPR/DELLmiOperationPPRInstance],[DELLmiProductionUnloadingOperation/DELLmiUnloadingOperationInstance]"/>
+    <SRPatternConstraint Name="Target_PPRSys"
+                        IdCode="1015"
+                         LastAuthorizedTypeExpr="[DELLmiProductionSystemPPR/DELLmiPPRSystemInstance]"/>
+	
+	<SRPatternConstraint Name="TgtPrdPublicationPort" IdCode="1016" LastAuthorizedTypeExpr="[PRODUCTCFG/VPMPort]" />
+
+    <!-- FUNCTIONAL modeler -->	
+    <SRPatternConstraint Name="FunctionalRef"
+	                     IdCode="100"
+						 LastAuthorizedTypeExpr="[RFLPLMFunctional/RFLPLMFunctionalReference]">
+	</SRPatternConstraint>
+    <SRPatternConstraint Name="FunctionalInst"
+	                     IdCode="101"
+						 LastAuthorizedTypeExpr="[RFLPLMFunctional/RFLPLMFunctionalInstance]">
+	</SRPatternConstraint>
+    <SRPatternConstraint Name="FunctionalCnx"
+	                     IdCode="102"
+						 LastAuthorizedTypeExpr="[RFLPLMFunctional/RFLPLMFunctionalConnection]">
+	</SRPatternConstraint>
+    <SRPatternConstraint Name="FunctionalPort"
+	                     IdCode="103"
+						 LastAuthorizedTypeExpr="[RFLPLMFunctional/RFLPLMFunctionalConnector]">
+	</SRPatternConstraint>
+    <!-- V6R2014 -->
+    <SRPatternConstraint Name="Target_FlowExpInst" IdCode="104" LastAuthorizedTypeExpr="[RFLPLMFlowExposition/RFLPLMFlowExpositionInstance]">
+      <PathOfInstances MinDepth="0">
+        <AllInstancesPath AuthorizedTypeExpr="[RFLPLMFunctional/RFLPLMFunctionalInstance]"/>
+      </PathOfInstances>
+    </SRPatternConstraint>
+    <!-- V6R2015X reported on V6R2013X -->
+    <!-- Flow reference and instance-->
+    <SRPatternConstraint Name="FunctionalFlowRef"
+                         IdCode="105"
+               LastAuthorizedTypeExpr="[RFLPLMFlow/RFLPLMFlowReference]">
+    </SRPatternConstraint>
+    <SRPatternConstraint Name="Target_FlowInst" IdCode="106" LastAuthorizedTypeExpr="[RFLPLMFlow/RFLPLMFlowInstance]">
+      <PathOfInstances MinDepth="0">
+        <AllInstancesPath AuthorizedTypeExpr="[RFLPLMFunctional/RFLPLMFunctionalInstance],[RFLPLMFlowExposition/RFLPLMFlowExpositionInstance],[RFLPLMFlow/RFLPLMFlowInstance]"/>
+      </PathOfInstances>
+    </SRPatternConstraint>
+
+    <!-- LOGICAL modeler -->	
+    <SRPatternConstraint Name="LogicalRef"
+	                     IdCode="110"
+						 LastAuthorizedTypeExpr="[RFLVPMLogical/RFLVPMLogicalReference]">
+	</SRPatternConstraint>
+    <SRPatternConstraint Name="LogicalInst"
+	                     IdCode="111"
+						 LastAuthorizedTypeExpr="[RFLVPMLogical/RFLVPMLogicalInstance]">
+	</SRPatternConstraint>
+    <SRPatternConstraint Name="LogicalCnx"
+	                     IdCode="112"
+						 LastAuthorizedTypeExpr="[RFLVPMLogical/RFLVPMLogicalConnection]">
+	</SRPatternConstraint>
+    <SRPatternConstraint Name="LogicalPort"
+	                     IdCode="113"
+						 LastAuthorizedTypeExpr="[RFLVPMLogical/RFLVPMLogicalPort]">
+	</SRPatternConstraint>
+    <!-- V6R2015X -->
+    <SRPatternConstraint Name="Target_SystemTypeExpInst" IdCode="114" LastAuthorizedTypeExpr="[RFLVPMSystemTypeExposition/RFLVPMSystemTypeExpositionInstance]">
+      <PathOfInstances MinDepth="0">
+        <AllInstancesPath AuthorizedTypeExpr="[RFLVPMLogical/RFLVPMLogicalInstance]"/>
+      </PathOfInstances>
+    </SRPatternConstraint>
+
+    <SRPatternConstraint Name="Target_ServicesExpInst" IdCode="115" LastAuthorizedTypeExpr="[RFLVPMLogicalServices/RFLVPMServicesExpositionInstance]">
+      <PathOfInstances MinDepth="0">
+        <AllInstancesPath AuthorizedTypeExpr="[RFLVPMLogical/RFLVPMLogicalInstance]"/>
+      </PathOfInstances>
+    </SRPatternConstraint>
+    <SRPatternConstraint Name="Target_EEStructuredInterface" IdCode="116" LastAuthorizedTypeExpr="[RFLVPMSystemType/RFLVPMSystemTypeInstance]">
+      <PathOfInstances MinDepth="0">
+        <AllInstancesPath AuthorizedTypeExpr="[RFLVPMLogical/RFLVPMLogicalInstance],[HardwareArchitecture/EECommunicationConnector],[RFLVPMSystemType/RFLVPMSystemTypeInstance]"/>
+      </PathOfInstances>
+    </SRPatternConstraint>
+
+    <!-- SystemType reference and instance -->
+    <SRPatternConstraint Name="LogicalSystemTypeRef"
+                     IdCode="117"
+           LastAuthorizedTypeExpr="[RFLVPMSystemType/RFLVPMSystemTypeReference]">
+    </SRPatternConstraint>
+    <SRPatternConstraint Name="Target_SystemTypeInst" IdCode="118" LastAuthorizedTypeExpr="[RFLVPMSystemType/RFLVPMSystemTypeInstance]">
+      <PathOfInstances MinDepth="0">
+        <AllInstancesPath AuthorizedTypeExpr="[RFLVPMLogical/RFLVPMLogicalInstance],[RFLVPMSystemTypeExposition/RFLVPMSystemTypeExpositionInstance],[RFLVPMSystemType/RFLVPMSystemTypeInstance]"/>
+      </PathOfInstances>
+    </SRPatternConstraint>
+	
+    <!-- PROCESS modeler -->	
+    <SRPatternConstraint Name="FctProcessRef"
+	                     IdCode="120"
+						 LastAuthorizedTypeExpr="[DELFmiFunctionalModel/DELFmiFunctionReference]">
+	</SRPatternConstraint>
+    <SRPatternConstraint Name="FctProcessInst"
+	                     IdCode="121"
+						 LastAuthorizedTypeExpr="[DELFmiFunctionalModel/DELFmiFunctionInstance]">
+	</SRPatternConstraint>
+    <SRPatternConstraint Name="FctProcessPreqPort"
+	                     IdCode="122"
+						 LastAuthorizedTypeExpr="[DELFmiFunctionalModelPrerequisitePort/DELFmiProcessPrerequisitePort]">
+	</SRPatternConstraint>
+
+    <!-- REQUIREMENT modeler -->	
+    <SRPatternConstraint Name="ReqProjCommonInst"
+	                     IdCode="130"
+						 LastAuthorizedTypeExpr="[VPLMReqProjCommon/VPLMReqProjCommonInstance]">
+	</SRPatternConstraint>
+    <SRPatternConstraint Name="ReqProjReqRef"
+	                     IdCode="131"
+						 LastAuthorizedTypeExpr="[VPLMReqProjRequirement/VPLMReqProjRequirementReference]">
+	</SRPatternConstraint>
+    <SRPatternConstraint Name="ReqProjReqInst"
+	                     IdCode="132"
+						 LastAuthorizedTypeExpr="[VPLMReqProjRequirement/VPLMReqProjSubRequirementInstance]">
+	</SRPatternConstraint>
+    <SRPatternConstraint Name="ReqProjReqSpecRef"
+	                     IdCode="133"
+						 LastAuthorizedTypeExpr="[VPLMReqProjReqSpecification/VPLMReqProjReqSpecificationReference]">
+	</SRPatternConstraint>
+    <SRPatternConstraint Name="SpecStructure"
+	                     IdCode="135"
+						 LastAuthorizedTypeExpr="[Specification Structure]">
+	</SRPatternConstraint>
+    <SRPatternConstraint Name="Requirement"
+	                     IdCode="136"
+						 LastAuthorizedTypeExpr="[Requirement]">
+	</SRPatternConstraint>
+    <SRPatternConstraint Name="SubRequirement"
+	                     IdCode="137"
+						 LastAuthorizedTypeExpr="[Sub Requirement]">
+	</SRPatternConstraint>
+    <SRPatternConstraint Name="ReqSpecification"
+	                     IdCode="138"
+						 LastAuthorizedTypeExpr="[Requirement Specification]">
+	</SRPatternConstraint>
+    <!-- V6R2014 -->
+    <SRPatternConstraint Name="TargetReqGroup" IdCode="13801" LastAuthorizedTypeExpr="[Requirement Group]" />
+    <SRPatternConstraint Name="TargetSubReqGroup" IdCode="13802" LastAuthorizedTypeExpr="[Sub Requirement Group]" />
+    <SRPatternConstraint Name="TargetReqGroupContent" IdCode="13803" LastAuthorizedTypeExpr="[Requirement Group Content]" />
+
+    <!-- PRODUCTION SYSTEM modeler -->
+    <SRPatternConstraint Name="Target_DELLmiWorkPlanSystemReference" IdCode="140" LastAuthorizedTypeExpr="[DELLmiProductionWorkplanSystem/DELLmiWorkPlanSystemReference]" />
+    <SRPatternConstraint Name="Target_DELLmiOperationPPRInstance" IdCode="141" LastAuthorizedTypeExpr="[DELLmiProductionOperationPPR/DELLmiOperationPPRInstance]" />
+    <SRPatternConstraint Name="Target_DELLmiUnloadingOperationInstance" IdCode="142" LastAuthorizedTypeExpr="[DELLmiProductionUnloadingOperation/DELLmiUnloadingOperationInstance]" />
+    
+
+  </SemanticRelation>
+  
+  <SemanticRelation Name="DELFmiFunctionalModelImplementCnx-PLM_ImplementLink_Source-Reference5"
+                    Uuid="C3BF7591-A42A-4135-8C07-AB94B3C7B83B"
+					AllowedTargetPath="Path">
+    <SRContextConstraint Name="DELFmiFunctionalModelImplementCnxContext" ContextType="Implicit"/>
+  </SemanticRelation>
+
+  <SemanticRelation Name="SIM_FmtAssembledFEMRep" Uuid="71C91DAB-CD50-47ad-95F2-7D2F5A88BD62" AllowedTargetPath="Path">
+    <SRContextConstraint Name="FmtAssembledFEMRep" ContextType="Implicit" />
+  </SemanticRelation>
+
+  <SemanticRelation Name="SIM_MCXSupport" Uuid="239891DC-7803-45b5-BA13-EA2E94ABCCEB" AllowedTargetPath="Path">
+    <SRContextConstraint Name="MCXSupport" ContextType="Implicit" />
+  </SemanticRelation>
+  
+  <!-- RULES DISCOVERY modeler -->
+  <SemanticRelation Name="DELRDYRuleVar"  Uuid="04d015fd-5bc6-46a8-a7f4-bd136af5e6a0" AllowedTargetPath="Simple">
+	 <SRPatternConstraint Name="RuleTermVar" IdCode="150"
+                         LastAuthorizedTypeExpr="[SIMObjSimulationV5GenericSpecialization/dsc_Scenario_Rep]"
+                         ValidityCheck="Owner.type belongsTo [SIMObjSimulationV5GenericSpecialization/dsc_Result_Rep]">
+   </SRPatternConstraint>
+  </SemanticRelation>
+
+<!-- ======================================== -->
+<!-- ==== Role minor sentitivity section ==== -->    
+<!-- ======================================== -->  
+
+<!-- DELMIA minor unsensitive roles (JLN)   -->
+<SemanticRelation Name="DEL_LinkToPackagingObject" 			Uuid="0923b097-69b3-4fb9-ac3d-ed765b8e3bac" MinorSensitive="No"/>
+<SemanticRelation Name="DEL_LinkToRecommendedPackagingObject" 	Uuid="db5eb9c0-77e3-4956-aad7-87d1c80597cb" MinorSensitive="No"/>
+<SemanticRelation Name="DEL_MaterialPathIN" 				Uuid="27302c21-1f94-4147-bf85-5709bb8c31b9" MinorSensitive="No"/>
+<SemanticRelation Name="DEL_MaterialPathOUT" 				Uuid="c4d667ad-54de-40cc-995a-da4761f577cf" MinorSensitive="No"/>
+<SemanticRelation Name="DEL_LinkToSystemIOPort" 			Uuid="8c4c8e6b-3b97-43b3-be90-463e836d66ea" MinorSensitive="No"/>
+<SemanticRelation Name="DEL_LinkToPlugObject" 				Uuid="896c2d83-bc41-479e-be53-3bc840cf14b1" MinorSensitive="No"/>
+<SemanticRelation Name="DEL_LinkToConstrainingObject" 		Uuid="ca993af3-14db-46bc-b68d-3ae2cac6d99c" MinorSensitive="No"/>
+<SemanticRelation Name="DEL_LinkToConstrainedObject" 			Uuid="f34fb28f-92b4-4906-81eb-be4e5b84e176" MinorSensitive="No"/>
+<SemanticRelation Name="DELMfgSubstitute_Target" 			Uuid="28BD86C9-030C-4d5d-9A10-E012E1C651B5" MinorSensitive="No"/>
+
+  <!-- RFL/PPR minor unsensitive roles (LAS)  -->
+<SemanticRelation Name="Publish" 						Uuid="d5ea198f-b193-40d0-99e0-8fbf94505990" MinorSensitive="No"/>
+<SemanticRelation Name="RFLPLM_FunctionalCnx_Ext" 			Uuid="b5c45948-954a-4564-8372-627709fde394" MinorSensitive="No"/>
+<SemanticRelation Name="LogicalType" 					Uuid="fa03b34b-1dbb-43d7-9031-ca205d8de161" MinorSensitive="No"/>
+<SemanticRelation Name="LogicalPorts" 					Uuid="7577c514-d208-4ac2-ad04-b7403c3bbb6d" MinorSensitive="No"/>
+<SemanticRelation Name="DELFmi_PrerequisiteCst_Target" 		Uuid="a635492c-8ed6-4b60-955d-caf4a71ad154" MinorSensitive="No"/>
+<SemanticRelation Name="DELFmi_PrerequisiteCst_Source" 		Uuid="29fc17ab-85a9-475a-961f-492943a633d1" MinorSensitive="No"/>
+<SemanticRelation Name="DELFmi_ExpositionCnx_Source" 			Uuid="22dbfe69-245d-477e-a73c-ff5c1753d324" MinorSensitive="No"/>
+<SemanticRelation Name="DELFmi_PrereqMaterialization_Target" 	Uuid="96b02556-7462-47e3-b923-4ceac1673588" MinorSensitive="No"/>
+<SemanticRelation Name="DELFmi_PrecedenceCst_Target" 			Uuid="8fa74b8b-360a-48a8-a33e-0fc86d32a2aa" MinorSensitive="No"/>
+<SemanticRelation Name="DELFmi_PrecedenceCst_Source" 			Uuid="0d7b1784-1fe5-4c55-a7c3-5bd5f32aca85" MinorSensitive="No"/>
+
+<!-- MCX minor unsensitive roles (FNF)  -->
+<SemanticRelation Name="MCX_Relation" 					Uuid="ac6fa28a-354a-407f-8dbf-7c783768638b" MinorSensitive="No"/>
+<SemanticRelation Name="AsmPattern_MCX" 					Uuid="d5f6b9ca-fb49-4240-9f9f-9e41939bf6f6" MinorSensitive="No"/>
+<SemanticRelation Name="AsmSym_RefInst" 					Uuid="cc263b68-0005-4a07-9d10-6e6d633a987f" MinorSensitive="No"/>
+<SemanticRelation Name="AsmSym_SymInst" 					Uuid="db77c265-0e6d-480d-a1a0-d7f1e0e001a1" MinorSensitive="No"/>
+<SemanticRelation Name="AsmSym_ProductRef" 				Uuid="e89d532d-d7da-44d6-ae41-5bd162d7938c" MinorSensitive="No"/>
+<SemanticRelation Name="AsmSym_ProductSym" 				Uuid="b6c61766-11a8-4880-a587-eff96851d36f" MinorSensitive="No"/>
+
+<!-- Product minor unsensitive roles (LLV)  -->
+<SemanticRelation Name="PMRToOccurrence" 				Uuid="b24e6549-e64a-4f8a-b6ad-c14bac32e4f1" MinorSensitive="No"/>
+<SemanticRelation Name="PMRToRepositionableDefinition" 				Uuid="42d91fd2-48b9-47b6-b6dd-ae897df5371d" MinorSensitive="No"/>
+<SemanticRelation Name="PMRToRepositionable" 				Uuid="dca84bf7-ae62-4318-b3d8-6d04a18b2452" MinorSensitive="No"/>
+
+<!-- Fasten minor unsensitive roles -->
+<SemanticRelation Name="Fst_localization" Uuid="970341fc-50fd-4c0a-8a38-5f4c1dd290eb" MinorSensitive="No"/>
+<SemanticRelation Name="Fst_Component" 				Uuid="961EE36A-AB62-47a0-B07A-8F3CC8A5AF82" MinorSensitive="No"/>
+<SemanticRelation Name="Asd_LinkedZone" 				Uuid="0C6A34C2-F2FB-4c50-9A15-B206FB7E8697" MinorSensitive="No"/>
+<SemanticRelation Name="Fst_Realization" 				Uuid="AFB8D52A-9EE6-4276-A86D-9FF076CB1FCC" MinorSensitive="No"/>
+
+  <!-- PIM section -->
+  <SemanticRelation Name="PIM_RootContextToSCA-LinkRootContextToSCA-Reference3" Uuid="489F66DF-1526-4D99-9223-6763F8A03626" AllowedTargetPath="Path">
+    <SRContextConstraint Name="PIM_AuthorizedContextRootToSCA" ContextType="Explicit"
+                         ContextDefinition="Owner.V_Owner.F_Instance.V_Owner.F_Owns([SIMObjSimulationCategoryAndProdCnx/SIMObjSimulationCategoryInstance]).V_InstanceOf.F_Owns([SIMObjSimulationCategoryAndProdCnx/SIMObjSimulationSystem]).Relation(SIM_SimulatedProduct,Reference3).PointedComponent"/>
+    <SRPatternConstraint Name="PIM_AuthorizedPatternRootToSCA" IdCode="2001" ValidityCheck="Owner.type belongsTo [SIMItfInterfere/SIMItfContextOfInterference]" LastAuthorizedTypeExpr="[PRODUCTCFG/VPMInstance]">
+      <PathOfInstances MinDepth="0">
+        <AllInstancesPath AuthorizedTypeExpr="[PRODUCTCFG/VPMInstance]"/>
+      </PathOfInstances>
+    </SRPatternConstraint>
+  </SemanticRelation>
+
+  <SemanticRelation Name="PIM_SCA-PointedSCA-Reference4" Uuid="8F6EC5F0-79E8-46EC-9126-2CAC63E490DF" AllowedTargetPath="Path">
+    <SRContextConstraint  Name="PIM_AuthorizedContextPointedSCA" ContextType="Explicit"
+                          ContextDefinition="Owner.V_Owner.InverseRelation(PIM_Metric,Reference4).PointedComponent.Relation(PIM_RootContextToSCA,Reference3).PointedComponent.V_InstanceOf"/>
+    <SRContextConstraint  Name="PIM_AuthorizedContextPointedSCABis" ContextType="Explicit"
+                          ContextDefinition="Owner.V_Owner.InverseRelation(PIM_Metric,Reference4).PointedComponent.V_Owner.F_Instance.V_Owner.F_Owns([SIMObjSimulationCategoryAndProdCnx/SIMObjSimulationCategoryInstance]).V_InstanceOf.F_Owns([SIMObjSimulationCategoryAndProdCnx/SIMObjSimulationSystem]).Relation(SIM_SimulatedProduct,Reference3).PointedComponent"/>
+    <SRPatternConstraint  Name="PIM_AuthorizedPatternPointedSCA" IdCode="2002" ValidityCheck="Owner.type belongsTo [PLMPIMInterfereBis/PLMPIMMetricFromSCAToOccurences]" LastAuthorizedTypeExpr="[PRODUCTCFG/VPMReference]">
+      <PathOfInstances MinDepth="0" MaxDepth="0">
+        <AllInstancesPath AuthorizedTypeExpr="[PRODUCTCFG/VPMReference]"/>
+      </PathOfInstances>
+    </SRPatternConstraint>
+  </SemanticRelation>
+
+  <SemanticRelation Name="PIM_InterferingOccs-PointedOccurences-Reference3" Uuid="7F4B6263-4DDC-4C48-8819-D7254908EA42" AllowedTargetPath="Path">
+    <SRContextConstraint  Name="PIM_AuthorizedContextPointedOccurrences" ContextType="Explicit" ValidityCheck="Owner.Relation(PIM_SCA,Reference4) follows PIM_AuthorizedPatternPointedSCA" ContextDefinition="Owner.Relation(PIM_SCA,Reference4).PointedComponent"/>
+    <SRPatternConstraint  Name="PIM_AuthorizedPatternPointedOccurrences" IdCode="2003" ValidityCheck="Owner.type belongsTo [PLMPIMInterfereBis/PLMPIMMetricFromSCAToOccurences]" LastAuthorizedTypeExpr="[PRODUCTCFG/VPMRepReference]">
+      <PathOfInstances MinDepth="0">
+        <AllInstancesPath AuthorizedTypeExpr="[PRODUCTCFG/VPMInstance],[PRODUCTCFG/VPMRepInstance]"/>
+      </PathOfInstances>
+    </SRPatternConstraint>
+  </SemanticRelation>
+
+  <SemanticRelation Name="PIM_Metric-LinkMetric-Reference3" Uuid="C4A58E94-0E5F-496A-8401-014D6EF7690D" AllowedTargetPath="Simple">
+    <SRPatternConstraint  Name="PIM_AuthorizedPatternRelatedMetric" IdCode="2004" ValidityCheck="Owner.type belongsTo [SIMItfInterfere/SIMItfContextOfInterference]" LastAuthorizedTypeExpr="[PLMPIMInterfere/PLMPIMMetricReference]"/>
+  </SemanticRelation>
+
+  <!--
+  <SemanticRelation Name="PIM_Probe-SpecTracking-Reference4" Uuid="EAA8AA70-EA87-4FB8-BA6D-893D60E75329" AllowedTargetPath="Path">
+    <SRPatternConstraint  Name="PIM_ProbeReferencingIntegrity" IdCode="2005" ValidityCheck="Owner.type belongsTo [SIMItfInterfere/SIMItfContextOfInterference]" LastAuthorizedTypeExpr="[SIMObjSimulationV5Generic/SIMObjSimulationV5RepReferenceGeneric]"/>
+  </SemanticRelation>
+
+  <SemanticRelation Name="PIM_Rule-LinkRule-Reference4" Uuid="372F48A2-52BA-4788-A691-89C4CB98D27C" AllowedTargetPath="Simple">
+    <SRPatternConstraint  Name="PIM_RuleReferencingIntegrityMCX" IdCode="2006" ValidityCheck="Owner.type belongsTo [SIMItfInterfere/SIMItfContextOfInterference]" LastAuthorizedTypeExpr="[CATMCXAssembly/CATMCXMechanicalConnection]"/>
+    <SRPatternConstraint  Name="PIM_RuleReferencingIntegrityKWE" IdCode="2007" ValidityCheck="Owner.type belongsTo [SIMItfInterfere/SIMItfContextOfInterference]" LastAuthorizedTypeExpr="[?/?]"/>
+  </SemanticRelation> 
+  -->
+  
+  <!-- End of PIM section -->
+  
+  <!-- DELFmiMfgSubstituteCnx section - PPR Modeler -->
+  <SemanticRelation Name="DELFmiMfgSubstituteCnx-DELMfgSubstitute_Source-Reference7" Uuid="31ABEB47-400B-488B-8EF8-EC936104C096" AllowedTargetPath="Path">
+	<SRPatternConstraint Name="SourceSubstitute"	                     
+						 IdCode="501"						 
+						 ValidityCheck="(Owner.V_Owner.type belongsTo [DELFmiFunctionalModel/DELFmiFunctionReference]) ## (Owner.Relation(DELMfgSubstitute_Target,Reference4) follows MBOMReference)"
+						 LastAuthorizedTypeExpr="[DELFmiFunctionalModel/DELFmiFunctionInstance]">	
+	</SRPatternConstraint>
+  </SemanticRelation>
+  <SemanticRelation Name="DELFmiMfgSubstituteCnx-DELMfgSubstitute_Target-Reference4" Uuid="947537F1-EC45-43D0-A0F7-F58941A88648" AllowedTargetPath="Path">
+	<SRPatternConstraint Name="MBOMReference"
+	                     IdCode="502"
+						 LastAuthorizedTypeExpr="[DELFmiFunctionalModel/DELFmiFunctionReference]">
+	</SRPatternConstraint>
+  </SemanticRelation>
+  
+  <!-- [IR-282566] Rules for Text Parameter in Drawing -->
+  <SemanticRelation
+    Name="CATDraftingDiscipline-DFT_TextParameter-Reference4"
+    Uuid="1E0C5EE8-10DB-4435-BC38-8130FE7BC477">
+    <SRContextConstraint Name="ImplicitCtx"
+                         ContextType="Implicit"
+                         ValidityCheck="Owner.type belongsTo [CATDraftingDiscipline/Drawing(ONLY_MONO_INSTANTIATED)]" />
+    <SRContextConstraint Name="UserDefinedCtx"
+                         ContextType="UserDefined"
+                         ValidityCheck="Owner.type belongsTo [NOT#CATDraftingDiscipline/Drawing(ONLY_MONO_INSTANTIATED)]" />
+  </SemanticRelation>
+
+  <!-- PLMAssignmentFilterCnx section - PPR Modeler -->
+  <SemanticRelation Name="PLMAssignmentFilterCnx-PLM_AssignmentFilterSource-Reference7" Uuid="E3010FFC-5D04-4119-95F7-A66CA9974E06" AllowedTargetPath="Path">
+    <SRPatternConstraint Name="SourceFilter"
+               IdCode="503"
+               ValidityCheck="(Owner.V_Owner.type belongsTo [DELFmiFunctionalModel/DELFmiFunctionReference]) ## (Owner.Relation(PLM_AssignmentFilterTarget,Reference3) follows Product-Inst)"
+               LastAuthorizedTypeExpr="[DELFmiFunctionalModel/DELFmiFunctionReference]">
+    </SRPatternConstraint>
+  </SemanticRelation>
+  <SemanticRelation Name="PLMAssignmentFilterCnx-PLM_AssignmentFilterTarget-Reference3" Uuid="26E37CE0-4E9C-4AD5-91D2-0087DA8EA5C6" AllowedTargetPath="Path">
+    <SRPatternConstraint Name="Product-Inst"
+                         IdCode="504"
+               LastAuthorizedTypeExpr="[PRODUCTCFG/VPMInstance]">
+    </SRPatternConstraint>
+  </SemanticRelation>
+  
+</Package>
+
+

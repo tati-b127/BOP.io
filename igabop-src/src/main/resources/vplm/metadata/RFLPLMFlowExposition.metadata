@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR Functional Flow -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2011, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" BelongsToModeler="RFLPLMFunctional" Name="RFLPLMFlowExposition" 
+	Uuid="5D4C6958-DFCB-4374-98BB-159A6AD124A2"
+	UseNames="RFLPLMFlowAbstract"
+  CustomerExposition="Programmer"
+>
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <Comment>last update 2014-04-28</Comment>
+	
+	<!-- ************************************************* -->
+	<!-- * RFLPLMFlowExpositionInstance (FunctionalAbstractFlowInstance) * -->
+	<!-- ************************************************* -->
+	<RelationClass Name="RFLPLMFlowExpositionInstance" 
+		Uuid="21B5B36C-D539-4a7a-A8F1-E9754FBA1735"
+         
+    CustomerExposition="Programmer"
+    CustomerExtensible="Yes"
+    Specializable="Yes"
+		Abstract="No" 
+		SuperName="FunctionalAbstractFlowInstance">
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEFctDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="RFLPLMFlowExpositionInstance"/>
+
+        <!-- ******************************************** -->
+	    <!-- * Define Owner and InstanceOf              * -->
+	    <!-- ******************************************** -->
+      <SubClause Name="from" TargetName="RFLPLMFunctionalAbstractReference"/>
+      <SubClause Name="to"   TargetName="RFLPLMFlowReference"/>
+
+
+        <Path Name="ContractImplement"
+            Uuid="2E624AFE-95BA-4C85-9C6B-A73AC33724FA" 
+            MultiValuated="Yes" 
+            SynchroSensitivity="None"
+            Type="SemanticRelation" AdaptativeToMinor="No"
+            RerouteOnEffectivityChange="No"
+            Protection="External"
+            Orientation="Neutral"
+            RoleName="ContractImplement"
+            Semantics="Reference">
+        </Path>
+        <!-- TargetNames="RFLPLMFunctionalContract"> -->
+
+
+<Simple Name="V_Direction" Uuid="0EE51BBB-CF44-4f30-9703-ABC847DBD794" Type="Integer" Protection="ExternalIN" CAAExposition="L1" DefaultValue="2" PLMImpacting="Yes" Faceted="Yes">
+<CAAComment>
+<ShortRole>Direction of the Flow Exposition instance (In, Out)</ShortRole>
+</CAAComment>
+<Property Name="SIXW" Value="ds6w:technology"/>
+<Property Name="RangeAsEnumName" Value="RFLPLMFunctional.V_FctPortDirectionEnum"/>
+<Property Name="RangeAsEnumAuthorizedValues" Value="Consumption;Emission"/>
+<Range>
+<Equal>1</Equal>
+<Equal>2</Equal>
+</Range>
+</Simple>
+		
+        <Volatile Name="Reference" Uuid="8DAE2DE7-EDD2-4e93-991C-B84420E10E7B" Accessor="PLMModelerReferenceKweAttribute" TypeName="RFLPLMFlowReference" AccessMode="ReadOnly" >
+		  <Property Name="ServerAccessor" Value="com.dassault_systemes.vplm.modelerBaseNav.services.PLMInstance_Reference_Accessor"/>
+		</Volatile>
+		
+        <Method ImplementationType="Self">
+          <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+          <ProcedureForUsage>
+            <Usage href="ExportScope.meth#Channel"/>
+            <UsedProcedure href="ENOFct_Procedures.proc#Functional_ExportFlowExpoInstance_PLMChannel"/>
+          </ProcedureForUsage>
+	      <ProcedureForUsage>
+	        <Usage href="ExportScope.meth#Remove"/>
+            <UsedProcedure href="ENOFct_Procedures.proc#Functional_ExportFlowExpoInst_Remove"/>
+          </ProcedureForUsage>
+          <ProcedureForUsage>
+            <Usage href="ExportScope.meth#TransferSiteOwnership"/>
+            <UsedProcedure href="ENOFct_Procedures.proc#Functional_ExportFlowExpoInst_TSO"/>
+          </ProcedureForUsage>
+        </Method>
+	</RelationClass>
+
+  <!-- **************************************************** -->
+  <!-- * Declaration of functions                           -->
+  <!-- **************************************************** -->
+    <Function Name="RFLPLMFunctional_AddFctContracts">
+        <Implementation Name="RFLPLMFunctional_AddFctContracts" FileLocation="RFLPLMFunctional_AddFctContracts.plmql" Language="PLMQL"/>
+        <Signature href="ENOFlowExpositionSignature"/>
+    </Function>
+
+    <Signature id="ENOFlowExpositionSignature">
+        <Parameter Name="InputIds" Lower="0" Upper="-1" Direction="in" MultiValuated="Yes" DataType="PLMId"/>
+        <Parameter Name="OutputIds" Lower="0" Upper="-1" Direction="out" MultiValuated="No" DataType="PLMRouteSet"/>
+    </Signature>
+  <!-- **************************************************** -->  
+  
+</Package>

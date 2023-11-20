@@ -1,0 +1,10 @@
+EXPAND  
+
+T0.PLMID, T1.PLMID
+		
+FROM PLMCORE/PLMCoreReference T0, PLMCORE/PLMCoreInstance T1
+
+FROM_ROOTS  [?1?]
+
+DEPTH=1
+;    

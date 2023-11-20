@@ -1,0 +1,252 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR DELMIA Work Instruction Application -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2010, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified"
+         ModelerType="Top"
+         Name="DELWkiDataCollect"
+	       Uuid="dcd31df2-a0f9-41bb-944283834040969a"
+  	     BelongsToModeler="DELWkiWorkInstructionPPR"
+	       UseNames="DELLmiProductionOperation DELWkiWorkInstructionPPR"
+	       CustomerExposition="Programmer" >
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>PLM DELMIA Work Instruction Data Collect </ShortRole>
+    <Role>This package describes the PLM DELMIA Work Instruction Data Collect model on top of DELWkiWorkInstructionPPR</Role>
+  </CAAComment>
+
+  <Comment>last update 2014-03-21</Comment>
+
+  <Class Name="DELWkiDataCollectReference"
+         Uuid="fbc3ce41-ae86-4916-8bc604a48e30e157"
+		     Abstract="No"
+    		 SuperName="DELWkiPPRReference"
+         Specializable="No"
+         CustomerExtensible="No"
+         CreateInstName="DELWkiDataCollectInstance"
+		     CustomerExposition="Programmer"
+         Abbreviation="wid">
+
+    <Property Name="KweNew_InstanciationMethod" Value="DELWorkInstructionDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELWkiDataCollectInstance"/>
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="IconName" Value="I_WI_DataCollect"/>
+    <Property Name="3DIconName" Value="I_WI_DataCollect.cgr"/>
+    <Property Name="Newable" Value="No"/>
+    <Property Name="Searchable" Value="Yes"/>
+
+    <CAAComment>
+      <ShortRole>PLM DELMIA Work Instruction Data Collect Reference</ShortRole>
+      <Role>PLM DELMIA Work Instruction Data Collect Reference</Role>
+    </CAAComment>
+
+    <Simple Name="V_WIDC_Label"
+            Uuid="13cee395-c2a0-4532-847cba6b976fa07c"
+            Type="String"
+            MultiValuated="No"
+            MaxLength="256"
+            Protection="Free"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>A short label for the data to be collected.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_WIDC_Type" Uuid="c305b2e3-1ed5-4871-a7289573375ac43e" Type="Integer" Protection="Free" CAAExposition="L0" DefaultValue="1" Faceted="Yes">
+      <Property Name="SIXW" Value="ds6w:kind"/>
+      <Property Name="RangeAsEnumName" Value="DELLmiProductionOperation.DELWkiDC_Type_Enum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="Real;Integer;Text;Boolean;Timestamp"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+        <Equal>5</Equal>
+      </Range>
+      <CAAComment>
+        <ShortRole>The type of data (Integer, Real, Text, Boolean) that is to be collected.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_WIDC_Magnitude"
+            Uuid="e4cbb795-5277-42b7-b22771cb4d21f837"
+            Type="String"
+            MultiValuated="No"
+            MaxLength="64"
+            Protection="Free"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>The magnitude of the data to be collected (applicable only to Real type).</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_WIDC_Min"
+            Uuid="aa320f84-be40-4d83-ade75a131fd2015d"
+            Type="Double"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>The lowest possible value that the collected data can be (applicable only to Real and Integer types).</ShortRole>
+      </CAAComment>
+    </Simple>
+    
+    <Simple Name="V_WIDC_IsMinIncluded"
+             Uuid="5B67DEF1-EEAE-434d-9F1C-2A4E690B0DB0"
+             Type="Boolean"
+             MultiValuated="No"
+             Protection="Free"
+             DefaultValue="True"
+             CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Specifies if the defined minimum value is included in authorized values or not.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_WIDC_IsMinValuated"
+             Uuid="FF2D218C-6C60-43f3-B569-0199254F1861"
+             Type="Boolean"
+             MultiValuated="No"
+             Protection="Free"
+             DefaultValue="True"
+             CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Specifies if the defined minimum value has to be taken into account or not.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_WIDC_Max"
+            Uuid="b04a004f-4797-42f7-94b4ef4509da4433"
+            Type="Double"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>The largest possible value that the collected data can be (applicable only to Real and Integer types).</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_WIDC_IsMaxIncluded"
+             Uuid="6991D5D7-DD35-4b81-959F-F0870A6F4929"
+             Type="Boolean"
+             MultiValuated="No"
+             Protection="Free"
+             DefaultValue="True"
+             CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Specifies if the defined maximum value is included in authorized values or not.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_WIDC_IsMaxValuated"
+             Uuid="2FE1605E-4A2A-41aa-97DD-BCA2D32CAAA5"
+             Type="Boolean"
+             MultiValuated="No"
+             Protection="Free"
+             DefaultValue="True"
+             CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Specifies if the defined maximum value has to be taken into account or not.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_WIDC_PossibleStringValues"
+            Uuid="a4677574-b0f1-4eef-9d593355e7d2a537"
+            Type="String"
+            MultiValuated="Yes"
+            MaxLength="256"
+            CollectionType="List"
+            Protection="Free"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>The possible values that the collected data can be (applicable only to Text type).</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_WIDC_PossibleNumberValues"
+            Uuid="7724bb26-9564-4d18-86d1cb2496bbf25b"
+            Type="Double"
+            MultiValuated="Yes"
+            CollectionType="List"
+            Protection="Free"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>The possible values that the collected data can be (applicable only to Real and Integer types).</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_WIDC_Text"
+            Uuid="e78fa373-8856-4c68-9274abd644504284"
+            Type="String"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>The Instruction message to tell the Shop Floor worker what data needs to be collected and how to collect it.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_WIDC_SampleSize"
+            Uuid="aa3349a2-c276-4db5-bcb5e6f3afe90713"
+            Type="Integer"
+            DefaultValue="1"
+            MultiValuated="No"
+            Faceted="No"
+            Protection="Free"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>This is used to specify the quantity of the data to be collected.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+
+  </Class>
+
+
+
+
+  <RelationClass Name="DELWkiDataCollectInstance"
+         Uuid="2ea23dd8-6cf3-43ff-bf3107e5d941ee09"
+		     Abstract="No"
+    		 SuperName="DELWkiPPRInstance"
+         Specializable="No"
+         CustomerExtensible="No"
+		     CustomerExposition="Programmer">
+
+    <Property Name="KweNew_InstanciationMethod" Value="DELWorkInstructionDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELWkiDataCollectInstance"/>
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="IconName" Value="I_WI_DataCollect"/>
+    <Property Name="3DIconName" Value="I_WI_DataCollect.cgr"/>
+    <Property Name="Filtrable" Value="Yes"/>
+
+    <CAAComment>
+      <ShortRole>PLM DELMIA Work Instruction Data Collect Instance</ShortRole>
+      <Role>PLM DELMIA Work Instruction Data Collect Instance</Role>
+    </CAAComment>
+
+    <Volatile Name="Reference"
+              Uuid="68E87148-7CDA-4768-B93D-B36162B132E4"
+              Accessor="PLMModelerReferenceKweAttribute"
+              TypeName="DELWkiDataCollectReference"
+              AccessMode="ReadOnly" />
+
+    <SubClause Name="to"   TargetName="DELWkiDataCollectReference"/>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+
+  </RelationClass>
+
+</Package>

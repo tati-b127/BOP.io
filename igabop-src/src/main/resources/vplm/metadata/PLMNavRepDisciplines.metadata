@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+
+<Package xmlns="PLMDictionaryTop" Name="PLMNavRepDisciplines" UseScopes="PRODUCTCFG" Uuid="03180524-2f25-4f44-9284-99df20520600" ModelerType="Top">
+<Discipline Name="NavRep"
+	Uuid="6ee21e04-f4f0-4854-ad80-f710c1a606d4"
+	CreationMode="Yes"
+	TypeNames="VPMRepReference"
+  CAAExposition="L1" >
+	<Method ImplementationType="None">
+		<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+	</Method>
+  </Discipline>
+<Discipline Name="InstNavRep"
+	Uuid="d4d35bdd-aa81-414d-bb2a-6533f71041ff"
+	CreationMode="Yes"
+	TypeNames="VPMRepInstance"
+  CAAExposition="L1">
+	<Method ImplementationType="None">
+		<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+	</Method>
+  </Discipline>
+</Package>
+

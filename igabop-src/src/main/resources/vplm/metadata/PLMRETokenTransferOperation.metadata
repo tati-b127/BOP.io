@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+
+<Package xmlns="PLMDictionaryTop" ModelerType="Top" Name="PLMRETokenTransferOperation" Uuid="c877f10c-48de-4dfa-9dad-f4dee0d30448"  UseNames="PLMCORE">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <!-- ****************************** -->
+<!-- PLMRETokenTransferOperation    -->
+<!-- ****************************** -->
+
+
+<!-- abstract type for operation -->
+<Class Name="PLMRETokenTransferOperation" Uuid="6b36fcd6-8ab6-4abe-80bc-af6cbd660b0b"  SuperName="PLMCoreReference" Abstract="Yes" CAAExposition="L0">
+<Method ImplementationType="None">
+<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+</Method>
+<!-- Id of the aggregating channel -->
+<Simple Name="V_AggregatingChannelId" Uuid="dfb0c2b4-811d-49f0-974d-df0086833a03" MultiValuated="No"  Type="Binary" MaxLength="16"  Protection="Internal"/>
+<!-- ID of the operation -->
+<Simple Name="V_OperationId" Uuid="9f921798-63eb-429b-8baf-4f6fb81befd3" MultiValuated="No"  Type="Binary" MaxLength="16"  Protection="Internal"/>
+<!-- Allow to transfer the token to a weakened PLMEntity during synchronization -->
+<Simple Name="V_AllowWeakened" Uuid="CD99EF2A-2CA2-0000-0280030C34000000"  MultiValuated="No"  Type="Boolean" Protection="Internal"/>
+</Class>
+
+<!-- ****************************** -->
+<!-- PLMRETokenTransferItemDS       -->
+<!-- ****************************** -->
+
+
+<!-- this class links the operation to the exchange status -->
+  <RelationClass Name="PLMRETokenTransferItem"  Uuid="746a9f77-653a-4fbe-a7d3-3268e4cae818" SuperRef="CE6C61ED-AA9E-45BE-A3BD3B22548CA8A6" SuperName="PLMCoreInstance" CAAExposition="L0">
+<Method ImplementationType="None">
+<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+</Method>
+<Simple Name="V_RequiredIterationCD" Uuid="f7a1e0a3-efd7-466e-8754-2c976be9255f"  MultiValuated="No" Type="String" MaxLength="60" Protection="Internal"/>
+</RelationClass>
+
+</Package>
+

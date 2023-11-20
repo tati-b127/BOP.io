@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2009, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" Name="CATFSKDiscipline" 
+         CustomerExposition="Programmer" UseNames="PRODUCTCFG" Uuid="7b7baa77-3004-4c69-bec2c04f4ebb1fe5" Deprecated="Yes">
+  <Class Name="FSKPainting"
+         Uuid="bfb975be-4cbe-4f21-9cdd-8aa64a746140"
+         Abbreviation="fsk"
+         Discipline="Yes"
+         CustomerExposition="ProgrammerOnly"
+         SuperName="VPMRepReference"
+         Specializable="No"
+         CustomerExtensible="No"
+         Deprecated="Yes">
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+</Package>
+
+     

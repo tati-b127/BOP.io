@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2017, All rights reserved -->
+
+<Package CustomerExposition = "Programmer" ModelerType = "Top" Name = "GeologyElement" UseNames = "CivilEngineeringElement" Uuid = "C12E82BF-43F1-4423-BADE-E7483F8BEF60" xmlns = "PLMDictionaryUnified">
+  <Class Abstract = "Yes" CustomerExposition = "Programmer" Discipline = "Yes" Name = "GeologyElement" SuperName = "CivilEngineeringElement" Uuid = "B68DE638-567B-4F59-961C-4425B2584679">
+    <Property Name = "GroupingType" Value = "GeologyElement"/>
+    <Property Name = "InstantiationOwnerTypes" Value = "PPRContext;GeologySpatialStructureElement;GeologyElement"/>
+  </Class>
+  <Class Abstract = "Yes" CustomerExposition = "Programmer" Discipline = "Yes" Name = "GeologyElementType" SuperName = "CivilEngineeringElementType" Uuid = "336C9065-7355-4412-B0D2-CF5A064FEE4B">
+    <Property Name = "GroupingType" Value = "GeologyElementType"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "RockSoilMass" SuperName = "GeologyElement" Uuid = "1E0A4528-0BA1-4B18-8FA4-9702A66B03CE">
+    <Property Name = "IconName" Value = "I_RockSoilMass"/>
+    <Property Name = "3DIconName" Value = "I_RockSoilMass.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATEAECDelegateInstanciation"/>
+    <Property Name = "Newable" Value = "All_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "UserChoiceReferenceDefault"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "RockSoilMassType" SuperName = "GeologyElementType" Uuid = "E7FE0A6F-515B-47CB-BB53-6FB50E7B39F6">
+    <Property Name = "IconName" Value = "I_RockSoilMassType"/>
+    <Property Name = "3DIconName" Value = "I_RockSoilMassType.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATCbaObjectTypeDelegateInstanciation"/>
+    <Property Name = "Newable" Value = "New_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "ReferenceOnly"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "GeologyOtherElement" Specializable = "Yes" SuperName = "GeologyElement" Uuid = "E756224E-2B27-4242-BC40-ED87A17AFA33">
+    <Property Name = "IconName" Value = "I_GeologyOtherElement"/>
+    <Property Name = "3DIconName" Value = "I_GeologyOtherElement.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATEAECDelegateInstanciation"/>
+    <Property Name = "Newable" Value = "All_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "UserChoiceReferenceDefault"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "GeologyOtherElementType" Specializable = "Yes" SuperName = "GeologyElementType" Uuid = "B75B91B1-BE2E-4E18-857B-6E854DA684D3">
+    <Property Name = "IconName" Value = "I_GeologyOtherElementType"/>
+    <Property Name = "3DIconName" Value = "I_GeologyOtherElementType.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATCbaObjectTypeDelegateInstanciation"/>
+    <Property Name = "Newable" Value = "New_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "ReferenceOnly"/>
+  </Class>
+</Package>

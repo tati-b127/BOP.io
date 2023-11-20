@@ -1,0 +1,108 @@
+<?xml version="1.0" ?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2006, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" BelongsToModeler="Folder" Name="ENOFLD_CORE"
+    Uuid="b179b08b-2fde-4dd3-8909-3bc950f8603a"
+    UseNames="PLMCORE"
+	  CustomerExposition="Programmer"
+   >
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+        <ShortRole>Core Folder Package</ShortRole>
+        <Role>This package includes core reference as well as RepRef and RepInst for core Folder model</Role>
+    </CAAComment>
+
+    <Comment>last update 2006-11-16-00.00.00</Comment>
+
+    <!-- *************************************************************************************************** -->
+    <!-- * ENOFLD_AbstractCoreReference(PLMCoreReference): Abstract and does not appear in Advanced Search * -->
+    <!-- *************************************************************************************************** -->
+
+    <Class Name="ENOFLD_CoreReference"
+        Uuid="42d0800f-6383-4862-a86a-1ca148484f99"
+        CustomerExposition="Programmer"
+        Abstract="Yes"
+        SuperName="PLMCoreReference">
+      <Property Name="Searchable" Value="No"/>
+
+	 <CAAComment>
+	    <ShortRole>Core Reference</ShortRole>
+	    <Role>Core Reference</Role>
+	 </CAAComment>
+
+       <!-- ********************************************************* -->
+       <!-- * Elementary Abstract Core attributes                   * -->
+       <!-- ********************************************************* -->
+
+        <Simple Name="V_Id"
+            Uuid="2ce00090-562e-4ce4-a023-db9e048e08a3"
+            Type="String"
+            MaxLength="32"
+            MultiValuated="No"
+            Protection="External" CAAExposition="L0">
+	 
+		<CAAComment>
+	    		<ShortRole>Internal identifier of a Core Reference</ShortRole>
+	 	</CAAComment>
+	  </Simple>
+
+     <Method ImplementationType="None">
+       <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+     </Method>
+
+    </Class>
+
+    <!-- ************************************************************************************************ -->
+    <!-- * ENOFLD_RepReference(PLMCoreRepReference) : Concrete class, non CAA derivable, non searchable * -->
+    <!-- ************************************************************************************************ -->
+
+    <Class Name="ENOFLD_RepReference"
+        Uuid="cefdfa43-6fc1-49d6-ba45-76b10fcb0eec"
+        CustomerExposition="Programmer"
+        Abstract="No"
+        SuperName="PLMCoreRepReference"
+        CreateInstName="ENOFLD_RepInstance">
+      <Property Name="Searchable" Value="No"/>
+
+	 <CAAComment>
+	    <ShortRole>Folder Representation Reference</ShortRole>
+	    <Role>To store NavRep associated to Folder</Role>
+	 </CAAComment>
+
+     <Method ImplementationType="None">
+       <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+     </Method>
+
+    </Class>
+
+    <!-- *********************************************************************************************************************************** -->
+    <!-- * ENOFLD_RepInstance(PLMCoreRepInstance) : Concreate Instance created when instanciating a ENOFLD_RepReference, non CAA derivable * -->
+    <!-- *********************************************************************************************************************************** -->
+
+  <RelationClass Name="ENOFLD_RepInstance"
+        Uuid="5d3666c0-e095-44db-95fb-f7d7e4c73b06"
+        CustomerExposition="Programmer"
+        Abstract="No"
+        SuperName="PLMCoreRepInstance">
+
+	 <CAAComment>
+	    <ShortRole>Folder Representation Instance</ShortRole>
+	    <Role>To link ENOFLD_RepReference to any ENOFLD_CoreReference</Role>
+	 </CAAComment>
+
+        <!-- ********************************************************* -->
+        <!-- * Overload(s) of PLMCoreRepInstance attributes.         * -->
+        <!-- ********************************************************* -->
+
+      <SubClause Name="from"   TargetName="ENOFLD_CoreReference"/>
+      <SubClause Name="to"   TargetName="ENOFLD_RepReference"/>
+
+      <Method ImplementationType="None">
+       <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+     </Method>
+
+    </RelationClass>
+
+</Package>

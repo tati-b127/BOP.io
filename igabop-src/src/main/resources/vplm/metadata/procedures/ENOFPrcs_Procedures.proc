@@ -1,0 +1,46 @@
+<?xml version="1.0" ?>
+<ProcedurePackage 
+	xmlns="PLMDictionaryProcedure"
+	Name="ENOFPrcs_Procedures">
+			
+	<Procedure Name="Process_ExchangeXPDM_GetAllEntities">
+		<Implementation Name="Process_ExchangeXPDM_GetAllEntities" FileLocation="Process_ExchangeXPDM_GetAllEntities.KProc" Language="EKL"/>
+		<Signature href="ENOFPrcs_ProcedureSignatureExchange"/>
+	</Procedure>
+
+	<Procedure Name="Process_ExchangeXPDM_ManufacturedProductOneLevel">
+		<Implementation Name="Process_ExchangeXPDM_ManufacturedProductOneLevel" FileLocation="Process_ExchangeXPDM_ManufacturedProductOneLevel.KProc" Language="EKL"/>
+		<Signature href="ENOFPrcs_ProcedureSignatureExchange"/>
+	</Procedure>
+
+	<Procedure Name="Process_ExchangeXPDM_ManufacturedProductAllLevel">
+		<Implementation Name="Process_ExchangeXPDM_ManufacturedProductAllLevel" FileLocation="Process_ExchangeXPDM_ManufacturedProductAllLevel.KProc" Language="EKL"/>
+		<Signature href="ENOFPrcs_ProcedureSignatureExchange"/>
+	</Procedure>
+
+	<Procedure Name="Process_ExchangeXPDM_XPDM2">
+		<Implementation Name="Process_ExchangeXPDM_XPDM2" FileLocation="Process_ExchangeXPDM_XPDM2.KProc" Language="EKL"/>
+		<Signature href="ENOFPrcs_ProcedureSignatureExchange"/>
+	</Procedure>
+
+  <Procedure Name="Process_ExportAsDesign">
+    <Implementation Name="Process_ExportAsDesign" FileLocation="Process_ExportAsDesign.KProc" Language="EKL"/>
+    <Signature href="ENOFPrcs_ProcedureSignatureExchange"/>
+  </Procedure>
+
+  <Procedure Name="MBOM_TSO_References">
+    <Implementation Name="MBOM_TSO_References" FileLocation="MBOM_TSO_References.KProc" Language="EKL"/>
+    <Signature href="ENOFPrcs_ProcedureSignatureExchange"/>
+  </Procedure>
+
+  <Procedure Name="Process_ExchangeXPDM_XPDM2_MBOMWithoutProcess">
+    <Implementation Name="Process_ExchangeXPDM_XPDM2_MBOMWithoutProcess" FileLocation="Process_ExchangeXPDM_XPDM2_MBOMWithoutProcess.KProc" Language="EKL"/>
+    <Signature href="ENOFPrcs_ProcedureSignatureExchange"/>
+  </Procedure>
+
+  <Signature id="ENOFPrcs_ProcedureSignatureExchange">
+		<Parameter Name="InputIds" Lower="0" Upper="-1" MultiValuated="Yes" Direction="in" DataType="PLMId"/>
+		<Parameter Name="OutputIds" Lower="0" Upper="-1" MultiValuated="Yes" Direction="out" DataType="PLMId"/>
+	</Signature>
+	
+</ProcedurePackage>

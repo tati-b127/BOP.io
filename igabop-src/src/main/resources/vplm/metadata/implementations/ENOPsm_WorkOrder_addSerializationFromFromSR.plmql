@@ -1,0 +1,11 @@
+NAVIGATE
+T0.PLMID, T1.PLMID
+FROM
+DELLmiProductionExecHeaderOperation/DELLmiExecHeaderOperationInstance T0,
+DELLmiProductionHeaderOperation/DELLmiHeaderOperationInstance T1
+FROM_ROOTS [?1?]
+ON
+(
+RELATION(FROM= DELLmiProductionExecHeaderOperation/DELLmiExecHeaderOperationInstance TO= DELLmiProductionHeaderOperation/DELLmiHeaderOperationInstance THROUGH=POINTSTO) WITH QUALITY_FILTER (ROLE=DEL_IsSerializedFrom AND CATEGORY=Reference3)
+)
+ITER=1;

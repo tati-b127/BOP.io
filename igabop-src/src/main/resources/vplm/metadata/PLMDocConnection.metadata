@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2004, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top"  Name="PLMDocConnection" Uuid="ba221e9c-a858-0000-020a1005b1000000" UseNames="PLMCORE" BelongsToModeler="Document" CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+  <CAAComment>
+    <ShortRole>PLMDocConnection connects any object to PLMDMTDocument. </ShortRole>
+  </CAAComment>
+  <Class Name="PLMDocConnection" Uuid="ba221e75-4d0e-0000-020a1005b1000000" Abstract="No" SuperName="PLMConnection" CustomerExposition="Programmer">
+    <CAAComment>
+      <ShortRole>PLMDocConnection is used for any object connects to PLMDMTDocument </ShortRole>
+    </CAAComment>
+    <Path Name="DocumentRepRef" Uuid="babf2fec-d4fb-0000-020a10055d000000" TargetName="V_SRs" MultiValuated="Yes" RoleName="DmtDocument" Semantics="Reference" Type="SemanticRelation" AdaptativeToMinor="No" 		SynchroSensitivity="None" 		RerouteOnEffectivityChange="No"/>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+  <!-- *************************************** -->
+  <!-- *    FUNCTIONS DECLARATIONS           * -->
+  <!-- *************************************** -->
+  <Function Name="PLMDocConnection_retrieveAllDocuments">
+    <Implementation Name="PLMDocConnection_retrieveAllDocuments" FileLocation="PLMDocConnection_retrieveAllDocuments.plmql" Language="PLMQL"/>
+    <Signature href="DmtSignature"/>
+  </Function>
+  <Function Name="PLMDocConnection_retrieveAllDocumentsIncludingCBP">
+    <Implementation Name="PLMDocConnection_retrieveAllDocumentsIncludingCBP" FileLocation="PLMDocConnection_retrieveAllDocumentsIncludingCBP.plmql" Language="PLMQL"/>
+    <Signature href="DmtSignature"/>
+  </Function>
+  <Function Name="PLMDocConnection_retrieveAllConnections">
+    <Implementation Name="PLMDocConnection_retrieveAllConnections" FileLocation="PLMDocConnection_retrieveAllConnections.plmql" Language="PLMQL"/>
+    <Signature href="DmtSignature"/>
+  </Function>
+  <Function Name="PLMDocConnection_NavDocCnxToDoc">
+    <Implementation Name="PLMDocConnection_NavDocCnxToDoc" FileLocation="PLMDocConnection_NavDocCnxToDoc.plmql" Language="PLMQL"/>
+    <Signature href="DmtSignature"/>
+  </Function>
+  
+  <Signature id="DmtSignature">
+    <Parameter Name="InputIds" Lower="0" Upper="-1" Direction="in" MultiValuated="No" DataType="PLMId"/>
+    <Parameter Name="OutputIds" Lower="0" Upper="-1" Direction="out" MultiValuated="No" DataType="PLMRouteSet"/>
+  </Signature>
+</Package>
+

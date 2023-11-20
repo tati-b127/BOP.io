@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2012, All rights reserved -->
+
+<Package CustomerExposition = "Programmer" ModelerType = "Top" Name = "AECCommonSpatialStructureElement" UseNames = "AECKernel" Uuid = "893813ea-915c-4efa-b233-5ca557d41779" xmlns = "PLMDictionaryUnified">
+  <Class Abstract = "Yes" CustomerExposition = "Programmer" Discipline = "Yes" Name = "AecCommonSpatialStructureElement" SuperName = "AecSpatialStructureElement" Uuid = "1685dfdb-79e3-4211-84f9-dd157e880cec"/>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "AecFoundation" SuperName = "AecCommonSpatialStructureElement" Uuid = "d146d2e9-58a4-4ebb-a45b-0e3908863ab3">
+    <Property Name = "IconName" Value = "I_AecFoundation"/>
+    <Property Name = "3DIconName" Value = "I_AecFoundation.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATEAECDelegateInstanciation"/>
+    <Property Name = "KweNew_ReturnedType" Value = "VPMInstance"/>
+    <Property Name = "Newable" Value = "All_Offline_CAA"/>
+    <Property Name = "InstantiationOwnerTypes" Value = "PPRContext;AecFoundation;AecOtherSpatialStructureElement;Building;Bridge;BridgeAbutment;BridgeAnchorBlock;BridgeArch;BridgeDeck;BridgeOtherSpatialStructureElement;BridgePier;BridgeTower;Dam;DamOtherSpatialStructureElement"/>
+    <Property Name = "3DPartAvailability" Value = "UserChoiceReferenceDefault"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "AecOtherSpatialStructureElement" Specializable = "Yes" SuperName = "AecCommonSpatialStructureElement" Uuid = "9f6efdb6-90a4-42a4-ab9d-adea4493101c">
+    <Property Name = "IconName" Value = "I_AecOtherSpatialStructureElement"/>
+    <Property Name = "3DIconName" Value = "I_AecOtherSpatialStructureElement.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATEAECDelegateInstanciation"/>
+    <Property Name = "KweNew_ReturnedType" Value = "VPMInstance"/>
+    <Property Name = "Newable" Value = "All_Offline_CAA"/>
+    <Property Name = "InstantiationOwnerTypes" Value = "PPRContext;AecFoundation;AecOtherSpatialStructureElement;AecSite;AecTerrain;Building;BuildingStorey"/>
+    <Property Name = "3DPartAvailability" Value = "UserChoiceReferenceDefault"/>
+  </Class>
+  <Class Abbreviation = "sit" CustomerExposition = "Programmer" Discipline = "Yes" Name = "AecSite" SuperName = "AecCommonSpatialStructureElement" Uuid = "40a83cdb-b90f-4b08-826d-cd4d083eb0dc">
+    <Property Name = "IconName" Value = "I_AecSite"/>
+    <Property Name = "3DIconName" Value = "I_AecSite.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATEAECDelegateInstanciation"/>
+    <Property Name = "KweNew_ReturnedType" Value = "VPMInstance"/>
+    <Property Name = "Newable" Value = "All_Offline_CAA"/>
+    <Property Name = "InstantiationOwnerTypes" Value = "PPRContext;AecSite;Organizational"/>
+    <Property Name = "3DPartAvailability" Value = "UserChoiceReferenceDefault"/>
+  </Class>
+  <Class Abbreviation = "trn" CustomerExposition = "Programmer" Discipline = "Yes" Name = "AecTerrain" SuperName = "AecCommonSpatialStructureElement" Uuid = "4984d006-765b-48c2-9536-59e32f44cab7">
+    <Property Name = "IconName" Value = "I_AecTerrain"/>
+    <Property Name = "3DIconName" Value = "I_AecTerrain.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATEAECDelegateInstanciation"/>
+    <Property Name = "KweNew_ReturnedType" Value = "VPMInstance"/>
+    <Property Name = "Newable" Value = "All_Offline_CAA"/>
+    <Property Name = "InstantiationOwnerTypes" Value = "PPRContext;AecOtherSpatialStructureElement;AecSite;AecTerrain;BuildingStorey"/>
+    <Property Name = "3DPartAvailability" Value = "UserChoiceReferenceDefault"/>
+  </Class>
+</Package>

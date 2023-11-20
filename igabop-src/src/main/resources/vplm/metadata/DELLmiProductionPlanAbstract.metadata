@@ -1,0 +1,127 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR DELMIA Production System Application -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2018, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified"
+         ModelerType="Top"
+         Name="DELLmiProductionPlanAbstract"
+         BelongsToModeler="DELLmiProductionPlan"
+	       Uuid="B82E7F44-858B-4f76-B240-DE1BB5A1C454"
+	       UseNames="DELLmiProductionSystem"
+         CustomerExposition="Programmer">
+
+  <CAAComment>
+    <ShortRole>PLM DELMIA Abstract Production Plan </ShortRole>
+    <Role>This package describes the PLM DELMIA Abstract Production Plan model </Role>
+  </CAAComment>
+
+  <Comment>last update 2018-01-19</Comment>
+
+
+  <Class Name="DELSProductionPlanAbstract"
+		     Uuid="D93E591B-447E-48d8-A0F3-1D9211E44837"
+		     Abstract="Yes"
+         SuperName="DELLmiProductionSystemReference"
+         CustomerExposition="Programmer"
+         Specializable="No"
+         CustomerExtensible="No"
+         >
+
+    <CAAComment>
+      <ShortRole>PLM DELMIA Abstract Production Plan Reference</ShortRole>
+      <Role>PLM DELMIA Abstract Production Plan Reference</Role>
+    </CAAComment>
+
+    <Property Name="ChangeManagementSupport"    Value="No"/>
+    <Property Name="ChangeManagementReferential"    Value="No"/>
+    <Property Name="ChangeManagementContext"    Value="No"/>
+    <Property Name="Configurable" Value="No"/>
+    <Property Name="NewMajorRevisionAvailability" Value="No"/>
+    <Property Name="EvolutionAvailability" Value="No"/>
+
+    <Simple Name="V_Compatible"
+            Uuid="9E27CF25-AF3C-4215-B4D2-340F122FA54D"
+            Type="Boolean"
+            DefaultValue="true"
+            MultiValuated="No"
+ 	          ResetOnCloning="No"
+	          ResetOnNewVersion="No"
+            Protection="Free"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>
+          Compatible.
+        </ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_LastAPSSave"
+            Uuid="B0390026-235F-4661-8540-D5623EA26EC3"
+            Type="Date"
+            MultiValuated="No"
+ 	          ResetOnCloning="No"
+	          ResetOnNewVersion="No"
+            Protection="Free"
+            CAAExposition="L0">
+      <Property Name="CreateAsDateTime" Value="Yes"/>
+      <CAAComment>
+        <ShortRole>
+          Last Save.
+        </ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_HorizonStart"
+            Uuid="0746DCB8-EA40-42f6-AFE5-C7D8F8C86D2B"
+            Type="Date"
+            MultiValuated="No"
+ 	          ResetOnCloning="No"
+	          ResetOnNewVersion="No"
+            Protection="Free"
+            CAAExposition="L0">
+      <Property Name="CreateAsDateTime" Value="Yes"/>
+      <CAAComment>
+        <ShortRole>
+          Horizon Start Date.
+        </ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_HorizonEnd"
+            Uuid="033FC2E5-17E6-4051-8570-DBBD15B23847"
+            Type="Date"
+            MultiValuated="No"
+ 	          ResetOnCloning="No"
+	          ResetOnNewVersion="No"
+            Protection="Free"
+            CAAExposition="L0">
+      <Property Name="CreateAsDateTime" Value="Yes"/>
+      <CAAComment>
+        <ShortRole>
+          Horizon End Date.
+        </ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_DateMRP"
+            Uuid="7976033C-DB31-49b8-AEFC-4CC6FF9B428A"
+            Type="Date"
+            MultiValuated="No"
+ 	          ResetOnCloning="No"
+	          ResetOnNewVersion="No"
+            Protection="Free"
+            CAAExposition="L0">
+      <Property Name="CreateAsDateTime" Value="Yes"/>
+      <CAAComment>
+        <ShortRole>
+          MRP Date.
+        </ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+
+  </Class>
+
+</Package>

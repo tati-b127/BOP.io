@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR RFL System Type Custo 1-->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2006, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo"
+	Name="ENOSTRFLPLMFlowDS"
+	Uuid="286b0241-c04d-417a-9ce3-3859f1ca2fb8" 
+	UseNames="RFLPLMFlow" 
+	>
+
+	<CAAComment>
+		<ShortRole>PLM RFL System Flow Custo Package</ShortRole>
+		<Role>PLM RFL System Flow Custo Package</Role>
+	</CAAComment>
+	
+	<Comment>last update 2007-09-15</Comment>
+	
+  <!-- ***************************************************** -->
+	<!-- *  ENOSTFlowReference(RFLPLMFlowReference)  * -->
+	<!-- ***************************************************** -->
+	<Class Name="ENOSTFlowReference" 
+		Uuid="4cb4514e-a298-4f47-9fe0-da37b2cc679e" 
+
+		SuperName="RFLPLMFlowReference" 
+		SuperRef="d3dd2633-1363-4260-b970455285915fef" 
+		>
+
+    <!-- R206: contains identifier of object from which it is made from  -->
+    <!-- not exhanged between sites -->
+    <Simple Name="E_fromExternalId"
+    Uuid="11f0a285-2c23-4d65-a4ea-72eeec93f15e"
+    Alias="Definition"
+    Type="String"
+    MaxLength="256"
+    Mandatory="No"
+    MultiValuated="No"
+    Protection="Free"
+    CAAExposition="L0"
+          />
+
+    <!-- R206: contains Name comments  -->
+    <!-- not exhanged between sites -->
+    <Simple Name="E_versionComment"
+    Uuid="22689bf3-5df8-44e1-bf05-7409072bd1ee"
+    Alias="Version Comment"
+    Type="String"
+    MaxLength="256"
+    Mandatory="No"
+    MultiValuated="No"
+    Protection="Free"
+    CAAExposition="L0"
+    ResetOnNewVersion="Yes"
+    ResetOnCloning="Yes"
+              />
+    
+    <IdentifierSet Name="Identifier"
+            Uuid="7b559107-95ad-45e1-9265-9dce5a691da3"
+            IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755"
+            IdentifierNames="PLM_ExternalID V_version" />
+ 
+	</Class>
+
+	<!-- ************************************************* -->
+	<!-- * ENOSTFlowInstance (RFLPLMFlowInstance) * -->
+	<!-- ************************************************* -->
+	<Class Name="ENOSTFlowInstance" 
+		Uuid="b0cc489e-0d11-4ed1-a25d-87065f73c94f"  
+		 
+		SuperName="RFLPLMFlowInstance" 
+		SuperRef="f1f206a2-f891-4c43-9f8c54a68aa104f4" 
+		>
+
+	</Class>
+
+</Package>

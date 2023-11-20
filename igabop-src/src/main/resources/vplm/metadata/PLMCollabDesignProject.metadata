@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" Uuid="3d62185a-2b1a-4ed4-b8e145da1dfffaff" UseNames="PLMCORE" Name="PLMCollabDesignProject" BelongsToModeler="PLMCollabDesign" CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+  <Comment> First Delivery 04-08-2008 by VVO</Comment>
+  <!-- ***************************************** -->
+  <!-- CCD Project Elements -->
+  <!-- ***************************************** -->
+  <Class Name="PLMCCDProjectRef" Uuid="5d81c9a7-2cff-4807-bf094cca30e171d2" Abstract="No" SuperName="PLMCoreReference" CustomerExposition="Programmer" Specializable="No" CustomerExtensible="No" Abbreviation="pj">
+    <Property Name="IconName"	Value="I_PLMCCDWorkspaceRef"/>
+    <Property Name="3DIconName"	Value="PLMCCDWorkspaceRef.cgr"/>
+    <Property Name="Newable"	Value="New"/>
+    <Property Name="Searchable"	Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod"	Value="CATCCDProjectPLMNew"/>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+  <!-- ***************************************** -->
+  <!-- CCD connection Elements  - link to master task and to representation-->
+  <!-- ***************************************** -->
+  <Class Name="PLMCCDTaskConnection" Uuid="ec737033-a277-44a8-9c17903804812350" SuperName="PLMConnection" Abstract="No" CustomerExposition="Programmer" Specializable="No" CustomerExtensible="No">
+    <!--~~ RelationShip to the Master Task~~-->
+    <Path Name="PLMCCDTasklink" Uuid="1dbdd3ca-f5a1-4cb4-aa1c0d5260a33c04"  RoleName="PLMChgActionInput" Semantics="Reference2" Protection="Internal" Type="SemanticRelation" AdaptativeToMinor="No"		SynchroSensitivity="None"		RerouteOnEffectivityChange="No"/>
+    <Property Name="Newable"	Value="No"/>
+    <Property Name="Searchable"	Value="No"/>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+</Package>

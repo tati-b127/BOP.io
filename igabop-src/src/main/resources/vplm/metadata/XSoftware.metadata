@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2018, All rights reserved -->
+<!-- This defines the data model for IRPC types extended for -->
+<!-- XSoftware system -->
+<Package xmlns="PLMDictionaryUnified" Name="XSoftware"
+    ModelerType="Top" Uuid="7ac07e10-381e-11e8-a5a7-c85b76724971"
+    CustomerExposition="Programmer" UseNames="RFLVPMLogical"
+    Architecture="All" BelongsToModeler="XSoftware">
+
+    <!-- The main Software Logical Item type -->
+    <Class Uuid="4ffe2a60-d108-47ef-9414-ee76e921f774" Name="SoftwareLogicalItem"
+        Abstract="No" CustomerExposition="Programmer" SuperName="RFLVPMLogicalReference"
+        ChangeManagementSupport="Yes" Discipline="Yes" CreateInstName="RFLVPMLogicalInstance"
+        Abbreviation="xswlogitem">
+        <Property Name="KweNew_InstanciationMethod" Value="CATELogDelegateInstanciation"></Property>
+        <Property Name="KweNew_ReturnedType" Value="RFLVPMLogicalInstance"></Property>
+        <Property Name="Newable" Value="All"></Property>
+        <Property Name="IconName" Value="I_XSOFTSoftwareLogicalItem"></Property>
+        <Method ImplementationType="None">
+            <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+        </Method>
+
+    </Class>
+
+    <!-- An Instance of a Software Logical Item -->
+    <RelationClass Uuid="1be4fda4-d6ba-4fe7-88fc-9ab2a4746590"
+        Name="SoftwareLogicalInstance" CustomerExposition="Programmer"
+        SuperName="RFLVPMLogicalInstance">
+        <Simple Name="relPath" Uuid="5363415b-c2f2-487b-845a-6b0ded5fc420"
+            Type="String" MaxLength="255"
+            MultiValuated="No" Protection="Free"></Simple>
+        <SubClause Name="from" TargetName="RFLVPMLogicalReference" />
+        <SubClause Name="to" TargetName="SoftwareLogicalItem" />
+        <Method ImplementationType="None">
+            <RealizeMethodType href="ExportScope.meth#ExportScope" />
+        </Method>
+    </RelationClass>
+
+</Package>
+

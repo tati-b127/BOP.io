@@ -1,0 +1,16 @@
+NAVIGATE
+	T0.physicalid,
+	T0.logicalid,
+	T0.type,
+	T1.PLM_ExternalID,
+	T1.PLMID
+FROM
+	"Class/Product Configuration" T0,
+	VPMCfgInstanceConfiguration/VPMCfgInstanceConfiguration T1
+FROM_ROOTS [?1?]
+ON ( RELATION(
+	FROM=VPMCfgInstanceConfiguration/VPMCfgInstanceConfiguration
+	TO="Class/Product Configuration"
+	THROUGH=POINTSTO )
+WITH QUALITY_FILTER (ROLE=CFG_SelectedConfiguration))
+;

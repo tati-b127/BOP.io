@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2012, All rights reserved -->
+
+<Package CustomerExposition = "Programmer" ModelerType = "Top" Name = "AECUniFormat" UseNames = "AECKernel AECCommonSpatialStructureElement BuildingSpatialStructureElement" Uuid = "7e2de3a2-f609-443a-acd3-b568d563fbc9" xmlns = "PLMDictionaryUnified">
+  <Extension CustomerExposition = "Programmer" Name = "UniFormatBuilding" ScopeNames = "AecFoundation AecOtherSpatialStructureElement BuildingSpatialStructureElement BuildingSpatialStructureElementType AecElement AecElementType" Uuid = "39a0dd7c-2661-4d0e-8e67-08148132a87e">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" DefaultValue = "A" MaxLength = "255" Name = "UniFormatBuilding_V_UfBuildingClassification" Protection = "Free" Type = "String" Uuid = "e193bc3f-e6e1-4046-addb-e9c112837cf1">
+      <Range>
+        <Equal>A</Equal>
+        <Equal>A10</Equal>
+        <Equal>A1010</Equal>
+        <Equal>A1020</Equal>
+        <Equal>A1030</Equal>
+        <Equal>A20</Equal>
+        <Equal>A2010</Equal>
+        <Equal>A2020</Equal>
+        <Equal>B</Equal>
+        <Equal>B10</Equal>
+        <Equal>B1010</Equal>
+        <Equal>B1020</Equal>
+        <Equal>B20</Equal>
+        <Equal>B2010</Equal>
+        <Equal>B2020</Equal>
+        <Equal>B2030</Equal>
+        <Equal>B30</Equal>
+        <Equal>B3010</Equal>
+        <Equal>B3020</Equal>
+        <Equal>C</Equal>
+        <Equal>C10</Equal>
+        <Equal>C1010</Equal>
+        <Equal>C1020</Equal>
+        <Equal>C1030</Equal>
+        <Equal>C20</Equal>
+        <Equal>C2010</Equal>
+        <Equal>C2020</Equal>
+        <Equal>C30</Equal>
+        <Equal>C3010</Equal>
+        <Equal>C3020</Equal>
+        <Equal>C3030</Equal>
+        <Equal>D</Equal>
+        <Equal>D10</Equal>
+        <Equal>D1010</Equal>
+        <Equal>D1020</Equal>
+        <Equal>D1090</Equal>
+        <Equal>D20</Equal>
+        <Equal>D2010</Equal>
+        <Equal>D2020</Equal>
+        <Equal>D2030</Equal>
+        <Equal>D2040</Equal>
+        <Equal>D2090</Equal>
+        <Equal>D30</Equal>
+        <Equal>D3010</Equal>
+        <Equal>D3020</Equal>
+        <Equal>D3030</Equal>
+        <Equal>D3040</Equal>
+        <Equal>D3050</Equal>
+        <Equal>D3060</Equal>
+        <Equal>D3070</Equal>
+        <Equal>D3090</Equal>
+        <Equal>D40</Equal>
+        <Equal>D4010</Equal>
+        <Equal>D4020</Equal>
+        <Equal>D4030</Equal>
+        <Equal>D4090</Equal>
+        <Equal>D50</Equal>
+        <Equal>D5010</Equal>
+        <Equal>D5020</Equal>
+        <Equal>D5030</Equal>
+        <Equal>D5090</Equal>
+        <Equal>E</Equal>
+        <Equal>E10</Equal>
+        <Equal>E1010</Equal>
+        <Equal>E1020</Equal>
+        <Equal>E1030</Equal>
+        <Equal>E1090</Equal>
+        <Equal>E20</Equal>
+        <Equal>E2010</Equal>
+        <Equal>E2020</Equal>
+        <Equal>F</Equal>
+        <Equal>F10</Equal>
+        <Equal>F1010</Equal>
+        <Equal>F1020</Equal>
+        <Equal>F1030</Equal>
+        <Equal>F1040</Equal>
+        <Equal>F1050</Equal>
+        <Equal>F20</Equal>
+        <Equal>F2010</Equal>
+        <Equal>F2020</Equal>
+      </Range>
+    </Simple>
+  </Extension>
+</Package>

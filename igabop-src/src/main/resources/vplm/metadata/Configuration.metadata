@@ -1,0 +1,3052 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2017, All rights reserved -->
+<Package  Name="Configuration"
+  UseNames="ERCoreModeler Task Product Build"
+  ModelerType="Top"
+  xmlns="PLMDictionaryUnified"
+  CustomerExposition="Programmer"
+  Architecture="All"
+>
+  <Class
+    Name="CONFIGURATION SERIES HOLDER"
+    SuperName="BusinessType"
+    Abstract="Yes"
+    CustomerExposition="Programmer"
+    Specializable="No"
+  >
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+  <Class
+    Name="Series Holder"
+    SuperName="CONFIGURATION SERIES HOLDER"
+    Abstract="No"
+    CustomerExposition="Programmer"
+    Specializable="No"
+  >
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+  <Class
+    Name="Milestone Holder"
+    SuperName="CONFIGURATION SERIES HOLDER"
+    Abstract="No"
+    CustomerExposition="Programmer"
+    Specializable="No"
+  >
+    <Simple
+      Name="Milestone Discipline"
+      Type="String"
+      DefaultValue="None"
+      CustomerExposition="Programmer"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Range>
+        <Equal>None</Equal>
+        <Equal>Engineering</Equal>
+        <Equal>Manufacturing</Equal>
+      </Range>
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+  <Class
+    Name="Tree Series Holder"
+    SuperName="CONFIGURATION SERIES HOLDER"
+    Abstract="No"
+    CustomerExposition="Programmer"
+    Specializable="No"
+  >
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+  <Class
+    Name="Configuration Option Holder"
+    SuperName="CONFIGURATION FEATURES"
+    Abstract="No"
+    CustomerExposition="Programmer"
+    Specializable="No"
+  >
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+  <Class
+    Name="Rule"
+    SuperName="BusinessType"
+    Abstract="Yes"
+    CustomerExposition="None"
+    Specializable="No"
+  >
+    <Simple
+      Name="Error Message"
+      Type="String"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Contextual Error"
+      Type="String"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Compatibility Option"
+      Type="String"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Range>
+        <Equal>All</Equal>
+        <Equal>Downward</Equal>
+        <Equal>None</Equal>
+        <Equal>Upward</Equal>
+        <Equal></Equal>
+      </Range>
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Originator"
+      Type="String"
+      CustomerExposition="Programmer"
+      Protection="Free"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Comparison Operator"
+      Type="String"
+      DefaultValue="Incompatible"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Range>
+        <Equal>Co-Dependent</Equal>
+        <Equal>Requires</Equal>
+        <Equal>Incompatible</Equal>
+        <Equal>Compatible</Equal>
+      </Range>
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Left Expression"
+      Type="String"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Right Expression"
+      Type="String"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Validation Status"
+      Type="String"
+      DefaultValue="Not Validated"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Range>
+        <Equal>Not Validated</Equal>
+        <Equal>Validation Passed</Equal>
+        <Equal>Validation Failed</Equal>
+      </Range>
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+  <Class
+    Name="Inclusion Rule"
+    SuperName="Rule"
+    Abstract="No"
+    CustomerExposition="Programmer"
+    Specializable="No"
+  >
+    <Simple
+      Name="Design Variants"
+      Type="String"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Rule Complexity"
+      Type="String"
+      DefaultValue="Complex"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Range>
+        <Equal>Simple</Equal>
+        <Equal>Complex</Equal>
+      </Range>
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+  <Class
+    Name="Boolean Compatibility Rule"
+    SuperName="Rule"
+    Abstract="No"
+    CustomerExposition="Programmer"
+    Specializable="No"
+  >
+    <Simple
+      Name="Rule Classification"
+      Type="String"
+      DefaultValue="Configuration"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Range>
+        <Equal>Manufacturing</Equal>
+        <Equal>Logical</Equal>
+        <Equal>Configuration</Equal>
+      </Range>
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Comment"
+      Type="String"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+  <Class
+    Name="Fixed Resource"
+    SuperName="BusinessType"
+    Abstract="No"
+    CustomerExposition="Programmer"
+    Specializable="No"
+  >
+    <Simple
+      Name="Rule Classification"
+      Type="String"
+      DefaultValue="Configuration"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Range>
+        <Equal>Manufacturing</Equal>
+        <Equal>Logical</Equal>
+        <Equal>Configuration</Equal>
+      </Range>
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Originator"
+      Type="String"
+      CustomerExposition="Programmer"
+      Protection="Free"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Comment"
+      Type="String"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Initial Resource"
+      Type="Double"
+      DefaultValue="0.0"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Resource ID"
+      Type="String"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Resource Maximum"
+      Type="Double"
+      DefaultValue="1.0"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Resource Minimum"
+      Type="Double"
+      DefaultValue="1.0"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+  <Class
+    Name="Product Configuration"
+    SuperName="BusinessType"
+    Abstract="No"
+    CustomerExposition="Programmer"
+    Specializable="Yes"
+  >
+    <Simple
+      Name="Resolved Parts"
+      Type="String"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Completeness Status"
+      Type="String"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Range>
+        <Equal>Complete</Equal>
+        <Equal>Partial</Equal>
+        <Equal>Hybrid</Equal>
+        <Equal>Unknown</Equal>
+      </Range>
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Evaluate Rules"
+      Type="Boolean"
+      DefaultValue="true"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Multi Selection Allowed"
+      Type="Boolean"
+      DefaultValue="false"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Rule Compliancy Status"
+      Type="String"
+      DefaultValue="Unknown"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Range>
+        <Equal>Valid</Equal>
+        <Equal>Invalid</Equal>
+        <Equal>Unknown</Equal>
+      </Range>
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Rule Evaluation Mode"
+      Type="String"
+      DefaultValue="Dependencies"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Range>
+        <Equal>Incompatibilities</Equal>
+        <Equal>Dependencies</Equal>
+      </Range>
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Selection Mode"
+      Type="String"
+      DefaultValue="Build"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Range>
+        <Equal>Build</Equal>
+        <Equal>Refine</Equal>
+      </Range>
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Originator"
+      Type="String"
+      CustomerExposition="Programmer"
+      Protection="Free"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Filter Compiled Form"
+      Type="String"
+      CustomerExposition="Programmer"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Filter Expression Binary"
+      Type="String"
+      CustomerExposition="Programmer"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Filter Ordered Criteria"
+      Type="String"
+      CustomerExposition="Programmer"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Filter Ordered Criteria Dictionary"
+      Type="String"
+      CustomerExposition="Programmer"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="BOM XML"
+      Type="String"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Marketing Text"
+      Type="String"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="End Effectivity"
+      Type="Date"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="List Price"
+      Type="Double"
+      DefaultValue="0.0"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Start Effectivity"
+      Type="Date"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Validation Status"
+      Type="String"
+      DefaultValue="Not Validated"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Range>
+        <Equal>Not Validated</Equal>
+        <Equal>Validation Passed</Equal>
+        <Equal>Validation Failed</Equal>
+      </Range>
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Product Configuration Purpose"
+      Type="String"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Range>
+        <Equal>Evaluation</Equal>
+        <Equal>Order</Equal>
+        <Equal>Accessory</Equal>
+      </Range>
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Marketing Name"
+      Type="String"
+      Protection="Free"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Design Validation Status"
+      Type="String"
+      DefaultValue="Not Validated"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Range>
+        <Equal>Not Validated</Equal>
+        <Equal>Validation Passed</Equal>
+        <Equal>Validation Failed</Equal>
+      </Range>
+      <Property Name="Global" Value="Yes"/>
+    </Simple>
+    <Simple
+      Name="Recompute List Price"
+      Type="Boolean"
+      DefaultValue="false"
+      CustomerExposition="Programmer"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+    </Simple>  
+    <Property Name="IconName" Value="I_FTRProductConfig"/>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+  <Class
+    Name="RULES"
+    SuperName="BusinessType"
+    Abstract="Yes"
+    CustomerExposition="Programmer"
+    Specializable="No"
+  >
+    <Simple
+      Name="Originator"
+      Type="String"
+      CustomerExposition="Programmer"
+      Protection="Free"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+  <Class
+    Name="Configuration Rule"
+    SuperName="RULES"
+    Abstract="No"
+    CustomerExposition="Programmer"
+    Specializable="No"
+    CustomerExtensible="Yes"
+  >
+    <Simple
+      Name="Layout Data"
+      Type="String"
+      CustomerExposition="Programmer"
+      Protection="External"
+      PLMImpacting="No"
+    >
+       <Property Name="Global" Value="Yes"/>
+    </Simple>
+    <Simple
+      Name="Expression Type"
+      Type="String"
+      DefaultValue="Matrix"
+      CustomerExposition="Programmer"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Range>
+        <Equal>Matrix</Equal>
+        <Equal>Boolean</Equal>
+      </Range>
+       <Property Name="Global" Value="Yes"/>
+    </Simple>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+  <Class
+    Name="CONFIGURATION FEATURES"
+    SuperName="BusinessType"
+    Abstract="Yes"
+    CustomerExposition="Programmer"
+    Specializable="No"
+  >
+    <Simple
+      Name="Originator"
+      Type="String"
+      CustomerExposition="Programmer"
+      Protection="Free"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Subfeature Count"
+      Type="Integer"
+      DefaultValue="0"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Configuration Selection Type"
+      Type="String"
+      DefaultValue="Single"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Range>
+        <Equal>Single</Equal>
+        <Equal>Multiple</Equal>
+      </Range>
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Display Name"
+      Type="String"
+      Protection="Free"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Display Text"
+      Type="String"
+      Protection="Free"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+  <Class
+    Name="Configuration Feature"
+    SuperName="CONFIGURATION FEATURES"
+    Abstract="No"
+    CustomerExposition="Programmer"
+    Specializable="No"
+  >
+    <Simple
+      Name="Key-In Type"
+      Type="String"
+      DefaultValue="Blank"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Range>
+        <Equal>Input</Equal>
+        <Equal>Date</Equal>
+        <Equal>Real</Equal>
+        <Equal>Text Area</Equal>
+        <Equal>Integer</Equal>
+        <Equal>Blank</Equal>
+      </Range>
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Key-In Value"
+      Type="String"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+  <Class
+    Name="Configuration Option"
+    SuperName="CONFIGURATION FEATURES"
+    Abstract="No"
+    CustomerExposition="Programmer"
+    Specializable="No"
+  >
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+  <Class
+    Name="Marketing Preference"
+    SuperName="Rule"
+    Abstract="No"
+    CustomerExposition="Programmer"
+    Specializable="No"
+  >
+    <Simple
+      Name="Comment"
+      Type="String"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+  <Class
+    Name="Variant Parameter"
+    SuperName="Configuration Feature"
+    Abstract="No"
+    CustomerExposition="Programmer"
+    Specializable="Yes"
+  >
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+  <Class
+    Name="RVD"
+    SuperName="BusinessType"
+    Abstract="No"
+    CustomerExposition="Programmer"
+    Specializable="No"
+  >
+    <Simple
+      Name="Originator"
+      Type="String"
+      CustomerExposition="Programmer"
+      Protection="Free"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Display Name"
+      Type="String"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+    </Simple>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+  <Class
+    Name="Authoring Context"
+    SuperName="BusinessType"
+    Abstract="No"
+    CustomerExposition="ProgrammerOnly"
+    Specializable="No"
+  >
+    <Simple
+      Name="Evolution Expression"
+      Type="String"
+      Protection="Internal"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+    </Simple>
+    <Simple
+      Name="Dictionary Cache"
+      Type="String"
+      MultiValuated="Yes"
+      Protection="Internal"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+    </Simple>
+    <Simple
+      Name="Dictionary Contexts"
+      Type="String"
+      MultiValuated="Yes"
+      Protection="Internal"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+    </Simple>
+    <Simple
+      Name="Modeling Version"
+      Type="Integer"
+      DefaultValue="1"
+      Protection="Internal"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+    </Simple>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+  <Class
+    Name="Variant"
+    SuperName="Configuration Feature"
+    Abstract="No"
+    CustomerExposition="Programmer"
+    Specializable="Yes"
+  >
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+    <Class
+    Name="Variant Value"
+    SuperName="Configuration Option"
+    Abstract="No"
+    CustomerExposition="Programmer"
+    Specializable="Yes"
+  >
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+   <Class
+    Name="Variability Group"
+    SuperName="Configuration Feature"
+    Abstract="No"
+    CustomerExposition="Programmer"
+    Specializable="Yes"
+  >
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+  <Class
+    Name="Variability Option"
+    SuperName="Configuration Option"
+    Abstract="No"
+    CustomerExposition="Programmer"
+    Specializable="Yes"
+  >
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+  <Extension
+    Name="Configuration Milestone"
+    Abstract="No"
+    ScopeNames="Milestone;"
+    CustomerExposition="ProgrammerOnly"
+  >
+    <Simple
+      Name="Milestone Date"
+      Type="Date"
+      CustomerExposition="Programmer"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+  </Extension>
+
+  <Extension
+    Name="Configuration Usage"
+    Abstract="No"
+    ScopeNames="Dependency;"
+    CustomerExposition="ProgrammerOnly"
+  >
+    <Simple
+      Name="Milestone Discipline"
+      Type="String"
+      DefaultValue="None"
+      CustomerExposition="Programmer"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Range>
+        <Equal>None</Equal>
+        <Equal>Engineering</Equal>
+        <Equal>Manufacturing</Equal>
+      </Range>
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+  </Extension>
+
+  <Extension
+    Name="Derivation Index"
+    Abstract="No"
+    ScopeNames="Milestone;"
+    CustomerExposition="ProgrammerOnly"
+  >
+    <Simple
+      Name="Node Index"
+      Type="String"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Derivation Level"
+      Type="String"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Child Node Available Index"
+      Type="String"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+  </Extension>
+
+  <Extension
+    Name="Configuration Expression"
+    Abstract="Yes"
+    CustomerExposition="ProgrammerOnly"
+  >
+    <Simple
+      Name="Compiled Expression"
+      Type="String"
+      CustomerExposition="Programmer"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Master Expression"
+      Type="String"
+      CustomerExposition="Programmer"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+  </Extension>
+
+  <Extension
+    Name="Applicability Expression"
+    SuperName="Configuration Expression"
+    Abstract="No"
+    ScopeNames="Decision;Change;"
+    CustomerExposition="ProgrammerOnly"
+  >
+    <Simple
+      Name="Publication Status"
+      Type="String"
+      DefaultValue="Unpublished"
+      CustomerExposition="Programmer"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Range>
+        <Equal>Unpublished</Equal>
+        <Equal>Validated</Equal>
+        <Equal>Rejected</Equal>
+      </Range>
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+  </Extension>
+
+  <Extension
+    Name="Rule Expression"
+    SuperName="Configuration Expression"
+    Abstract="No"
+    ScopeNames="Configuration Rule;"
+    CustomerExposition="ProgrammerOnly"
+  >
+  </Extension>
+
+  <Extension
+    Name="Effectivity Framework"
+    Abstract="No"
+    ScopeNames="Related Projects;Shopper Alternate Composition;Shopper Assortment Segment;ShopperAssortmentProductRef;EBOM Pending;MBOM;MBOM Pending;PLBOM Consumed;PLBOM Pending;SHORel_ActualPlanogramRetailStore;SHORel_ActualStoreRetailStore;SHORel_RetailClusterRetailStoresCategory;Product Specification;SHORel_ActualPlanogramRetailStoreCategory;MBOM History;Varies By;Specification Structure;Derived Requirement;SHORel_RetailStoreRetailCluster;SHORel_SpaceInventoriesRetailStoresCategory;SHORel_AdaptationsRetailStoresCategory;EBOM;Sub Requirement;PLBOM;Reference Document;Configuration Rules;CONFIGURATION STRUCTURES;LOGICAL STRUCTURES;Configuration Features;Configuration Options;Mandatory Configuration Features;Logical Features;GBOM;Inactive Custom GBOM;Custom GBOM;Inactive GBOM;Inactive Varies By GBOM;Requirement Group Content;Sub Requirement Group;"
+    CustomerExposition="Programmer"
+  >
+    <Simple
+      Name="Effectivity Types"
+      Type="String"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Effectivity Expression"
+      Type="String"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Effectivity Compiled Form"
+      Type="String"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Effectivity Variable Indexes"
+      Type="String"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Effectivity Expression Binary"
+      Type="String"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Effectivity Ordered Impacting Criteria"
+      Type="String"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Effectivity Ordered Criteria Dictionary"
+      Type="String"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Effectivity Proposed Expression"
+      Type="String"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Effectivity Ordered Criteria"
+      Type="String"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+  </Extension>
+
+  <Extension
+      Name="VP_ANGLE"
+      Abstract="No"
+      ScopeNames="Variant Parameter;Selected Options;"
+      CustomerExposition="Programmer"
+  >
+    <Simple
+      Name="Value"
+      Type="Double"
+      Magnitude="ANGLE"
+      Protection="Free"
+      PLMImpacting="No"
+    >
+    </Simple>
+    <Simple
+      Name="MinValue"
+      Type="Double"
+      Magnitude="ANGLE"
+      Protection="Free"
+      PLMImpacting="No"
+    >
+    </Simple>
+    <Simple
+      Name="MaxValue"
+      Type="Double"
+      Magnitude="ANGLE"
+      Protection="Free"
+      PLMImpacting="No"
+    >
+    </Simple>
+  </Extension>
+
+  <Extension
+    Name="VP_AREA"
+    Abstract="No"
+    ScopeNames="Variant Parameter;Selected Options;"
+    CustomerExposition="Programmer"
+  >
+    <Simple
+      Name="Value"
+      Type="Double"
+      Magnitude="AREA"
+      Protection="Free"
+      PLMImpacting="No"
+    >
+    </Simple>
+    <Simple
+      Name="MinValue"
+      Type="Double"
+      Magnitude="AREA"
+      Protection="Free"
+      PLMImpacting="No"
+    >
+    </Simple>
+    <Simple
+      Name="MaxValue"
+      Type="Double"
+      Magnitude="AREA"
+      Protection="Free"
+      PLMImpacting="No"
+    >
+    </Simple>
+  </Extension>
+
+  <Extension
+    Name="VP_COURANT"
+    Abstract="No"
+    ScopeNames="Variant Parameter;Selected Options;"
+    CustomerExposition="Programmer"
+  >
+    <Simple
+      Name="Value"
+      Type="Double"
+      Magnitude="COURANT"
+      Protection="Free"
+      PLMImpacting="No"
+    >
+    </Simple>
+    <Simple
+      Name="MinValue"
+      Type="Double"
+      Magnitude="COURANT"
+      Protection="Free"
+      PLMImpacting="No"
+    >
+    </Simple>
+    <Simple
+      Name="MaxValue"
+      Type="Double"
+      Magnitude="COURANT"
+      Protection="Free"
+      PLMImpacting="No"
+    >
+    </Simple>
+  </Extension>
+
+  <Extension
+    Name="VP_ENERGY"
+    Abstract="No"
+    ScopeNames="Variant Parameter;Selected Options;"
+    CustomerExposition="Programmer"
+  >
+    <Simple
+      Name="Value"
+      Type="Double"
+      Magnitude="ENERGY"
+      Protection="Free"
+      PLMImpacting="No"
+    >
+    </Simple>
+    <Simple
+      Name="MinValue"
+      Type="Double"
+      Magnitude="ENERGY"
+      Protection="Free"
+      PLMImpacting="No"
+    >
+    </Simple>
+    <Simple
+      Name="MaxValue"
+      Type="Double"
+      Magnitude="ENERGY"
+      Protection="Free"
+      PLMImpacting="No"
+    >
+    </Simple>
+  </Extension>
+
+  <Extension
+    Name="VP_FORCE"
+    Abstract="No"
+    ScopeNames="Variant Parameter;Selected Options;"
+    CustomerExposition="Programmer"
+  >
+    <Simple
+      Name="Value"
+      Type="Double"
+      Magnitude="FORCE"
+      Protection="Free"
+      PLMImpacting="No"
+    >
+    </Simple>
+    <Simple
+      Name="MinValue"
+      Type="Double"
+      Magnitude="FORCE"
+      Protection="Free"
+      PLMImpacting="No"
+    >
+    </Simple>
+    <Simple
+      Name="MaxValue"
+      Type="Double"
+      Magnitude="FORCE"
+      Protection="Free"
+      PLMImpacting="No"
+    >
+    </Simple>
+  </Extension>
+
+  <Extension
+    Name="VP_FREQUENCY"
+    Abstract="No"
+    ScopeNames="Variant Parameter;Selected Options;"
+    CustomerExposition="Programmer"
+  >
+    <Simple
+      Name="Value"
+      Type="Double"
+      Magnitude="FREQUENCY"
+      Protection="Free"
+      PLMImpacting="No"
+    >
+    </Simple>
+    <Simple
+      Name="MinValue"
+      Type="Double"
+      Magnitude="FREQUENCY"
+      Protection="Free"
+      PLMImpacting="No"
+    >
+    </Simple>
+    <Simple
+      Name="MaxValue"
+      Type="Double"
+      Magnitude="FREQUENCY"
+      Protection="Free"
+      PLMImpacting="No"
+    >
+    </Simple>
+  </Extension>
+
+  <Extension
+    Name="VP_LENGTH"
+    Abstract="No"
+    ScopeNames="Variant Parameter;Selected Options;"
+    CustomerExposition="Programmer"
+  >
+    <Simple
+      Name="Value"
+      Type="Double"
+      Magnitude="LENGTH"
+      Protection="Free"
+      PLMImpacting="No"
+    >
+    </Simple>
+    <Simple
+      Name="MinValue"
+      Type="Double"
+      Magnitude="LENGTH"
+      Protection="Free"
+      PLMImpacting="No"
+    >
+    </Simple>
+    <Simple
+      Name="MaxValue"
+      Type="Double"
+      Magnitude="LENGTH"
+      Protection="Free"
+      PLMImpacting="No"
+    >
+    </Simple>
+  </Extension>
+
+  <Extension
+    Name="VP_MASS"
+    Abstract="No"
+    ScopeNames="Variant Parameter;Selected Options;"
+    CustomerExposition="Programmer"
+  >
+    <Simple
+      Name="Value"
+      Type="Double"
+      Magnitude="MASS"
+      Protection="Free"
+      PLMImpacting="No"
+    >
+    </Simple>
+    <Simple
+      Name="MinValue"
+      Type="Double"
+      Magnitude="MASS"
+      Protection="Free"
+      PLMImpacting="No"
+    >
+    </Simple>
+    <Simple
+      Name="MaxValue"
+      Type="Double"
+      Magnitude="MASS"
+      Protection="Free"
+      PLMImpacting="No"
+    >
+    </Simple>
+  </Extension>
+
+  <Extension
+    Name="VP_MOMENT"
+    Abstract="No"
+    ScopeNames="Variant Parameter;Selected Options;"
+    CustomerExposition="Programmer"
+  >
+    <Simple
+      Name="Value"
+      Type="Double"
+      Magnitude="MOMENT"
+      Protection="Free"
+      PLMImpacting="No"
+    >
+    </Simple>
+    <Simple
+      Name="MinValue"
+      Type="Double"
+      Magnitude="MOMENT"
+      Protection="Free"
+      PLMImpacting="No"
+    >
+    </Simple>
+    <Simple
+      Name="MaxValue"
+      Type="Double"
+      Magnitude="MOMENT"
+      Protection="Free"
+      PLMImpacting="No"
+    >
+    </Simple>
+  </Extension>
+
+  <Extension
+    Name="VP_POWER"
+    Abstract="No"
+    ScopeNames="Variant Parameter;Selected Options;"
+    CustomerExposition="Programmer"
+  >
+    <Simple
+      Name="Value"
+      Type="Double"
+      Magnitude="POWER"
+      Protection="Free"
+      PLMImpacting="No"
+    >
+    </Simple>
+    <Simple
+      Name="MinValue"
+      Type="Double"
+      Magnitude="POWER"
+      Protection="Free"
+      PLMImpacting="No"
+    >
+    </Simple>
+    <Simple
+      Name="MaxValue"
+      Type="Double"
+      Magnitude="POWER"
+      Protection="Free"
+      PLMImpacting="No"
+    >
+    </Simple>
+  </Extension>
+
+  <Extension
+    Name="VP_PRESSURE"
+    Abstract="No"
+    ScopeNames="Variant Parameter;Selected Options;"
+    CustomerExposition="Programmer"
+  >
+    <Simple
+      Name="Value"
+      Type="Double"
+      Magnitude="PRESSURE"
+      Protection="Free"
+      PLMImpacting="No"
+    >
+    </Simple>
+    <Simple
+      Name="MinValue"
+      Type="Double"
+      Magnitude="PRESSURE"
+      Protection="Free"
+      PLMImpacting="No"
+    >
+    </Simple>
+    <Simple
+      Name="MaxValue"
+      Type="Double"
+      Magnitude="PRESSURE"
+      Protection="Free"
+      PLMImpacting="No"
+    >
+    </Simple>
+  </Extension>
+
+  <Extension
+    Name="VP_SPEED"
+    Abstract="No"
+    ScopeNames="Variant Parameter;Selected Options;"
+    CustomerExposition="Programmer"
+  >
+    <Simple
+      Name="Value"
+      Type="Double"
+      Magnitude="SPEED"
+      Protection="Free"
+      PLMImpacting="No"
+    >
+    </Simple>
+    <Simple
+      Name="MinValue"
+      Type="Double"
+      Magnitude="SPEED"
+      Protection="Free"
+      PLMImpacting="No"
+    >
+    </Simple>
+    <Simple
+      Name="MaxValue"
+      Type="Double"
+      Magnitude="SPEED"
+      Protection="Free"
+      PLMImpacting="No"
+    >
+    </Simple>
+  </Extension>
+
+  <Extension
+    Name="VP_TIME"
+    Abstract="No"
+    ScopeNames="Variant Parameter;Selected Options;"
+    CustomerExposition="Programmer"
+  >
+    <Simple
+      Name="Value"
+      Type="Double"
+      Magnitude="TIME"
+      Protection="Free"
+      PLMImpacting="No"
+    >
+    </Simple>
+    <Simple
+      Name="MinValue"
+      Type="Double"
+      Magnitude="TIME"
+      Protection="Free"
+      PLMImpacting="No"
+    >
+    </Simple>
+    <Simple
+      Name="MaxValue"
+      Type="Double"
+      Magnitude="TIME"
+      Protection="Free"
+      PLMImpacting="No"
+    >
+    </Simple>
+  </Extension>
+
+  <Extension
+    Name="VP_VOLTAGE"
+    Abstract="No"
+    ScopeNames="Variant Parameter;Selected Options;"
+    CustomerExposition="Programmer"
+  >
+    <Simple
+      Name="Value"
+      Type="Double"
+      Magnitude="VOLTAGE"
+      Protection="Free"
+      PLMImpacting="No"
+    >
+    </Simple>
+    <Simple
+      Name="MinValue"
+      Type="Double"
+      Magnitude="VOLTAGE"
+      Protection="Free"
+      PLMImpacting="No"
+    >
+    </Simple>
+    <Simple
+      Name="MaxValue"
+      Type="Double"
+      Magnitude="VOLTAGE"
+      Protection="Free"
+      PLMImpacting="No"
+    >
+    </Simple>
+  </Extension>
+
+  <Extension
+    Name="VP_VOLUME"
+    Abstract="No"
+    ScopeNames="Variant Parameter;Selected Options;"
+    CustomerExposition="Programmer"
+  >
+    <Simple
+      Name="Value"
+      Type="Double"
+      Magnitude="VOLUME"
+      Protection="Free"
+      PLMImpacting="No"
+    >
+    </Simple>
+    <Simple
+      Name="MinValue"
+      Type="Double"
+      Magnitude="VOLUME"
+      Protection="Free"
+      PLMImpacting="No"
+    >
+    </Simple>
+    <Simple
+      Name="MaxValue"
+      Type="Double"
+      Magnitude="VOLUME"
+      Protection="Free"
+      PLMImpacting="No"
+    >
+    </Simple>
+  </Extension>
+
+  <Extension
+    Name="VP_Real"
+    Abstract="No"
+    ScopeNames="Variant Parameter;Selected Options;"
+    CustomerExposition="Programmer"
+  >
+    <Simple
+      Name="Value"
+      Type="Double"
+      Protection="Free"
+      PLMImpacting="No"
+    >
+    </Simple>
+    <Simple
+      Name="MinValue"
+      Type="Double"
+      Protection="Free"
+      PLMImpacting="No"
+    >
+    </Simple>
+    <Simple
+      Name="MaxValue"
+      Type="Double"
+      Protection="Free"
+      PLMImpacting="No"
+    >
+    </Simple>
+  </Extension>
+
+  <Extension
+    Name="VP_Integer"
+    Abstract="No"
+    ScopeNames="Variant Parameter;Selected Options;"
+    CustomerExposition="Programmer"
+  >
+    <Simple
+      Name="Value"
+      Type="Integer"
+      Protection="Free"
+      PLMImpacting="No"
+    >
+    </Simple>
+    <Simple
+      Name="MinValue"
+      Type="Integer"
+      Protection="Free"
+      PLMImpacting="No"
+    >
+    </Simple>
+    <Simple
+      Name="MaxValue"
+      Type="Integer"
+      Protection="Free"
+      PLMImpacting="No"
+    >
+    </Simple>
+  </Extension>
+
+  <RelationClass
+    Name="Configuration Context"
+    SuperName="RelationType"
+    Abstract="No"
+    CustomerExposition="Programmer"
+  >
+    <Property Name="IncludeOnRerouteClone" Value="Yes"/>
+    <SubClause Name="from" TargetName="BusinessType"/>
+    <SubClause Name="to" TargetName="Model;RVD"/>
+  </RelationClass>
+  <RelationClass
+    Name="Configuration Criteria"
+    SuperName="RelationType"
+    Abstract="No"
+    CustomerExposition="Programmer"
+  >
+    <SubClause Name="from" TargetName="Products;Model"/>
+    <SubClause Name="to" TargetName="CONFIGURATION SERIES HOLDER;Configuration Option Holder"/>
+  </RelationClass>
+  <RelationClass
+    Name="Configuration Item"
+    SuperName="RelationType"
+    Abstract="No"
+    CustomerExposition="Programmer"
+  >
+    <SubClause Name="from" TargetName="CONFIGURATION SERIES HOLDER;Configuration Option Holder"/>
+    <SubClause Name="to" TargetName="BusinessType"/>
+  </RelationClass>
+  <RelationClass
+    Name="First Configuration Item"
+    SuperName="Configuration Item"
+    Abstract="No"
+    CustomerExposition="Programmer"
+  >
+    <SubClause Name="from" TargetName="CONFIGURATION SERIES HOLDER;Configuration Option Holder"/>
+    <SubClause Name="to" TargetName="BusinessType"/>
+  </RelationClass>
+  <RelationClass
+    Name="Track Traceability"
+    SuperName="RelationType"
+    Abstract="No"
+    CustomerExposition="Programmer"
+  >
+    <SubClause Name="from" TargetName="Milestone Holder"/>
+    <SubClause Name="to" TargetName="Milestone Holder"/>
+  </RelationClass>
+  <RelationClass
+    Name="Varies By"
+    SuperName="CONFIGURATION STRUCTURES"
+    Abstract="No"
+    CustomerExposition="Programmer"
+  >
+    <Simple
+      Name="Configuration Selection Criteria"
+      Type="String"
+      DefaultValue="Must"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Range>
+        <Equal>Must</Equal>
+        <Equal>May</Equal>
+      </Range>
+    <Property Name="Global" Value="Yes"/>
+    </Simple>
+    <Simple
+      Name="Rolled-Up"
+      Type="String"
+      DefaultValue="False"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Range>
+        <Equal>True</Equal>
+        <Equal>False</Equal>
+      </Range>
+     <Property Name="Global" Value="Yes"/>
+    </Simple>
+    <Simple
+      Name="Configuration Type"
+      Type="String"
+      DefaultValue="Configuration"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Range>
+        <Equal>System</Equal>
+        <Equal>Configuration</Equal>
+        <Equal>Mandatory</Equal>
+      </Range>
+      <Property Name="Global" Value="Yes"/>
+    </Simple>
+    <Simple
+      Name="Sequence Order"
+      Type="Integer"
+      DefaultValue="1"
+      Protection="Free"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+    </Simple>
+    <Simple
+      Name="Effectivity Condition"
+      Type="String"
+      DefaultValue="System"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Range>
+        <Equal>System</Equal>
+        <Equal>User-Defined</Equal>
+      </Range>
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Child Marketing Name"
+      Type="String"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Child Object Name"
+      Type="String"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Invalid Contexts"
+      Type="String"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Parent Marketing Name"
+      Type="String"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Parent Object Name"
+      Type="String"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Default Selection"
+      Type="String"
+      DefaultValue="No"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Range>
+        <Equal>Yes</Equal>
+        <Equal>No</Equal>
+      </Range>
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="List Price"
+      Type="Double"
+      DefaultValue="0.0"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Maximum Quantity"
+      Type="Double"
+      DefaultValue="1.0"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Minimum Quantity"
+      Type="Double"
+      DefaultValue="1.0"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Rule Type"
+      Type="String"
+      DefaultValue="Inclusion"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Range>
+        <Equal>Inclusion</Equal>
+        <Equal>Exclusion</Equal>
+      </Range>
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Inherited"
+      Type="String"
+      DefaultValue="False"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Range>
+        <Equal>True</Equal>
+        <Equal>False</Equal>
+      </Range>
+      <Property Name="Global" Value="Yes"/>
+    </Simple>
+    <Simple
+      Name="Active Count"
+      Type="Integer"
+      DefaultValue="0"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+    </Simple>
+    <Simple
+      Name="Inactive Count"
+      Type="Integer"
+      DefaultValue="0"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+    </Simple>
+    <Simple
+      Name="Global Common Group"
+      Type="String"
+      DefaultValue="Yes"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Range>
+        <Equal>Yes</Equal>
+        <Equal>No</Equal>
+      </Range>
+      <Property Name="Global" Value="Yes"/>
+    </Simple>
+    <Simple
+      Name="Effectivity Status"
+      Type="String"
+      DefaultValue="Active"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Range>
+        <Equal>Active</Equal>
+        <Equal>Inactive</Equal>
+      </Range>
+      <Property Name="Global" Value="Yes"/>
+    </Simple>
+    <Simple
+      Name="User Defined Effectivity"
+      Type="String"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+    </Simple>
+    <SubClause Name="from" TargetName="Products;Logical Feature"/>
+    <SubClause Name="to" TargetName="Configuration Feature"/>
+    <SubClause Name="fromrel" TargetName="Product Feature List"/>
+  </RelationClass>
+  <RelationClass
+    Name="Inactive Varies By"
+    SuperName="RelationType"
+    Abstract="No"
+    CustomerExposition="Programmer"
+  >
+    <Simple
+      Name="Configuration Selection Criteria"
+      Type="String"
+      DefaultValue="Must"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Range>
+        <Equal>Must</Equal>
+        <Equal>May</Equal>
+      </Range>
+      <Property Name="Global" Value="Yes"/>
+    </Simple>
+    <Simple
+      Name="Rolled-Up"
+      Type="String"
+      DefaultValue="False"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Range>
+        <Equal>True</Equal>
+        <Equal>False</Equal>
+      </Range>
+      <Property Name="Global" Value="Yes"/>
+    </Simple>
+    <Simple
+      Name="Configuration Type"
+      Type="String"
+      DefaultValue="Configuration"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Range>
+        <Equal>System</Equal>
+        <Equal>Configuration</Equal>
+        <Equal>Mandatory</Equal>
+      </Range>
+      <Property Name="Global" Value="Yes"/>
+    </Simple>
+    <Simple
+      Name="Sequence Order"
+      Type="Integer"
+      DefaultValue="1"
+      Protection="Free"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Effectivity Condition"
+      Type="String"
+      DefaultValue="System"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Range>
+        <Equal>System</Equal>
+        <Equal>User-Defined</Equal>
+      </Range>
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Child Marketing Name"
+      Type="String"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Child Object Name"
+      Type="String"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Invalid Contexts"
+      Type="String"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Parent Marketing Name"
+      Type="String"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Parent Object Name"
+      Type="String"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Default Selection"
+      Type="String"
+      DefaultValue="No"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Range>
+        <Equal>Yes</Equal>
+        <Equal>No</Equal>
+      </Range>
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="List Price"
+      Type="Double"
+      DefaultValue="0.0"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Maximum Quantity"
+      Type="Double"
+      DefaultValue="1.0"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Minimum Quantity"
+      Type="Double"
+      DefaultValue="1.0"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Rule Type"
+      Type="String"
+      DefaultValue="Inclusion"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Range>
+        <Equal>Inclusion</Equal>
+        <Equal>Exclusion</Equal>
+      </Range>
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Inherited"
+      Type="String"
+      DefaultValue="False"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Range>
+        <Equal>True</Equal>
+        <Equal>False</Equal>
+      </Range>
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Active Count"
+      Type="Integer"
+      DefaultValue="0"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+    </Simple>
+    <Simple
+      Name="Inactive Count"
+      Type="Integer"
+      DefaultValue="0"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+    </Simple>
+    <Simple
+      Name="Global Common Group"
+      Type="String"
+      DefaultValue="Yes"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Range>
+        <Equal>Yes</Equal>
+        <Equal>No</Equal>
+      </Range>
+      <Property Name="Global" Value="Yes"/>
+    </Simple>
+    <Simple
+      Name="Effectivity Status"
+      Type="String"
+      DefaultValue="Active"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Range>
+        <Equal>Active</Equal>
+        <Equal>Inactive</Equal>
+      </Range>
+      <Property Name="Global" Value="Yes"/>
+    </Simple>
+    <SubClause Name="from" TargetName="Products;Logical Feature"/>
+    <SubClause Name="to" TargetName="Configuration Feature"/>
+    <SubClause Name="fromrel" TargetName="Product Feature List"/>
+    <SubClause Name="torel" TargetName="Varies By"/>
+  </RelationClass>
+  <RelationClass
+    Name="Relation.Marketing Preference"
+    SuperName="RelationType"
+    Abstract="No"
+    CustomerExposition="Programmer"
+  >
+    <Simple
+      Name="Inherited"
+      Type="String"
+      DefaultValue="False"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Range>
+        <Equal>True</Equal>
+        <Equal>False</Equal>
+      </Range>
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Mandatory Rule"
+      Type="String"
+      DefaultValue="Yes"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Range>
+        <Equal>Yes</Equal>
+        <Equal>No</Equal>
+      </Range>
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Rule Status"
+      Type="String"
+      DefaultValue="Active"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Range>
+        <Equal>Active</Equal>
+        <Equal>Inactive</Equal>
+      </Range>
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Property Name="DatabaseName" Value="Marketing Preference"/>
+    <SubClause Name="from" TargetName="Product Line;Products;Model"/>
+    <SubClause Name="to" TargetName="Marketing Preference"/>
+  </RelationClass>
+  <RelationClass
+    Name="Configuration Filter Criteria"
+    SuperName="RelationType"
+    Abstract="No"
+    CustomerExposition="Programmer"
+  >
+    <SubClause Name="from" TargetName="Product Configuration"/>
+    <SubClause Name="to" TargetName="Milestone"/>
+  </RelationClass>
+  <RelationClass
+    Name="Configuration Rules"
+    SuperName="RelationType"
+    Abstract="No"
+    CustomerExposition="Programmer"
+  >
+    <SubClause Name="from" TargetName="Product Line;Model"/>
+    <SubClause Name="to" TargetName="Configuration Rule"/>
+  </RelationClass>
+  <RelationClass
+    Name="Child Composition Binary"
+    SuperName="RelationType"
+    Abstract="No"
+    CustomerExposition="Programmer"
+  >
+    <Simple
+      Name="Composition Binary"
+      Type="String"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Composition Binary Key"
+      Type="String"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+    </Simple>
+    <SubClause Name="from" TargetName="Manufacturing Plan;Products"/>
+    <SubClause Name="to" TargetName="Manufacturing Plan;Products"/>
+  </RelationClass>
+  <RelationClass
+    Name="Parent Composition Binary"
+    SuperName="RelationType"
+    Abstract="No"
+    CustomerExposition="Programmer"
+  >
+    <Simple
+      Name="Composition Binary"
+      Type="String"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Composition Binary Key"
+      Type="String"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <SubClause Name="from" TargetName="Builds"/>
+    <SubClause Name="to" TargetName="Builds"/>
+  </RelationClass>
+  <RelationClass
+    Name="CONFIGURATION STRUCTURES"
+    SuperName="RelationType"
+    Abstract="Yes"
+    CustomerExposition="Programmer"
+  >
+    <SubClause Name="from" TargetName="Product Line;Products;Model;RVD;Configuration Feature;Logical Feature"/>
+    <SubClause Name="to" TargetName="CONFIGURATION FEATURES"/>
+    <SubClause Name="fromrel" TargetName="Product Feature List"/>
+  </RelationClass>
+  <RelationClass
+    Name="LOGICAL STRUCTURES"
+    SuperName="RelationType"
+    Abstract="Yes"
+    CustomerExposition="Programmer"
+  >
+    <SubClause Name="from" TargetName="Products;Model;Logical Feature"/>
+    <SubClause Name="to" TargetName="Logical Feature;Products"/>
+  </RelationClass>
+  <RelationClass
+    Name="Configuration Features"
+    SuperName="CONFIGURATION STRUCTURES"
+    Abstract="No"
+    CustomerExposition="Programmer"
+  >
+    <Simple
+      Name="Configuration Selection Criteria"
+      Type="String"
+      DefaultValue="Must"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Range>
+        <Equal>Must</Equal>
+        <Equal>May</Equal>
+      </Range>
+      <Property Name="Global" Value="Yes"/>
+    </Simple>
+    <Simple
+      Name="Configuration Type"
+      Type="String"
+      DefaultValue="Configuration"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Range>
+        <Equal>System</Equal>
+        <Equal>Configuration</Equal>
+        <Equal>Mandatory</Equal>
+      </Range>
+      <Property Name="Global" Value="Yes"/>
+    </Simple>
+    <Simple
+      Name="Sequence Order"
+      Type="Integer"
+      DefaultValue="1"
+      Protection="Free"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+    </Simple>
+    <Simple
+      Name="Child Marketing Name"
+      Type="String"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+    </Simple>
+    <Simple
+      Name="Child Object Name"
+      Type="String"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Parent Marketing Name"
+      Type="String"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+    </Simple>
+    <Simple
+      Name="Parent Object Name"
+      Type="String"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Default Selection"
+      Type="String"
+      DefaultValue="No"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Range>
+        <Equal>Yes</Equal>
+        <Equal>No</Equal>
+      </Range>
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="List Price"
+      Type="Double"
+      DefaultValue="0.0"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Maximum Quantity"
+      Type="Double"
+      DefaultValue="1.0"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Minimum Quantity"
+      Type="Double"
+      DefaultValue="1.0"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Rule Type"
+      Type="String"
+      DefaultValue="Inclusion"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Range>
+        <Equal>Inclusion</Equal>
+        <Equal>Exclusion</Equal>
+      </Range>
+      <Property Name="Global" Value="Yes"/>
+    </Simple>
+    <SubClause Name="from" TargetName="Product Line;Products;Model;RVD"/>
+    <SubClause Name="to" TargetName="CONFIGURATION FEATURES"/>
+    <SubClause Name="fromrel" TargetName="Product Feature List"/>
+  </RelationClass>
+  <RelationClass
+    Name="Configuration Options"
+    SuperName="CONFIGURATION STRUCTURES"
+    Abstract="No"
+    CustomerExposition="Programmer"
+  >
+    <Simple
+      Name="Sequence Order"
+      Type="Integer"
+      DefaultValue="1"
+      Protection="Free"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Child Marketing Name"
+      Type="String"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Child Object Name"
+      Type="String"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Parent Marketing Name"
+      Type="String"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Parent Object Name"
+      Type="String"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Default Selection"
+      Type="String"
+      DefaultValue="No"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Range>
+        <Equal>Yes</Equal>
+        <Equal>No</Equal>
+      </Range>
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="List Price"
+      Type="Double"
+      DefaultValue="0.0"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Maximum Quantity"
+      Type="Double"
+      DefaultValue="1.0"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Minimum Quantity"
+      Type="Double"
+      DefaultValue="1.0"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Rule Type"
+      Type="String"
+      DefaultValue="Inclusion"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Range>
+        <Equal>Inclusion</Equal>
+        <Equal>Exclusion</Equal>
+      </Range>
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <SubClause Name="from" TargetName="Configuration Feature"/>
+    <SubClause Name="to" TargetName="Configuration Option"/>
+    <SubClause Name="fromrel" TargetName="Product Feature List"/>
+  </RelationClass>
+  <RelationClass
+    Name="Mandatory Configuration Features"
+    SuperName="Configuration Features"
+    Abstract="No"
+    CustomerExposition="Programmer"
+  >
+    <Simple
+      Name="Rolled-Up"
+      Type="String"
+      DefaultValue="False"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Range>
+        <Equal>True</Equal>
+        <Equal>False</Equal>
+      </Range>
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Inherited"
+      Type="String"
+      DefaultValue="False"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Range>
+        <Equal>True</Equal>
+        <Equal>False</Equal>
+      </Range>
+      <Property Name="Global" Value="Yes"/>
+    </Simple>
+    <SubClause Name="from" TargetName="Product Line;Products;Model;RVD"/>
+    <SubClause Name="to" TargetName="Configuration Feature"/>
+    <SubClause Name="fromrel" TargetName="Product Feature List"/>
+  </RelationClass>
+  <RelationClass
+    Name="GBOM"
+    SuperName="RelationType"
+    Abstract="No"
+    CustomerExposition="Programmer"
+  >
+    <Simple
+      Name="Rule Type"
+      Type="String"
+      DefaultValue="Inclusion"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Range>
+        <Equal>Inclusion</Equal>
+        <Equal>Exclusion</Equal>
+      </Range>
+      <Property Name="Global" Value="Yes"/>
+    </Simple>
+    <Simple
+      Name="Committed"
+      Type="String"
+      DefaultValue="Yes"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Range>
+        <Equal>No</Equal>
+        <Equal>Yes</Equal>
+      </Range>
+      <Property Name="Global" Value="Yes"/>
+    </Simple>
+    <SubClause Name="from" TargetName="Products;LOGICAL STRUCTURES"/>
+    <SubClause Name="to" TargetName="Part;Part Family;Products"/>
+  </RelationClass>
+  <RelationClass
+    Name="Inactive Custom GBOM"
+    SuperName="RelationType"
+    Abstract="No"
+    CustomerExposition="Programmer"
+  >
+    <Simple
+      Name="Rule Type"
+      Type="String"
+      DefaultValue="Inclusion"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Range>
+        <Equal>Inclusion</Equal>
+        <Equal>Exclusion</Equal>
+      </Range>
+      <Property Name="Global" Value="Yes"/>
+    </Simple>
+    <Simple
+      Name="Inactive From Part"
+      Type="String"
+      DefaultValue="No"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Range>
+        <Equal>Yes</Equal>
+        <Equal>No</Equal>
+      </Range>
+      <Property Name="Global" Value="Yes"/>
+    </Simple>
+    <Simple
+      Name="Inactive From Variant"
+      Type="String"
+      DefaultValue="No"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Range>
+        <Equal>Yes</Equal>
+        <Equal>No</Equal>
+      </Range>
+      <Property Name="Global" Value="Yes"/>
+    </Simple>
+    <Simple
+      Name="Committed"
+      Type="String"
+      DefaultValue="Yes"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Range>
+        <Equal>No</Equal>
+        <Equal>Yes</Equal>
+      </Range>
+      <Property Name="Global" Value="Yes"/>
+    </Simple>
+    <SubClause Name="from" TargetName="Products;LOGICAL STRUCTURES"/>
+    <SubClause Name="to" TargetName="Part;Part Family;Products"/>
+  </RelationClass>
+   <RelationClass
+    Name="Custom GBOM"
+    SuperName="RelationType"
+    Abstract="No"
+    CustomerExposition="Programmer"
+  >
+    <Simple
+      Name="Rule Type"
+      Type="String"
+      DefaultValue="Inclusion"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Range>
+        <Equal>Inclusion</Equal>
+        <Equal>Exclusion</Equal>
+      </Range>
+      <Property Name="Global" Value="Yes"/>
+    </Simple>
+    <Simple
+      Name="Committed"
+      Type="String"
+      DefaultValue="Yes"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Range>
+        <Equal>No</Equal>
+        <Equal>Yes</Equal>
+      </Range>
+      <Property Name="Global" Value="Yes"/>
+    </Simple>
+    <SubClause Name="from" TargetName="Products;LOGICAL STRUCTURES"/>
+    <SubClause Name="to" TargetName="Part;Part Family;Products"/>
+  </RelationClass>
+  <RelationClass
+    Name="Inactive GBOM"
+    SuperName="RelationType"
+    Abstract="No"
+    CustomerExposition="Programmer"
+  >
+    <Simple
+      Name="Rule Type"
+      Type="String"
+      DefaultValue="Inclusion"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Range>
+        <Equal>Inclusion</Equal>
+        <Equal>Exclusion</Equal>
+      </Range>
+      <Property Name="Global" Value="Yes"/>
+    </Simple>
+    <Simple
+      Name="Inactive From Part"
+      Type="String"
+      DefaultValue="No"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Range>
+        <Equal>Yes</Equal>
+        <Equal>No</Equal>
+      </Range>
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Inactive From Variant"
+      Type="String"
+      DefaultValue="No"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Range>
+        <Equal>Yes</Equal>
+        <Equal>No</Equal>
+      </Range>
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Committed"
+      Type="String"
+      DefaultValue="Yes"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Range>
+        <Equal>No</Equal>
+        <Equal>Yes</Equal>
+      </Range>
+       <Property Name="Global" Value="Yes"/>
+    </Simple>
+    <SubClause Name="from" TargetName="Products;LOGICAL STRUCTURES"/>
+    <SubClause Name="to" TargetName="Part;Part Family;Products"/>
+  </RelationClass>
+   <RelationClass
+    Name="Left Expression"
+    SuperName="RelationType"
+    Abstract="No"
+    CustomerExposition="Programmer"
+  >
+    <Simple
+      Name="Sequence Order"
+      Type="Integer"
+      DefaultValue="1"
+      Protection="Free"
+      PLMImpacting="No"
+    >
+       <Property Name="Global" Value="Yes"/>
+    </Simple>
+    <Simple
+      Name="Token"
+      Type="String"
+      Protection="External"
+      PLMImpacting="No"
+    >
+       <Property Name="Global" Value="Yes"/>
+    </Simple>
+    <SubClause Name="from" TargetName="Rule"/>
+    <SubClause Name="to" TargetName="CONFIGURATION FEATURES;LOGICAL STRUCTURES;Products;Rule"/>
+    <SubClause Name="torel" TargetName="CONFIGURATION STRUCTURES;LOGICAL STRUCTURES;MANUFACTURING STRUCTURES;GBOM;Inactive Custom GBOM;Custom GBOM;Inactive GBOM"/>
+  </RelationClass>
+  <RelationClass
+    Name="Right Expression"
+    SuperName="RelationType"
+    Abstract="No"
+    CustomerExposition="Programmer"
+  >
+    <Simple
+      Name="Token"
+      Type="String"
+      Protection="External"
+      PLMImpacting="No"
+    >
+       <Property Name="Global" Value="Yes"/>
+    </Simple>
+    <Simple
+      Name="Sequence Order"
+      Type="Integer"
+      DefaultValue="1"
+      Protection="Free"
+      PLMImpacting="No"
+    >
+       <Property Name="Global" Value="Yes"/>
+    </Simple>
+    <SubClause Name="from" TargetName="Rule"/>
+    <SubClause Name="to" TargetName="CONFIGURATION FEATURES;LOGICAL STRUCTURES;Products;Rule"/>
+    <SubClause Name="torel" TargetName="Common Group;CONFIGURATION STRUCTURES;LOGICAL STRUCTURES;MANUFACTURING STRUCTURES;GBOM;Inactive Custom GBOM;Custom GBOM;Inactive GBOM"/>
+  </RelationClass>
+  <RelationClass
+    Name="Selected Options"
+    SuperName="RelationType"
+    Abstract="No"
+    CustomerExposition="Programmer"
+  >
+    <Simple
+      Name="Key-In Value"
+      Type="String"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+    </Simple>
+    <Simple
+      Name="Configuration Selection Status"
+      Type="String"
+      DefaultValue="Chosen"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Range>
+        <Equal>Chosen</Equal>
+        <Equal>Default</Equal>
+        <Equal>Required</Equal>
+        <Equal>Dismissed</Equal>
+        <Equal>Incompatible</Equal>
+      </Range>
+      <Property Name="Global" Value="Yes"/>
+    </Simple>
+        <Simple
+      Name="List Price"
+      Type="Double"
+      DefaultValue="0.0"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+    </Simple>
+    <Simple
+      Name="Quantity"
+      Type="Double"
+      DefaultValue="1.0"
+      Protection="Free"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+    </Simple>
+    <SubClause Name="from" TargetName="Product Configuration"/>
+    <SubClause Name="to" TargetName="CONFIGURATION FEATURES;LOGICAL STRUCTURES"/>
+    <SubClause Name="torel" TargetName="Inactive Varies By;CONFIGURATION STRUCTURES;LOGICAL STRUCTURES;MANUFACTURING STRUCTURES"/>
+  </RelationClass>
+  <RelationClass
+    Name="Refined Dictionary"
+    SuperName="RelationType"
+    Abstract="No"
+    CustomerExposition="Programmer"
+  >
+    <SubClause Name="from" TargetName="Model"/>
+    <SubClause Name="to" TargetName="RVD"/>
+  </RelationClass>
+  <RelationClass
+    Name="Variant Restriction"
+    SuperName="RelationType"
+    Abstract="No"
+    CustomerExposition="Programmer"
+  >
+    <SubClause Name="from" TargetName="RVD"/>
+    <SubClause Name="to" TargetName="Product Configuration"/>
+  </RelationClass>
+  <RelationClass
+    Name="Relation.Boolean Compatibility Rule"
+    SuperName="RelationType"
+    Abstract="No"
+    CustomerExposition="Programmer"
+  >
+    <Simple
+      Name="Inherited"
+      Type="String"
+      DefaultValue="False"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Range>
+        <Equal>True</Equal>
+        <Equal>False</Equal>
+      </Range>
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Mandatory Rule"
+      Type="String"
+      DefaultValue="Yes"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Range>
+        <Equal>Yes</Equal>
+        <Equal>No</Equal>
+      </Range>
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Property Name="DatabaseName" Value="Boolean Compatibility Rule"/>
+    <SubClause Name="from" TargetName="Product Line;Products;Model;CONFIGURATION FEATURES;LOGICAL STRUCTURES"/>
+    <SubClause Name="to" TargetName="Boolean Compatibility Rule"/>
+  </RelationClass>
+  <RelationClass
+    Name="Relation.Product Configuration"
+    SuperName="RelationType"
+    Abstract="No"
+    CustomerExposition="Programmer"
+  >
+    <Simple
+      Name="Comment"
+      Type="String"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Property Name="DatabaseName" Value="Product Configuration"/>
+    <SubClause Name="from" TargetName="Products;LOGICAL STRUCTURES"/>
+    <SubClause Name="to" TargetName="Product Configuration"/>
+  </RelationClass>
+  <RelationClass
+    Name="Resource Limit"
+    SuperName="RelationType"
+    Abstract="No"
+    CustomerExposition="Programmer"
+  >
+    <Simple
+      Name="Inherited"
+      Type="String"
+      DefaultValue="False"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Range>
+        <Equal>True</Equal>
+        <Equal>False</Equal>
+      </Range>
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Mandatory Rule"
+      Type="String"
+      DefaultValue="Yes"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Range>
+        <Equal>Yes</Equal>
+        <Equal>No</Equal>
+      </Range>
+      <Property Name="Global" Value="Yes"/>
+    </Simple>
+    <SubClause Name="from" TargetName="Product Line;Products;Model;CONFIGURATION FEATURES;LOGICAL STRUCTURES"/>
+    <SubClause Name="to" TargetName="Fixed Resource"/>
+  </RelationClass>
+  <RelationClass
+    Name="Resource Usage"
+    SuperName="RelationType"
+    Abstract="No"
+    CustomerExposition="Programmer"
+  >
+    <Simple
+      Name="Comment"
+      Type="String"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Resource Operation"
+      Type="String"
+      DefaultValue="Increment"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Range>
+        <Equal>Increment</Equal>
+        <Equal>Decrement</Equal>
+      </Range>
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Resource Usage"
+      Type="Double"
+      DefaultValue="1.0"
+      Protection="External"
+      PLMImpacting="No"
+    >
+       <Property Name="Global" Value="Yes"/>
+    </Simple>
+    <SubClause Name="from" TargetName="Products;CONFIGURATION FEATURES;LOGICAL STRUCTURES"/>
+    <SubClause Name="to" TargetName="Fixed Resource"/>
+    <SubClause Name="fromrel" TargetName="CONFIGURATION STRUCTURES;LOGICAL STRUCTURES;MANUFACTURING STRUCTURES"/>
+  </RelationClass>
+  <RelationClass
+    Name="Rule Extension"
+    SuperName="RelationType"
+    Abstract="No"
+    CustomerExposition="Programmer"
+  >
+    <Simple
+      Name="Inherited"
+      Type="String"
+      DefaultValue="False"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Range>
+        <Equal>True</Equal>
+        <Equal>False</Equal>
+      </Range>
+      <Property Name="Global" Value="Yes"/>
+	</Simple>
+    <Simple
+      Name="Mandatory Rule"
+      Type="String"
+      DefaultValue="Yes"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Range>
+        <Equal>Yes</Equal>
+        <Equal>No</Equal>
+      </Range>
+      <Property Name="Global" Value="Yes"/>
+    </Simple>
+    <SubClause Name="from" TargetName="Product Line;Products;Model;CONFIGURATION FEATURES;LOGICAL STRUCTURES"/>
+    <SubClause Name="to" TargetName="Rule Extension"/>
+  </RelationClass>
+  <RelationClass
+    Name="Variant Values"
+    SuperName="Configuration Options"
+    Abstract="No"
+    CustomerExposition="Programmer"
+  >
+    <SubClause Name="from" TargetName="Variant"/>
+    <SubClause Name="to" TargetName="Variant Value"/>
+    <SubClause Name="fromrel" TargetName="Product Feature List"/>
+  </RelationClass>
+  <RelationClass
+    Name="Grouped Variability Criteria"
+    SuperName="Configuration Options"
+    Abstract="No"
+    CustomerExposition="Programmer"
+  >
+    <SubClause Name="from" TargetName="Variability Group"/>
+    <SubClause Name="to" TargetName="Variability Option"/>
+    <SubClause Name="fromrel" TargetName="Product Feature List"/>
+  </RelationClass>
+  <PathType Name="Expression Dependency" 
+            Uuid="3caeff31-e994-4ce4-86d6-85a6526d7753" 
+            Abstract="Yes" 
+            SuperName="PathType"
+            OwnerTypes="Change Action;Configuration Rule" 
+            AdaptativeToMinor="No" 
+            RerouteOnEffectivityChange="No" 
+            SynchroSensitivity="None"
+            Protection="External">
+    <Simple Name="Dependency Index" 
+            Uuid="8bd60755-9ca2-4493-96e1-328eeaa5b729" 
+            Type="Double" 
+            Protection="External">
+      <Property Name="Global" Value="Yes"/>
+    </Simple>
+  </PathType>
+  <PathType Name="Expression Context" 
+            Uuid="2c6e3954-5e77-4f1b-8b29-bf73c04d0b3d" 
+            Abstract="No" 
+            SuperName="Expression Dependency" 
+            AdaptativeToMinor="No" 
+            RerouteOnEffectivityChange="No" 
+            SynchroSensitivity="None"
+            Protection="External">
+  </PathType>
+  <PathType Name="Expression Criteria" 
+            Uuid="cf460ec4-44b7-4c54-afc2-af622465aed1" 
+            Abstract="No" 
+            SuperName="Expression Dependency" 
+            AdaptativeToMinor="No" 
+            RerouteOnEffectivityChange="No" 
+            SynchroSensitivity="None"
+            Protection="External">
+  </PathType>
+</Package>
+

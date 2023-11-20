@@ -1,0 +1,433 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2012, All rights reserved -->
+
+<Package CustomerExposition = "Programmer" ModelerType = "Top" Name = "AECCommonSpatialStructureElementIfc" UseNames = "AECArchitecturalElement AECCommonSpatialStructureElement AECKernel AECStructuralElement BridgeStructuralElement BridgeArchitecturalElement BuildingSpatialStructureElement DamElement RailwayElement TunnelElement" Uuid = "CA45382F-AF40-4464-89BA-5DCA4AF4263E" xmlns = "PLMDictionaryUnified">
+  <Extension CustomerExposition = "Programmer" Name = "IfcSite" ScopeNames = "AecSite" Uuid = "e126c199-2713-435e-92a9-767026ea7710">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcSite_ObjectType" Protection = "Free" Type = "String" Uuid = "e126c199-2713-435e-92a9-1ad52eb2ea5e"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcSite_LongName" Protection = "Free" Type = "String" Uuid = "e126c199-2713-435e-92a9-47d2c9dc49ee"/>
+    <Simple CAAExposition = "L0" DefaultValue = "2" Name = "IfcSite_CompositionType" Protection = "Free" Type = "Integer" Uuid = "e126c199-2713-435e-92a9-f65bd56122dd">
+      <Property Name = "RangeAsEnumName" Value = "IfcElementCompositionEnum"/>
+      <Property Name = "RangeAsEnumAuthorizedValues" Value = "COMPLEX;ELEMENT;PARTIAL"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+      </Range>
+    </Simple>
+    <Simple CAAExposition = "L0" Name = "IfcSite_LandTitleNumber" Protection = "Free" Type = "String" Uuid = "51f76794-a5ab-4f65-bfe2-4eda2ef5ab94"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcSite_InternalLocation" Protection = "Free" Type = "String" Uuid = "cd8b6f96-3801-4426-a63a-f690192aed8a"/>
+    <Simple CAAExposition = "L0" Name = "IfcSite_AddressLines" Protection = "Free" Type = "String" Uuid = "047fbb3f-74c0-4d1b-9268-03b7d83b3f62"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcSite_PostalBox" Protection = "Free" Type = "String" Uuid = "ede990fd-14be-4e69-a6fa-92779e3950ed"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcSite_Town" Protection = "Free" Type = "String" Uuid = "03e5136c-5afc-407b-afc4-f544114522ab"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcSite_Region" Protection = "Free" Type = "String" Uuid = "db17002b-63c5-44c0-835f-737bc9846a31"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcSite_PostalCode" Protection = "Free" Type = "String" Uuid = "3a53c01a-1eb4-40d6-86ce-0daaf6b8dea3"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcSite_Country" Protection = "Free" Type = "String" Uuid = "6c4bab99-8d6d-4dd0-b928-8ad2a1a5d6d7"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcSpatialStructureElement" ScopeNames = "AecFoundation AecOtherSpatialStructureElement" Uuid = "9d49344f-addb-4d97-bcd7-80839d8bb759">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcSpatialStructureElement_ObjectType" Protection = "Free" Type = "String" Uuid = "9d49344f-addb-4d97-bcd7-1ad52eb2ea5e"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcSpatialStructureElement_LongName" Protection = "Free" Type = "String" Uuid = "9d49344f-addb-4d97-bcd7-47d2c9dc49ee"/>
+    <Simple CAAExposition = "L0" DefaultValue = "ELEMENT" MaxLength = "255" Name = "IfcSpatialStructureElement_CompositionType" Protection = "Free" Type = "String" Uuid = "d3937919-2bee-48a0-bdb6-f65bd56122dd">
+      <Range>
+        <Equal>COMPLEX</Equal>
+        <Equal>ELEMENT</Equal>
+        <Equal>PARTIAL</Equal>
+      </Range>
+    </Simple>
+  </Extension>
+  <Comment>IfcSpatialStructureElementType is not generated since abstract</Comment>
+  <Extension CustomerExposition = "Programmer" Name = "IfcPset_AirSideSystemInformation" ScopeNames = "AecSpatialStructureElement BuildingSpaceType" Uuid = "918ab756-fabf-4d7e-b348-33a36cbf3fd4">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_AirSideSystemInformation_Name" Protection = "Free" Type = "String" Uuid = "bc4248c8-fe87-43a7-b3af-55a848184d43"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_AirSideSystemInformation_Description" Protection = "Free" Type = "String" Uuid = "429d7cbc-1198-47a1-9b98-e3b7f8459bb2"/>
+    <Simple CAAExposition = "L0" DefaultValue = "UNSET" MaxLength = "255" Name = "IfcPset_AirSideSystemInformation_AirSideSystemType" Protection = "Free" Type = "String" Uuid = "4a54e250-2099-476d-9da3-427f5e4540e3">
+      <Range>
+        <Equal>CONSTANTVOLUME</Equal>
+        <Equal>CONSTANTVOLUMESINGLEZONE</Equal>
+        <Equal>CONSTANTVOLUMEMULTIPLEZONEREHEAT</Equal>
+        <Equal>CONSTANTVOLUMEBYPASS</Equal>
+        <Equal>VARIABLEAIRVOLUME</Equal>
+        <Equal>VARIABLEAIRVOLUMEREHEAT</Equal>
+        <Equal>VARIABLEAIRVOLUMEINDUCTION</Equal>
+        <Equal>VARIABLEAIRVOLUMEFANPOWERED</Equal>
+        <Equal>VARIABLEAIRVOLUMEDUALCONDUIT</Equal>
+        <Equal>VARIABLEAIRVOLUMEVARIABLEDIFFUSERS</Equal>
+        <Equal>VARIABLEAIRVOLUMEVARIABLETEMPERATURE</Equal>
+        <Equal>OTHER</Equal>
+        <Equal>NOTKNOWN</Equal>
+        <Equal>UNSET</Equal>
+        <Equal></Equal>
+      </Range>
+    </Simple>
+    <Simple CAAExposition = "L0" DefaultValue = "UNSET" MaxLength = "255" Name = "IfcPset_AirSideSystemInformation_AirSideSystemDistributionType" Protection = "Free" Type = "String" Uuid = "d7d2b2a9-c9fc-4bdc-b2a4-e8bca19f8000">
+      <Range>
+        <Equal>SINGLEDUCT</Equal>
+        <Equal>DUALDUCT</Equal>
+        <Equal>MULTIZONE</Equal>
+        <Equal>OTHER</Equal>
+        <Equal>NOTKNOWN</Equal>
+        <Equal>UNSET</Equal>
+        <Equal></Equal>
+      </Range>
+    </Simple>
+    <Simple CAAExposition = "L0" Magnitude = "VOL_FLOW" Name = "IfcPset_AirSideSystemInformation_TotalAirflow" Protection = "Free" Type = "Double" Uuid = "e8819101-1072-4674-94fc-766be96cc631"/>
+    <Simple CAAExposition = "L0" Magnitude = "POWER" Name = "IfcPset_AirSideSystemInformation_EnergyGainTotal" Protection = "Free" Type = "Double" Uuid = "7e7be766-6880-4653-8cdc-20f7afb8d77e"/>
+    <Simple CAAExposition = "L0" Magnitude = "VOL_FLOW" Name = "IfcPset_AirSideSystemInformation_AirflowSensible" Protection = "Free" Type = "Double" Uuid = "bca20827-d9e7-464e-8ff2-0de2f116c69c"/>
+    <Simple CAAExposition = "L0" Magnitude = "POWER" Name = "IfcPset_AirSideSystemInformation_EnergyGainSensible" Protection = "Free" Type = "Double" Uuid = "370d2dd1-154f-480d-a8ae-7a0bf11cf8c3"/>
+    <Simple CAAExposition = "L0" Magnitude = "POWER" Name = "IfcPset_AirSideSystemInformation_EnergyLoss" Protection = "Free" Type = "Double" Uuid = "fbb39ac0-70b1-4566-9701-ca558aa3e6bc"/>
+    <Simple CAAExposition = "L0" Magnitude = "Ratio" Name = "IfcPset_AirSideSystemInformation_LightingDiversity" Protection = "Free" Type = "Double" Uuid = "b040459d-bac7-4efd-946c-14ca51651cfc"/>
+    <Simple CAAExposition = "L0" Magnitude = "Ratio" Name = "IfcPset_AirSideSystemInformation_InfiltrationDiversitySummer" Protection = "Free" Type = "Double" Uuid = "520660ec-e03c-4a27-ba78-2955c5a72742"/>
+    <Simple CAAExposition = "L0" Magnitude = "Ratio" Name = "IfcPset_AirSideSystemInformation_InfiltrationDiversityWinter" Protection = "Free" Type = "Double" Uuid = "13b0fbc7-5bef-4731-8353-ced7b2b9fac7"/>
+    <Simple CAAExposition = "L0" Magnitude = "Ratio" Name = "IfcPset_AirSideSystemInformation_ApplianceDiversity" Protection = "Free" Type = "Double" Uuid = "e98517cb-f5b0-46b9-b811-ed3536320fc3"/>
+    <Simple CAAExposition = "L0" Magnitude = "Ratio" Name = "IfcPset_AirSideSystemInformation_LoadSafetyFactor" Protection = "Free" Type = "Double" Uuid = "bbab409f-1689-42d4-b6b5-ecbe20674c99"/>
+    <Simple CAAExposition = "L0" Magnitude = "TEMPRTRE" Name = "IfcPset_AirSideSystemInformation_HeatingTemperatureDelta" Protection = "Free" Type = "Double" Uuid = "8c47d9d4-0aca-4e57-851b-549e553b118b"/>
+    <Simple CAAExposition = "L0" Magnitude = "TEMPRTRE" Name = "IfcPset_AirSideSystemInformation_CoolingTemperatureDelta" Protection = "Free" Type = "Double" Uuid = "131774aa-a674-4aca-8c87-2fd5c7c51dfe"/>
+    <Simple CAAExposition = "L0" Magnitude = "VOL_FLOW" Name = "IfcPset_AirSideSystemInformation_Ventilation" Protection = "Free" Type = "Double" Uuid = "8b504e86-9b06-475b-b3b7-d105c4fea2a3"/>
+    <Simple CAAExposition = "L0" Magnitude = "POWER" Name = "IfcPset_AirSideSystemInformation_FanPower" Protection = "Free" Type = "Double" Uuid = "b35e1ece-e9d0-447d-aea3-72780d8f5ef8"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcPset_ConcreteElementGeneral" ScopeNames = "AecStructuralElement AecArchitecturalElement AecStructuralElementType AecArchitecturalElementType BridgeArchSegment BridgeArchSegmentType BridgeCrosshead BridgeCrossheadType BridgeDeckSegment BridgeDeckSegmentType BridgeOtherArchitecturalElement BridgeOtherArchitecturalElementType BridgeOtherStructuralElement BridgeOtherStructuralElementType BridgePierSegment BridgePierSegmentType BridgeTowerSegment BridgeTowerSegmentType DamElement DamElementType RailwayElement RailwayElementType TunnelElement TunnelElementType" Uuid = "15181228-ff32-4bf7-b343-ba1d69ec39a1">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" DefaultValue = "Precast" MaxLength = "255" Name = "IfcPset_ConcreteElementGeneral_ConstructionMethod" Protection = "Free" Type = "String" Uuid = "334a9004-2ac0-478f-adb5-b128f103da08"/>
+    <Simple CAAExposition = "L0" DefaultValue = "1" MaxLength = "255" Name = "IfcPset_ConcreteElementGeneral_StructuralClass" Protection = "Free" Type = "String" Uuid = "f660806e-a40b-4cac-949e-ffd3c5b54ff7"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_ConcreteElementGeneral_StrengthClass" Protection = "Free" Type = "String" Uuid = "e33ecb57-4ece-4aa2-97a3-9f1146e48a72"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_ConcreteElementGeneral_ExposureClass" Protection = "Free" Type = "String" Uuid = "22cbc18c-d86b-4cdd-b7c9-00f3db20cfe4"/>
+    <Simple CAAExposition = "L0" DefaultValue = "0.0" Magnitude = "DENSITY" Name = "IfcPset_ConcreteElementGeneral_ReinforcementVolumeRatio" Protection = "Free" Type = "Double" Uuid = "62f84f10-d10e-490a-a566-a04dce422408"/>
+    <Simple CAAExposition = "L0" Magnitude = "SURFACICMASS" Name = "IfcPset_ConcreteElementGeneral_ReinforcementAreaRatio" Protection = "Free" Type = "Double" Uuid = "7e99ab09-f42d-4c34-b06b-6897eaf7e5db"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_ConcreteElementGeneral_DimensionalAccuracyClass" Protection = "Free" Type = "String" Uuid = "339d0459-49b7-4abe-b175-46ee3c2d44fe"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_ConcreteElementGeneral_ConstructionToleranceClass" Protection = "Free" Type = "String" Uuid = "b6927409-dd9c-42a5-8cb6-d84d2dc951cf"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_ConcreteElementGeneral_ConcreteCover" Protection = "Free" Type = "Double" Uuid = "f3b7dc76-8f05-4c77-b82b-74562cd492d3"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_ConcreteElementGeneral_ConcreteCoverAtMainBars" Protection = "Free" Type = "Double" Uuid = "3504ce1c-0dde-4586-8836-8e066a157ee3"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_ConcreteElementGeneral_ConcreteCoverAtLinks" Protection = "Free" Type = "Double" Uuid = "63cd326e-ae02-4e54-83e4-273aa2b96188"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_ConcreteElementGeneral_ReinforcementStrengthClass" Protection = "Free" Type = "String" Uuid = "f1a6b20a-f457-4a97-b4e8-6f6309cf0dc2"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcPset_Condition" ScopeNames = "AecElement AecElementType" Uuid = "066268b8-e3ee-4952-817c-e475a1fc715a">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_Condition_AssessmentDate" Protection = "Free" Type = "Date" Uuid = "97134ec1-ba6d-4b4e-8363-027f819687bf"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_Condition_AssessmentCondition" Protection = "Free" Type = "String" Uuid = "d43a6f19-bb65-4b5a-a6a7-78e874116460"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_Condition_AssessmentDescription" Protection = "Free" Type = "String" Uuid = "75f982be-d6f4-4da8-b6e5-8551fa6edb0f"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcPset_EnvironmentalImpactIndicators" ScopeNames = "AecElement AecElementType" Uuid = "494ba619-8f8d-4bff-ba84-2218a2ce8fe6">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_EnvironmentalImpactIndicators_Reference" Protection = "Free" Type = "String" Uuid = "75fa212b-6601-4215-95b8-9587c1e10a1a"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_EnvironmentalImpactIndicators_FunctionalUnitReference" Protection = "Free" Type = "String" Uuid = "1c4ec70d-0da9-432b-8dee-9ed6893f7645"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_EnvironmentalImpactIndicators_Unit" Protection = "Free" Type = "String" Uuid = "29406366-2991-409f-a55c-601f00a1f779"/>
+    <Simple CAAExposition = "L0" DefaultValue = "NotDefined" MaxLength = "255" Name = "IfcPset_EnvironmentalImpactIndicators_LifeCyclePhase" Protection = "Free" Type = "String" Uuid = "64abb437-32fd-47fc-8f9d-b6fd3b2ed97f">
+      <Range>
+        <Equal>Acquisition</Equal>
+        <Equal>Cradletosite</Equal>
+        <Equal>Deconstruction</Equal>
+        <Equal>Disposal</Equal>
+        <Equal>Disposaltransport</Equal>
+        <Equal>Growth</Equal>
+        <Equal>Installation</Equal>
+        <Equal>Maintenance</Equal>
+        <Equal>Manufacture</Equal>
+        <Equal>Occupancy</Equal>
+        <Equal>Operation</Equal>
+        <Equal>Procurement</Equal>
+        <Equal>Production</Equal>
+        <Equal>Productiontransport</Equal>
+        <Equal>Recovery</Equal>
+        <Equal>Refurbishment</Equal>
+        <Equal>Repair</Equal>
+        <Equal>Replacement</Equal>
+        <Equal>Transport</Equal>
+        <Equal>Usage</Equal>
+        <Equal>Waste</Equal>
+        <Equal>Wholelifecycle</Equal>
+        <Equal>UserDefined</Equal>
+        <Equal>NotDefined</Equal>
+        <Equal></Equal>
+      </Range>
+    </Simple>
+    <Simple CAAExposition = "L0" Magnitude = "TIME" Name = "IfcPset_EnvironmentalImpactIndicators_ExpectedServiceLife" Protection = "Free" Type = "Double" Uuid = "f2c26a7a-d231-4dae-aae2-f5fc321c7b83"/>
+    <Simple CAAExposition = "L0" Magnitude = "ENERGY" Name = "IfcPset_EnvironmentalImpactIndicators_TotalPrimaryEnergyConsumptionPerUnit" Protection = "Free" Type = "Double" Uuid = "81673347-93d3-47c4-a42d-cc7405c9e6cb"/>
+    <Simple CAAExposition = "L0" Magnitude = "VOLUME" Name = "IfcPset_EnvironmentalImpactIndicators_WaterConsumptionPerUnit" Protection = "Free" Type = "Double" Uuid = "151a0fba-a467-4f52-aa90-a62d975c895f"/>
+    <Simple CAAExposition = "L0" Magnitude = "MASS" Name = "IfcPset_EnvironmentalImpactIndicators_HazardousWastePerUnit" Protection = "Free" Type = "Double" Uuid = "ef302c28-79ce-4fcf-be03-75d6d9d8b7ea"/>
+    <Simple CAAExposition = "L0" Magnitude = "MASS" Name = "IfcPset_EnvironmentalImpactIndicators_NonHazardousWastePerUnit" Protection = "Free" Type = "Double" Uuid = "1d723398-f1ae-48bd-8a4e-eaa9f2fd452e"/>
+    <Simple CAAExposition = "L0" Magnitude = "MASS" Name = "IfcPset_EnvironmentalImpactIndicators_ClimateChangePerUnit" Protection = "Free" Type = "Double" Uuid = "706ab70b-080c-458e-afe0-63a9730f044e"/>
+    <Simple CAAExposition = "L0" Magnitude = "MASS" Name = "IfcPset_EnvironmentalImpactIndicators_AtmosphericAcidificationPerUnit" Protection = "Free" Type = "Double" Uuid = "1b4d3347-ad4f-41aa-b234-dd1280270375"/>
+    <Simple CAAExposition = "L0" Magnitude = "ENERGY" Name = "IfcPset_EnvironmentalImpactIndicators_RenewableEnergyConsumptionPerUnit" Protection = "Free" Type = "Double" Uuid = "38fea766-f406-40e9-9a09-aed90366d793"/>
+    <Simple CAAExposition = "L0" Magnitude = "ENERGY" Name = "IfcPset_EnvironmentalImpactIndicators_NonRenewableEnergyConsumptionPerUnit" Protection = "Free" Type = "Double" Uuid = "aeb484ab-c353-47c1-8ba1-7cde97cc3fb8"/>
+    <Simple CAAExposition = "L0" Magnitude = "MASS" Name = "IfcPset_EnvironmentalImpactIndicators_ResourceDepletionPerUnit" Protection = "Free" Type = "Double" Uuid = "e4e6d2e4-9bb2-42a0-a7a3-cdbd44f05321"/>
+    <Simple CAAExposition = "L0" Magnitude = "MASS" Name = "IfcPset_EnvironmentalImpactIndicators_InertWastePerUnit" Protection = "Free" Type = "Double" Uuid = "8a7ebeb8-b1c0-45da-90c2-a12d4423e9ae"/>
+    <Simple CAAExposition = "L0" Magnitude = "MASS" Name = "IfcPset_EnvironmentalImpactIndicators_RadioactiveWastePerUnit" Protection = "Free" Type = "Double" Uuid = "0394293f-7d73-4412-a0a8-8bcd53e12dd7"/>
+    <Simple CAAExposition = "L0" Magnitude = "MASS" Name = "IfcPset_EnvironmentalImpactIndicators_StratosphericOzoneLayerDestructionPerUnit" Protection = "Free" Type = "Double" Uuid = "6d1c506e-48a9-4b7b-8769-65fb00d544fe"/>
+    <Simple CAAExposition = "L0" Magnitude = "MASS" Name = "IfcPset_EnvironmentalImpactIndicators_PhotochemicalOzoneFormationPerUnit" Protection = "Free" Type = "Double" Uuid = "26fd6c73-84f4-4e18-b015-5c8f41c1dfd3"/>
+    <Simple CAAExposition = "L0" Magnitude = "MASS" Name = "IfcPset_EnvironmentalImpactIndicators_EutrophicationPerUnit" Protection = "Free" Type = "Double" Uuid = "523b98d9-2d72-4dd1-ade3-a9b018f093a0"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcPset_EnvironmentalImpactValues" ScopeNames = "AecElement AecElementType" Uuid = "d72592c5-f234-4dc5-b8d5-bfd947a5962a">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" Magnitude = "ENERGY" Name = "IfcPset_EnvironmentalImpactValues_TotalPrimaryEnergyConsumption" Protection = "Free" Type = "Double" Uuid = "4dde207d-edd2-4a68-8e94-afa963e9fad2"/>
+    <Simple CAAExposition = "L0" Magnitude = "VOLUME" Name = "IfcPset_EnvironmentalImpactValues_WaterConsumption" Protection = "Free" Type = "Double" Uuid = "c5b3a40f-1342-4b1e-b09e-0b3c2da03cf4"/>
+    <Simple CAAExposition = "L0" Magnitude = "MASS" Name = "IfcPset_EnvironmentalImpactValues_HazardousWaste" Protection = "Free" Type = "Double" Uuid = "f83bfce2-8f58-495f-9050-e690dc142dcb"/>
+    <Simple CAAExposition = "L0" Magnitude = "MASS" Name = "IfcPset_EnvironmentalImpactValues_NonHazardousWaste" Protection = "Free" Type = "Double" Uuid = "ee389d5a-4bee-44fb-b3a8-dae8d647cee5"/>
+    <Simple CAAExposition = "L0" Magnitude = "MASS" Name = "IfcPset_EnvironmentalImpactValues_ClimateChange" Protection = "Free" Type = "Double" Uuid = "da3fa47f-9a46-4803-8040-7f96b9493539"/>
+    <Simple CAAExposition = "L0" Magnitude = "MASS" Name = "IfcPset_EnvironmentalImpactValues_AtmosphericAcidification" Protection = "Free" Type = "Double" Uuid = "8f9f4633-a551-47a4-b1bb-31cc663d642c"/>
+    <Simple CAAExposition = "L0" Magnitude = "ENERGY" Name = "IfcPset_EnvironmentalImpactValues_RenewableEnergyConsumption" Protection = "Free" Type = "Double" Uuid = "3427ef8a-0037-45ef-b424-4e19a049629e"/>
+    <Simple CAAExposition = "L0" Magnitude = "ENERGY" Name = "IfcPset_EnvironmentalImpactValues_NonRenewableEnergyConsumption" Protection = "Free" Type = "Double" Uuid = "bf03d966-7686-439e-ae37-a7dc186fb33c"/>
+    <Simple CAAExposition = "L0" Magnitude = "MASS" Name = "IfcPset_EnvironmentalImpactValues_ResourceDepletion" Protection = "Free" Type = "Double" Uuid = "955e3dd2-9d61-4d07-9ab3-4ef75b486183"/>
+    <Simple CAAExposition = "L0" Magnitude = "MASS" Name = "IfcPset_EnvironmentalImpactValues_InertWaste" Protection = "Free" Type = "Double" Uuid = "457e2884-6662-48a0-8d19-ef1bd36b629d"/>
+    <Simple CAAExposition = "L0" Magnitude = "MASS" Name = "IfcPset_EnvironmentalImpactValues_RadioactiveWaste" Protection = "Free" Type = "Double" Uuid = "00f110c7-3516-4d1b-bf07-ce5cb5caf2ef"/>
+    <Simple CAAExposition = "L0" Magnitude = "MASS" Name = "IfcPset_EnvironmentalImpactValues_StratosphericOzoneLayerDestruction" Protection = "Free" Type = "Double" Uuid = "4f9ce532-ec58-4da0-8cfb-81cb35733c60"/>
+    <Simple CAAExposition = "L0" Magnitude = "MASS" Name = "IfcPset_EnvironmentalImpactValues_PhotochemicalOzoneFormation" Protection = "Free" Type = "Double" Uuid = "3259b1cc-bf86-4d13-951b-b92a74e24fc2"/>
+    <Simple CAAExposition = "L0" Magnitude = "MASS" Name = "IfcPset_EnvironmentalImpactValues_Eutrophication" Protection = "Free" Type = "Double" Uuid = "bb2d735b-7245-4a94-bc13-67091ad20ac1"/>
+    <Simple CAAExposition = "L0" Magnitude = "TIME" Name = "IfcPset_EnvironmentalImpactValues_LeadInTime" Protection = "Free" Type = "Double" Uuid = "0469DEE5-9167-46E7-9F42-C9C8FED11817"/>
+    <Simple CAAExposition = "L0" Magnitude = "TIME" Name = "IfcPset_EnvironmentalImpactValues_Duration" Protection = "Free" Type = "Double" Uuid = "AF1DD460-CB55-43F5-925D-E379DB79ECE2"/>
+    <Simple CAAExposition = "L0" Magnitude = "TIME" Name = "IfcPset_EnvironmentalImpactValues_LeadOutTime" Protection = "Free" Type = "Double" Uuid = "D80964F4-A3E9-4725-B8E4-B38D2C49B53B"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcPset_LandRegistration" ScopeNames = "AecSite" Uuid = "682700e0-6348-491a-88e8-d762f3aa67bf">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_LandRegistration_LandID" Protection = "Free" Type = "String" Uuid = "545a3dcc-15e5-457c-adfa-6f05ea034664"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_LandRegistration_IsPermanentID" Protection = "Free" Type = "Boolean" Uuid = "6e3a4d37-0c28-4308-beee-62fbe35822f2"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_LandRegistration_LandTitleID" Protection = "Free" Type = "String" Uuid = "f5da571e-82a9-40e4-a0ed-9b35faf60986"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcPset_ManufacturerOccurrence" ScopeNames = "AecElement AecElementType" Uuid = "f2875321-226d-4c67-af57-f702f013f99a">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_ManufacturerOccurrence_AcquisitionDate" Protection = "Free" Type = "Date" Uuid = "e48d550e-29f4-4419-a67d-f7fd6fda71f7"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_ManufacturerOccurrence_BarCode" Protection = "Free" Type = "String" Uuid = "09882371-dc97-4de0-8038-2b404792a03a"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_ManufacturerOccurrence_SerialNumber" Protection = "Free" Type = "String" Uuid = "9c5a8a1c-0405-4c9c-8507-e866a7febd9f"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_ManufacturerOccurrence_BatchReference" Protection = "Free" Type = "String" Uuid = "1063d677-d380-4674-ba62-89c1c7ed0a91"/>
+    <Simple CAAExposition = "L0" DefaultValue = "UNSET" MaxLength = "255" Name = "IfcPset_ManufacturerOccurrence_AssemblyPlace" Protection = "Free" Type = "String" Uuid = "76da5f65-a6e4-4edf-a52d-58c462443b8c">
+      <Range>
+        <Equal>FACTORY</Equal>
+        <Equal>OFFSITE</Equal>
+        <Equal>SITE</Equal>
+        <Equal>OTHER</Equal>
+        <Equal>NOTKNOWN</Equal>
+        <Equal>UNSET</Equal>
+        <Equal></Equal>
+      </Range>
+    </Simple>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcPset_ManufacturerTypeInformation" ScopeNames = "AecElement AecElementType" Uuid = "15f0e911-b898-4c40-a4a4-25bf56755219">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_ManufacturerTypeInformation_GlobalTradeItemNumber" Protection = "Free" Type = "String" Uuid = "9715bcbd-cd64-400d-b880-9612c07f5f81"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_ManufacturerTypeInformation_ArticleNumber" Protection = "Free" Type = "String" Uuid = "948a7f62-bb3d-4111-8a43-992b8bb8c01a"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_ManufacturerTypeInformation_ModelReference" Protection = "Free" Type = "String" Uuid = "b34f58d2-4ad6-4288-b7cc-7127dacef1c9"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_ManufacturerTypeInformation_ModelLabel" Protection = "Free" Type = "String" Uuid = "75e36278-93d5-4c79-95ac-b543d97b0b38"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_ManufacturerTypeInformation_Manufacturer" Protection = "Free" Type = "String" Uuid = "9a252ae6-e850-4a67-8b70-9fa7b0e7ef0f"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_ManufacturerTypeInformation_ProductionYear" Protection = "Free" Type = "String" Uuid = "878330ee-8aba-42c4-bb5b-48e933a2eae8"/>
+    <Simple CAAExposition = "L0" DefaultValue = "UNSET" MaxLength = "255" Name = "IfcPset_ManufacturerTypeInformation_AssemblyPlace" Protection = "Free" Type = "String" Uuid = "5e319999-ea4b-46e2-86d9-8856d2b13159">
+      <Range>
+        <Equal>FACTORY</Equal>
+        <Equal>OFFSITE</Equal>
+        <Equal>SITE</Equal>
+        <Equal>OTHER</Equal>
+        <Equal>NOTKNOWN</Equal>
+        <Equal>UNSET</Equal>
+        <Equal></Equal>
+      </Range>
+    </Simple>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcPset_PackingInstructions" ScopeNames = "AecElement AecElementType" Uuid = "a64dc66b-9996-42bb-ac71-79a50b846823">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" DefaultValue = "UNSET" MaxLength = "255" Name = "IfcPset_PackingInstructions_PackingCareType" Protection = "Free" Type = "String" Uuid = "6c2f4d6e-0964-44df-ba31-8a561debdd83">
+      <Range>
+        <Equal>FRAGILE</Equal>
+        <Equal>HANDLEWITHCARE</Equal>
+        <Equal>OTHER</Equal>
+        <Equal>NOTKNOWN</Equal>
+        <Equal>UNSET</Equal>
+        <Equal></Equal>
+      </Range>
+    </Simple>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_PackingInstructions_WrappingMaterial" Protection = "Free" Type = "String" Uuid = "f91856f2-c6f1-4144-be0b-d6be23e87215"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_PackingInstructions_ContainerMaterial" Protection = "Free" Type = "String" Uuid = "f90a4ff1-4c42-4be1-b564-7a32c82627e6"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_PackingInstructions_SpecialInstructions" Protection = "Free" Type = "String" Uuid = "c5a745dc-2ee8-4d18-9fa8-dbd92f05b8e3"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcPset_PrecastConcreteElementFabrication" ScopeNames = "AecStructuralElement AecArchitecturalElement AecStructuralElementType AecArchitecturalElementType BridgeArchSegment BridgeArchSegmentType BridgeCrosshead BridgeCrossheadType BridgeDeckSegment BridgeDeckSegmentType BridgeOtherArchitecturalElement BridgeOtherArchitecturalElementType BridgeOtherStructuralElement BridgeOtherStructuralElementType BridgePierSegment BridgePierSegmentType BridgeTowerSegment BridgeTowerSegmentType DamElement DamElementType RailwayElement RailwayElementType TunnelElement TunnelElementType" Uuid = "fdf10ef4-aa62-4e2d-a0d1-e728d4414f60">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_PrecastConcreteElementFabrication_TypeDesignator" Protection = "Free" Type = "String" Uuid = "ecaa026c-8a28-4549-8df9-148f11d9fa70"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_PrecastConcreteElementFabrication_ProductionLotId" Protection = "Free" Type = "String" Uuid = "c2650268-d886-4ef8-bf37-f5be9d407c67"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_PrecastConcreteElementFabrication_SerialNumber" Protection = "Free" Type = "String" Uuid = "5e631815-063e-4b1c-a9bd-bbff279c1730"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_PrecastConcreteElementFabrication_PieceMark" Protection = "Free" Type = "String" Uuid = "f93e75c2-2883-414a-80ef-ccc44f50278f"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_PrecastConcreteElementFabrication_AsBuiltLocationNumber" Protection = "Free" Type = "String" Uuid = "b84e9ed6-6b44-40cb-a019-0541ae7926ec"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_PrecastConcreteElementFabrication_ActualProductionDate" Protection = "Free" Type = "String" Uuid = "ed32a322-745a-44c0-856e-ed3cb478fd72"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_PrecastConcreteElementFabrication_ActualErectionDate" Protection = "Free" Type = "String" Uuid = "bee4a655-9e14-496a-afc6-236c40c65ff4"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcPset_PrecastConcreteElementGeneral" ScopeNames = "AecStructuralElement AecArchitecturalElement AecStructuralElementType AecArchitecturalElementType BridgeArchSegment BridgeArchSegmentType BridgeCrosshead BridgeCrossheadType BridgeDeckSegment BridgeDeckSegmentType BridgeOtherArchitecturalElement BridgeOtherArchitecturalElementType BridgeOtherStructuralElement BridgeOtherStructuralElementType BridgePierSegment BridgePierSegmentType BridgeTowerSegment BridgeTowerSegmentType DamElement DamElementType RailwayElement RailwayElementType TunnelElement TunnelElementType" Uuid = "3e117215-413f-48c7-ae07-491a0c5c5623">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_PrecastConcreteElementGeneral_TypeDesignator" Protection = "Free" Type = "String" Uuid = "49d91d78-77bf-41c2-b45a-ead588627c02"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_PrecastConcreteElementGeneral_CornerChamfer" Protection = "Free" Type = "Double" Uuid = "976f4b51-fab2-4f9c-a547-17d1b8b09bab"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_PrecastConcreteElementGeneral_ManufacturingToleranceClass" Protection = "Free" Type = "String" Uuid = "e72d9141-6ac4-4aff-9c33-3e7c57bb0aed"/>
+    <Simple CAAExposition = "L0" Magnitude = "PRESSURE" Name = "IfcPset_PrecastConcreteElementGeneral_FormStrippingStrength" Protection = "Free" Type = "Double" Uuid = "72f6470e-368b-45cb-a4a9-d4b60529fedd"/>
+    <Simple CAAExposition = "L0" Magnitude = "PRESSURE" Name = "IfcPset_PrecastConcreteElementGeneral_LiftingStrength" Protection = "Free" Type = "Double" Uuid = "ebd5de1d-67ab-4514-9c6d-cc25b9dbdfa5"/>
+    <Simple CAAExposition = "L0" Magnitude = "PRESSURE" Name = "IfcPset_PrecastConcreteElementGeneral_ReleaseStrength" Protection = "Free" Type = "Double" Uuid = "3d179a44-0ca1-4e73-b562-eabf7bd0a9fd"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_PrecastConcreteElementGeneral_MinimumAllowableSupportLength" Protection = "Free" Type = "Double" Uuid = "43f39c6b-1b47-4853-86a5-868741a555d1"/>
+    <Simple CAAExposition = "L0" Magnitude = "PRESSURE" Name = "IfcPset_PrecastConcreteElementGeneral_InitialTension" Protection = "Free" Type = "Double" Uuid = "bbe7ad2e-12bb-455f-b5aa-60467b93812b"/>
+    <Simple CAAExposition = "L0" Magnitude = "Ratio" Name = "IfcPset_PrecastConcreteElementGeneral_TendonRelaxation" Protection = "Free" Type = "Double" Uuid = "556a389f-57a1-4612-96f8-17323dc89571"/>
+    <Simple CAAExposition = "L0" Magnitude = "PRESSURE" Name = "IfcPset_PrecastConcreteElementGeneral_TransportationStrength" Protection = "Free" Type = "Double" Uuid = "6adfc9a2-eadc-4a49-ab14-32e5e4c4654e"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_PrecastConcreteElementGeneral_SupportDuringTransportDescription" Protection = "Free" Type = "String" Uuid = "bb9e0b72-d34e-4f59-bb40-5c865bb26d7e"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_PrecastConcreteElementGeneral_HollowCorePlugging" Protection = "Free" Type = "String" Uuid = "6f480228-327a-4c07-b09f-b173e6692502"/>
+    <Simple CAAExposition = "L0" Magnitude = "Ratio" Name = "IfcPset_PrecastConcreteElementGeneral_CamberAtMidspan" Protection = "Free" Type = "Double" Uuid = "9bbf09b9-2fe8-45bb-9696-1e1334f4a242"/>
+    <Simple CAAExposition = "L0" Magnitude = "ANGLE" Name = "IfcPset_PrecastConcreteElementGeneral_BatterAtStart" Protection = "Free" Type = "Double" Uuid = "83016c79-02d3-438e-afdd-720e2ab61e14"/>
+    <Simple CAAExposition = "L0" Magnitude = "ANGLE" Name = "IfcPset_PrecastConcreteElementGeneral_BatterAtEnd" Protection = "Free" Type = "Double" Uuid = "40c14f29-e6f5-4f1f-b64a-b663047a8386"/>
+    <Simple CAAExposition = "L0" Magnitude = "ANGLE" Name = "IfcPset_PrecastConcreteElementGeneral_Twisting" Protection = "Free" Type = "Double" Uuid = "5afcb10b-dcb6-4ad3-8ced-574d682972c9"/>
+    <Simple CAAExposition = "L0" Magnitude = "Ratio" Name = "IfcPset_PrecastConcreteElementGeneral_Shortening" Protection = "Free" Type = "Double" Uuid = "7136c15d-b283-423e-9d3a-368202c1681f"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_PrecastConcreteElementGeneral_PieceMark" Protection = "Free" Type = "String" Uuid = "0f13420b-2522-4e30-bb54-82569e19746a"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_PrecastConcreteElementGeneral_DesignLocationNumber" Protection = "Free" Type = "String" Uuid = "38c46584-cf89-4083-8e42-f6d6ee6423a6"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcPset_PropertyAgreement" ScopeNames = "AecSpatialStructureElement BuildingSpaceType" Uuid = "fbafeee1-cff1-4a5e-bf66-8deeffacccb3">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" DefaultValue = "UNSET" MaxLength = "255" Name = "IfcPset_PropertyAgreement_AgreementType" Protection = "Free" Type = "String" Uuid = "bf0e74c8-f498-4634-b43e-80df8e3d4dce">
+      <Range>
+        <Equal>ASSIGNMENT</Equal>
+        <Equal>LEASE</Equal>
+        <Equal>TENANT</Equal>
+        <Equal>OTHER</Equal>
+        <Equal>NOTKNOWN</Equal>
+        <Equal>UNSET</Equal>
+        <Equal></Equal>
+      </Range>
+    </Simple>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_PropertyAgreement_Identifier" Protection = "Free" Type = "String" Uuid = "20b04164-c952-44f3-8b70-cda79b8690ab"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_PropertyAgreement_Version" Protection = "Free" Type = "String" Uuid = "264fc4b2-1890-4570-88a0-c2a6ba14be7f"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_PropertyAgreement_VersionDate" Protection = "Free" Type = "Date" Uuid = "3eae4d0d-b6b8-4420-839f-281c4afe2c69"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_PropertyAgreement_PropertyName" Protection = "Free" Type = "String" Uuid = "6c8fd367-1fc4-484b-887c-09f26bbca7f9"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_PropertyAgreement_CommencementDate" Protection = "Free" Type = "Date" Uuid = "d2d7c766-914a-4de6-9144-f6252eb73616"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_PropertyAgreement_TerminationDate" Protection = "Free" Type = "Date" Uuid = "9716550e-b66b-4efd-a762-4c79905e2907"/>
+    <Simple CAAExposition = "L0" Magnitude = "TIME" Name = "IfcPset_PropertyAgreement_Duration" Protection = "Free" Type = "Double" Uuid = "3f399772-d467-4101-baa3-0d3d29e538e1"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_PropertyAgreement_Options" Protection = "Free" Type = "String" Uuid = "d1f9622d-81d4-4c5f-ac2d-7a6e38e2c29d"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_PropertyAgreement_ConditionCommencement" Protection = "Free" Type = "String" Uuid = "6ca92c9b-5218-4da0-9fdc-bdc20fc5715c"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_PropertyAgreement_Restrictions" Protection = "Free" Type = "String" Uuid = "3f5eef73-3b38-47fc-9a1a-624f7d5ffc18"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_PropertyAgreement_ConditionTermination" Protection = "Free" Type = "String" Uuid = "1752bfcb-2237-470b-8f3f-03426123ac13"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcPset_ServiceLife" ScopeNames = "AecElement AecElementType" Uuid = "7154c6b9-39c1-463e-baf1-18e4e141fa23">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" DefaultValue = "UNSET" MaxLength = "255" Name = "IfcPset_ServiceLife_ServiceLifeType" Protection = "Free" Type = "String" Uuid = "3068c24c-ba96-40f0-83ca-f4e5b2b79c8f">
+      <Range>
+        <Equal>ACTUALSERVICELIFE</Equal>
+        <Equal>EXPECTEDSERVICELIFE</Equal>
+        <Equal>OPTIMISTICREFERENCESERVICELIFE</Equal>
+        <Equal>PESSIMISTICREFERENCESERVICELIFE</Equal>
+        <Equal>REFERENCESERVICELIFE</Equal>
+        <Equal>OTHER</Equal>
+        <Equal>NOTKNOWN</Equal>
+        <Equal>UNSET</Equal>
+        <Equal></Equal>
+      </Range>
+    </Simple>
+    <Simple CAAExposition = "L0" Magnitude = "TIME" Name = "IfcPset_ServiceLife_ServiceLifeDuration" Protection = "Free" Type = "Double" Uuid = "4a8caaf0-5246-42df-980c-d2acff9942d2"/>
+    <Simple CAAExposition = "L0" Magnitude = "Ratio" Name = "IfcPset_ServiceLife_QualityOfComponents" Protection = "Free" Type = "Double" Uuid = "834700ac-5ba4-4c8e-8591-b24407b98c83"/>
+    <Simple CAAExposition = "L0" Magnitude = "Ratio" Name = "IfcPset_ServiceLife_DesignLevel" Protection = "Free" Type = "Double" Uuid = "2846b8d0-c3c8-4064-8621-22c988c1dca0"/>
+    <Simple CAAExposition = "L0" Magnitude = "Ratio" Name = "IfcPset_ServiceLife_WorkExecutionLevel" Protection = "Free" Type = "Double" Uuid = "cb4b2d7e-1dfe-47e8-887e-867a503edced"/>
+    <Simple CAAExposition = "L0" Magnitude = "Ratio" Name = "IfcPset_ServiceLife_IndoorEnvironment" Protection = "Free" Type = "Double" Uuid = "02308d78-7a4c-4564-b68c-dc3057fa825f"/>
+    <Simple CAAExposition = "L0" Magnitude = "Ratio" Name = "IfcPset_ServiceLife_OutdoorEnvironment" Protection = "Free" Type = "Double" Uuid = "ddb9d857-de8d-420e-afde-ddfd7041c3ea"/>
+    <Simple CAAExposition = "L0" Magnitude = "Ratio" Name = "IfcPset_ServiceLife_InUseConditions" Protection = "Free" Type = "Double" Uuid = "c41648b4-701d-4d7a-9a32-33297c1eb97c"/>
+    <Simple CAAExposition = "L0" Magnitude = "Ratio" Name = "IfcPset_ServiceLife_MaintenanceLevel" Protection = "Free" Type = "Double" Uuid = "732b5628-1346-4931-8592-be14748427cd"/>
+    <Simple CAAExposition = "L0" Magnitude = "TIME" Name = "IfcPset_ServiceLife_MeanTimeBetweenFailure" Protection = "Free" Type = "Double" Uuid = "b68ec5ad-d45c-4454-bdf5-03ea513d56a3"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcPset_SiteCommon" ScopeNames = "AecSite" Uuid = "ddbe9d70-cfce-48a8-8917-31a00c66b28e">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_SiteCommon_Reference" Protection = "Free" Type = "String" Uuid = "82e7137f-14af-476b-ab71-d1db78092dbe"/>
+    <Simple CAAExposition = "L0" Magnitude = "AREA" Name = "IfcPset_SiteCommon_BuildableArea" Protection = "Free" Type = "Double" Uuid = "b71020c0-dcb3-42b1-9c2b-f4dcbad08b2c"/>
+    <Simple CAAExposition = "L0" Magnitude = "Ratio" Name = "IfcPset_SiteCommon_SiteCoverageRatio" Protection = "Free" Type = "Double" Uuid = "34ebd367-56f4-426a-a7df-51e826bc5c4b"/>
+    <Simple CAAExposition = "L0" Magnitude = "Ratio" Name = "IfcPset_SiteCommon_FloorAreaRatio" Protection = "Free" Type = "Double" Uuid = "123c3b21-8117-449c-9f83-c988acc1a5d5"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_SiteCommon_BuildingHeightLimit" Protection = "Free" Type = "Double" Uuid = "df86abbb-c929-45eb-aedd-f9a8c9a2c1fc"/>
+    <Simple CAAExposition = "L0" Magnitude = "AREA" Name = "IfcPset_SiteCommon_TotalArea" Protection = "Free" Type = "Double" Uuid = "37199393-d5d1-435c-9abd-97ac32a56442"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcPset_SpaceFireSafetyRequirements" ScopeNames = "AecSite BuildingSpace BuildingSpaceType" Uuid = "ecb24be1-ff4b-4725-ba02-a21d706886f1">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_SpaceFireSafetyRequirements_FireRiskFactor" Protection = "Free" Type = "String" Uuid = "3d2e1a48-9c90-4a9d-9d29-a843a40f3e87"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_SpaceFireSafetyRequirements_FlammableStorage" Protection = "Free" Type = "Boolean" Uuid = "8b6ace14-2aa6-4211-8313-903799d3395b"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_SpaceFireSafetyRequirements_FireExit" Protection = "Free" Type = "Boolean" Uuid = "d6f06092-e2d5-498a-a15c-35da55d7286f"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_SpaceFireSafetyRequirements_SprinklerProtection" Protection = "Free" Type = "Boolean" Uuid = "59f0d096-5cee-457d-8e0b-fb303fab1fd8"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_SpaceFireSafetyRequirements_SprinklerProtectionAutomatic" Protection = "Free" Type = "Boolean" Uuid = "cfde3641-1cce-4b85-b035-c0d4685e8495"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_SpaceFireSafetyRequirements_AirPressurization" Protection = "Free" Type = "Boolean" Uuid = "368cabfd-eb5f-4900-8adc-cc600cf90eda"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcPset_SpaceLightingRequirements" ScopeNames = "AecSite BuildingSpace BuildingSpaceType" Uuid = "5ccd384a-2925-4ed8-9024-fa51fb27a655">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_SpaceLightingRequirements_ArtificialLighting" Protection = "Free" Type = "Boolean" Uuid = "4b92d2e5-ba5c-4924-ae62-830dfaafbc25"/>
+    <Simple CAAExposition = "L0" Magnitude = "ILLUMINANCE" Name = "IfcPset_SpaceLightingRequirements_Illuminance" Protection = "Free" Type = "Double" Uuid = "7bf4482f-1bec-4e56-8844-188bf4a2e933"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcPset_SpaceOccupancyRequirements" ScopeNames = "AecSite BuildingSpace BuildingSpaceType" Uuid = "c313c9d2-a2b8-4d5e-be38-b7287743e2b4">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_SpaceOccupancyRequirements_OccupancyType" Protection = "Free" Type = "String" Uuid = "36310859-8ee7-45a8-a315-5b494b606ec5"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_SpaceOccupancyRequirements_OccupancyNumber" Protection = "Free" Type = "Double" Uuid = "50150043-9062-4947-9e25-386dab2a05fb"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_SpaceOccupancyRequirements_OccupancyNumberPeak" Protection = "Free" Type = "Double" Uuid = "79a39d8b-69d7-476e-9ee3-65f780cbf96a"/>
+    <Simple CAAExposition = "L0" Magnitude = "TIME" Name = "IfcPset_SpaceOccupancyRequirements_OccupancyTimePerDay" Protection = "Free" Type = "Double" Uuid = "06dba169-38c1-4f82-81d5-c8f8ef550cbf"/>
+    <Simple CAAExposition = "L0" Magnitude = "AREA" Name = "IfcPset_SpaceOccupancyRequirements_AreaPerOccupant" Protection = "Free" Type = "Double" Uuid = "e13aaf7a-834d-491d-b762-cb7e9cc10af5"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_SpaceOccupancyRequirements_MinimumHeadroom" Protection = "Free" Type = "Double" Uuid = "0e1fc588-d0ba-4226-b9c8-5b82f4a0191d"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_SpaceOccupancyRequirements_IsOutlookDesirable" Protection = "Free" Type = "Boolean" Uuid = "fac71ab3-a885-4511-a07e-634d3eb585ab"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcPset_SpaceThermalRequirements" ScopeNames = "AecSite BuildingSpace BuildingSpaceType" Uuid = "37c713e9-c6e2-4376-bdc6-8d1991bf3553">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" Magnitude = "TEMPRTRE" Name = "IfcPset_SpaceThermalRequirements_SpaceTemperature" Protection = "Free" Type = "Double" Uuid = "3d3795ec-ca62-461a-aa90-a3419e478783"/>
+    <Simple CAAExposition = "L0" Magnitude = "TEMPRTRE" Name = "IfcPset_SpaceThermalRequirements_SpaceTemperatureMax" Protection = "Free" Type = "Double" Uuid = "146852fb-6170-40a5-8cf0-6056195e339e"/>
+    <Simple CAAExposition = "L0" Magnitude = "TEMPRTRE" Name = "IfcPset_SpaceThermalRequirements_SpaceTemperatureMin" Protection = "Free" Type = "Double" Uuid = "966a48ae-574e-4337-9e50-35b49d29042a"/>
+    <Simple CAAExposition = "L0" Magnitude = "TEMPRTRE" Name = "IfcPset_SpaceThermalRequirements_SpaceTemperatureSummerMax" Protection = "Free" Type = "Double" Uuid = "88265883-ff96-4d79-a1ca-73058a3d4b6d"/>
+    <Simple CAAExposition = "L0" Magnitude = "TEMPRTRE" Name = "IfcPset_SpaceThermalRequirements_SpaceTemperatureSummerMin" Protection = "Free" Type = "Double" Uuid = "445fcb8f-83cd-496c-94b2-a31720da8f93"/>
+    <Simple CAAExposition = "L0" Magnitude = "TEMPRTRE" Name = "IfcPset_SpaceThermalRequirements_SpaceTemperatureWinterMax" Protection = "Free" Type = "Double" Uuid = "2195bd1e-54e2-431b-a67b-4468d9277824"/>
+    <Simple CAAExposition = "L0" Magnitude = "TEMPRTRE" Name = "IfcPset_SpaceThermalRequirements_SpaceTemperatureWinterMin" Protection = "Free" Type = "Double" Uuid = "f1aab0f0-ad6e-4e19-93ca-b572d9c66511"/>
+    <Simple CAAExposition = "L0" Magnitude = "Ratio" Name = "IfcPset_SpaceThermalRequirements_SpaceHumidity" Protection = "Free" Type = "Double" Uuid = "2940021e-180e-499d-a7c8-a73fa88cac89"/>
+    <Simple CAAExposition = "L0" Magnitude = "Ratio" Name = "IfcPset_SpaceThermalRequirements_SpaceHumidityMax" Protection = "Free" Type = "Double" Uuid = "2effa90b-7af7-4d4b-a7fe-e3dac968b971"/>
+    <Simple CAAExposition = "L0" Magnitude = "Ratio" Name = "IfcPset_SpaceThermalRequirements_SpaceHumidityMin" Protection = "Free" Type = "Double" Uuid = "53f14842-09cd-473e-b1ec-6b54335b13e9"/>
+    <Simple CAAExposition = "L0" Magnitude = "Ratio" Name = "IfcPset_SpaceThermalRequirements_SpaceHumiditySummer" Protection = "Free" Type = "Double" Uuid = "d59cfeed-795e-4acd-a2fc-b1e761afdc3f"/>
+    <Simple CAAExposition = "L0" Magnitude = "Ratio" Name = "IfcPset_SpaceThermalRequirements_SpaceHumidityWinter" Protection = "Free" Type = "Double" Uuid = "80fbe60f-36a6-4ba3-b0ae-3d3c4e6aed6f"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_SpaceThermalRequirements_DiscontinuedHeating" Protection = "Free" Type = "Boolean" Uuid = "0abd2e0a-cc1e-48a4-833f-b163a695b3c9"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_SpaceThermalRequirements_NaturalVentilation" Protection = "Free" Type = "Boolean" Uuid = "46ac9f5d-8626-4776-b589-48e7049ff0cc"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_SpaceThermalRequirements_NaturalVentilationRate" Protection = "Free" Type = "Double" Uuid = "d321be92-3cc5-4a07-b51e-c5e5e1d14576"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_SpaceThermalRequirements_MechanicalVentilationRate" Protection = "Free" Type = "Double" Uuid = "61010c2f-ae80-4b9c-b6a4-8554f5f268b9"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_SpaceThermalRequirements_AirConditioning" Protection = "Free" Type = "Boolean" Uuid = "043c8f73-80a8-4a59-b2cf-f35cb4a06f20"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_SpaceThermalRequirements_AirConditioningCentral" Protection = "Free" Type = "Boolean" Uuid = "101f3c27-f2b0-4a1a-a874-15b73429f2ed"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcPset_ThermalLoadAggregate" ScopeNames = "AecSpatialStructureElement BuildingSpaceType" Uuid = "6e3ac831-f5de-436b-9470-39fba845697e">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" Magnitude = "POWER" Name = "IfcPset_ThermalLoadAggregate_TotalCoolingLoad" Protection = "Free" Type = "Double" Uuid = "099830aa-8150-4eba-996c-f24bb47812c5"/>
+    <Simple CAAExposition = "L0" Magnitude = "POWER" Name = "IfcPset_ThermalLoadAggregate_TotalHeatingLoad" Protection = "Free" Type = "Double" Uuid = "197ae5a8-e79b-4fb4-aad0-c8f67b0a8f7d"/>
+    <Simple CAAExposition = "L0" Magnitude = "Ratio" Name = "IfcPset_ThermalLoadAggregate_LightingDiversity" Protection = "Free" Type = "Double" Uuid = "b4a27187-e83b-482c-8614-cae4504dd628"/>
+    <Simple CAAExposition = "L0" Magnitude = "Ratio" Name = "IfcPset_ThermalLoadAggregate_InfiltrationDiversitySummer" Protection = "Free" Type = "Double" Uuid = "d0e4d5d4-d793-4d85-86d9-a71f94858220"/>
+    <Simple CAAExposition = "L0" Magnitude = "Ratio" Name = "IfcPset_ThermalLoadAggregate_InfiltrationDiversityWinter" Protection = "Free" Type = "Double" Uuid = "1749d1fc-25b8-4685-86d9-e06a010c3ca2"/>
+    <Simple CAAExposition = "L0" Magnitude = "Ratio" Name = "IfcPset_ThermalLoadAggregate_ApplianceDiversity" Protection = "Free" Type = "Double" Uuid = "5bd93ad1-b8e4-45bd-b2d9-7ebf6bf3c11e"/>
+    <Simple CAAExposition = "L0" Magnitude = "Ratio" Name = "IfcPset_ThermalLoadAggregate_LoadSafetyFactor" Protection = "Free" Type = "Double" Uuid = "b98da7b5-0631-4993-a829-1dddb9af0166"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcPset_ThermalLoadDesignCriteria" ScopeNames = "AecSpatialStructureElement BuildingSpaceType" Uuid = "80d93010-0824-40d8-b854-51d2918e54dc">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" Magnitude = "Ratio" Name = "IfcPset_ThermalLoadDesignCriteria_OccupancyDiversity" Protection = "Free" Type = "Double" Uuid = "6d39054a-4706-47ed-8cf5-b052b522db79"/>
+    <Simple CAAExposition = "L0" Magnitude = "VOL_FLOW" Name = "IfcPset_ThermalLoadDesignCriteria_OutsideAirPerPerson" Protection = "Free" Type = "Double" Uuid = "95e870fb-a0df-4248-9acf-b862fec50594"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_ThermalLoadDesignCriteria_ReceptacleLoadIntensity" Protection = "Free" Type = "Double" Uuid = "64a9bbca-a118-4fab-ab98-a53ac106fd81"/>
+    <Simple CAAExposition = "L0" Magnitude = "Ratio" Name = "IfcPset_ThermalLoadDesignCriteria_AppliancePercentLoadToRadiant" Protection = "Free" Type = "Double" Uuid = "e19d2e6a-4f29-4d94-bf0e-6c103254f8a3"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_ThermalLoadDesignCriteria_LightingLoadIntensity" Protection = "Free" Type = "Double" Uuid = "66cbc494-5d0b-44fa-9b4b-ec9411fd5974"/>
+    <Simple CAAExposition = "L0" Magnitude = "Ratio" Name = "IfcPset_ThermalLoadDesignCriteria_LightingPercentLoadToReturnAir" Protection = "Free" Type = "Double" Uuid = "b6ac782d-e91d-4313-8e08-f52c54fac2ee"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcPset_Warranty" ScopeNames = "AecElement AecElementType" Uuid = "c2a7bc63-3be6-4f71-a407-648d2f843267">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_Warranty_WarrantyIdentifier" Protection = "Free" Type = "String" Uuid = "a2831b54-7fb2-4675-8b51-6ec7d4b5c837"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_Warranty_WarrantyStartDate" Protection = "Free" Type = "Date" Uuid = "7a9ed2cb-8de4-425e-92b3-582638259cfe"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_Warranty_WarrantyEndDate" Protection = "Free" Type = "Date" Uuid = "313db5b9-62e4-487f-a7a7-dc38a3403408"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_Warranty_IsExtendedWarranty" Protection = "Free" Type = "Boolean" Uuid = "1b5a8db3-f6d3-44bf-afb9-4d47dbd080a3"/>
+    <Simple CAAExposition = "L0" Magnitude = "TIME" Name = "IfcPset_Warranty_WarrantyPeriod" Protection = "Free" Type = "Double" Uuid = "40ec84ac-6bb8-44a7-86ee-3974527eef4f"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_Warranty_PointOfContact" Protection = "Free" Type = "String" Uuid = "b0eb7422-33e9-4ed0-9232-abec1c2b192a"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_Warranty_WarrantyContent" Protection = "Free" Type = "String" Uuid = "1d5a6e70-87a2-4704-b2c5-3cd0a8b5e17d"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_Warranty_Exclusions" Protection = "Free" Type = "String" Uuid = "1c034291-401d-4518-98b1-8d62801169cd"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcQto_DS_FoundationBaseQuantities" ScopeNames = "AecFoundation" Uuid = "AEEB3F60-2A5E-4A24-A883-644868CC6B16">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcQto_DS_FoundationBaseQuantities_MethodOfMeasurement" Protection = "Free" Type = "String" Uuid = "AEEB3F60-2A5E-4A24-A883-14b1550b5f09"/>
+    <Simple CAAExposition = "L0" Magnitude = "VOLUME" Name = "IfcQto_DS_FoundationBaseQuantities_GrossVolume" Protection = "Free" Type = "Double" Uuid = "9ADE1C4A-5BD1-4883-A2BA-13E934F33BD4"/>
+    <Simple CAAExposition = "L0" Magnitude = "VOLUME" Name = "IfcQto_DS_FoundationBaseQuantities_NetVolume" Protection = "Free" Type = "Double" Uuid = "51103EB2-57AF-4969-A3A3-23CD8596574B"/>
+    <Simple CAAExposition = "L0" Magnitude = "MASS" Name = "IfcQto_DS_FoundationBaseQuantities_GrossWeight" Protection = "Free" Type = "Double" Uuid = "828F2785-152A-419B-96F2-6180F0884CAD"/>
+    <Simple CAAExposition = "L0" Magnitude = "MASS" Name = "IfcQto_DS_FoundationBaseQuantities_NetWeight" Protection = "Free" Type = "Double" Uuid = "6787D367-9132-4EA6-AF05-7371DED156DE"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcQto_DS_OtherSpatialStructureElementBaseQuantities" ScopeNames = "AecOtherSpatialStructureElement" Uuid = "DF8FC8E6-6B1C-4C10-92FA-54C926CFE2B3">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcQto_DS_OtherSpatialStructureElementBaseQuantities_MethodOfMeasurement" Protection = "Free" Type = "String" Uuid = "DF8FC8E6-6B1C-4C10-92FA-14b1550b5f09"/>
+    <Simple CAAExposition = "L0" Magnitude = "VOLUME" Name = "IfcQto_DS_OtherSpatialStructureElementBaseQuantities_GrossVolume" Protection = "Free" Type = "Double" Uuid = "1F2406F3-FAA6-4834-8F33-8FB6BF62D264"/>
+    <Simple CAAExposition = "L0" Magnitude = "VOLUME" Name = "IfcQto_DS_OtherSpatialStructureElementBaseQuantities_NetVolume" Protection = "Free" Type = "Double" Uuid = "3E841C37-209B-48DA-A528-6077FFCF9573"/>
+    <Simple CAAExposition = "L0" Magnitude = "MASS" Name = "IfcQto_DS_OtherSpatialStructureElementBaseQuantities_GrossWeight" Protection = "Free" Type = "Double" Uuid = "B9760EF7-B295-4AA4-BB61-FFCD175BF540"/>
+    <Simple CAAExposition = "L0" Magnitude = "MASS" Name = "IfcQto_DS_OtherSpatialStructureElementBaseQuantities_NetWeight" Protection = "Free" Type = "Double" Uuid = "C1773602-F578-44C5-BA96-CF5A294CFDBC"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcQto_DS_TerrainBaseQuantities" ScopeNames = "AecTerrain" Uuid = "ADFFA68E-827D-4A96-8E2A-DAFDDB9744C3">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcQto_DS_TerrainBaseQuantities_MethodOfMeasurement" Protection = "Free" Type = "String" Uuid = "ADFFA68E-827D-4A96-8E2A-14b1550b5f09"/>
+    <Simple CAAExposition = "L0" Magnitude = "AREA" Name = "IfcQto_DS_TerrainBaseQuantities_Area" Protection = "Free" Type = "Double" Uuid = "7179BB5C-2BDE-4BA6-8937-A0F5CD242214"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcQto_SiteBaseQuantities" ScopeNames = "AecSite" Uuid = "b5b8c46c-db98-4363-be53-52d5320a1e0f">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcQto_SiteBaseQuantities_MethodOfMeasurement" Protection = "Free" Type = "String" Uuid = "b5b8c46c-db98-4363-be53-14b1550b5f09"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcQto_SiteBaseQuantities_GrossPerimeter" Protection = "Free" Type = "Double" Uuid = "b32027ef-b286-41fa-9ba7-f1a0578c67f1"/>
+    <Simple CAAExposition = "L0" Magnitude = "AREA" Name = "IfcQto_SiteBaseQuantities_GrossArea" Protection = "Free" Type = "Double" Uuid = "d342173d-3066-4bf6-9fdd-0f6aabd9c039"/>
+  </Extension>
+</Package>

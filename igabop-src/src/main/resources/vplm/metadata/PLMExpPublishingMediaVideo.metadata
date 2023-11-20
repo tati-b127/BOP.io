@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2015, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" BelongsToModeler="PLMExpMedia3DExperience" Name="PLMExpPublishingMediaVideo"
+  Uuid="14AAFEA8-348C-4BAA-AE65-70D3C7341CC6"
+  UseNames="PLMExpMedia3DExperience"
+  CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <Class Name="MediaVideo3DExp"
+					 Uuid="F8DF7B26-FCAD-4E85-8684-D3C2C0769EA3"
+					 Abstract="No"
+					 SuperName="Media3DExperience"
+					 Abbreviation="pme"
+					 CustomerExposition="Programmer">
+
+    <Property Name="NewMajorRevisionAvailability"  Value="Yes"/>
+    <Property Name="ChangeMaturityAvailability"    Value="Yes"/>
+    <Property Name="DeleteAvailability"            Value="Yes"/>
+    <Property Name="LockUnlockAvailability"        Value="Yes"/>
+    <Property Name="TransferOwnershipAvailability" Value="Yes"/>
+    <Property Name="DuplicateAvailability"         Value="Yes"/>
+    <Property Name="EditPropertiesAvailability"    Value="Yes"/>
+    <Property Name="SaveAsNewAvailability"         Value="Yes"/>
+    <Property Name="EvolutionAvailability"         Value="No"/>
+    <Property Name="NewMinorRevisionAvailability"  Value="No"/>
+    <Property Name="Searchable"                    Value="Yes"/>    
+    <Property Name="IconName"                      Value="I_MediaVideo3DExp"/>
+    <Property Name="3DIconName"                    Value="CAT3DNav_MediaVideo3DExp.cgr"/>
+    <Property Name="Configurable"                  Value="No" />
+    <Property Name="Filtrable"                     Value="No" />
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+</Package>

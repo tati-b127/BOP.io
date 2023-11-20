@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2013, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" Name="InteractiveExperience" Uuid="A7A7F2FB-CE58-4073-A3BD-2A16F76E272A" UseNames="PLMExp3DExperience" CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+  <Class Name="VCXExperience" Uuid="EC104E9F-CEC3-40BE-865E-104B3A9F91BE" Abstract="No" SuperName="3DExperience" CustomerExposition="Programmer" Discipline="No" Specializable="Yes" CustomerExtensible="No" Abbreviation="pres">
+
+      <Property Name="NewMajorRevisionAvailability"  Value="Yes"/>
+      <Property Name="ChangeMaturityAvailability"    Value="Yes"/>
+      <Property Name="DeleteAvailability"            Value="Yes"/>
+      <Property Name="LockUnlockAvailability"        Value="Yes"/>
+      <Property Name="TransferOwnershipAvailability" Value="Yes"/>
+      <Property Name="DuplicateAvailability"         Value="Yes"/>
+      <Property Name="EditPropertiesAvailability"    Value="Yes"/>
+      <Property Name="SaveAsNewAvailability"         Value="Yes"/>
+      <Property Name="EvolutionAvailability"         Value="No"/>
+      <Property Name="NewMinorRevisionAvailability"  Value="No"/>
+      <Property Name="Searchable"                    Value="Yes"/>
+      <Property Name="Newable"                       Value="New"/>
+      <Property Name="IconName"                      Value="I_VCXExperience"/>
+      <Property Name="3DIconName"                    Value="PSM_GenerativeStressPLMNewSimu.cgr"/>
+      <Property Name="Configurable"                  Value="No" />
+      <Property Name="Filtrable"                     Value="No" />
+      <Property Name="KweNew_InstanciationMethod"    Value="VCXExperience_PLMNew"/>
+      <Method ImplementationType="None">
+        <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      </Method>
+    </Class>
+  
+</Package>
+
+

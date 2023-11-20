@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2012, All rights reserved -->
+<!-- Metadata for ODT. It is a specialization of PRODUCT package -->
+<!-- Do not modify this metadata. You must update it when the following mql is updated :
+The corresponding MQL is VPMDictionaryODT\CNext.internal\reffiles\DBMS\ddl\DICTestCustoProduct2.mql 
+ -->
+<Package
+     xmlns="PLMDictionaryUnified"
+     ModelerType="Top"
+     CustomerExposition="Programmer"
+     Name="PLMInsulation"
+     Uuid="994F94CB-D114-4EB0-B582-97DEA7965527"
+     UseNames="PLMEnsPhysical"
+     BelongsToModeler="PLMInsulation">
+  <CAAComment>
+    <ShortRole>Insulation Design Package</ShortRole>
+    <Role>This package describes Insulation Design data.</Role>
+  </CAAComment>
+
+  <Comment>Initial Creation: 2015-12-23 </Comment>
+  
+  <Class Name="InsInsulation"
+      Uuid="BB11347F-9395-4A5B-8E6E-F9AC02E9B13F"
+      Abbreviation="genIns"
+      Abstract="Yes"
+      CustomerExposition="Programmer"
+      SuperName="Insulation"
+      Discipline="Yes">
+    <Property Name="IconName"                     Value="I_PLM_GenericInsulation"/>
+    <Property Name="3DIconName"                   Value="I_PLMInsInsulation.cgr"/>
+    <Simple Name="V_InsFeature" Uuid="A9E3C9D3-1AF7-4806-AB7E-EC79CC1EA866" Type="Boolean" Protection="Internal" MultiValuated="No"/>
+  </Class>
+
+  <Class Name="InsSurfaceInsulation"
+      Uuid="C25B43AE-5139-40E4-8F2C-18EFFF9807A8"
+      Abbreviation="surfIns"
+      CustomerExposition="Programmer"
+      SuperName="InsInsulation"
+      Discipline="Yes"
+      CustomerExtensible="Yes">
+    <Property Name="TypeForDisciplineValuation"   Value="InsSurfaceInsulation"/>
+    <Property Name="KweDisciplineAttributeValue"  Value="InsSurfaceInsulation"/>
+    <Property Name="Newable"                      Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"   Value="CATEInsInsulationDelegateInstanciation"/>
+    <Property Name="IconName"                     Value="I_PLM_SurfaceInsulation"/>
+    <Property Name="3DIconName"                   Value="I_PLMInsSurfaceInsulation.cgr"/>
+  </Class>
+
+  <Class Name="InsProfileInsulation"
+      Uuid="E5ABDD57-03FD-43F8-A6E3-74B3E2F7F40E"
+      Abbreviation="profIns"
+      CustomerExposition="Programmer"
+      SuperName="InsInsulation"
+      Discipline="Yes"
+      CustomerExtensible="Yes">
+    <Property Name="TypeForDisciplineValuation"   Value="InsProfileInsulation"/>
+    <Property Name="KweDisciplineAttributeValue"  Value="InsProfileInsulation"/>
+    <Property Name="Newable"                      Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"   Value="CATEInsInsulationDelegateInstanciation"/>
+    <Property Name="IconName"                     Value="I_PLM_ProfileInsulation"/>
+    <Property Name="3DIconName"                   Value="I_PLMInsProfileInsulation.cgr"/>
+  </Class>
+
+</Package>

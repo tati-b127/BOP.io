@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR Equipment & Systems Internal Flow Connection -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2010, All rights reserved -->
+<Package BelongsToModeler="PLMFluidSystemsLogical" xmlns="PLMDictionaryUnified" ModelerType="Top" Name="PLMFluidSystemsPortSize" 
+  Uuid="cdfc9add-bd1e-4682-ae91-08bd12754c17"
+  UseNames="LPABSTRACT" CustomerExposition="Programmer">
+  <CAAComment>
+    <ShortRole>Fluid system port size management package</ShortRole>
+    <Role>This package describes the Equipment Domain connections on top of logical modeler.</Role>
+  </CAAComment>
+
+  <Comment>Initial Creation R209 2010-01-05 by JEC</Comment>
+  <Comment>Modification R212 2011-08-17 by JEC : UseScopes="LPABSTRACT RFLVPMLogical" instead of UseScopes="LPABSTRACT" </Comment>
+  <Comment>[V6R2013x] New Typing project: ZTB Apr 2012</Comment>
+
+  <!-- ***************************************************** -->
+  <!-- * PLMFluidSystemsInternalFlow (LPAbstractConnection)* -->
+  <!-- ***************************************************** -->
+
+	<Class Name="PLMFluidSysPortSize"
+	  Uuid="0237153c-2a7a-48e3-b39a-d4558a3f857d"
+	  Abstract="No"
+	  SuperName="LPAbstractConnection" OwnerTypes="RFLVPMLogicalReference"
+      CustomerExposition="Programmer" >
+		<CAAComment>
+			<ShortRole>PLM Fluid System Port size of logical piping parts</ShortRole>
+			<Role>PLM Fluid System Port size of logical piping parts</Role>
+		</CAAComment>
+
+		<Simple Name="V_NominalSize"
+				Type="String"
+				Uuid="85231466-d67d-49af-a9ef-4a1db02372d2"
+				MaxLength="40"
+				Protection="External"
+				CAAExposition="L1"
+				MultiValuated="Yes"
+				CollectionType="List"/>
+    <!-- OwnerTypes="RFLVPMLogicalReference"  Integrate this line if you want to declare the aggregation constraint -->
+
+		<Path Name="V_Part"
+						 Uuid="7f0c6d48-b0a4-45cf-9dc5-edbb9f0ba4f1"
+						 Semantics="Reference"
+						 RoleName="PLM_EnsGrouping_Member"
+          	 Type="SemanticRelation" AdaptativeToMinor="No"
+        		 SynchroSensitivity="None"
+		         RerouteOnEffectivityChange="No"
+						 MultiValuated="No"/>
+
+		<Path Name="V_Ports"
+						 Uuid="38b38b2a-72fd-4fc4-a8c7-cf51871e8d88"
+						 Semantics="Reference7"  Orientation="Out"
+						 RoleName="PLM_EnsGrouping_Group"
+						 MultiValuated="Yes"
+          	 Type="SemanticRelation" AdaptativeToMinor="No"
+        		 SynchroSensitivity="Last"
+		         RerouteOnEffectivityChange="No"
+						 Lower="0"
+						 Upper="-1"/>
+
+		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+
+	</Class>
+
+	<Class Name="Piping_Port_Size"
+		 Uuid="4280920f-251b-44ed-b2d8-86a57f89418a"
+		 SuperName="PLMFluidSysPortSize"
+		 Discipline="Yes"
+		 CustomerExposition="Programmer">
+		<Property Name="TypeForDisciplineValuation" Value="Piping_Port_Size"/>
+	</Class>
+  </Package>

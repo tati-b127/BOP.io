@@ -1,0 +1,117 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR DELMIA Production System Application -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified"
+         ModelerType="Top"
+         Name="DELLmiProductionBufferOperation"
+	       Uuid="d3314e3a-5f4a-43f1-9cd40dac5ab65fe9"
+         BelongsToModeler="DELLmiProductionSystem"
+	       UseNames="DELLmiProductionOperationPPR"
+         CustomerExposition="Programmer" >
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>PLM DELMIA Buffer Operation </ShortRole>
+    <Role>This package describes the PLM DELMIA Buffer Operation model on top of DELLmiProductionOperationPPR</Role>
+  </CAAComment>
+
+  <Comment>last update 2012-01-20</Comment>
+
+  <Class Name="DELLmiBufferOperationReference"
+		     Uuid="3c27aef2-a5f2-4efa-b64f42c8f3be368b"
+     		 Abstract="No"
+         SuperName="DELLmiOperationPPRReference"
+         CustomerExposition="Programmer"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         CreateInstName="DELLmiBufferOperationInstance"
+         Abbreviation="bop"
+         InstantiationOwnerTypes="BufferSystem">
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELMPProdSystemAdvDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELLmiBufferOperationInstance"/>
+    <Property Name="IconName" Value="I_PPRSeqBuffer"/>
+    <Property Name="3DIconName" Value="I_PPRSeqBuffer.cgr"/>
+    <Property Name="Newable" Value="Insert_CAA"/>
+    <Property Name="Searchable" Value="Yes"/>
+
+    <CAAComment>
+      <ShortRole>PLM DELMIA Buffer Operation Reference</ShortRole>
+      <Role>PLM DELMIA Buffer Operation Reference</Role>
+    </CAAComment>
+
+    <Simple Name="V_Capacity"
+            Uuid="2493cae8-7993-4620-a05153f73e998894"
+            Type="Integer"
+            MultiValuated="No"
+            Protection="Free"
+            Faceted="Yes"
+            CAAExposition="L0">
+      <Property Name="SIXW" Value="ds6w:quantityCapacity"/>
+    </Simple>
+
+    <Simple Name="V_RecorderLevel"
+            Uuid="94539886-6ea2-4211-b58cfda70670b62c"
+            Type="Integer"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0">
+    </Simple>
+
+    <Simple Name="V_InitialStock"
+            Uuid="4ae57f1a-c8bc-409c-be9f77354f0b2cb3"
+            Type="Integer"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0">
+    </Simple>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+
+
+  </Class>
+
+  <RelationClass Name="DELLmiBufferOperationInstance"
+		     Uuid="3422f97b-fd03-4cbc-a44ca2c44574cc19"
+		     Abstract="No"
+         SuperName="DELLmiOperationPPRInstance"
+         CustomerExposition="Programmer"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         >
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELMPProdSystemAdvDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELLmiBufferOperationInstance"/>
+
+    <CAAComment>
+      <ShortRole>PLM DELMIA Buffer Operation Instance. Specialization is not supported yet.</ShortRole>
+      <Role>PLM DELMIA BufferOperation Instance</Role>
+    </CAAComment>
+
+    <Volatile Name="Reference"
+              Uuid="16ED91C2-C8A2-428b-930C-3E0859EB711B"
+              Accessor="PLMModelerReferenceKweAttribute"
+              TypeName="DELLmiBufferOperationReference"
+              AccessMode="ReadOnly" />
+
+    <SubClause Name="to"   TargetName="DELLmiBufferOperationReference"/>
+    
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+
+
+  </RelationClass>
+
+</Package>

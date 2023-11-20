@@ -1,0 +1,50 @@
+NAVIGATE     
+
+T0.PLMID, T1.PLMID, T2.PLMID
+ 
+
+FROM      
+
+DELAsmAssemblyModelCnx/DELAsmProcessCanUseCnx T0,
+
+PLMDmtDocument/PLMDMTDocument T1,
+
+PRODUCTCFG/VPMReference T2
+
+FROM_ROOTS[?1?]
+
+ON ( RELATION(     
+
+FROM=PLMCORE/PLMCoreReference     
+
+TO=DELAsmAssemblyModelCnx/DELAsmProcessCanUseCnx 
+
+THROUGH=POINTEDBY )
+
+WITH QUALITY_FILTER(CATEGORY=ISOWNEDBY))
+
+
+
+THEN ((RELATION(
+
+FROM=DELAsmAssemblyModelCnx/DELAsmProcessCanUseCnx
+
+TO=PLMDmtDocument/PLMDMTDocument
+
+THROUGH=POINTSTO))
+
+
+OR
+
+(RELATION(
+
+FROM=DELAsmAssemblyModelCnx/DELAsmProcessCanUseCnx
+
+TO=PRODUCTCFG/VPMReference
+
+THROUGH=POINTSTO)))
+
+ITER=1
+;
+
+

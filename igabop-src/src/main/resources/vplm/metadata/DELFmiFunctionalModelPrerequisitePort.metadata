@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2006, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified"
+         ModelerType="Top"
+         BelongsToModeler="DELFmiFunctionalModel"
+         Name="DELFmiFunctionalModelPrerequisitePort"
+         Uuid="D235D6E9-DE3B-4529-9AB443BAF6231D49"
+         UseNames="PLMCORE"
+         CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>Process Function Modeler</ShortRole>
+    <Role>"DELFmiFunctionalModelPrerequisitePort" package describes Process Function Prerequisite Port</Role>
+  </CAAComment>
+
+  <Class Name="DELFmiProcessPrerequisitePort"
+      Uuid="D96FF99F-2F51-4A77-A5A268AA4E5B7129"
+      SuperName="PLMPort"
+      CustomerExposition="Programmer"
+      CustomerExtensible="No"
+      Specializable="No"
+      Abstract="No"
+      OwnerTypes="DELFmiFunctionReference"        
+         >
+
+    <Property Name="IconName" Value="I_ProcessPrerequisitePort"/>
+
+    <CAAComment>
+      <ShortRole>Defines Process Function Prerequisite Port</ShortRole>
+      <Role>Used for exposition of the status of the process purpose and to connect prerequisite constraints: possible values are "IN" or "OUT"?</Role>
+    </CAAComment>
+
+    <Simple Name="V_IOType" Uuid="6A0E8B30-4632-433F-AD249EFE67E59273" Type="Integer" Protection="External" CAAExposition="L0" DefaultValue="1" Faceted="Yes">
+      <Property Name="RangeAsEnumName" Value="V_IOType_Enum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="In;Out"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+      </Range>
+      <CAAComment>
+        <ShortRole>Defines Process Function Prerequisite Port Type</ShortRole>
+        <Role>Defines the type of the Port (In or Out)</Role>
+      </CAAComment>
+
+    </Simple>
+
+      <CAAComment>
+        <ShortRole>Defines Process Function Prerequisite Port owner</ShortRole>
+        <Role>Defines the type of the Port owner i.e. Process Function Reference</Role>
+      </CAAComment>
+
+    <Path Name="PMX_PortOfPort"
+        Uuid="879ac5fd-e929-4170-979cb6a7e39b48ea"
+        MultiValuated="No"
+        RoleName="Publish"
+        Type="SemanticRelation" AdaptativeToMinor="Yes"
+        SynchroSensitivity="PathAndLast"
+        RerouteOnEffectivityChange="No" Orientation="In"
+        Semantics="Reference3"/>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+  </Class>
+
+</Package>

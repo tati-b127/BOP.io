@@ -1,0 +1,39 @@
+/*********************************************************************************************************************************/
+/* Export procedure for Physical Resource                                                                                        */
+/* --> Retrieves all agregated PLM objects (References, Ref Instances, Rep References, Rep Instances, Ports and Connections)     */
+/*********************************************************************************************************************************/
+#Prog Resource_TSO_References( iPLMIDSet : #In PLMIDSet, oPLMIDSet : #Out PLMIDSet ) : VoidType
+{
+	let PLMRouteSetPortCnx (PLMRouteSet)
+	let PLMRouteSetAttachedDocCnx (PLMRouteSet)
+	let PLMRouteSetShifts (PLMRouteSet)
+
+	let PLMIDProductRef (PLMIDSet)	
+	let PLMIDPortCnx (PLMIDSet)	
+	let PLMIDProductTSO (PLMIDSet)	
+	let PLMIDSetAttachedDocCnx (PLMIDSet)
+	let PLMIDShifts (PLMIDSet)
+
+	let restrictedPLMIDSet (PLMIDSet)
+
+	PLMIDProductRef = Restrict( iPLMIDSet, "PRODUCTCFG/VPMReference")
+	
+	/* Retrieves all aggregated representations (references / instances) */
+	PLMIDProductTSO = ExecutePLMProcedure("VPMEditor_TSO_VPMReferenceVPMRepReference", PLMIDProductRef)
+	
+	/* Add PLMDocConnections without documents pointed by these PLMDocConnections*/
+	PLMRouteSetAttachedDocCnx = ExecutePLMFunction("PLMDocConnection","PLMDocConnection_retrieveAllConnections",PLMIDProductRef)
+	PLMIDSetAttachedDocCnx = Ids(PLMRouteSetAttachedDocCnx,"all")
+
+	/* Retrieves all aggregated connections for PRODUCTS and RESOURCES */
+	PLMRouteSetPortCnx = ExecutePLMFunction("DELPPRContextModel", "ENOPcx_PPRContext_addAllConnections", PLMIDProductRef)
+	PLMIDPortCnx = Ids(PLMRouteSetPortCnx,"all")
+	
+	/* Retrieves all Shifts from RESOURCES including capable and candidate */ 
+	PLMRouteSetShifts = ExecutePLMFunction("DELPPRContextModel", "ENORsc_Resource_addShifts", restrictedPLMIDSet)
+	PLMIDShifts = Ids(PLMRouteSetShifts)
+
+	
+	/* Returns all PLMIds */
+	oPLMIDSet = iPLMIDSet + PLMIDProductTSO + PLMIDSetAttachedDocCnx + PLMIDPortCnx  + PLMIDShifts
+}

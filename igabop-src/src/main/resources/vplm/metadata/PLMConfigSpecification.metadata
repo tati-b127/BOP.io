@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2004, All rights reserved -->
+
+<!-- History
+    V6R2010 Added Procedures & Functions for Export
+    V6R2011 Added V_CriterionStatus on SpecificationValue
+-->
+
+<Package xmlns="PLMDictionaryTop" ModelerType="Top" Name="PLMConfigSpecification"
+    Uuid="BA357FBF-FCA0-0000-02800311EC000000"
+    UseNames="PLMCORE" UseScopes="PLMConfigVariabilitySpace"
+    BelongsToModeler="Configuration"
+   >
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+        <ShortRole>The Specification Configuration Component Metadata.</ShortRole>
+        <Role>This package includes all the entities of Specification Configuration Model.</Role>
+    </CAAComment>
+
+    <!-- ************************* -->
+    <!-- CLASS PLMCfgSpecification -->
+    <!-- ************************* -->
+
+    <Class Name="PLMCfgSpecification"
+        Uuid="BA357FBF-FCA1-0000-02800311EC000000"
+        SuperName="PLMCoreReference"
+        Abstract="No"
+           CustomerExposition="Programmer"
+        >
+        
+        <CAAComment>
+            <ShortRole>The specification class.</ShortRole>
+            <Role>The specification class.</Role>
+        </CAAComment>
+        
+        <!-- Properties -->
+		
+            <Property Name="Searchable" Value="No"/>
+			
+        <!-- Overloaded Attributes -->
+
+        <!-- New Attributes -->
+
+            <Simple Name="V_CfgKey"
+                Uuid="BA357FBF-FCA2-0000-02800311EC000000"
+                Type="Binary"
+                MaxLength="16"
+                MultiValuated="No"
+                Protection="Internal">
+            </Simple>
+        
+        <!-- Constraints -->
+
+            <!-- The (Name)=(PLM_ExternalID) identify a specification -->
+            <IdentifierSet Name="Identifier"
+                           Uuid="95FA9C7B-8F85-4022-B4EFAB3CA9F222F8"
+                           IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB"
+                           IdentifierNames="PLM_ExternalID"/>
+
+
+        <!-- *********************** -->
+        <!-- PROCEDURES Declaration  -->      
+        <!-- *********************** -->
+
+	  <Method ImplementationType="None">
+		<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+	  </Method>
+
+    </Class>
+
+    <!-- ****************************** -->
+    <!-- CLASS PLMCfgSpecificationUsage -->
+    <!-- ****************************** -->
+
+    <RelationClass Name="PLMCfgSpecificationUsage"
+        Uuid="BA357FC0-1B47-0000-02800311EC000000"
+        SuperName="PLMCoreInstance"
+        Abstract="No"
+           CustomerExposition="Programmer"
+        >
+        
+        <CAAComment>
+            <ShortRole>The specification instance class.</ShortRole>
+            <Role>The specification instance class.</Role>
+        </CAAComment>
+
+        <!-- Overloaded Attributes -->
+
+      <SubClause Name="from" TargetName="PLMCfgVariabilitySpace"/>
+      <SubClause Name="to"   TargetName="PLMCfgSpecification"/>
+                
+        <!-- New Attributes -->
+
+        <!-- Constraints -->
+
+        <!-- *********************** -->
+        <!-- PROCEDURES Declaration  -->      
+        <!-- *********************** -->
+
+	  <Method ImplementationType="None">
+		<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+	  </Method>
+
+    </RelationClass>
+
+    <!-- ****************************** -->
+    <!-- CLASS PLMCfgSpecificationValue -->
+    <!-- ****************************** -->
+
+    <Class Name="PLMCfgSpecificationValue"
+        Uuid="BA357FC0-63BC-0000-02800311EC000000"
+        SuperName="PLMPort"
+        Abstract="No"
+           CustomerExposition="Programmer"
+        >
+   <Property Name="OwnerTypes" Value="PLMCfgSpecification"/>
+      <!-- OwnerTypes="PLMCfgSpecification"  Integrate this line if you want to declare the aggregation constraint-->
+
+      <CAAComment>
+            <ShortRole>The specification value class.</ShortRole>
+            <Role>The specification value class.</Role>
+        </CAAComment>
+        
+        <!-- Overloaded Attributes --> 
+                        
+        <!-- New Attributes -->   
+         
+            <Simple Name="V_CfgKey"
+                Uuid="BA357FC0-93A8-0000-02800311EC000000"
+                Type="Binary"
+                MaxLength="16"
+                MultiValuated="No"
+                Protection="Internal">
+            </Simple>
+			
+            <Simple Name="V_CriterionStatus"
+                Uuid="5FB61FBE-8AA5-4751-87B10C0C9E960D93"
+                Type="String"
+                MaxLength="128"
+                MultiValuated="No"
+                Protection="Free">
+            </Simple>
+                    
+        <!-- Constraints 
+
+            <ContextKey
+                 Name="contextual_id"
+                 Uuid="974FB48D-E5FF-49e2-881658DE4D1FFD39"
+                 SimpleName="PLM_ExternalID"
+                 SimpleRef="86A2CB5C-4D50-4593-8489DF068C40FAAB" /> -->
+
+        <!-- *********************** -->
+        <!-- PROCEDURES Declaration  -->      
+        <!-- *********************** -->
+
+        <Method ImplementationType="None">
+            <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+        </Method>
+
+    </Class>
+
+</Package>
+
+ 

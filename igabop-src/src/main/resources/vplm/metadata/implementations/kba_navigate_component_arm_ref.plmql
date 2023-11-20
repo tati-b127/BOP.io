@@ -1,0 +1,21 @@
+NAVIGATE
+
+   	T0.PLMID			, T1.PLMID ,
+   	T0.PLM_ExternalID	, T1.PLM_ExternalID
+
+FROM
+
+	PLMCORE/PLMCoreReference T0 ,
+
+	PLMKbaAppliComponent/PLMKbaAppliComponent T1
+
+FROM_ROOTS
+
+	[?1?]
+
+ON
+
+	(RELATION (FROM=PLMKbaAppliComponent/PLMKbaAppliComponent TO=PLMCORE/PLMCoreReference THROUGH=POINTSTO)
+	 WITH QUALITY_FILTER (CATEGORY=Reference AND ROLE=KWE_SetupData_Resource) )
+
+ITER = 1 ;

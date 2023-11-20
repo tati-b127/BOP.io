@@ -1,0 +1,119 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR DELMIA Production System Application -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified"
+         ModelerType="Top"
+         Name="DELLmiProductionWorkplanSystem"
+	       Uuid="9E1A8E00-151C-48b6-886D-7633978D86E8"
+         BelongsToModeler="DELLmiProductionSystem"
+         UseNames="DELLmiProductionSystemPPR"
+         UseProcedures="ENOPsm_Procedures"
+         CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>PLM DELMIA Workplan System </ShortRole>
+    <Role>This package describes the PLM DELMIA Workplan System model on top of DELLmiProductionSystemPPR</Role>
+  </CAAComment>
+
+  <Comment>creation 2012-03-08</Comment>
+
+  <Class Name="DELLmiWorkPlanSystemReference"
+		     Uuid="87B6C806-C5AA-4bca-8508-FBF3C5FD380F"
+		     Abstract="No"
+         SuperName="DELLmiPPRSystemReference"
+         CustomerExposition="Programmer"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         CreateInstName="DELLmiWorkPlanSystemInstance"
+         Abbreviation="wpl"
+         InstantiationOwnerTypes="DELLmiWorkPlanSystemReference">
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELMPProdSystemAdvDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELLmiWorkPlanSystemInstance"/>
+    <Property Name="IconName" Value="I_PPRWorkplanSystem"/>
+    <Property Name="3DIconName" Value="I_PPRWorkplanSystem.cgr"/>
+    <Property Name="Newable" Value="All_CAA"/>
+    <Property Name="Searchable" Value="Yes"/>
+
+
+    <CAAComment>
+      <ShortRole>PLM DELMIA Workplan System Reference</ShortRole>
+      <Role>PLM DELMIA Workplan System Reference</Role>
+    </CAAComment>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExchangeScope.meth#XPDM"/>
+        <UsedProcedure href="ENOPsm_Procedures.proc#ProductionSystem_ExchangeXPDM_GetAllEntities"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExchangeScope.meth#StandAlone"/>
+        <UsedProcedure href="ENOPsm_Procedures.proc#ProductionSystem_ExchangeXPDM_StandAlone"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExchangeScope.meth#AllLevelNoRsc"/>
+        <UsedProcedure href="ENOPsm_Procedures.proc#ProductionSystem_ExchangeXPDM_AllLevelNoRsc"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExchangeScope.meth#SupplyChainSourcing"/>
+        <UsedProcedure href="ENOPsm_Procedures.proc#ProductionSystem_ExchangeXPDM_SupplyChainSourcing"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExchangeScope.meth#GetAllEntitiesWithRootRscScope"/>
+        <UsedProcedure href="ENOPsm_Procedures.proc#ProductionSystem_ExchangeXPDM_GetAllEntitiesWithRootRscScope"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExchangeScope.meth#XPDM2"/>
+        <UsedProcedure href="ENOPsm_Procedures.proc#ProductionSystem_ExchangeXPDM_XPDM2"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExchangeScope.meth#Execution"/>
+        <UsedProcedure href="ENOPsm_Procedures.proc#ProductionSystem_ExchangeXPDM_Execution"/>
+      </ProcedureForUsage>
+    </Method>
+
+  </Class>
+
+  <RelationClass Name="DELLmiWorkPlanSystemInstance"
+		     Uuid="16F8886E-6BD1-4f81-8FEE-2E5C42BA1B3D"
+		     Abstract="No"
+         SuperName="DELLmiPPRSystemInstance"
+         CustomerExposition="Programmer"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         >
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELMPProdSystemAdvDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELLmiWorkPlanSystemInstance"/>
+
+    <CAAComment>
+      <ShortRole>PLM DELMIA Workplan System Instance. Specialization is not supported yet.</ShortRole>
+      <Role>PLM DELMIA Workplan System Instance</Role>
+    </CAAComment>
+
+    <Volatile Name="Reference"
+              Uuid="F7B14E29-9D9E-44dc-B54E-05489178CE02"
+              Accessor="PLMModelerReferenceKweAttribute"
+              TypeName="DELLmiWorkPlanSystemReference"
+              AccessMode="ReadOnly" />
+
+    <SubClause Name="to"   TargetName="DELLmiWorkPlanSystemReference"/>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+
+  </RelationClass>
+
+</Package>

@@ -1,0 +1,71 @@
+<?xml version="1.0" ?>
+<ProcedurePackage 
+	xmlns="PLMDictionaryProcedure"
+	Name="ENOPsm_Procedures">
+			
+	<Procedure Name="ProductionSystem_ExchangeXPDM_GetAllEntities">
+		<Implementation Name="ProductionSystem_ExchangeXPDM_GetAllEntities" FileLocation="ProductionSystem_ExchangeXPDM_GetAllEntities.KProc" Language="EKL"/>
+		<Signature href="ENOPsm_ProcedureSignatureExchange"/>
+	</Procedure>
+
+	<Procedure Name="ProductionSystem_ExchangeXPDM_StandAlone">
+		<Implementation Name="ProductionSystem_ExchangeXPDM_StandAlone" FileLocation="ProductionSystem_ExchangeXPDM_StandAlone.KProc" Language="EKL"/>
+		<Signature href="ENOPsm_ProcedureSignatureExchange"/>
+	</Procedure>
+
+	<Procedure Name="ProductionSystem_ExchangeXPDM_AllLevelNoRsc">
+		<Implementation Name="ProductionSystem_ExchangeXPDM_AllLevelNoRsc" FileLocation="ProductionSystem_ExchangeXPDM_AllLevelNoRsc.KProc" Language="EKL"/>
+		<Signature href="ENOPsm_ProcedureSignatureExchange"/>
+	</Procedure>
+
+	<Procedure Name="ProductionSystem_ExchangeXPDM_SupplyChainSourcing">
+		<Implementation Name="ProductionSystem_ExchangeXPDM_SupplyChainSourcing" FileLocation="ProductionSystem_ExchangeXPDM_SupplyChainSourcing.KProc" Language="EKL"/>
+		<Signature href="ENOPsm_ProcedureSignatureExchange"/>
+	</Procedure>
+
+  <Procedure Name="ProductionSystem_ExchangeXPDM_GetAllEntitiesWithRootRscScope">
+    <Implementation Name="ProductionSystem_ExchangeXPDM_GetAllEntitiesWithRootRscScope" FileLocation="ProductionSystem_ExchangeXPDM_GetAllEntitiesWithRootRscScope.KProc" Language="EKL"/>
+    <Signature href="ENOPsm_ProcedureSignatureExchange"/>
+  </Procedure>
+
+  <Procedure Name="ProductionExecSystem_ExchangeXPDM_GetAllEntities">
+		<Implementation Name="ProductionExecSystem_ExchangeXPDM_GetAllEntities" FileLocation="ProductionExecSystem_ExchangeXPDM_GetAllEntities.KProc" Language="EKL"/>
+		<Signature href="ENOPsm_ProcedureSignatureExchange"/>
+	</Procedure>
+
+  <Procedure Name="ProductionSystem_ExchangeXPDM_XPDM2">
+    <Implementation Name="ProductionSystem_ExchangeXPDM_XPDM2" FileLocation="ProductionSystem_ExchangeXPDM_XPDM2.KProc" Language="EKL"/>
+    <Signature href="ENOPsm_ProcedureSignatureExchange"/>
+  </Procedure>
+
+  <Procedure Name="ProductionSystem_ExchangeXPDM_Execution">
+    <Implementation Name="ProductionSystem_ExchangeXPDM_Execution" FileLocation="ProductionSystem_ExchangeXPDM_Execution.KProc" Language="EKL"/>
+    <Signature href="ENOPsm_ProcedureSignatureExchange"/>
+  </Procedure>
+
+  <Procedure Name="ProductionSystem_ExportAsDesign">
+    <Implementation Name="ProductionSystem_ExportAsDesign" FileLocation="ProductionSystem_ExportAsDesign.KProc" Language="EKL"/>
+    <Signature href="ENOPsm_ProcedureSignatureExchange"/>
+  </Procedure>
+
+  <Procedure Name="TimeAnalysis_ExportAsDesign">
+    <Implementation Name="TimeAnalysis_ExportAsDesign" FileLocation="TimeAnalysis_ExportAsDesign.KProc" Language="EKL"/>
+    <Signature href="ENOPsm_ProcedureSignatureExchange"/>
+  </Procedure>
+
+  <Procedure Name="Process_TSO_References">
+    <Implementation Name="Process_TSO_References" FileLocation="Process_TSO_References.KProc" Language="EKL"/>
+    <Signature href="ENOPsm_ProcedureSignatureExchange"/>
+  </Procedure>
+
+  <Signature id="ENOPsm_ProcedureSignatureExchange">
+		<Parameter Name="InputIds" Lower="0" Upper="-1" MultiValuated="Yes" Direction="in" DataType="PLMId"/>
+		<Parameter Name="OutputIds" Lower="0" Upper="-1" MultiValuated="Yes" Direction="out" DataType="PLMId"/>
+	</Signature>
+
+  <Procedure Name="ProductionPlan_ExchangeXPDM_XPDM2">
+    <Implementation Name="ProductionPlan_ExchangeXPDM_XPDM2" FileLocation="ProductionPlan_ExchangeXPDM_XPDM2.KProc" Language="EKL"/>
+    <Signature href="ENOPsm_ProcedureSignatureExchange"/>
+  </Procedure>
+
+</ProcedurePackage>

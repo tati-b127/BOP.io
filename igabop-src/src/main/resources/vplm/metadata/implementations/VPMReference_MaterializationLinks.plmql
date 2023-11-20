@@ -1,0 +1,9 @@
+NAVIGATE T1.PLMID, T1.PLM_ExternalID 
+FROM DELFmiFunctionalModel/DELFmiFunctionReference T1, DELFmiFunctionalModelPrerequisitePort/DELFmiProcessPrerequisitePort T2 
+FROM_ROOTS [?1?] 
+ON RELATION(FROM=PRODUCTCFG/VPMReference TO=DELFmiFunctionalModelPrereqMatCnx/DELFmiProcessPrereqMaterializationCnx THROUGH=POINTEDBY)
+THEN RELATION(FROM=DELFmiFunctionalModelPrereqMatCnx/DELFmiProcessPrereqMaterializationCnx TO=DELFmiFunctionalModelPrerequisitePort/DELFmiProcessPrerequisitePort THROUGH=POINTSTO)
+THEN RELATION(FROM=DELFmiFunctionalModelPrerequisitePort/DELFmiProcessPrerequisitePort TO=DELFmiFunctionalModel/DELFmiFunctionReference THROUGH=POINTSTO)
+WITH QUALITY_FILTER(CATEGORY=ISOWNEDBY)
+WITH ATTRIBUTE_FILTER T2.V_IOType='2'
+ITER=1 ;

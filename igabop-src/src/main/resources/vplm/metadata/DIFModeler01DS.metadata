@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY FOR DIFModeler01 - Custo sample     -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2010, All rights reserved -->
+
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" Name="DIFModeler01DS"
+    Uuid="4C6FAAF0-1115-469d-9EE2-36AFD3A2CB2F"
+    UseNames="DIFModeler01">
+
+<Property Name="OptionalInstallation" Value="Yes" /> 
+  <CAAComment>
+    <ShortRole>DIF model 01 - Layout - Custo Sample Package</ShortRole>
+    <Role>This package describes a sample customization of Dif Model 01 - Layout</Role>
+  </CAAComment>
+
+  <!-- ************************************************ -->
+  <!-- *  Sample custo of DIFLayout (PLMCoreReference)* -->
+  <!-- ************************************************ -->
+
+  <Class Name="DIFLayoutDS"
+      Uuid="0F518D03-B771-40c3-8E42-F1AB002DFC66"
+      SuperName="DIFLayout"
+      SuperRef="CB9826E8-0056-406A-8CA4-0A47A18E7210"
+      CAAExposition="L0">
+    
+    <CAAComment>
+      <ShortRole>Layout Reference</ShortRole>
+      <Role>Layout</Role>
+    </CAAComment>
+
+
+    <IdentifierSet Name="Identifier" 
+                   Uuid="A5C4B51B-F3D8-4e17-ADB7-C61A4BF621A7" 
+                   IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755" 
+                   IdentifierNames="PLM_ExternalID V_version"/> 
+  </Class>
+  <!-- ********************************************************* -->
+  <!-- FUNCTIONS Declarations : here are delcared PLMQL Functions -->
+
+  <!-- ********************************************************* -->
+
+  <!-- DISCIPLINES DECLARATIONS -->
+
+  <!-- ********************************************************* -->
+</Package>

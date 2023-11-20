@@ -1,0 +1,164 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2007, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" 
+   Name="PLMFst_FlexibleFasteners" 
+   UseNames="PLMFst_Fasteners"
+   ModelerType="Top" 
+   BelongsToModeler="PLMFst_Fasteners" 
+   CustomerExposition="Programmer"
+   Uuid="4f1d6d82-a720-46e9-9b70-782c5737ee9d">
+	<CAAComment>              
+		<ShortRole>PLM Fastener Modeler Package</ShortRole>
+		<Role>This package describes Flexible Fasteners</Role>
+	</CAAComment>
+	<Comment>last update 2013-07-18</Comment>  
+  	<RelationClass Name="PLMFst_FlexibleFastenerInstance"
+		Uuid="9b6be82b-2626-4541-9eb2-a1ceb6f03c27"
+		Abstract="No" 
+		SuperName="SpotInstance"
+		Discipline="Yes"
+		Specializable="Yes"
+		CustomerExposition="Programmer">
+		<Property Name="IconName" Value="I_Fst_FastenerFlexible"/>
+	    <Property Name="3DIconName" Value="I_Fst_FastenerFlexible.cgr"/>
+		<Property  Name="XPGApplyDisciplineOnInstance"  Value="Yes"/>
+		<Simple Name="V_FastenerLength" 
+	         	Uuid="17442c25-8400-4a73-8d7f-1ec9720ad4e5"
+	         	Type="Double" 
+				Protection="ExternalIN">
+	         	<CAAComment>
+		            	<ShortRole>Overriden length of the Fastener</ShortRole>
+         		</CAAComment>
+		</Simple>
+	</RelationClass>
+
+	<Class Name="PLMFst_FlexibleFastenerReference"
+		Abstract="No" 
+		Uuid="e35c615c-24b7-47e2-b6e9-a53a40b11a8d"
+		Abbreviation="sflex"
+		SuperName="SpotFastenerAssyWithSecondary"
+		Discipline="Yes"
+		Specializable="Yes"
+		CustomerExposition="Programmer"
+		CustomerExtensible="Yes"
+		CreateInstName="PLMFst_FlexibleFastenerInstance" >
+		<Property Name="IconName" Value="I_Fst_FastenerFlexible"/>
+	    <Property Name="3DIconName" Value="I_Fst_FastenerFlexible.cgr"/>
+        <Property Name="KweNew_InstanciationMethod" Value="CATFstFlexibleFastenerTemplateDelegateInstanciation"/>
+		<Property Name="KweNew_ReturnedType" Value="SpotInstance"/>
+		<Property Name="Newable" Value="All"/>
+		<Property  Name="XPGApplyDisciplineOnInstance"  Value="Yes"/>
+    		<CAAComment>
+		         <ShortRole>Flexible reference</ShortRole>
+		         <Role>This PLM entity describes the type that will be used to represent a flexible fastener</Role>
+	        </CAAComment>
+		<Simple Name="V_FstTmpID" 
+         		Uuid="8eca340e-1062-458e-b8a5-a93cb8d94e25"
+         		Type="String" 
+	      		MaxLength="32" 
+         		Protection="Internal">
+       			<CAAComment>
+         			<ShortRole>V_FstTmpID a uuid that will be used to link a template to the different references</ShortRole>
+       			</CAAComment>
+		</Simple>
+	</Class>
+	<Extension Name="PLMFst_FlexibleFastenerReferenceThicknessExt" 
+	   Uuid="53c41e2b-c339-46f0-8a9a-eb3c524b6020" 
+		CustomerExposition="Programmer"
+	   ScopeNames="PLMFst_FlexibleFastenerReference">
+		<CAAComment>         
+			<ShortRole>Flexible reference thickness Extension</ShortRole>
+	   		<Role>This extension will enable to add a Fastener Length for reference corresponding to a specific thickness</Role>
+      		</CAAComment>
+		<Simple Name="V_FastenerLength" 
+	         	Uuid="c9c8298e-07ca-4579-8de7-2a98b49ca564"
+	         	Type="Double" 
+	         	Protection="External">
+	         	<CAAComment>
+		            	<ShortRole>length of the Fastener geometry</ShortRole>
+         		</CAAComment>
+		</Simple>
+	</Extension>
+
+	<Extension Name="PLMFst_FlexibleReferenceToleranceExt" 
+	   Uuid="4201db09-47e8-4098-ac65-26b2b92aab79" 
+		CustomerExposition="Programmer"
+	   ScopeNames="PLMFst_FlexibleFastenerReference">
+		<CAAComment>         
+			<ShortRole>Flexible reference tolerance Extension</ShortRole>
+	   		<Role>This extension will enable to define the range of references that must be defined</Role>
+      		</CAAComment>
+      		<Simple Name="V_Tolerance" 
+				Uuid="84007b6d-a372-421e-8d7b-5fdb8a622ddd"
+	      		Type="Double" 
+				Protection="ExternalIN">
+			<CAAComment>           
+			   <ShortRole>Acceptable delta with fastener length</ShortRole>
+		   	</CAAComment>
+		</Simple>
+      		<Simple Name="V_Range_Inf" 
+				Uuid="8bc56c22-b01e-4537-9dbe-159d77091b0a"
+	      		Type="Double" 
+				Protection="ExternalIN"> 
+			<CAAComment>           
+			   <ShortRole>Lower boundary of the reference to generate</ShortRole>
+		   	</CAAComment>
+		</Simple>
+      		<Simple Name="V_Range_Sup" 
+				Uuid="c53b50bb-265b-44f3-9f8b-1440e3c0a88e"
+	      		Type="Double" 
+				Protection="ExternalIN">
+			<CAAComment>           
+			   <ShortRole>Upper boundary of the reference to generate</ShortRole>
+		   	</CAAComment>
+		</Simple>
+	</Extension>
+
+  <RelationClass Name="PLMFst_LocatorPatchInstance"
+		Uuid="54f95291-e77d-4b96-afee-74199f5e59a8"
+		Abstract="No" 
+		SuperName="SpotInstance"
+		Discipline="Yes"
+		Specializable="Yes"
+		CustomerExposition="Programmer">
+		<Property Name="IconName" Value="I_Fst_LocatorPatch"/>
+	        <Property Name="3DIconName" Value="I_Fst_LocatorPatch.cgr"/>
+		<Property  Name="XPGApplyDisciplineOnInstance"  Value="Yes"/>
+
+	</RelationClass>
+
+	<Class Name="PLMFst_LocatorPatchReference"
+		Abstract="No" 
+		Uuid="22da171b-5146-48f6-b9d5-446a4c108e52"
+		Abbreviation="sloc"
+		SuperName="SpotFastenerAssy"
+		Discipline="Yes"
+		Specializable="Yes"
+		CustomerExposition="Programmer"
+		CustomerExtensible="Yes"
+		CreateInstName="PLMFst_LocatorPatchInstance" >
+		<Property Name="IconName" Value="I_Fst_LocatorPatch"/>
+	    <Property Name="3DIconName" Value="I_Fst_LocatorPatch.cgr"/>
+        <Property Name="KweNew_InstanciationMethod" Value="CATFstLocatorPatchDelegateInstanciation"/>
+		<Property Name="KweNew_ReturnedType" Value="SpotInstance"/>
+		<Property Name="Newable" Value="All"/>
+		<Property  Name="XPGApplyDisciplineOnInstance"  Value="Yes"/>
+    		<CAAComment>
+		         <ShortRole>Locator Patch reference</ShortRole>
+		         <Role>This PLM entity describes the type that will be used to represent a Locator Patch</Role>
+	        </CAAComment>
+		<Simple Name="V_FstTmpID" 
+         		Uuid="a6a2ca76-5d08-49ca-80b4-215cdb044fe1"
+         		Type="String" 
+	      		MaxLength="32" 
+         		Protection="Internal">
+       			<CAAComment>
+         			<ShortRole>V_FstTmpID a uuid that will be used to link the engineering template to the different references</ShortRole>
+       			</CAAComment>
+		</Simple>			
+	</Class>
+
+</Package>

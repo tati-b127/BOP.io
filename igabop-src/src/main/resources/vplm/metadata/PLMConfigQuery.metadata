@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2004, All rights reserved -->
+
+<!-- History
+    V6R2010 Added Procedures & Functions for Export
+    V6R2011 Added default value for enums
+-->
+
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" Name="PLMConfigQuery"
+    Uuid="BA357FBD-EA5D-0000-02800311EC000000"
+    BelongsToModeler="Configuration"
+    CustomerExposition="Programmer"
+    UseNames="PLMConfigExpression" >
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>The Query Configuration Component Metadata.</ShortRole>
+    <Role>This package includes all the entities of Query Configuration Model.</Role>
+  </CAAComment>
+
+  <!-- ***************** -->
+  <!-- CLASS PLMCfgQuery -->
+  <!-- ***************** -->
+
+  <Class Name="PLMCfgQuery"
+      Uuid="BA357FBD-EA62-0000-02800311EC000000"
+      SuperName="PLMCfgExpression"
+      Abstract="No"
+         CustomerExposition="Programmer"
+        >
+    <!-- OwnerTypes="PLMCfgVariabilitySpace"  Integrate this line if you want to declare the aggregation constraint-->
+
+    <CAAComment>
+      <ShortRole>The query.class</ShortRole>
+      <Role>The query.class</Role>
+    </CAAComment>
+
+    <!-- Overloaded Attributes -->
+    <!-- New Attributes -->
+
+    <Simple Name="V_SecondaryId"
+        Uuid="BA357FBD-EA64-0000-02800311EC000000"
+        Type="String"
+        MaxLength="100"
+        MultiValuated="No"
+        Protection="Free"
+        CAAExposition="L0">
+    </Simple>
+
+    <Simple Name="V_QueryType" Uuid="BA357FBD-EA65-0000-02800311EC000000" Type="Integer" Protection="External" CAAExposition="L0" DefaultValue="2">
+      <Property Name="RangeAsEnumName" Value="PLMCfgQueryType"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="NATIVE;QRY-STANDARD;QRY-150"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+      </Range>
+    </Simple>
+
+    <Simple Name="V_ApplyingView" Uuid="90DB85C0-92DB-44a0-810DF15FA5E4D68C" Type="Integer" Protection="External" CAAExposition="L0" DefaultValue="3">
+      <Property Name="RangeAsEnumName" Value="PLMCfgQueryApplyingView"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="SOURCE;PROJECTED;CURRENT"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+      </Range>
+    </Simple>
+
+    <Simple Name="V_maturity"
+        Uuid="BA357FBE-F628-0000-02800311EC000000"
+        Type="String"
+        MaxLength="8"
+        MultiValuated="No"
+        Protection="External"
+        CAAExposition="L0"/>
+
+
+    <!-- *********************** -->
+    <!-- PROCEDURES Declaration  -->
+    <!-- *********************** -->
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+  </Class>
+
+</Package>
+
+

@@ -1,0 +1,209 @@
+#Prog ProductionSystem_ExchangeXPDM_XPDM2 (iPLMIDSet :  #In PLMIDSet,oPLMIDSet :  #Out PLMIDSet) : VoidType
+  {
+let PLMRouteSetCandidateResource (PLMRouteSet)
+let PLMRouteSetCapableResource (PLMRouteSet)
+let PLMRouteSetResourceStructure (PLMRouteSet)
+let PLMRouteSetImplemented (PLMRouteSet)
+let PLMRouteSetImplementingScopeRes (PLMRouteSet)
+let PLMRouteSetProcessPorts (PLMRouteSet)
+let PLMRouteSetDRCnx (PLMRouteSet)
+let PLMRouteSetImplResCnx (PLMRouteSet)
+let PLMRouteSetImplementingRes (PLMRouteSet)
+let PLMRouteSetImplementedCnx (PLMRouteSet)
+let PLMRouteSetImplementedRef (PLMRouteSet)
+let PLMRouteSetPortsAndCnx (PLMRouteSet)
+let PLMRouteSetReq (PLMRouteSet)
+let PLMRouteSetSystemScope (PLMRouteSet)
+let PLMRouteSetRFLPCnx (PLMRouteSet)
+let PLMRouteSetImplementingObj (PLMRouteSet)
+let PLMRouteSetResponsibility (PLMRouteSet)
+
+let PLMIDSetSystemRef (PLMIDSet)
+let PLMIDSetOpWkiInst (PLMIDSet)
+let PLMIDSetOpInst (PLMIDSet)
+let PLMIDSetResourceRef (PLMIDSet)
+let PLMIDSetProcessRef (PLMIDSet)
+let PLMIDSetSysIOPorts (PLMIDSet)
+let PLMIDSetTimeCstCnx (PLMIDSet)
+let PLMIDSetMaterialFlowCnx (PLMIDSet)
+let PLMIDSetCandidateResource (PLMIDSet)
+let PLMIDSetCapableResource (PLMIDSet)
+let PLMIDSetImplemented (PLMIDSet)
+let PLMIDSetImplementingScopeRes (PLMIDSet)
+let PLMIDSetValidMaterialFlowCnx (PLMIDSet)
+let PLMIDSetScopeMaterialFlowCnx (PLMIDSet)
+let PLMIDSetSystemInst (PLMIDSet)
+let PLMIDSetAllInst (PLMIDSet)
+let PLMIDSetValidTimeCstCnx (PLMIDSet)
+let PLMIDSetResourceStructure (PLMIDSet)
+let PLMIDSetProcessPorts (PLMIDSet)
+let PLMIDSetDRPorts (PLMIDSet)
+let PLMIDSetDRCnx (PLMIDSet)
+let PLMIDSetProcessInst (PLMIDSet)
+let PLMIDSetScopeDRCnx (PLMIDSet)
+let PLMIDSetValidDRCnx (PLMIDSet)
+let PLMIDSetImplResCnx (PLMIDSet)
+let PLMIDSetSystemRefInstOpInst (PLMIDSet)
+let PLMIDSetValidImplResCnx (PLMIDSet)
+let PLMIDSetImplementingRes (PLMIDSet)
+let PLMIDSetImplementedCnx (PLMIDSet)
+let PLMIDSetValidImplementedCnx (PLMIDSet)
+let PLMIDSetImplementedInst (PLMIDSet)
+let PLMIDSetOpWkiRef (PLMIDSet)
+let PLMIDSetAllRef (PLMIDSet)
+let PLMIDSetPortsAndCnx (PLMIDSet)
+let PLMIDSetCandidateCnx (PLMIDSet)
+let PLMIDSetCapableCnx (PLMIDSet)
+let PLMIDSetReqCnx (PLMIDSet)
+let PLMIDSetReqs (PLMIDSet)
+let PLMIDSetReqSpec (PLMIDSet)
+let PLMIDSetReqSpecCompletude (PLMIDSet)
+let PLMIDSetReq (PLMIDSet)
+let PLMIDSetReqCompletude (PLMIDSet)
+let PLMIDSetReqChapter (PLMIDSet)
+let PLMIDSetReqChapterCompletude (PLMIDSet)
+let PLMIDSetWorkplanRef (PLMIDSet)
+let PLMIDSetSystemScope (PLMIDSet)
+let PLMIDSetRFLPCnx (PLMIDSet)
+let PLMIDSetAll (PLMIDSet)
+let PLMIDSetImplementingObj (PLMIDSet)
+let PLMIDSetValidRFLPCnx (PLMIDSet)
+let PLMIDSetResponsibilityCnx  (PLMIDSet)
+let PLMIDSetResponsibility  (PLMIDSet)
+
+
+PLMIDSetSystemRef = Restrict(iPLMIDSet, "DELLmiProductionSystemPPR/DELLmiPPRSystemReference")
+PLMIDSetSystemInst = Restrict(iPLMIDSet, "DELLmiProductionSystemPPR/DELLmiPPRSystemInstance")
+PLMIDSetOpWkiRef = Restrict(iPLMIDSet, "DELLmiProductionAbstractOperationPPR/DELLmiPPROperationReference")
+PLMIDSetOpWkiInst = Restrict(iPLMIDSet, "DELLmiProductionAbstractOperationPPR/DELLmiPPROperationInstance")
+PLMIDSetOpInst = Restrict(iPLMIDSet, "DELLmiProductionOperationPPR/DELLmiOperationPPRInstance")
+PLMIDSetAllRef = PLMIDSetSystemRef + PLMIDSetOpWkiRef
+PLMIDSetAllInst = PLMIDSetSystemInst + PLMIDSetOpWkiInst
+PLMIDSetAll = PLMIDSetAllRef + PLMIDSetAllInst
+
+/* The expand structure is made by XPDM (instance/reference/rep instance/rep reference)*/
+
+/* Retrieve all Ports and Cnx except implement Cnx from Reference*/
+PLMRouteSetPortsAndCnx  = ExecutePLMFunction("DELLmiProductionSystemAbstract", "ENOPsm_ProductionSystem_addAllPortsAndCnxExceptImplCnx", PLMIDSetAllRef)
+PLMIDSetPortsAndCnx = Ids(PLMRouteSetPortsAndCnx,"all")
+PLMIDSetSysIOPorts = Restrict(PLMIDSetPortsAndCnx, "DELLmiProductionSystemIOPort/DELLmiProdSystemIOPort")
+PLMIDSetCandidateCnx = Restrict(PLMIDSetPortsAndCnx, "DELLmiProductionCandidateResCnx/DELLmiCandidateResourcesCnx")
+PLMIDSetTimeCstCnx = Restrict(PLMIDSetPortsAndCnx, "DELLmiProductionTimeConstraintCnx/DELLmiTimeConstraintCnx") 
+PLMIDSetMaterialFlowCnx = Restrict(PLMIDSetPortsAndCnx, "DELLmiProductionMaterialPathCnx1/DELLmiMaterialPathCnxCust") 
+PLMIDSetCapableCnx = Restrict(PLMIDSetPortsAndCnx, "DELAsmAssemblyModelCnx/DELAsmProcessCanUseCnx")
+PLMIDSetReqCnx = Restrict(PLMIDSetPortsAndCnx,"PLMRequirementSpecifyHowToCnxAbstract/PLMReqSpecifyHowToCnxAbstract")
+PLMIDSetResponsibilityCnx = Restrict(PLMIDSetPortsAndCnx, "DELMfgResponsibility/DELMfgResponsibilityCnx")
+
+/* Get Associated Requirements */
+PLMRouteSetReq = ExecutePLMFunction("DELPPRContextModel", "GetAllLinkedRequirementsFromCnx", PLMIDSetReqCnx)
+PLMIDSetReqs = Ids(PLMRouteSetReq,"all")
+
+/* Complete Requirement Specification*/
+PLMIDSetReqSpec = Restrict(PLMIDSetReqs, "Class/Requirement Specification")
+PLMIDSetReqSpecCompletude = ExecutePLMProcedure( "Rmt_ReqSpec_ExportCompletion", PLMIDSetReqSpec )
+
+/* Complete Requirement */
+PLMIDSetReq = Restrict(PLMIDSetReqs, "Class/Requirement")
+PLMIDSetReqCompletude = ExecutePLMProcedure( "Rmt_Requirement_ExportCompletion", PLMIDSetReq )
+
+/* Complete Requirement Chapter*/
+PLMIDSetReqChapter = Restrict(PLMIDSetReqs, "Class/Chapter")
+PLMIDSetReqChapterCompletude = ExecutePLMProcedure( "Rmt_Chapter_ExportCompletion", PLMIDSetReqChapter )
+
+/* Extract only valid TimeConstraint Cnx */
+PLMIDSetValidTimeCstCnx = ValidateSRs (PLMIDSetTimeCstCnx,"DEL_LinkToConstrainingObject,DEL_LinkToConstrainedObject",PLMIDSetAllInst)
+
+/* Extract only valid Material Flow Cnx */
+PLMIDSetScopeMaterialFlowCnx = PLMIDSetAllInst + PLMIDSetSysIOPorts
+PLMIDSetValidMaterialFlowCnx = ValidateSRs (PLMIDSetMaterialFlowCnx,"DEL_MaterialPathIN,DEL_MaterialPathOUT",PLMIDSetScopeMaterialFlowCnx)
+
+/* Retrieve CandidateResource from system and operation references */
+PLMRouteSetCandidateResource = ExecutePLMFunction("DELLmiProductionSystemAbstract", "ENOPsm_ProductionSystem_addCandidateResourcesFromCnx", PLMIDSetCandidateCnx)
+PLMIDSetCandidateResource = Ids(PLMRouteSetCandidateResource,"all")
+
+/* No need to get the reference and aggregating reference of the resource instances previously retrieved */
+/* It will be done by the XPDM Complete graph */
+/* For performances reasons we don't do it twice there */
+
+/* Retrieve capable Resources from capable connections */
+PLMRouteSetCapableResource = ExecutePLMFunction("DELPPRContextModel", "ENOPcs_Process_addCapableResourcesWithoutQueryFromCnx", PLMIDSetCapableCnx)
+PLMIDSetCapableResource = Ids(PLMRouteSetCapableResource,"all")
+
+/* Expand Resource structure (instance/reference only) */
+PLMIDSetResourceRef = Restrict(PLMIDSetCandidateResource, "PRODUCTCFG/VPMReference") + Restrict(PLMIDSetCapableResource, "PRODUCTCFG/VPMReference")
+PLMRouteSetResourceStructure = ExecutePLMFunction("DELPPRContextModel", "ENOPpr_PPRData_ExpandStructure", PLMIDSetResourceRef)
+PLMIDSetResourceStructure = Ids(PLMRouteSetResourceStructure,"all")
+
+/* Retrieve implemented cnx to processes (or workplan) from System references*/
+PLMRouteSetImplementedCnx = ExecutePLMFunction("RFLPLMImplementConnection", "RFLPLMImplementConnection_AddAllImplementCnx", PLMIDSetSystemRef)
+PLMIDSetImplementedCnx = Restrict(Ids(PLMRouteSetImplementedCnx,"all"),"RFLPLMImplementConnection/RFLPLMImplementConnection")
+
+/* Get Valid implement connections */
+PLMIDSetSystemRefInstOpInst = PLMIDSetSystemRef + PLMIDSetSystemInst + PLMIDSetOpInst
+PLMIDSetValidImplementedCnx = ValidateSRs (PLMIDSetImplementedCnx,"PLM_ImplementLink_Source",PLMIDSetSystemRefInstOpInst)
+
+/* Retrieve implemented processes (reference or occurrence) from connections */
+PLMRouteSetImplemented = ExecutePLMFunction("DELLmiProductionSystemAbstract", "ENOPsm_ProductionSystem_addImplementedProcessesFromCnx", PLMIDSetValidImplementedCnx)
+PLMIDSetImplemented = Ids(PLMRouteSetImplemented,"all")
+
+/* Retrieve all Process references from process/workplan/opertaion instances */
+PLMIDSetImplementedInst = Restrict(Ids(PLMRouteSetImplemented,"all"),"PLMCORE/PLMCoreInstance") 
+PLMRouteSetImplementedRef = ExecutePLMFunction("DELLmiProductionSystemAbstract", "ENOPsm_ProductionSystem_addProcessRefFromProcessInst", PLMIDSetImplementedInst) 
+
+/* Retrieves all Data Requierement and Precedence Ports from PROCESSES references*/
+PLMIDSetProcessRef = Restrict(Ids(PLMRouteSetImplementedRef,"all"), "DELFmiFunctionalModel/DELFmiFunctionReference") + Restrict(PLMIDSetImplemented, "DELFmiFunctionalModel/DELFmiFunctionReference")
+PLMRouteSetProcessPorts = ExecutePLMFunction("DELFmiFunctionalModel", "DELFmiFunctionModel_expandDRandPrecedencePorts", PLMIDSetProcessRef)
+PLMIDSetProcessPorts = Ids(PLMRouteSetProcessPorts,"all")
+PLMIDSetDRPorts = Restrict(PLMIDSetProcessPorts, "DELFmiFunctionalModelPrerequisitePort/DELFmiProcessPrerequisitePort") 
+
+/* Retrieves the Data Requirement connections from Data Requirement ports Source */
+PLMRouteSetDRCnx = ExecutePLMFunction("DELFmiFunctionalModel", "DELFmiFunctionModel_addDRCnxFromDRPort", PLMIDSetDRPorts)
+PLMIDSetDRCnx = Restrict(Ids(PLMRouteSetDRCnx,"all"),"DELFmiFunctionalModelPrerequisiteCnx/DELFmiProcessPrerequisiteCnx") + Restrict(Ids(PLMRouteSetDRCnx,"all"),"DELFmiFunctionalModelPrerequisiteCnx1/DELFmiProcessPrerequisiteCnxCust")
+
+/* Extract only valid Prequisite Cnx */
+PLMIDSetProcessInst = Restrict(PLMIDSetImplemented, "DELFmiFunctionalModel/DELFmiFunctionInstance") 
+PLMIDSetScopeDRCnx = PLMIDSetProcessInst + PLMIDSetDRPorts
+PLMIDSetValidDRCnx = ValidateSRs (PLMIDSetDRCnx,"DELFmi_PrerequisiteCst_Target,DELFmi_PrerequisiteCst_Source",PLMIDSetScopeDRCnx)
+
+/* Retrieve implementing resources scope from System Reference*/
+PLMRouteSetImplementingScopeRes = ExecutePLMFunction("DELPPRContextModel", "ENORsc_Resource_AddImplementingScope", PLMIDSetSystemRef)
+PLMIDSetImplementingScopeRes = Restrict(Ids(PLMRouteSetImplementingScopeRes,"all"),"PRODUCTCFG/VPMReference")
+
+/* Get all implement resource connections */
+PLMRouteSetImplResCnx = ExecutePLMFunction("DELPPRContextModel", "ENORsc_Resource_addAllImplementConnections", PLMIDSetImplementingScopeRes)
+PLMIDSetImplResCnx = Ids(PLMRouteSetImplResCnx,"all")
+
+/* Validate implement resource connections */
+PLMIDSetValidImplResCnx = ValidateSRs (PLMIDSetImplResCnx,"PLM_ImplementLink_Target",PLMIDSetSystemRefInstOpInst)
+
+/* Get implementing Resources from Connections */
+PLMRouteSetImplementingRes = ExecutePLMFunction("DELLmiProductionSystemAbstract", "ENOPsm_ProductionSystem_addImplementingResourcesFromCnx", PLMIDSetValidImplResCnx)
+PLMIDSetImplementingRes = Ids(PLMRouteSetImplementingRes,"all")
+
+/* Get implementing Systems in case of Workplan export */
+/* =================================================== */
+
+/* Retrieves implementing System Scope */
+PLMIDSetWorkplanRef = Restrict(PLMIDSetSystemRef,"DELLmiProductionWorkplanSystem/DELLmiWorkPlanSystemReference")
+PLMRouteSetSystemScope = ExecutePLMFunction("DELLmiProductionSystemAbstract", "ENOPsm_ProductionSystem_addSystemScopesFromWorkplan", PLMIDSetWorkplanRef)
+PLMIDSetSystemScope = Restrict(Ids(PLMRouteSetSystemScope,"all"),"DELLmiProductionSystem/DELLmiProductionSystemReference")
+
+/* Get All implement connections under system  scope */
+PLMRouteSetRFLPCnx = ExecutePLMFunction("RFLPLMImplementConnection", "RFLPLMImplementConnection_AddAllImplementCnx", PLMIDSetSystemScope)
+PLMIDSetRFLPCnx = Restrict(Ids(PLMRouteSetRFLPCnx,"all"),"RFLPLMImplementConnection/RFLPLMImplementConnection")
+
+/* Extract only valid Implementing connections (scope or implement = pointing operation/system instance path or system Ref) */
+PLMIDSetValidRFLPCnx = ValidateSRs (PLMIDSetRFLPCnx,"PLM_ImplementLink_Target",PLMIDSetAll)
+
+/* Get impementing operations-system path */
+PLMRouteSetImplementingObj = ExecutePLMFunction("DELLmiProductionSystemAbstract", "ENOPsm_ProductionSystem_addImplementingObjFromRFLPCnx", PLMIDSetValidRFLPCnx)
+PLMIDSetImplementingObj = Ids(PLMRouteSetImplementingObj,"all")
+
+/* Get Plant and Company from responsibility connections  */	
+PLMRouteSetResponsibility = ExecutePLMFunction("DELPPRContextModel", "ENOPpr_PPRData_addResponsibilityFromCnx", PLMIDSetResponsibilityCnx)
+PLMIDSetResponsibility = Ids(PLMRouteSetResponsibility,"all")
+
+oPLMIDSet = iPLMIDSet + PLMIDSetSysIOPorts + PLMIDSetCandidateCnx + PLMIDSetCapableCnx + PLMIDSetValidTimeCstCnx + PLMIDSetValidMaterialFlowCnx + PLMIDSetCandidateResource + PLMIDSetCapableResource + PLMIDSetResourceStructure + PLMIDSetValidImplementedCnx + PLMIDSetImplemented + PLMIDSetProcessRef + PLMIDSetDRPorts + PLMIDSetValidDRCnx + PLMIDSetImplementingScopeRes + PLMIDSetValidImplResCnx + PLMIDSetImplementingRes + PLMIDSetReqCnx + PLMIDSetReqs + PLMIDSetReqSpecCompletude + PLMIDSetReqCompletude + PLMIDSetReqChapterCompletude + PLMIDSetSystemScope + PLMIDSetValidRFLPCnx + PLMIDSetImplementingObj + PLMIDSetResponsibilityCnx + PLMIDSetResponsibility
+}
+
+

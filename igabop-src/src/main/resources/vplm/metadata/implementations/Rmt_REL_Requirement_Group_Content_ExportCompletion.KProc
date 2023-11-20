@@ -1,0 +1,22 @@
+#Prog Rmt_REL_Requirement_Group_Content_ExportCompletion( iPLMIDSet : #In PLMIDSet, oPLMIDSet : #Out PLMIDSet ) : VoidType
+{
+let RsToEntities              (PLMRouteSet)
+let IdsRels                 (PLMIDSet)
+let IdsToEntities           (PLMIDSet)
+let IdsReqSpecAndScope      (PLMIDSet)
+
+
+/* Get the entities that are at "to" extremity of the relations */
+IdsRels = Restrict( iPLMIDSet , "RelationClass/Requirement Group Content" )
+RsToEntities = ExecutePLMFunction( "Requirement", "rmt_nav_rel_req_grp_content", IdsRels )
+
+
+/* Complete procedure to export entities */
+IdsToEntities = Ids( RsToEntities )
+IdsReqSpecAndScope = ExecutePLMProcedure( "Rmt_ReqSpec_ExportCompletion", IdsToEntities )
+
+
+/* Provide back all that stuff */
+oPLMIDSet = iPLMIDSet
++ IdsReqSpecAndScope
+}

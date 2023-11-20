@@ -1,0 +1,139 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2005, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" CustomerExposition="Programmer" BelongsToModeler="PLMKnowHowRule" ModelerType="Top" Name="PLMKnowHowCheck" Uuid="B315DC00-6488-4436-8F5FCFC47F222D30" UseNames="PLMKnowHowRuleBaseComponent">
+  <Property Name="FormerTypingLegacy" Value="Yes" />
+  <CAAComment>
+    <ShortRole>KnowHow Check Package</ShortRole>
+    <Role>This package includes the Check entities of KnowHow Rule Model</Role>
+  </CAAComment>
+  <Comment>last update 2007-03-23</Comment>
+  <!-- ******************************* -->
+  <!-- * PLMCheck (PLMCoreReference) * -->
+  <!-- ******************************* -->
+  <Class Name="PLMCheck"  CustomerExposition="Programmer" Uuid="A3BE9B37-9EE5-4f14-9A0BB92CA1C456DD" Abstract="No" SuperName="PLMRuleBaseComponent"  Specializable="Yes" CustomerExtensible="Yes" CreateInstName="PLMCheckInstance" Abbreviation="kwc" DeleteAvailability="Yes">
+    <Property Name="IconName"        Value="I_PLMCheck" />
+    <Property Name="Searchable"      Value="Yes" />
+    <Property Name="Newable"         Value="All" />
+    <Property Name="PQ_Attributes"   Value="PLM_ExternalID V_description V_user" />
+    <Property Name="KweNew_InstanciationMethod" Value="CATKBEDelegateInstanciationRule" />
+    <Property Name="KweNew_ReturnedType" Value="PLMCheckInstance" />
+    <Property Name="AggregatableTypes" Value="PARParameter" />
+    <Property Name="DMCDerivable" Value="Yes" />
+    <CAAComment>
+      <ShortRole>PLM Check</ShortRole>
+      <Role>PLM Check</Role>
+    </CAAComment>
+    <!-- ********************************************************* -->
+    <!-- * Elementary PLMCheck attributes                        * -->
+    <!-- ********************************************************* -->
+    <Simple Name="V_CorrectFunction" Uuid="f2671374-8474-480d-bca4afdd7574027e" Type="String"  MultiValuated="Yes" MaxLength="200"  Protection="Internal" CollectionType="Set">
+      <CAAComment>
+        <ShortRole>The script of the correction function</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_HealingFunction" Uuid="1ACBE2B4-BD11-4848-A9CB433CA7579649" Type="String"  MultiValuated="Yes" MaxLength="200"  Protection="Internal" CollectionType="Set">
+      <CAAComment>
+        <ShortRole>The script of the new correction function</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_CorrectFunctionComment" Uuid="2d909ea9-6577-48e3-8dfc8e415a8b3eb4" Type="String"  MultiValuated="No" MaxLength="256" Protection="External" CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>The comment of the correction function</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_isManualCheck" Uuid="8e660e6c-33f5-4f73-8ea6-efe45afac255"  Type="Boolean"  MultiValuated="No" Protection="Free" CAAExposition="L0" DefaultValue="FALSE" Faceted="Yes">
+      <CAAComment>
+        <ShortRole>The manuel check</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_ManualCheckReviewList" Uuid="47aa83e4-1bf4-4b47-8c21-6bc36a76298c" Type="String"  MultiValuated="Yes" MaxLength="256" Protection="Free" CAAExposition="L0" CollectionType="List">
+      <CAAComment>
+        <ShortRole>The list of the manualcheck reviews (basically the questions)</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_CustomerDelivery" Uuid="DF4BF993-6608-45E4-A5C7-9737569930E1" Type="Integer"  MultiValuated="No" Protection="Internal" DefaultValue="0">
+      <CAAComment>
+        <ShortRole>To mask the body when check is delivered to customer</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_QCCLicenceName" Uuid="DF4BM993-6608-45E5-A5C7-9737569930E2" Type="String"  MultiValuated="No" Protection="Internal">
+      <CAAComment>
+        <ShortRole>To identify which licence is needed when check is delivered to customer</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_CorrectFunctionType" Uuid="99122b07-e9af-4398-aedc4cb88c65c853" Type="Integer" Protection="External" CAAExposition="L0" DefaultValue="4">
+      <CAAComment>
+        <ShortRole>The type of the correction script</ShortRole>
+      </CAAComment>
+      <Property Name="RangeAsEnumName" Value="CorrectingFunctionTypeEnum" />
+      <Property Name="RangeAsEnumAuthorizedValues" Value="VBFunction;Comment;Http;UserFunction" />
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+      </Range>
+    </Simple>
+    <Simple Name="V_Help" Uuid="9eb31461-c3ff-45f7-85acdfb6ecbd32af" Type="String"  MultiValuated="No" MaxLength="500" Protection="External" CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>The help message of the correction function</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_IsAutomaticCorrect" Uuid="EC8A847B-39CE-4da4-88154C91028EB9AB" Type="Boolean"  MultiValuated="No" Protection="External" CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>The correction function to be triggered automatically or not</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_Severity" Uuid="3567EE56-4172-4edd-AD4C2C2453F3E0F3" Type="Integer" Protection="External" CAAExposition="L0" DefaultValue="3" Faceted="Yes">
+      <CAAComment>
+        <ShortRole>The type of the correction script</ShortRole>
+      </CAAComment>
+      <Property Name="RangeAsEnumName" Value="SeverityTypeEnum" />
+      <Property Name="RangeAsEnumAuthorizedValues" Value="LowSeverity;MediumSeverity;HighSeverity" />
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+      </Range>
+    </Simple>
+
+    <Simple Name="V_Priority" Uuid="59F5AA28-33FE-49FA-BB00-3E6417A6BA11" Type="Double" Protection="External">
+      <CAAComment>
+        <ShortRole>The Priority of the Check Reference</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_Weight" Uuid="A722A9D8-AC2D-48EC-9DEB-6F34A0EA245D" Type="Integer" Protection="Internal">
+      <CAAComment>
+        <ShortRole>The id of the weigth of the Rule Reference</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_CheckWithoutInput" Uuid="844671e6-0469-4e87-969f-98eb564721e1"  Type="Boolean"  MultiValuated="No" Protection="Free" CAAExposition="L0" DefaultValue="FALSE">
+      <CAAComment>
+        <ShortRole>The comment of V_CheckWithoutInput</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope" />
+    </Method>
+  </Class>
+  <!-- ************************************** -->
+  <!-- * PLMCheckInstance (PLMCoreInstance) * -->
+  <!-- ************************************** -->
+  <RelationClass Name="PLMCheckInstance"  CustomerExposition="Programmer" Uuid="C3FDC21B-F7B9-4d00-8A90A09053178F38" Abstract="No" SuperName="PLMRuleBaseComponentInstance">
+    <Property Name="KweNew_InstanciationMethod" Value="CATKBEDelegateInstanciationRule" />
+    <Property Name="KweNew_ReturnedType" Value="PLMCheckInstance" />
+    <Property Name="DMCDerivable" Value="Yes" />
+    <CAAComment>
+      <ShortRole>PLM Check instance aggregated in a PLM RuleSet</ShortRole>
+      <Role>PLM Check instance aggregated in a PLM RuleSet</Role>
+    </CAAComment>
+
+    <SubClause Name="to"   TargetName="PLMCheck" />
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope" />
+    </Method>
+  </RelationClass>
+</Package>

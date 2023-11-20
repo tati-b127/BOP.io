@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2012, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" 
+         ModelerType="Top" 
+         Name="PLMWspFavoriteDisciplines" 
+         BelongsToModeler="PLMWspContext" 
+         Uuid="1fdecf9d-73e5-4460-b65e4679aa3758e7" 
+         UseNames="PLMWspFavoriteNavigation" 
+         CustomerExposition="Programmer">
+  <CAAComment>
+    <ShortRole>Favorite Disciplines Package</ShortRole>
+    <Role>This package includes disciplines of Favorite Model</Role>
+  </CAAComment>
+  <Comment>last update 2012-03-20-12.00.00</Comment>
+
+  <!-- CLASS DECLARATIONS -->
+  
+  <!-- DISCIPLINES DECLARATIONS AT CREATION : PLMWspFavoriteNavigation-->
+  <Class Name="3DSearch"
+       Uuid="fdd8576c-c870-4868-a3de49ecb0a1ddd8"
+       Abstract="No"
+       CustomerExposition="Programmer"
+       SuperName="PLMWspFavoriteNavigation"          
+       Discipline="Yes" 
+       Specializable="No">
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Property Name="IconName" Value="I_FavoriteNavigation3DSearch"/>
+  </Class>
+
+</Package>
+
+
+

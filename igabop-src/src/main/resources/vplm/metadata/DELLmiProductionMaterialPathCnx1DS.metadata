@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2010, All rights reserved -->
+
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" Name="DELLmiProductionMaterialPathCnx1DS" Uuid="AACBA845-8EA6-4f71-8670-F78F26F3B30E" UseNames="DELLmiProductionMaterialPathCnx1" >
+	
+<Property Name="OptionalInstallation" Value="Yes" /> 
+	<CAAComment>
+		<ShortRole>Package to customize Material Path connection</ShortRole>
+		<Role>Package to customize package DELLmiProductionMaterialPathCnx1 for Material Path connection</Role>
+	</CAAComment>
+	
+	<Class Name="DELLmiMaterialPathCnxCustDS"  Uuid="410D5D16-183D-4863-AC79-597D6D184077"
+		SuperName="DELLmiMaterialPathCnxCust" >
+
+		<CAAComment>
+			<ShortRole>PLM Customization for Material Path connection</ShortRole>
+			<Role>PLM Customization for Material Path connection "DELLmiMaterialPathCnxCust"</Role>
+		</CAAComment>
+
+	</Class>
+	
+</Package>

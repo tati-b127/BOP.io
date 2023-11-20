@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY FOR DFTSheet - Custo sample     -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2010, All rights reserved -->
+
+<Package xmlns="PLMDictionaryCusto" 
+         ModelerType="Custo" 
+         Name="DFTSheetDS"
+         Uuid="F23C59B7-405A-4FA9-A9C3-ED296A269125"
+         UseNames="DFTSheet">
+
+  <CAAComment>
+    <ShortRole>DFT Model - Sheet - Custo Sample Package</ShortRole>
+    <Role>This package describes a Sample customization of DFT Model - Sheet</Role>
+  </CAAComment>
+
+  <Comment>last update 2013-01-17-14.00.00</Comment>
+
+  <!-- DFTSheetDS provides :                                                             -->
+  <!-- DFTSheetDS               DFTSheet/DIFAbstractSheet/PLMCoreReference               -->
+  <!-- DFTSheetInstanceDS       DFTSheetInstance/DIFAbstractSheetInstace/PLMCoreInstance -->
+
+  <Property Name="OptionalInstallation" Value="Yes" />
+
+  <!-- ************************************************ -->
+  <!-- *  DFTSheetDS                             * -->
+  <!-- ************************************************ -->
+  <Class Name="DFTSheetDS"
+         Uuid="EA42CA90-A4BC-42F1-B4D2-ACE7BCA10D36"
+         SuperName="DFTSheet">
+    
+    <CAAComment>
+      <ShortRole>Customized DFT Sheet</ShortRole>
+      <Role>DFTSheet Reference</Role>
+    </CAAComment>
+
+    <IdentifierSet Name="Identifier" 
+                   Uuid="B5CC4AAB-23FF-49F3-92DD-F9ADCCD78A7F" 
+                   IdentifierNames="PLM_ExternalID V_version"
+                   IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755"/>
+
+  </Class>
+
+  <!-- ************************************************ -->
+	<!-- * DFTSheetInstanceDS                      * -->
+  <!-- ************************************************ -->
+  <Class Name="DFTSheetInstanceDS" 
+		     Uuid="AA53DD89-AECE-4CBD-913D-38C3C975D54A" 
+		     SuperName="DFTSheetInstance">
+
+		<CAAComment>
+			<ShortRole>Customized Sheet Instance Object</ShortRole>
+			<Role>Customized Sheet Instance Object</Role>
+		</CAAComment>
+
+  </Class>
+
+</Package>

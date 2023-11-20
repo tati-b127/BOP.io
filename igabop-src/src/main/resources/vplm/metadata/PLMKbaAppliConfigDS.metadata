@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" DataRDB_OID="ENODR_KBA_CFG_DS"
+	Name="PLMKbaAppliConfigDS" 
+	Uuid="c02679f5-5ec1-4487-b0af-5291bed35367"
+	UseNames="PLMKbaAppliConfig"
+	Alias="PLM Knowledge Business Applications -- DS Default Custo of Configurations' Modeler"
+	
+>
+<Property Name="OptionalInstallation" Value="Yes" /> 
+    <CAAComment>
+        <ShortRole>PLM Knowledge Business Applications - Applicative Configurations' Modeler</ShortRole>
+        <Role>This package describes the DS (default) Customization of Knowledge Business Applicative Configurations on top of PLM Core</Role>
+    </CAAComment>
+    <Comment>Created by PHB (2006-03-15)</Comment>
+  
+    <!-- ****************************************************** -->
+    <!-- *  PLMKbaAppliConfigurationDS (PLMCoreReference) * -->
+    <!-- ****************************************************** -->
+    <Class Name="PLMKbaAppliConfigurationDS"
+		 Alias="PLMKbaAppliConfigurationDS"
+		 Uuid="1bb416c5-6232-4c4a-b494-f4ca2cd1c6a8"		
+		 
+		 
+		 
+		 
+		 SuperName="PLMKbaAppliConfiguration"
+		 SuperRef="5afb26b4-ad45-4007-a02f877f20810003"
+		 
+		 
+	>
+
+      <IdentifierSet 
+        Name="Identifier"
+        Uuid="a87c20cb-763c-4077-b7d5-12c96a09fe98"
+        IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755"
+        IdentifierNames="PLM_ExternalID V_version"
+        />
+
+      <CAAComment>
+            <ShortRole>DS Knowledge Business Applicative Configuration (Reference)</ShortRole>
+            <Role>PLM Knowledge Business Applicative Configuration - Custo of Reference Object</Role>
+        </CAAComment>
+    </Class>
+
+
+  <!-- ********************************************************** -->
+  <!-- *  PLMKbaAppliConfigAggregationLinkToRZip (PLMPort)		  * -->
+  <!-- ********************************************************** -->
+  <Class Name="PLMKbaAppliConfigAggregationLinkToRZipDS"
+   Alias="PLMKbaAppliConfigAggregationLinkToRZipDS"
+   Uuid="1dc09df3-b313-4dcb-9366-79b3b4d1b7a0"
+   
+   
+   
+   
+   SuperName="PLMKbaAppliConfigAggregationLinkToRZip"
+   SuperRef="030277fe-e5bd-458c-8170-a684de0f44d0"
+   
+   
+	 >
+    <CAAComment>
+      <ShortRole>Applicative Configuration Aggregation Link to RZip (Port)</ShortRole>
+      <Role>PLM Knowledge Applicative Configuration Aggregation Link to RZip -- Port Object</Role>
+    </CAAComment>
+  </Class>
+
+
+</Package>

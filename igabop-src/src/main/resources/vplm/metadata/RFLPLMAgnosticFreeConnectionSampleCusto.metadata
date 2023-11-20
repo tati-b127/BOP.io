@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR RFLP IMPLEMENT CONNECTION Custo 1-->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2006, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" DataRDB_OID="ENODR_RFLPLAFCDS" Name="RFLPLMAgnosticFreeConnectionSampleCusto"
+	Uuid="2da376e6-257d-4c15-8dd830dccac6895b" 
+	UseNames="RFLPLMAgnosticFreeConnection" 
+	>
+	
+<Property Name="OptionalInstallation" Value="Yes" /> 
+	<CAAComment>
+    <ShortRole>RFLP PLM Agnostic Free Connection Sample Customization Package</ShortRole>
+    <Role>This package describes a Sample Customization of the RFLP PLM Agnostic Free Connection</Role>
+	</CAAComment>
+	
+	<Comment>last update 2007-07-16</Comment>
+	
+	<!-- *************************************************************************** -->
+	<!-- * RFLPLMAgnosticFreeConnection                                            * -->
+	<!-- *************************************************************************** -->
+	
+	<Class Name="RFLPLMAgnosticFreeConnectionSampleCusto" 
+		Uuid="fa29eab0-f9b9-41f7-8f7fb4b319524075" 
+		SuperName="RFLPLMAgnosticFreeConnection" 
+		SuperRef="89065704-e161-42ee-80f671aef2211675" >
+
+    <Simple Name="V_SampleAttribute" 
+     Uuid="a603fb7d-31f1-4bdf-9ce62d71fd96b9d5"
+     Type="String" 
+     MaxLength="32" 
+     Mandatory="No" 
+     MultiValuated="No" 
+     Protection="User"
+     />
+
+  </Class>	
+	        
+</Package>

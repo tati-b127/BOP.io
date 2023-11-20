@@ -1,0 +1,38 @@
+NAVIGATE
+
+ T0.PLM_ExternalID,  T1.PLM_ExternalID , T2.PLM_ExternalID,
+ T0.PLMID,  T1.PLMID , T2.PLMID
+
+FROM 
+
+PRODUCTCFG/VPMRepReference T0,
+CATMaterialRef/CATMatReference T1,
+CATMaterialRef/MaterialDomain T2
+
+FROM_ROOTS  [?1?]
+
+ON  RELATION(
+FROM= PRODUCTCFG/VPMRepReference
+TO= CATMaterialRef/CATMatReference 
+THROUGH=POINTSTO )
+OR
+RELATION(
+FROM= PRODUCTCFG/VPMRepReference
+TO= CATMaterialRef/MaterialDomain  
+THROUGH=POINTSTO )
+
+; 
+
+
+
+
+
+
+
+
+
+
+
+
+
+

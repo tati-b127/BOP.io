@@ -1,0 +1,180 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR DELMIA Production System Application -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified"
+         ModelerType="Top"
+         Name="DELLmiProductionOperation"
+         BelongsToModeler="DELLmiProductionGeneralSystem"
+	       Uuid="836e6f89-3056-4af0-aa59505b283b040d"
+	       UseNames="PLMCORE DELLmiProductionSystemAbstract"
+         UseProcedures="ENOPsm_Procedures"
+         CustomerExposition="Programmer">
+
+  <CAAComment>
+    <ShortRole>PLM DELMIA Abstract Operation </ShortRole>
+    <Role>This package describes the PLM DELMIA Abstract Operation model on top of DELLmiProductionSystemAbstract</Role>
+  </CAAComment>
+
+  <Comment>last update 2014-03-21</Comment>
+
+  <!-- Global Operations -->
+  <Class Name="DELLmiOperationReference"
+		     Uuid="e6b39778-567b-40d9-8332ad7d03f733ea"
+		     Abstract="Yes"
+         SuperName="DELLmiAbstractProductionEntity"
+         CustomerExposition="Programmer"
+         Specializable="No"
+         CustomerExtensible="No"
+         CreateInstName="DELLmiOperationInstance"
+         DeleteAvailability="Yes"
+         >
+
+    <CAAComment>
+      <ShortRole>PLM DELMIA Abstract Operation Reference</ShortRole>
+      <Role>PLM DELMIA Abstract Operation Reference</Role>
+    </CAAComment>
+
+    <Property Name="AggregatableTypes" Value="PARParameter"/>
+    
+    <Simple Name="V_EstimatedTime"
+            Uuid="9ab503b0-dc70-479d-a0b21e20d76471fd"
+            Type="Double"
+            Magnitude="TIME"
+            MultiValuated="No"
+            Protection="Free"
+            Faceted="Yes"
+            CAAExposition="L0">
+      <Property Name="SIXW" Value="ds6w:estimatedDuration"/>
+    </Simple>
+
+    <Simple Name="V_MeasuredTime"
+            Uuid="e1e491a5-5d62-4f12-a9b732ee16773e75"
+           Type="Double"
+            Magnitude="TIME"
+            MultiValuated="No"
+           Protection="Free"
+           Faceted="Yes"
+            CAAExposition="L0">
+      <Property Name="SIXW" Value="ds6w:actualDuration"/>
+    </Simple>
+
+<Simple Name="V_TimeMode" Uuid="4e66c56f-c4ba-4e4e-bddffbfe42ba87fe" Type="Integer" Protection="Free" CAAExposition="L0" DefaultValue="1" Faceted="Yes">
+<Property Name="SIXW" Value="ds6w:kind"/>
+<Property Name="RangeAsEnumName" Value="DELLmi_TimeMode_Enum"/>
+<Property Name="RangeAsEnumAuthorizedValues" Value="EstimatedTime;AnalyzedTime;SimulatedTime;WorkInstruction;UserDefinedTime;MeasuredTime;TrackTime"/>
+<Range>
+  <Equal>1</Equal>
+  <Equal>2</Equal>
+  <Equal>3</Equal>
+  <Equal>4</Equal>
+  <Equal>5</Equal>
+  <Equal>6</Equal>
+  <Equal>7</Equal>
+</Range>
+</Simple>
+
+    <Simple Name="V_EstimatedTime_AddedValueRatio"
+            Uuid="4094A54F-0DB2-4672-AED8-AE82BC1A8816"
+            Type="Double"
+            DefaultValue="1.0"
+            MultiValuated="No"
+            Magnitude="Ratio"
+            Protection="Free"
+            CAAExposition="L0">
+    </Simple>
+
+    <Simple Name="V_IsTimeProportionalToQty"
+            Uuid="F12B2FA2-195F-4126-94D1-3A160311E507"
+            Type="Boolean"
+            MultiValuated="No"
+            DefaultValue="true"
+            Protection="Free"
+            CAAExposition="L0">
+    </Simple>
+
+    <Simple Name="V_TrackTime"
+            Uuid="1F9611F8-9942-423e-BB90-3D32A1D2F154"
+            Type="Double"
+            MultiValuated="No"
+            Magnitude="TIME"
+            Protection="External"
+            CAAExposition="L0">
+    </Simple>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExchangeScope.meth#XPDM"/>
+        <UsedProcedure href="ENOPsm_Procedures.proc#ProductionSystem_ExchangeXPDM_GetAllEntities"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExchangeScope.meth#StandAlone"/>
+        <UsedProcedure href="ENOPsm_Procedures.proc#ProductionSystem_ExchangeXPDM_StandAlone"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExchangeScope.meth#AllLevelNoRsc"/>
+        <UsedProcedure href="ENOPsm_Procedures.proc#ProductionSystem_ExchangeXPDM_AllLevelNoRsc"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExchangeScope.meth#SupplyChainSourcing"/>
+        <UsedProcedure href="ENOPsm_Procedures.proc#ProductionSystem_ExchangeXPDM_SupplyChainSourcing"/>
+      </ProcedureForUsage>
+    </Method>
+
+  </Class>
+
+
+
+  <RelationClass Name="DELLmiOperationInstance"
+		     Uuid="817356e9-b677-44bb-89a7d30f50e23325"
+		     Abstract="Yes"
+         SuperName="PLMCoreInstance"
+         Specializable="No"
+         CustomerExtensible="No"
+         CustomerExposition="Programmer">
+
+    <CAAComment>
+      <ShortRole>PLM DELMIA Abstract Operation Instance</ShortRole>
+      <Role>PLM DELMIA Abstract Operation Instance</Role>
+    </CAAComment>
+
+    <Simple Name="V_X2DPos"
+          Uuid="0DEF0802-2CA3-43b4-A760-B43E34A597AA"
+          Type="Double"
+          MultiValuated="No"
+          Protection="Internal"/>
+
+    <Simple Name="V_Y2DPos"
+            Uuid="ADF6B38B-F217-4a41-95C6-2454BC404080"
+            Type="Double"
+            MultiValuated="No"
+            Protection="Internal"/>
+
+    <Path Name="DELIsSerializedFrom"
+             Uuid="3EBDDC41-8E0C-409a-8513-FDED99822539"
+             MultiValuated="No"
+             RoleName="DEL_IsSerializedFrom"
+             SynchroSensitivity="PathAndLast"
+             Type="SemanticRelation"
+             AdaptativeToMinor="No"
+             RerouteOnEffectivityChange="No"
+             Orientation="In"
+             Semantics="Reference3"/>
+
+    <SubClause Name="from" TargetName="DELLmiAbstractProductionEntity"/>
+    <SubClause Name="to"   TargetName="DELLmiOperationReference"/>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+
+  </RelationClass>
+
+</Package>

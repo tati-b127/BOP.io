@@ -1,0 +1,29 @@
+#Prog Rmt_REL_Specification_Structure_ExportCompletion( iPLMIDSet : #In PLMIDSet, oPLMIDSet : #Out PLMIDSet ) : VoidType
+{
+let RsToEntities              (PLMRouteSet)
+let IdsRels                 (PLMIDSet)
+let IdsToEntities           (PLMIDSet)
+let IdsReqSpecAndScope      (PLMIDSet)
+let IdsChapterAndScope      (PLMIDSet)
+let IdsReqAndScope          (PLMIDSet)
+
+
+/* Get the entities that are at "to" extremity of the relations */
+IdsRels = Restrict( iPLMIDSet , "RelationClass/Specification Structure" )
+RsToEntities = ExecutePLMFunction( "Requirement", "rmt_nav_rel_spec_struct", IdsRels )
+
+
+/* Complete procedure to export entities */
+IdsToEntities = Ids( RsToEntities )
+IdsReqSpecAndScope = ExecutePLMProcedure( "Rmt_ReqSpec_ExportCompletion", IdsToEntities )
+IdsChapterAndScope = ExecutePLMProcedure( "Rmt_Chapter_ExportCompletion", IdsToEntities )
+IdsReqAndScope     = ExecutePLMProcedure( "Rmt_Requirement_ExportCompletion", IdsToEntities )
+
+
+/* Provide back all that stuff */
+oPLMIDSet = iPLMIDSet
++ IdsToEntities
++ IdsReqSpecAndScope
++ IdsChapterAndScope
++ IdsReqAndScope
+}

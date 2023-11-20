@@ -1,0 +1,12 @@
+NAVIGATE
+    ECA.PLM_ExternalID,
+    ECA.PLMID
+FROM
+    PLMChgActionBase/PLMActionBase ECA
+FROM_ROOTS [?1?]
+ON ( RELATION(
+    FROM=PLMChgPeer/PLMChgPeer
+    TO=PLMChgActionBase/PLMActionBase
+    THROUGH=POINTSTO) )
+ITER = 1;
+

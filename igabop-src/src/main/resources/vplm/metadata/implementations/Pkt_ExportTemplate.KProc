@@ -1,0 +1,74 @@
+#Prog Pkt_ExportTemplate (iPLMIDSet :  #In PLMIDSet,oPLMIDSet :  #Out PLMIDSet) : VoidType
+  {
+let RsTemplateRootRef        (PLMRouteSet)
+let RsTemplateRootRepRef     (PLMRouteSet)
+let RsTemplateCompRepRef	 (PLMRouteSet)
+let RsProductStructure       (PLMRouteSet)
+let IdsTemplateRootRef         (PLMIDSet)
+let IdsTemplateRootRepRef      (PLMIDSet)
+let IdsTemplateCompsRepRef     (PLMIDSet)
+let IdsProductStructureInputs1 (PLMIDSet)
+let IdsProductStructureInputs2 (PLMIDSet)
+let IdsProductStructure1       (PLMIDSet)
+let IdsProductStructure2       (PLMIDSet)
+let IdsSimulationPKT1          (PLMIDSet)
+let IdsSimulationPKT2          (PLMIDSet)		
+let IdsSimulationPKT3          (PLMIDSet)
+let IdsLogicalPKT1             (PLMIDSet)
+let IdsLogicalPKT2             (PLMIDSet)
+let IdsFunctionalPKT1             (PLMIDSet)
+let IdsFunctionalPKT2             (PLMIDSet)
+
+
+/* Get roots & components */
+RsTemplateRootRef = ExecutePLMFunction( "PLMKnowledgeTemplate", "pkt_navigate_roots", iPLMIDSet )
+RsTemplateRootRepRef = ExecutePLMFunction( "PLMKnowledgeTemplate", "pkt_navigate_rep_roots", iPLMIDSet )
+RsTemplateCompRepRef = ExecutePLMFunction( "PLMKnowledgeTemplate", "pkt_navigate_components", iPLMIDSet )
+IdsTemplateRootRef = Ids( RsTemplateRootRef )
+IdsTemplateRootRepRef = Ids( RsTemplateRootRepRef )
+IdsTemplateCompsRepRef = Ids( RsTemplateCompRepRef )
+
+/* Get product structure from function */
+IdsProductStructureInputs1 = Restrict( IdsTemplateRootRef, "PRODUCTCFG/VPMReference" )
+RsProductStructure = ExecutePLMFunction( "PRODUCTCFG", "ProductCfg_AddChildrenProduct", IdsProductStructureInputs1 )
+IdsProductStructure1 = Ids( RsProductStructure )
+
+/* Get product structure with reps from procedure */
+IdsProductStructureInputs2 = Restrict( IdsProductStructure1, "PRODUCTCFG/VPMReference" )
+							+ Restrict( IdsProductStructure1, "PRODUCTCFG/VPMRepReference" )
+							+ Restrict( IdsTemplateRootRepRef, "PRODUCTCFG/VPMRepReference" )
+							+ Restrict( IdsTemplateCompsRepRef, "PRODUCTCFG/VPMRepReference" )
+IdsProductStructure2 = ExecutePLMProcedure( "VPMEditor_GetAllRepresentations", IdsProductStructureInputs2 )
+
+/* Get Simulation references */
+IdsSimulationPKT1 = Restrict(IdsTemplateRootRef,"SIMObjSimulation/SIMObjSimulationObject")
+IdsSimulationPKT2 = Restrict(IdsSimulationPKT1,"PLMCORE/PLMCoreReference")
+
+/* Calling Simu completion */
+IdsSimulationPKT3 = ExecutePLMProcedure( "DefaultSimulationExport", IdsSimulationPKT2)
+
+/* Get Logical references */
+IdsLogicalPKT1 = Restrict(IdsTemplateRootRef,"RFLVPMLogical/RFLVPMLogicalReference")
+
+/* Calling Logical completion */
+IdsLogicalPKT2 = ExecutePLMProcedure("Logical_ExportReference_Design",IdsLogicalPKT1)
+
+
+/* Get Functional references */
+IdsFunctionalPKT1 = Restrict(IdsTemplateRootRef,"RFLPLMFunctional/RFLPLMFunctionalReference")
+
+/* Calling Logical completion */
+IdsFunctionalPKT2 = ExecutePLMProcedure("Functional_ExportReference_Design",IdsFunctionalPKT1)
+
+
+/* Provide back all that stuff */
+oPLMIDSet = iPLMIDSet
++ IdsTemplateRootRepRef
++ IdsTemplateRootRef
++ IdsProductStructure1
++ IdsProductStructure2
++ IdsSimulationPKT3
++ IdsLogicalPKT2
++ IdsFunctionalPKT2
++ IdsTemplateCompsRepRef
+}

@@ -1,0 +1,20 @@
+NAVIGATE 
+T0.PLMID, 
+T1.physicalid, 
+T1.logicalid, 
+T1.majorid, 
+T1.type, 
+T1.name,
+T2.PLMID,
+T2.V_discipline
+FROM PRODUCTCFG/VPMReference T0, RelationClass/DELRmiShiftRelation T1, DELRmiShiftModel/DELRmiCycleReferenceAbstract T2 
+FROM_ROOTS [?1?]
+ON 
+ RELATION ( FROM=PRODUCTCFG/VPMReference TO=RelationClass/DELRmiShiftRelation THROUGH=POINTEDBY ) WITH QUALITY_FILTER ( CATEGORY=ISOWNEDBY ) 
+THEN 
+ RELATION ( FROM=RelationClass/DELRmiShiftRelation TO=DELRmiShiftModel/DELRmiCycleReferenceAbstract THROUGH=POINTSTO ) WITH QUALITY_FILTER ( CATEGORY=ISINSTANCEOF ) 
+WITH ATTRIBUTE_FILTER (T2.V_discipline='DELRmiShiftReference') 
+;
+
+
+

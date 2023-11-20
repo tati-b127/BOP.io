@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2007, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" BelongsToModeler="PLMKnowHowRule" CustomerExposition="Programmer" Name="PLMKnowHowRuleBaseComponent" Uuid="AAFB4E95-1CD3-45d2-B3D397DAC55DC108" UseNames="PLMKnowHowGenericRuleBaseComponent PLMKnowHowRuleSet"  >
+  <CAAComment>
+    <ShortRole>KnowHow RuleBaseComponent Package</ShortRole>
+    <Role>This package includes the RuleBaseComponent entities of KnowHow Rule Model</Role>
+  </CAAComment>
+  <Comment>last update 2007-03-23</Comment>
+  <!-- ******************************************* -->
+  <!-- * PLMRuleBaseComponent (PLMCoreReference) * -->
+  <!-- ******************************************* -->
+  <Class Name="PLMRuleBaseComponent"  CustomerExposition="Programmer" Uuid="AF526628-72C6-47cd-AC9BA47B6DC363F5" Abstract="Yes" SuperName="PLMGenericRuleBaseComponent"  >
+    <Property Name="Searchable"      Value="Yes"/>
+    <CAAComment>
+      <ShortRole>PLM RuleBaseComponent</ShortRole>
+      <Role>PLM RuleBaseComponent</Role>
+    </CAAComment>
+    <!-- ********************************************************* -->
+    <!-- * Elementary PLMRuleBaseComponent attributes            * -->
+    <!-- ********************************************************* -->
+    <Simple Name="V_Language" Uuid="141FE95F-C5F1-4171-BFA47E763169AB05" Type="Integer" Protection="Free" CAAExposition="L0" DefaultValue="3" Faceted="Yes">
+      <Property Name="SIXW" Value="ds6w:physics"/>
+      <Property Name="RangeAsEnumName" Value="RuleBaseComponentLanguage"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="KWELanguage;VBLanguage;KWEComplexLanguage"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+      </Range>
+      <CAAComment>
+        <ShortRole>The Language of the Rule Reference</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_Variables" Uuid="B2F5366C-3599-4dc3-AE421075076BD85C" Type="String"  MultiValuated="Yes" CollectionType="Set" MaxLength="70"  Protection="External" CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>The Objects of the Rule Reference</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_Body" Uuid="56EB4F2E-D707-473f-AE270B4A10C1A1D3" Type="String" MultiValuated="Yes" CollectionType="Set" MaxLength="200" Protection="Internal">
+      <CAAComment>
+        <ShortRole>The Body of the Rule Reference</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_Scope" Uuid="FDD26A06-9D23-48C6-83C4D47093EB9F1D" DefaultValue="FromSpec" Type="String" Protection="ExternalIN" CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>The scope of the Rule Reference</ShortRole>
+      </CAAComment>
+      <Range>
+        <Equal>ClientOnly</Equal>
+        <Equal>ServerOnly</Equal>
+        <Equal>ClientAndServer</Equal>
+        <Equal>FromSpec</Equal>
+      </Range>
+    </Simple>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+  <!-- ************************************************** -->
+  <!-- * PLMRuleBaseComponentInstance (PLMCoreInstance) * -->
+  <!-- ************************************************** -->
+  <RelationClass Name="PLMRuleBaseComponentInstance" CustomerExposition="Programmer" Uuid="6900B37A-F320-46e2-B074F852EF1CEF9C"  Abstract="Yes" SuperName="PLMGenericRuleBaseComponentInstance"  >
+    <CAAComment>
+      <ShortRole>PLM RuleBaseComponent instance</ShortRole>
+      <Role>PLM RuleBaseComponent instance</Role>
+    </CAAComment>
+  <SubClause Name="from"   TargetName="PLMRuleSet"/>
+    <SubClause Name="to"   TargetName="PLMRuleBaseComponent"/>
+ 
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </RelationClass>
+
+</Package>

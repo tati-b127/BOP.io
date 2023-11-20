@@ -1,0 +1,12 @@
+EXPAND
+   T0.PLMID, T0.PLM_ExternalID,
+   T1.PLMID, T1.PLM_ExternalID
+
+FROM
+
+   RFLVPMSystemType/RFLVPMSystemTypeInstance T0,
+   RFLVPMLogicalInterfaceRep/RFLVPMLogicalInterfaceRepInstance T1
+
+FROM_ROOTS [?1?]
+
+DEPTH=1; 

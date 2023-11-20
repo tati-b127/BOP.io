@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" Name="ENOSTProdSysRemoveMaterialOperationDS" Uuid="dac4396f-159a-40e8-b2b1265dd5648e5c" UseNames="DELLmiProductionRemoveMaterialOperation" >
+	<CAAComment>
+		<ShortRole>PLM Customization of DELMIA RemoveMaterial Operation for SMB</ShortRole>
+		<Role>PLM Customization of DELMIA RemoveMaterial Operation for SMB</Role>
+	</CAAComment>
+	<Comment>last update 2008-11-25</Comment>
+
+	<Class Name="ENOSTRemoveMaterialOpReferenceCusto" Uuid="3c094fd8-6037-4124-a894cd6bfc389b60" SuperName="DELLmiRemoveMaterialOperationReference" SuperRef="9c006ee7-7864-4d8a-bf383f6777c900d5"  >
+
+    <Simple Name="E_fromExternalId"
+            Uuid="f7efa47c-38aa-4cef-b97d66781701607d"
+            Alias="Definition"
+            Type="String"
+            MaxLength="256"
+            Mandatory="No"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"/>
+    <Simple Name="E_versionComment"
+            Uuid="b0ece810-44e8-48be-92feb732732b66c7"
+            Alias="Version Comment"
+            Type="String"
+            MaxLength="256"
+            Mandatory="No"
+            MultiValuated="No"
+            Protection="Free"
+            ResetOnNewVersion="Yes"
+            ResetOnCloning="Yes"
+            CAAExposition="L0"/>
+    <IdentifierSet Name="E_identifier"
+                   Uuid="031452b8-2a0d-4c71-8613e73b916fed69"
+                   IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755"
+                   IdentifierNames="PLM_ExternalID V_version"/>
+
+    <CAAComment>
+			<ShortRole>PLM Customization of DELMIA RemoveMaterial Operation Reference for SMB</ShortRole>
+			<Role>PLM Customization of DELMIA RemoveMaterial Operation Reference for SMB</Role>
+		</CAAComment>
+	</Class>
+
+  <RelationClass Name="ENOSTRemoveMaterialOpInstanceCusto" Uuid="e22aef40-25ab-432a-ad911006948931f8" SuperName="DELLmiRemoveMaterialOperationInstance" SuperRef="c814a005-bd38-4f52-abb15daffb3a2938"  >
+		<CAAComment>
+			<ShortRole>PLM Customization of DELMIA RemoveMaterial Operation Instance for SMB</ShortRole>
+			<Role>PLM Customization of DELMIA RemoveMaterial Operation Instance for SMB</Role>
+		</CAAComment>		
+            <!-- ********************************************************* -->
+            <!-- * Overload(s) of PLMCoreInstance attributes. -->
+            <!-- ********************************************************* -->
+    <SubClause Name="to"   TargetName="ENOSTRemoveMaterialOpReferenceCusto"/>
+  </RelationClass>
+</Package>

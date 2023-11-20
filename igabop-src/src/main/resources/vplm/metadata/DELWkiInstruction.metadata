@@ -1,0 +1,101 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR DELMIA Work Instruction Application -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2010, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified"
+         ModelerType="Top"
+         Name="DELWkiInstruction"
+	       Uuid="b90c66f4-2fd9-48dd-b24878860bf3f389"
+  	     BelongsToModeler="DELWkiWorkInstructionPPR"
+	       UseNames="DELWkiWorkInstructionPPR"
+	       CustomerExposition="Programmer" >
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>PLM DELMIA Work Instruction Text </ShortRole>
+    <Role>This package describes the PLM DELMIA Work Instruction Text model on top of DELWkiWorkInstructionPPR</Role>
+  </CAAComment>
+
+  <Comment>last update 2012-06-18</Comment>
+
+  <Class Name="DELWkiInstructionReference"
+		     Uuid="c6b00b25-9e1e-4a82-a32a03f2a8e97e95"
+		     Abstract="No"
+    		 SuperName="DELWkiPPRReference"
+         Specializable="No"
+         CustomerExtensible="No"
+         CreateInstName="DELWkiInstructionInstance"
+		     CustomerExposition="Programmer"
+         Abbreviation="wit">
+
+    <Property Name="KweNew_InstanciationMethod" Value="DELWorkInstructionDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELWkiInstructionInstance"/>
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="IconName" Value="I_WI_Text"/>
+    <Property Name="3DIconName" Value="I_WI_Text.cgr"/>
+    <Property Name="Newable" Value="No"/>
+    <Property Name="Searchable" Value="Yes"/>
+
+    <CAAComment>
+      <ShortRole>PLM DELMIA Work Instruction Text Reference</ShortRole>
+      <Role>PLM DELMIA Work Instruction Text Reference</Role>
+    </CAAComment>
+
+    <Simple Name="V_WIInstruction_Text"
+            Uuid="b3d99d69-e1cf-4ef7-ba44598376048837"
+            Type="String"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>The Instruction message to tell the Shop Floor worker what task needs to be performed and how to perform it.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+
+  </Class>
+
+  <RelationClass Name="DELWkiInstructionInstance"
+		     Uuid="7f990cc1-d08b-4b95-837d6fbbe43d7190"
+		     Abstract="No"
+    		 SuperName="DELWkiPPRInstance"
+         Specializable="No"
+         CustomerExtensible="No"
+		     CustomerExposition="Programmer">
+
+    <Property Name="KweNew_InstanciationMethod" Value="DELWorkInstructionDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELWkiInstructionInstance"/>
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="IconName" Value="I_WI_Text"/>
+    <Property Name="3DIconName" Value="I_WI_Text.cgr"/>
+    <Property Name="Filtrable" Value="Yes"/>
+
+    <CAAComment>
+      <ShortRole>PLM DELMIA Work Instruction Text Instance</ShortRole>
+      <Role>PLM DELMIA Work Instruction Text Instance</Role>
+    </CAAComment>
+
+    <Volatile Name="Reference"
+              Uuid="79736EAB-A8CB-4672-82E3-19E8358FA607"
+              Accessor="PLMModelerReferenceKweAttribute"
+              TypeName="DELWkiInstructionReference"
+              AccessMode="ReadOnly"/>
+
+    <SubClause Name="to"   TargetName="DELWkiInstructionReference"/>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+
+  </RelationClass>
+
+</Package>

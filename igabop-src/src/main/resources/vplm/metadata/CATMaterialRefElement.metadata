@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2007 (http://www.altova.com) by DASSAULT SYSTEMES (DASSAULT SYSTEMES) -->
+<!-- ENOVIA DICTIONARY -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2004, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" Name="CATMaterialRefElement" Uuid="302E3C98-253F-4f18-80CD-60383DBA9C7F" UseNames="PLMCORE" CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+  <CAAComment>
+    <ShortRole>This package includes connections owned by materials</ShortRole>
+    <Role>This package includes connections owned by materials</Role>
+  </CAAComment>
+  <Comment>last update 2008-03-18</Comment>
+  <!--*****************************************************-->
+  <!--Connection for Materials ( derivated from PLMConnection )-->
+  <!--*****************************************************-->
+  <Class Name="CATMatRefElemConnection" Uuid="300F7511-7CE8-4c41-A20B-481ED8A3F242" SuperName="PLMConnection" Abstract="No" CustomerExposition="Programmer">
+    <!--*****************************************************-->
+    <!--Connection for Materials attributes-->
+    <!--****************************************************-->
+    <Property Name="DMCDerivable" Value="Yes" />
+    <Simple Name="V_isDefault" Uuid="B7A3BB6F-66DF-42bd-AE8F-860B7F1F1BE6" Type="Boolean" MultiValuated="No" Protection="Internal"/>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Path Name="CATMatRefElemConnection_material" Uuid="51993FCA-E789-45ba-8608-A151F3CE1582"  MultiValuated="No" RoleName="CATMaterialRefCnxToFather" Semantics="Reference" Type="SemanticRelation" AdaptativeToMinor="No" 		SynchroSensitivity="None" 		RerouteOnEffectivityChange="No"/>
+    <Path Name="CATMatRefElemConnection_stream" Uuid="54498D8C-ADB6-4804-B6DF-A18D04703726"  MultiValuated="Yes"  RoleName="CATMaterialRefCnxToStream" Semantics="Reference3" Type="SemanticRelation" AdaptativeToMinor="No" 		SynchroSensitivity="PathAndLast" 		RerouteOnEffectivityChange="No" Orientation="In"/>
+    <!-- Behavior patterns: default values -->
+    <Property Name="LockUnlockAvailability" Value="No"/>
+    <Property Name="TransferOwnershipAvailability" Value="No"/>
+  </Class>
+</Package>

@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2012, All rights reserved -->
+
+<Package CustomerExposition = "Programmer" ModelerType = "Top" Name = "RailwayElementIfc" UseNames = "RailwayElement" Uuid = "FB9F79DE-940D-4117-8641-F06836E2B707" xmlns = "PLMDictionaryUnified">
+  <Extension CustomerExposition = "Programmer" Name = "IfcRailwayElement" ScopeNames = "RailwayElement" Uuid = "99DE00FA-1BAE-4AEA-B9E2-C59737ADE48D">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcRailwayElement_ObjectType" Protection = "Free" Type = "String" Uuid = "99DE00FA-1BAE-4AEA-B9E2-1ad52eb2ea5e"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcRailwayElement_Tag" Protection = "Free" Type = "String" Uuid = "99DE00FA-1BAE-4AEA-B9E2-ed12431a92f4"/>
+    <Simple CAAExposition = "L0" DefaultValue = "99" Name = "IfcRailwayElement_PredefinedType" Protection = "Free" Type = "Integer" Uuid = "2AFCBAF0-5B31-48B2-AB8D-439DEB611664">
+      <Property Name = "RangeAsEnumName" Value = "IfcRailwayElementTypeEnum"/>
+      <Property Name = "RangeAsEnumAuthorizedValues" Value = "USERDEFINED;NOTDEFINED"/>
+      <Range>
+        <Equal>98</Equal>
+        <Equal>99</Equal>
+      </Range>
+    </Simple>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcRailwayElementType" ScopeNames = "RailwayElementType" Uuid = "F01511B0-B5FC-4437-87D5-288992614680">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcRailwayElementType_Tag" Protection = "Free" Type = "String" Uuid = "F01511B0-B5FC-4437-87D5-cc2a36316812"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcRailwayElementType_ElementType" Protection = "Free" Type = "String" Uuid = "F01511B0-B5FC-4437-87D5-4fccfb51960c"/>
+    <Simple CAAExposition = "L0" DefaultValue = "99" Name = "IfcRailwayElementType_PredefinedType" Protection = "Free" Type = "Integer" Uuid = "09BA936F-B8E4-49AA-B4C7-E022FA40E187">
+      <Property Name = "RangeAsEnumName" Value = "IfcRailwayElementTypeEnum"/>
+      <Property Name = "RangeAsEnumAuthorizedValues" Value = "USERDEFINED;NOTDEFINED"/>
+      <Range>
+        <Equal>98</Equal>
+        <Equal>99</Equal>
+      </Range>
+    </Simple>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcQto_DS_RailwayOtherElementBaseQuantities" ScopeNames = "RailwayOtherElement RailwayOtherElementType" Uuid = "CCF16299-A0A1-4C26-8649-104FA02BADE9">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcQto_DS_RailwayOtherElementBaseQuantities_MethodOfMeasurement" Protection = "Free" Type = "String" Uuid = "CCF16299-A0A1-4C26-8649-14b1550b5f09"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcQto_DS_RailwayOtherElementBaseQuantities_Height" Protection = "Free" Type = "Double" Uuid = "049987F7-C5A9-408A-8C90-D03A09D07CA2"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcQto_DS_RailwayOtherElementBaseQuantities_Length" Protection = "Free" Type = "Double" Uuid = "CB1539A6-22C0-45C7-8E40-8C7ABB0965B4"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcQto_DS_RailwayOtherElementBaseQuantities_Width" Protection = "Free" Type = "Double" Uuid = "E9563AD0-23B5-4960-9297-B838C25FDEFF"/>
+    <Simple CAAExposition = "L0" Magnitude = "AREA" Name = "IfcQto_DS_RailwayOtherElementBaseQuantities_GrossSurfaceArea" Protection = "Free" Type = "Double" Uuid = "B6D1FB73-676B-4395-9AFE-0F2DDB84B596"/>
+    <Simple CAAExposition = "L0" Magnitude = "AREA" Name = "IfcQto_DS_RailwayOtherElementBaseQuantities_NetSurfaceArea" Protection = "Free" Type = "Double" Uuid = "7BB47061-654C-4E2F-9EA0-B25A8E3CC193"/>
+    <Simple CAAExposition = "L0" Magnitude = "VOLUME" Name = "IfcQto_DS_RailwayOtherElementBaseQuantities_GrossVolume" Protection = "Free" Type = "Double" Uuid = "A447A615-09AC-4BDC-9AE6-6C54D818F0F3"/>
+    <Simple CAAExposition = "L0" Magnitude = "VOLUME" Name = "IfcQto_DS_RailwayOtherElementBaseQuantities_NetVolume" Protection = "Free" Type = "Double" Uuid = "07DF8E39-7FC5-4288-9E4F-CB5E8BE33209"/>
+    <Simple CAAExposition = "L0" Magnitude = "MASS" Name = "IfcQto_DS_RailwayOtherElementBaseQuantities_GrossWeight" Protection = "Free" Type = "Double" Uuid = "0681FCD2-DF8E-4C3E-8F3E-283522C196DF"/>
+    <Simple CAAExposition = "L0" Magnitude = "MASS" Name = "IfcQto_DS_RailwayOtherElementBaseQuantities_NetWeight" Protection = "Free" Type = "Double" Uuid = "B09953DA-6647-47FF-9C90-1261C6960DBE"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcQto_DS_RailwayTrackPanelBaseQuantities" ScopeNames = "RailwayTrackPanel RailwayTrackPanelType" Uuid = "E67F13A0-554C-48DD-B2F7-1ECA5D562548">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcQto_DS_RailwayTrackPanelBaseQuantities_MethodOfMeasurement" Protection = "Free" Type = "String" Uuid = "E67F13A0-554C-48DD-B2F7-14b1550b5f09"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcQto_DS_RailwayTrackPanelBaseQuantities_Depth" Protection = "Free" Type = "Double" Uuid = "973C5649-71A6-490C-AACB-805549F6769D"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcQto_DS_RailwayTrackPanelBaseQuantities_Length" Protection = "Free" Type = "Double" Uuid = "C4D04E3F-8910-4586-8513-9B96715F886A"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcQto_DS_RailwayTrackPanelBaseQuantities_Width" Protection = "Free" Type = "Double" Uuid = "888E3667-A701-40C8-BE5D-BBD0B3B4E358"/>
+    <Simple CAAExposition = "L0" Magnitude = "VOLUME" Name = "IfcQto_DS_RailwayTrackPanelBaseQuantities_GrossVolume" Protection = "Free" Type = "Double" Uuid = "6322B680-6FC3-4A77-A63A-640ADB958830"/>
+    <Simple CAAExposition = "L0" Magnitude = "VOLUME" Name = "IfcQto_DS_RailwayTrackPanelBaseQuantities_NetVolume" Protection = "Free" Type = "Double" Uuid = "D7F6EC38-C54C-4D9A-A8E1-2F0C0759BB1D"/>
+    <Simple CAAExposition = "L0" Magnitude = "MASS" Name = "IfcQto_DS_RailwayTrackPanelBaseQuantities_GrossWeight" Protection = "Free" Type = "Double" Uuid = "AA6720F3-5B44-4224-90D0-017D41053B5D"/>
+    <Simple CAAExposition = "L0" Magnitude = "MASS" Name = "IfcQto_DS_RailwayTrackPanelBaseQuantities_NetWeight" Protection = "Free" Type = "Double" Uuid = "A88AC868-D9EF-4F87-8B00-FDFB26773BE3"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcQto_DS_RailwayTrackRailBaseQuantities" ScopeNames = "RailwayTrackRail RailwayTrackRailType" Uuid = "C0CE1715-76AC-47D7-B33D-21D5E788DB51">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcQto_DS_RailwayTrackRailBaseQuantities_MethodOfMeasurement" Protection = "Free" Type = "String" Uuid = "C0CE1715-76AC-47D7-B33D-14b1550b5f09"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcQto_DS_RailwayTrackRailBaseQuantities_Depth" Protection = "Free" Type = "Double" Uuid = "3F1AB3F1-4FD3-4E00-8531-4BDA18C22B34"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcQto_DS_RailwayTrackRailBaseQuantities_Length" Protection = "Free" Type = "Double" Uuid = "33333E45-7C33-422D-AB3A-5E448FB746B1"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcQto_DS_RailwayTrackRailBaseQuantities_Width" Protection = "Free" Type = "Double" Uuid = "224BFFA3-C599-4CF8-9464-C57F33C9797E"/>
+    <Simple CAAExposition = "L0" Magnitude = "AREA" Name = "IfcQto_DS_RailwayTrackRailBaseQuantities_CrossSectionArea" Protection = "Free" Type = "Double" Uuid = "E8AF59F8-32CE-4000-B56A-CDDE0DF875BC"/>
+    <Simple CAAExposition = "L0" Magnitude = "AREA" Name = "IfcQto_DS_RailwayTrackRailBaseQuantities_GrossSurfaceArea" Protection = "Free" Type = "Double" Uuid = "7CFA9368-B7FD-4DC7-837D-BE946C30701D"/>
+    <Simple CAAExposition = "L0" Magnitude = "AREA" Name = "IfcQto_DS_RailwayTrackRailBaseQuantities_NetSurfaceArea" Protection = "Free" Type = "Double" Uuid = "7A889AFB-5641-4C5C-B7F2-3362429E49E8"/>
+    <Simple CAAExposition = "L0" Magnitude = "VOLUME" Name = "IfcQto_DS_RailwayTrackRailBaseQuantities_GrossVolume" Protection = "Free" Type = "Double" Uuid = "AEE1108C-9225-45B6-8983-33D4894F6517"/>
+    <Simple CAAExposition = "L0" Magnitude = "VOLUME" Name = "IfcQto_DS_RailwayTrackRailBaseQuantities_NetVolume" Protection = "Free" Type = "Double" Uuid = "15D2AFEC-F4A6-4037-8183-6D469879152F"/>
+    <Simple CAAExposition = "L0" Magnitude = "MASS" Name = "IfcQto_DS_RailwayTrackRailBaseQuantities_GrossWeight" Protection = "Free" Type = "Double" Uuid = "2EEF1636-B9BC-4622-A685-ED406E2AB1B2"/>
+    <Simple CAAExposition = "L0" Magnitude = "MASS" Name = "IfcQto_DS_RailwayTrackRailBaseQuantities_NetWeight" Protection = "Free" Type = "Double" Uuid = "6CE1E0A4-08AC-43EC-8F6F-C67B239DD226"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcQto_DS_RailwayTrackSleeperBaseQuantities" ScopeNames = "RailwayTrackSleeper RailwayTrackSleeperType" Uuid = "3905BF29-48B8-4BAB-95B4-E28D127F8A4B">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcQto_DS_RailwayTrackSleeperBaseQuantities_MethodOfMeasurement" Protection = "Free" Type = "String" Uuid = "3905BF29-48B8-4BAB-95B4-14b1550b5f09"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcQto_DS_RailwayTrackSleeperBaseQuantities_Depth" Protection = "Free" Type = "Double" Uuid = "956992B7-76F0-411B-8B87-E3CACCDD9D65"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcQto_DS_RailwayTrackSleeperBaseQuantities_Length" Protection = "Free" Type = "Double" Uuid = "76CF8D7B-73FC-42C8-8AF2-6308EEE43888"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcQto_DS_RailwayTrackSleeperBaseQuantities_Width" Protection = "Free" Type = "Double" Uuid = "D1D9D26E-B2F3-407B-975F-E577177DED17"/>
+    <Simple CAAExposition = "L0" Magnitude = "AREA" Name = "IfcQto_DS_RailwayTrackSleeperBaseQuantities_CrossSectionArea" Protection = "Free" Type = "Double" Uuid = "6FA01FA9-EE5E-4335-8696-334CDF12C861"/>
+    <Simple CAAExposition = "L0" Magnitude = "AREA" Name = "IfcQto_DS_RailwayTrackSleeperBaseQuantities_GrossSurfaceArea" Protection = "Free" Type = "Double" Uuid = "5FB4CD3D-0BE1-49E1-80A4-DC05846A4870"/>
+    <Simple CAAExposition = "L0" Magnitude = "AREA" Name = "IfcQto_DS_RailwayTrackSleeperBaseQuantities_NetSurfaceArea" Protection = "Free" Type = "Double" Uuid = "84E8A024-9986-4FF6-BAFE-25EC4552FCFB"/>
+    <Simple CAAExposition = "L0" Magnitude = "VOLUME" Name = "IfcQto_DS_RailwayTrackSleeperBaseQuantities_GrossVolume" Protection = "Free" Type = "Double" Uuid = "08E9B200-31D4-431E-A839-BACE7831F0CB"/>
+    <Simple CAAExposition = "L0" Magnitude = "VOLUME" Name = "IfcQto_DS_RailwayTrackSleeperBaseQuantities_NetVolume" Protection = "Free" Type = "Double" Uuid = "4674B6C6-18C2-4DB4-96D3-BC8C3C975CFB"/>
+    <Simple CAAExposition = "L0" Magnitude = "MASS" Name = "IfcQto_DS_RailwayTrackSleeperBaseQuantities_GrossWeight" Protection = "Free" Type = "Double" Uuid = "7A1A7D66-4309-4B22-82BA-72237E209542"/>
+    <Simple CAAExposition = "L0" Magnitude = "MASS" Name = "IfcQto_DS_RailwayTrackSleeperBaseQuantities_NetWeight" Protection = "Free" Type = "Double" Uuid = "1630C8B2-62EB-471B-8C4A-88D84853B378"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcQto_DS_RailwayTrackTurnoutBaseQuantities" ScopeNames = "RailwayTrackTurnout RailwayTrackTurnoutType" Uuid = "B66DD7DB-936B-4EAA-8E7E-1AA82A50D3E2">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcQto_DS_RailwayTrackTurnoutBaseQuantities_MethodOfMeasurement" Protection = "Free" Type = "String" Uuid = "B66DD7DB-936B-4EAA-8E7E-14b1550b5f09"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcQto_DS_RailwayTrackTurnoutBaseQuantities_Depth" Protection = "Free" Type = "Double" Uuid = "5E7FC2F2-5481-4789-A512-26C154F20EA9"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcQto_DS_RailwayTrackTurnoutBaseQuantities_Length" Protection = "Free" Type = "Double" Uuid = "06BA8886-C4CB-46AD-A870-262A9330CB1A"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcQto_DS_RailwayTrackTurnoutBaseQuantities_Width" Protection = "Free" Type = "Double" Uuid = "1CCDE327-97C9-4AD8-9F56-38E4CBED344A"/>
+    <Simple CAAExposition = "L0" Magnitude = "AREA" Name = "IfcQto_DS_RailwayTrackTurnoutBaseQuantities_GrossSurfaceArea" Protection = "Free" Type = "Double" Uuid = "929562E0-0C89-48D6-8EF5-32136B11C62B"/>
+    <Simple CAAExposition = "L0" Magnitude = "AREA" Name = "IfcQto_DS_RailwayTrackTurnoutBaseQuantities_NetSurfaceArea" Protection = "Free" Type = "Double" Uuid = "2E7D3C85-F609-46CD-A277-BD34170C9500"/>
+    <Simple CAAExposition = "L0" Magnitude = "VOLUME" Name = "IfcQto_DS_RailwayTrackTurnoutBaseQuantities_GrossVolume" Protection = "Free" Type = "Double" Uuid = "3A3300AE-3645-4C74-94B0-2EFD0F2A7A12"/>
+    <Simple CAAExposition = "L0" Magnitude = "VOLUME" Name = "IfcQto_DS_RailwayTrackTurnoutBaseQuantities_NetVolume" Protection = "Free" Type = "Double" Uuid = "FA9D192E-C50A-47CF-B417-B4D2A6157BAA"/>
+    <Simple CAAExposition = "L0" Magnitude = "MASS" Name = "IfcQto_DS_RailwayTrackTurnoutBaseQuantities_GrossWeight" Protection = "Free" Type = "Double" Uuid = "0BC7C5C3-9BDF-4344-93D9-2CAD723A7381"/>
+    <Simple CAAExposition = "L0" Magnitude = "MASS" Name = "IfcQto_DS_RailwayTrackTurnoutBaseQuantities_NetWeight" Protection = "Free" Type = "Double" Uuid = "71F3547F-CA72-4426-B6C2-0AFA9EE75C73"/>
+  </Extension>
+</Package>

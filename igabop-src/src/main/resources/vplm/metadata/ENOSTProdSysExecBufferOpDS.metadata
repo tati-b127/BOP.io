@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2009, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" Name="ENOSTProdSysExecBufferOpDS" Uuid="7052ce0b-4a79-440a-b24a-19614737900b" UseNames="DELLmiProductionExecBufferOperation" >
+	<CAAComment>
+		<ShortRole>PLM Customization of DELMIA Execution Buffer Operation for SMB</ShortRole>
+		<Role>PLM Customization of DELMIA Execution Buffer Operation for SMB</Role>
+	</CAAComment>
+	<Comment>last update 2009-05-28</Comment>
+
+	<Class Name="ENOSTExecBufferOpRefCusto" Uuid="586f4cd9-eb26-4e8c-b44f-641d8b43650b" SuperName="DELLmiExecBufferOperationReference" SuperRef="92c128dc-2627-44da-bce3-32c94f7ebce1"  >
+
+    <Simple Name="E_fromExternalId"
+            Uuid="506b5210-3c44-496f-a4cd-e28fe8145af9"
+            Alias="Definition"
+            Type="String"
+            MaxLength="256"
+            Mandatory="No"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"/>
+    <Simple Name="E_versionComment"
+            Uuid="534b2dc9-0f1c-4693-a70c-3ed099c27dfa"
+            Alias="Version Comment"
+            Type="String"
+            MaxLength="256"
+            Mandatory="No"
+            MultiValuated="No"
+            Protection="Free"
+            ResetOnNewVersion="Yes"
+            ResetOnCloning="Yes"
+            CAAExposition="L0"/>
+    <IdentifierSet Name="E_identifier"
+                   Uuid="c8cbd1db-caac-4766-8ee7-f2c9d252ad3f"
+                   IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755"
+                   IdentifierNames="PLM_ExternalID V_version"/>
+
+    <CAAComment>
+			<ShortRole>PLM Customization of DELMIA Execution Buffer Operation Reference for SMB</ShortRole>
+			<Role>PLM Customization of DELMIA Execution Buffer Operation Reference for SMB</Role>
+		</CAAComment>
+	</Class>
+
+  <RelationClass Name="ENOSTExecBufferOpInstCusto" Uuid="9e931a30-c984-4a03-810d-402a83817294" SuperName="DELLmiExecBufferOperationInstance" SuperRef="6c073ea4-f651-4db4-b5e5-96d63f95f4f7"  >
+    <CAAComment>
+      <ShortRole>PLM Customization of DELMIA Execution Buffer Operation Instance for SMB</ShortRole>
+      <Role>PLM Customization of DELMIA Execution Buffer Operation Instance for SMB</Role>
+    </CAAComment>
+    <!-- ********************************************************* -->
+    <!-- * Overload(s) of PLMCoreInstance attributes. -->
+    <!-- ********************************************************* -->
+    <SubClause Name="to"   TargetName="ENOSTExecBufferOpRefCusto"/>
+  </RelationClass>
+
+</Package>

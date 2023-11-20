@@ -1,0 +1,14 @@
+#Prog Logical_ExportTypeExpoInst_TSO (iPLMIDSet :  #In PLMIDSet,oPLMIDSet :  #Out PLMIDSet) : VoidType
+{
+  let InputPLMIDSetRestrictedToTypeExpoInstances(PLMIDSet)
+  let SetOfConfigObjectsPLMIDs(PLMIDSet)
+
+  InputPLMIDSetRestrictedToTypeExpoInstances = Restrict(iPLMIDSet,"RFLVPMSystemTypeExposition/RFLVPMSystemTypeExpositionInstance")
+ 
+  /*Completes with configuration */
+  /*TO ADD - Need a specific procedure from Config*/
+  /*SetOfConfigObjectsPLMIDs = ExecutePLMProcedure("?????",InputPLMIDSetRestrictedToTypeExpoInstances)*/
+  
+  oPLMIDSet = iPLMIDSet
+  /*oPLMIDSet = iPLMIDSet + SetOfConfigObjectsPLMIDs*/
+}

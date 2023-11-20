@@ -1,0 +1,79 @@
+#Prog Validation_Complete ( iPLMIDSet : #In PLMIDSet, oPLMIDSet : #Out PLMIDSet ) : VoidType
+{
+	let PLMIDSetChildren (PLMIDSet)
+	let PLMIDSetReviews (PLMIDSet)
+	let PLMIDSetContexts (PLMIDSet)
+	let PLMIDSetPSEntities (PLMIDSet)
+	let PLMIDSetPSAllReps (PLMIDSet)
+	let PLMIDSetFilterPSRoots (PLMIDSet)
+	let PLMIDSetFilterPSEntities (PLMIDSet)
+	let PLMIDSetFilterPSAllReps (PLMIDSet)
+	let PLMIDSetFunctionalEntities (PLMIDSet)
+	let PLMIDSetLogicalEntities (PLMIDSet)
+	let PLMIDSetDIFModeler (PLMIDSet)
+	
+	/* let PLMIDSetSimulationEntities (PLMIDSet)  */
+	/* let PLMIDSetSimuTempo1Entities (PLMIDSet)  */
+	/* let PLMIDSetSimuTempo2Entities (PLMIDSet)  */
+	
+	let PLMIDSetSimuGenericEntitiesTemp1 (PLMIDSet)
+	let PLMIDSetSimuGenericEntitiesTemp2 (PLMIDSet)
+	let PLMIDSetSimuGenericEntities (PLMIDSet)
+	let PLMIDSetSimuInterferenceEntitiesTemp1 (PLMIDSet)
+	let PLMIDSetSimuInterferenceEntitiesTemp2 (PLMIDSet)
+	let PLMIDSetSimuInterferenceEntities (PLMIDSet)
+	
+	/* Retrieve all Children */
+	PLMIDSetChildren = Ids( ExecutePLMFunction("DMUValidationBase", "DMUValidationBase_AddChildren", Restrict(iPLMIDSet, "DMUValidationBase/DMUValidationValidation") ) )
+	
+	/* Retrieve all Reviews and Replies */
+	PLMIDSetReviews = Ids( ExecutePLMFunction("DMUValidationBase", "DMUValidationBase_ExpandAll", Restrict(iPLMIDSet, "DMUValidationBase/DMUValidationValidation") ) )
+	
+	/* Retrieve Contexts */
+	PLMIDSetContexts = Ids( ExecutePLMFunction("DMUValidationBase", "DMUValidationBase_AddContexts", Restrict(iPLMIDSet, "DMUValidationBase/DMUValidationValidation") ) )
+	
+	/* Expand Product if Context but restrict to avoid execution problem on server side */
+	PLMIDSetPSEntities = Ids( ExecutePLMFunction("PRODUCTCFG", "ProductCfg_AddChildrenProduct", Restrict(PLMIDSetContexts, "PRODUCTCFG/VPMReference") ) )
+	
+	/* Expand Product associated data (Rep, MCX, Mechanism, ...) */
+	PLMIDSetPSAllReps = ExecutePLMProcedure("VPMEditor_GetAllRepresentations", PLMIDSetPSEntities)
+	
+	/* Retrieve Filtered Roots */
+	PLMIDSetFilterPSRoots = Ids( ExecutePLMFunction("PLMWspFilter", "PLMWspFilter_RetrieveFilteredRoot", PLMIDSetContexts) )
+	
+	/* Expand Filtered Product if Context but restrict to avoid execution problem on server side */
+	PLMIDSetFilterPSEntities = Ids( ExecutePLMFunction("PRODUCTCFG", "ProductCfg_AddChildrenProduct", Restrict(PLMIDSetFilterPSRoots, "PRODUCTCFG/VPMReference") ) )
+	
+	/* Expand Filtered Product associated data (Rep, MCX, Mechanism, ...) */
+	PLMIDSetFilterPSAllReps = ExecutePLMProcedure("VPMEditor_GetAllRepresentations", PLMIDSetFilterPSEntities)
+	
+	/* Expand Functional if Context but restrict to avoid execution problem on server side */
+	PLMIDSetFunctionalEntities = ExecutePLMProcedure("Functional_ExportReference_Design", Restrict(PLMIDSetContexts, "RFLPLMFunctional/RFLPLMFunctionalReference"))
+	
+	/* Expand Logical if Context but restrict to avoid execution problem on server side */
+	PLMIDSetLogicalEntities = ExecutePLMProcedure("Logical_ExportReference_Design", Restrict(PLMIDSetContexts, "RFLVPMLogical/RFLVPMLogicalReference"))
+
+	/* Expand Layout */
+	PLMIDSetDIFModeler = ExecutePLMProcedure("DIFModeler_GetAttachedPresentations", PLMIDSetContexts)
+
+
+	/* Expand Simulation if Context but restrict to avoid execution problem on server side */
+	/*PLMIDSetSimuTempo1Entities = Restrict(PLMIDSetContexts,"SIMObjSimulation/SIMObjSimulationObject") */
+	/*PLMIDSetSimuTempo2Entities = Restrict(PLMIDSetSimuTempo1Entities,"PLMCORE/PLMCoreReference") */
+	/*PLMIDSetSimulationEntities = ExecutePLMProcedure("DefaultSimulationExport", PLMIDSetSimuTempo2Entities) */
+
+	/*oPLMIDSet = PLMIDSetChildren + PLMIDSetReviews + PLMIDSetContexts + PLMIDSetPSEntities + PLMIDSetPSAllReps + PLMIDSetFilterPSRoots + PLMIDSetFilterPSEntities + PLMIDSetFilterPSAllReps + PLMIDSetFunctionalEntities + PLMIDSetLogicalEntities + PLMIDSetSimulationEntities + PLMIDSetDIFModeler */
+
+	/* Expand Generic Simulations if Context but restrict to avoid execution problem on server side */
+	PLMIDSetSimuGenericEntitiesTemp1 = Restrict(PLMIDSetContexts,"SIMObjSimulationGeneric/SIMObjSimulationObjectGeneric")
+	PLMIDSetSimuGenericEntitiesTemp2 = Restrict(PLMIDSetSimuGenericEntitiesTemp1,"PLMCORE/PLMCoreReference")
+	PLMIDSetSimuGenericEntities = ExecutePLMProcedure("DefaultSimulationExport", PLMIDSetSimuGenericEntitiesTemp2)
+
+	/* Expand Interference Simulations if Context but restrict to avoid execution problem on server side */
+	PLMIDSetSimuInterferenceEntitiesTemp1 = Restrict(PLMIDSetContexts,"SIMItfInterference/SIMItfSimulation")
+	PLMIDSetSimuInterferenceEntitiesTemp2 = Restrict(PLMIDSetSimuInterferenceEntitiesTemp1,"PLMCORE/PLMCoreReference")
+	PLMIDSetSimuInterferenceEntities = ExecutePLMProcedure("InterferenceAppli_ExportSimulationInterference", PLMIDSetSimuInterferenceEntitiesTemp2)
+
+	oPLMIDSet = PLMIDSetChildren + PLMIDSetReviews + PLMIDSetContexts + PLMIDSetPSEntities + PLMIDSetPSAllReps + PLMIDSetFilterPSRoots + PLMIDSetFilterPSEntities + PLMIDSetFilterPSAllReps + PLMIDSetFunctionalEntities + PLMIDSetLogicalEntities + PLMIDSetSimuGenericEntities + PLMIDSetSimuInterferenceEntities + PLMIDSetDIFModeler
+
+}

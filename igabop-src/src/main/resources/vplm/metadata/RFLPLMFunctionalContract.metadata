@@ -1,0 +1,53 @@
+<?xml version="1.0" ?>
+
+<!-- ENOVIA DICTIONARY FOR Abstract Functional Flow -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2014, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" BelongsToModeler="RFLPLMFunctional" CustomerExposition="Programmer" Name="RFLPLMFunctionalContract" 
+    Uuid="33DB489A-311A-42C6-878D-CD3DD3F21891" 
+    UseNames="PLMCORE">
+
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+  <Comment>creation date 2014-04-28</Comment>
+
+    <!-- ************************************************* -->
+    <!-- * FunctionalContract (PLMCoreReference) * -->
+    <!-- ************************************************* -->
+    <Class Name="RFLPLMFunctionalContract"
+        Uuid="94BD379C-79B6-43E5-96AE-BDBD46E29ACA"
+        Abstract="No"
+        SuperName="PLMCoreReference"
+        CustomerExposition="Programmer"
+        CustomerExtensible="Yes"
+        Specializable="Yes"
+        Abbreviation="fctcontr">
+
+        <Property Name="DMCDerivable" Value="No"/> <!-- Not customizable in CSE (legacy) -->
+        <Property Name="KweNew_InstanciationMethod" Value="CATEFctDelegateInstanciation"/>
+        <Property Name="KweNew_ReturnedType" Value="RFLPLMFunctionalContract"/>
+        <Property Name="Newable" Value="New_CAA"/>
+        <Property Name="IconName" Value="I_RFLPLMFlow"/> <!-- TO BE DEFINED -->
+        <Property Name="3DIconName" Value="CAT3DNav_Flow.cgr"/> <!-- TO BE DEFINED -->
+        <Property Name="Configurable" Value="No"/>
+        <Property Name="ChangeManagementSupport" Value="Yes"/>
+        <Property Name="Searchable" Value="Yes"/> <!-- Index -->
+        <Property Name="ShareBetweenProjectsAvailability" Value="Yes"/> <!-- Collaborative Space Applicability -->
+
+        <CAAComment>
+          <ShortRole>PLM Functional Contract Object</ShortRole>
+          <Role>PLM Functional Contract Object</Role>
+        </CAAComment>
+
+        <Method ImplementationType="Self">
+          <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+	      <ProcedureForUsage>
+	        <Usage href="ExportScope.meth#Remove"/>
+            <UsedProcedure href="ENOFct_Procedures.proc#Functional_ExportContract_Remove"/>
+          </ProcedureForUsage>
+          <ProcedureForUsage>
+            <Usage href="ExportScope.meth#TransferSiteOwnership"/>
+            <UsedProcedure href="ENOFct_Procedures.proc#Functional_ExportContract_TSO"/>
+          </ProcedureForUsage>
+        </Method>
+    </Class>
+</Package>

@@ -1,0 +1,76 @@
+<?xml version="1.0" ?>
+<ProcedurePackage
+	xmlns="PLMDictionaryProcedure"
+	Name="WipMidProcedure">
+
+  <Procedure Name="WipMidV1">
+    <Implementation Name="invoke" FileLocation="com.dassault_systemes.completionServices.access.RemoteProc" Language="JAVA"/>
+    <Signature href="WipMidSignatureV1"/>
+  </Procedure>
+
+  <Signature id="WipMidSignatureV1">
+    <Parameter Name="ScriptName" MultiValuated="No" Direction="in" DataType="String"/>    
+    <!--****************-->
+    <!--input parameters-->
+    <!--****************-->
+    <!--Process-->
+    <!--List selected occurrence process-->
+    <!---->
+    <!--Phy11|...|Phy1N-->
+    <!--...............-->
+    <!--PhyP1|...|PhyPN-->
+    <Parameter Name="ListSelectedOccProc" Lower="0" Upper="-1" MultiValuated="Yes" Direction="in" DataType="String"/>
+    <Parameter Name="ListAllOccProc" Lower="0" Upper="-1" MultiValuated="Yes" Direction="in" DataType="String"/>
+    <!--CompiledForm 1 to Z, map will be built thanks to that-->
+    <Parameter Name="ListRootForOccProc" Lower="0" Upper="-1" MultiValuated="Yes" Direction="in" DataType="String"/>
+    <Parameter Name="ListCFForOccProc" Lower="0" Upper="-1" MultiValuated="Yes" Direction="in" DataType="Binary"/>
+    <!--Product-->
+    <Parameter Name="ListSelectedOccProd" Lower="0" Upper="-1" MultiValuated="Yes" Direction="in" DataType="String"/>
+    <Parameter Name="ListAllOccProd" Lower="0" Upper="-1" MultiValuated="Yes" Direction="in" DataType="String"/>
+    <Parameter Name="ListRootForOccProd" Lower="0" Upper="-1" MultiValuated="Yes" Direction="in" DataType="String"/>    
+    <Parameter Name="ListCFForOccProd" Lower="0" Upper="-1" MultiValuated="Yes" Direction="in" DataType="Binary"/>
+    <!--Systemes and Operations -->
+    <Parameter Name="ListSelectedOccSysOp" Lower="0" Upper="-1" MultiValuated="Yes" Direction="in" DataType="String"/>
+    <Parameter Name="ListAllOccSysOp" Lower="0" Upper="-1" MultiValuated="Yes" Direction="in" DataType="String"/>
+    <Parameter Name="ListRootForOccSysOp" Lower="0" Upper="-1" MultiValuated="Yes" Direction="in" DataType="String"/>        
+    <Parameter Name="ListCFForOccSysOp" Lower="0" Upper="-1" MultiValuated="Yes" Direction="in" DataType="Binary"/>
+    <!--Work Plan -->
+    <Parameter Name="ListSelectedOccWorkplan" Lower="0" Upper="-1" MultiValuated="Yes" Direction="in" DataType="String"/>
+    <Parameter Name="ListAllOccWorkplan" Lower="0" Upper="-1" MultiValuated="Yes" Direction="in" DataType="String"/>
+    <Parameter Name="ListRootForOccWorkplan" Lower="0" Upper="-1" MultiValuated="Yes" Direction="in" DataType="String"/>
+    <Parameter Name="ListCFForOccWorkplan" Lower="0" Upper="-1" MultiValuated="Yes" Direction="in" DataType="Binary"/>
+    <!--Ressource -->
+    <Parameter Name="ListSelectedOccRes" Lower="0" Upper="-1" MultiValuated="Yes" Direction="in" DataType="String"/>
+    <Parameter Name="ListAllOccRes" Lower="0" Upper="-1" MultiValuated="Yes" Direction="in" DataType="String"/>
+    <Parameter Name="ListRootForOccRes" Lower="0" Upper="-1" MultiValuated="Yes" Direction="in" DataType="String"/>            
+    <Parameter Name="ListCFForOccRes" Lower="0" Upper="-1" MultiValuated="Yes" Direction="in" DataType="Binary"/>
+    <!--optional parameters-->
+    <Parameter Name="Param" MultiValuated="No" Direction="in" DataType="String"/>     
+    <!--****************-->
+    <!--output parameters-->
+    <!--****************-->
+    <!--Results of job made by procedure-->
+    <!--Process-->
+    <Parameter Name="ListOccProcWithCes" Lower="0" Upper="-1" MultiValuated="Yes" Direction="out" DataType="String"/>
+    <Parameter Name="ListComplexTypeForProcWithCes" Lower="0" Upper="-1" MultiValuated="Yes" Direction="out" DataType="String"/>
+    <!--Product-->
+    <Parameter Name="ListOccProdWithCes" Lower="0" Upper="-1" MultiValuated="Yes" Direction="out" DataType="String"/>
+    <Parameter Name="ListComplexTypeForProdWithCes" Lower="0" Upper="-1" MultiValuated="Yes" Direction="out" DataType="String"/>
+    <!--Systemes and Operations-->
+    <Parameter Name="ListOccSysOpWithCes" Lower="0" Upper="-1" MultiValuated="Yes" Direction="out" DataType="String"/>
+    <Parameter Name="ListComplexTypeForSysOpWithCes" Lower="0" Upper="-1" MultiValuated="Yes" Direction="out" DataType="String"/>
+    <!--Work Plan-->
+    <Parameter Name="ListOccWorkplanWithCes" Lower="0" Upper="-1" MultiValuated="Yes" Direction="out" DataType="String"/>
+    <Parameter Name="ListComplexTypeForWorkplanWithCes" Lower="0" Upper="-1" MultiValuated="Yes" Direction="out" DataType="String"/>
+    <!--Ressource -->
+    <Parameter Name="ListOccResWithCes" Lower="0" Upper="-1" MultiValuated="Yes" Direction="out" DataType="String"/>
+    <Parameter Name="ListComplexTypeForResWithCes" Lower="0" Upper="-1" MultiValuated="Yes" Direction="out" DataType="String"/>
+    <!--Error management-->
+    <Parameter Name="ErrorStatus" MultiValuated="No" Direction="out" DataType="String"/>    
+    <Parameter Name="ErrorCode" MultiValuated="No" Direction="out" DataType="String"/>    
+    <Parameter Name="ErrorCatalog" MultiValuated="No" Direction="out" DataType="String"/>    
+    <Parameter Name="ErrorListParam" Lower="0" Upper="-1" MultiValuated="Yes" Direction="out" DataType="String"/>    
+  </Signature>
+
+</ProcedurePackage>
+

@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2005, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top"  Name="PLMChgFamilyInput" Uuid="e9b21394-2539-4e50-ab6e-a398a497d128" UseNames="PLMCORE PLMChgTaskInput" CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+  <CAAComment>
+    <ShortRole>Change Management Family Affected Items Objects Package</ShortRole>
+    <Role>This package includes the Concrete entity for Change Management Affected Items Connections ordered by families</Role>
+  </CAAComment>
+  <Comment>last update 2011-05-23-15.51.00</Comment>
+  <!-- *************************************** -->
+  <!-- * PLMChgFamilyInput (PLMConnection)          * -->
+  <!-- *************************************** -->
+  <Class Name="PLMChgFamilyInput" Uuid="e2a1dd27-15e6-46d5-94cc-818da85cb0a2" Abstract="No" SuperName="PLMConnection" CustomerExposition="Programmer" OwnerTypes="PLMChgBase">
+    <CAAComment>
+      <ShortRole>Change Management Peer Object</ShortRole>
+      <Role>Concrete entity for Change Management Peer Object Connections - Hold SR links to same-level Actions</Role>
+    </CAAComment>
+
+    <Simple Name="V_FamilyProgressStatus" Uuid="6b75b2d2-2e97-4477-ad7a-54ea441b568e" Type="Integer" Protection="Internal" DefaultValue="1">
+      <Property Name="RangeAsEnumName" Value="PLMChgTaskInput.PLMChgProgressStatusValues"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="NotStarted;InWork;Implemented;NoActionNeeded"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+      </Range>
+      <CAAComment>
+        <ShortRole>Enter administrator/user assessment of progress of work on an input</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Path Name="DefaultActionFamilyInputs" Uuid="e5a12a8c-b7c7-4299-98f0-f93e2d314181"  MultiValuated="Yes" RoleName="PLMChgActionInput" Semantics="Reference" Type="SemanticRelation" AdaptativeToMinor="No"		SynchroSensitivity="None"		RerouteOnEffectivityChange="No"/>
+    <!-- OwnerTypes="PLMChgBase"  Integrate this line if you want to declare the aggregation constraint -->
+
+    <!-- *********************** -->
+    <!-- PROCEDURES Declaration  -->
+    <!-- *********************** -->
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+  </Class>
+
+  <!-- ********************** -->
+  <!-- FUNCTIONS Declarations -->
+  <!-- ********************** -->
+
+  <Function Name="PLMChgFamilyInput_AddFamilyInputs">
+    <Implementation Name="PLMChgFamilyInput_AddFamilyInputs" FileLocation="PLMChgFamilyInput_AddFamilyInputs.plmql" Language="PLMQL"/>
+    <Signature href="PLMChgFamilyInput_FunctionSignatureExport"/>
+  </Function>
+
+  <Signature id="PLMChgFamilyInput_FunctionSignatureExport">
+    <Parameter Name="InputIds" Lower="0" Upper="-1" Direction="in" MultiValuated="Yes" DataType="PLMId"/>
+    <Parameter Name="OutputIds" Lower="0" Upper="-1" Direction="out" MultiValuated="No" DataType="PLMRouteSet"/>
+  </Signature>
+
+</Package>

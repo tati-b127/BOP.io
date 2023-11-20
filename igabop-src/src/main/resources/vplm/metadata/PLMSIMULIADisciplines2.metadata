@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" Name="PLMSIMULIADisciplines2" UseNames="PRODUCTCFG;CATMCXAssembly" Uuid="e78577bb-f741-4408-89a6-7c01f3789691" ModelerType="Top" CustomerExposition="Programmer" >
+
+  <Class Name="FEM"
+       Uuid="8ccef4a8-659a-4c1e-942a-d2c2f5e59117"
+       CustomerExposition="Programmer"
+       SuperName="VPMRepReference"
+       Discipline="Yes"
+       Abstract="No"
+       Specializable="Yes"
+       CustomerExtensible="Yes"
+       Abbreviation="fem">
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEFmtFEMRepInstanciate"/>
+    <Property Name="KweNew_ReturnedType" Value="VPMRepInstance"/>
+    <Property Name="Newable" Value="Insert"/>
+    <Property Name="3DIconName" Value="I_FemRep.cgr"/>
+    <Property Name="IconName" Value="I_CATFmtRep"/>
+    <Property Name="IterationAvailability"  Value="No"/>
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Simple
+        Name="V_SolverId"
+        Uuid="b550c6f8-ca31-4af0-8b03-dd9cd816a2ba"
+        Type="String"
+        Protection="External"
+        CAAExposition="L1"
+        Faceted="Yes"
+        SetOnlyOnce="Later"
+        PLMImpacting="No">
+    </Simple>
+  </Class>
+
+  <Class Name="XRep"
+       Uuid="34f8805a-a939-443a-97c6-72f4fb04f7ac"
+       CustomerExposition="Programmer"
+       SuperName="VPMRepReference"
+       Discipline="Yes"
+       Abstract="No"
+       Specializable="Yes"
+       CustomerExtensible="Yes"
+       Abbreviation="xrep">
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEFmtXRepInstanciate"/>
+    <Property Name="KweNew_ReturnedType" Value="VPMRepInstance"/>
+    <Property Name="Newable" Value="Insert"/>
+    <Property Name="3DIconName" Value="I_EmptyXRep.cgr"/>
+    <Property Name="IconName" Value="I_CATFmtXRep"/>
+    <Property Name="IterationAvailability"  Value="No"/>
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+  
+  <Class Name="SIMShape"
+       Uuid="76d9168d-3df0-4f1a-acb9-ad8a4feb9e6e"
+       CustomerExposition="Programmer"
+       SuperName="VPMRepReference"
+       Discipline="Yes"
+       Abstract="No"
+       Specializable="Yes"
+       CustomerExtensible="Yes"
+       Abbreviation="ash">
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEFmtSIMShapeInstanciate"/>
+    <Property Name="KweNew_ReturnedType" Value="VPMRepInstance"/>
+    <Property Name="Newable" Value="Insert"/>
+    <Property Name="3DIconName" Value="I_CATFmtAsh.cgr"/>
+    <Property Name="IconName" Value="I_CATFmtAsh"/>
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+  
+  <Class Name="SIMConnection"
+        Uuid="3225f05e-47a4-44be-a8eb-8a2270e3ab4c"
+        Abstract="No"
+        Discipline="Yes"
+        Structured="Yes"
+        CarryStreams="Yes"
+        SuperName="CATMCXMechanicalConnection"
+        Specializable="No"
+        CustomerExtensible="No"
+        CustomerExposition="Programmer">
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+</Package>

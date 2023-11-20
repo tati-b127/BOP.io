@@ -1,0 +1,224 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2005, All rights reserved -->
+
+<!--
+@FN7  13:07:19 Clean up to make the file more readable
+@FN7  13:07:24 Add Abbreviation on SIMItfSimulation class for ODCX compliance
+@FN7  14:02:24 Add new attribute V_Context_UpdateStamp (R217)
+@FN7  14:04:08 Add new attribute V_Last_Update (R217)
+@FN7  14:04:08 Fix regression for object customization
+@SVN1 16:06:02 Restrict versioning
+@SVN1 19:01:29 Allow change management referential
+@SVN1 19:05:21 Allow access rights management
+-->
+
+<Package  xmlns="PLMDictionaryUnified"
+          ModelerType="Top"
+          UseProcedures="InterferenceAppli_Procedures"
+          Name="SIMItfInterference"
+          Uuid="9f7481ff-7e55-0000-0280030b52000000"
+          UseNames="SIMObjSimulation"
+          CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <!-- ________________________________________________________________________________ -->
+  <!--      Interference simulation class                                               -->
+  <!-- ________________________________________________________________________________ -->
+  <Class Name="SIMItfSimulation"
+         Uuid="ea094d42-b246-406b-a9c44894fefb061b"
+         SuperName="SIMObjSimulationObject"
+         Abbreviation="isr"
+         CustomerExposition="Programmer"
+         Abstract="No"
+         CustomerExtensible="Yes"
+         Specializable="Yes">
+
+    <Property  Name="DMCDerivable"                 Value="Yes"/>
+    <Property  Name="IconName"                     Value="I_RootRefPLMPIMItfSimulation"/>
+    <Property  Name="3DIconName"                   Value="I_RootRefPLMPIMItfSimulation"/>
+    <Property  Name="Newable"                      Value="New"/>
+    <Property  Name="KweNew_InstanciationMethod"   Value="PLMPIMModelSimulationFactory"/>
+    <Property  Name="KweNew_ReturnedType"          Value="SIMItfSimulation"/>
+    <Property  Name="NewMajorRevisionAvailability" Value="No"/>
+    <Property  Name="ChangeManagementReferential"  Value="Yes"/>
+    <Property  Name="ManageAccessAvailability"     Value="Yes"/>
+
+    <!-- ________________________________________________________________________________ -->
+    <!--      V_Itf_Version                                                               -->
+    <!-- ________________________________________________________________________________ -->
+    <Simple Name="V_Itf_Version"
+            Uuid="1dd1badd-56ac-46a2-a1934d4638d6d55f"
+            Protection="Internal"
+            Type="Integer">
+      <Comment>Version of the interference simulation</Comment>
+    </Simple>
+
+    <!-- ________________________________________________________________________________ -->
+    <!--      V_Itf_ExecutionStatus                                                       -->
+    <!-- ________________________________________________________________________________ -->
+    <Simple Name="V_Itf_ExecutionStatus"
+            Uuid="c98ae575-427f-4941-b517254341c68a61"
+            Protection="External"
+            CAAExposition="L0"
+            Type="Integer">
+      <Comment>Execution status</Comment>
+    </Simple>
+
+    <!-- ________________________________________________________________________________ -->
+    <!--      V_Itf_NumExecution                                                          -->
+    <!-- ________________________________________________________________________________ -->
+    <Simple Name="V_Itf_NumExecution"
+            Uuid="680c9056-28d6-4ea7-bcbc-1f388454f334"
+            Protection="Internal"
+            Type="Integer"
+            DefaultValue="0">
+      <Comment>Number of execution done</Comment>
+    </Simple>
+
+    <!-- ________________________________________________________________________________ -->
+    <!--      V_Context_UpdateStamp                                                       -->
+    <!-- ________________________________________________________________________________ -->
+    <Simple Name="V_Context_UpdateStamp"
+            Uuid="3339E621-4177-448E-8ED2-595179D7F667"
+            Protection="Internal"
+            Type="Integer"
+            DefaultValue="0">
+      <Comment>Updatestamp of the context of the simulation</Comment>
+    </Simple>
+
+    <!-- ________________________________________________________________________________ -->
+    <!--      V_Last_Update_Computation                                                   -->
+    <!-- ________________________________________________________________________________ -->
+    <Simple Name="V_Last_Update_Computation"
+            Uuid="38461653-9E5F-428A-90F9-183FA04CADEB"
+            Protection="External"
+            Type="Date">
+      <Comment>Date of the last update computation of the simulation</Comment>
+    </Simple>
+
+    <!-- ________________________________________________________________________________ -->
+    <!--      V_Was_Uptodate                                                              -->
+    <!-- ________________________________________________________________________________ -->
+    <Simple Name="V_Was_Uptodate"
+            Uuid="046A0CD0-A187-4BA7-8E93-279C61B2F5CA"
+            Protection="External"
+            Type="Boolean"
+            DefaultValue="false">
+      <Comment>Indicates if the simulation was up to date at the last update computation</Comment>
+    </Simple>
+
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Design"/>
+        <UsedProcedure href="InterferenceAppli_Procedures.proc#InterferenceAppli_ExportSimulationInterference"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Channel"/>
+        <UsedProcedure href="InterferenceAppli_Procedures.proc#InterferenceAppli_ExportSimulationInterference"/>
+      </ProcedureForUsage>
+    </Method>
+
+  </Class>
+
+  <Function Name="PIM_FromCatToItfCtx">
+    <Implementation Name="PIM_FromCatToItfCtx" FileLocation="PIM_FromCatToItfCtx.plmql" Language="PLMQL"/>
+    <Signature href="PIMSimulationSignature"/>
+  </Function>
+
+  <Function Name="PIM_FromItfCtxToFullMetric">
+    <Implementation Name="PIM_FromItfCtxToFullMetric" FileLocation="PIM_FromItfCtxToFullMetric.plmql" Language="PLMQL"/>
+    <Signature href="PIMSimulationSignature"/>
+  </Function>
+
+  <Function Name="PIM_RetrievePointedPVS">
+    <Implementation Name="PIM_RetrievePointedPVS" FileLocation="PIM_RetrievePointedPVS.plmql" Language="PLMQL"/>
+    <Signature href="PIMSimulationSignature"/>
+  </Function>
+
+  <Signature id="PIMSimulationSignature">
+    <Parameter Name="InputIds" Lower="0" Upper="-1" Direction="in" MultiValuated="Yes" DataType="PLMId"/>
+    <Parameter Name="OutputIds" Lower="0" Upper="-1" Direction="out" MultiValuated="Yes" DataType="PLMRouteSet"/>
+  </Signature>
+
+
+
+  <!-- @@@ OBSOLETE________________________  -->
+  <!-- @@@ OBSOLETE Define old inteferences  -->
+  <!-- @@@ OBSOLETE________________________  -->
+  <Class  Name="SIMItfInterference"
+          Uuid="9f748aec-9c47-0000-0280030b52000000"
+          SuperName="SIMObjSimulationConnection"
+          CustomerExposition="Programmer"
+          Abstract="No"
+          CustomerExtensible="No"
+          Specializable="No">
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="IconName" Value="I_Interference" />
+    <Property Name="3DIconName" Value="PLMPIM_SIMItfInterference_3DNAVREP.cgr" />
+
+    <Simple Name="V_Itf_Status"
+            Uuid="5fee5368-612b-48c5-a8d3feba195c8166"
+            Protection="External"
+            CAAExposition="L0"
+            Type="Integer">
+      <Comment>To store errors generated by the solver</Comment>
+    </Simple>
+
+    <Simple Name="V_Itf_Type" Uuid="9f8230e1-5819-0000-0280030b52000000" Type="Integer" Protection="External" CAAExposition="L0" DefaultValue="1">
+      <Comment>Interference Type (clash, clearance, etc.)</Comment>
+      <Property Name="RangeAsEnumName" Value="Itf_TypeEnum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="Clash;Potential_Clash;Clearance;Potential_Clearance;No_Interference"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+        <Equal>5</Equal>
+      </Range>
+    </Simple>
+
+    <Simple Name="V_Itf_InternalIdentifier"
+            Uuid="837121e7-59b6-477d-8e92c2e9437cf9d2"
+            Protection="Internal"
+            Type="String"
+            MaxLength="64">
+      <Comment>Internal identifier, primary key</Comment>
+    </Simple>
+
+    <Path Name="PointedOccurences"
+                     Uuid="2f16b65c-2b3e-40c9-bdb243558a1a0637"
+                     Lower="2"
+                     Upper="2"
+                     RoleName="PIM_InterferingOccurences"
+           		       Type="SemanticRelation" AdaptativeToMinor="No"
+		                 SynchroSensitivity="PathAndLast"
+		                 RerouteOnEffectivityChange="No"
+                     MultiValuated="Yes"  Orientation="In"
+                     Semantics="Reference3">
+      <Comment>Links to occurences (positioned parts) in interference.</Comment>
+    </Path>
+
+    <Path Name="SpecTracking"
+                     Uuid="5418fd9b-14ff-499b-82cfca62209e6936"
+                     Lower="0"
+                     Upper="1"
+                     RoleName="PIM_Spec"
+                     Type="SemanticRelation" AdaptativeToMinor="No"
+		                 SynchroSensitivity="Last"
+		                 RerouteOnEffectivityChange="No"
+                     MultiValuated="Yes"  Orientation="In"
+                     Semantics="Reference4">
+      <Comment>Link added to point a spec (for generic simulation with multiple specs). This link is optional.</Comment>
+    </Path>
+
+    <!-- EXPORT : no export -->
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+  </Class>
+
+</Package>

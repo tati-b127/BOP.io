@@ -1,0 +1,34 @@
+/********************************************************************************************************************************/
+/* Remove procedure                                                                                                             */
+/* --> Lev 0 : Propagation to data aggregated under the parts filter.                                                           */
+/********************************************************************************************************************************/
+#Prog ESE_PartsFilterRemove ( iPLMIDSet : #In PLMIDSet, oPLMIDSet : #Out PLMIDSet ) : VoidType
+{
+let PLMRouteSetLev0FilterBuiltFromCnxs (PLMRouteSet)
+let PLMRouteSetLev0FilterExtensionDefCnxs (PLMRouteSet)
+let PLMRouteSetLev0RepEPFs (PLMRouteSet)
+let PLMIDSetLev0FilterBuiltFromCnxs (PLMIDSet)
+let PLMIDSetLev0FilterExtensionDefCnxs (PLMIDSet)
+let PLMIDSetLev0RepEPFs (PLMIDSet)
+/********************            - Propagation Lev 0 -                     ***********************************/
+/*************************************************************************************************************/
+/* Getting parts filter BuiltFrom Cnxs from parts filter references in input                                 */
+/*************************************************************************************************************/  	
+PLMRouteSetLev0FilterBuiltFromCnxs = ExecutePLMFunction("PLMEnsSpecSpecification", "ESE_AddFilterBuiltFromConnectionForExport", Restrict(iPLMIDSet, "PLMEnsSpecPartsFilter/EnsFilter"))
+PLMIDSetLev0FilterBuiltFromCnxs = Ids(PLMRouteSetLev0FilterBuiltFromCnxs)
+/*************************************************************************************************************/
+/* Getting parts filter ByExtension Cnxs from parts filter references in input                               */
+/*************************************************************************************************************/  	
+PLMRouteSetLev0FilterExtensionDefCnxs = ExecutePLMFunction("PLMEnsSpecSpecification", "ESE_AddFilterExtensionDefConnectionForExport", Restrict(iPLMIDSet, "PLMEnsSpecPartsFilter/EnsFilter"))
+PLMIDSetLev0FilterExtensionDefCnxs = Ids(PLMRouteSetLev0FilterExtensionDefCnxs)
+/*************************************************************************************************************/
+/* Getting parts filter reps from parts filter references in input                                           */
+/*************************************************************************************************************/
+PLMRouteSetLev0RepEPFs = ExecutePLMFunction("PLMEnsSpecSpecification", "ESE_SpecEPFRep", Restrict(iPLMIDSet, "PLMEnsSpecPartsFilter/EnsFilter"))
+PLMIDSetLev0RepEPFs = Ids(PLMRouteSetLev0RepEPFs)
+/**********************/
+/* Returns all PLMIds */
+/**********************/
+oPLMIDSet = iPLMIDSet + PLMIDSetLev0FilterBuiltFromCnxs + PLMIDSetLev0FilterExtensionDefCnxs + PLMIDSetLev0RepEPFs
+}
+

@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2006, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" 
+         ModelerType="Top" 
+         BelongsToModeler="DELFmiFunctionalModel"
+         Name="DELFmiFunctionalModelPrecedenceCnx1"
+         Uuid="809EC371-6A0A-4305-A6AC-D38B53F4FD00"
+         UseNames="PLMCORE"
+         CustomerExposition="Programmer"         
+>
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>Process Function Modeler</ShortRole>
+    <Role>"DELFmiFunctionalModelPrecedenceCnx1" package describes Customizable Process Function Precedence Connection</Role>
+  </CAAComment>
+
+    <Class Name="DELFmiProcessPrecedenceCnxCust"
+        Uuid="E4806629-4C5A-49E5-9D2F-7E2281B98064"
+        SuperName="PLMConnection"
+        CustomerExposition="Programmer"
+        CustomerExtensible="No"
+        Specializable="No"        
+        Abstract="No"
+        OwnerTypes="DELFmiFunctionReference"
+      >
+      <!-- OwnerTypes="DELFmiFunctionReference"  Integrate this line if you want to declare the aggregation constraint-->
+
+      <Property Name="DMCDerivable" Value="Yes"/>
+      <Property Name="Searchable" Value="No"/>
+
+      <CAAComment>
+        <ShortRole>Defines customizable Process Function Precedence Connection</ShortRole>
+        <Role>Connects processes through Ports: a state of another process needs to be completed before the process can be started (i.e. Time driven)</Role>
+      </CAAComment>
+      
+
+      <Path Name="PMX_TargetOutPortCust"
+          Uuid="0303F135-E22B-4486-B450-A6B2E343CA4C"
+          MultiValuated="No"
+          RoleName="DELFmi_PrecedenceCst_Target"	
+          Type="SemanticRelation" AdaptativeToMinor="Yes"
+		      SynchroSensitivity="PathAndLast"
+		      RerouteOnEffectivityChange="Yes" Orientation="In"
+          Semantics="Reference3"/>
+
+      <Path Name="PMX_TargetInPortCust"
+          Uuid="115F75EB-4A8C-4DC5-84DB-D14346813DF9"
+          MultiValuated="No"
+          RoleName="DELFmi_PrecedenceCst_Source"	
+          Type="SemanticRelation" AdaptativeToMinor="Yes"
+		      SynchroSensitivity="Last"
+		      RerouteOnEffectivityChange="Yes" Orientation="Out"
+          Semantics="Reference5"/>
+
+	<Method ImplementationType="None">
+		<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+	</Method>
+
+    </Class>
+</Package>

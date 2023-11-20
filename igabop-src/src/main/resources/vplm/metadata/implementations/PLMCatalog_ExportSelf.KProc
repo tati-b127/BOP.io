@@ -1,0 +1,5 @@
+#Prog PLMCatalog_ExportSelf( iPLMIDSet : #In PLMIDSet, oPLMIDSet : #Out PLMIDSet ) : VoidType
+{
+  oPLMIDSet = iPLMIDSet
+}
+

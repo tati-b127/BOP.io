@@ -1,0 +1,21 @@
+EXPAND
+T0.PLMID, T1.PLMID ,T2.PLMID ,T3.PLMID ,T4.PLMID ,T5.PLMID ,T6.PLMID ,T7.PLMID ,T8.PLMID ,T9.PLMID ,T10.PLMID ,T11.PLMID ,T12.PLMID ,T13.PLMID ,T14.PLMID 
+FROM
+DELFmiFunctionalModelImplementCnx/DELFmiProcessImplementCnx T0,
+DELFmiFunctionalModelPrerequisiteCnx/DELFmiProcessPrerequisiteCnx T1,
+DELFmiFunctionalModelPrereqMatCnx/DELFmiProcessPrereqMaterializationCnx T2,
+DELFmiFunctionalModelExpositionCnx/DELFmiProcessExpositionCnx T3,
+DELFmiFunctionalModelPrerequisitePort/DELFmiProcessPrerequisitePort T4,
+DELFmiFunctionalModelPrecedenceCnx/DELFmiProcessPrecedenceCnx T5,
+DELFmiFunctionalModelPrecedencePort/DELFmiProcessPrecedencePort T6,
+DELFmiFunctionalModelPrerequisiteCnx1/DELFmiProcessPrerequisiteCnxCust T7,
+DELFmiFunctionalModelExpositionCnx1/DELFmiProcessExpositionCnxCust T8,
+DELFmiFunctionalModelPrecedenceCnx1/DELFmiProcessPrecedenceCnxCust T9,
+DELAsmAssemblyModelCnx/DELAsmProcessCanUseCnx T10,
+PLMPrototypeCnx/PLMPrototypeInstantiationCnx T11,
+PLMPropagationRuleSetCnx/PLMRuleSetPropagationCnx T12,
+PLMGroupOfInstancesModel/PLMGroupOfInstances T13,
+PLMAssignmentFilter/PLMAssignmentFilterCnx T14
+
+FROM_ROOTS [?1?]
+ITER = 1;

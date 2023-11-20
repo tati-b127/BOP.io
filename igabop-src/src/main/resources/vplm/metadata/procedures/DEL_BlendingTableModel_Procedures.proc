@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<ProcedurePackage 
+	xmlns="PLMDictionaryProcedure"
+	Name="DEL_BlendingTableModel_Procedures">
+			
+	<Procedure Name="DEL_BlendingTableCompletion_XPDM">
+		<Implementation Name="DEL_BlendingTableCompletion_XPDM" FileLocation="DEL_BlendingTableCompletion_XPDM.KProc" Language="EKL"/>
+		<Signature href="DEL_BlendingTableCompletion_XPDM_Signature"/>
+	</Procedure>
+
+	<Signature id="DEL_BlendingTableCompletion_XPDM_Signature">
+		<Parameter Name="InputIds" Lower="0" Upper="-1" MultiValuated="Yes" Direction="in" DataType="PLMId"/>
+		<Parameter Name="OutputIds" Lower="0" Upper="-1" MultiValuated="Yes" Direction="out" DataType="PLMId"/>
+	</Signature>
+	
+</ProcedurePackage>

@@ -1,0 +1,306 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2006, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" 
+         BelongsToModeler="DELPPRContextModel" 
+         ModelerType="Top" 
+         Name="DELPPRContextModel" 
+         Uuid="60CC8CE0-6418-446c-ACF1E449158BF23C" 
+         UseNames="PRODUCTCFG"
+         CustomerExposition="Programmer" >
+  <CAAComment>
+    <ShortRole>PPR Context Modeler Package</ShortRole>
+    <Role>This package includes all the base entities of the PPR Context Modeler</Role>
+  </CAAComment>
+  <Comment>PPR Context Modeler Message Catalog</Comment>
+	<!-- * PLMDELPPRContext (VPMReference) * -->
+	<!-- ***************************************** -->
+	<Extension Name="PLMDELPPRContext" 
+             Uuid="AD7421E8-C6D2-4ef1-A4BCEDF88D079041" 
+             ScopeNames="VPMReference" 
+             CAAExposition="L1"
+             CustomerExposition="None"/>
+  <CAAComment>
+    <ShortRole>The PPR Context Typing Extension</ShortRole>
+    <Role>This extension distinguishes PPR Context from other product references</Role>
+  </CAAComment>
+  <!-- * PLMDELPPRProcessConnection (VPMConnection) * -->
+	<!-- ************************************************** -->
+	<Extension Name="PLMDELPPRProcessConnection" 
+             Uuid="4E069DDC-7035-4eb4-839A9330F293BABC" 
+             ScopeNames="VPMConnection" 
+             CustomerExposition="None"/>
+	<!-- * PLMDELPPRResourceConnection (VPMConnection) * -->
+	<!-- ************************************************** -->
+	<Extension Name="PLMDELPPRResourceConnection" 
+             Uuid="6B865180-65F3-47ab-9CF223666B3B0EBD" 
+             ScopeNames="VPMConnection" 
+             CustomerExposition="None"/>
+	<!-- * PLMDELPPRProductConnection (VPMConnection) * -->
+	<!-- ************************************************** -->
+	<Extension Name="PLMDELPPRProductConnection" 
+             Uuid="3CBA4959-C243-448b-985C83AD49E3662C" 
+             ScopeNames="VPMConnection" 
+             CustomerExposition="None"/>
+	<!-- * PLMDELPPRProduct(VPMInstance) * -->
+	<!-- ************************************************** -->
+	<Extension Name="PLMDELPPRProduct" 
+             Uuid="DA39A10B-ED3A-4bf7-84385F6ADE7AB128" 
+             ScopeNames="VPMInstance" 
+             CustomerExposition="None"/>
+	<!-- * PLMDELPPRResource(VPMInstance) * -->
+	<!-- ************************************************** -->
+	<Extension Name="PLMDELPPRResource" 
+             Uuid="FE6337DE-1B5C-435d-95CA19B80E925B5D" 
+             ScopeNames="VPMInstance" 
+             CAAExposition="L1"
+             CustomerExposition="None"/>
+  <CAAComment>
+    <ShortRole>The extension distingishes an instance of a manufaturing resource in PPR Context</ShortRole>
+    <Role>This extension distinguishes the manufacturing resource instances from product instances in PPR Context</Role>
+  </CAAComment>
+
+  <RelationClass Name="ResourceInPPRContext"
+         Uuid="c8c91cf7-e827-4ed1-a955-d32816456c6e"
+         Abstract="No"
+         Discipline="Yes"
+         SuperName="VPMInstance"
+         CustomerExposition="None">
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </RelationClass>
+
+ 
+  <!-- FUNCTIONS Declarations : here are declared PLMQL Functions -->
+  <Function Name="ENOPcx_PPRContext_addAllConnectedProcesses">
+    <Implementation Name="ENOPcx_PPRContext_addAllConnectedProcesses" FileLocation="ENOPcx_PPRContext_addAllConnectedProcesses.plmql" Language="PLMQL"/>
+    <Signature href="ENOPPRContextSignature"/>
+  </Function>
+
+  <Function Name="ENOPcx_PPRContext_addAllConnectedSystems">
+    <Implementation Name="ENOPcx_PPRContext_addAllConnectedSystems" FileLocation="ENOPcx_PPRContext_addAllConnectedSystems.plmql" Language="PLMQL"/>
+    <Signature href="ENOPPRContextSignature"/>
+  </Function>
+
+  <Function Name="ENOPcx_PPRContext_addAllConnections">
+    <Implementation Name="ENOPcx_PPRContext_addAllConnections" FileLocation="ENOPcx_PPRContext_addAllConnections.plmql" Language="PLMQL"/>
+    <Signature href="ENOPPRContextSignature"/>
+  </Function>
+
+  <Function Name="ENOPcx_PPRContext_addProductsLinkedToProcessPorts">
+    <Implementation Name="ENOPcx_PPRContext_addProductsLinkedToProcessPorts" FileLocation="ENOPcx_PPRContext_addProductsLinkedToProcessPorts.plmql" Language="PLMQL"/>
+    <Signature href="ENOPPRContextSignature"/>
+  </Function>
+
+  <Function Name="ENOPcs_Process_addCapableResources">
+    <Implementation Name="ENOPcs_Process_addCapableResources" FileLocation="ENOPcs_Process_addCapableResources.plmql" Language="PLMQL"/>
+    <Signature href="ENOPPRContextSignature"/>
+  </Function>
+
+  <Function Name="ENOPcs_Process_addAlternateProcesses">
+    <Implementation Name="ENOPcs_Process_addAlternateProcesses" FileLocation="ENOPcs_Process_addAlternateProcesses.plmql" Language="PLMQL"/>
+    <Signature href="ENOPPRContextSignature"/>
+  </Function>
+
+  <Function Name="ENORsc_Resource_addSystemsImplemented">
+    <Implementation Name="ENORsc_Resource_addSystemsImplemented" FileLocation="ENORsc_Resource_addSystemsImplemented.plmql" Language="PLMQL"/>
+    <Signature href="ENOPPRContextSignature"/>
+  </Function>
+
+  <Function Name="ENOPcs_Process_addRuleSets">
+    <Implementation Name="ENOPcs_Process_addRuleSets" FileLocation="ENOPcs_Process_addRuleSets.plmql" Language="PLMQL"/>
+    <Signature href="ENOPPRContextSignature"/>
+  </Function>
+
+  <Function Name="ENOPsm_ProductionSystem_addCandidateResourcesScope">
+    <Implementation Name="ENOPsm_ProductionSystem_addCandidateResourcesScope" FileLocation="ENOPsm_ProductionSystem_addCandidateResourcesScope.plmql" Language="PLMQL"/>
+    <Signature href="ENOPPRContextSignature"/>
+  </Function>
+
+  <Function Name="ENOPsm_ProductionSystem_addCandidateResources">
+    <Implementation Name="ENOPsm_ProductionSystem_addCandidateResources" FileLocation="ENOPsm_ProductionSystem_addCandidateResources.plmql" Language="PLMQL"/>
+    <Signature href="ENOPPRContextSignature"/>
+  </Function>
+
+  <Function Name="ENOPsm_ProductionSystem_addOutputEntities">
+    <Implementation Name="ENOPsm_ProductionSystem_addOutputEntities" FileLocation="ENOPsm_ProductionSystem_addOutputEntities.plmql" Language="PLMQL"/>
+    <Signature href="ENOPPRContextSignature"/>
+  </Function>
+
+  <Function Name="ENOPpr_PPRData_addPrototypesRef">
+    <Implementation Name="ENOPpr_PPRData_addPrototypesRef" FileLocation="ENOPpr_PPRData_addPrototypesRef.plmql" Language="PLMQL"/>
+    <Signature href="ENOPPRContextSignature"/>
+  </Function>
+
+  <Function Name="ENORsc_Resource_addAcceptedPackagings">
+    <Implementation Name="ENORsc_Resource_addAcceptedPackagings" FileLocation="ENORsc_Resource_addAcceptedPackagings.plmql" Language="PLMQL"/>
+    <Signature href="ENOPPRContextSignature"/>
+  </Function>
+
+  <Function Name="ENORsc_Resource_addAllImplementConnections">
+    <Implementation Name="ENORsc_Resource_addAllImplementConnections" FileLocation="ENORsc_Resource_addAllImplementConnections.plmql" Language="PLMQL"/>
+    <Signature href="ENOPPRContextSignature"/>
+  </Function>
+
+  <Function Name="ENORsc_Resource_AddImplementingScope">
+    <Implementation Name="ENORsc_Resource_AddImplementingScope" FileLocation="ENORsc_Resource_AddImplementingScope.plmql" Language="PLMQL"/>
+    <Signature href="ENOPPRContextSignature"/>
+  </Function>
+
+  <Function Name="ENOPpr_PPRData_addRefAndAggregatingRef">
+    <Implementation Name="ENOPpr_PPRData_addRefAndAggregatingRef" FileLocation="ENOPpr_PPRData_addRefAndAggregatingRef.plmql" Language="PLMQL"/>
+    <Signature href="ENOPPRContextSignature"/>
+  </Function>
+
+  <Function Name="ENOPpr_PPRData_addAllFathers">
+    <Implementation Name="ENOPpr_PPRData_addAllFathers" FileLocation="ENOPpr_PPRData_addAllFathers.plmql" Language="PLMQL"/>
+    <Signature href="ENOPPRContextSignature"/>
+  </Function>
+
+  <Function Name="ENOPpr_PPRData_ExpandStructure">
+    <Implementation Name="ENOPpr_PPRData_ExpandStructure" FileLocation="ENOPpr_PPRData_ExpandStructure.plmql" Language="PLMQL"/>
+    <Signature href="ENOPPRContextSignature"/>
+  </Function>
+
+  <Function Name="ENOPpr_PPRData_addAllHistorizationEntities">
+    <Implementation Name="ENOPpr_PPRData_addAllHistorizationEntities" FileLocation="ENOPpr_PPRData_addAllHistorizationEntities.plmql" Language="PLMQL"/>
+    <Signature href="ENOPPRContextSignature"/>
+  </Function>
+
+  <Function Name="ENORsc_Resource_addBehaviorLibraryReps">
+    <Implementation Name="ENORsc_Resource_addBehaviorLibraryReps" FileLocation="ENORsc_Resource_addBehaviorLibraryReps.plmql" Language="PLMQL"/>
+    <Signature href="ENOPPRContextSignature"/>
+  </Function>
+
+  <Function Name="ENORsc_Resource_getBehaviorReps">
+    <Implementation Name="ENORsc_Resource_getBehaviorReps" FileLocation="ENORsc_Resource_getBehaviorReps.plmql" Language="PLMQL"/>
+    <Signature href="ENOPPRContextSignature"/>
+  </Function>
+
+  <Function Name="ENORsc_Resource_getSimulationLogicReps">
+    <Implementation Name="ENORsc_Resource_getSimulationLogicReps" FileLocation="ENORsc_Resource_getSimulationLogicReps.plmql" Language="PLMQL"/>
+    <Signature href="ENOPPRContextSignature"/>
+  </Function>
+
+  <Function Name="ENOPpr_PPRData_1">
+    <Implementation Name="ENOPpr_PPRData_1" FileLocation="ENOPpr_PPRData_1.plmql" Language="PLMQL"/>
+    <Signature href="ENOPPRContextSignature"/>
+  </Function>
+
+  <Function Name="ENOPpr_PPRData_2">
+    <Implementation Name="ENOPpr_PPRData_2" FileLocation="ENOPpr_PPRData_2.plmql" Language="PLMQL"/>
+    <Signature href="ENOPPRContextSignature"/>
+  </Function>
+
+  <Function Name="ENOPpr_PPRData_3">
+    <Implementation Name="ENOPpr_PPRData_3" FileLocation="ENOPpr_PPRData_3.plmql" Language="PLMQL"/>
+    <Signature href="ENOPPRContextSignature"/>
+  </Function>
+
+  <Function Name="ENOPpr_PPRData_4">
+    <Implementation Name="ENOPpr_PPRData_4" FileLocation="ENOPpr_PPRData_4.plmql" Language="PLMQL"/>
+    <Signature href="ENOPPRContextSignature"/>
+  </Function>
+ 
+  <Function Name="ENOPpr_PPRData_5">
+    <Implementation Name="ENOPpr_PPRData_5" FileLocation="ENOPpr_PPRData_5.plmql" Language="PLMQL"/>
+    <Signature href="ENOPPRContextSignature"/>
+  </Function>
+
+  <Function Name="ENOPcs_Process_addProcessGroup">
+    <Implementation Name="ENOPcs_Process_addProcessGroup" FileLocation="ENOPcs_Process_addProcessGroup.plmql" Language="PLMQL"/>
+    <Signature href="ENOPPRContextSignature"/>
+  </Function>
+
+  <Function Name="ENOPcs_Process_addAllDRPortsAndDMCnx">
+    <Implementation Name="ENOPcs_Process_addAllDRPortsAndDMCnx" FileLocation="ENOPcs_Process_addAllDRPortsAndDMCnx.plmql" Language="PLMQL"/>
+    <Signature href="ENOPPRContextSignature"/>
+  </Function>
+
+  <Function Name="ENOPpr_PPRData_addPrototypesRefWithoutCnx">
+    <Implementation Name="ENOPpr_PPRData_addPrototypesRefWithoutCnx" FileLocation="ENOPpr_PPRData_addPrototypesRefWithoutCnx.plmql" Language="PLMQL"/>
+    <Signature href="ENOPPRContextSignature"/>
+  </Function>
+
+  <Function Name="ENOPcs_Process_addCapableResourcesWithoutCnx">
+    <Implementation Name="ENOPcs_Process_addCapableResourcesWithoutCnx" FileLocation="ENOPcs_Process_addCapableResourcesWithoutCnx.plmql" Language="PLMQL"/>
+    <Signature href="ENOPPRContextSignature"/>
+  </Function>
+
+  <Function Name="ENOPcs_Process_addRuleSetsWithoutCnx">
+    <Implementation Name="ENOPcs_Process_addRuleSetsWithoutCnx" FileLocation="ENOPcs_Process_addRuleSetsWithoutCnx.plmql" Language="PLMQL"/>
+    <Signature href="ENOPPRContextSignature"/>
+  </Function>
+  
+  <Function Name="ENOPcx_PPRContext_addAllConnectedObjects">
+    <Implementation Name="ENOPcx_PPRContext_addAllConnectedObjects" FileLocation="ENOPcx_PPRContext_addAllConnectedObjects.plmql" Language="PLMQL"/>
+    <Signature href="ENOPPRContextSignature"/>
+  </Function>
+
+  <Function Name="ENOPsm_ProductionSystem_addCandidateResourcesScopeWithoutCnx">
+    <Implementation Name="ENOPsm_ProductionSystem_addCandidateResourcesScopeWithoutCnx" FileLocation="ENOPsm_ProductionSystem_addCandidateResourcesScopeWithoutCnx.plmql" Language="PLMQL"/>
+    <Signature href="ENOPPRContextSignature"/>
+  </Function>
+
+  <Function Name="ENOPsm_ProductionSystem_addOutputEntitiesWithoutCnx">
+    <Implementation Name="ENOPsm_ProductionSystem_addOutputEntitiesWithoutCnx" FileLocation="ENOPsm_ProductionSystem_addOutputEntitiesWithoutCnx.plmql" Language="PLMQL"/>
+    <Signature href="ENOPPRContextSignature"/>
+  </Function>
+
+  <Function Name="ENOPcs_Process_addCapableResourcesWithoutQuery">
+    <Implementation Name="ENOPcs_Process_addCapableResourcesWithoutQuery" FileLocation="ENOPcs_Process_addCapableResourcesWithoutQuery.plmql" Language="PLMQL"/>
+    <Signature href="ENOPPRContextSignature"/>
+  </Function>
+  
+  <Function Name="GetAllLinkedRequirementsAndCnxs">
+    <Implementation Name="GetAllLinkedRequirementsAndCnxs" FileLocation="GetAllLinkedRequirementsAndCnxs.plmql" Language="PLMQL"/>
+    <Signature href="ENOPPRContextSignature"/>
+  </Function>
+
+  <Function Name="ENOPpr_PPRData_getPartsFromEBOM">
+    <Implementation Name="ENOPpr_PPRData_getPartsFromEBOM" FileLocation="ENOPpr_PPRData_getPartsFromEBOM.plmql" Language="PLMQL"/>
+    <Signature href="ENOPPRContextSignature"/>
+  </Function>
+
+    <Function Name="ENOPcs_Process_addCapableResourcesWithoutQueryFromCnx">
+      <Implementation Name="ENOPcs_Process_addCapableResourcesWithoutQueryFromCnx" FileLocation="ENOPcs_Process_addCapableResourcesWithoutQueryFromCnx.plmql" Language="PLMQL"/>
+      <Signature href="ENOPPRContextSignature"/>
+    </Function>
+
+    <Function Name="ENOPpr_PPRData_addRepRef">
+      <Implementation Name="ENOPpr_PPRData_addRepRef" FileLocation="ENOPpr_PPRData_addRepRef.plmql" Language="PLMQL"/>
+      <Signature href="ENOPPRContextSignature"/>
+    </Function>
+
+  <Function Name="GetAllLinkedRequirementsFromCnx">
+    <Implementation Name="GetAllLinkedRequirementsFromCnx" FileLocation="GetAllLinkedRequirementsFromCnx.plmql" Language="PLMQL"/>
+    <Signature href="ENOPPRContextSignature"/>
+  </Function>
+
+  <Function Name="ENOPcs_Process_addSubstituteFromCnx">
+    <Implementation Name="ENOPcs_Process_addSubstituteFromCnx" FileLocation="ENOPcs_Process_addSubstituteFromCnx.plmql" Language="PLMQL"/>
+    <Signature href="ENOPPRContextSignature"/>
+  </Function>
+
+  <Function Name="ENOPpr_PPRData_addResponsibilityFromCnx">
+    <Implementation Name="ENOPpr_PPRData_addResponsibilityFromCnx" FileLocation="ENOPpr_PPRData_addResponsibilityFromCnx.plmql" Language="PLMQL"/>
+    <Signature href="ENOPPRContextSignature"/>
+  </Function>
+
+  <Function Name="ENOPpr_PPRData_addHowtToCnx">
+    <Implementation Name="ENOPpr_PPRData_addHowtToCnx" FileLocation="ENOPpr_PPRData_addHowtToCnx.plmql" Language="PLMQL"/>
+    <Signature href="ENOPPRContextSignature"/>
+  </Function>
+
+  <Function Name="ENORsc_Resource_addShifts">
+    <Implementation Name="ENORsc_Resource_addShifts" FileLocation="ENORsc_Resource_addShifts.plmql" Language="PLMQL"/>
+    <Signature href="ENOPPRContextSignature"/>
+  </Function>
+
+  <Signature id="ENOPPRContextSignature">
+    <Parameter Name="InputIds" Lower="0" Upper="-1" Direction="in" MultiValuated="Yes" DataType="PLMId"/>
+    <Parameter Name="OutputIds" Lower="0" Upper="-1" Direction="out" MultiValuated="No" DataType="PLMRouteSet"/>
+  </Signature>
+
+</Package>

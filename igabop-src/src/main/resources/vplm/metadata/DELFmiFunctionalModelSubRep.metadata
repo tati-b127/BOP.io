@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR RFL Logical Application -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2007, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" 
+         ModelerType="Top" 
+         BelongsToModeler="DELFmiFunctionalModel" 
+         Name="DELFmiFunctionalModelSubRep" 
+	       Uuid="FAFE8C55-DC56-4524-9FC3-53EE9B200946" 
+	       UseNames="DELFmiFunctionalModel" 
+         CustomerExposition="Programmer"         
+	>
+	
+	<CAAComment>
+		<ShortRole>Process Function Modeler</ShortRole>
+		<Role>This package describes Process Function new Rep Reference </Role>
+	</CAAComment>
+		
+	<!-- ************************************************************* -->
+	<!-- *  LogicalDSContentRepReference (RFLVPMLogicalRepReference) * -->
+	<!-- ************************************************************* -->
+
+	<Class Name="DELFmiDSContentRepReference" Uuid="FE8E65F6-6641-4faa-B9E4-78D0048DF0B4" 
+         CustomerExposition="Programmer"
+         CustomerExtensible="No"
+         Specializable="No"
+         Abstract="Yes"
+		     SuperName="DELFmiFunctionRepresentationReference"   
+         Discipline="Yes"
+		     >    
+    
+		<CAAComment>
+			<ShortRole>DELFmiFunctional Rep Reference Object</ShortRole>
+			<Role>DELFmi Functional Rep Reference Object</Role>
+		</CAAComment>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+  </Class>
+
+  <Class Name="DELFmiNonDSContentRepReference" Uuid="1E85D5C2-B339-417d-9BEB-743DEDD9F7C9"
+         CustomerExposition="Programmer"
+         CustomerExtensible="No"
+         Specializable="Yes"
+         Abstract="Yes"
+		     SuperName="DELFmiFunctionRepresentationReference"
+         Discipline="Yes"
+		     >
+
+    <CAAComment>
+      <ShortRole>PLM Logical Rep Reference Object</ShortRole>
+      <Role>PLM Logical Rep Reference Object</Role>
+    </CAAComment>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+  </Class>
+
+  <!-- ============================================================================== -->
+  <!-- =  DELFmiPicture (specialized type of DELFmiFunctionRepresentationReference) = -->
+  <!-- ============================================================================== -->
+  <Class Name="DELFmiPicture"
+              CustomerExposition="Programmer"
+              CustomerExtensible="No"
+              Specializable="No"
+              Uuid="33AE39E9-0F35-4b42-9AA1-43E2FC3459F2"
+              SuperName="DELFmiFunctionRepresentationReference"
+              Discipline="Yes"
+              Abbreviation="fpc"
+              >
+
+    <Property Name="Newable" Value="Insert" />
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+  </Class>
+ 
+ 
+  <!-- ============================================================================== -->
+  <!-- =  DELFmiIPMSpecificationRepReference (specialized type of DELFmiFunctionRepresentationReference) = -->
+  <!-- ============================================================================== -->
+  <Class Name="DELFmiIPMSpecificationRepReference"
+              CustomerExposition="Programmer"
+              CustomerExtensible="No"
+              Specializable="No"
+              Uuid="0AD3A9C7-7C9F-4A64-B18B-2CF0E8656A05"
+              SuperName="DELFmiFunctionRepresentationReference"
+			  Discipline="Yes"
+              Abbreviation="ipms"
+              >
+	<Property Name="Searchable" Value="No"/>
+	<Property Name="Newable" Value="No" />
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+  </Class>
+    
+</Package>

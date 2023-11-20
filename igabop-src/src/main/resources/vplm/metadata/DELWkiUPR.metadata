@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR DELMIA Execution Work Instruction Application -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2013, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified"
+         ModelerType="Top"
+         Name="DELWkiUPR"
+         BelongsToModeler="DELWkiUPR"
+	       Uuid="70BFFCF0-C0E5-49f3-9F52-8AD7EEFA2C85"
+	       UseNames="DELLmiProductionAbstractOperationUPR"
+         CustomerExposition="Programmer">
+
+  <CAAComment>
+    <ShortRole>DELMIA Abstract Execution Work Instruction </ShortRole>
+    <Role>This package describes the PLM DELMIA Abstract Execution Work Instruction model.</Role>
+  </CAAComment>
+
+  <Comment>last update 2013-09-4</Comment>
+
+  <Class Name="DELWkiUPRReference"
+        Uuid="7C1AA933-7DCA-4572-AB21-B88A4E1AADED"
+        Abstract="Yes"
+        SuperName="DELLmiUPROperationReference"
+        CustomerExposition="Programmer"
+        Specializable="No"
+        CustomerExtensible="No"
+        CreateInstName="DELWkiUPRInstance"
+         >
+
+    <CAAComment>
+      <ShortRole>DELMIA Abstract Execution Work Instruction Reference</ShortRole>
+      <Role>DELMIA Abstract Execution Work Instruction Reference</Role>
+    </CAAComment>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+
+  </Class>
+
+
+
+  <RelationClass Name="DELWkiUPRInstance"
+		     Uuid="3A868802-7904-4b8d-B7E2-0B7CC2B7E37F"
+		     Abstract="Yes"
+         SuperName="DELLmiUPROperationInstance"
+         Specializable="No"
+         CustomerExtensible="No"
+         CustomerExposition="Programmer">
+
+    <CAAComment>
+      <ShortRole>DELMIA Abstract Execution Work Instruction Instance</ShortRole>
+      <Role>DELMIA Abstract Execution Work Instruction Instance</Role>
+    </CAAComment>
+
+    <SubClause Name="to"   TargetName="DELWkiUPRReference"/>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+
+  </RelationClass>
+
+
+</Package>

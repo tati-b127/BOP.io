@@ -1,0 +1,9 @@
+NAVIGATE
+   T0.PLMID
+FROM
+   DELFmiFunctionalModel/DELFmiFunctionInstance T0
+FROM_ROOTS [?1?]
+ON
+RELATION (FROM=DELFmiFunctionalModel/DELFmiFunctionReference TO=DELFmiFunctionalModel/DELFmiFunctionInstance  THROUGH=POINTEDBY)
+WITH QUALITY_FILTER  (CATEGORY=ISOWNEDBY)
+ITER=1;

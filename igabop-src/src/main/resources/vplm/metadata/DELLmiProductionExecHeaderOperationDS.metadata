@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2018, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" Name="DELLmiProductionExecHeaderOperationDS" Uuid="43C98CF9-F959-4157-A8F8-53321EE99B15" UseNames="DELLmiProductionExecHeaderOperation" >
+<Property Name="OptionalInstallation" Value="Yes" /> 
+	<CAAComment>
+		<ShortRole>Standard DELMIA Execution Header Operation Package</ShortRole>
+		<Role>This package includes default customized DELMIA Execution Header Operation</Role>
+	</CAAComment>
+	<Comment>last update 2018-01-23</Comment>
+
+	<Class Name="DELLmiExecHeaderOperationRefCusto" Uuid="8F76C605-77A2-4710-B253-4521F60CA47C" SuperName="DELLmiExecHeaderOperationReference"  >
+
+    <IdentifierSet Name="Identifier"
+        Uuid="B9109D6C-5CC9-4b52-A867-FF05B8D16A71"
+        IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755"
+        IdentifierNames="PLM_ExternalID V_version" />
+
+    <CAAComment>
+			<ShortRole>Standard DELMIA Execution Header Operation Reference</ShortRole>
+			<Role>Default customized DELMIA Execution Header Operation Reference</Role>
+		</CAAComment>
+	</Class>
+
+  <RelationClass Name="DELLmiExecHeaderOperationInstCusto" Uuid="F1F2A51D-0FAB-4795-BFFA-A79F68C4C002" SuperName="DELLmiExecHeaderOperationInstance" >
+		<CAAComment>
+			<ShortRole>Standard DELMIA Execution Header Operation Instance</ShortRole>
+			<Role>Default customized DELMIA Execution Header Operation Instance</Role>
+		</CAAComment>		
+            <!-- ********************************************************* -->
+            <!-- * Overload(s) of PLMCoreInstance attributes. -->
+            <!-- ********************************************************* -->
+    <SubClause Name="to"   TargetName="DELLmiExecHeaderOperationRefCusto"/>
+	</RelationClass>
+</Package>

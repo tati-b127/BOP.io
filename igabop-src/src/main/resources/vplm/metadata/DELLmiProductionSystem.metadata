@@ -1,0 +1,301 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR DELMIA Production System Application -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified"
+         ModelerType="Top"
+         Name="DELLmiProductionSystem"
+         BelongsToModeler="DELLmiProductionSystem"
+	       Uuid="72a0233f-e426-4669-88ff191071f75860"
+	       UseNames="PLMCORE DELLmiProductionSystemAbstract"
+         UseProcedures="ENOPsm_Procedures;PPR_Procedures"
+         CustomerExposition="Programmer">
+
+  <CAAComment>
+    <ShortRole>PLM DELMIA Abstract Production System </ShortRole>
+    <Role>This package describes the PLM DELMIA Abstract Production System model on top of DELLmiProductionSystemAbstract</Role>
+  </CAAComment>
+
+  <Comment>last update 2012-01-20</Comment>
+
+  <Class Name="DELLmiProductionSystemReference"
+		     Uuid="f9fb145d-6438-4ca3-891731c053f1f8cb"
+		     Abstract="Yes"
+         SuperName="DELLmiAbstractProductionEntity"
+         CustomerExposition="Programmer"
+         Specializable="No"
+         CustomerExtensible="No"
+         CreateInstName="DELLmiProductionSystemInstance"
+         DeleteAvailability="Yes"
+         >
+
+    <CAAComment>
+      <ShortRole>PLM DELMIA Abstract Production System Reference</ShortRole>
+      <Role>PLM DELMIA Abstract Production System Reference</Role>
+    </CAAComment>
+
+    <Property Name="ChangeManagementSupport" Value="Yes"/>
+    <Property Name="ChangeManagementReferential"    Value="Yes"/>
+    <Property Name="ChangeManagementContext"    Value="Yes"/>
+    <Property Name="AggregatableTypes" Value="PARParameter"/>
+    
+    <Simple Name="V_CycleTime"
+            Uuid="47913f8f-3047-4922-84004f464b226f9b"
+            Type="Double"
+            Magnitude="TIME"
+            MultiValuated="No"
+            Protection="Free"
+            Faceted="Yes"
+            CAAExposition="L0">
+      <Property Name="SIXW" Value="ds6w:estimatedDuration"/>
+    </Simple>
+    
+    <Simple Name="V_TotalProductionTime"
+            Uuid="115f4b3f-e63c-4f90-bfebee620e545680"
+            Type="Double"
+            Magnitude="TIME"
+            MultiValuated="No"
+            Protection="Free"
+            Faceted="Yes"
+            CAAExposition="L0">
+      <Property Name="SIXW" Value="ds6w:estimatedDuration"/>
+    </Simple>
+
+    <Simple Name="V_MeanTimeBetweenFailure"
+            Uuid="17f7a151-1fa5-453b-ab103d44cc7a9ff9"
+            Type="Double"
+            Magnitude="TIME"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0">
+    </Simple>
+
+    <Simple Name="V_MeanTimeToRepair"
+            Uuid="7968cbfb-5762-4036-8c2fb1c45ec4c578"
+            Type="Double"
+            Magnitude="TIME"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0">
+    </Simple>
+
+    <Simple Name="V_Capacity"
+            Uuid="9a2f302f-ef7e-4891-8ee9984a1128ffdf"
+            Type="Integer"
+            MultiValuated="No"
+            Protection="Free"
+            Faceted="Yes"
+            CAAExposition="L0">
+      <Property Name="SIXW" Value="ds6w:quantityCapacity"/>
+    </Simple>
+
+<Simple Name="V_QueuingModeIN" 
+        Uuid="51E5BF6D-6C03-4b03-979A-3068215EAB72" 
+        Type="Integer" 
+        Protection="Free" 
+        CAAExposition="L0" 
+        DefaultValue="1" 
+        Faceted="Yes" 
+        MultiValuated="No"
+	    ResetOnCloning="No"
+	    ResetOnNewVersion="No">
+<Property Name="RangeAsEnumName" Value="V_Queuing_Mode_Enum"/>
+<Property Name="RangeAsEnumAuthorizedValues" Value="LIFO;FIFO;PRIORITY"/>
+<Range>
+<Equal>1</Equal>
+<Equal>2</Equal>
+<Equal>3</Equal>
+</Range>
+</Simple>
+
+<Simple Name="V_QueuingModeOUT" 
+        Uuid="A8EC5C6A-E91F-4c3b-9778-1E199143F341" 
+        Type="Integer" Protection="Free" 
+        CAAExposition="L0" 
+        DefaultValue="1" 
+        Faceted="Yes" 
+        MultiValuated="No"
+	    ResetOnCloning="No"
+	    ResetOnNewVersion="No">
+<Property Name="RangeAsEnumName" Value="V_Queuing_Mode_Enum"/>
+<Property Name="RangeAsEnumAuthorizedValues" Value="LIFO;FIFO;PRIORITY"/>
+<Range>
+<Equal>1</Equal>
+<Equal>2</Equal>
+<Equal>3</Equal>
+</Range>
+</Simple>
+
+<Simple Name="V_FlowModeIN" 
+        Uuid="4F979D47-CA0E-4d0e-A4B4-CEF096F0B13A" 
+        Type="Integer" 
+        Protection="Free" 
+        CAAExposition="L0" 
+        DefaultValue="1" 
+        Faceted="Yes" 
+        MultiValuated="No"
+	    ResetOnCloning="No"
+	    ResetOnNewVersion="No">
+<Property Name="RangeAsEnumName" Value="V_Flow_Mode_Enum"/>
+<Property Name="RangeAsEnumAuthorizedValues" Value="FirstAllowed;Priority;Proportion"/>
+<Range>
+<Equal>1</Equal>
+<Equal>2</Equal>
+<Equal>3</Equal>
+</Range>
+</Simple>
+
+<Simple Name="V_FlowModeOUT" 
+        Uuid="92CD038E-55C8-4ef1-84A6-80E7F784F633" 
+        Type="Integer" 
+        Protection="Free" 
+        CAAExposition="L0" 
+        DefaultValue="1" 
+        Faceted="Yes" 
+        MultiValuated="No"
+	    ResetOnCloning="No"
+	    ResetOnNewVersion="No">
+<Property Name="RangeAsEnumName" Value="V_Flow_Mode_Enum"/>
+<Property Name="RangeAsEnumAuthorizedValues" Value="FirstAllowed;Priority;Proportion"/>
+<Range>
+<Equal>1</Equal>
+<Equal>2</Equal>
+<Equal>3</Equal>
+</Range>
+</Simple>
+	
+
+
+    <Simple Name="V_PictureName"
+            Uuid="EE54522C-75A0-426b-ABE5-F384A843DD33"
+            Type="String"
+            MaxLength="256"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0">
+    </Simple>
+
+<Simple Name="V_OperationMode" 
+        Uuid="B4DDE9DD-28D6-426f-9600-55A9753C66BE" 
+        Type="Integer" 
+        Protection="Free" 
+        CAAExposition="L0" 
+        DefaultValue="1" 
+        Faceted="Yes" 
+        MultiValuated="No"
+	    ResetOnCloning="No"
+	    ResetOnNewVersion="No">
+<Property Name="RangeAsEnumName" Value="V_OperationMode_Enum"/>
+<Property Name="RangeAsEnumAuthorizedValues" Value="PUSH;SCHEDULE;PULL"/>
+<Range>
+<Equal>1</Equal>
+<Equal>2</Equal>
+<Equal>3</Equal>
+</Range>
+</Simple>
+
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Design"/>
+        <UsedProcedure href="ENOPsm_Procedures.proc#ProductionSystem_ExportAsDesign"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Channel"/>
+        <UsedProcedure href="ENOPsm_Procedures.proc#ProductionSystem_ExportAsDesign"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#TransferSiteOwnership"/>
+        <UsedProcedure href="ENOPsm_Procedures.proc#Process_TSO_References"/>
+      </ProcedureForUsage>
+    </Method>
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExchangeScope.meth#XPDM"/>
+        <UsedProcedure href="ENOPsm_Procedures.proc#ProductionSystem_ExchangeXPDM_GetAllEntities"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExchangeScope.meth#StandAlone"/>
+        <UsedProcedure href="ENOPsm_Procedures.proc#ProductionSystem_ExchangeXPDM_StandAlone"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExchangeScope.meth#AllLevelNoRsc"/>
+        <UsedProcedure href="ENOPsm_Procedures.proc#ProductionSystem_ExchangeXPDM_AllLevelNoRsc"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExchangeScope.meth#SupplyChainSourcing"/>
+        <UsedProcedure href="ENOPsm_Procedures.proc#ProductionSystem_ExchangeXPDM_SupplyChainSourcing"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExchangeScope.meth#GetAllEntitiesWithRootRscScope"/>
+        <UsedProcedure href="ENOPsm_Procedures.proc#ProductionSystem_ExchangeXPDM_GetAllEntitiesWithRootRscScope"/>
+      </ProcedureForUsage>
+    </Method>
+
+
+  </Class>
+
+  <RelationClass Name="DELLmiProductionSystemInstance"
+		     Uuid="8df5d990-cccd-42cd-b12c411d427e5ad9"
+		     Abstract="Yes"
+         SuperName="PLMCoreInstance"
+         Specializable="No"
+         CustomerExtensible="No"
+         CustomerExposition="Programmer">
+
+    <CAAComment>
+      <ShortRole>PLM DELMIA Abstract Production System PPR Instance</ShortRole>
+      <Role>PLM DELMIA Abstract Production System PPR Instance</Role>
+    </CAAComment>
+
+    <Simple Name="V_X2DPos"
+            Uuid="06d0d395-a549-4016-8910-e87d98d83fdc"
+            Type="Double"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"/>
+
+    <Simple Name="V_Y2DPos"
+            Uuid="0e240f96-899b-487e-9276-b263a4bd74c2"
+            Type="Double"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"/>
+
+    <SubClause Name="from" TargetName="DELLmiProductionSystemReference"/>
+    <SubClause Name="to"   TargetName="DELLmiProductionSystemReference"/>
+    
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#TransferSiteOwnership"/>
+        <UsedProcedure href="PPR_Procedures.proc#PPR_TSO_StandAlone"/>
+      </ProcedureForUsage>
+    </Method>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+
+
+  </RelationClass>
+
+  <!-- FUNCTIONS Declarations : here are declared PLMQL Functions -->
+
+  <Function Name="ENOEps_ExecProductionSystem_addAllConnectedProcesses">
+    <Implementation Name="ENOEps_ExecProductionSystem_addAllConnectedProcesses" FileLocation="ENOEps_ExecProductionSystem_addAllConnectedProcesses.plmql" Language="PLMQL"/>
+    <Signature href="ENOProductionSystemSignature"/>
+  </Function>
+
+  <Function Name="ENOEps_ExecProductionSystem_addAllConnectedResources">
+    <Implementation Name="ENOEps_ExecProductionSystem_addAllConnectedResources" FileLocation="ENOEps_ExecProductionSystem_addAllConnectedResources.plmql" Language="PLMQL"/>
+    <Signature href="ENOProductionSystemSignature"/>
+  </Function>
+
+  <Signature id="ENOProductionSystemSignature">
+    <Parameter Name="InputIds" Lower="0" Upper="-1" Direction="in" MultiValuated="Yes" DataType="PLMId"/>
+    <Parameter Name="OutputIds" Lower="0" Upper="-1" Direction="out" MultiValuated="No" DataType="PLMRouteSet"/>
+  </Signature>
+  <!-- ********************************************************* -->
+
+</Package>

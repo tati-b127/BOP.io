@@ -1,0 +1,26 @@
+<?xml version="1.0" ?>
+<ProcedurePackage 
+	xmlns="PLMDictionaryProcedure"
+	Name="KBApe_Procedures">
+
+  <Procedure Name="Kba_ExportAppConfig">
+    <Implementation Name="Kba_ExportAppConfig" FileLocation="Kba_ExportAppConfig.KProc" Language="EKL"/>
+    <Signature href="KBApe_ProcedureSignatureExport"/>
+  </Procedure>
+
+  <Procedure Name="Kba_ExportAppli">
+    <Implementation Name="Kba_ExportAppli" FileLocation="Kba_ExportAppli.KProc" Language="EKL"/>
+    <Signature href="KBApe_ProcedureSignatureExport"/>
+  </Procedure>
+
+  <Procedure Name="Kba_ExportAppComp">
+    <Implementation Name="Kba_ExportAppComp" FileLocation="Kba_ExportAppComp.KProc" Language="EKL"/>
+    <Signature href="KBApe_ProcedureSignatureExport"/>
+  </Procedure>
+
+  <Signature id="KBApe_ProcedureSignatureExport">
+		<Parameter Name="InputIds" Lower="0" Upper="-1" MultiValuated="Yes" Direction="in" DataType="PLMId"/>
+		<Parameter Name="OutputIds" Lower="0" Upper="-1" MultiValuated="Yes" Direction="out" DataType="PLMId"/>
+	</Signature>
+	
+</ProcedurePackage>

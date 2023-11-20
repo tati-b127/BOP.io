@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR DELMIA Production System Application -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2009, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" 
+         ModelerType="Top" 
+         Name="DELLmiWorkOrder"
+         BelongsToModeler="DELLmiProductionPlan"
+	       Uuid="29A37F76-BA88-415d-A6E7-D515FBE089AB"
+	       UseNames="DELLmiProductionSystemUPR"
+         CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>Work Order Model</ShortRole>
+    <Role>This package describes the Work Order model</Role>
+  </CAAComment>
+
+  <Comment>last update 2018-01-19</Comment>
+
+  <Class Name="DELLmiWorkOrderReference"
+		     Uuid="10F47DCD-F4CF-46f4-9314-1F7E82CE1E9F"
+		     Abstract="No"
+         SuperName="DELLmiUPRSystemReference"
+         CustomerExposition="Programmer"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         CreateInstName="DELLmiWorkOrderInstance"
+         Abbreviation="wo"
+         InstantiationOwnerTypes="DELLmiProductionPlanReference;DELLmiWorkOrderReference">
+    
+    <Property Name="NewMajorRevisionAvailability"  Value="No"/>
+    <Property Name="EvolutionAvailability"         Value="No"/>
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELLmiWorkOrderDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELLmiWorkOrderInstance"/>
+    <Property Name="IconName" Value="I_PPRWorkOrder"/>
+    <Property Name="3DIconName" Value="I_PPRWorkOrder.cgr"/>
+    <Property Name="Newable" Value="Insert_CAA"/>
+    <Property Name="Searchable" Value="Yes"/>
+
+    <CAAComment>
+      <ShortRole>Work Order Reference</ShortRole>
+      <Role>Work Order Reference.</Role>
+    </CAAComment>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExchangeScope.meth#XPDM2"/>
+        <UsedProcedure href="ENOPsm_Procedures.proc#ProductionPlan_ExchangeXPDM_XPDM2"/>
+      </ProcedureForUsage>
+    </Method>
+
+  </Class>
+
+  <RelationClass Name="DELLmiWorkOrderInstance"
+		     Uuid="F5CEB73E-BEFC-43f5-94D7-FD1A8D078CF5"
+		     Abstract="No"
+         SuperName="DELLmiUPRSystemInstance"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         CustomerExposition="Programmer">
+    
+    <Property Name="Filtrable" Value="No"/>
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELLmiWorkOrderDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELLmiWorkOrderInstance"/>
+    
+    <CAAComment>
+      <ShortRole>Work Order Instance</ShortRole>
+      <Role>Work Order Instance.</Role>
+    </CAAComment>
+
+    <Volatile Name="Reference" Uuid="CB86C3F9-C5B8-4cc5-B7AF-3923ADDE51E7" Accessor="PLMModelerReferenceKweAttribute" TypeName="DELLmiWorkOrderReference" AccessMode="ReadOnly" />
+
+    <SubClause Name="to"   TargetName="DELLmiWorkOrderReference"/>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+
+
+  </RelationClass>
+
+
+</Package>

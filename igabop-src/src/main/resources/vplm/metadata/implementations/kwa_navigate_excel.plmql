@@ -1,0 +1,18 @@
+NAVIGATE
+
+   	T0.PLMID			,
+   	T0.PLM_ExternalID
+
+FROM
+
+	PLMCORE/PLMCoreRepReference T0
+
+FROM_ROOTS
+
+	[?1?]
+
+ON
+
+	(RELATION (FROM=PLMCORE/PLMCoreRepReference TO=PLMCORE/PLMCoreRepReference THROUGH=POINTSTO) WITH QUALITY_FILTER (CATEGORY=Reference4 AND ROLE=DesignTableSourceFile) )
+
+ITER = 1 ;

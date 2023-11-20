@@ -1,0 +1,105 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2012, All rights reserved -->
+
+<Package CustomerExposition = "Programmer" ModelerType = "Top" Name = "AECIfc" UseNames = "AECKernel" Uuid = "b6f61974-2893-4c2e-8747-4017952f5109" xmlns = "PLMDictionaryUnified">
+  <Extension CustomerExposition = "Programmer" Name = "IfcAlignment" ScopeNames = "AecAlignmentType" Uuid = "DF02763D-4AF4-46A7-8966-4354CAD87881">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcAlignment_ObjectType" Protection = "Free" Type = "String" Uuid = "DF02763D-4AF4-46A7-8966-1ad52eb2ea5e"/>
+    <Simple CAAExposition = "L0" DefaultValue = "3" Name = "IfcAlignment_PredefinedType" Protection = "Free" Type = "Integer" Uuid = "3D2E9F72-0B63-4F0F-B45F-D56EC06C3109">
+      <Property Name = "RangeAsEnumName" Value = "IfcAlignmentTypeEnum"/>
+      <Property Name = "RangeAsEnumAuthorizedValues" Value = "ABSOLUTE;USERDEFINED;NOTDEFINED"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+      </Range>
+    </Simple>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcAlignment_LinearRefMethod" Protection = "Free" Type = "String" Uuid = "25E750E4-F8BE-49C2-BDF5-C92F3A254EE6"/>
+  </Extension>
+  <Comment>IfcBuildingElement is not generated since abstract</Comment>
+  <Comment>IfcBuildingElementType is not generated since abstract</Comment>
+  <Comment>IfcElement is not generated since abstract</Comment>
+  <Extension CustomerExposition = "Programmer" Name = "IfcElementAssembly" ScopeNames = "AecElementAssembly" Uuid = "ff808dc1-04d8-408d-b5c3-1c4bd95da69b">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcElementAssembly_ObjectType" Protection = "Free" Type = "String" Uuid = "ff808dc1-04d8-408d-b5c3-1ad52eb2ea5e"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcElementAssembly_Tag" Protection = "Free" Type = "String" Uuid = "ff808dc1-04d8-408d-b5c3-ed12431a92f4"/>
+    <Simple CAAExposition = "L0" DefaultValue = "3" Name = "IfcElementAssembly_AssemblyPlace" Protection = "Free" Type = "Integer" Uuid = "767c88c4-9313-4eee-a860-d051a97a2017">
+      <Property Name = "RangeAsEnumName" Value = "IfcAssemblyPlaceEnum"/>
+      <Property Name = "RangeAsEnumAuthorizedValues" Value = "SITE;FACTORY;NOTDEFINED"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+      </Range>
+    </Simple>
+    <Simple CAAExposition = "L0" DefaultValue = "11" Name = "IfcElementAssembly_PredefinedType" Protection = "Free" Type = "Integer" Uuid = "6c9e4c3c-cd11-4622-a33b-c5f295818358">
+      <Property Name = "RangeAsEnumName" Value = "IfcElementAssemblyTypeEnum"/>
+      <Property Name = "RangeAsEnumAuthorizedValues" Value = "ACCESSORY_ASSEMBLY;ARCH;BEAM_GRID;BRACED_FRAME;GIRDER;REINFORCEMENT_UNIT;RIGID_FRAME;SLAB_FIELD;TRUSS;USERDEFINED;NOTDEFINED"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+        <Equal>5</Equal>
+        <Equal>6</Equal>
+        <Equal>7</Equal>
+        <Equal>8</Equal>
+        <Equal>9</Equal>
+        <Equal>10</Equal>
+        <Equal>11</Equal>
+      </Range>
+    </Simple>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcElementAssemblyType" ScopeNames = "AecElementAssemblyType" Uuid = "192c2951-73c0-4ebc-895b-604242835050">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcElementAssemblyType_Tag" Protection = "Free" Type = "String" Uuid = "192c2951-73c0-4ebc-895b-cc2a36316812"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcElementAssemblyType_ElementType" Protection = "Free" Type = "String" Uuid = "192c2951-73c0-4ebc-895b-4fccfb51960c"/>
+    <Simple CAAExposition = "L0" DefaultValue = "11" Name = "IfcElementAssemblyType_PredefinedType" Protection = "Free" Type = "Integer" Uuid = "5fb5e4cf-f72d-45ac-b6de-71e332f287d5">
+      <Property Name = "RangeAsEnumName" Value = "IfcElementAssemblyTypeEnum"/>
+      <Property Name = "RangeAsEnumAuthorizedValues" Value = "ACCESSORY_ASSEMBLY;ARCH;BEAM_GRID;BRACED_FRAME;GIRDER;REINFORCEMENT_UNIT;RIGID_FRAME;SLAB_FIELD;TRUSS;USERDEFINED;NOTDEFINED"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+        <Equal>5</Equal>
+        <Equal>6</Equal>
+        <Equal>7</Equal>
+        <Equal>8</Equal>
+        <Equal>9</Equal>
+        <Equal>10</Equal>
+        <Equal>11</Equal>
+      </Range>
+    </Simple>
+  </Extension>
+  <Comment>IfcElementQuantity is not generated since abstract</Comment>
+  <Comment>IfcElementType is not generated since abstract</Comment>
+  <Comment>IfcObject is not generated since abstract</Comment>
+  <Comment>IfcObjectDefinition is not generated since abstract</Comment>
+  <Comment>IfcPositioningElement is not generated since abstract</Comment>
+  <Comment>IfcProduct is not generated since abstract</Comment>
+  <Comment>IfcPropertyDefinition is not generated since abstract</Comment>
+  <Comment>IfcPropertySet is not generated since abstract</Comment>
+  <Comment>IfcPropertySetDefinition is not generated since abstract</Comment>
+  <Comment>IfcQuantitySet is not generated since abstract</Comment>
+  <Comment>IfcRoot is not generated since abstract</Comment>
+  <Comment>IfcSpatialElement is not generated since abstract</Comment>
+  <Comment>IfcSpatialElementType is not generated since abstract</Comment>
+  <Comment>IfcTypeObject is not generated since abstract</Comment>
+  <Comment>IfcTypeProduct is not generated since abstract</Comment>
+  <Extension CustomerExposition = "Programmer" Name = "IfcPset_ElementAssemblyCommon" ScopeNames = "AecElementAssembly AecElementAssemblyType" Uuid = "69ABEEAA-67A2-428F-B2D2-07A0B323B06E">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_ElementAssemblyCommon_Reference" Protection = "Free" Type = "String" Uuid = "30186C37-287A-4163-8B21-420751E608D4"/>
+    <Simple CAAExposition = "L0" DefaultValue = "UNSET" MaxLength = "255" Name = "IfcPset_ElementAssemblyCommon_Status" Protection = "Free" Type = "String" Uuid = "D78814B4-7075-4852-95CA-4837F2D2CD92">
+      <Range>
+        <Equal>NEW</Equal>
+        <Equal>EXISTING</Equal>
+        <Equal>DEMOLISH</Equal>
+        <Equal>TEMPORARY</Equal>
+        <Equal>OTHER</Equal>
+        <Equal>NOTKNOWN</Equal>
+        <Equal>UNSET</Equal>
+      </Range>
+    </Simple>
+  </Extension>
+</Package>

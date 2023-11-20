@@ -1,0 +1,136 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR RFL Functional Application Custo Sample DS-->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2006, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" DataRDB_OID="ENODR_RFLFDS" Name="RFLPLMFunctionalDS"
+	Uuid="719F16BB-53AB-4b21-8FC3-340EDB97D6F7" 
+	UseNames="RFLPLMFunctional" 
+	>
+
+<Property Name="OptionalInstallation" Value="Yes" /> 
+	<CAAComment>
+		<ShortRole>PLM Functional Customization Sample DS Package</ShortRole>
+		<Role>This package describes a Customization of PLM Functional model</Role>
+	</CAAComment>
+	
+	<Comment>last update 2007-09-15</Comment>
+	
+	<!-- **************************************************************** -->
+	<!-- *  RFLPLMFunctionalReferenceDS (RFLPLMFunctionalReference) * -->
+	<!-- **************************************************************** -->
+
+	<Class Name="RFLPLMFunctionalReferenceDS" 
+		Uuid="450F8058-CFD5-405e-92F7-C0B7A17C4510" 
+		SuperName="RFLPLMFunctionalReference" 
+		SuperRef="4baf5d55-289a-4680-b2abd513d7a0d2fb" 
+		>
+
+		<CAAComment>
+			<ShortRole>Customized PLM Function Reference Object</ShortRole>
+			<Role>Customized PLM Function Reference Object</Role>
+		</CAAComment>
+
+    <IdentifierSet Name="Identifier"
+            Uuid="A13F30E2-506D-4cae-8A81-5F14C2EABF8E"
+            IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755"
+            IdentifierNames="PLM_ExternalID V_version" />
+            
+	</Class>
+
+	<!-- ************************************************************* -->
+	<!-- * RFLPLMFunctionalInstanceDS (RFLPLMFunctionalInstance) * -->
+	<!-- ************************************************************* -->
+
+	<Class Name="RFLPLMFunctionalInstanceDS" 
+		Uuid="C9534C1B-C362-4a0a-9F6F-9E91417CB621" 
+
+		SuperName="RFLPLMFunctionalInstance" 
+		SuperRef="38804f9a-9a1f-4c4e-9e6a39e8f72bc3cc" 		 
+		>
+
+		<CAAComment>
+			<ShortRole>Customized PLM Function Instance Object</ShortRole>
+			<Role>Customized PLM Function Instance Object</Role>
+		</CAAComment>
+
+	</Class>
+
+	<!-- *************************************************************** -->
+	<!-- * RFLPLMFunctionalConnectorDS (RFLPLMFunctionalConnector) * -->
+	<!-- *************************************************************** -->
+
+	<Class Name="RFLPLMFunctionalConnectorDS" 
+		Uuid="1B457C0C-A2EE-4bb6-9449-8D59A0621591"
+		 
+		SuperName="RFLPLMFunctionalConnector" 
+		SuperRef="de9b0140-dc42-4efa-8642d3dc72820ec3" 
+		>
+
+		<CAAComment>
+			<ShortRole>Customized PLM Functional Connector Object</ShortRole>
+			<Role>Customized PLM Functional Connector Object</Role>
+		</CAAComment>
+
+  </Class>
+
+	<!-- ***************************************************************** -->
+	<!-- * RFLPLMFunctionalConnectionDS (RFLPLMFunctionalConnection) * -->
+	<!-- ***************************************************************** -->
+
+	<Class Name="RFLPLMFunctionalConnectionDS"
+		Uuid="2d30d05b-e1c6-4cc7-9924-aa437b29eeb0"
+		 
+		SuperName="RFLPLMFunctionalConnection" 
+		SuperRef="77698fb6-4395-4b55-9e6240e9afd872c6" 
+		 
+		>
+
+		<CAAComment>
+			<ShortRole>Customized PLM Function Connection Object</ShortRole>
+			<Role>Customized PLM Function Connection Object</Role>
+		</CAAComment>
+	</Class>
+	
+	<!-- ********************************************************************** -->
+	<!-- *  RFLPLMFunctionalRepReferenceDS (RFLPLMFunctionalRepReference) * -->
+	<!-- ********************************************************************** -->
+
+	<Class Name="RFLPLMFunctionalRepReferenceDS" 
+		Uuid="0254048F-C17D-40d3-868F-BD1738F3B38F" 
+
+		SuperName="RFLPLMFunctionalRepReference" 
+		SuperRef="986a0879-a20a-4d28-89b4ae686df55627" 		 
+		>
+
+        <IdentifierSet Name="Identifier"
+            Uuid="E03CF998-F065-46c7-B417-5C777CFFAE03"
+            IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755"
+            IdentifierNames="PLM_ExternalID V_version" />
+
+		<CAAComment>
+			<ShortRole>Customized PLM Functional Rep Reference Object</ShortRole>
+			<Role>Customized PLM Functional Rep Reference Object</Role>
+		</CAAComment>
+
+	</Class>
+
+	<!-- ******************************************************************** -->
+	<!-- *  RFLPLMFunctionalRepInstanceDS (RFLPLMFunctionalRepInstance) * -->
+	<!-- ******************************************************************** -->
+
+	<Class Name="RFLPLMFunctionalRepInstanceDS" 
+		Uuid="E720765A-BC04-4b91-95B6-F55268FF148E" 
+
+		SuperName="RFLPLMFunctionalRepInstance" 
+		SuperRef="c7fd4815-3af5-49eb-84ca2c090b1fb2a3" 
+		 
+		>
+
+		<CAAComment>
+			<ShortRole>Customized PLM Logical Rep Reference Object</ShortRole>
+			<Role>Customized PLM Logical Rep Reference Object</Role>
+		</CAAComment>
+
+	</Class>
+
+</Package>

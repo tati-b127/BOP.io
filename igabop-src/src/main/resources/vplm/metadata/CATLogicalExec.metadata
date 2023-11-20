@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top"  Name="CATLogicalExec" Uuid="b56819d1-316b-427a-87ae-35cbc41d28b7" UseNames="RFLVPMLogical"
+            BelongsToModeler="RFLVPMLogical"	CustomerExposition="Programmer"
+    >
+	<Comment>last update the 2007-11-07 at 10:00:00</Comment>
+  <Extension  Name="LExecRef"   
+              Uuid="048fe0af-c2d7-4bcf-8697-6a3360090e7d"                
+              ScopeNames="RFLVPMLogicalReference"
+              CustomerExposition="Programmer"
+             >
+
+    <Simple  Name="V_CycleTime"   
+            Uuid="fafee5ed-c5b2-4221-9a3c-24fc1a367a3a"  
+            Type="Double"   
+            MultiValuated="No"  
+            Protection="External" CAAExposition="L0"/>
+
+    <Simple  Name="V_Offset"
+          Uuid="7f09773c-e596-42e3-8929-49f2ea709fb1"
+          Type="Double"
+          MultiValuated="No"
+          Protection="External" CAAExposition="L0"/>
+
+    <Simple  Name="V_ReactionTime"
+          Uuid="2893d681-cb53-4dda-aaf0-640fdef133f0"
+          Type="Double"
+          MultiValuated="No"
+          Protection="External" CAAExposition="L0"/>
+
+   </Extension>
+
+
+  <Extension  Name="LExecInst"
+            Uuid="f44bd2aa-cb70-429d-a102-f20409d4585e"
+            ScopeNames="RFLVPMLogicalInstance"
+            CustomerExposition="Programmer"
+            >
+
+    <Simple  Name="V_CycleTime"
+            Uuid="fcade84e-87d4-4236-aae9-86626a3cf765"
+            Type="Double"
+            MultiValuated="No"
+            Protection="External" CAAExposition="L0"/>
+   
+
+    <Simple  Name="V_Offset"
+          Uuid="1e1706ed-0fe2-4174-98f7-acf0f1007705"
+          Type="Double"
+          MultiValuated="No"
+          Protection="External" CAAExposition="L0"/>
+   
+
+    <Simple  Name="V_ReactionTime"
+          Uuid="78bddd00-1ec3-4df0-bfa5-98d7cde8117d"
+          Type="Double"
+          MultiValuated="No"
+          Protection="External" CAAExposition="L0"/>
+   
+  </Extension>
+
+</Package>

@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2006, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" 
+         ModelerType="Top" 
+         Name="DELPPRContextModelDisciplines"
+         BelongsToModeler="DELPPRContextModel"
+         Uuid="0EC38255-979C-4eaf-913A-F67C34171007"
+         UseNames="DELPPRContextModelProcessCnx DELPPRContextModelSystemCnx PRODUCTCFG"
+         UseProcedures="ENOPpe_Procedures"
+         CustomerExposition="Programmer">
+
+    <CAAComment>
+        <ShortRole>DELPPRContextModelDisciplines Modeler Package</ShortRole>
+        <Role>This package describes PPR Context Disciplines</Role>
+    </CAAComment>
+
+    <Comment>PPR Context Connection to Process</Comment>
+
+
+  <!-- Discipline on Product -->
+  <Class Name="PPRContext"
+         Uuid="b4ba3f40-a71e-4665-8548-550d754b12c9"
+         Abstract="No"
+         Discipline="Yes"
+         SuperName="VPMReference"
+         CAAExposition="L1"
+         Specializable="No"
+         CustomerExtensible="Yes"
+         CustomerExposition="Programmer"
+         CreateInstName="VPMInstance"
+         Abbreviation="ppr"
+         InstantiationOwnerTypes="None">
+
+    <Property Name="KweNew_InstanciationMethod" Value="DELPPRContextDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="VPMInstance"/>
+    <Property Name="IconName" Value="I_PPRRoot"/>
+    <Property Name="3DIconName" Value="I_PPRRoot.cgr"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="Newable" Value="New"/>
+    <Property Name="Configurable" Value="No"/>
+
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Design"/>
+        <UsedProcedure href="ENOPpe_Procedures.proc#PPRContext_GetAllEntities"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Channel"/>
+        <UsedProcedure href="ENOPpe_Procedures.proc#PPRContext_GetAllEntities"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Review"/>
+        <UsedProcedure href="ENOPpe_Procedures.proc#PPRContext_GetAllEntities"/>
+      </ProcedureForUsage>
+    </Method>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+  </Class>
+
+  <!-- Discipline on Process connection -->
+
+  <Class Name="PPRContextProcessCnxDisc"
+	       Uuid="354131a1-e4cd-404d-9264-9e4dcd792dae"
+         Abstract="No"
+	       Discipline="Yes"
+         SuperName="PLMDELPPRProcessCnx"
+         Specializable="No"
+         CustomerExtensible="No"
+         CustomerExposition="None"
+         >
+ 	</Class>
+
+  <Class Name="PLMDELPPREBOMCnxDisc"
+	       Uuid="3726CA3F-17FC-45ff-9245-2F9273C7D110"
+         Abstract="No"
+	       Discipline="Yes"
+         SuperName="PLMDELPPRProcessCnx"
+         Specializable="No"
+         CustomerExtensible="No"
+         CustomerExposition="None"
+         >
+    
+	  <Method ImplementationType="None">
+		  <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+	  </Method>
+	</Class>
+
+  <!-- Discipline on System connection -->
+  
+  <Class Name="PPRContextSystemCnxDisc"
+		     Uuid="cf153545-46eb-4878-a9c7-92f9a18d7293"
+         Abstract="No"
+		     Discipline="Yes"
+		     SuperName="PLMDELPPRSystemCnx"
+         Specializable="No"
+         CustomerExtensible="No"
+         CustomerExposition="None">
+  </Class>
+
+</Package>

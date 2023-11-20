@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR RFL GphView Application Custo 1-->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2005, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" DataRDB_OID="ENODR_GphViewC1" Name="GphViewModelCusto1"
+	Uuid="284f0577-74fd-4c9c-a7bd9452d73982b6" 
+	UseNames="GphViewModel"  
+	>
+	
+<Property Name="OptionalInstallation" Value="Yes" /> 
+	<CAAComment>
+		<ShortRole>PLM GphView Customization 1 Package</ShortRole>
+		<Role>This package describes a Customization of PLM GphView model</Role>
+	</CAAComment>
+	
+	<Comment>last update 2007-01-29</Comment>
+	
+	<!-- ********************************************************************** -->
+	<!-- *  GphViewRepReferenceCusto1 (GphViewRepReference) * -->
+	<!-- ********************************************************************** -->
+	<Class Name="GphViewRepReferenceCusto1" 
+		Alias="GphViewRepReferenceCusto1" 
+		Uuid="ee5d4664-397e-4600-9981e42339a63450" 
+		 
+		SuperName="GphViewRepReference" 
+		SuperRef="7fd45675-2db7-4ff9-b4d8499b705c1622" 
+		 
+		>
+
+    <!-- * same IdentifierUuids for all Reference/RepReference RFLPLMLogical/RFLPLMFunctional/GphView/... * -->
+    <IdentifierSet Name="Identifier"
+            Uuid="1e4fbd3d-a08f-45a1-b3b9cbacb09fa58a"
+            IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755"
+            IdentifierNames="PLM_ExternalID V_version" />
+
+		<CAAComment>
+			<ShortRole>Customized PLM GphView Rep Reference Object</ShortRole>
+			<Role>Customized PLM GphView Rep Reference Object</Role>
+		</CAAComment>
+
+	</Class>
+
+	<!-- ******************************************************************** -->
+	<!-- *  GphViewRepInstanceCusto1 (GphViewRepInstance) * -->
+	<!-- ******************************************************************** -->
+	<Class Name="GphViewRepInstanceCusto1" 
+		Alias="GphViewRepInstanceCusto1" 
+		Uuid="052aa7d0-7fca-4a86-99d59f00a94ae22b" 
+		 
+		SuperName="GphViewRepInstance" 
+		SuperRef="af3e3797-686f-4312-8793bbd97f85ac40" 
+		 
+		>
+
+		<CAAComment>
+			<ShortRole>Customized PLM Rep Instance Object</ShortRole>
+			<Role>Customized PLM Rep Instance Object</Role>
+		</CAAComment>
+
+	</Class>
+</Package>

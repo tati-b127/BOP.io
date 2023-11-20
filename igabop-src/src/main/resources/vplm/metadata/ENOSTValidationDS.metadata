@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR Validation Application Custo-->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2005, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" DataRDB_OID="ENODR_STVAL" Name="ENOSTValidationDS" Uuid="f57c8623-45c5-4132-92e7-0b33fc7723c8"
+         UseNames="DMUValidationBase" UseScopes="EXPERIMENT_ENUMS">
+  <CAAComment>
+    <ShortRole>Validation Modeler Customization Package</ShortRole>
+    <Role>This package describes a Customization of Validation modeler for Team Engineering</Role>
+  </CAAComment>
+  <Comment>Creation 2008-06-14 DRL</Comment>
+
+  <Class Name="ENOSTValidationValidationDS" Uuid="614c57b3-8b78-4eae-9bed-2391c0adbec6" SuperName="DMUValidationValidation" >
+    <CAAComment>
+      <ShortRole>Customized Validation Object</ShortRole>
+      <Role>Customized Reference Validation Object</Role>
+    </CAAComment>
+    <!-- R207: contains experiment status -->
+    <!-- should be exhanged between sites, but currently not -->
+    <Simple Name="E_experimentStatus" Uuid="c7ce87a7-2067-4827-8ab0-59b1bcbe84ba" Type="Integer" Protection="Free" DefaultValue="1" ResetOnCloning="Yes" ResetOnNewVersion="Yes">
+      <Property Name="RangeAsEnumName" Value="EXPERIMENT_ENUMS.ExperimentStatusEnum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="ExperimentStatusEnum_Undefined;ExperimentStatusEnum_Failed;ExperimentStatusEnum_Balancing;ExperimentStatusEnum_Passed"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+      </Range>
+    </Simple>
+    <!-- R206: contains identifier of object from which it is made from  -->
+    <!-- not exhanged between sites -->
+    <Simple Name="E_fromExternalId"
+    Uuid="20e2a8af-630a-4bf4-80ca-25627714181c"
+    Type="String"
+    MaxLength="256"
+    MultiValuated="No"
+    Protection="Free"
+          />
+
+    <!-- R206: contains Name comments  -->
+    <!-- not exhanged between sites -->
+    <Simple Name="E_versionComment"
+    Uuid="0edf13a1-bf8e-49df-b329-85b86e66fa5f"
+    Type="String"
+    MaxLength="256"
+    MultiValuated="No"
+    Protection="Free"
+    ResetOnNewVersion="Yes"
+    ResetOnCloning="Yes"
+              />
+    <IdentifierSet Name="Identifier" Uuid="298bf543-12d8-4602-bc3d-f4f57c7081d2" IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755" IdentifierNames="PLM_ExternalID V_version"/>
+  </Class>
+
+  <Class Name="ENOSTValidationCheckDS" Uuid="e4d8506d-68cc-4b95-8cd0-1a747f2ede6e" SuperName="DMUValidationCheck" >
+    <CAAComment>
+      <ShortRole>Customized Check-list Object</ShortRole>
+      <Role>Customized Connection Check-list Object exposes the list of requirements to be checked by the Validation</Role>
+    </CAAComment>
+  </Class>
+
+  <Class Name="ENOSTValidationExposedPresentationDS" Uuid="b698a3e7-30ea-487e-82b2-b557742cbc32" SuperName="DMUValidationExposedPresentation" >
+    <CAAComment>
+      <ShortRole>Customized Presentation Object</ShortRole>
+      <Role>Customized Port Presentation Object exposes the relevant Presentations inside the Validation</Role>
+    </CAAComment>
+  </Class>
+</Package>

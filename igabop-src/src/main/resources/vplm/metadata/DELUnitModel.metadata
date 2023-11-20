@@ -1,0 +1,468 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2013, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified"
+         ModelerType="Top"
+         Name="DELUnitModel"
+         Uuid="3ADB1B08-9852-464b-8DF4-7A6257ADD460"
+         BelongsToModeler="DELFmiFunctionalModel"
+         UseNames="DELAsmAssemblyModel DELFmiFunctionalModel DELFmiFunctionalModelQuantity"
+         CustomerExposition="Programmer">
+
+  <CAAComment>
+    <ShortRole>DELUnitModel Package</ShortRole>
+    <Role>This package describes Unit Process Modeler Objects</Role>
+  </CAAComment>
+
+
+  <!-- Discipline for Abstract Process Ref -->
+  <Class Name="DELFmiFunctionUPRDiscreteReference"
+		  Uuid="765CC23D-FB57-4d0e-81E6-A6163F18E979"
+		  Abstract="Yes"
+		  Discipline="Yes"
+		  SuperName="DELFmiDiscreteFunctionReference"
+		  Specializable="No"
+		  CustomerExtensible="No"
+		  CustomerExposition="Programmer">
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+  <Class Name="DELFmiFunctionUPRCreateReference"
+		  Uuid="E96C18B3-1D01-41ab-8F18-4FCC5EFFC981"
+		  Abstract="Yes"
+		  Discipline="Yes"
+		  SuperName="DELFmiFunctionUPRDiscreteReference"
+		  Specializable="No"
+		  CustomerExtensible="No"
+		  CustomerExposition="Programmer">
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+  <!-- Discipline for Unit Process Ref -->
+  <Class Name="UnitProvide"
+         Uuid="decce807-ec0d-4ea2-aa67-d73a79bbf437"
+         Abstract="No"
+         Discipline="Yes"
+         SuperName="DELFmiFunctionUPRCreateReference"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         CustomerExposition="Programmer"
+         CreateInstName="ProcessInstanceSet"
+         Abbreviation="upr"
+         InstantiationOwnerTypes="UnitCreateAssembly;UnitCreateKit;UnitCreateMaterial;UnitElementaryEndItem">
+
+    <Property Name="XPGApplyDisciplineOnInstance" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELPLMFProcessAdvDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELFmiFunctionInstance"/>
+    <Property Name="IconName" Value="I_InsertUnitProvideProcess"/>
+    <Property Name="3DIconName" Value="I_InsertUnitProvideProcess.cgr"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="Newable" Value="No"/>
+    <Property Name="MergedExtensionType" Value="DELAsmProvideFunctionRef"/>
+    <Property Name="OccurrenceType" Value="MfgProcessOccurrence"/>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+  </Class>
+
+
+  <Class Name="UnitElementaryEndItem"
+			 Uuid="47cf3da9-5e68-49f0-ba26-3e2a63773754"
+		   Abstract="No"
+			 Discipline="Yes"
+			 SuperName="DELFmiFunctionUPRCreateReference"
+		   Specializable="Yes"
+		   CustomerExtensible="Yes"
+		   CustomerExposition="Programmer"
+		   CreateInstName="ProcessInstanceSet"
+       Abbreviation="ucp"
+       InstantiationOwnerTypes="UnitCreateAssembly;UnitCreateKit;UnitCreateMaterial">
+
+    <Property Name="KweDisciplineAttributeValue" Value="UnitDELAsmElementaryEndItem"/>
+    <Property Name="XPGApplyDisciplineOnInstance" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELPLMFProcessAdvDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELFmiFunctionInstance"/>
+    <Property Name="IconName" Value="I_InsertUnitElementaryEndItemProcess"/>
+    <Property Name="3DIconName" Value="I_InsertUnitElementaryEndItemProcess.cgr"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="Newable" Value="No"/>
+    <Property Name="MergedExtensionType" Value="DELAsmElementaryEndItemFunctionRef"/>
+    <Property Name="OccurrenceType" Value="MfgProcessOccurrence"/>
+
+    <Simple Name="V_Manufacturing_Decision" Uuid="E46C3666-CB85-4ace-9200-5C971A50B50F" Type="Integer" Protection="Free" CAAExposition="L0" DefaultValue="1">
+      <Property Name="RangeAsEnumName" Value="DELAsmAssemblyModel.V_Manufacturing_Decision_Enum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="UNDEF;TO_BE_DETAILED;NOT_TO_BE_DETAILED"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+      </Range>
+      <CAAComment>
+        <ShortRole>Describes whether the product resulting of the process is make or buy</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_NeedDedicatedSystem" Uuid="CF20EA7B-2452-4feb-B878-9014B8EC4DEF" Type="Integer" Protection="Free" CAAExposition="L0" DefaultValue="1" Faceted="Yes">
+      <Property Name="RangeAsEnumName" Value="DELAsmAssemblyModel.V_NeedDedicatedSystem_Enum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="NO;YES"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+      </Range>
+    </Simple>
+
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+  </Class>
+
+  <Class Name="UnitCreateAssembly"
+			 Uuid="b51d2332-74ff-4cf5-ae53-081487038ebf"
+		   Abstract="No"
+			 Discipline="Yes"
+			 SuperName="DELFmiFunctionUPRCreateReference"
+		   Specializable="Yes"
+		   CustomerExtensible="Yes"
+		   CustomerExposition="Programmer"
+		   CreateInstName="ProcessInstanceSet"
+       Abbreviation="uca"
+       InstantiationOwnerTypes="UnitCreateAssembly;UnitCreateMaterial;UnitCreateKit">
+
+    <Property Name="XPGApplyDisciplineOnInstance" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELPLMFProcessAdvDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELFmiFunctionInstance"/>
+    <Property Name="IconName" Value="I_InsertUnitCreateAssemblyProcess"/>
+    <Property Name="3DIconName" Value="I_InsertUnitCreateAssemblyProcess.cgr"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="Newable" Value="No"/>
+    <Property Name="MergedExtensionType" Value="DELAsmCreateAssemblyFunctionRef"/>
+    <Property Name="OccurrenceType" Value="MfgProcessOccurrence"/>
+
+    <Simple Name="V_MAName"
+				Uuid="1363E131-5711-4874-93A2-7FD7D03DB427"
+				Type="String"
+				MaxLength="128"
+				MultiValuated="No"
+				Protection="Free"
+				CAAExposition="L0"/>
+    <Simple Name="V_MANumber"
+				Uuid="7C2E5AE2-FF6F-4d37-8062-83B671351738"
+				Type="String"
+				MaxLength="64"
+				MultiValuated="No"
+				Protection="Free"
+				CAAExposition="L0"/>
+    <Simple Name="V_Outsourced" Uuid="B5613BBC-54FC-4eb5-A1FE-3E1D3CF2ABC9" Type="Integer" Protection="Free" CAAExposition="L0" DefaultValue="1">
+      <Property Name="RangeAsEnumName" Value="DELAsmAssemblyModel.V_Outsourced_Enum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="No;Yes"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+      </Range>
+      <CAAComment>
+        <ShortRole>Describes whether the assembly described by this function is outsourced or not. Default is "No"(0)</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_PersistMfgAssembly"
+				Uuid="F41EF20B-719C-4bca-B19E-5652BF3045A0"
+				Type="Boolean"
+				MultiValuated="No"
+				Protection="Free"
+				CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Describes whether the output of this function has to be stored as Output. Default should be False.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_Manufacturing_Decision" Uuid="E3076511-8018-4ff5-9FFD-C37036E01A01" Type="Integer" Protection="Free" CAAExposition="L0" DefaultValue="1">
+      <Property Name="RangeAsEnumName" Value="DELAsmAssemblyModel.V_Manufacturing_Decision_Enum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="UNDEF;TO_BE_DETAILED;NOT_TO_BE_DETAILED"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+      </Range>
+      <CAAComment>
+        <ShortRole>Describes whether the product resulting of the process is make or buy</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_NeedDedicatedSystem" Uuid="F59F1196-FCD3-4fbe-9C86-0D165607BA3F" Type="Integer" Protection="Free" CAAExposition="L0" DefaultValue="1" Faceted="Yes">
+      <Property Name="RangeAsEnumName" Value="DELAsmAssemblyModel.V_NeedDedicatedSystem_Enum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="NO;YES"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+      </Range>
+    </Simple>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+  </Class>
+
+  <Class Name="UnitFasten"
+		   Uuid="aabf42bc-48bd-431c-afd5-e7b6a7bb2b33"
+		   Abstract="No"
+			 Discipline="Yes"
+			 SuperName="DELFmiFunctionUPRCreateReference"
+		   Specializable="Yes"
+		   CustomerExtensible="Yes"
+		   CustomerExposition="Programmer"
+		   CreateInstName="ProcessInstanceSet"
+       Abbreviation="ufs"
+       InstantiationOwnerTypes="UnitCreateAssembly;UnitCreateMaterial;UnitElementaryEndItem">
+
+    <Property Name="XPGApplyDisciplineOnInstance" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELPLMFProcessAdvDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELFmiFunctionInstance"/>
+    <Property Name="IconName" Value="I_InsertUnitFastenProcess"/>
+    <Property Name="3DIconName" Value="I_InsertUnitFastenProcess.cgr"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="Newable" Value="No"/>
+    <Property Name="MergedExtensionType" Value="DELAsmFastenFunctionRef"/>
+    <Property Name="OccurrenceType" Value="MfgProcessOccurrence"/>
+
+    <Simple Name="V_IsMovable"
+				Uuid="2B86CC41-9759-4c07-A33D-5FC6FED06779"
+				Type="Boolean"
+				MultiValuated="No"
+				Protection="Free"
+				CAAExposition="L0"
+				DefaultValue="false"/>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+  </Class>
+
+
+  <Class Name="UnitCreateMaterial"
+			 Uuid="8E40EDCB-5C9C-4d6f-A039-613387C82087"
+		   Abstract="No"
+			 Discipline="Yes"
+			 SuperName="DELFmiFunctionUPRCreateReference"
+		   Specializable="Yes"
+		   CustomerExtensible="Yes"
+		   CustomerExposition="Programmer"
+		   CreateInstName="ProcessInstanceSet"
+       Abbreviation="ucm"
+       InstantiationOwnerTypes="UnitCreateAssembly;UnitCreateKit;UnitCreateMaterial">
+
+    <Property Name="XPGApplyDisciplineOnInstance" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELPLMFProcessAdvDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELFmiFunctionInstance"/>
+    <Property Name="IconName" Value="I_InsertUnitCreateMaterialProcess"/>
+    <Property Name="3DIconName" Value="I_InsertUnitCreateMaterialProcess.cgr"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="Newable" Value="No"/>
+    <Property Name="MergedExtensionType" Value="DELAsmCreateMaterialFunctionRef"/>
+    <Property Name="OccurrenceType" Value="MfgProcessOccurrence"/>
+
+
+    <Simple Name="V_NeedDedicatedSystem" Uuid="816D7098-9C59-41fc-92FE-C3EA15ACCF90" Type="Integer" Protection="Free" CAAExposition="L0" DefaultValue="1" Faceted="Yes">
+      <Property Name="RangeAsEnumName" Value="DELAsmAssemblyModel.V_NeedDedicatedSystem_Enum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="NO;YES"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+      </Range>
+    </Simple>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+  </Class>
+
+  <Class Name="UnitCreateKit"
+			 Uuid="472DF397-BBDE-41e2-BD96-9602A191BA8A"
+		   Abstract="No"
+			 Discipline="Yes"
+			 SuperName="DELFmiFunctionUPRCreateReference"
+		   Specializable="Yes"
+		   CustomerExtensible="Yes"
+		   CustomerExposition="Programmer"
+		   CreateInstName="ProcessInstanceSet"
+       Abbreviation="uck"
+       InstantiationOwnerTypes="UnitCreateAssembly;UnitCreateKit;UnitCreateMaterial;UnitElementaryEndItem">
+
+    <Property Name="XPGApplyDisciplineOnInstance" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELPLMFProcessAdvDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELFmiFunctionInstance"/>
+    <Property Name="IconName" Value="I_InsertUnitCreateKitProcess"/>
+    <Property Name="3DIconName" Value="I_InsertUnitCreateKitProcess.cgr"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="Newable" Value="No"/>
+    <Property Name="MergedExtensionType" Value="DELAsmCreateKitFunctionRef"/>
+    <Property Name="OccurrenceType" Value="MfgProcessOccurrence"/>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+  </Class>
+
+  <!-- Extensions for Unit Process Ref -->
+  <Extension Name="DELAsmUnitRef"
+            Uuid="11279627-7bad-47d8-ae96-3387ddb59903"
+            ScopeNames="DELFmiFunctionReference"
+            CustomerExposition="Programmer">
+
+    <Simple Name="V_SerialNumber"
+            Uuid="b6abb9c5-e239-46e7-a5e7-4ee73a2959eb"
+            Type="String"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Serial number of the Unit Process.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_LinkedProcess"
+             Uuid="b25685b1-a7fd-42a6-9329-ac38783930c9"
+             Type="String"
+             CollectionType="List"
+             MultiValuated="Yes"
+             Protection="Free"
+             CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Obsolete. Do not used this attribute. It will be removed in next release.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <CAAComment>
+      <ShortRole>Unit Reference Extension</ShortRole>
+      <Role>Manages Unit Reference attributes.</Role>
+    </CAAComment>
+  </Extension>
+
+  <Extension Name="DELAsmLotRef"
+            Uuid="1C1A7C23-52DD-4544-A4B5-5B11A4C7DCAC"
+            ScopeNames="DELFmiFunctionReference"
+            CustomerExposition="Programmer">
+    <Simple Name="V_LotNumber"
+            Uuid="A8B3D337-0C75-4fa6-A119-7DF167D73084"
+            Type="String"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Lot number of the Unit Process.</ShortRole>
+      </CAAComment>
+    </Simple>
+    <CAAComment>
+      <ShortRole>Lot Reference Extension</ShortRole>
+      <Role>Identifies Unit Process as a Lot and manages relative attributes.</Role>
+    </CAAComment>
+  </Extension>
+
+
+  <!-- Extensions for Unit Process Inst -->
+  <Extension Name="DELAsmUnitInst"
+             Uuid="c1a388df-0e23-412e-8b7d-d6bf7ca27039"
+             ScopeNames="DELFmiFunctionInstance"
+             CustomerExposition="Programmer">
+    <Simple Name="V_PlannedSerialNumber"
+            Uuid="f69e8b2c-02f2-450a-af78-a21d295ea996"
+            Type="String"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Serial number of the plannified part to be installed.</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_PlannedLotNumber"
+            Uuid="f5a045ad-9258-4a20-9a23-eacc4ff2321b"
+            Type="String"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Lot number of the plannified part to be installed.</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_ExecutionStatus"
+            Uuid="CD869F28-9AA2-4f20-BEAF-F7E9911E86AF"
+            Type="String"
+            MaxLength="128"
+            DefaultValue="Available"
+            MultiValuated="No"
+            Protection="External"
+            CAAExposition="L0"/>
+    <CAAComment>
+      <ShortRole>Unit Instance Extension</ShortRole>
+      <Role>Identifies Unit Process Instance and manages relative attributes.</Role>
+    </CAAComment>
+  </Extension>
+
+  <!-- Extensions for PPR Process in context of UPR -->
+  <Extension Name="DELAsmUnitRefRequired"
+             Uuid="34F25E01-4443-488a-B5A2-EB066856D7B5"
+             ScopeNames="DELFmiFunctionReference"
+             CustomerExposition="Programmer">
+    <Simple Name="V_SerialNumberRequired"
+            Uuid="E0533814-9FF0-433c-9971-C60C7B3D6529"
+            Type="Boolean"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"
+            DefaultValue="false">
+      <CAAComment>
+        <ShortRole>Specified if a serial number is required for the Unit correspoding to this Manufacturing Item.</ShortRole>
+      </CAAComment>
+    </Simple>
+    <CAAComment>
+      <ShortRole>Specified if a serial number is required for the Unit correspoding to this Manufacturing Item.</ShortRole>
+      <Role>Specified if a serial number is required for the Unit correspoding to this Manufacturing Item.</Role>
+    </CAAComment>
+  </Extension>
+
+  <Extension Name="DELAsmLotRefRequired"
+             Uuid="9490E332-F6EB-4768-8806-74D9868DF1BA"
+             ScopeNames="DELFmiFunctionReference"
+             CustomerExposition="Programmer">
+    <Simple Name="V_LotNumberRequired"
+            Uuid="ED6C5CFF-BEAA-46fb-88A8-AF54D4EBF155"
+            Type="Boolean"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"
+            DefaultValue="false">
+      <CAAComment>
+        <ShortRole>Specified if a lot number is required for the Unit correspoding to this Manufacturing Item.</ShortRole>
+      </CAAComment>
+    </Simple>
+    <CAAComment>
+      <ShortRole>Specified if a lot number is required for the Unit correspoding to this Manufacturing Item.</ShortRole>
+      <Role>Specified if a lot number is required for the Unit correspoding to this Manufacturing Item.</Role>
+    </CAAComment>
+  </Extension>
+
+</Package>

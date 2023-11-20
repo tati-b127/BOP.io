@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2010, All rights reserved -->
+<!-- Java Procedures Used by ENOVIA VPM Team Central -->
+<Package
+    xmlns="PLMDictionaryTop" 
+    ModelerType="Top" 
+    Name="TeamResources" 
+    Uuid="9AF8E6D9-7B48-4d04-BE26-2DA063572126" 
+    UseProcedures="TeamProcedures"
+    >
+   
+
+</Package>

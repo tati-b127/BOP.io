@@ -1,0 +1,8 @@
+NAVIGATE T1.PLMID, T1.PLM_ExternalID 
+FROM DELFmiFunctionalModel/DELFmiFunctionReference T1 
+FROM_ROOTS [?1?] 
+ON RELATION(FROM=DELLmiProductionSystem/DELLmiProductionSystemReference TO=RFLPLMImplementConnection/RFLPLMImplementConnection THROUGH=POINTEDBY)
+WITH QUALITY_FILTER (ROLE=PLM_ImplementLink_Source AND CATEGORY=Reference5)
+THEN RELATION(FROM=RFLPLMImplementConnection/RFLPLMImplementConnection TO=DELFmiFunctionalModel/DELFmiFunctionReference THROUGH=POINTSTO)
+WITH QUALITY_FILTER (ROLE=PLM_ImplementLink_Target AND CATEGORY=Reference3) 
+ITER=1 ;

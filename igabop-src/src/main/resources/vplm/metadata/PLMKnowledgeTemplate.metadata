@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2006, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" CustomerExposition="Programmer" ModelerType="Top" Name="PLMKnowledgeTemplate" Uuid="32591AA1-F6D6-409c-9FFD-E9DAC5D02550" UseNames="PLMCORE" >
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+  <!-- ***************************************** -->
+     <!-- * PLMTemplateRepReference (PLMCoreRepReference) * -->
+     <!-- ***************************************** -->
+     <Class Name="PLMTemplateRepReference" CustomerExposition="Programmer" Uuid="B9A06E94-98ED-4b8a-ABC9-15FA8540479E"  Abstract="No" SuperName="PLMCoreRepReference" Specializable="Yes" Abbreviation="tpl" DeleteAvailability="Yes" >
+       <Property Name="IconName"        Value="I_PLMTemplate2"/>
+       <Property Name="3DIconName"        Value="PLMTemplate.cgr"/>
+       <Property Name="Searchable"      Value="Yes"/>
+       <Property Name="Newable"         Value="New"/>
+       <Property Name="PQ_Attributes"   Value="V_Name PLM_ExternalID V_description V_user"/>
+       <Property Name="KweNew_InstanciationMethod" Value="CATKBEDelegateInstanciationTemplate"/>
+       <CAAComment>
+             <ShortRole>PLM Template Representation Reference Object</ShortRole>
+             <Role>Template Representation Reference Object</Role>
+         </CAAComment>
+       <Simple Name="E_fromExternalId" Uuid="5cb19dd1-3c43-4116-8d8f-7e9144b1d986" Type="String" MaxLength="256"  Protection="Free" CAAExposition="L0"/>
+       <Simple Name="E_versionComment" Uuid="fcaa0665-a10e-4648-9f42-ab1ecbd36f5b" Type="String" MaxLength="256"  Protection="Free" CAAExposition="L0"  ResetOnNewVersion="Yes"  ResetOnCloning="Yes"/>
+       <Simple Name="V_iconName" Uuid="5E09CA6C-2790-4B8A-9509-102453C0664D" Type="String"  MaxLength="255" Protection="Free" CAAExposition="L0"/>
+       <Simple Name="V_rootsType" Uuid="A141E9D2-EDA7-4D36-B5C5-E1BE5FA94B04" Type="String"  MaxLength="256" Protection="Internal" />
+       
+       <!-- PROCEDURES Declaration  -->
+       <Method ImplementationType="Self">
+         <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+         <ProcedureForUsage>
+           <Usage href="ExportScope.meth#Design"/>
+           <UsedProcedure href="PKTpe_Procedures.proc#Pkt_ExportTemplate"/>
+         </ProcedureForUsage>
+         <ProcedureForUsage>
+           <Usage href="ExportScope.meth#Channel"/>
+           <UsedProcedure href="PKTpe_Procedures.proc#Pkt_ExportTemplate"/>
+         </ProcedureForUsage>
+		 <ProcedureForUsage>
+           <Usage href="ExportScope.meth#Remove"/>
+           <UsedProcedure href="PKTpe_Procedures.proc#Pkt_ExportTemplate"/>
+         </ProcedureForUsage>
+		 <ProcedureForUsage>
+           <Usage href="ExportScope.meth#TransferSiteOwnership"/>
+           <UsedProcedure href="PKTpe_Procedures.proc#Pkt_ExportTemplate"/>
+         </ProcedureForUsage>
+       </Method>
+      
+     </Class>
+
+  <!-- ******************************* -->
+  <!-- FUNCTIONS Declarations : PLMQL  -->
+  <Function Name="pkt_navigate_roots">
+    <Implementation Name="pkt_navigate_roots" FileLocation="pkt_navigate_roots.plmql" Language="PLMQL"/>
+    <Signature href="PLMKnowledgeTemplateSignature"/>
+  </Function>
+  <Function Name="pkt_navigate_components">
+    <Implementation Name="pkt_navigate_components" FileLocation="pkt_navigate_components.plmql" Language="PLMQL"/>
+    <Signature href="PLMKnowledgeTemplateSignature"/>
+  </Function>
+  <Function Name="pkt_navigate_rep_roots">
+    <Implementation Name="pkt_navigate_rep_roots" FileLocation="pkt_navigate_rep_roots.plmql" Language="PLMQL"/>
+    <Signature href="PLMKnowledgeTemplateSignature"/>
+  </Function>
+
+  <Signature id="PLMKnowledgeTemplateSignature">
+    <Parameter Name="InputIds" Lower="0" Upper="-1" Direction="in" MultiValuated="Yes" DataType="PLMId"/>
+    <Parameter Name="OutputIds" Lower="0" Upper="-1" Direction="out" MultiValuated="No" DataType="PLMRouteSet"/>
+  </Signature>
+  <!-- ******************************* -->
+</Package>

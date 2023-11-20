@@ -1,0 +1,17 @@
+#Prog ObjectTypeReferenceExport( iPLMIDSet : #In PLMIDSet, oPLMIDSet : #Out PLMIDSet ) : VoidType
+{
+  let PLMIDRepRouteSet (PLMRouteSet)
+  let PLMIDRefSet (PLMIDSet)
+  let PLMIDRepSet (PLMIDSet)
+  let PLMIDRepRefSet (PLMIDSet)
+  let PLMIDResourceTableSet (PLMIDSet)
+
+  PLMIDRefSet = Restrict(iPLMIDSet, "CATComponentBasedDesign/ObjectTypeReference")
+  PLMIDRepRouteSet = ExecutePLMFunction("CATComponentBasedDesign", "CATComponentBasedDesign_ExpandRefToRepRef", PLMIDRefSet)
+  PLMIDRepSet = Ids(PLMIDRepRouteSet,"all")
+
+  PLMIDRepRefSet = Restrict(PLMIDRepSet, "CATComponentBasedDesign/ObjectTypeRepReference")
+  PLMIDResourceTableSet = ExecutePLMProcedure("ObjectTypeRepReferenceExport", PLMIDRepRefSet)
+  
+  oPLMIDSet = PLMIDRefSet + PLMIDRepSet + PLMIDResourceTableSet
+}

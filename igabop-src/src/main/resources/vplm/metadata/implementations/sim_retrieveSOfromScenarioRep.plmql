@@ -1,0 +1,99 @@
+NAVIGATE
+
+
+T0.PLM_ExternalID, T1.PLM_ExternalID, T2.PLM_ExternalID, T3.PLM_ExternalID,T4.PLM_ExternalID,
+T0.PLMID, T1.PLMID, T2.PLMID, T3.PLMID,T4.PLMID
+
+
+FROM
+ 
+
+
+SIMObjSimulationV5Generic/SIMObjSimulationV5RepInstanceGeneric T0,
+
+
+
+SIMObjSimulationV5Generic/SIMObjSimulationV5RepReferenceGeneric T1,
+
+
+
+SIMObjSimulationCategoryAndProdCnx/SIMObjSimulationCategoryReference T2,
+
+
+
+SIMObjSimulationCategoryAndProdCnx/SIMObjSimulationCategoryInstance T3,
+
+
+
+SIMObjSimulation/SIMObjSimulationObject T4
+
+
+
+
+
+
+
+FROM_ROOTS [?1?]
+
+ON ( RELATION(
+
+
+
+    	 FROM=SIMObjSimulationV5Generic/SIMObjSimulationV5RepReferenceGeneric
+
+   	     TO=SIMObjSimulationV5Generic/SIMObjSimulationV5RepReferenceGeneric
+
+     	 THROUGH=POINTSTO ))
+
+
+THEN ( RELATION(
+
+
+
+    	 FROM=SIMObjSimulationV5Generic/SIMObjSimulationV5RepReferenceGeneric
+
+   	     TO=SIMObjSimulationV5Generic/SIMObjSimulationV5RepInstanceGeneric
+
+     	 THROUGH=POINTEDBY ) WITH QUALITY_FILTER(CATEGORY= IsInstanceOf))
+
+
+
+THEN (RELATION(
+
+
+
+	FROM= SIMObjSimulationV5Generic/SIMObjSimulationV5RepInstanceGeneric
+
+	TO= SIMObjSimulationCategoryAndProdCnx/SIMObjSimulationCategoryReference
+
+	THROUGH= POINTSTO) WITH QUALITY_FILTER(CATEGORY= ISOWNEDBY  ))
+
+
+
+THEN ( RELATION(
+
+
+
+    	 FROM=SIMObjSimulationCategoryAndProdCnx/SIMObjSimulationCategoryReference
+
+   	     TO=SIMObjSimulationCategoryAndProdCnx/SIMObjSimulationCategoryInstance
+
+     	 THROUGH=POINTEDBY ) WITH QUALITY_FILTER(CATEGORY= IsInstanceOf))
+
+
+
+ 
+
+THEN (RELATION(
+
+
+
+	FROM= SIMObjSimulationCategoryAndProdCnx/SIMObjSimulationCategoryInstance
+
+	TO= SIMObjSimulation/SIMObjSimulationObject 
+
+	THROUGH= POINTSTO) WITH QUALITY_FILTER(CATEGORY= ISOWNEDBY  ))
+
+
+;
+

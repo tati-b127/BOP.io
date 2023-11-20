@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<ProcedurePackage 
+	xmlns="PLMDictionaryProcedure"
+	Name="Drafting_Procedures">
+			
+	<Procedure Name="Drafting_ExportCompletion">
+		<Implementation Name="Drafting_ExportCompletion" FileLocation="Drafting_ExportCompletion.KProc" Language="EKL"/>
+		<Signature href="Drafting_ProcedureSignatureExport"/>
+	</Procedure>
+
+	<Procedure Name="Drafting_ExportCompletion_Myself">
+		<Implementation Name="Drafting_ExportCompletion_Myself" FileLocation="Drafting_ExportCompletion_Myself.KProc" Language="EKL"/>
+		<Signature href="Drafting_ProcedureSignatureExport"/>
+	</Procedure>
+
+	<Signature id="Drafting_ProcedureSignatureExport">
+		<Parameter Name="InParameter" Lower="0" Upper="-1" MultiValuated="Yes" Direction="in" DataType="PLMId"/>
+		<Parameter Name="OutParameter" Lower="0" Upper="-1" MultiValuated="Yes" Direction="out" DataType="PLMId"/>
+	</Signature>
+  
+</ProcedurePackage>
+

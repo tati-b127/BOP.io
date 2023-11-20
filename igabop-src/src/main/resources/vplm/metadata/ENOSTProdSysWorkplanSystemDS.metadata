@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2012, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" 
+         Name="ENOSTProdSysWorkplanSystemDS" 
+         Uuid="4A119C39-9D2E-4066-9ABC-97AC658BB284" 
+         UseNames="DELLmiProductionWorkplanSystem" 
+         >
+  <Property Name="OptionalInstallation" Value="No" />
+  
+  <CAAComment>
+		<ShortRole>PLM Customization of DELMIA General System for RACE</ShortRole>
+		<Role>PLM Customization of DELMIA General System for RACE</Role>
+	</CAAComment>
+	<Comment>last update 2012-10-12</Comment>
+
+	<Class Name="ENOSTProductionWorkPlanReferenceCusto" Uuid="1E7BB2D2-7F0C-4efd-ABC6-1DD55E4F76BF" SuperName="DELLmiWorkPlanSystemReference" SuperRef="87B6C806-C5AA-4bca-8508-FBF3C5FD380F"  >
+
+    <Simple Name="E_fromExternalId"
+            Uuid="49DBA645-107A-4fd8-B05F-1490A9E0AADB"
+            Alias="Definition"
+            Type="String"
+            MaxLength="256"
+            Mandatory="No"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"/>
+    <Simple Name="E_versionComment"
+            Uuid="8775ED79-BCA8-450e-B4B5-928634FF739A"
+            Alias="Version Comment"
+            Type="String"
+            MaxLength="256"
+            Mandatory="No"
+            MultiValuated="No"
+            Protection="Free"
+            ResetOnNewVersion="Yes"
+            ResetOnCloning="Yes"
+            CAAExposition="L0"/>
+    <IdentifierSet Name="E_identifier"
+                   Uuid="83BE6353-46A7-417e-B6D2-B5066B395105"
+                   IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755"
+                   IdentifierNames="PLM_ExternalID V_version"/>
+
+    <CAAComment>
+			<ShortRole>PLM Customization of DELMIA Workplan System Reference for RACE</ShortRole>
+			<Role>PLM Customization of DELMIA Workplan System Reference for RACE</Role>
+		</CAAComment>
+	</Class>
+
+  <RelationClass Name="ENOSTProductionWorkPlanInstanceCusto" Uuid="9C4A7236-B413-4cca-95BE-ED59D0A1E052" SuperName="DELLmiWorkPlanSystemInstance" SuperRef="16F8886E-6BD1-4f81-8FEE-2E5C42BA1B3D"  >
+    <CAAComment>
+      <ShortRole>PLM Customization of DELMIA Workplan System Instance for RACE</ShortRole>
+      <Role>PLM Customization of DELMIA Workplan System Instance for RACE</Role>
+    </CAAComment>
+    <!-- ********************************************************* -->
+    <!-- * Overload(s) of PLMCoreInstance attributes. -->
+    <!-- ********************************************************* -->
+    <SubClause Name="to"   TargetName="ENOSTProductionWorkPlanReferenceCusto"/>
+  </RelationClass>
+
+</Package>

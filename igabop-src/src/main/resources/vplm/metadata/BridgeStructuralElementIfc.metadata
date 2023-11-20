@@ -1,0 +1,166 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2012, All rights reserved -->
+
+<Package CustomerExposition = "Programmer" ModelerType = "Top" Name = "BridgeStructuralElementIfc" UseNames = "BridgeStructuralElement BridgeArchitecturalElement" Uuid = "F72E0829-DF16-47D3-852D-5C5CD7D73BC9" xmlns = "PLMDictionaryUnified">
+  <Extension CustomerExposition = "Programmer" Name = "IfcBridgeElement" ScopeNames = "BridgeStructuralElement BridgeArchitecturalElement" Uuid = "FF34A4BE-E5F1-4EA4-AA94-08282B7E61E6">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcBridgeElement_ObjectType" Protection = "Free" Type = "String" Uuid = "FF34A4BE-E5F1-4EA4-AA94-1ad52eb2ea5e"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcBridgeElement_Tag" Protection = "Free" Type = "String" Uuid = "FF34A4BE-E5F1-4EA4-AA94-ed12431a92f4"/>
+    <Simple CAAExposition = "L0" DefaultValue = "99" Name = "IfcBridgeElement_PredefinedType" Protection = "Free" Type = "Integer" Uuid = "F84B4D49-8506-4939-973D-4D00E74E9C39">
+      <Property Name = "RangeAsEnumName" Value = "IfcBridgeElementTypeEnum"/>
+      <Property Name = "RangeAsEnumAuthorizedValues" Value = "DECKSEGMENT;WAY;ARCHSEGMENT;TOWERSEGMENT;PIERSEGMENT;CROSSHEAD;STAYCABLE;SUSPENSIONCABLE;HANGERCABLE;USERDEFINED;NOTDEFINED"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+        <Equal>5</Equal>
+        <Equal>6</Equal>
+        <Equal>7</Equal>
+        <Equal>8</Equal>
+        <Equal>9</Equal>
+        <Equal>98</Equal>
+        <Equal>99</Equal>
+      </Range>
+    </Simple>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcBridgeElementType" ScopeNames = "BridgeStructuralElementType BridgeArchitecturalElementType" Uuid = "CAC0C165-AC98-42C4-B092-C1A47C4DBC3D">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcBridgeElementType_Tag" Protection = "Free" Type = "String" Uuid = "CAC0C165-AC98-42C4-B092-cc2a36316812"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcBridgeElementType_ElementType" Protection = "Free" Type = "String" Uuid = "CAC0C165-AC98-42C4-B092-4fccfb51960c"/>
+    <Simple CAAExposition = "L0" DefaultValue = "99" Name = "IfcBridgeElementType_PredefinedType" Protection = "Free" Type = "Integer" Uuid = "36DD3BAF-5074-47D3-90F6-28ADB53D3DC0">
+      <Property Name = "RangeAsEnumName" Value = "IfcBridgeElementTypeEnum"/>
+      <Property Name = "RangeAsEnumAuthorizedValues" Value = "DECKSEGMENT;WAY;ARCHSEGMENT;TOWERSEGMENT;PIERSEGMENT;CROSSHEAD;STAYCABLE;SUSPENSIONCABLE;HANGERCABLE;USERDEFINED;NOTDEFINED"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+        <Equal>5</Equal>
+        <Equal>6</Equal>
+        <Equal>7</Equal>
+        <Equal>8</Equal>
+        <Equal>9</Equal>
+        <Equal>98</Equal>
+        <Equal>99</Equal>
+      </Range>
+    </Simple>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcQto_DS_BridgeArchSegmentBaseQuantities" ScopeNames = "BridgeArchSegment BridgeArchSegmentType" Uuid = "FC207D09-C77D-4F16-8B46-734729D9C105">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcQto_DS_BridgeArchSegmentBaseQuantities_MethodOfMeasurement" Protection = "Free" Type = "String" Uuid = "FC207D09-C77D-4F16-8B46-14b1550b5f09"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcQto_DS_BridgeArchSegmentBaseQuantities_Length" Protection = "Free" Type = "Double" Uuid = "ABC7B78F-90CE-4388-B3C0-D5697A213417"/>
+    <Simple CAAExposition = "L0" Magnitude = "AREA" Name = "IfcQto_DS_BridgeArchSegmentBaseQuantities_CrossSectionArea" Protection = "Free" Type = "Double" Uuid = "68062BF5-FB9A-48C4-8342-762D642EAB91"/>
+    <Simple CAAExposition = "L0" Magnitude = "AREA" Name = "IfcQto_DS_BridgeArchSegmentBaseQuantities_OuterSurfaceArea" Protection = "Free" Type = "Double" Uuid = "B667F5E2-241B-43C7-9348-F680C69467C2"/>
+    <Simple CAAExposition = "L0" Magnitude = "AREA" Name = "IfcQto_DS_BridgeArchSegmentBaseQuantities_GrossSurfaceArea" Protection = "Free" Type = "Double" Uuid = "5623E4F0-27D8-421A-AF51-1E23BEDE2139"/>
+    <Simple CAAExposition = "L0" Magnitude = "AREA" Name = "IfcQto_DS_BridgeArchSegmentBaseQuantities_NetSurfaceArea" Protection = "Free" Type = "Double" Uuid = "DC74C8A5-7A29-4B0E-827A-66E0905A3D0C"/>
+    <Simple CAAExposition = "L0" Magnitude = "VOLUME" Name = "IfcQto_DS_BridgeArchSegmentBaseQuantities_GrossVolume" Protection = "Free" Type = "Double" Uuid = "23A9905C-D095-44D9-80F9-FB0C5E34E5F1"/>
+    <Simple CAAExposition = "L0" Magnitude = "VOLUME" Name = "IfcQto_DS_BridgeArchSegmentBaseQuantities_NetVolume" Protection = "Free" Type = "Double" Uuid = "8D059519-7041-4938-8C15-7CDF0F334013"/>
+    <Simple CAAExposition = "L0" Magnitude = "MASS" Name = "IfcQto_DS_BridgeArchSegmentBaseQuantities_GrossWeight" Protection = "Free" Type = "Double" Uuid = "B6F45CAA-D7ED-4FC4-A703-E04CC14B8973"/>
+    <Simple CAAExposition = "L0" Magnitude = "MASS" Name = "IfcQto_DS_BridgeArchSegmentBaseQuantities_NetWeight" Protection = "Free" Type = "Double" Uuid = "22C68DEB-BCFB-40AC-A0D9-A67F5B8A9234"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcQto_DS_BridgeCrossheadBaseQuantities" ScopeNames = "BridgeCrosshead BridgeCrossheadType" Uuid = "67792766-B431-4448-A443-FA7D0E1A4107">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcQto_DS_BridgeCrossheadBaseQuantities_MethodOfMeasurement" Protection = "Free" Type = "String" Uuid = "67792766-B431-4448-A443-14b1550b5f09"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcQto_DS_BridgeCrossheadBaseQuantities_Depth" Protection = "Free" Type = "Double" Uuid = "BE9DDF5C-F2AF-4853-B599-A46ECC270618"/>
+    <Simple CAAExposition = "L0" Magnitude = "AREA" Name = "IfcQto_DS_BridgeCrossheadBaseQuantities_CrossSectionArea" Protection = "Free" Type = "Double" Uuid = "EE12B6C2-D9F1-4713-9E76-0772547B5534"/>
+    <Simple CAAExposition = "L0" Magnitude = "AREA" Name = "IfcQto_DS_BridgeCrossheadBaseQuantities_OuterSurfaceArea" Protection = "Free" Type = "Double" Uuid = "53B41998-37D9-403C-A1C2-02B9EFE06DD1"/>
+    <Simple CAAExposition = "L0" Magnitude = "AREA" Name = "IfcQto_DS_BridgeCrossheadBaseQuantities_GrossSurfaceArea" Protection = "Free" Type = "Double" Uuid = "D09341FB-E0C6-4912-93B6-115C1F1D72EE"/>
+    <Simple CAAExposition = "L0" Magnitude = "AREA" Name = "IfcQto_DS_BridgeCrossheadBaseQuantities_NetSurfaceArea" Protection = "Free" Type = "Double" Uuid = "9C8228E9-1D3E-498C-937A-BC085CA6BDC7"/>
+    <Simple CAAExposition = "L0" Magnitude = "VOLUME" Name = "IfcQto_DS_BridgeCrossheadBaseQuantities_GrossVolume" Protection = "Free" Type = "Double" Uuid = "F55E9209-A910-4F58-A17D-F35AC3446040"/>
+    <Simple CAAExposition = "L0" Magnitude = "VOLUME" Name = "IfcQto_DS_BridgeCrossheadBaseQuantities_NetVolume" Protection = "Free" Type = "Double" Uuid = "693C730E-7521-4F17-BD58-66B25FAA169B"/>
+    <Simple CAAExposition = "L0" Magnitude = "MASS" Name = "IfcQto_DS_BridgeCrossheadBaseQuantities_GrossWeight" Protection = "Free" Type = "Double" Uuid = "BCADBCCE-A56A-4715-B327-56580F70EEB2"/>
+    <Simple CAAExposition = "L0" Magnitude = "MASS" Name = "IfcQto_DS_BridgeCrossheadBaseQuantities_NetWeight" Protection = "Free" Type = "Double" Uuid = "80314104-33EA-4951-89C8-6022F7657C40"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcQto_DS_BridgeDeckSegmentBaseQuantities" ScopeNames = "BridgeDeckSegment BridgeDeckSegmentType" Uuid = "42473D18-ADEE-43B2-8237-F1E0C7161698">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcQto_DS_BridgeDeckSegmentBaseQuantities_MethodOfMeasurement" Protection = "Free" Type = "String" Uuid = "42473D18-ADEE-43B2-8237-14b1550b5f09"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcQto_DS_BridgeDeckSegmentBaseQuantities_Length" Protection = "Free" Type = "Double" Uuid = "423FD432-6514-4E3E-AFF4-FD806C340257"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcQto_DS_BridgeDeckSegmentBaseQuantities_Width" Protection = "Free" Type = "Double" Uuid = "1C6E6113-E5D9-4A7C-80FA-D7BC5EB84A85"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcQto_DS_BridgeDeckSegmentBaseQuantities_Depth" Protection = "Free" Type = "Double" Uuid = "7436B307-5F1D-45CD-93F1-A8E343E1278A"/>
+    <Simple CAAExposition = "L0" Magnitude = "AREA" Name = "IfcQto_DS_BridgeDeckSegmentBaseQuantities_CrossSectionArea" Protection = "Free" Type = "Double" Uuid = "D4877EAF-177C-4930-BCA8-44B7ACCCE317"/>
+    <Simple CAAExposition = "L0" Magnitude = "AREA" Name = "IfcQto_DS_BridgeDeckSegmentBaseQuantities_OuterSurfaceArea" Protection = "Free" Type = "Double" Uuid = "1A047C9E-990B-45B8-8685-469A71464AD0"/>
+    <Simple CAAExposition = "L0" Magnitude = "AREA" Name = "IfcQto_DS_BridgeDeckSegmentBaseQuantities_GrossSurfaceArea" Protection = "Free" Type = "Double" Uuid = "67460663-E22C-4776-B0EC-551AE6AD0257"/>
+    <Simple CAAExposition = "L0" Magnitude = "AREA" Name = "IfcQto_DS_BridgeDeckSegmentBaseQuantities_NetSurfaceArea" Protection = "Free" Type = "Double" Uuid = "5390D41C-0FFA-4078-AB1B-CF220E295628"/>
+    <Simple CAAExposition = "L0" Magnitude = "VOLUME" Name = "IfcQto_DS_BridgeDeckSegmentBaseQuantities_GrossVolume" Protection = "Free" Type = "Double" Uuid = "72105006-8162-4131-B5E6-E1BE4192A031"/>
+    <Simple CAAExposition = "L0" Magnitude = "VOLUME" Name = "IfcQto_DS_BridgeDeckSegmentBaseQuantities_NetVolume" Protection = "Free" Type = "Double" Uuid = "5DDB5319-5324-413E-B8C2-042762D21237"/>
+    <Simple CAAExposition = "L0" Magnitude = "MASS" Name = "IfcQto_DS_BridgeDeckSegmentBaseQuantities_GrossWeight" Protection = "Free" Type = "Double" Uuid = "91AC80E7-3E93-4294-82E7-CCCC2760B4A1"/>
+    <Simple CAAExposition = "L0" Magnitude = "MASS" Name = "IfcQto_DS_BridgeDeckSegmentBaseQuantities_NetWeight" Protection = "Free" Type = "Double" Uuid = "CC2BDC08-3DEA-4681-8AC1-500BE81DA039"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcQto_DS_BridgeHangerCableBaseQuantities" ScopeNames = "BridgeHangerCable BridgeHangerCableType" Uuid = "C4049BDD-3CA4-4E3A-BA97-8C687BD1F9A6">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcQto_DS_BridgeHangerCableBaseQuantities_MethodOfMeasurement" Protection = "Free" Type = "String" Uuid = "C4049BDD-3CA4-4E3A-BA97-14b1550b5f09"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcQto_DS_BridgeHangerCableBaseQuantities_Length" Protection = "Free" Type = "Double" Uuid = "6A19A3BA-B99D-4F5F-A3CE-56F6B3F08E6F"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcQto_DS_BridgeHangerCableBaseQuantities_Diameter" Protection = "Free" Type = "Double" Uuid = "1BB492A1-DF6D-4161-9A36-4B28CE494F9E"/>
+    <Simple CAAExposition = "L0" Magnitude = "AREA" Name = "IfcQto_DS_BridgeHangerCableBaseQuantities_CrossSectionArea" Protection = "Free" Type = "Double" Uuid = "496BFBBB-C5ED-4F32-BE7A-326D339FDA0B"/>
+    <Simple CAAExposition = "L0" Magnitude = "MASS" Name = "IfcQto_DS_BridgeHangerCableBaseQuantities_Weight" Protection = "Free" Type = "Double" Uuid = "0D9EFC86-4CF2-4320-B03A-28ABFDFAA06F"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcQto_DS_BridgeOtherElementBaseQuantities" ScopeNames = "BridgeOtherStructuralElement BridgeOtherArchitecturalElement BridgeOtherStructuralElementType BridgeOtherArchitecturalElementType" Uuid = "D6EA0EC9-0BF2-449F-BFBF-6894A913FB49">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcQto_DS_BridgeOtherElementBaseQuantities_MethodOfMeasurement" Protection = "Free" Type = "String" Uuid = "D6EA0EC9-0BF2-449F-BFBF-14b1550b5f09"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcQto_DS_BridgeOtherElementBaseQuantities_Height" Protection = "Free" Type = "Double" Uuid = "81F6BF57-6D1C-4647-B62E-0D5FBE42D935"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcQto_DS_BridgeOtherElementBaseQuantities_Length" Protection = "Free" Type = "Double" Uuid = "05ED2F1E-E85C-494A-B157-FC8CAB195DF2"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcQto_DS_BridgeOtherElementBaseQuantities_Width" Protection = "Free" Type = "Double" Uuid = "79280A19-F3E3-4E95-B7E3-8C430DC88100"/>
+    <Simple CAAExposition = "L0" Magnitude = "AREA" Name = "IfcQto_DS_BridgeOtherElementBaseQuantities_GrossSurfaceArea" Protection = "Free" Type = "Double" Uuid = "30FBA4AC-979E-4B60-8C38-04C63CDC67F1"/>
+    <Simple CAAExposition = "L0" Magnitude = "AREA" Name = "IfcQto_DS_BridgeOtherElementBaseQuantities_NetSurfaceArea" Protection = "Free" Type = "Double" Uuid = "73CA8B7E-58D9-4C68-BA6C-F73C8AC70C19"/>
+    <Simple CAAExposition = "L0" Magnitude = "VOLUME" Name = "IfcQto_DS_BridgeOtherElementBaseQuantities_GrossVolume" Protection = "Free" Type = "Double" Uuid = "91671C85-F7F2-4F3F-A85D-B6281FF915DD"/>
+    <Simple CAAExposition = "L0" Magnitude = "VOLUME" Name = "IfcQto_DS_BridgeOtherElementBaseQuantities_NetVolume" Protection = "Free" Type = "Double" Uuid = "DE7ED423-4D34-4055-A377-745FB5C51143"/>
+    <Simple CAAExposition = "L0" Magnitude = "MASS" Name = "IfcQto_DS_BridgeOtherElementBaseQuantities_GrossWeight" Protection = "Free" Type = "Double" Uuid = "1E7292D4-3223-4D0A-9631-041A7DBD4942"/>
+    <Simple CAAExposition = "L0" Magnitude = "MASS" Name = "IfcQto_DS_BridgeOtherElementBaseQuantities_NetWeight" Protection = "Free" Type = "Double" Uuid = "841E3837-A77F-486F-939E-5B9EB3A59413"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcQto_DS_BridgePierSegmentBaseQuantities" ScopeNames = "BridgePierSegment BridgePierSegmentType" Uuid = "FAD040DD-5ADA-409C-A420-E721B91EF303">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcQto_DS_BridgePierSegmentBaseQuantities_MethodOfMeasurement" Protection = "Free" Type = "String" Uuid = "FAD040DD-5ADA-409C-A420-14b1550b5f09"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcQto_DS_BridgePierSegmentBaseQuantities_Height" Protection = "Free" Type = "Double" Uuid = "672CD971-4CA8-47FA-BEE7-640CCF602346"/>
+    <Simple CAAExposition = "L0" Magnitude = "AREA" Name = "IfcQto_DS_BridgePierSegmentBaseQuantities_CrossSectionArea" Protection = "Free" Type = "Double" Uuid = "B058B766-F243-487F-B395-DF7C12A27C88"/>
+    <Simple CAAExposition = "L0" Magnitude = "AREA" Name = "IfcQto_DS_BridgePierSegmentBaseQuantities_OuterSurfaceArea" Protection = "Free" Type = "Double" Uuid = "802951CC-124F-446D-A0C0-A3E4D910BD02"/>
+    <Simple CAAExposition = "L0" Magnitude = "AREA" Name = "IfcQto_DS_BridgePierSegmentBaseQuantities_GrossSurfaceArea" Protection = "Free" Type = "Double" Uuid = "BC4FA542-C88E-4985-9CB6-A4E3E3720A38"/>
+    <Simple CAAExposition = "L0" Magnitude = "AREA" Name = "IfcQto_DS_BridgePierSegmentBaseQuantities_NetSurfaceArea" Protection = "Free" Type = "Double" Uuid = "A979DF42-A1E8-4FFE-AE16-9E9D89A2C119"/>
+    <Simple CAAExposition = "L0" Magnitude = "VOLUME" Name = "IfcQto_DS_BridgePierSegmentBaseQuantities_GrossVolume" Protection = "Free" Type = "Double" Uuid = "BF8AE029-2319-4BB7-A247-F9464FCA4D24"/>
+    <Simple CAAExposition = "L0" Magnitude = "VOLUME" Name = "IfcQto_DS_BridgePierSegmentBaseQuantities_NetVolume" Protection = "Free" Type = "Double" Uuid = "3B306C68-C1A1-49EB-9C69-4B94B83ACF45"/>
+    <Simple CAAExposition = "L0" Magnitude = "MASS" Name = "IfcQto_DS_BridgePierSegmentBaseQuantities_GrossWeight" Protection = "Free" Type = "Double" Uuid = "DC703D7B-63E5-4151-B5E6-87E7969F63F8"/>
+    <Simple CAAExposition = "L0" Magnitude = "MASS" Name = "IfcQto_DS_BridgePierSegmentBaseQuantities_NetWeight" Protection = "Free" Type = "Double" Uuid = "FF74A5EE-1E2B-433F-8C6F-DD6D87913917"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcQto_DS_BridgeStayCableBaseQuantities" ScopeNames = "BridgeStayCable BridgeStayCableType" Uuid = "847C4856-941B-4E82-BC0E-5CE695620C67">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcQto_DS_BridgeStayCableBaseQuantities_MethodOfMeasurement" Protection = "Free" Type = "String" Uuid = "847C4856-941B-4E82-BC0E-14b1550b5f09"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcQto_DS_BridgeStayCableBaseQuantities_Length" Protection = "Free" Type = "Double" Uuid = "000ECADA-1B76-4CAB-9E0F-5864AE8E6208"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcQto_DS_BridgeStayCableBaseQuantities_Diameter" Protection = "Free" Type = "Double" Uuid = "3CE6AD0B-B86F-4F3F-A1E7-6C693B64ACD9"/>
+    <Simple CAAExposition = "L0" Magnitude = "AREA" Name = "IfcQto_DS_BridgeStayCableBaseQuantities_CrossSectionArea" Protection = "Free" Type = "Double" Uuid = "A0559A8B-6AF5-489C-BFEC-714B28AED280"/>
+    <Simple CAAExposition = "L0" Magnitude = "MASS" Name = "IfcQto_DS_BridgeStayCableBaseQuantities_Weight" Protection = "Free" Type = "Double" Uuid = "3E08D669-24EC-4293-89CE-FB6D9E573A5C"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcQto_DS_BridgeSuspensionCableBaseQuantities" ScopeNames = "BridgeSuspensionCable BridgeSuspensionCableType" Uuid = "F4ACBC57-D0E1-4B59-8686-6EA5C178F47E">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcQto_DS_BridgeSuspensionCableBaseQuantities_MethodOfMeasurement" Protection = "Free" Type = "String" Uuid = "F4ACBC57-D0E1-4B59-8686-14b1550b5f09"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcQto_DS_BridgeSuspensionCableBaseQuantities_Length" Protection = "Free" Type = "Double" Uuid = "CA3C147F-643B-40C7-8117-AFDEB1BF5900"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcQto_DS_BridgeSuspensionCableBaseQuantities_Diameter" Protection = "Free" Type = "Double" Uuid = "85D4057F-1DE6-4B33-B858-B5BDB5EF7338"/>
+    <Simple CAAExposition = "L0" Magnitude = "AREA" Name = "IfcQto_DS_BridgeSuspensionCableBaseQuantities_CrossSectionArea" Protection = "Free" Type = "Double" Uuid = "8E2C523E-ADBD-4FE8-A546-08CDDA0A2AC3"/>
+    <Simple CAAExposition = "L0" Magnitude = "MASS" Name = "IfcQto_DS_BridgeSuspensionCableBaseQuantities_Weight" Protection = "Free" Type = "Double" Uuid = "7A246AC4-0509-4565-A7AD-574E602CACE2"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcQto_DS_BridgeTowerSegmentBaseQuantities" ScopeNames = "BridgeTowerSegment BridgeTowerSegmentType" Uuid = "5A002ACC-A00D-4474-8EDC-6B9AC6067AC6">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcQto_DS_BridgeTowerSegmentBaseQuantities_MethodOfMeasurement" Protection = "Free" Type = "String" Uuid = "5A002ACC-A00D-4474-8EDC-14b1550b5f09"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcQto_DS_BridgeTowerSegmentBaseQuantities_Height" Protection = "Free" Type = "Double" Uuid = "CB7C3BE8-CA9D-4012-AA35-28A17D9FC6BB"/>
+    <Simple CAAExposition = "L0" Magnitude = "AREA" Name = "IfcQto_DS_BridgeTowerSegmentBaseQuantities_CrossSectionArea" Protection = "Free" Type = "Double" Uuid = "B25159CF-3DE7-404F-96EA-1CB5FBB6C8DA"/>
+    <Simple CAAExposition = "L0" Magnitude = "AREA" Name = "IfcQto_DS_BridgeTowerSegmentBaseQuantities_OuterSurfaceArea" Protection = "Free" Type = "Double" Uuid = "9347ED4C-B375-4447-B58A-D2FDBB254A02"/>
+    <Simple CAAExposition = "L0" Magnitude = "AREA" Name = "IfcQto_DS_BridgeTowerSegmentBaseQuantities_GrossSurfaceArea" Protection = "Free" Type = "Double" Uuid = "B60A5038-5DD5-4AA5-BBA2-1C03BFC19006"/>
+    <Simple CAAExposition = "L0" Magnitude = "AREA" Name = "IfcQto_DS_BridgeTowerSegmentBaseQuantities_NetSurfaceArea" Protection = "Free" Type = "Double" Uuid = "55592D80-3310-4273-94E0-8D75AFFF4201"/>
+    <Simple CAAExposition = "L0" Magnitude = "VOLUME" Name = "IfcQto_DS_BridgeTowerSegmentBaseQuantities_GrossVolume" Protection = "Free" Type = "Double" Uuid = "2BA1286E-BC1D-47C3-82C3-04352FD90E32"/>
+    <Simple CAAExposition = "L0" Magnitude = "VOLUME" Name = "IfcQto_DS_BridgeTowerSegmentBaseQuantities_NetVolume" Protection = "Free" Type = "Double" Uuid = "8B929B68-2784-4723-B67A-E633F88F2EEC"/>
+    <Simple CAAExposition = "L0" Magnitude = "MASS" Name = "IfcQto_DS_BridgeTowerSegmentBaseQuantities_GrossWeight" Protection = "Free" Type = "Double" Uuid = "805FFF42-6BA7-4501-A6EC-5174EB023701"/>
+    <Simple CAAExposition = "L0" Magnitude = "MASS" Name = "IfcQto_DS_BridgeTowerSegmentBaseQuantities_NetWeight" Protection = "Free" Type = "Double" Uuid = "3C500920-F380-49A9-82C5-3E13B4AD24CE"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcQto_DS_BridgeWayBaseQuantities" ScopeNames = "BridgeWay BridgeWayType" Uuid = "DBAC766D-AF1D-486A-93F7-0EC925AA026D">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcQto_DS_BridgeWayBaseQuantities_MethodOfMeasurement" Protection = "Free" Type = "String" Uuid = "DBAC766D-AF1D-486A-93F7-14b1550b5f09"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcQto_DS_BridgeWayBaseQuantities_Depth" Protection = "Free" Type = "Double" Uuid = "E3FD789E-ECD5-4FC4-B36B-48695A74A53A"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcQto_DS_BridgeWayBaseQuantities_Width" Protection = "Free" Type = "Double" Uuid = "EB7A4B30-55FB-4832-A6FE-D4BC0238EE8A"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcQto_DS_BridgeWayBaseQuantities_Length" Protection = "Free" Type = "Double" Uuid = "519ED92A-18A0-4040-B048-03B6E4E5DDEE"/>
+    <Simple CAAExposition = "L0" Magnitude = "AREA" Name = "IfcQto_DS_BridgeWayBaseQuantities_GrossSurfaceArea" Protection = "Free" Type = "Double" Uuid = "495C6EEE-CBD0-458A-9CAA-73ADC78C703C"/>
+    <Simple CAAExposition = "L0" Magnitude = "AREA" Name = "IfcQto_DS_BridgeWayBaseQuantities_NetSurfaceArea" Protection = "Free" Type = "Double" Uuid = "0E75CED6-74FF-48B0-856F-4FF77DFD21E2"/>
+    <Simple CAAExposition = "L0" Magnitude = "VOLUME" Name = "IfcQto_DS_BridgeWayBaseQuantities_GrossVolume" Protection = "Free" Type = "Double" Uuid = "A23F5609-71F9-4E28-86EE-EEB926FCFDDE"/>
+    <Simple CAAExposition = "L0" Magnitude = "VOLUME" Name = "IfcQto_DS_BridgeWayBaseQuantities_NetVolume" Protection = "Free" Type = "Double" Uuid = "80DF9D4F-42F9-494E-85E5-1A77BA9417BD"/>
+    <Simple CAAExposition = "L0" Magnitude = "MASS" Name = "IfcQto_DS_BridgeWayBaseQuantities_GrossWeight" Protection = "Free" Type = "Double" Uuid = "DD2A312D-515A-4E6D-8327-D16131905CFE"/>
+    <Simple CAAExposition = "L0" Magnitude = "MASS" Name = "IfcQto_DS_BridgeWayBaseQuantities_NetWeight" Protection = "Free" Type = "Double" Uuid = "34163B8D-2B07-435A-B888-41E37F43CD52"/>
+  </Extension>
+</Package>

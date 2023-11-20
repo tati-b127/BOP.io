@@ -1,0 +1,4 @@
+#Prog GeolocationExport( iPLMIDSet : #In PLMIDSet, oPLMIDSet : #Out PLMIDSet ) : VoidType
+{
+  oPLMIDSet = iPLMIDSet
+}

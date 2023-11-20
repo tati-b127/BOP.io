@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2006, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" Name="PLMPosSettings" Uuid="17094712-DB28-42BB-A3D17975312B3D2F" UseNames="PLMPosResource" CustomerExposition="Programmer" >
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+  <UniqueKey Name="PLMPosSettingsRefUK" Uuid="BFAABE89-17AB-49f6-89C7C98C5B4A6D99" ClassName="PLMPosSettingsRef" AttributeNames="PLM_ExternalID" />
+	<Class Name="PLMPosSettingsRef"  Uuid="515D6F9C-5BE1-4929-9B040C9BFFBFD70F" Abstract="No" SuperName="PLMPosResourceRef" CreateInstName="PLMPosSettingsInst" CustomerExposition="Programmer" >
+    <Property Name="Searchable" Value="No"/>
+    <Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+		<Simple Name="V_settings_type" Uuid="EA5E8209-250F-491F-ACD56116657DF6FE" MultiValuated="No" Type="String" MaxLength="64"  PLMImpacting="No" Protection="Free" CAAExposition="L0"/>
+	</Class>
+  <RelationClass Name="PLMPosSettingsInst" Uuid="E8B9DA46-B088-4F09-959801A3D66406D0" Abstract="No" SuperName="PLMPosResourceInst" CustomerExposition="Programmer" >
+ 		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+	  <SubClause Name="from"   TargetName="PLMPosResourceCoreRef"/>
+    <SubClause Name="to"   TargetName="PLMPosSettingsRef"/>
+  </RelationClass>
+
+</Package>

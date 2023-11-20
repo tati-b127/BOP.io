@@ -1,0 +1,16 @@
+#Prog EnvironmentExport( iPLMIDSet : #In PLMIDSet, oPLMIDSet : #Out PLMIDSet ) : VoidType
+{
+
+let Ids_PLMDMTDocument(PLMIDSet)
+let Rts_PLMDMTDocument(PLMRouteSet)
+
+/* Should only have one document but things don't always go right... */
+Rts_PLMDMTDocument=ExecutePLMFunction("PLM3DXEnvironment","PLM3DX_getAmbienceDocument",iPLMIDSet)
+Ids_PLMDMTDocument=Ids(Rts_PLMDMTDocument)
+
+
+/* Results = Input Ambience environment + Pointed PLMDMTDocument (HDR) */
+/*------------------------------------------------------*/
+oPLMIDSet = iPLMIDSet + Ids_PLMDMTDocument
+}
+

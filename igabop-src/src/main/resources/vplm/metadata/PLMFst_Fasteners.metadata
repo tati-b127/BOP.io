@@ -1,0 +1,885 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2007, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" 
+   Name="PLMFst_Fasteners" 
+   UseNames="CATMCXAssembly;PLMCORE;PRODUCTCFG;PRODUCTDiscipline"
+   ModelerType="Top" 
+   CustomerExposition="Programmer"
+   Uuid="2c3d9d3c-d136-4261-b573-1ea06c4f972c">
+	<CAAComment>              
+		<ShortRole>PLM Fastener Modeler Package</ShortRole>
+		<Role>This package describes Fastener Modeler Extensions</Role>
+	</CAAComment>
+	<Comment>last update 2012-03-22</Comment>  
+	<!-- Questions
+	     Quanjd mettre le Discipline a Yes pour les nouvelles classes ?
+	     Deplacer dans un fichier separer toute classe et discipline
+	     Les classes issus des Disciplines ne doivent pas avoir le meme nom il me semble
+	-->
+	<!-- NEW 
+	     Root Discipline for all Fasteners
+	-->
+  	<Class Name="Fastener"
+		Uuid="3b3eb60f-1464-4e39-a2b9-1b70a6a04463"
+		Abbreviation="fsr"
+		Abstract="Yes" 
+		SuperName="VPMReference"
+		Discipline="Yes"
+		Specializable="No"
+		CustomerExposition="Programmer"
+		CustomerExtensible="Yes">
+		<Property Name="3DPartAvailability" Value="ReferenceOnly"/>
+		<Property Name="IconName" Value="I_Fst_Fastener"/>
+	        <Property Name="3DIconName" Value="I_Fst_Fastener.cgr"/>
+		<Property  Name="XPGApplyDisciplineOnInstance"  Value="Yes"/>
+		<Property Name="OccurrenceType" Value="FastenerOccurrence"/>	
+        <Simple Name="V_FastenerType" 
+		      Uuid="ec6f10df-eec4-4ca0-b085-45498bcf4b9f" 
+		      Type="String" 
+		      MaxLength="50" 
+		      Protection="External" 
+		      CAAExposition="L1">
+		      <CAAComment>
+        	      	<ShortRole>Fastener Type description</ShortRole>
+		      </CAAComment>
+	      </Simple>
+	      <Simple Name="V_SubType"
+		      Uuid="c6060fbb-c060-407a-8878-030e191f7f12" 
+		      Type="String" 
+		      MaxLength="50" 
+		      Protection="Internal">
+		      <CAAComment>
+        	      	<ShortRole>V2 Fastener Type</ShortRole>
+		      </CAAComment>
+      	      </Simple>
+	</Class>
+
+	<!-- Update Discipline SpotFastener
+	     become class
+	     Inherits Fastener Discipline
+	     Attributes are moved from extension
+	     V_FastenerType is set on parent discipline
+
+	     Q:Peut-on la passer Abstract alors qu' elle ne l' etait pas ?
+	-->
+	<Class Name="SpotFastener"
+		Abstract="Yes" 
+		Uuid="e15c0777-4e3f-41da-b711-e008dcbb55f6"
+		Abbreviation="sfa"
+		SuperName="Fastener"
+		Discipline="Yes"
+		Specializable="No"
+		CustomerExposition="Programmer"
+		CustomerExtensible="Yes"
+		CreateInstName="SpotInstance"
+		CAAExposition="L1">
+		<Property Name="IconName" Value="I_Fst_SpotFastener18x18"/>
+	        <Property Name="3DIconName" Value="I_Fst_SpotFastener.cgr"/>
+		<Property Name="AggregatableTypes" Value="SpotFastener_Representation"/>		
+		<Property Name="TypeForDisciplineValuation" Value="SpotFastener"/>
+    <Property Name="GroupingType"               Value="SpotFastener"/>
+    <Property  Name="XPGApplyDisciplineOnInstance"  Value="Yes"/>
+    		<CAAComment>
+		         <ShortRole>Spot Fastener</ShortRole>
+		         <Role>This PLM entity defines the Spot Fastener characteristics</Role>
+	        </CAAComment>
+	        <Simple Name="V_ZoneCount" 
+	         	Uuid="eb6f441f-7fd5-469e-b5c5-a88028c9c26d"
+	         	Type="Integer" 
+	         	Protection="External" 
+	         	CAAExposition="L0">
+	         	<CAAComment>
+		            	<ShortRole>Joined Zone Count</ShortRole>
+         		</CAAComment>
+		</Simple>
+		<Simple Name="V_Diameter" 
+         		Uuid="572eb03d-2e87-46e2-93db-84167a4d29bf"
+         		Type="Double" 
+	 		Magnitude="LENGTH" 
+         		Protection="External" 
+         		CAAExposition="L1">
+       			<CAAComment>
+         			<ShortRole>Diameter</ShortRole>
+       			</CAAComment>
+		</Simple>
+
+	</Class>
+
+	<!-- NEW 
+	     SpotFastenerAssy
+	-->
+  	<Class Name="SpotFastenerAssy"
+		Uuid="12ea3d2e-1fb8-481c-810f-1a42978f5810"
+		Abbreviation="sasy"
+		Abstract="No" 
+		SuperName="SpotFastener"
+		Discipline="Yes"
+		Specializable="Yes"
+		CustomerExposition="Programmer"
+		CreateInstName="SpotInstance"
+		CustomerExtensible="Yes"
+		CAAExposition="L1">
+		<Property Name="IconName" Value="I_Fst_FastenerSpotAssy"/>
+	    <Property Name="3DIconName" Value="I_Fst_FastenerSpotAssy.cgr"/>
+		<Property Name="MergedExtensionType" Value="PLMFst_SpotAssyFastener"/>      
+   		<Property Name="KweNew_InstanciationMethod" Value="CATFstSpotFastenerAssyDelegateInstanciation"/>
+   		<Property Name="KweNew_ReturnedType" Value="SpotInstance"/>
+   		<Property Name="Newable" Value="All"/>
+		<Property  Name="XPGApplyDisciplineOnInstance"  Value="Yes"/>
+                <Property Name="OccurrenceType" Value="SpotAssyFastenerOccurrence"/>     	   
+		<Property Name="TypeForDisciplineValuation" Value="SpotFastener"/>
+    <Property Name="GroupingType"               Value="SpotFastener"/>
+    </Class>
+
+	<!-- NEW 
+	     SpotFastenerAssyWithSecondary
+	-->
+  	<Class Name="SpotFastenerAssyWithSecondary"
+		Uuid="08f18cd5-fbf4-49ff-8a75-cb4bdfe39420"
+		Abbreviation="ssec"
+		Abstract="No" 
+		SuperName="SpotFastenerAssy"
+		Discipline="Yes"
+		Specializable="Yes"
+		CustomerExposition="Programmer"
+		CreateInstName="SpotInstance"
+		CustomerExtensible="Yes"
+		CAAExposition="L1">
+		<Property Name="IconName" Value="I_Fst_FastenerSpotAssyWithSecondary"/>
+	        <Property Name="3DIconName" Value="I_Fst_FastenerSpotAssyWithSecondary.cgr"/>
+		<Property Name="MergedExtensionType" Value="PLMFst_SpotAssyFastener"/>
+		<Property  Name="XPGApplyDisciplineOnInstance"  Value="Yes"/>
+   		<Property Name="KweNew_InstanciationMethod" Value="CATFstSpotFastenerAssyWithSecondaryDelegateInstanciation"/>
+   		<Property Name="KweNew_ReturnedType" Value="SpotInstance"/>
+		<Property Name="Newable" Value="All"/>
+		<Property Name="TypeForDisciplineValuation" Value="SpotFastener"/>
+    <Property Name="GroupingType"               Value="SpotFastener"/>
+    <Property Name="OccurrenceType" Value="SpotAssyFastenerOccurrence"/>     	   
+	</Class>
+
+
+	<!-- NEW 
+	     SpotSingle
+	-->
+  	<Class Name="SpotFastenerSingle"
+		Uuid="c8465835-1694-47ab-9e70-60b57ff1ec33"
+		Abbreviation="ssgl"
+		Abstract="No" 
+		SuperName="SpotFastener"
+		Discipline="Yes"
+		Specializable="Yes"
+		CustomerExposition="Programmer"
+		CreateInstName="SpotInstance"
+		CustomerExtensible="Yes"
+		CAAExposition="L1">
+		<Property Name="IconName" Value="I_Fst_FastenerSpotSingle"/>
+	        <Property Name="3DIconName" Value="I_Fst_FastenerSpotSingle.cgr"/>
+		<Property Name="MergedExtensionType" Value="PLMFst_SpotFastener"/>
+		<Property  Name="XPGApplyDisciplineOnInstance"  Value="Yes"/>
+   		<Property Name="KweNew_InstanciationMethod" Value="CATFstSingleSpotDelegateInstanciation"/>
+   		<Property Name="KweNew_ReturnedType" Value="SpotInstance"/>
+   		<Property Name="Newable" Value="All"/>
+                <Property Name="OccurrenceType" Value="SpotSingleFastenerOccurrence"/>     	   
+		<Property Name="TypeForDisciplineValuation" Value="SpotFastener"/>
+    <Property Name="GroupingType"               Value="SpotFastener"/>
+    </Class>
+
+	<!-- Leave it unchanged -->
+	<!-- Spot Fastener Set PLM Extension of Reference Product -->
+	<Extension Name="PLMFst_SpotFastenerSet" 
+	   Uuid="9b7a7f91-2bd3-4cb6-8742-b2a894306939" 
+		CustomerExposition="Programmer"
+	   ScopeNames="VPMReference">
+		<CAAComment>         
+			<ShortRole>Spot Fastener Set Extension</ShortRole>
+	   		<Role>This PLM entity defines the Spot Fastener Set characteristics</Role>
+      		</CAAComment>
+
+      		<Simple Name="V_FastenerType" 
+			Uuid="502fa6cb-4cc0-4ef7-8077-cecc8d1cc317"
+	      		Type="String" 
+	      		MaxLength="50" 
+			Protection="External" 
+		        CAAExposition="L1"> 
+			<CAAComment>           
+			   <ShortRole>Spot Fastener Type description</ShortRole>
+		   	</CAAComment>
+		</Simple>
+      		<Simple Name="V_ZoneCount" 
+         		Uuid="fe5c5b36-2bf1-40f0-b1f3-27f2ca4e39f4"
+			Type="Integer"
+		        Protection="External" 
+         		CAAExposition="L1">
+         		<CAAComment>
+            			<ShortRole>Joined Zone Count</ShortRole>
+	         		</CAAComment>
+		</Simple>
+      		<Simple Name="V_FastenerCount" 
+         		Uuid="b06421dd-baad-4537-a49e-72c3df443e7e" 
+			Type="Integer"
+			Protection="External" 
+         		CAAExposition="L1">
+         		<CAAComment>
+            			<ShortRole>Fastener Count</ShortRole>
+         		</CAAComment>
+      		</Simple>
+	</Extension>
+	
+	<!-- Update Discipline SpotFastener
+          become class
+          Inherits Fastener Discipline
+          Attributes are moved from extension
+          V_FastenerType is set on parent discipline
+          Q:Peut-on la passer Abstract alors qu' elle ne l' etait pas ?
+	-->
+	<Class Name="BeadFastener"
+		Uuid="121c011e-de19-43f1-ae6e-5b8d93dbb5de"
+		Abbreviation="bfa"
+      	CustomerExposition="Programmer"
+		SuperName="Fastener"
+		Abstract="Yes" 
+		Discipline="Yes"
+		Specializable="No"
+		CreateInstName="BeadInstance"
+		CustomerExtensible="Yes"
+		CAAExposition="L1">
+		<Property Name="IconName" Value="I_Fst_BeadFastener"/>
+	        <Property Name="3DIconName" Value="I_Fst_BeadFastener.cgr"/>
+		<Property  Name="XPGApplyDisciplineOnInstance"  Value="Yes"/>
+		<Property Name="MergedExtensionType" Value="PLMFst_BeadFastener"/>      
+		<Property Name="AggregatableTypes" Value="BeadFastener_Representation"/>
+		<Property Name="OccurrenceType" Value="BeadFastenerOccurrence"/>
+    		<Simple Name="V_Thickness"
+      			Uuid="9b564904-895d-4395-9c7f-7e166e17845c"
+      			Type="Double"
+      			Magnitude="LENGTH" 
+      			Protection="External"
+      			CAAExposition="L1">
+      			<CAAComment>
+        			<ShortRole>Bead Fastener thickness description</ShortRole>
+      			</CAAComment>
+		</Simple>
+		
+		<!--	<Property Name="KweNew_InstanciationMethod" Value="CATFstBeadFastenerDelegateInstanciation"/>-->
+		<Property Name="TypeForDisciplineValuation" Value="BeadFastener"/>
+    <Property Name="GroupingType"               Value="BeadFastener"/>
+  </Class>
+	<Class Name="StandardBeadFastener"
+		Uuid="249d1f1d-0939-4627-81c6-7c50a05364be"
+		Abbreviation="bstd"
+      	CustomerExposition="Programmer"
+		SuperName="BeadFastener"
+		Abstract="No" 
+		Discipline="Yes"
+		Specializable="Yes"
+		CAAExposition="L1"
+		CreateInstName="BeadInstance"
+		CustomerExtensible="Yes">
+		<Property Name="IconName" Value="I_Fst_FastenerBeadStandard"/>
+	        <Property Name="3DIconName" Value="I_Fst_FastenerBeadStandard.cgr"/>
+   	        <Property  Name="XPGApplyDisciplineOnInstance"  Value="Yes"/>
+   		<Property Name="KweNew_InstanciationMethod" Value="CATFstStandardBeadFastenerDelegateInstanciation"/>
+   		<Property Name="KweNew_ReturnedType" Value="BeadInstance"/>
+		<Property Name="Newable" Value="All"/>
+		<Property Name="TypeForDisciplineValuation" Value="BeadFastener"/>
+    <Property Name="GroupingType"               Value="BeadFastener"/>
+  </Class>
+	<Class Name="SimpleBeadFastener"
+		Uuid="5c7b02b6-3317-41e6-8106-41b15a4180a0"
+		Abbreviation="bsim"
+      	CustomerExposition="Programmer"
+		SuperName="BeadFastener"
+		Abstract="No" 
+		Discipline="Yes"
+		Specializable="Yes"
+		CAAExposition="L1"
+		CreateInstName="BeadInstance"
+		CustomerExtensible="Yes">
+		<Property Name="IconName" Value="I_Fst_FastenerBeadSimple"/>
+	        <Property Name="3DIconName" Value="I_Fst_FastenerBeadSimple.cgr"/>
+                <Property  Name="XPGApplyDisciplineOnInstance"  Value="Yes"/>		
+   		<Property Name="KweNew_InstanciationMethod" Value="CATFstSimpleBeadFastenerDelegateInstanciation"/>
+   		<Property Name="KweNew_ReturnedType" Value="BeadInstance"/>
+		<Property Name="Newable" Value="All"/>
+		<Property Name="TypeForDisciplineValuation" Value="BeadFastener"/>
+    <Property Name="GroupingType"               Value="BeadFastener"/>
+  </Class>
+	<Class Name="UnifiedBeadFastener"
+		Uuid="bdeef2ed-b85c-41ba-ad45-57e5e84a4ce6"
+		Abbreviation="buni"
+      	CustomerExposition="Programmer"
+		SuperName="BeadFastener"
+		Abstract="No" 
+		Discipline="Yes"
+		Specializable="Yes"
+		CAAExposition="L1"
+		CreateInstName="BeadInstance"
+		CustomerExtensible="Yes">
+		<Property Name="IconName" Value="I_Fst_FastenerBeadUnified"/>
+	        <Property Name="3DIconName" Value="I_Fst_FastenerBeadUnified.cgr"/>
+                <Property  Name="XPGApplyDisciplineOnInstance"  Value="Yes"/>		
+   		<Property Name="KweNew_InstanciationMethod" Value="CATFstUnifiedBeadFastenerDelegateInstanciation"/>
+   		<Property Name="KweNew_ReturnedType" Value="BeadInstance"/>
+		<Property Name="Newable" Value="All"/>
+		<Property Name="TypeForDisciplineValuation" Value="BeadFastener"/>
+    <Property Name="GroupingType"               Value="BeadFastener"/>
+  </Class>
+
+
+	<!-- Update Discipline SpotFastener
+          become class
+          Inherits Fastener Discipline
+          Attributes are moved from extension
+          V_FastenerType is set on parent discipline
+ 
+          Q:Peut-on la passer Abstract alors qu' elle ne l' etait pas ?
+	-->
+	<RelationClass Name="FastenerInstance"
+		Uuid="3fd6477a-cf42-4832-9725-220a2e7d4ede"
+      		CustomerExposition="Programmer"
+		SuperName="VPMInstance"
+		Abstract="Yes" 
+		Discipline="Yes"
+		Specializable="No"
+		CAAExposition="L1">
+		<!-- WO4 - August 2018 : Attribute to identify easily the version of fastener instances -->			
+		<Simple Name="V_ModelVersion" 
+				Uuid="A4ACA8F5-3898-4DAD-BCAD-3B804EB2E7D1" 
+				DefaultValue="0" 
+				Type="Integer" 
+				Protection="Internal">
+				<CAAComment>
+						<ShortRole>0 : current model</ShortRole>
+						<ShortRole>1 : bundle model</ShortRole>
+				</CAAComment>
+		</Simple>
+		<!-- WO4 - August 2018 : Fastener Location Method as PLM attribute for the bundle model -->
+		<Simple Name="V_FastenerLocationMethod"
+			Uuid="A78CBD54-C547-498B-A1A3-8D1391EEA599"
+			Type="String"
+			MaxLength="50"
+			Protection="Internal">
+			<CAAComment>
+					<ShortRole>Fastener Location Method</ShortRole>
+			</CAAComment>
+		</Simple>
+		<!-- WO4 - August 2018 : Fastener excluded rules as PLM attribute for the bundle model -->	
+		<Simple Name="V_FastenerExcludedRules"
+		 Uuid="DF0D59B1-DCBD-4C9A-8B16-D69A90EAE4C3"
+			Type="String"
+			Protection="Internal">
+			<CAAComment>
+					<ShortRole>Fastener Excluded Rules</ShortRole>
+			</CAAComment>
+		</Simple>			
+		<!-- WO4 - August 2018 : FBDI migration reported from Fst_Coupling to FastenerInstance for the bundle model-->
+		<Simple Name="V_SymbolID" Uuid="9D39D3E5-DB52-40EF-96EB-4086BFBA57B4" DefaultValue="" Type="Integer" Protection="Internal">
+				<CAAComment>
+						<ShortRole>attribute for FBDI migration</ShortRole>
+				</CAAComment>
+		</Simple>
+		</RelationClass>		
+  <RelationClass Name="SpotInstance"
+		Uuid="92ebb405-ce91-414a-bff2-b11502891a52"
+  CustomerExposition="Programmer"
+		SuperName="FastenerInstance"
+		Abstract="No" 
+		Discipline="Yes"
+		Specializable="Yes"
+		CAAExposition="L1">
+		<Property Name="IconName" Value="I_Fst_FastenerSpot"/>
+		<Property Name="KweNew_InstanciationMethod" Value="CATFstSpotInstanceDelegateInstanciation" />				
+		<!-- WO4 - July 2018 : Attribute for the missing stacking in secondary fixation for the new data model-->
+		<Simple Name="V_SecondaryStackingDefinition" Uuid="A2CF0F55-E6FE-4885-AD3E-D775D85916DE" DefaultValue="0" Type="Integer" Protection="Internal">
+					<CAAComment>
+						<ShortRole>index of the instance of the stacking at the upper level that has to be fastened by the secondary</ShortRole>
+				</CAAComment>	
+		</Simple>
+		<!-- LNU - July 2018 : Attribute for PMR-->
+		<Simple Name="V_StackThickness" Uuid="F4993DE9-8D2F-4F04-911E-9D1E572157E0" Type="Double" Magnitude="LENGTH" Protection="ExternalIN" CAAExposition="L1">
+				<CAAComment>
+						<ShortRole>total thickness of stacking parts</ShortRole>
+				</CAAComment>
+		</Simple>
+		<!-- LNU - August 2018 : Attribute for PMR secondary-->				
+		<Simple Name="V_SecondaryStackThickness" Uuid="B4902B28-A6EB-4280-9F4E-55C0C2BC85A2" Type="Double" Magnitude="LENGTH" Protection="ExternalIN" CAAExposition="L1">
+				<CAAComment>
+						<ShortRole>total thickness of secondary stacking parts</ShortRole>
+				</CAAComment>
+		</Simple>
+		</RelationClass>
+  <RelationClass Name="BeadInstance"
+		Uuid="45a4950e-9efb-4be0-a0b0-c0cde423ea4c"
+  CustomerExposition="Programmer"
+		SuperName="FastenerInstance"
+		Abstract="No" 
+		Discipline="Yes"
+		Specializable="Yes"
+		CAAExposition="L1">
+		<Property Name="IconName" Value="I_Fst_FastenerBead"/>		
+  <Property Name="MergedExtensionType" Value="PLMFst_BeadFastenerInstance"/>
+		<Property Name="KweNew_InstanciationMethod" Value="CATFstBeadInstanceDelegateInstanciation" />
+		<Simple Name="V_Length"
+			Uuid="b0eeb72a-800d-487b-a758-a42d275cc504"
+			Type="Double"
+			Magnitude="LENGTH" 
+			Protection="External"
+			CAAExposition="L1">
+			<CAAComment>
+				<ShortRole>Bead Fastener Instance Length description</ShortRole>
+			</CAAComment>
+		</Simple>
+	</RelationClass>
+
+	<!-- Update Extension PLMFst_SpotFastener
+          become class
+          Inherits Fastener Discipline
+          Attributes are moved from extension
+          V_FastenerType is set on parent discipline
+ 
+          Q:Peut-on la passer Abstract alors qu' elle ne l' etait pas ?
+	-->
+	 <!-- Spot Fastener PLM Extension of Reference Product -->
+   <Extension Name="PLMFst_SpotFastener" 
+	   Uuid="d45a5fa2-0cde-460f-bd32-d3c8d2469300" 
+	   CustomerExposition="Programmer" 
+	   ScopeNames="VPMReference" 
+	   >
+      <CAAComment>
+         <ShortRole>Spot Fastener Extension</ShortRole>
+         <Role>This PLM entity defines the Spot Fastener characteristics</Role>
+ </CAAComment>
+       <Property Name="OccurrenceType" Value="SpotSingleFastenerOccurrence"/>
+       <Simple Name="V_FastenerType" 
+	      Uuid="78eed051-12b7-487d-81b7-a24b8bc77aad" 
+	      Type="String" 
+	      MaxLength="50" 
+	      MultiValuated="No" 
+	      Protection="External" 
+		  CAAExposition="L1">
+         <CAAComment>
+            <ShortRole>Spot Fastener Type description</ShortRole>
+         </CAAComment>
+      </Simple>
+      <Simple Name="V_SubType"
+	      Uuid="c956232b-5433-4b30-8faa-e77a6bef85bd" 
+	      Type="String" 
+	      MaxLength="50" 
+	      Protection="Internal">
+	      <CAAComment>
+       	      	<ShortRole>V2 Fastener Type</ShortRole>
+	      </CAAComment>
+      </Simple>
+      <Simple Name="V_ZoneCount" 
+         Uuid="b469e0bd-3b05-43b9-83a8-d16731dc08f5"
+         Type="Integer" 
+         MultiValuated="No" 
+         Protection="External" 
+         CAAExposition="L0">
+         <CAAComment>
+            <ShortRole>Joined Zone Count</ShortRole>
+         </CAAComment>
+      </Simple>
+     <Simple Name="V_Diameter" 
+         Uuid="e5405fd6-2e4d-4614-9ef1-18cc035a9d96"
+         Type="Double" 
+         MultiValuated="No" 
+	 Magnitude="LENGTH" 
+         Protection="External" 
+         CAAExposition="L1">
+       <CAAComment>
+         <ShortRole>Diameter</ShortRole>
+       </CAAComment>
+     </Simple>
+   </Extension>
+   
+	<!-- Update Extension PLMFst_BeadFastener
+          become class
+          Inherits Fastener Discipline
+          Attributes are moved from extension
+          V_FastenerType is set on parent discipline
+ 
+          Q:Peut-on la passer Abstract alors qu' elle ne l' etait pas ?
+	-->
+	<!-- Bead Fastener PLM Extension of Reference Product -->
+	<Extension Name="PLMFst_BeadFastener"
+		Uuid="a4139e09-ce06-4479-9ccf-d6513de76cbb"
+		CustomerExposition="Programmer"
+		ScopeNames="VPMReference">
+			<CAAComment>
+			<ShortRole>Bead Fastener Extension</ShortRole>
+			<Role>This PLM entity defines the Bead Fastener characteristics</Role>
+		</CAAComment>
+		<Property Name="OccurrenceType" Value="BeadFastenerOccurrence"/>
+	    <Simple Name="V_FastenerType"
+	      Uuid="40738d5f-c40d-43c1-a610-05e36526b778"
+	      Type="String"
+	      MaxLength="50"
+	      MultiValuated="No"
+	      Protection="External"
+	      CAAExposition="L1">
+	      <CAAComment>
+	        <ShortRole>Bead Fastener Type description</ShortRole>
+	      </CAAComment>
+	    </Simple>
+	    <Simple Name="V_SubType"
+	      Uuid="ce4d7882-39ee-4108-9b3b-8524085762bd" 
+	      Type="String" 
+	      MaxLength="50" 
+	      Protection="Internal">
+	      <CAAComment>
+       	      	<ShortRole>V2 Fastener Type</ShortRole>
+	      </CAAComment>
+      	    </Simple>
+
+	    <Simple Name="V_Thickness"
+	      Uuid="ea0a1436-42e9-4128-b682-3ebc54747332"
+	      Type="Double"
+	      MultiValuated="No"
+	      Magnitude="LENGTH" 
+	      Protection="External"
+	      CAAExposition="L1">
+	      <CAAComment>
+	        <ShortRole>Bead Fastener thickness description</ShortRole>
+	      </CAAComment>
+	    </Simple>	
+	</Extension>
+
+	<!-- Leave it unchanged -->
+	<!-- Bead Fastener PLM Extension of Reference Product Instance-->
+	<Extension Name="PLMFst_BeadFastenerInstance"
+		Uuid="0b2a60b0-3845-47e6-b272-82ff83080f6d"
+		CustomerExposition="Programmer"
+		ScopeNames="VPMInstance"
+		>
+		<CAAComment>
+			<ShortRole>Bead Fastener Instance Extension</ShortRole>
+			<Role>This PLM entity defines the Bead Fastener Instance characteristics</Role>
+		</CAAComment>
+
+		<Simple Name="V_Length"
+			Uuid="77aaccf7-4bc8-415f-99af-d553dabf4cee"
+			Type="Double"
+			Magnitude="LENGTH" 
+			Protection="External"
+			CAAExposition="L1">
+			<CAAComment>
+				<ShortRole>Bead Fastener Instance Length description</ShortRole>
+			</CAAComment>
+		</Simple>
+	</Extension>
+
+	<!-- Leave it unchanged -->
+	<!-- Bead Fastener Bundle PLM Extension of Reference Product -->
+	<Extension Name="PLMFst_BeadFastenerBundle" 
+		Uuid="dc3e0877-328d-4980-938b-9a2ca62ff779" 
+		CustomerExposition="Programmer" 
+		ScopeNames="VPMReference" >
+		<CAAComment>
+			<ShortRole>Bead Fastener Bundle Extension</ShortRole>
+			<Role>This PLM entity defines the Bead Fastener Bundle characteristics</Role>
+		</CAAComment>
+		<Simple Name="V_FastenerType" 
+			Uuid="a3e18c2a-4946-494e-9288-f55067e11479" 
+			Type="String" 
+			MaxLength="50" 
+			Protection="External" 
+			CAAExposition="L1">
+			<CAAComment>
+				<ShortRole>Bead Fastener Type description</ShortRole>
+			</CAAComment>
+		</Simple>
+	</Extension>
+
+	<!-- Remove attributes -->      
+	<!-- Spot Fastener Assembly PLM Extension of Reference Product -->
+	<Extension Name="PLMFst_SpotAssyFastener" 
+		Uuid="3e2aca9b-9564-4b8c-a931-a1ea78429079" 
+		CustomerExposition="Programmer" 
+		ScopeNames="VPMReference" >
+    		<CAAComment>
+      			<ShortRole>Spot Fastener Assembly Extension</ShortRole>
+      			<Role>This PLM entity defines the Spot Fastener Assembly characteristics</Role>
+    		</CAAComment>
+
+		<Property Name="OccurrenceType" Value="SpotAssyFastenerOccurrence"/>
+    <Simple Name="V_FastenerType" 
+      Uuid="649d7c42-b579-48d6-88a7-9d50f737d045" 
+      Type="String" 
+      MaxLength="50" 
+      MultiValuated="No" 
+      Protection="External" 
+      CAAExposition="L1">
+      <CAAComment>
+        <ShortRole>Spot Fastener Type description</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_SubType"
+	      Uuid="2809b96e-7e3e-42c7-983d-eb0cfc15209b" 
+	      Type="String" 
+	      MaxLength="50" 
+	      Protection="Internal">
+	      <CAAComment>
+       	      	<ShortRole>V2 Fastener Type</ShortRole>
+	      </CAAComment>
+    </Simple>
+ 
+    <Simple Name="V_ZoneCount" 
+       Uuid="69114fc0-201c-4c95-8e2a-dd6fdede89ce"
+       Type="Integer" 
+       MultiValuated="No" 
+       Protection="External" 
+       CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Joined Zone Count</ShortRole>
+      </CAAComment>
+    </Simple>
+    
+    <Simple Name="V_Diameter" 
+    Uuid="dcc844e4-99bd-4a38-95bf-bb97a290baf4"
+    Type="Double" 
+    MultiValuated="No" 
+    Magnitude="LENGTH" 
+    Protection="External" 
+    CAAExposition="L1">
+      <CAAComment>
+        <ShortRole>Diameter</ShortRole>
+      </CAAComment>
+    </Simple>
+		
+  	</Extension>
+
+	<!-- Update Discipline "LocFastener"
+	  become class
+ 	-->
+
+	<!-- Leave it unchanged -->
+	<Class Name="LocFastener"
+		Abstract="No"
+		Uuid="06574bfb-703a-4b58-8d16-aee8bd8f4481"
+    CustomerExposition="Programmer"
+		SuperName="VPMReference"
+		Discipline="Yes"
+		CustomerExtensible="Yes"
+		CAAExposition="L1">
+		<Property  Name="XPGApplyDisciplineOnInstance"  Value="Yes"/>
+		<Property Name="TypeForDisciplineValuation" Value="LocFastener"/>
+    <Property Name="GroupingType"               Value="LocFastener"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATFstLocFastenerDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="VPMInstance"/>
+  </Class>
+
+	<!-- Update Discipline "SpotFastener_Representation"
+	  become class
+	-->
+  	<Class Name="SpotFastener_Representation"
+		Uuid="09ba5edb-30c4-4bd7-8f32-7d646a100bb5"
+      	CustomerExposition="Programmer"
+		SuperName="VPMRepReference"
+		Discipline="Yes"
+		CAAExposition="L1"
+		Abstract="No"
+		CustomerExtensible="No">
+    		<Property  Name="XPGApplyDisciplineOnInstance"  Value="Yes"/>
+		<Property Name="TypeForDisciplineValuation" Value="SpotFastener_Representation"/>
+    <Property Name="GroupingType"               Value="SpotFastener_Representation"/>
+
+    </Class>
+
+	<!-- Update Discipline "SpotFastener_Representation"
+	  become class
+	-->
+	<Class Name="BeadFastener_Representation"
+		Uuid="71311ed4-6bbe-46ae-975e-b5aad214fa99"
+      	CustomerExposition="Programmer"
+		SuperName="VPMRepReference"
+		CAAExposition="L1"
+		Discipline="Yes"
+		CustomerExtensible="No">
+    		<Property  Name="XPGApplyDisciplineOnInstance"  Value="Yes"/>
+		<Property Name="TypeForDisciplineValuation" Value="BeadFastener_Representation"/>
+    <Property Name="GroupingType"               Value="BeadFastener_Representation"/>
+  </Class>
+
+	<!-- Update Discipline "SpotFastener_Representation"
+	  become class
+	-->
+  	<Class Name="LocFastener_Representation"
+		Uuid="528849fb-a247-41b5-8ca4-d605913a9804"
+      	CustomerExposition="Programmer"
+		SuperName="VPMRepReference"
+		CAAExposition="L1"
+		Discipline="Yes"
+		CustomerExtensible="No">
+    		<Property  Name="XPGApplyDisciplineOnInstance"  Value="Yes"/>
+		<Property Name="TypeForDisciplineValuation" Value="LocFastener_Representation"/>
+    <Property Name="GroupingType"               Value="LocFastener_Representation"/>
+    </Class>
+
+  	<Signature id="PLMFst_Fasteners_Signature">
+    		<Parameter Name="InputIds" Direction="in" MultiValuated="Yes" DataType="PLMId"/>
+    		<Parameter Name="OutputIds" Direction="out" MultiValuated="No" DataType="PLMRouteSet"/>
+ 	</Signature>
+
+  	<Function Name="PLMFst_Fasteners_AddFstRepsOnly">
+    		<Implementation Name="PLMFst_Fasteners_AddFstRepsOnly" FileLocation="PLMFst_Fasteners_AddFstRepsOnly.plmql" Language="PLMQL"/>
+    		<Signature href="PLMFst_Fasteners_Signature"/>
+	</Function>
+
+	<Class Name="PLMFst_MCX"
+		Uuid="d8fd770d-9583-4845-9326-0f032decc9c4"
+		Structured="Yes"  CarryStreams="Yes"
+		Discipline="Yes"
+      	CustomerExposition="Programmer"
+		SuperName="CATMCXMechanicalConnection"
+		CAAExposition="L1" Abstract="No">
+		<Property Name="IconName" Value="I_Constraint"/>
+    		<Method ImplementationType="None">
+      			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+
+	</Class>
+	<Class Name="PLMFst_MCX_X"
+		Uuid="de4df8f1-8fbc-48b3-8696-45896daca1e8"
+		Structured="Yes"		 CarryStreams="Yes"
+		Discipline="Yes"		
+      	CustomerExposition="Programmer"
+		SuperName="CATMCXMechanicalConnection"
+		CAAExposition="L1" Abstract="No">
+		<Property Name="IconName" Value="I_Constraint"/>		
+    		<Method ImplementationType="None">
+      			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+		
+	</Class>
+
+
+		<!-- *****************************************************  -->
+		<!-- WO4 - April 2018 : Metadata for the new model fastener -->
+		<!-- WO4 - August 2018 : Update																													-->
+		<!-- *****************************************************  -->
+
+		<Class Name="BundleFastenerAbstract"
+			Abstract="Yes"
+			Abbreviation="fbu"
+			Specializable="No"
+			Uuid="04F8F0AC-98B5-4EF8-A29A-B7ED58AD4341"
+			CustomerExposition="Programmer"
+			SuperName="VPMReference"
+			CreateInstName="BundleFastenerInstance"
+			Discipline="Yes"
+			CustomerExtensible="Yes"
+			CAAExposition="L1"
+		 Searchable="No">
+			<Property Name="3DPartAvailability" Value="ReferenceOnly"/>
+			<Property Name="IconName" Value="I_Fsx_BundleFastener"/>
+			<Property Name="3DIconName" Value="I_Fsx_BundleFastener.cgr"/>
+			<Property Name="XPGApplyDisciplineOnInstance" Value="Yes"/>
+			<Property Name="GroupingType" Value="BundleFastenerAbstract"/>
+		</Class>
+
+		<Class Name="BundleFastener"
+				Abstract="No"
+    Specializable="Yes"									
+				Uuid="1F4AF9C6-0D7A-415D-90CA-4A37E02891D0"
+				CustomerExposition="Programmer"
+				SuperName="BundleFastenerAbstract"
+				CreateInstName="BundleFastenerInstance"
+				Discipline="Yes"
+				CustomerExtensible="Yes"
+				CAAExposition="L1"
+				Searchable="No">
+				<Property Name="XPGApplyDisciplineOnInstance" Value="Yes"/>				
+				<Property Name="GroupingType" Value="BundleFastenerAbstract"/>
+				<Property Name="KweNew_InstanciationMethod" Value="CATFsxBundleFastenerDelegateInstanciation" />
+		</Class>
+
+		<Class Name="BundleFastenerSecondary"
+			Abstract="No"
+   Specializable="Yes"										
+			Uuid="7F780256-87E1-409A-A909-7223CE0CE847"
+			CustomerExposition="Programmer"
+			SuperName="BundleFastenerAbstract"
+			CreateInstName="BundleFastenerInstance"
+			Discipline="Yes"
+			CustomerExtensible="Yes"
+			CAAExposition="L1"
+			Searchable="No">
+			<Property Name="XPGApplyDisciplineOnInstance" Value="Yes"/>				
+		 <Property Name="GroupingType" Value="BundleFastenerAbstract"/>
+		 <Property Name="KweNew_InstanciationMethod" Value="CATFsxBundleFastenerSecondaryDelegateInstanciation" />
+		</Class>
+
+		<Class Name="PrdForBundle3DShape"
+			Abstract="No"
+			Specializable="Yes"
+			Uuid="DCD77FC4-3ED1-4758-88E3-E5429E646E08"
+			CustomerExposition="Programmer"
+			SuperName="VPMReference"
+			CreateInstName="PrdForBundle3DShapeInstance"
+			Discipline="Yes"
+			CustomerExtensible="Yes"
+			CAAExposition="L1"
+			Searchable="No">
+			<Property Name="3DPartAvailability" Value="ReferenceOnly"/>
+			<Property Name="IconName" Value="I_Fsx_PrdForBundle3DShapeFastener"/>
+			<Property Name="3DIconName" Value="I_Fsx_PrdForBundle3DShapeFastener.cgr"/>
+			<Property Name="XPGApplyDisciplineOnInstance" Value="Yes"/>
+			<Property Name="GroupingType" Value="PrdForBundle3DShape"/>
+			<Property Name="KweNew_InstanciationMethod" Value="CATFsxPrdForBundle3DShapeDelegateInstanciation" />				
+		</Class>
+
+		<RelationClass Name="BundleFastenerInstance"
+				Uuid="1ABB8546-82A0-47A5-A116-474C10BC24AC"
+				CustomerExposition="Programmer"
+				SuperName="VPMInstance"
+				Abstract="No"
+				Discipline="Yes"
+				Specializable="Yes"
+				CAAExposition="L1">
+				<Property Name="IconName" Value="I_Fsx_BundleFastenerInstance"/>
+				<Property Name="KweNew_InstanciationMethod" Value="CATFsxBundleFastenerInstanceDelegateInstanciation" />
+		</RelationClass>
+
+		<RelationClass Name="PrdForBundle3DShapeInstance"
+			Uuid="854F77B6-33B5-404B-83F2-7AF28BFD5A98"
+			CustomerExposition="Programmer"
+			SuperName="VPMInstance"
+			Abstract="No"
+			Discipline="Yes"
+			Specializable="Yes"
+			CAAExposition="L1">
+			<Property Name="IconName" Value="I_Fsx_PrdForBundle3DShapeInstance"/>				
+			<Property Name="KweNew_InstanciationMethod" Value="CATFsxPrdForBundle3DShapeInstanceDelegateInstanciation" />
+		</RelationClass>
+
+		<Class Name="BundleFastener_3DShape"
+				Uuid="53AB1181-8FF0-491F-AE25-10F3E0476D3B"
+				CustomerExposition="Programmer"
+				SuperName="3DShape"
+				CAAExposition="L1"
+				Abstract="No"
+				Discipline="Yes"
+			 Searchable="No">
+				<Property Name="XPGApplyDisciplineOnInstance" Value="Yes"/>
+				<Property Name="GroupingType" Value="BundleFastener_3DShape"/>
+		</Class>
+
+		<Class Name="PLMFsx_CNX"
+				Uuid="88561BE1-C5A0-4261-A81B-CBA144FBB18A"
+				Abstract="No"
+				CustomerExposition="Programmer"
+				SuperName="PLMConnection"
+				CAAExposition="L1">
+				<Property Name="IconName" Value="I_PLMFsx_CNX"/>
+				<Path Name="V_Fasten" Uuid="8391DFDF-4ADE-4270-A5BF-5977A270405C" MultiValuated="Yes" RoleName="Fsx_Fasten" Semantics="Reference3" Protection="Internal" Type="SemanticRelation" AdaptativeToMinor="Yes" SynchroSensitivity="PathAndLast" RerouteOnEffectivityChange="Yes" Orientation="In"/>
+				<Path Name="V_Fasten_Piloting" Uuid="EA366FB9-AEC8-4FDC-B7C0-3E6AFF9F3D5E" MultiValuated="No" RoleName="Fsx_Fasten_Piloting" Semantics="Reference3" Protection="Internal" Type="SemanticRelation" AdaptativeToMinor="Yes" SynchroSensitivity="PathAndLast" RerouteOnEffectivityChange="Yes" Orientation="In"/>
+				<Method ImplementationType="None">
+						<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+				</Method>
+		</Class>	
+
+</Package>

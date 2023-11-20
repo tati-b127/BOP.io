@@ -1,0 +1,134 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" 
+	Name="PLMKbaAppliComponent" 
+	CustomerExposition="Programmer"
+	Uuid="a4c36ff9-8c07-4132-a8aa-203dc682da1f"
+        BelongsToModeler="PLMKbaAppliConfig"
+	UseNames="PLMCORE PLMKbaAppliElement PLMKbaApplication"
+>
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+  <!--	ModelerName="PLMKbaCOMP" -->
+  <CAAComment>
+    <ShortRole>PLM Knowledge Business Applications -- Applicative Components' Modeler</ShortRole>
+    <Role>This package describes the Knowledge Business Applicative Components on top of PLM Core</Role>
+  </CAAComment>
+  <Comment>Created by PHB (2006-03-15)</Comment>
+  <!-- ***************************************************** -->
+  <!-- *  PLMKbaAppliComponent (PLMCoreRepReference) * -->
+  <!-- ***************************************************** -->
+  <Class Name="PLMKbaAppliComponent"
+   Uuid="59a2ca08-53c2-4885-849fc7700e3de3f7"		
+   CustomerExposition="Programmer"
+   Abstract="No"
+   SuperName="PLMKbaAppliElement"
+   Specializable="Yes"
+   CustomerExtensible="Yes"
+   CreateInstName="PLMKbaAppliCompositionItem"
+   Abbreviation="kcp" 
+   DeleteAvailability="Yes"
+ 	>
+    <Property Name="IconName"        Value="I_Kwe2_Puzzle_1PieceG_tlb"/>
+    <Property Name="Searchable"      Value="Yes"/>
+    <Property Name="Newable"         Value="All"/>
+    <Property Name="PQ_Attributes"   Value="PLM_ExternalID V_description V_user"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATKBEDelegateInstanciationAppli"/>
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <CAAComment>
+      <ShortRole>Knowledge Business Applicative Component (RepRef Object)</ShortRole>
+      <Role>PLM Knowledge Business Applicative Component -- Representation Reference Object</Role>
+    </CAAComment>
+
+    <!-- PROCEDURES Declaration  -->
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Design"/>
+        <UsedProcedure href="KBApe_Procedures.proc#Kba_ExportAppComp"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Channel"/>
+        <UsedProcedure href="KBApe_Procedures.proc#Kba_ExportAppComp"/>
+      </ProcedureForUsage>
+	  <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Remove"/>
+        <UsedProcedure href="KBApe_Procedures.proc#Kba_ExportAppComp"/>
+      </ProcedureForUsage>
+	  <ProcedureForUsage>
+        <Usage href="ExportScope.meth#TransferSiteOwnership"/>
+        <UsedProcedure href="KBApe_Procedures.proc#Kba_ExportAppComp"/>
+      </ProcedureForUsage>
+    </Method>
+  </Class>
+
+
+  <!-- ********************************************************** -->
+  <!-- *  PLMKbaAppliCompositionItem (PLMCoreRepInstance) * -->
+  <!-- ********************************************************** -->
+  <RelationClass Name="PLMKbaAppliCompositionItem"
+   Uuid="690b4019-bfd3-49a3-b331e52be219c54d"		
+   CustomerExposition="Programmer"
+   Abstract="No"
+   SuperName="PLMCoreRepInstance"
+	>
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <CAAComment>
+      <ShortRole>Application Composition Item (RepInstance)</ShortRole>
+      <Role>PLM Knowledge Business Application Composition Item -- Representation Instance Object</Role>
+    </CAAComment>
+    <!--
+         *********************************************************
+         * Overload(s) of PLMCoreInstance attributes to fix metadata access issue. This should not be necessary!
+         *********************************************************
+         -->
+    
+    <SubClause Name="from"   TargetName="PLMKbaBusinessApplication"/>
+    <SubClause Name="to"   TargetName="PLMKbaAppliComponent"/>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </RelationClass>
+
+  <!-- ******************************* -->
+  <!-- FUNCTIONS Declarations : PLMQL  -->
+  <Function Name="kba_navigate_component_rzip">
+    <Implementation Name="kba_navigate_component_rzip" FileLocation="kba_navigate_component_rzip.plmql" Language="PLMQL"/>
+    <Signature href="PLMKbaComponentSignature"/>
+  </Function>
+  <Function Name="kba_navigate_component_prereqs">
+    <Implementation Name="kba_navigate_component_prereqs" FileLocation="kba_navigate_component_prereqs.plmql" Language="PLMQL"/>
+    <Signature href="PLMKbaComponentSignature"/>
+  </Function>
+  <Function Name="kba_navigate_component_arm_ref">
+    <Implementation Name="kba_navigate_component_arm_ref" FileLocation="kba_navigate_component_arm_ref.plmql" Language="PLMQL"/>
+    <Signature href="PLMKbaComponentSignature"/>
+  </Function>
+  <Function Name="kba_navigate_component_arm_repref">
+    <Implementation Name="kba_navigate_component_arm_repref" FileLocation="kba_navigate_component_arm_repref.plmql" Language="PLMQL"/>
+    <Signature href="PLMKbaComponentSignature"/>
+  </Function>
+  <Function Name="kba_navigate_component_arm_repInst_3DPart">
+    <Implementation Name="kba_navigate_component_arm_repInst_3DPart" FileLocation="kba_navigate_component_arm_repInst_3DPart.plmql" Language="PLMQL"/>
+    <Signature href="PLMKbaComponentSignature"/>
+  </Function>
+  <Function Name="kba_navigate_component_arm_repref_3DPart">
+    <Implementation Name="kba_navigate_component_arm_repref_3DPart" FileLocation="kba_navigate_component_arm_repref_3DPart.plmql" Language="PLMQL"/>
+    <Signature href="PLMKbaComponentSignature"/>
+  </Function>
+  <Function Name="kba_navigate_Ref_3DPart">
+    <Implementation Name="kba_navigate_Ref_3DPart" FileLocation="kba_navigate_Ref_3DPart.plmql" Language="PLMQL"/>
+    <Signature href="PLMKbaComponentSignature"/>
+  </Function>
+  <Function Name="kwa_navigate_excel">
+    <Implementation Name="kwa_navigate_excel" FileLocation="kwa_navigate_excel.plmql" Language="PLMQL"/>
+    <Signature href="PLMKbaComponentSignature"/>
+  </Function>
+
+  <Signature id="PLMKbaComponentSignature">
+    <Parameter Name="InputIds" Lower="0" Upper="-1" Direction="in" MultiValuated="Yes" DataType="PLMId"/>
+    <Parameter Name="OutputIds" Lower="0" Upper="-1" Direction="out" MultiValuated="No" DataType="PLMRouteSet"/>
+  </Signature>
+  <!-- ******************************* -->
+</Package>

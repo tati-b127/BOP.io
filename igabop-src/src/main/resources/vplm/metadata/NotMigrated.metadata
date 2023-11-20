@@ -1,0 +1,37 @@
+<?xml version="1.0" ?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2013, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" Name="NotMigrated"  UseNames="PLMCORE" Uuid="02C8AA70-012C-4B4F-A44D-7A696035385D" CustomerExposition="None">
+  <Class Name="NotMigratedReference" Uuid="6031cf75-d196-4ec5-9421-159b9e7f2dd3" SuperName="PLMCoreReference" CreateInstName="NotMigratedInstance" Specializable="No" CustomerExposition="None" Abstract="Yes">
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+  <Class Name="NotMigratedRepReference" Uuid="a457bcaf-f7c9-4ed3-b34b-60e192d57071" SuperName="PLMCoreRepReference" CreateInstName="NotMigratedRepInstance" Specializable="No" CustomerExposition="None" Abstract="Yes">
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+  <RelationClass Name="NotMigratedInstance" Uuid="546577aa-7d55-4f27-adac-385cf77b0b78" SuperName="PLMCoreInstance" CustomerExposition="None" Abstract="Yes">
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </RelationClass>
+  <RelationClass Name="NotMigratedRepInstance" Uuid="bd5d8f93-4cc3-408e-8066-72e990c735dc" SuperName="PLMCoreRepInstance" CustomerExposition="None" Abstract="Yes">
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </RelationClass>
+  <Class Name="NotMigratedConnection" Uuid="1fd63152-f11f-413d-9de1-3b64d502e926" SuperName="PLMConnection" CustomerExposition="None" Abstract="Yes">
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+  <Class Name="NotMigratedPort" Uuid="3d9afee4-d88f-4096-a014-c73186b0d83f" SuperName="PLMPort" CustomerExposition="None" Abstract="Yes">
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+</Package>

@@ -1,0 +1,33 @@
+#Prog Config_GetConfigContextAndModelsOnReference( iPLMIDSet : #In PLMIDSet, oPLMIDSet : #Out PLMIDSet ) : VoidType
+{
+
+let PLMRouteSetContext (PLMRouteSet)
+let PLMRouteSetModel (PLMRouteSet)
+
+let PLMIDSetInput (PLMIDSet)
+
+let PLMIDSetContext (PLMIDSet)
+let PLMIDSetModel (PLMIDSet)
+
+
+/* Starting on R2017x - This completion procedure allows to complete a Reference with its Models using the Configuration Context link between these two objects  */
+/*---------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/* Completes with Context associated to the configured References */
+
+PLMIDSetInput = Restrict(iPLMIDSet, "PLMCORE/PLMCoreReference")
+PLMRouteSetContext = ExecutePLMFunction("VPMCfgContext", "VPMCfgContext_AddContextFromReference", PLMIDSetInput)
+PLMIDSetContext = Restrict(Ids(PLMRouteSetContext), "VPMCfgContext/VPMCfgContext")
+
+
+/* Completes with Models associated to the Context */
+
+PLMRouteSetModel = ExecutePLMFunction("VPMCfgContext", "VPMCfgContext_AddModelsFromContext", PLMIDSetContext)
+PLMIDSetModel = Restrict(Ids(PLMRouteSetModel), "Class/Model")
+
+
+/* Fill output ID set */
+
+oPLMIDSet = iPLMIDSet + PLMIDSetContext + PLMIDSetModel
+
+}

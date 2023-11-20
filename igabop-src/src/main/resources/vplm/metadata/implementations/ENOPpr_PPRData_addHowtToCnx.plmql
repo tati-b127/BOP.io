@@ -1,0 +1,10 @@
+EXPAND  
+  	T0.PLMID
+FROM
+	PLMRequirementSpecifyHowToCnxAbstract/PLMReqSpecifyHowToCnxAbstract T0
+
+FROM_ROOTS  [?1?]
+
+;    
+
+

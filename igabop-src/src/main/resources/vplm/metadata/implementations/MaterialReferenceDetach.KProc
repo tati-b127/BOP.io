@@ -1,0 +1,18 @@
+#Prog MaterialReferenceDetach (iPLMIDSet :  #In PLMIDSet,oPLMIDSet :  #Out PLMIDSet) : VoidType
+{
+let PLMIDDomainSet(PLMIDSet)
+let DomainsRouteSet (PLMRouteSet)
+
+/* Material Vector : Do Nothing Port is automatically removed and we don't propagate to agg MatRef */
+
+/* Material Reference 
+	- Propagate to Material Domains as they are aggregated 
+	- Connection under the material should be automatically destroyed */
+DomainsRouteSet = ExecutePLMFunction("CATMaterialRef", "mat_retrieveDomains", iPLMIDSet)
+PLMIDDomainSet = Ids(DomainsRouteSet)
+
+/* We don't propagate to documents pointed through the document connection or Rendering Domain
+   as they can have been added on the distant site... */
+
+oPLMIDSet = iPLMIDSet + PLMIDDomainSet
+}

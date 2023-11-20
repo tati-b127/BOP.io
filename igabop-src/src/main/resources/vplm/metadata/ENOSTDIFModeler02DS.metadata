@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY FOR DIFModeler01 - Custo sample     -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2010, All rights reserved -->
+
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" Name="ENOSTDIFModeler02DS"
+    Uuid="01F17768-4EC6-4e78-A82A-82A856F7CF42"
+    UseNames="DIFModeler02">
+  <Property Name="OptionalInstallation" Value="No" />
+  <CAAComment>
+    <ShortRole>DIF model 02 - Sheet - Custo OOTB Package</ShortRole>
+    <Role>This package describes a OOTB customization of Dif Model 02 - Sheet</Role>
+  </CAAComment>
+
+  <!-- ************************************************ -->
+  <!-- *  OOTB custo of DIFLayout (PLMCoreReference)* -->
+  <!-- ************************************************ -->
+
+  <Class Name="ENOSTDIFSheetDS"
+      Uuid="C8143119-3A95-4be4-96A7-8795155E4AC8"
+      SuperName="DIFSheet"
+      SuperRef="296B8224-D67F-472B-A244-7D0A9AC4F9AC"
+      CAAExposition="L0">
+    
+    <CAAComment>
+      <ShortRole>Layout Reference</ShortRole>
+      <Role>Layout</Role>
+    </CAAComment>
+
+  <!-- R206: contains identifier of object from which it is made from  -->
+  <!-- not exhanged between sites -->
+  <Simple Name="E_fromExternalId"
+  Uuid="4FE16AFF-1ABC-438d-A98A-70068E7CBD7C"
+  Alias="Definition"
+  Type="String"
+  MaxLength="255"
+  Mandatory="No"
+  MultiValuated="No"
+  CAAExposition="L0"
+  Protection="Free"
+  />
+
+  <!-- R206: contains Name comments  -->
+  <!-- not exhanged between sites -->
+  <Simple Name="E_versionComment"
+  Uuid="574915E7-9A35-4af2-9C38-CA6A0DA9741E"
+  Alias="Version Comment"
+  Type="String"
+  MaxLength="255"
+  Mandatory="No"
+  MultiValuated="No"
+  CAAExposition="L0"
+  Protection="Free"
+  ResetOnNewVersion="Yes"
+  ResetOnCloning="Yes"
+  />  
+
+    <IdentifierSet Name="Identifier" 
+                   Uuid="1E58E474-6DA7-4e18-9754-22B300E3F1A8" 
+                   IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755" 
+                   IdentifierNames="PLM_ExternalID V_version"/> 
+  </Class>
+
+
+	<!-- ************************************************************* -->
+	<!-- * ENOSTDIFSheetInstanceDS(DIFSheetInstance) * -->
+	<!-- ************************************************************* -->
+
+  <Class Name="ENOSTDIFSheetInstanceDS" 
+		Uuid="17A6788C-D22E-4c08-8877-43F0915D3E0B" 
+
+		SuperName="DIFSheetInstance" 
+		SuperRef="FE253DD8-71E3-4DD6-AE5D-9FE85C74CE45" 		 
+		>
+
+		<CAAComment>
+			<ShortRole>Customized Sheet Instance Object</ShortRole>
+			<Role>Customized Sheet Instance Object</Role>
+		</CAAComment>
+
+  </Class>
+
+  <!-- ********************************************************* -->
+  <!-- FUNCTIONS Declarations : here are delcared PLMQL Functions -->
+
+  <!-- ********************************************************* -->
+
+  <!-- DISCIPLINES DECLARATIONS -->
+
+  <!-- ********************************************************* -->
+</Package>

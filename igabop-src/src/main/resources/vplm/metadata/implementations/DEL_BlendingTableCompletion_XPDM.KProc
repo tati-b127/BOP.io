@@ -1,0 +1,36 @@
+#Prog DEL_BlendingTableCompletion_XPDM (iPLMIDSet :  #In PLMIDSet,oPLMIDSet :  #Out PLMIDSet) : VoidType
+  {
+let InputPLMIDSetRestrictedToRefs(PLMIDSet)
+  let SetOfPLMRoutesBlendingMaterial(PLMRouteSet)
+  let SetOfPLMIDsSuppliers(PLMIDSet)
+  let SetOfPLMIDsCustomers(PLMIDSet)
+  let SetOfPLMRoutesSuppliers(PLMRouteSet)
+  let SetOfPLMRoutesCustomers(PLMRouteSet)
+  let SetOfPLMRoutesBlendingRules(PLMRouteSet)
+  let SetOfPLMIDsBlendingRules(PLMIDSet)
+  let SetOfPLMRoutesCombinatingSuppliers(PLMRouteSet)
+    
+  let SetOfPLMRoutesSuppliersFathers(PLMRouteSet)
+  let SetOfPLMRoutesCustomersFathers(PLMRouteSet)
+  
+  InputPLMIDSetRestrictedToRefs = Restrict(iPLMIDSet,"Class/DEL_BlendingTable")
+  
+  SetOfPLMRoutesBlendingMaterial = ExecutePLMFunction("DELBlendingTableModel","DELFctBT_IsBlending",InputPLMIDSetRestrictedToRefs)
+   
+  SetOfPLMRoutesSuppliers = ExecutePLMFunction("DELBlendingTableModel","DELFctBT_IsSuppliedBy",InputPLMIDSetRestrictedToRefs)
+  SetOfPLMIDsSuppliers = Ids(SetOfPLMRoutesSuppliers)
+
+  SetOfPLMRoutesCustomers = ExecutePLMFunction("DELBlendingTableModel","DELFctBT_IsConsumed",InputPLMIDSetRestrictedToRefs)
+  SetOfPLMIDsCustomers =  Ids(SetOfPLMRoutesCustomers)
+  
+  SetOfPLMRoutesBlendingRules = ExecutePLMFunction("DELBlendingTableModel","DELFctBT_IsComposedOf",InputPLMIDSetRestrictedToRefs)
+  SetOfPLMIDsBlendingRules = Ids(SetOfPLMRoutesBlendingRules)
+  
+  SetOfPLMRoutesCombinatingSuppliers  = ExecutePLMFunction("DELBlendingTableModel","DELFctBR_IsCombinating",Restrict(SetOfPLMIDsBlendingRules,"Class/DEL_BlendingRule"))
+  
+  SetOfPLMRoutesSuppliersFathers = ExecutePLMFunction("DELPPRContextModel","ENOPpr_PPRData_addAllFathers",Restrict(SetOfPLMIDsSuppliers,"DELLmiProductionPlug/DELLmiProductionPlugReference"))
+  
+  SetOfPLMRoutesCustomersFathers = ExecutePLMFunction("DELPPRContextModel","ENOPpr_PPRData_addAllFathers",Restrict(SetOfPLMIDsCustomers,"DELLmiProductionPlug/DELLmiProductionPlugReference"))
+  
+  oPLMIDSet = iPLMIDSet + Ids(SetOfPLMRoutesBlendingMaterial) + Ids(SetOfPLMRoutesSuppliers) + Ids(SetOfPLMRoutesCustomers) + Ids(SetOfPLMRoutesBlendingRules) + Ids(SetOfPLMRoutesCombinatingSuppliers) + Ids(SetOfPLMRoutesSuppliersFathers) + Ids(SetOfPLMRoutesCustomersFathers)
+}

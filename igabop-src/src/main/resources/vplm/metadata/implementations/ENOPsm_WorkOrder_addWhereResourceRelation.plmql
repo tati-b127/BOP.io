@@ -1,0 +1,28 @@
+NAVIGATE 
+T0.PLMID, 
+T1.PLMID,
+T2.PLMID,
+T3.physicalid, 
+T3.logicalid, 
+T3.majorid, 
+T3.type, 
+T3.name
+FROM DELLmiProductionPlan/DELLmiProductionPlanReference T0, DELLmiWorkOrder/DELLmiWorkOrderReference T1, DELLmiProductionExecHeaderOperation/DELLmiExecHeaderOperationReference T2, RelationClass/UPR_LinkToWhereResource T3
+FROM_ROOTS [?1?]
+ON 
+((
+RELATION ( FROM=DELLmiProductionPlan/DELLmiProductionPlanReference TO=RelationClass/UPR_LinkToWhereResource THROUGH=POINTEDBY ) WITH QUALITY_FILTER ( CATEGORY=ISOWNEDBY ) 
+)
+OR
+(
+RELATION ( FROM=DELLmiWorkOrder/DELLmiWorkOrderReference TO=RelationClass/UPR_LinkToWhereResource THROUGH=POINTEDBY ) WITH QUALITY_FILTER ( CATEGORY=ISOWNEDBY ) 
+)
+OR
+(
+RELATION ( FROM=DELLmiProductionExecHeaderOperation/DELLmiExecHeaderOperationReference TO=RelationClass/UPR_LinkToWhereResource THROUGH=POINTEDBY ) WITH QUALITY_FILTER ( CATEGORY=ISOWNEDBY ) 
+))
+
+;
+
+
+

@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<!-- edited with XMLSpy v2007 (http://www.altova.com) by DASSAULT SYSTEMES (DASSAULT SYSTEMES) -->
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" BelongsToModeler="SIMObjSimulation" ModelerType="Top" Name="SIMObjSimulationCategoryAndProdCnx" Uuid="8e35ba0e-31d3-45d5-890bfc3b8456fbe0" UseNames="PLMCORE" CustomerExposition="Programmer" >
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+  <UniqueKey Name= "SIMObjSimulationCategoryReferenceUK"
+              Uuid="412c2913-b1f2-4b23-870fa41979f18c93"
+              ClassName="SIMObjSimulationCategoryReference"
+              AttributeNames="PLM_ExternalID V_SimObj_CategoryType majorrevision minorrevision" />
+  <CAAComment>
+		<ShortRole>This package includes the basic entities of the Simulation.</ShortRole>
+		<Role>This package includes the basic entities of the Simulation.</Role>
+	</CAAComment>
+	<Class Name="SIMObjSimulationCategoryReference" Uuid="ed52a005-1dab-47c6-b4e6-27dc70b49dee" Abstract="No" SuperName="PLMCoreReference" CreateInstName="SIMObjSimulationCategoryInstance" CustomerExposition="Programmer" Specializable="No" CustomerExtensible="No" NewMajorRevisionAvailability="No">
+		<Property Name="Searchable" Value="No"/>
+    <Property Name="IconName"        Value="I_PSMCategory"/>
+    <Property Name="3DIconName"        Value="PSM_CAT_10_3DNAVREP.cgr"/>
+    <Property Name="Configurable" Value="No" />
+    <Property Name="Filtrable" Value="No" />
+    <!-- Behavior patterns: default values -->
+    <Property Name="SaveAsNewAvailability" Value="No"/>   
+		<CAAComment>
+			<ShortRole>Simulation Category Reference</ShortRole>
+			<Role>Simulation Category Reference </Role>
+		</CAAComment>
+<Simple Name="V_SimObj_CategoryType" Uuid="82a0dbe1-d93b-42be-b6fd4a6c472a849c" Type="Integer" Protection="External" CAAExposition="L0" DefaultValue="3">
+<Property Name="RangeAsEnumName" Value="SIMObjSimulationCategoryTypesEnum"/>
+<Property Name="RangeAsEnumAuthorizedValues" Value="Context;Environment;Specs;Result"/>
+<Range>
+<Equal>1</Equal>
+<Equal>3</Equal>
+<Equal>4</Equal>
+<Equal>6</Equal>
+</Range>
+</Simple>
+		<Comment>Categories are connections used by SimuBaseSimulationObject (below)</Comment>
+		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+		<!--<IdentifierSet Name="Identifier" Uuid="412c2913-b1f2-4b23-870fa41979f18c93" IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755 82a0dbe1-d93b-42be-b6fd4a6c472a849c" IdentifierNames="PLM_ExternalID V_version V_SimObj_CategoryType"/>-->
+	</Class>
+	<RelationClass Name="SIMObjSimulationCategoryInstance" Uuid="ec5d59a3-595a-4931-90df0acf288396fc" Abstract="No"  SuperName="PLMCoreInstance" CustomerExposition="Programmer" Specializable="No" CustomerExtensible="No">
+		<CAAComment>
+			<ShortRole>Simulation Category Instance</ShortRole>
+			<Role>Simulation Category Instance </Role>
+		</CAAComment>
+		<Property Name="Searchable" Value="No"/>
+    <Property Name="IconName"        Value="I_PSMCategory"/>
+    <Property Name="Configurable" Value="No" />
+    <Property Name="Filtrable" Value="No" />
+    <!-- Behavior patterns: default values -->
+    <Property Name="TransferOwnershipAvailability" Value="No"/>
+		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+	</RelationClass>
+	<CAAComment>
+		<ShortRole>Simulation Category Instance</ShortRole>
+		<Role>Simulation Category Instance </Role>
+	</CAAComment>
+	<Class Name="SIMObjSimulationSystem" Uuid="d8c2d6ec-2d10-4082-b7ec-13bbde02a7bd" Abstract="No" SuperName="PLMConnection" CustomerExposition="Programmer" Specializable="No" CustomerExtensible="No">
+		<CAAComment>
+			<ShortRole>Simulation Connection</ShortRole>
+			<Role>Simulation Connection used to point the simulated product </Role>
+		</CAAComment>
+		<Comment>Simulation link to product DAG</Comment>
+		<Property Name="Searchable" Value="No"/>
+    <Property Name="Configurable" Value="No" />
+    <Property Name="Filtrable" Value="No" />
+		<Path Name="SystemConnection" Uuid="278F754E-2FEF-46e8-946AC271B54A9BD5"  Lower="0" Upper="-1" RoleName="SIM_SimulatedProduct" MultiValuated="Yes" Semantics="Reference3" 		Type="SemanticRelation" AdaptativeToMinor="No" SynchroSensitivity="PathAndLast"		RerouteOnEffectivityChange="No" Orientation="In">
+	</Path>
+		<Path Name="SIM_ByPassImpact" Uuid="571F6527-4ADC-42d5-BA7E-94F17EEDA1EA"  RoleName="SIM_ByPassImpact" MultiValuated="No" Semantics="Reference5" Type="SemanticRelation" AdaptativeToMinor="No"		SynchroSensitivity="Last"		RerouteOnEffectivityChange="No" Orientation="Out">
+	</Path>
+		<Path Name="SIM_RootProduct" Uuid="88144a2a-8d22-4d19-a749-109e654df146" RoleName="SIM_RootContext" MultiValuated="No" Semantics="Reference2"  Protection="Internal" Type="SemanticRelation" AdaptativeToMinor="No"		SynchroSensitivity="None"		RerouteOnEffectivityChange="No"/>
+		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+	</Class>
+
+</Package>

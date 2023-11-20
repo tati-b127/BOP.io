@@ -1,0 +1,124 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2001, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top"  Name="CATAsd_Constraint" CustomerExposition="Programmer" Uuid="be6f88d1-3c51-4b6b-a4233d5338d081c5" UseNames="PRODUCTCFG" >
+  <Comment>last update 2005-03-10-16.00.00</Comment>
+  <!-- Assembly Constraint -->
+  <Extension Name="CATAsd_Cst" Uuid="ac80f6a6-dd52-4777-91f2d0f894d13c3b" CustomerExposition="Programmer" ScopeNames="VPMConnection" >
+    <!-- Simples -->
+    <Simple Name="V_Alias" Uuid="669f2342-08cf-4f89-81197c7c78497a76"  Type="String" MaxLength="40" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Activity" Uuid="5644a382-e77c-4454-8bd8a1c57795f7ec"  Type="Boolean"  MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Type" Uuid="0c519f8a-1514-4996-bfed7d12d34dbc78" Type="Integer" Protection="Free" CAAExposition="L0" DefaultValue="1">
+      <Property Name="RangeAsEnumName" Value="CATAsd_CstEnum_Type"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="Distance;Coincidence;SurfContact;PSurfContact;Tangent;PoncContact;LinContact;Angle;PlanarAngle;Parallel;Perpend;Fix;OAngle;OPlanarAngle;OCoincid;ODist;OParal;Annular;TgSphCone"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+        <Equal>5</Equal>
+        <Equal>6</Equal>
+        <Equal>7</Equal>
+        <Equal>8</Equal>
+        <Equal>9</Equal>
+        <Equal>10</Equal>
+        <Equal>11</Equal>
+        <Equal>12</Equal>
+        <Equal>13</Equal>
+        <Equal>14</Equal>
+        <Equal>15</Equal>
+        <Equal>16</Equal>
+        <Equal>17</Equal>
+        <Equal>18</Equal>
+        <Equal>19</Equal>
+      </Range>
+    </Simple>
+    <Simple Name="V_Mode" Uuid="104f2c80-f75a-4c88-b942b6c2b6c21ab5" Type="Integer" Protection="Free" CAAExposition="L0" DefaultValue="1">
+      <Property Name="RangeAsEnumName" Value="CATAsd_CstEnum_Mode"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="Constrained;Measured"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+      </Range>
+    </Simple>
+    <Simple Name="V_Directed" Uuid="3e3ade9b-733f-4dbc-97e0610191bbedea" Type="Integer" Protection="Free" CAAExposition="L0" DefaultValue="3">
+      <Property Name="RangeAsEnumName" Value="CATAsd_CstEnum_Directed"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="Sense12;Sense21;NoSense"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+      </Range>
+    </Simple>
+    <Simple Name="V_Value" Uuid="38728f35-9bf6-4421-8a11dc47e82aa271"  Type="Double"  MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Position_1" Uuid="3a0cb11e-0705-4040-bd3f74364cb1ef03"  Type="Double" MultiValuated="No" Protection="Internal"/>
+    <Simple Name="V_Position_2" Uuid="d9b975fa-2ee6-4510-b1fc65a22d620945"  Type="Double" MultiValuated="No" Protection="Internal"/>
+    <Simple Name="V_Position_3" Uuid="9ba5a4a6-17d1-4919-a9a80b0035411653"  Type="Double" MultiValuated="No" Protection="Internal"/>
+    <Simple Name="V_Position_4" Uuid="87b64c10-eabb-4284-b24b1e893705a1e8"  Type="Double" MultiValuated="No" Protection="Internal"/>
+    <Simple Name="V_Position_5" Uuid="a8d8ec0d-8425-49fd-914a00420886fe78"  Type="Double" MultiValuated="No" Protection="Internal"/>
+    <Simple Name="V_Position_6" Uuid="82125d6a-d99d-4072-81792d4372d958fe"  Type="Double" MultiValuated="No" Protection="Internal"/>
+    <Simple Name="V_Position_7" Uuid="f821a25e-c7d3-4ca5-b99f37ea9cf7a557"  Type="Double" MultiValuated="No" Protection="Internal"/>
+    <Simple Name="V_Position_8" Uuid="9b23a2cc-94ce-4185-b620ce3636d9779b"  Type="Double" MultiValuated="No" Protection="Internal"/>
+    <Simple Name="V_Position_9" Uuid="fc00d474-ce40-4f72-be2b90abb2f52681"  Type="Double" MultiValuated="No" Protection="Internal"/>
+    <Simple Name="V_Position_10" Uuid="dbb40080-e533-4e3d-ace45a9a412dcd0b" Type="Double" MultiValuated="No" Protection="Internal"/>
+    <Simple Name="V_Position_11" Uuid="0bedbf96-432f-4885-9841245bff1c45f3" Type="Double" MultiValuated="No" Protection="Internal"/>
+    <Simple Name="V_Position_12" Uuid="118e9ee2-8700-4792-84b930a4596745ef" Type="Double" MultiValuated="No" Protection="Internal"/>
+    <Simple Name="V_Orientation" Uuid="10c9e709-a42f-4946-99ca84e5f9d7cab0" Type="Integer" Protection="Free" CAAExposition="L0" DefaultValue="3">
+      <Property Name="RangeAsEnumName" Value="CATAsd_CstEnum_Orientation"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="Same;Opposite;Undefined"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+      </Range>
+    </Simple>
+    <Simple Name="V_Side" Uuid="6b05a1ae-87c1-44b1-b0ec3bf63230f8de" Type="Integer" Protection="Free" CAAExposition="L0" DefaultValue="3">
+      <Property Name="RangeAsEnumName" Value="CATAsd_CstEnum_Side"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="Positive;Negative;Undefined;Signed_FromValue;Signed_FromOppositeValue"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+        <Equal>5</Equal>
+      </Range>
+    </Simple>
+    <Simple Name="V_Parallelism" Uuid="882724a0-30dd-40e8-bce10bfe0421ae1c" Type="Integer" Protection="Free" CAAExposition="L0" DefaultValue="1">
+      <Property Name="RangeAsEnumName" Value="CATAsd_CstEnum_Parallelism"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="Same;Opposite;Parallel;NoParallel"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+      </Range>
+    </Simple>
+    <Simple Name="V_Reference" Uuid="d1695076-bfb9-4ee5-82069c47610a7e46" Type="Integer" Protection="Free" CAAExposition="L0" DefaultValue="1">
+      <Property Name="RangeAsEnumName" Value="CATAsd_CstEnum_Reference"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="Absolute;Relative"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+      </Range>
+    </Simple>
+
+    <Simple Name="V_UpdateState" Uuid="76bf79ef-d042-49e5-9013216456e48fb8"  Type="Integer"  MultiValuated="No" Protection="Internal"/>
+    <Simple Name="V_ModelVersion" Uuid="87a7a11d-95ea-4fd1-b321d0b3b9fb571c"  Type="Integer"  MultiValuated="No" Protection="Internal"/>
+    <Simple Name="V_Contextual" Uuid="EA0B5A9C-E768-43dc-9F73-E07445C6C88E" Type="Integer" Protection="Free" CAAExposition="L0" DefaultValue="3">
+      <Property Name="RangeAsEnumName" Value="CATAsd_CstEnum_Contextual"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="Contextual_1;Contextual_2;Contextual_No"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+      </Range>
+    </Simple>
+  </Extension>
+  <!-- Assembly FixTogether -->
+  <Extension Name="CATAsd_FixTogether" Uuid="047dc075-ae94-4f1c-bebad476eb0764ed"  CustomerExposition="Programmer" ScopeNames="VPMConnection" >
+    <!-- Simples -->
+    <Simple Name="V_Alias" Uuid="811ccc20-daed-4a77-999ed030447fef43" Type="String" MaxLength="40"  MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="V_Activity" Uuid="3515fe9c-2642-467e-9c2b18ffa76c5d38"  Type="Boolean"  MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+  </Extension>
+</Package>

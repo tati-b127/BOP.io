@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" Name="DELLmiProductionTransformationSystemDS" Uuid="3502ba7d-f1c7-4e6e-92294f87083bf955" UseNames="DELLmiProductionTransformationSystem" >
+<Property Name="OptionalInstallation" Value="Yes" /> 
+	<CAAComment>
+		<ShortRole>Standard DELMIA Transformation System Package</ShortRole>
+		<Role>This package includes default customized DELMIA Transformation System </Role>
+	</CAAComment>
+	<Comment>last update 2008-10-13</Comment>
+
+	<Class Name="DELLmiTransformationSystemReferenceCusto" Uuid="9e7ed4d7-160f-4df9-b13c2890da9d5ee1" SuperName="DELLmiTransformationSystemReference"   >
+
+    <IdentifierSet Name="Identifier"
+        Uuid="a161da3b-6bd5-40d7-b75882965e4bb6d0"
+        IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755"
+        IdentifierNames="PLM_ExternalID V_version" />
+
+    <CAAComment>
+			<ShortRole>Standard DELMIA Transformation System Reference</ShortRole>
+			<Role>Default customized DELMIA Transformation System Reference</Role>
+		</CAAComment>
+	</Class>
+
+  <RelationClass Name="DELLmiTransformationSystemInstanceCusto" Uuid="0fd93003-6a92-4eda-afce2e819b948f91" SuperName="DELLmiTransformationSystemInstance"   >
+    <CAAComment>
+      <ShortRole>Standard DELMIA Transformation System Instance</ShortRole>
+      <Role>Default customized DELMIA Transformation System Instance</Role>
+    </CAAComment>
+    <!-- ********************************************************* -->
+    <!-- * Overload(s) of PLMCoreInstance attributes. -->
+    <!-- ********************************************************* -->
+    <SubClause Name="to"   TargetName="DELLmiTransformationSystemReferenceCusto"/>
+  </RelationClass>
+
+</Package>

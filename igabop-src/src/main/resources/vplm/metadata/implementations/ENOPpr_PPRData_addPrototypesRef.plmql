@@ -1,0 +1,38 @@
+NAVIGATE     
+
+T0.PLMID, T1.PLMID 
+ 
+
+FROM      
+
+PLMPrototypeCnx/PLMPrototypeInstantiationCnx T0,
+
+PLMCORE/PLMCoreReference T1
+
+FROM_ROOTS[?1?]
+
+ON ( RELATION(     
+
+FROM=PLMCORE/PLMCoreReference     
+
+TO=PLMPrototypeCnx/PLMPrototypeInstantiationCnx 
+
+THROUGH=POINTEDBY )
+
+WITH QUALITY_FILTER(CATEGORY=ISOWNEDBY))
+
+
+
+THEN (RELATION(
+
+FROM=PLMPrototypeCnx/PLMPrototypeInstantiationCnx
+
+TO=PLMCORE/PLMCoreReference
+
+THROUGH=POINTSTO))
+
+
+
+;
+
+

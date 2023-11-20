@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2005, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" CustomerExposition="Programmer" Name="PLMPCBDictionary" Uuid="83270F48-0000-5261-45AB5BF70004313E" UseNames="PRODUCTCFG" >
+  <Comment>last update the 2007-01-15 at 11:43:17</Comment>
+  <Comment> GLY: Add discipline the 2008-03-19</Comment>
+  <Extension Name="PLMPCBComponentInst"  Uuid="83270F48-0000-5264-45AB5C080007BA07" CustomerExposition="Programmer" ScopeNames="VPMInstance" >
+    <Simple Name="V_PCB_Status" Uuid="83270F48-0000-5267-45AB5C1E0000A0D7" Type="String" MaxLength="20" MultiValuated="No" Protection="External" CAAExposition="L0"/>
+  </Extension>
+
+   <Extension Name="CBDComponent" Discipline="Yes" Uuid="057FC286-5EFB-4f35-A1C8-B2822015CC9A" CustomerExposition="Programmer"  ScopeNames="VPMReference">
+       <Property Name="IconName" Value="I_ElecComponentP2"/>
+    <Property Name="Searchable" Value="Yes"/>
+   </Extension> 
+
+ <Extension Name="CBDBoard" Discipline="Yes" Uuid="0150799A-07C8-450D-AF51-4701D1D8FC1A" CustomerExposition="Programmer"  ScopeNames="VPMReference">
+       <Property Name="IconName" Value="I_ElecBoardP2"/>
+    <Property Name="Searchable" Value="Yes"/>
+   </Extension> 
+
+    <Extension Name="CBDPanel" Discipline="Yes" Uuid="218FD68C-4910-427e-899C-DB9DFCE645E0" CustomerExposition="Programmer"  ScopeNames="VPMReference">
+       <Property Name="IconName" Value="I_ElecPanelP2"/>
+    <Property Name="Searchable" Value="Yes"/>
+    </Extension>
+ 	
+    <Extension Name="CBDFlexBoard" Discipline="Yes" Uuid="E99D971E-899B-4c17-B945-698BEE4D3E39" CustomerExposition="Programmer"  ScopeNames="VPMReference">
+       <Property Name="IconName" Value="I_FlexBoardP2"/>
+    <Property Name="Searchable" Value="Yes"/>
+    </Extension>
+
+    <Extension Name="CBDPlaneLayer" Discipline="Yes" Uuid="1554ED79-BAD3-4dc8-9239-D79745919725" CustomerExposition="Programmer"  ScopeNames="VPMReference">
+       <Property Name="IconName" Value="I_CBDPlaneLayerP2"/>
+    <Property Name="Searchable" Value="Yes"/>
+    </Extension>
+
+    <Extension Name="CBDConductiveLayer" Discipline="Yes" Uuid="AD5621DE-D93B-4708-A6CA-33A76687B861" CustomerExposition="Programmer"  ScopeNames="VPMReference">
+       <Property Name="IconName" Value="I_CBDConductiveLayerP2"/>
+    <Property Name="Searchable" Value="Yes"/>
+    </Extension>
+
+
+    <Extension Name="CBDDielectricLayer" Discipline="Yes" Uuid="EA27DD9F-629B-442d-92AC-2675D656C011" CustomerExposition="Programmer"  ScopeNames="VPMReference">
+       <Property Name="IconName" Value="I_CBDDielectricLayerP2"/>
+    <Property Name="Searchable" Value="Yes"/>
+    </Extension>
+
+    <Extension Name="CBDPCBAssembly" Discipline="Yes" Uuid="D805FA3A-E65C-48FA-B0D9-1C7D730609B3" CustomerExposition="Programmer"  ScopeNames="VPMReference">
+       <Property Name="IconName" Value="I_CBDPCBAssemblyP2"/>
+    <Property Name="Searchable" Value="Yes"/>
+    </Extension>
+
+    <Extension Name="RFBAssembly" Discipline="Yes" Uuid="B513CDDA-4D9C-4CCA-92EE-BDDEC2D8745C" CustomerExposition="Programmer"  ScopeNames="VPMReference">
+       <Property Name="IconName" Value="I_RFBAssemblyP2"/>
+    <Property Name="Searchable" Value="Yes"/>
+	 <Simple Name="V_PCB_Boardthickness" Uuid="08A863B1-CD25-4D2E-9A1159AB0767844D" Type="Double"  Magnitude="LENGTH"  MultiValuated="No" Protection="External" CAAExposition="L0"/>
+	 <Simple Name="V_PCB_Flexiblethickness" Uuid="63F928DE-0763-4BE3-946A3D65837833E5" Type="Double"  Magnitude="LENGTH"  MultiValuated="No" Protection="External" CAAExposition="L0"/>
+	 <Simple Name="V_PCB_FlexibleLayerPosition" Uuid="3A63BA44-714A-4536-9099BB13817CB605" Type="Double" Magnitude="LENGTH"  MultiValuated="No" Protection="External" CAAExposition="L0"/>
+    </Extension>
+   
+    <Extension Name="RFBFlexibleAssembly" Discipline="Yes" Uuid="AE2A6036-B089-4EC9-8061-FF9EA5AC3443" CustomerExposition="Programmer"  ScopeNames="VPMReference">
+       <Property Name="IconName" Value="I_RFBFlexibleAssemblyP2"/>
+    <Property Name="Searchable" Value="Yes"/>
+    </Extension>
+
+   <Extension Name="RFBFlexibleLayer" Discipline="Yes" Uuid="BD6C3AF9-D372-4A8E-831A-8AE573E1540D" CustomerExposition="Programmer"  ScopeNames="VPMReference">
+       <Property Name="IconName" Value="I_RFBFlexibleLayerP2"/>
+    <Property Name="Searchable" Value="Yes"/>
+    </Extension>
+
+   <Extension Name="CBDAssembly" Discipline="Yes" Uuid="30FB7DB3-B31C-4512-B415-5D0F8462A951" CustomerExposition="Programmer"  ScopeNames="VPMReference">
+       <Property Name="IconName" Value="I_CBDAssemblyP2"/>
+    <Property Name="Searchable" Value="Yes"/>
+    </Extension>
+	
+     <Extension Name="RFBFlexibleLayerAssembly" Discipline="Yes" Uuid="40F89ECC-D80A-4D48-BA29-EE3112DBA256" CustomerExposition="Programmer"  ScopeNames="VPMReference">
+       <Property Name="IconName" Value="I_RFBFlexibleLayerAssemblyP2"/>
+    <Property Name="Searchable" Value="Yes"/>
+    </Extension>
+
+</Package>

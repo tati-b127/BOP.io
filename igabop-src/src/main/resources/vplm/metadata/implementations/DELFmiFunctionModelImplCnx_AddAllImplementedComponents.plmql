@@ -1,0 +1,27 @@
+NAVIGATE
+T0.PLMID, T1.PLMID, T2.PLMID
+FROM
+DELFmiFunctionalModelImplementCnx/DELFmiProcessImplementCnx T0,
+PLMCORE/PLMCoreReference T1,
+PLMCORE/PLMCoreInstance T2
+FROM_ROOTS [?1?]
+ON
+((
+RELATION(FROM= PLMCORE/PLMCoreReference TO= DELFmiFunctionalModelImplementCnx/DELFmiProcessImplementCnx THROUGH=POINTEDBY) WITH QUALITY_FILTER (ROLE=PLM_ImplementLink_Source AND CATEGORY=Reference5)
+THEN RELATION(FROM= DELFmiFunctionalModelImplementCnx/DELFmiProcessImplementCnx TO= PLMCORE/PLMCoreReference THROUGH=POINTSTO) WITH QUALITY_FILTER (ROLE=PLM_ImplementLink_Target AND CATEGORY=Reference3)
+)
+OR
+(
+RELATION(FROM= PLMCORE/PLMCoreReference TO= DELFmiFunctionalModelImplementCnx/DELFmiProcessImplementCnx THROUGH=POINTEDBY) WITH QUALITY_FILTER (ROLE=PLM_ImplementLink_Source AND CATEGORY=Reference5)
+THEN RELATION(FROM= DELFmiFunctionalModelImplementCnx/DELFmiProcessImplementCnx TO= PLMCORE/PLMCoreInstance THROUGH=POINTSTO) WITH QUALITY_FILTER (ROLE=PLM_ImplementLink_Target AND CATEGORY=Reference3)
+)
+OR
+(
+RELATION(FROM= PLMCORE/PLMCoreInstance TO= DELFmiFunctionalModelImplementCnx/DELFmiProcessImplementCnx THROUGH=POINTEDBY) WITH QUALITY_FILTER (ROLE=PLM_ImplementLink_Source AND CATEGORY=Reference5)
+THEN RELATION(FROM= DELFmiFunctionalModelImplementCnx/DELFmiProcessImplementCnx TO= PLMCORE/PLMCoreInstance THROUGH=POINTSTO) WITH QUALITY_FILTER (ROLE=PLM_ImplementLink_Target AND CATEGORY=Reference3)
+)
+OR
+(
+RELATION(FROM= PLMCORE/PLMCoreInstance TO= PLMCORE/PLMCoreInstance THROUGH=POINTSTO) WITH QUALITY_FILTER (ROLE=PLM_ImplementLink_Target AND CATEGORY=Reference3)
+))
+ITER=1;

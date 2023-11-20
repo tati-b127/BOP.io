@@ -1,0 +1,120 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2012, All rights reserved -->
+
+<Package CustomerExposition = "Programmer" ModelerType = "Top" Name = "TeklaIfc" UseNames = "AECKernel;AECStructuralElement;AECArchitecturalElement;AECElementComponent" Uuid = "C6B91ECD-0917-4253-8604-60E3AD89D2C1" xmlns = "PLMDictionaryUnified">
+  <Extension CustomerExposition = "Programmer" Name = "IfcPset_Tekla_Assemblies" ScopeNames = "AecElementAssembly" Uuid = "28F81FF1-B7D4-45BD-AA29-CB7356A6111F">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_Tekla_Assemblies_ASSEMBLY_POS" Protection = "Free" Type = "String" Uuid = "C3345EF4-F27E-4C3A-80F8-FA19138B59A5"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_Tekla_Assemblies_ASSEMBLY_POSITION_CODE" Protection = "Free" Type = "String" Uuid = "2BA76316-6BCD-4DE3-9B54-888B9F8546C5"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_Tekla_Assemblies_ASSEMBLY_TOP_LEVEL" Protection = "Free" Type = "String" Uuid = "7B0E61F8-2EE3-41C4-B317-FBB37D9FE32B"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_Tekla_Assemblies_ASSEMBLY_BOTTOM_LEVEL" Protection = "Free" Type = "String" Uuid = "93929069-5C3A-4A9B-956D-F6C604EEB735"/>
+    <Simple CAAExposition = "L0" Magnitude = "MASS" Name = "IfcPset_Tekla_Assemblies_WEIGHT" Protection = "Free" Type = "Double" Uuid = "8A18AED8-E6BC-45F6-ADE2-9C135F95F0BF"/>
+    <Simple CAAExposition = "L0" Magnitude = "MASS" Name = "IfcPset_Tekla_Assemblies_CAST_UNIT_REBAR_WEIGHT" Protection = "Free" Type = "Double" Uuid = "28FF5EA8-D5B3-423F-934C-C3C1F48C1740"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_Tekla_Assemblies_ACN" Protection = "Free" Type = "Integer" Uuid = "B0E87354-1C54-4E43-ABF4-65B7F92C2F46"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_Tekla_Assemblies_CAST_UNIT_TYPE" Protection = "Free" Type = "String" Uuid = "D222EA8C-2753-48B5-ABB3-A70DBFC00975"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcPset_Tekla_Common" ScopeNames = "AecBeam AecColumn AecMember AecPile AecPlate AecSlab AecWall AecFooting AecRailing AecOtherStructuralElement AecStiffener AecCable AecOtherArchitecturalElement AecDiscreteAccessory" Uuid = "E15B4D09-EA7A-4054-B006-24A78C6D944B">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_Tekla_Common_CLASS_ATTR" Protection = "Free" Type = "String" Uuid = "A3670330-DA2E-40D3-81B4-AE5EC9B7E2E5"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_Tekla_Common_PHASE" Protection = "Free" Type = "Integer" Uuid = "03E08139-D35B-4BF1-BE54-923EB76656C8"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_Tekla_Common_PRELIM_MARK" Protection = "Free" Type = "String" Uuid = "FA9A8647-D181-4088-8F2D-9C0A86537C7F"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_Tekla_Common_initial_GUID" Protection = "Free" Type = "String" Uuid = "52CD0A28-AF40-4832-8E7C-A0AFF5477442"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_Tekla_Common_TOP_LEVEL" Protection = "Free" Type = "String" Uuid = "FB117FD2-2B1D-4E2D-B1B4-959893734D45"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_Tekla_Common_BOTTOM_LEVEL" Protection = "Free" Type = "String" Uuid = "450B5595-F38A-418E-A25C-FCAA05B36AF1"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcPset_Tekla_Pours" ScopeNames = "AecOtherStructuralElement AecOtherArchitecturalElement" Uuid = "138AEDFE-A2EF-490D-9446-F94FA8F2D009">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_Tekla_Pours_CONCRETE_MIXTURE" Protection = "Free" Type = "String" Uuid = "5A3FD46E-3B32-4AFA-AB12-DDCDEA8CBEC9"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_Tekla_Pours_COMMENT" Protection = "Free" Type = "String" Uuid = "F51EBA89-F1F5-4ABF-B429-6DDE60DED462"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_Tekla_Pours_POUR_NUMBER" Protection = "Free" Type = "String" Uuid = "D2A91061-4037-4C41-885C-20D81588C212"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_Tekla_Pours_POUR_TYPE" Protection = "Free" Type = "String" Uuid = "3AD98EBB-9A8B-4E38-9F15-A7E3D980BE6E"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_Tekla_Pours_USER_FIELD_1" Protection = "Free" Type = "String" Uuid = "A3465FC7-A6A8-42EF-A7D3-4302CE38B09C"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_Tekla_Pours_USER_FIELD_2" Protection = "Free" Type = "String" Uuid = "268D5339-88F0-48FB-B9B4-D325C8A8BCDE"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_Tekla_Pours_USER_FIELD_3" Protection = "Free" Type = "String" Uuid = "414FFC58-4053-455E-9196-1AE32190BC10"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_Tekla_Pours_USER_FIELD_4" Protection = "Free" Type = "String" Uuid = "1A8588E4-F898-4669-B516-5731E92B4722"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_Tekla_Pours_FORMWORK_CHECKED_BY" Protection = "Free" Type = "String" Uuid = "377D4932-A201-4A7E-A186-388224C3EB8F"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_Tekla_Pours_FORMWORK_COMMENT" Protection = "Free" Type = "String" Uuid = "CDE50406-8F62-47F1-AC4F-41723CBDE3E1"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_Tekla_Pours_FORMWORK_STATUS" Protection = "Free" Type = "Integer" Uuid = "30325B24-621C-4BC1-8C66-259620278379"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_Tekla_Pours_FORMWORK_CHECK_DATE" Protection = "Free" Type = "Date" Uuid = "6A4D7A74-7A94-4D23-A65A-945C21092428"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_Tekla_Pours_PLANNED_START_FORM" Protection = "Free" Type = "Date" Uuid = "DD523EC3-DABF-4728-9BF1-7F55A663C8B7"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_Tekla_Pours_PLANNED_END_FORM" Protection = "Free" Type = "Date" Uuid = "C97452AE-2E6F-45FC-AAE4-689F211CF2EA"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_Tekla_Pours_ACTUAL_START_FORM" Protection = "Free" Type = "Date" Uuid = "6AFC2173-7D69-47F8-AE81-18CE87ACF785"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_Tekla_Pours_ACTUAL_END_FORM" Protection = "Free" Type = "Date" Uuid = "8A7E41BE-4F05-4839-B6C5-75433ACFDBF6"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_Tekla_Pours_REBAR_CHECKED_BY" Protection = "Free" Type = "String" Uuid = "7C25AB35-0833-4F05-9060-FD49B9D46EF4"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_Tekla_Pours_REBAR_COMMENT" Protection = "Free" Type = "String" Uuid = "B8DF083D-CA11-4E79-BC75-85BBCE9B9A7B"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_Tekla_Pours_REBAR_RELEASE_NO" Protection = "Free" Type = "String" Uuid = "60921450-1320-4E78-8B55-BF4547696588"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_Tekla_Pours_REBAR_SHIPMENT_NO" Protection = "Free" Type = "String" Uuid = "62CF8085-DBEF-4BA3-BF53-6B89C4D4326F"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_Tekla_Pours_REBAR_STATUS" Protection = "Free" Type = "Integer" Uuid = "F04F6378-5BFE-4EF0-BF86-C0673E822D1E"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_Tekla_Pours_REBAR_CHECK_DATE" Protection = "Free" Type = "Date" Uuid = "5708D486-D34D-4E76-A0A5-4FADE4814883"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_Tekla_Pours_PLANNED_START_REBAR" Protection = "Free" Type = "Date" Uuid = "73A0FB67-E1CC-4FB4-9972-5881D19B3463"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_Tekla_Pours_PLANNED_END_REBAR" Protection = "Free" Type = "Date" Uuid = "4DFBEED1-5594-477A-8211-E84AE4A0A471"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_Tekla_Pours_ACTUAL_START_REBAR" Protection = "Free" Type = "Date" Uuid = "43710A47-480B-4074-B8E8-E21D3214B921"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_Tekla_Pours_ACTUAL_END_REBAR" Protection = "Free" Type = "Date" Uuid = "BFD19B8D-1A47-4205-A0E9-6CA8DAB6CD76"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_Tekla_Pours_POUR_CHECKED_BY" Protection = "Free" Type = "String" Uuid = "0C670695-02AF-4FB6-BFA6-A7F7CBB2001B"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_Tekla_Pours_POUR_COMMENT" Protection = "Free" Type = "String" Uuid = "F92E1927-FD86-4D93-B20A-E8FB91B6C86E"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_Tekla_Pours_POUR_STATUS" Protection = "Free" Type = "Integer" Uuid = "18557E6B-8929-46C3-B641-16809C147892"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_Tekla_Pours_POUR_CHECK_DATE" Protection = "Free" Type = "Date" Uuid = "B155DB8F-BC8C-481E-B141-9CD12B193D1D"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_Tekla_Pours_PLANNED_START_POUR" Protection = "Free" Type = "Date" Uuid = "B901DE33-0390-4C08-A22B-0768475B4734"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_Tekla_Pours_PLANNED_END_POUR" Protection = "Free" Type = "Date" Uuid = "317FBC8F-3C69-44CE-965C-2ECE4ABEEFDF"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_Tekla_Pours_ACTUAL_START_POUR" Protection = "Free" Type = "Date" Uuid = "A43DF2A0-36BB-49E7-8D52-7344DD6AD4F0"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_Tekla_Pours_ACTUAL_END_POUR" Protection = "Free" Type = "Date" Uuid = "6382A129-092B-4E50-8E89-776168B53E5C"/>
+    <Simple CAAExposition = "L0" Magnitude = "AREA" Name = "IfcPset_Tekla_Pours_AREA" Protection = "Free" Type = "Double" Uuid = "2C297BDC-AD28-488E-9517-BE95DC93B107"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcPset_Tekla_Rebar" ScopeNames = "AecReinforcingElement" Uuid = "22F8E69B-8730-464A-9595-174777EB60A0">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_Tekla_Rebar_SHAPE" Protection = "Free" Type = "String" Uuid = "6DB7A71C-CB71-4893-8F69-8093D371162D"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_Tekla_Rebar_REBAR_POS" Protection = "Free" Type = "String" Uuid = "8D108458-987C-4908-A130-803E0513A9BF"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_Tekla_Rebar_SIZE" Protection = "Free" Type = "String" Uuid = "527525EB-9933-4018-B1A8-5B2D223E292D"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_Tekla_Rebar_NAME" Protection = "Free" Type = "String" Uuid = "4BDBA69E-98DA-4390-8542-1D6D3CF76530"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_Tekla_Rebar_MATERIAL" Protection = "Free" Type = "String" Uuid = "C0C6AACD-27BE-44B9-8083-97ED45C64527"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_Tekla_Rebar_NUMBER" Protection = "Free" Type = "Integer" Uuid = "CA493FCA-7DFA-4502-A93F-BF636F375B0B"/>
+    <Simple CAAExposition = "L0" Name = "IfcPset_Tekla_Rebar_PHASE" Protection = "Free" Type = "Integer" Uuid = "B2A4EA0F-2D7F-499E-A301-5D2D3AB74A2A"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_Tekla_Rebar_CAST_UNIT_POS" Protection = "Free" Type = "String" Uuid = "AA1912FC-A378-4455-A067-CBB70F7D97A2"/>
+    <Simple CAAExposition = "L0" Magnitude = "MASS" Name = "IfcPset_Tekla_Rebar_WEIGHT" Protection = "Free" Type = "Double" Uuid = "97B98D43-BE75-48AE-A9F7-87D7AFFCAC9C"/>
+    <Simple CAAExposition = "L0" Magnitude = "MASS" Name = "IfcPset_Tekla_Rebar_WEIGHT_TOTAL" Protection = "Free" Type = "Double" Uuid = "8133F88A-D8A1-4EAD-AB4E-04EEC55E6415"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_Tekla_Rebar_LENGTH" Protection = "Free" Type = "Double" Uuid = "7C8AC73D-3BC7-458C-9813-1369B05EB97D"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_Tekla_Rebar_CC_EXACT" Protection = "Free" Type = "String" Uuid = "2E0A95E7-2B83-47E9-9AD8-17BAB242CC91"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_Tekla_Rebar_DIM_A" Protection = "Free" Type = "Double" Uuid = "143022F9-04BA-4C18-895F-B8D8DF839DE8"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_Tekla_Rebar_DIM_B" Protection = "Free" Type = "Double" Uuid = "51FF868F-E308-4D09-A554-CA428462C6A0"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_Tekla_Rebar_DIM_C" Protection = "Free" Type = "Double" Uuid = "7ABDF1C2-B23B-4BA3-BD7A-15B6A535B756"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_Tekla_Rebar_DIM_D" Protection = "Free" Type = "Double" Uuid = "CF0DFAD0-B2DC-41A5-96F0-AA1D7E04BBA2"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_Tekla_Rebar_DIM_E" Protection = "Free" Type = "Double" Uuid = "FD42F941-F620-4E70-8C0B-FD2578CA0DBB"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_Tekla_Rebar_DIM_F" Protection = "Free" Type = "Double" Uuid = "A47FD8E3-F2A0-4ED4-9A01-3E81DBBFAAE9"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_Tekla_Rebar_DIM_G" Protection = "Free" Type = "Double" Uuid = "DA0A3608-FC84-4582-A8FA-28CE6D33FF7C"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_Tekla_Rebar_DIM_H1" Protection = "Free" Type = "Double" Uuid = "32AC45B1-E268-4BAD-81D2-E19D83F1C4C2"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_Tekla_Rebar_DIM_H2" Protection = "Free" Type = "Double" Uuid = "A4406754-3055-433C-A26B-8045F645981C"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_Tekla_Rebar_DIM_I" Protection = "Free" Type = "Double" Uuid = "4FEA6EB5-384B-4D7F-B87E-E0D7F4B3D814"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_Tekla_Rebar_DIM_J" Protection = "Free" Type = "Double" Uuid = "28001BD2-DD1F-46F8-B373-F87A2D832483"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_Tekla_Rebar_DIM_K1" Protection = "Free" Type = "Double" Uuid = "AF2DCF4F-31DE-4AC0-BBB1-6FF59D2E96E6"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_Tekla_Rebar_DIM_K2" Protection = "Free" Type = "Double" Uuid = "2A00AFB8-3380-456A-90C4-E95FB1B80923"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_Tekla_Rebar_DIM_O" Protection = "Free" Type = "Double" Uuid = "E321453F-9169-48FB-8747-D5A5AD719057"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_Tekla_Rebar_DIM_R" Protection = "Free" Type = "Double" Uuid = "1C64C61E-BEE3-4F0A-873D-6CDB1FC94FF2"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_Tekla_Rebar_DIM_X" Protection = "Free" Type = "Double" Uuid = "D7D127AC-7DBF-4228-9000-075DAE2ED9EC"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_Tekla_Rebar_DIM_Y" Protection = "Free" Type = "Double" Uuid = "C0F68D0D-A0D1-4F6D-9E03-B93D62F5A67D"/>
+    <Simple CAAExposition = "L0" Magnitude = "ANGLE" Name = "IfcPset_Tekla_Rebar_ANG_S" Protection = "Free" Type = "Double" Uuid = "FB2ECC2B-8A00-4157-B266-777A8036D442"/>
+    <Simple CAAExposition = "L0" Magnitude = "ANGLE" Name = "IfcPset_Tekla_Rebar_ANG_T" Protection = "Free" Type = "Double" Uuid = "AAE46663-9C00-47A7-A9B6-B8F9B4A4B634"/>
+    <Simple CAAExposition = "L0" Magnitude = "ANGLE" Name = "IfcPset_Tekla_Rebar_ANG_U" Protection = "Free" Type = "Double" Uuid = "CC9FDB43-817A-46ED-B3A6-371DE523ABAA"/>
+    <Simple CAAExposition = "L0" Magnitude = "ANGLE" Name = "IfcPset_Tekla_Rebar_ANG_V" Protection = "Free" Type = "Double" Uuid = "77E3D736-44D7-4D4E-B30D-0D2BD01D4EBE"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcPset_Tekla_Rebar_DIM_TD" Protection = "Free" Type = "Double" Uuid = "3E03E1F8-5F6B-45CC-B3EF-D5A8EB66208E"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcPset_Tekla_SurfaceTreatment" ScopeNames = "AecCovering" Uuid = "72376E66-2D5D-4897-80E2-2115D3EBC445">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_Tekla_SurfaceTreatment_TYPE" Protection = "Free" Type = "String" Uuid = "842FD7AF-A4EF-4688-93C3-2B85815AFBD7"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_Tekla_SurfaceTreatment_NAME" Protection = "Free" Type = "String" Uuid = "46C4EEC3-B374-46F2-9F3C-4F93F1395291"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcPset_Tekla_SurfaceTreatment_CONTENTTYPE" Protection = "Free" Type = "String" Uuid = "8E74247B-0754-4CDD-BB3E-D697F345C926"/>
+    <Simple CAAExposition = "L0" Magnitude = "AREA" Name = "IfcPset_Tekla_SurfaceTreatment_AREA" Protection = "Free" Type = "Double" Uuid = "CE069B55-9612-460D-A02F-2FAD6850E6FB"/>
+    <Simple CAAExposition = "L0" Magnitude = "MASS" Name = "IfcPset_Tekla_SurfaceTreatment_WEIGHT" Protection = "Free" Type = "Double" Uuid = "0717DC73-7A26-42FF-969E-4233C21AC32F"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcQto_Tekla_Quantities" ScopeNames = "AecBeam AecColumn AecMember AecPile AecPlate AecSlab AecWall AecFooting AecRailing AecOtherStructuralElement AecStiffener AecCable AecOtherArchitecturalElement AecDiscreteAccessory" Uuid = "D6BB7AFC-F63F-4513-920F-50A177D204D9">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcQto_Tekla_Quantities_MethodOfMeasurement" Protection = "Free" Type = "String" Uuid = "D6BB7AFC-F63F-4513-920F-14b1550b5f09"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcQto_Tekla_Quantities_LENGTH" Protection = "Free" Type = "Double" Uuid = "5A45237F-343A-4F62-909A-A32E346E4F91"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcQto_Tekla_Quantities_WIDTH" Protection = "Free" Type = "Double" Uuid = "740EBAAF-4BD1-4E6B-8FB1-A24E40F23C09"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcQto_Tekla_Quantities_HEIGHT" Protection = "Free" Type = "Double" Uuid = "41E72436-013B-426A-9515-D514F5627977"/>
+    <Simple CAAExposition = "L0" Magnitude = "AREA" Name = "IfcQto_Tekla_Quantities_AREA_NET" Protection = "Free" Type = "Double" Uuid = "E032ED22-9B7D-4F4D-9C25-3748FC64B93A"/>
+    <Simple CAAExposition = "L0" Magnitude = "AREA" Name = "IfcQto_Tekla_Quantities_AREA_PER_TONS" Protection = "Free" Type = "Double" Uuid = "9D69AC98-18E0-4D31-A407-2C48C1329C76"/>
+    <Simple CAAExposition = "L0" Magnitude = "AREA" Name = "IfcQto_Tekla_Quantities_AREA_PLAN" Protection = "Free" Type = "Double" Uuid = "8D3254AC-4328-42F1-9C1D-C0C0180117C2"/>
+    <Simple CAAExposition = "L0" Magnitude = "VOLUME" Name = "IfcQto_Tekla_Quantities_VOLUME" Protection = "Free" Type = "Double" Uuid = "5EF3398B-0595-423F-8109-4E7F0A997696"/>
+    <Simple CAAExposition = "L0" Magnitude = "MASS" Name = "IfcQto_Tekla_Quantities_WEIGHT" Protection = "Free" Type = "Double" Uuid = "CA256C0F-8698-4E2C-A4B0-150F57017BF3"/>
+  </Extension>
+</Package>

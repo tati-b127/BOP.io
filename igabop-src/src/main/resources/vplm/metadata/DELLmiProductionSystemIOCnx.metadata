@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2010, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified"
+         ModelerType="Top"
+         BelongsToModeler="DELLmiProductionSystem"
+         Name="DELLmiProductionSystemIOCnx"
+         Uuid="0E6B10E5-64A6-4df7-BCCA-711E5DDA902E"
+         UseNames="DELLmiProductionSystemIOCnxAbstract"
+         CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>Production System Input/Output Connection Modeler</ShortRole>
+    <Role>"DELLmiProductionSystemIOCnx" package describes Production System Input/Output Connection</Role>
+  </CAAComment>
+
+  <Comment>last update 2012-01-20</Comment>
+
+  <Class Name="DELLmiProductionSystemIOCnx"
+         Uuid="EBD53718-5224-4bd1-9576-373197780C1E"
+         Abstract="No"
+         SuperName="DELLmiProductionSystemIOCnxAbstract"
+         CustomerExposition="Programmer"
+         Specializable="No"
+         CustomerExtensible="No"
+         OwnerTypes="DELLmiProductionSystemReference"
+          >
+
+    <CAAComment>
+      <ShortRole>Defines Production System Input/Output Connection</ShortRole>
+    </CAAComment>
+
+    <Path Name="DELLinkToPlugObject"
+        Uuid="02BE4BFF-A0DB-4e15-9A5E-1C813F19ED64"
+        MultiValuated="Yes"
+        RoleName="DEL_LinkToPlugObject"		
+        Type="SemanticRelation" AdaptativeToMinor="Yes"
+		    SynchroSensitivity="None"
+		    RerouteOnEffectivityChange="No"
+        Semantics="Reference"/>
+
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+  </Class>
+</Package>

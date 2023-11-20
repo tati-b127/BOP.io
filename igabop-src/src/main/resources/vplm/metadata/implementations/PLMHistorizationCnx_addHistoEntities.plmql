@@ -1,0 +1,48 @@
+NAVIGATE     
+
+T0.PLM_ExternalID, T1.PLM_ExternalID, T2.PLM_ExternalID, 
+T0.PLMID, T1.PLMID, T2.PLMID
+ 
+
+FROM      
+
+PLMHistorizationCnx/PLMHistoLinkCnx T0,
+
+PLMCORE/PLMCoreReference T1,
+
+PLMCORE/PLMCoreInstance T2
+
+FROM_ROOTS[?1?]
+
+ON ( RELATION(     
+
+FROM=PLMCORE/PLMCoreReference     
+
+TO=PLMHistorizationCnx/PLMHistoLinkCnx 
+
+THROUGH=POINTEDBY )
+
+WITH QUALITY_FILTER(CATEGORY=ISOWNEDBY))
+
+
+
+THEN ((RELATION(
+
+FROM=PLMHistorizationCnx/PLMHistoLinkCnx
+
+TO=PLMCORE/PLMCoreReference
+
+THROUGH=POINTSTO))
+
+OR
+
+(RELATION(
+
+FROM=PLMHistorizationCnx/PLMHistoLinkCnx
+
+TO=PLMCORE/PLMCoreInstance
+
+THROUGH=POINTSTO)))
+
+
+;

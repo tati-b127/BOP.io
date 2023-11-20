@@ -1,0 +1,15 @@
+EXPAND 
+	T0.PLMID, T1.PLMID, T2.PLMID, T3.PLMID, T4.PLMID, T5.PLMID, T6.PLMID, T7.PLMID,
+	T0.PLM_ExternalID, T1.PLM_ExternalID, T2.PLM_ExternalID, T3.PLM_ExternalID,
+	T4.PLM_ExternalID, T5.PLM_ExternalID, T6.PLM_ExternalID, T7.PLM_ExternalID
+FROM 
+	DIFModelerAbstractSheet/DIFAbstractSheet T0,	
+	DIFModelerAbstractSheet/DIFAbstractSheetInstance T1,	 
+	DIFModelerAbstractView/DIFAbstractView  T2,	
+	DIFModelerAbstractView/DIFAbstractViewInstance T3,
+	DIFModeler03/DIFViewStream T4,	
+	DIFModeler03/DIFViewStreamInstance T5,
+	DIFModeler04/DIFBackgroundViewRep T6,	
+	DIFModeler04/DIFBackgroundViewRepInstance T7
+FROM_ROOTS  [?1?]
+;

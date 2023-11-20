@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR RFLP IMPLEMENT CONNECTION DS -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2007, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" Name="RFLPLMImplementConnectionDS" DataRDB_OID='ENODR_RFLImplDS'
+	Uuid="45f03747-34dd-4d87-8060-314e19cedabc" 
+	UseNames="RFLPLMImplementConnection" 
+	>
+	
+<Property Name="OptionalInstallation" Value="Yes" /> 
+	<CAAComment>
+		<ShortRole>PLM Implement Connection DS Package</ShortRole>
+		<Role>This package describes a Customization of the PLM Implement Connection</Role>
+	</CAAComment>
+	
+	<Comment>last update 2007-10-11</Comment>
+	
+	<!-- *************************************************************************** -->
+	<!-- * RFLPLMLogicalImplementConnection (RFLPLMLogicalConnection)              * -->
+	<!-- *************************************************************************** -->
+	
+	<Class Name="RFLPLMImplementConnectionDS" 
+		Uuid="4c6175bf-9223-40bb-8569-c18cfb36cbd2" 
+		 
+		SuperName="RFLPLMImplementConnection" 
+		SuperRef="cf34b262-d0e6-4e99-a2ca1bcd717d9b78" >
+
+		<Simple Name="V_ScorecardValidation" 
+		    Uuid="22cd852d-c70c-4971-afcd-fe418e1e4e17" 
+		    Type="Boolean" 
+		    Mandatory="No" 
+		    MultiValuated="No" 
+		    Protection="User"
+                CAAExposition="L0">
+			<CAAComment>
+				<ShortRole>Allow users to know whether the contract is fulfilled or not</ShortRole>
+			</CAAComment>
+		</Simple>
+
+	</Class>	
+	        
+</Package>

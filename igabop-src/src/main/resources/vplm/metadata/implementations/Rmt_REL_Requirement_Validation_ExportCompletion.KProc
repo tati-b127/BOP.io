@@ -1,0 +1,23 @@
+#Prog Rmt_REL_Requirement_Validation_ExportCompletion( iPLMIDSet : #In PLMIDSet, oPLMIDSet : #Out PLMIDSet ) : VoidType
+{
+let RsToEntities              (PLMRouteSet)
+let IdsRels                 (PLMIDSet)
+let IdsToEntities           (PLMIDSet)
+let IdsTestCaseAndScope     (PLMIDSet)
+
+
+/* Get the entities that are at "to" extremity of the relations */
+IdsRels = Restrict( iPLMIDSet , "RelationClass/Requirement Validation" )
+RsToEntities = ExecutePLMFunction( "Requirement", "rmt_nav_rel_req_validation", IdsRels )
+
+
+/* Complete procedure to export entities */
+IdsToEntities = Ids( RsToEntities )
+IdsTestCaseAndScope = ExecutePLMProcedure( "Plc_TestCase_ExportCompletion", IdsToEntities )
+
+
+/* Provide back all that stuff */
+oPLMIDSet = iPLMIDSet
++ IdsToEntities
++ IdsTestCaseAndScope
+}

@@ -1,0 +1,49 @@
+NAVIGATE
+
+     T0.PLM_ExternalID, T1.PLM_ExternalID, T2.PLM_ExternalID, T3.PLM_ExternalID,T4.PLM_ExternalID,T5.PLM_ExternalID,T6.PLM_ExternalID,T7.PLM_ExternalID,
+     T0.PLMID, T1.PLMID, T2.PLMID, T3.PLMID,T4.PLMID, T5.PLMID, T6.PLMID, T7.PLMID
+
+FROM 
+
+	 SIMObjSimulationCategoryAndProdCnx/SIMObjSimulationCategoryReference T0,
+
+     SIMObjSimulationCategoryAndProdCnx/SIMObjSimulationSystem T1,
+
+     PRODUCTCFG/VPMReference  T2,
+
+     RFLVPMLogical/RFLVPMLogicalReference T3,
+     
+     RFLPLMFunctional/RFLPLMFunctionalReference T4,
+     
+     CATSysBehaviorLibrary/CATSysBehaviorLibReference T5,
+	 
+	 PLMDmtDocument/PLMDMTDocument T6,
+
+	 PLMWspFilter/PLMWspPVS T7
+
+
+FROM_ROOTS [?1?]
+
+ON ( RELATION(
+
+     FROM=SIMObjSimulationCategoryAndProdCnx/SIMObjSimulationCategoryReference
+
+     TO=SIMObjSimulationCategoryAndProdCnx/SIMObjSimulationSystem
+
+     THROUGH=POINTEDBY )
+
+WITH QUALITY_FILTER(CATEGORY=ISOWNEDBY))
+
+THEN (RELATION(
+
+FROM=SIMObjSimulationCategoryAndProdCnx/SIMObjSimulationSystem
+
+TO=PRODUCTCFG/VPMReference , RFLVPMLogical/RFLVPMLogicalReference, RFLPLMFunctional/RFLPLMFunctionalReference, CATSysBehaviorLibrary/CATSysBehaviorLibReference, PLMDmtDocument/PLMDMTDocument,
+PLMWspFilter/PLMWspPVS
+
+THROUGH=POINTSTO))
+
+ 
+
+; 
+

@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2005, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" BelongsToModeler="PLMChgActionBase"  Name="PLMChgDesignAction" Uuid="b98c0533-493d-0000-020a100536000000" UseNames="PLMChgActionBase" CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+  <CAAComment>
+    <ShortRole>Design Action Package</ShortRole>
+    <Role>This package includes the entities of the Design Acton Reference and Design Child Action Instance</Role>
+  </CAAComment>
+  <Comment>last update 2006-12-05-09.00.00</Comment>
+  <!-- *************************************** -->
+  <!-- * PLMDesignAction (PLMActionBase)   * -->
+  <!-- *************************************** -->
+  <Class Name="PLMDesignAction" Uuid="b8d1ec6a-d1b7-0000-020a100536000000" Abstract="No" SuperName="PLMActionBase" CreateInstName="PLMDesignChildAction" Specializable="Yes" CustomerExtensible="Yes" CustomerExposition="Programmer">
+    <CAAComment>
+      <ShortRole>Design Action Reference</ShortRole>
+      <Role>Action Reference for Design</Role>
+    </CAAComment>
+
+    <!-- *********************** -->
+    <!-- Properties Declaration  -->
+    <!-- *********************** -->
+    <Property Name="DMCDerivable"  Value="Yes"/>
+    <Property Name="Newable"  Value="All"/>
+    <Property Name="IconName"  Value="I_ActionDesign_22"/>
+    <Property Name="3DIconName"  Value="DesignActionNavRep2.cgr"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="PLMECANewFactory"/>
+    <Property Name="Configurable"  Value="No"/>
+    <Property Name="Filtrable"  Value="No"/>
+    <Property Name="ChangeManagementSupport"  Value="No"/>
+
+    <Property Name="ChangeMaturityAvailability" Value="Yes"/>
+    <Property Name="DeleteAvailability" Value="Yes"/>
+    <Property Name="DuplicateAvailability" Value="No"/>
+    <Property Name="EditPropertiesAvailability" Value="Yes"/>
+    <Property Name="EvolutionAvailability" Value="No"/>
+    <Property Name="LockUnlockAvailability" Value="No"/>
+    <Property Name="NewMajorRevisionAvailability" Value="No"/>
+    <Property Name="NewMinorRevisionAvailability" Value="No"/>
+    <Property Name="SaveAsNewAvailability" Value="No"/>
+    <Property Name="TransferOwnershipAvailability" Value="Yes"/>
+
+    <!-- *********************** -->
+    <!-- PROCEDURES Declaration  -->
+    <!-- *********************** -->
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+    
+  </Class>
+  <!-- *************************************** -->
+  <!-- * PLMDesignChildAction (PLMChildAction)   * -->
+  <!-- *************************************** -->
+  <RelationClass Name="PLMDesignChildAction" Uuid="bea5189c-3790-4a45-be88a49ef2296876"  Abstract="No" SuperName="PLMChildAction" CustomerExposition="Programmer">
+    <CAAComment>
+      <ShortRole>Design Child Action Instance</ShortRole>
+      <Role>Child Action Instance for Design</Role>
+    </CAAComment>
+    <!-- Behavior patterns: default values -->
+    <Property Name="EditPropertiesAvailability" Value="No"/>
+    
+
+    <!--
+	*********************************************************
+	* Overload(s) of PLMCoreInstance attributes.
+	********************************************************* -->
+    <SubClause Name="to"   TargetName="PLMDesignAction"/>
+
+    <!-- *********************** -->
+    <!-- PROCEDURES Declaration  -->
+    <!-- *********************** -->
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    
+  </RelationClass>
+</Package>

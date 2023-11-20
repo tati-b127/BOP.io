@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" Name="DELLmiProductionCurveOperationDS" Uuid="11597a80-9a08-4bbe-80e5fafd2e48cae7" UseNames="DELLmiProductionCurveOperation" >
+<Property Name="OptionalInstallation" Value="Yes" /> 
+	<CAAComment>
+		<ShortRole>Standard DELMIA Curve Operation Package</ShortRole>
+		<Role>This package includes default customized DELMIA Curve Operation</Role>
+	</CAAComment>
+	<Comment>last update 2008-10-13</Comment>
+
+	<Class Name="DELLmiCurveOperationReferenceCusto" Uuid="181fc634-4b3a-44b5-87484fc330c0db4d" SuperName="DELLmiCurveOperationReference"   >
+
+    <IdentifierSet Name="Identifier"
+        Uuid="29759657-dd0a-4f30-b5e1b1585078f7e1"
+        IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755"
+        IdentifierNames="PLM_ExternalID V_version" />
+    
+    <CAAComment>
+			<ShortRole>Standard DELMIA Curve Operation Reference</ShortRole>
+			<Role>Default customized DELMIA Curve Operation Reference</Role>
+		</CAAComment>
+	</Class>
+
+  <RelationClass Name="DELLmiCurveOperationInstanceCusto" Uuid="4a5929fc-1261-4e84-a5b6f988401bcdcf" SuperName="DELLmiCurveOperationInstance" >
+		<CAAComment>
+			<ShortRole>Standard DELMIA Curve Operation Instance</ShortRole>
+			<Role>Default customized DELMIA Curve Operation Instance</Role>
+		</CAAComment>		
+            <!-- ********************************************************* -->
+            <!-- * Overload(s) of PLMCoreInstance attributes. -->
+            <!-- ********************************************************* -->
+    <SubClause Name="to"   TargetName="DELLmiCurveOperationReferenceCusto"/>
+	</RelationClass>
+</Package>

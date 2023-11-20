@@ -1,0 +1,12 @@
+NAVIGATE
+   T0.PLMID, T1.PLMID,
+   T0.PLM_ExternalID, T1.PLM_ExternalID
+FROM
+   RFLVPMSystemType/RFLVPMSystemTypeInstance T0,
+   RFLVPMLogicalInterfaceRep/RFLVPMLogicalInterfaceRepInstance T1
+FROM_ROOTS [?1?]
+ON
+RELATION (FROM=RFLVPMSystemType/RFLVPMSystemTypeReference TO=RFLVPMSystemType/RFLVPMSystemTypeInstance, 
+   RFLVPMLogicalInterfaceRep/RFLVPMLogicalInterfaceRepInstance  THROUGH=POINTEDBY)
+WITH QUALITY_FILTER  (CATEGORY=ISOWNEDBY)
+ITER=1;

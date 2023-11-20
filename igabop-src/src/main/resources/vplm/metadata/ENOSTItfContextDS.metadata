@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" DataRDB_OID="ENODR_STITFC" Name="ENOSTItfContextDS" Uuid="469c5929-a11e-4617-a2d9-bb4c215e5775" UseNames="SIMItfInterfere">
+  <CAAComment>
+    <ShortRole>PLM Itf Context Customization For ENOVIA SmarTeam</ShortRole>
+    <Role>Tailored to support market needs</Role>
+  </CAAComment>
+
+  <!-- **************************************************************************** -->
+  <!-- *    ENOSTItfContextDS (SIMItfInterfere)                                     * -->
+  <!-- **************************************************************************** -->
+  <Class Name="ENOSTInterferenceContextDS"
+    Uuid="868c0e6d-ae28-45f5-98af-7cb23d73d992"
+    SuperName="SIMItfContextOfInterference"
+  >
+    <Comment>SMB customization for the SIMItfContextOfInterference object</Comment>
+  </Class>
+</Package>

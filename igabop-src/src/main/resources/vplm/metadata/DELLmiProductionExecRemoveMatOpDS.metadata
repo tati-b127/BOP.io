@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" Name="DELLmiProductionExecRemoveMatOpDS" Uuid="1bd5c8b7-34c1-45e8-aed5-096a113a2638" UseNames="DELLmiProductionExecRemoveMaterialOp" >
+<Property Name="OptionalInstallation" Value="Yes" /> 
+	<CAAComment>
+		<ShortRole>Standard DELMIA Execution Remove Material Operation Package</ShortRole>
+		<Role>This package includes default customized DELMIA Execution Remove Material Operation</Role>
+	</CAAComment>
+	<Comment>last update 2009-05-25</Comment>
+
+	<Class Name="DELLmiExecRemoveMaterialOpRefCusto" Uuid="5c59b6bd-6f97-4cee-86d6-83f57a97e892" SuperName="DELLmiExecRemoveMaterialOpReference" >
+
+    <IdentifierSet Name="Identifier"
+        Uuid="73d8aa74-82f3-4c20-b259-76554defbe6f"
+        IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755"
+        IdentifierNames="PLM_ExternalID V_version" />
+
+    <CAAComment>
+			<ShortRole>Standard DELMIA Execution Remove Material Operation Reference</ShortRole>
+			<Role>Default customized DELMIA Execution Remove Material Operation Reference</Role>
+		</CAAComment>
+	</Class>
+
+  <RelationClass Name="DELLmiExecRemoveMaterialOpInstCusto" Uuid="920299a9-3741-47f8-8645-9fc63434c722" SuperName="DELLmiExecRemoveMaterialOpInstance"  >
+		<CAAComment>
+			<ShortRole>Standard DELMIA Execution Remove Material Operation Instance</ShortRole>
+			<Role>Default customized DELMIA Execution Remove Material Operation Instance</Role>
+		</CAAComment>		
+            <!-- ********************************************************* -->
+            <!-- * Overload(s) of PLMCoreInstance attributes. -->
+            <!-- ********************************************************* -->
+    <SubClause Name="to"   TargetName="DELLmiExecRemoveMaterialOpRefCusto"/>
+	</RelationClass>
+</Package>

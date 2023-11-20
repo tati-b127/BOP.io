@@ -1,0 +1,29 @@
+<?xml version="1.0" ?>
+<ProcedurePackage 
+	xmlns="PLMDictionaryProcedure"
+	Name="TeamProcedures">
+			
+	<!-- Run -->
+	<Procedure Name="GetPropertiesFromPrj">
+		<Implementation Name="invoke" FileLocation="com.dassault_systemes.vplm.teamQuery.remoteProc.GetPropertiesFromPrj" Language="JAVA"/>
+		<Signature href="TeamRun_sig"/>
+	</Procedure>
+	
+	<Signature id="TeamRun_sig">
+		<Parameter Name="in" MultiValuated="No" Direction="in" DataType="String"/>
+		<Parameter Name="out" MultiValuated="No" Direction="out" DataType="String"/>
+	</Signature>
+
+	<!-- Run -->
+	<Procedure Name="GetPropertiesFromAllPrj">
+		<Implementation Name="invoke" FileLocation="com.dassault_systemes.vplm.teamQuery.remoteProc.GetPropertiesFromAllPrj" Language="JAVA"/>
+		<Signature href="TeamRun2_sig"/>
+	</Procedure>
+	
+	<Signature id="TeamRun2_sig">
+		<Parameter Name="in" MultiValuated="No" Direction="in" DataType="String"/>
+		<Parameter Name="out" MultiValuated="Yes" Direction="out" DataType="String"/>
+	</Signature>
+
+		
+</ProcedurePackage>

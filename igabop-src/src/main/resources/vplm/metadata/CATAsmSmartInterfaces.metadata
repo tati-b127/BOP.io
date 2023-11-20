@@ -1,0 +1,151 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2005, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" Name="CATAsmSmartInterfaces" Uuid="1CE7D874-3FD8-4495-9C66-4C8B0AEF2C15"
+         CustomerExposition="Programmer" UseNames="PRODUCTCFG">
+  <Comment>last update the 2007-11-07 at 10:00:00</Comment>
+  <Comment>Modification   17-11-2009 by WEZ</Comment>
+  <Comment>Modification   17-04-2012 by FDM LIP Unicorn</Comment>
+  <Comment>Modification   31-08-2017 by FDM RI CBD MaxLength="64"</Comment>
+  <!-- SI Extension -->
+  <Extension  Name="CATAsmSI"
+              Uuid="D0E6CDB2-6E51-4d61-9291-2599F9138F5D"
+              ScopeNames="VPMPort"
+              CustomerExposition="Programmer">
+
+    <Simple Name="V_MustBeUsed"
+            Uuid="4DA986B2-8E1B-456a-8734-7E98BA71D87B"
+            Type="Boolean"
+            MultiValuated="No"
+            Protection="External" CAAExposition="L0"/>
+
+  </Extension>
+
+  <!-- 3DPosition Extension -->
+  <Extension  Name="CATAsm3DPosition"
+              Uuid="BA1884B9-C38F-46be-B6C9-FCF1D8E5C1B7"
+              ScopeNames="VPMPort"
+              CustomerExposition="Programmer">
+
+    <Simple  Name="V_MRX"
+             Uuid="4E3CA2C4-76C3-4fd5-A55A-4175AF9ACAF6"
+             Type="String"
+             MaxLength="32"
+             MultiValuated="No"
+             Protection="External" CAAExposition="L0"/>
+
+    <Simple Name="V_MRXMode" Uuid="1C512F82-7358-4432-BCB9-8FBA3498CA91" Type="Integer" Protection="External" CAAExposition="L0" DefaultValue="4">
+      <Property Name="RangeAsEnumName" Value="CATASM_SIMRXMode_Enum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="CATASM_SIMRXMode_specified;CATASM_SIMRXMode_computed;CATASM_SIMRXMode_controlled;CATASM_SIMRXMode_unset"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+      </Range>
+    </Simple>
+
+    <Simple  Name="V_MCXExpected"
+             Uuid="E9343FAE-9AA7-43fe-A8D5-4328256C0DD2"
+             Type="String"
+             MaxLength="32"
+             MultiValuated="No"
+             Protection="External" CAAExposition="L0"/>
+
+    <Simple  Name="V_HookingPointName"
+             Uuid="75038EEB-A2AC-4249-82B1-E9521CC7F0C7"
+             Type="String"
+             MaxLength="64"
+             MultiValuated="No"
+             Protection="External" CAAExposition="L0"/>
+
+    <Simple  Name="V_GeometryExpected"
+             Uuid="B61224FB-0118-4182-8A0C-04E2F3B8A7D0"
+             Type="String"
+             MaxLength="24"
+             CollectionType="List"
+             MultiValuated="Yes"
+             Protection="External" CAAExposition="L0"/>
+
+    <Simple Name="V_HookingPointType" Uuid="72919DC1-217B-4b24-B14C-7B18513538AD" Type="Integer" Protection="External" CAAExposition="L0" DefaultValue="4">
+      <Property Name="RangeAsEnumName" Value="CATASM_SIHPType_Enum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="CATASM_SIHPType_IN;CATASM_SIHPType_OUT;CATASM_SIHPType_INOUT;CATASM_SIHPType_Unset"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+      </Range>
+    </Simple>
+
+    <Simple  Name="V_Angle1"
+             Uuid="566C663D-80E1-4914-9308-BAB4EA9CF140"
+             Type="Double"
+             MultiValuated="No"
+             Protection="External" CAAExposition="L0"/>
+
+    <Simple  Name="V_Angle2"
+             Uuid="8B2DCC2F-7C6C-4551-BAAD-3E5C63BA5ADC"
+             Type="Double"
+             MultiValuated="No"
+             Protection="External" CAAExposition="L0"/>
+
+    <Simple  Name="V_Angle3"
+             Uuid="13556FE3-57D1-4d04-BEF5-1B216400F46F"
+             Type="Double"
+             MultiValuated="No"
+             Protection="External" CAAExposition="L0"/>
+
+    <Simple  Name="V_Length1"
+             Uuid="0DB5337A-44F5-49b5-A9B8-C34841548F02"
+             Type="Double"
+             MultiValuated="No"
+             Protection="External" CAAExposition="L0"/>
+
+    <Simple  Name="V_Length2"
+             Uuid="821B0CAA-455B-4297-A441-A6417E1D3441"
+             Type="Double"
+             MultiValuated="No"
+             Protection="External" CAAExposition="L0"/>
+
+    <Simple  Name="V_Length3"
+             Uuid="66499C68-37AA-4d4e-AD0B-BC4262F93093"
+             Type="Double"
+             MultiValuated="No"
+             Protection="External" CAAExposition="L0"/>
+
+    <Simple  Name="V_Orientation"
+             Uuid="43A45ED8-B3A2-4682-AC80-9AA522CA3D09"
+             Type="String"
+             MaxLength="24"
+             MultiValuated="No"
+             Protection="External" CAAExposition="L0"/>
+
+    <Simple Name="V_DefaultConstraintDirection" Uuid="2C0EE176-3F95-4707-A62A-AC75A39F4DE1" Type="Integer" Protection="External" CAAExposition="L0" DefaultValue="4">
+      <Property Name="RangeAsEnumName" Value="CATASM_SIConstraintDir_Enum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="CATASM_SIConstraintDir_Master;CATASM_SIConstraintDir_Slave;CATASM_SIConstraintDir_NoDirectional;CATASM_SIConstraintDir_Unset"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+      </Range>
+    </Simple>
+
+
+    <Simple  Name="V_HookingPointConsumption"
+             Uuid="973EFF24-6052-4dd0-AF40-6C600914B2F0"
+             Type="Integer"
+             MultiValuated="No"
+             Protection="External" CAAExposition="L0"/>
+
+    <Simple  Name="V_SIGeometry"
+             Uuid="56E03C62-AFE6-434a-8BFB-00391E591838"
+             Type="String"
+             MaxLength="24"
+             MultiValuated="No"
+             Protection="External" CAAExposition="L0"/>
+  </Extension>
+
+</Package>
+

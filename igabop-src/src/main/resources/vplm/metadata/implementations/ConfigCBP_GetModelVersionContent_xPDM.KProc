@@ -1,0 +1,19 @@
+#Prog ConfigCBP_GetModelVersionContent_xPDM( iPLMIDSet : #In PLMIDSet, oPLMIDSet : #Out PLMIDSet ) : VoidType
+{
+
+let PLMIDSetModelVersion (PLMIDSet)
+
+let PLMRouteSetModelVersionContent (PLMRouteSet)
+
+
+/* Completes with the full content of the Model */
+
+PLMIDSetModelVersion = Restrict(iPLMIDSet, "Class/Products")
+PLMRouteSetModelVersionContent = ExecutePLMFunction("Products", "Product_AddCriteriaFromModelVersion_xPDM", PLMIDSetModelVersion)
+
+
+/* Fill output ID set */
+
+oPLMIDSet = iPLMIDSet + Ids(PLMRouteSetModelVersionContent)
+
+}

@@ -1,0 +1,19 @@
+#Prog ConfigCBP_GetModelContent_xPDM( iPLMIDSet : #In PLMIDSet, oPLMIDSet : #Out PLMIDSet ) : VoidType
+{
+
+let PLMIDSetModel (PLMIDSet)
+
+let PLMRouteSetModelContent (PLMRouteSet)
+
+
+/* Completes with the full content of the Model */
+
+PLMIDSetModel = Restrict(iPLMIDSet, "Class/Model")
+PLMRouteSetModelContent = ExecutePLMFunction("Product", "Product_AddCriteriaFromModel_xPDM", PLMIDSetModel)
+
+
+/* Fill output ID set */
+
+oPLMIDSet = iPLMIDSet + Ids(PLMRouteSetModelContent)
+
+}

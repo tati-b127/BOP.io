@@ -1,0 +1,4 @@
+#Prog Kba_ExportAppZip( iPLMIDSet : #In PLMIDSet, oPLMIDSet : #Out PLMIDSet ) : VoidType
+{
+oPLMIDSet = iPLMIDSet
+}

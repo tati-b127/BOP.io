@@ -1,0 +1,26 @@
+NAVIGATE     
+
+T0.PLMID, T1.PLMID
+ 
+
+FROM      
+
+PRODUCTCFG/VPMRepReference T0,
+CATSysBehaviorLibrary/CATSysBehaviorLibRepReference T1
+
+
+FROM_ROOTS[?1?]
+
+ON ( RELATION(     
+
+FROM=PRODUCTCFG/VPMRepReference       
+
+TO=CATSysBehaviorLibrary/CATSysBehaviorLibRepReference 
+
+THROUGH=POINTSTO )
+
+WITH QUALITY_FILTER(ROLE=DEL_LinkFromLibToRepRef))
+
+;
+
+

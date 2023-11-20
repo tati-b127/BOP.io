@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" Name="DMUVALReviewDisciplines" UseNames="DMUValidationReview" Uuid="68698942-d4af-4e26-a292-0db701d33af8" BelongsToModeler="DMUValidationAbstract" CustomerExposition="Programmer">
+	<CAAComment>
+		<ShortRole>DMU Validation Review disciplines resources package</ShortRole>
+		<Role>This package describes the DMU Validation Review disciplines</Role>
+	</CAAComment>
+	<Comment>Creation 2009-12-04 LJE</Comment>
+
+  <Class Name="VALReview" Uuid="a626a1b1-6e81-451c-acb0-7553df8caa8e" Discipline="Yes" Abstract="No" SuperName="DMUValidationReviewRepReference" CustomerExposition="Programmer" Specializable="Yes" Abbreviation="vrv">
+    <Property Name="IconName" Value="I_VALReview"/>
+    <Property Name="3DIconName" Value="I_VALReview.cgr"/>
+		<Property Name="Searchable" Value="No"/>
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Remove"/>
+        <UsedProcedure href="ENOVAL_Procedures.proc#Markup_Complete"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#TransferSiteOwnership"/>
+        <UsedProcedure href="ENOVAL_Procedures.proc#Markup_Complete"/>
+      </ProcedureForUsage>
+    </Method>
+	</Class>
+</Package>

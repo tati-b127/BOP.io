@@ -1,0 +1,181 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY FOR DIFModeler01                    -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2010, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" 
+         ModelerType="Top" 
+         Name="DIFModeler01" 
+         Uuid="84C18A7B-6F78-4325-B515-CFB56CD0AF88" 
+         BelongsToModeler="DIFModeler01"
+         UseNames="PLMCORE"
+         UseProcedures="DIFpe_Procedures"
+         CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <!-- Our types are not exportable per-se, but must be exportable if
+       the master application is exportable.  
+
+        In order for the master application to export our types, our
+        KProcs must be available on the server so that it can use
+        them 
+
+        Consequently:
+           * We declare our procedures at the package level via UseProcedures. 
+           * Our export is set to None -->
+
+  <CAAComment>
+    <ShortRole>DIF model Package</ShortRole>
+    <Role>This package describes the DIF model built on top of PLM Core2</Role>
+  </CAAComment>
+
+  <Comment>last update 2012-03-27-14.00.00</Comment>
+  
+  <!-- For DIFModeler01 provides :                   -->
+  <!-- DIFLayout                   PLMCoreReference  -->
+  <!-- DIFAttachedPresentation     PLMConnection     -->
+
+  <!-- ******************************************* -->
+  <!-- *  DIFLayout (PLMCoreReference)           * -->
+  <!-- ******************************************* -->
+  <Class Name="DIFLayout" 
+         Uuid="CB9826E8-0056-406A-8CA4-0A47A18E7210" 
+         Abstract="No"
+         Abbreviation="lay"
+         SuperName="PLMCoreReference"
+         CustomerExposition="Programmer"
+         Specializable="Yes" 
+         DeleteAvailability="Yes">
+    
+    <CAAComment>
+      <ShortRole>DIF Layout Reference Object</ShortRole>
+      <Role>DIF Layout Reference Object</Role>
+    </CAAComment>
+
+    <!-- Support old typing system -->
+    <Property Name="DMCDerivable" Value="Yes"/>
+
+    <!-- Configuration -->
+    <Property Name="Configurable" Value="Yes"/>
+
+    <!-- Minor Version -->   
+    <Property Name="ShareBetweenProjectsAvailability" Value="Yes"/>
+    
+    <!-- Collaborative Space Applicability -->
+    <Property Name="NewMinorRevisionAvailability" Value="Yes"/>    
+
+    <!-- PLM New UI/KWE Scripts New -->
+    <Property Name="Newable" Value="New"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATDifKBEDelegateInstanciation"/>
+
+    <!-- Icon and 3D Icon -->
+    <Property Name="IconName" Value="I_VPMNavDifLayout"/>
+
+    <!-- Export -->
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Remove"/>
+        <UsedProcedure href="DIFpe_Procedures.proc#DIFModeler_ExportCompletion_Myself"/>
+      </ProcedureForUsage>
+
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#TransferSiteOwnership"/>
+        <UsedProcedure href="DIFpe_Procedures.proc#DIFModeler_ExportCompletion_Myself"/>
+      </ProcedureForUsage>
+    
+    </Method>
+
+    <Simple Name="V_DIFName"
+            Uuid="3444738F-9B80-4344-B8CF-9C88966341FF"
+            Type="String"
+            DefaultValue=""
+            CAAExposition="L0"
+            Protection="Free"/>
+  </Class>
+
+  <!-- ********************************************* -->
+  <!-- *  DIFAttachedPresentation (PLMConnection)  * -->
+  <!-- ********************************************* -->
+  <Class Name="DIFAttachedPresentation" 
+         Uuid="F6B47022-EBB1-4FE6-82D9-CEF343732254" 
+         Abstract="No" 
+         SuperName="PLMConnection"
+         CustomerExposition="Programmer">
+
+    <Path Name="V_DIFAttachedPresentation"
+      Uuid="C36C5728-22CB-4a41-AF72-212C49F89634"
+      MultiValuated="No"
+      RoleName="DIFAttachedPresentation"
+      Type="SemanticRelation" AdaptativeToMinor="No"
+		  SynchroSensitivity="None"
+		  RerouteOnEffectivityChange="No"
+      Semantics="Reference"/> 
+
+    <CAAComment>
+      <ShortRole>DIF Connection AttachedPresentation Object</ShortRole>
+      <Role>DIF Connection AttachedPresentation Object</Role>
+    </CAAComment>
+
+    <!-- PLM New UI/KWE Scripts New -->
+    <Property Name="KweNew_InstanciationMethod" Value="CATDifKBEDelegateInstanciation"/>
+
+    <!-- Export -->
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+  <!-- ********************************************************** -->
+  <!-- FUNCTIONS Declarations : here are declared PLMQL Functions -->
+  <!-- ********************************************************** -->
+  <Function Name="DifModeler_AddPresentationCnx">
+    <Implementation Name="DifModeler_AddPresentationCnx" FileLocation="DifModeler_AddPresentationCnx.plmql" Language="PLMQL"/>
+    <Signature href="DIFExportSignature"/>
+  </Function>
+
+  <Function Name="DifModeler_AddLayouts">
+    <Implementation Name="DifModeler_AddLayouts" FileLocation="DifModeler_AddLayouts.plmql" Language="PLMQL"/>
+    <Signature href="DIFExportSignature"/>
+  </Function>
+  
+  <Function Name="DifModeler_AddSheets">
+    <Implementation Name="DifModeler_AddSheets" FileLocation="DifModeler_AddSheets.plmql" Language="PLMQL"/>
+    <Signature href="DIFExportSignature"/>
+  </Function>
+
+  <Function Name="DifModeler_AddViews">
+    <Implementation Name="DifModeler_AddViews" FileLocation="DifModeler_AddViews.plmql" Language="PLMQL"/>
+    <Signature href="DIFExportSignature"/>
+  </Function>
+
+  <Function Name="DifModeler_AddViewsStream">
+    <Implementation Name="DifModeler_AddViewsStream" FileLocation="DifModeler_AddViewsStream.plmql" Language="PLMQL"/>
+    <Signature href="DIFExportSignature"/>
+  </Function>
+
+  <Function Name="DifModeler_AddBackgroundViewRep">
+    <Implementation Name="DifModeler_AddBackgroundViewRep" FileLocation="DifModeler_AddBackgroundViewRep.plmql" Language="PLMQL"/>
+    <Signature href="DIFExportSignature"/>
+  </Function>
+  
+  <Function Name="DifModeler_AddStandard">
+    <Implementation Name="DifModeler_AddStandard" FileLocation="DifModeler_AddStandard.plmql" Language="PLMQL"/>
+    <Signature href="DIFExportSignature"/>
+  </Function>
+
+  <Function Name="DifModeler_AddBackgroundViewRepReference">
+    <Implementation Name="DifModeler_AddBackgroundViewRepReference" FileLocation="DifModeler_AddBackgroundViewRepReference.plmql" Language="PLMQL"/>
+    <Signature href="DIFExportSignature"/>
+  </Function>
+
+  <Function Name="DifModeler_AddViewsStreamReference">
+    <Implementation Name="DifModeler_AddViewsStreamReference" FileLocation="DifModeler_AddViewsStreamReference.plmql" Language="PLMQL"/>
+    <Signature href="DIFExportSignature"/>
+  </Function>
+
+  <Signature id="DIFExportSignature">
+    <Parameter Name="InputIds" Lower="0" Upper="-1" Direction="in" MultiValuated="Yes" DataType="PLMId"/>
+    <Parameter Name="OutputIds" Lower="0" Upper="-1" Direction="out" MultiValuated="No" DataType="PLMRouteSet"/>
+  </Signature>
+
+</Package>

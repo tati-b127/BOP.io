@@ -1,0 +1,8 @@
+<?xml version="1.0"?> <!-- COPYRIGHT DASSAULT SYSTEMES 2009, All rights reserved -->
+<Package xmlns="PLMDictionaryTop"
+     Name="PLMCustomerDisciplines"
+     Uuid="337E9389-798C-4616-94E5B5008766E36C"
+     ModelerType="Top"
+     UseScopes="PRODUCTCFG RFLVPMLogical"
+     >
+</Package>

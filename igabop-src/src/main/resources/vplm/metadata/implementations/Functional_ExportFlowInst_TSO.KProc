@@ -1,0 +1,14 @@
+#Prog Functional_ExportFlowInst_TSO (iPLMIDSet :  #In PLMIDSet,oPLMIDSet :  #Out PLMIDSet) : VoidType
+{
+  let InputPLMIDSetRestrictedToFlowInstances(PLMIDSet)
+  let SetOfConfigObjectsPLMIDs(PLMIDSet)
+
+  InputPLMIDSetRestrictedToFlowInstances = Restrict(iPLMIDSet,"RFLPLMFlow/RFLPLMFlowInstance")
+ 
+  /*Completes with configuration */
+  /*TO ADD - Need a specific procedure from Config*/
+  /*SetOfConfigObjectsPLMIDs = ExecutePLMProcedure("?????",InputPLMIDSetRestrictedToFlowInstances)*/
+  
+  oPLMIDSet = iPLMIDSet
+  /*oPLMIDSet = iPLMIDSet + SetOfConfigObjectsPLMIDs*/
+}

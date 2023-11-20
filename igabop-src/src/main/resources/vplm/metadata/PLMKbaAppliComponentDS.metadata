@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" DataRDB_OID="ENODR_KBA_CMP_DS"
+	Name="PLMKbaAppliComponentDS" 
+	Uuid="8044907c-8d4b-448e-a09f-41559f262840"
+	UseNames="PLMKbaAppliComponent"
+	Alias="PLM Knowledge Business Applications -- DS Default Custo of Applicative Components' Modeler"
+	
+>
+<Property Name="OptionalInstallation" Value="Yes" /> 
+  <CAAComment>
+    <ShortRole>PLM Knowledge Business Applications -- Applicative Components' Modeler</ShortRole>
+    <Role>This package describes the DS (default) Customization of Knowledge Business Applicative Components on top of PLM Core</Role>
+  </CAAComment>
+  <Comment>Created by PHB (2007-01-22)</Comment>
+  <!-- ********************************************************** -->
+  <!-- *  PLMKbaAppliComponentDS (PLMCoreRepReference) * -->
+  <!-- ********************************************************** -->
+  <Class Name="PLMKbaAppliComponentDS"
+   Alias="PLMKbaAppliComponentDS"
+   Uuid="5fbe2f28-2042-456a-9f8c-a85ebc8c475d"		
+   
+   
+   
+   
+   SuperName="PLMKbaAppliComponent"
+   SuperRef="59a2ca08-53c2-4885-849fc7700e3de3f7"
+   
+   
+	    >
+    <CAAComment>
+      <ShortRole>DS Knowledge Business Applicative Component (RepRef Object)</ShortRole>
+      <Role>DS PLM Knowledge Business Applicative Component -- Custo of Representation Reference Object</Role>
+    </CAAComment>
+
+    <IdentifierSet 
+      Name="Identifier"
+      Uuid="93ecd3ac-2320-4881-a6e4-bbd3db9cc849"
+      IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755"
+      IdentifierNames="PLM_ExternalID V_version"
+        />
+
+  </Class>
+
+
+  <!-- ********************************************************** -->
+  <!-- *  PLMKbaAppliCompositionItemDS (PLMCoreRepInstance) * -->
+  <!-- ********************************************************** -->
+  <Class Name="PLMKbaAppliCompositionItemDS"
+   Alias="PLMKbaAppliCompositionItemDS"
+   Uuid="0698dcaa-94ca-442e-93f1-e5678c694ece"		
+   
+   
+   
+   
+   SuperName="PLMKbaAppliCompositionItem"
+   SuperRef="690b4019-bfd3-49a3-b331e52be219c54d"
+   
+   
+	>
+    <CAAComment>
+      <ShortRole>Application Composition Item (RepInstance)</ShortRole>
+      <Role>PLM Knowledge Business Application Composition Item -- Representation Instance Object</Role>
+    </CAAComment>
+
+    <IdentifierSet 
+      Name="Identifier"
+      Uuid="e7a9579a-86f5-44d1-b143-e03177ba6dff"
+      IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB"
+      IdentifierNames="PLM_ExternalID"
+        />
+
+  </Class>
+
+
+</Package>

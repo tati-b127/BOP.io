@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY FOR ComponentsFamily Application -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2011, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" CustomerExposition="Programmer" ModelerType="Top" Name="CATComponentsFamilyVariableParmItems" BelongsToModeler="CATComponentsFamily" Uuid="c111691f-0fa7-4090-a4f6-5bf0b943118a" UseNames="CATComponentsFamilyItems" >
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+  <CAAComment>
+        <ShortRole>Components Family Variable Parameters Items Modeler Package</ShortRole>
+        <Role>This package contains meta datas of components family items. Each one is a components family item with particular values of the variable parameters.</Role>
+    </CAAComment>
+    <Comment>Creation 2011-03-04</Comment>
+    
+    <!-- **************************************** -->
+    <!-- * Components Family Connection to solved items (derives CATComponentsFamilyProxyToParametricElement PLMConnection) * -->
+    <!-- **************************************** -->
+    <Class Name="CATComponentsFamilyVariableParametersItem" CustomerExposition="Programmer" Uuid="b02ca47c-2302-456c-b4f1-c584e531fbec" Abstract="No" SuperName="CATComponentsFamilyProxyToElement" >
+        <CAAComment>
+            <ShortRole>Components family item which allow to override parameters</ShortRole>
+            <Role>It derives the component family item to use variable parameters</Role>
+        </CAAComment>
+        
+        <Simple Name="V_VariableParametersItemId" Uuid="f85dc800-d215-4560-864c-302b083c0787" Protection="Internal" Type="String" MultiValuated="No" PLMImpacting="No"/>
+        <Simple Name="V_VariableParameters" Uuid="34917829-6d83-4ba5-a641-d4f8f41612d9" Protection="Internal" Type="String" MultiValuated="No" PLMImpacting="No"/>
+      <Method ImplementationType="AsFather">
+        <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      </Method>
+    </Class>
+</Package>

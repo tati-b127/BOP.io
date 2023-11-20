@@ -1,0 +1,180 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2005, All rights reserved -->
+
+<!--
+@FN7 13:07:19 Clean up to make the file more readable
+-->
+
+<Package  xmlns="PLMDictionaryUnified"
+          ModelerType="Top"
+          Name="SIMItfInterfere"
+          Uuid="ee5aedca-8a9c-469f-8419-04ba82af983e"
+          UseNames="SIMObjSimulation"
+          CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <!-- _____________________________________________________________________________________________ -->
+  <!--     Interference Contextual class                                                             -->
+  <!-- _____________________________________________________________________________________________ -->
+  <Class  Name="SIMItfContextOfInterference"
+          Uuid="1f28c8d8-0b09-4cf7-a9fe-82a36623ca46"
+          SuperName="SIMObjSimulationConnection"
+          CustomerExposition="Programmer"
+          Abstract="No"
+          CustomerExtensible="No"
+          Specializable="No">
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="IconName"     Value="I_Interference_Contextual" />
+
+    <!-- _____________________________________________________________________________________________ -->
+    <!--    V_Itf_NumExecutionAtCreation - new R208                                                    -->
+    <!-- _____________________________________________________________________________________________ -->
+    <Simple Name="V_Itf_NumExecutionAtCreation"
+            Uuid="7113b9b6-78da-4dc9-aa9c-58245e6b69c6"
+            Protection="Internal"
+            Type="Integer"
+            DefaultValue="0">
+      <Comment>Number of Simulation Execution at interference Creation: used to identify if inertfernce is new,old or modified </Comment>
+    </Simple>
+
+    <!-- _____________________________________________________________________________________________ -->
+    <!--    V_Itf_NumExecutionAtUpdate - new R208                                                      -->
+    <!-- _____________________________________________________________________________________________ -->
+    <Simple Name="V_Itf_NumExecutionAtUpdate"
+            Uuid="b31899e0-3cfb-43e1-910b-0d00fa246116"
+            Protection="Internal"
+            Type="Integer"
+            DefaultValue="0">
+      <Comment>Number of Simulation Execution at interference update: used to identify if inertfernce is new,old or modified </Comment>
+    </Simple>
+
+    <!-- _____________________________________________________________________________________________ -->
+    <!--    V_Itf_Version - new R207                                                                   -->
+    <!-- _____________________________________________________________________________________________ -->
+    <Simple Name="V_Itf_Version"
+            Uuid="b76eb0f1-c912-4416-8fd6-c0f034598cd6"
+            Protection="Internal"
+            Type="Integer"
+            DefaultValue="206">
+      <Comment>Version of the interference</Comment>
+    </Simple>
+
+    <!-- ______________________________________________________________________________________________-->
+    <!--    V_Itf_Analysis - @@@DEPRECATED after r207                                                  -->
+    <!-- ______________________________________________________________________________________________-->
+    <Simple Name="V_Itf_Analysis" Uuid="b5c923c8-34ee-4398-b664-98d523e558c7" Type="Integer" Protection="Free" CAAExposition="L0" DefaultValue="3">
+      <Comment>Interference Type (OK, KO, Not_Analysed, etc.)</Comment>
+      <Property Name="RangeAsEnumName" Value="Itf_Analysis"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="OK;KO;Not_Analysed;Unknown"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+      </Range>
+    </Simple>
+
+    <!-- _____________________________________________________________________________________________ -->
+    <!--    V_Context_Validity_Status                                                                  -->
+    <!-- _____________________________________________________________________________________________ -->
+
+    <Simple Name="V_Context_Validity_Status" Uuid="6A391BCA-2925-4089-A5A6-FF9891CF6028" Type="Integer" Protection="External" CAAExposition="L0" DefaultValue="1" Faceted="Yes">
+      <Comment>Interference (ctx) validity status ( In_Scope, Out_Of_Scope )</Comment>
+      <Property Name="RangeAsEnumName" Value="Itf_Validity_Status"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="In_Scope;Out_Of_Scope"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+      </Range>
+    </Simple>
+
+    <!-- _____________________________________________________________________________________________ -->
+    <!--    V_Itf_Location_In_Context                                                                  -->
+    <!-- _____________________________________________________________________________________________ -->
+    <Simple Name="V_Itf_Location_In_Context"
+            Uuid="bd024277-eee7-478f-8042-d6ddcd8fa4f1"
+            Protection="External"
+            Type="Double"
+            CAAExposition="L0"
+            MultiValuated="Yes"
+            CollectionType="List">
+      <Comment>Interference Location in the context axis -for example point in clash detected by the algorithm</Comment>
+    </Simple>
+
+    <!-- _____________________________________________________________________________________________ -->
+    <!--    V_NoShow_Status - new R216                                                                 -->
+    <!-- _____________________________________________________________________________________________ -->
+    <Simple Name="V_NoShow_Status"
+            Uuid="13275B3E-4CC3-4746-AA4A-F7D4B2F8063C"
+            Protection="Internal"
+            Type="Integer"
+            DefaultValue="1">
+      <Comment>Interference (ctx) NoShow status ( 0=NoShow | 1=Show ). If equals 0, it means at least one of the pointed occurrences has a persitent noshow graphical properties</Comment>
+    </Simple>
+
+    <!-- _____________________________________________________________________________________________ -->
+    <!--    LinkRootContextToSCA                                                                       -->
+    <!-- _____________________________________________________________________________________________ -->
+    <Path Name="LinkRootContextToSCA"
+                      Uuid="12e2ae25-774b-4cc5-b1bb-ba1d2d9bd911"
+                      RoleName="PIM_RootContextToSCA"
+                      Type="SemanticRelation" AdaptativeToMinor="No"
+		                  SynchroSensitivity="PathAndLast"
+                  		RerouteOnEffectivityChange="No"
+                      MultiValuated="No" Orientation="In"
+                      Semantics="Reference3">
+      <Comment>Links (occurence link) from Root Context to SCA (Smallest Common Ancestor)</Comment>
+    </Path>
+
+    <!-- _____________________________________________________________________________________________ -->
+    <!--    LinkMetric                                                                                 -->
+    <!-- _____________________________________________________________________________________________ -->
+    <Path Name="LinkMetric"
+                      Uuid="1235bd91-4682-4ca7-b2ff-4a838d6d672d"
+                      RoleName="PIM_Metric"
+                      Type="SemanticRelation" AdaptativeToMinor="No"
+	                    SynchroSensitivity="Last"
+		                  RerouteOnEffectivityChange="No"
+                      MultiValuated="No" Orientation="In"
+                      Semantics="Reference4">
+      <Comment>Link (ref link) referencing the interference metric</Comment>
+    </Path>
+
+    <!-- _____________________________________________________________________________________________ -->
+    <!--    SpecTracking                                                                               -->
+    <!-- _____________________________________________________________________________________________ -->
+    <Path Name="SpecTracking"
+                      Uuid="1214a4af-0a78-4f46-af9c-9e6a12daa7d2"
+                      RoleName="PIM_Probe"
+                      Type="SemanticRelation" AdaptativeToMinor="No"
+	                  	SynchroSensitivity="Last"
+		                  RerouteOnEffectivityChange="No"
+                      MultiValuated="No" Orientation="In"
+                      Semantics="Reference4">
+      <Comment>Link (feature link) referencing the specifications</Comment>
+    </Path>
+
+    <!-- _____________________________________________________________________________________________ -->
+    <!--    LinkRule                                                                                   -->
+    <!-- _____________________________________________________________________________________________ -->
+    <Path Name="LinkRule"
+                      Uuid="95ad95d6-4d3d-4ae1-8e1b-f8f5899cfd55"
+                      RoleName="PIM_Probe"
+                   		Type="SemanticRelation" AdaptativeToMinor="No"
+                  		SynchroSensitivity="Last"
+		                  RerouteOnEffectivityChange="No"
+                      MultiValuated="No" Orientation="In"
+                      Semantics="Reference4">
+      <Comment>Link (ref link) referencing a KweRule or a MCX</Comment>
+    </Path>
+
+    <!-- EXPORT : no export -->
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+  </Class>
+
+</Package>

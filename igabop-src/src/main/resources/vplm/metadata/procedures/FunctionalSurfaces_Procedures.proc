@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<ProcedurePackage 
+	xmlns="PLMDictionaryProcedure"
+	Name="FunctionalSurfaces_Procedures">
+			
+	<Procedure Name="MechFSTemplateExport">
+		<Implementation Name="MechFSTemplateExport" FileLocation="MechFSTemplateExport.KProc" Language="EKL"/>
+		<Signature href="MechFSTemplateExport_Sig"/>
+	</Procedure>
+
+	<Signature id="MechFSTemplateExport_Sig">
+		<Parameter Name="InputIds" Lower="0" Upper="-1" MultiValuated="Yes" Direction="in" DataType="PLMId"/>
+		<Parameter Name="OutputIds" Lower="0" Upper="-1" MultiValuated="Yes" Direction="out" DataType="PLMId"/>
+	</Signature>
+	
+</ProcedurePackage>

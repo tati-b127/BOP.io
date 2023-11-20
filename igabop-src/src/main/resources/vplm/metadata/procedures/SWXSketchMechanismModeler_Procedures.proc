@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<ProcedurePackage 
+  xmlns="PLMDictionaryProcedure"
+	Name="SWXSketchMechanismModeler_Procedures">
+			
+	<Procedure Name="SWXSketchMechanismModeler_GetAllRepresentations">
+		<Implementation Name="SWXSketchMechanismModeler_GetAllRepresentations" FileLocation="SWXSketchMechanismModeler_GetAllRepresentations.KProc" Language="EKL"/>
+		<Signature href="SWXSketchMechanismModeler_ProcedureSignatureExport"/>
+	</Procedure>
+
+  <Signature id="SWXSketchMechanismModeler_ProcedureSignatureExport">
+    <Parameter Name="InParameter" Lower="0" Upper="-1" MultiValuated="Yes" Direction="in" DataType="PLMId"/>
+    <Parameter Name="OutParameter" Lower="0" Upper="-1" MultiValuated="Yes" Direction="out" DataType="PLMId"/>
+  </Signature>
+
+</ProcedurePackage>

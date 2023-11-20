@@ -1,0 +1,124 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2005, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top"  Name="PLMChgBase" Uuid="b27db0e1-bc3b-0000-020a100536000000" UseNames="PLMCORE" CustomerExposition="None">
+  <CAAComment>
+    <ShortRole>Change Base Package</ShortRole>
+    <Role>This package includes the base entity for Change Mangement Actions, the base entity for Change Management Input, and the base entity for Child Actions</Role>
+  </CAAComment>
+  <Comment>last update 2006-12-05-09.00.00</Comment>
+
+  <!-- *************************************** -->
+  <!-- * PLMChgBase(PLMReference) * -->
+  <!-- *************************************** -->
+  <Class Name="PLMChgBase" Uuid="b27db27d-63ea-0000-020a100536000000" Abstract="Yes" SuperName="PLMCoreReference" CreateInstName="PLMChgChild" CustomerExposition="None">
+    <CAAComment>
+      <ShortRole>Change Base - The central concept for the Change Management modeler</ShortRole>
+      <Role>Base Entity for Change Management References - they are used to request, define, and track a modification to a product. It contains the whole information (methodological documentation, affected parts, configuration specifications, CAD/CAM models, and electronic documents) necessary to implement the requested modification.</Role>
+    </CAAComment>
+
+    <Simple Name="V_abstract" Uuid="b27db391-8c63-0000-020a100536000000" Type="String" MaxLength="80" MultiValuated="No"  Protection="Free" CAAExposition="L1">
+      <CAAComment>
+        <ShortRole>Enter a summary description of the action</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_priority" Uuid="b27db717-f927-0000-020a100536000000" Type="Integer" Protection="Free" CAAExposition="L1" DefaultValue="1" Faceted="Yes">
+      <Property Name="SIXW" Value="ds6w:priority"/>
+      <Property Name="RangeAsEnumName" Value="PLMChgPriorityValues"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="Low;Medium;High"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+      </Range>
+      <CAAComment>
+        <ShortRole>Enter administrator/user assessment of action importance</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_duration" Uuid="b27db857-489f-0000-020a100536000000" Type="Double" MultiValuated="No" Magnitude="TIME" Protection="External" CAAExposition="L1">
+      <Property Name="SIXW" Value="ds6w:lasts"/>
+      <CAAComment>
+        <ShortRole>Enter the duration (in days) of the action</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_delIntervalTime" Uuid="b27db92a-e28d-0000-020a100536000000" Type="Double" MultiValuated="No"  Magnitude="TIME" Protection="Free" CAAExposition="L1">
+      <CAAComment>
+        <ShortRole>Enter nbr days before Del Date owner is notified that action is almost del</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_start_date" Uuid="b2cf0207-fff8-0000-020a100536000000" Type="Date" MultiValuated="No"  Protection="Free" CAAExposition="L1" Faceted="Yes">
+      <Property Name="SIXW" Value="ds6w:starts"/>
+      <CAAComment>
+        <ShortRole>Enter date the action is expected to start</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_end_date" Uuid="b2cf032c-fc81-0000-020a100536000000" Type="Date" MultiValuated="No"  Protection="Free" CAAExposition="L1" Faceted="Yes" >
+      <Property Name="SIXW" Value="ds6w:ends"/>
+      <CAAComment>
+        <ShortRole>Enter date the action is expected to end</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_actual_start_date" Uuid="b2cf03fb-7a8c-0000-020a100536000000" Type="Date" MultiValuated="No"  Protection="External" CAAExposition="L1" Faceted="Yes">
+      <Property Name="SIXW" Value="ds6w:actualStart"/>
+      <CAAComment>
+        <ShortRole>Enter date the action actually started</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_actual_end_date" Uuid="b2cf04bb-89be-0000-020a100536000000" Type="Date" MultiValuated="No"  ResetOnCloning="Yes" Protection="External" CAAExposition="L1" Faceted="Yes">
+      <Property Name="SIXW" Value="ds6w:actualEnd"/>
+      <CAAComment>
+        <ShortRole>Displays date the action actually ended</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_progress" Uuid="b2e87f92-d8c8-0000-020a100536000000" Type="Integer"  MultiValuated="No"  Protection="Free" CAAExposition="L1">
+      <CAAComment>
+        <ShortRole>Enter administrator/user assessment of action progress</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <!-- *********************** -->
+    <!-- PROCEDURES Declaration  -->
+    <!-- *********************** -->
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+  </Class>
+
+  <!-- *************************************** -->
+  <!-- * PLMInput (PLMConnection)   * -->
+  <!-- *************************************** -->
+  <Class Name="PLMChgInput" Uuid="b27dbbf6-e7e7-0000-020a100536000000" Abstract="Yes" SuperName="PLMConnection" CustomerExposition="None" OwnerTypes="PLMChgBase">
+    <CAAComment>
+      <ShortRole>Change Management Input Base</ShortRole>
+      <Role>Base Entity for Change Management Input Connections - Objects necessary as input to accomplish a modification and which have to be added to the action</Role>
+    </CAAComment>
+    <Path Name="DefaultActionInputs" Uuid="2cc4e816-bca3-4977-b880-35aee50d4bb4"  MultiValuated="No" RoleName="PLMChgActionInput" Semantics="Reference" Type="SemanticRelation" AdaptativeToMinor="No"		SynchroSensitivity="None"		RerouteOnEffectivityChange="No"/>
+    <!-- OwnerTypes="PLMChgBase"  Integrate this line if you want to declare the aggregation constraint -->
+
+    <!-- *********************** -->
+    <!-- PROCEDURES Declaration  -->
+    <!-- *********************** -->
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+  <!-- ********************************* -->
+  <!-- * PLMChgChild (PLMCoreInstance) * -->
+  <!-- ********************************* -->
+  <RelationClass Name="PLMChgChild" Uuid="b8d1e58d-64ae-0000-020a100536000000"  Abstract="Yes" SuperName="PLMCoreInstance" CustomerExposition="None">
+    <CAAComment>
+      <ShortRole>Change Child Base</ShortRole>
+      <Role>Base Entity for Child Change Management Instances - establishes a parent/child link between two actions</Role>
+    </CAAComment>
+
+    <!-- *********************** -->
+    <!-- PROCEDURES Declaration  -->
+    <!-- *********************** -->
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </RelationClass>
+</Package>

@@ -1,0 +1,239 @@
+<?xml version="1.0"?>
+<!-- edited with XML Spy v4.4 U (http://www.xmlspy.com) by ndn (DASSAULT SYSTEMES) -->
+
+<!-- ENOVIA DICTIONARY FOR RFL Requirement Application -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2006, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" Name="RFLPLMRequirement"
+	Uuid="857502e6-6e0b-4a9a-9b09985793fe23a9"
+	UseNames="PLMCORE RFLPLMRequirementAbstract"
+  CustomerExposition="None"
+>
+
+  <CAAComment>
+    <ShortRole>PLM RFL Requirement Package</ShortRole>
+    <Role>This package describes the PLM Requirement model on top of PLM Core</Role>
+  </CAAComment>
+
+  <Comment>last update 2007-04-10-12.00.00 Introduction of an abstract layer and specification/chapter/comment notions</Comment>
+
+  <!-- **************************************** -->
+  <!-- *  RFLPLMRequirement (PLMCoreReference)   * -->
+  <!-- **************************************** -->
+
+  <Class Name="RFLPLMRequirementReference"
+		Uuid="33895b30-4770-405e-af23-e1789915dae1"
+		Abstract="Yes"
+		SuperName="RFLPLMRequirementAbstractReference"
+	  CustomerExposition="None"
+	>
+
+     <Property Name="DMCDerivable" Value="Yes"/>
+    <!-- Behavior patterns: default values -->
+    <Property Name="LockUnlockAvailability" Value="No"/>
+    <Property Name="TransferOwnershipAvailability" Value="No"/>
+
+    <CAAComment>
+      <ShortRole>PLM Requirement Object</ShortRole>
+      <Role>PLM Requirement Reference Object</Role>
+    </CAAComment>
+
+    <Simple Name="V_Priority"
+			Uuid="56b1435d-8bd4-4ebc-99d6f87392742ff6"
+			Type="String"
+			MaxLength="24"
+			MultiValuated="No"
+			Protection="Free"
+			CAAExposition="L0"/>
+
+    <Simple Name="V_SubmittedBy"
+			Uuid="1d33b3e3-ba27-4aad-952e35fe432573f9"
+			Type="String"
+			MaxLength="48"
+			MultiValuated="No"
+			Protection="Free"
+			CAAExposition="L0"/>
+
+    <Simple Name="V_Class"
+			Uuid="cf212de6-c69c-4e28-a9ee7d98889bdf18"
+			Type="String"
+			MaxLength="48"
+  		MultiValuated="No"
+			Protection="Free"
+			CAAExposition="L0"/>
+
+    <Simple Name="V_Importance"
+			Uuid="6648A07B-2694-4d04-B0FA6799BAA31D0D"
+			Type="String"
+			MaxLength="48"
+  		MultiValuated="No"
+			Protection="Free"
+			CAAExposition="L0"/>
+
+    <Simple Name="V_Content_Text"
+			Uuid="54F5EDE0-A865-4d24-980137430A1E730A"
+			Type="String"
+			MaxLength="512"
+  		MultiValuated="No"
+			Protection="Free"
+			CAAExposition="L0"/>
+
+
+    <Simple Name="V_SourceCategory"
+			Uuid="117b9ed8-60b8-495a-88be07d184d2086c"
+			Type="String"
+			MaxLength="48"
+			MultiValuated="No"
+			Protection="Free"
+			CAAExposition="L0"/>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+  </Class>
+
+  <!-- ******************************************** -->
+  <!-- * RFLPLMRequirementInstance (PLMCoreInstance) * -->
+  <!-- ******************************************** -->
+
+  <RelationClass Name="RFLPLMRequirementInstance"
+		Uuid="eaf69498-d8dd-4ceb-8c742b1932da3989"
+		Abstract="Yes"
+		SuperName="PLMCoreInstance"
+	  CustomerExposition="None"
+	>
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <!-- Behavior patterns: default values -->
+    <Property Name="LockUnlockAvailability" Value="No"/>
+    <Property Name="TransferOwnershipAvailability" Value="No"/>
+
+    <CAAComment>
+      <ShortRole>PLM Requirement Instance Object</ShortRole>
+      <Role>PLM Requirement Instance Object</Role>
+    </CAAComment>
+
+    <!--*****************************************************
+         * Overload(s) of PLMCoreInstance attributes to fix metadata access issue. This should not be necessary!
+         ********************************************************* -->
+
+    <!--*****************************************************
+         * V_Owner = abstract requirement reference
+         ********************************************************* -->
+
+    <SubClause Name="from"   TargetName="RFLPLMRequirementAbstractReference"/>
+    <SubClause Name="to"   TargetName="RFLPLMRequirementReference"/>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+  </RelationClass>
+  <!-- *************************************** -->
+  <!-- * RFLPLMRequirementPort (PLMPort)        * -->
+  <!-- *************************************** -->
+
+  <!-- ******************************************** -->
+  <!-- * RFLPLMRequirementConnection (PLMConnection) * -->
+  <!-- ******************************************** -->
+
+  <Class Name="RFLPLMRequirementConnection"
+		Uuid="948c9a9f-1e55-4a33-8c1addfca51cf9fc"
+		Abstract="Yes"
+		SuperName="PLMConnection"  OwnerTypes="RFLPLMRequirementReference"
+	 	  CustomerExposition="None"
+>
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <CAAComment>
+      <ShortRole>PLM Requirement Connection Object</ShortRole>
+      <Role>PLM Requirement Connection Object</Role>
+    </CAAComment>
+
+
+    <Path Name="RFLPLMRequirementSources"
+			Uuid="94399edd-7849-4a93-aacd416a068b8d6f"
+			Lower="0"
+			Upper="-1"
+			MultiValuated="Yes"
+			RoleName="PLM_DerivedRequirement_Source"	
+      Type="SemanticRelation" AdaptativeToMinor="No"
+		  SynchroSensitivity="Last"
+		  RerouteOnEffectivityChange="No" Orientation="Out"
+			Semantics="Reference5"/>
+
+    <Path Name="RFLPLMRequirementTargets"
+			Uuid="b01c318e-e52d-4037-b7c405d211e602af"
+			Lower="0"
+			Upper="-1"
+			MultiValuated="Yes"
+			RoleName="PLM_DerivedRequirement_Target"
+   		Type="SemanticRelation" AdaptativeToMinor="No"
+  		SynchroSensitivity="PathAndLast"
+  		RerouteOnEffectivityChange="No" Orientation="In"
+			Semantics="Reference3"/>
+
+
+    <!-- OwnerTypes="RFLPLMRequirementReference"  Integrate this line if you want to declare the aggregation constraint -->
+
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+  </Class>
+
+
+  <!-- **************************************************** -->
+  <!-- * RFLPLMRequirementRepReference (PLMCoreRepReference) * -->
+  <!-- **************************************************** -->
+
+  <Class Name="RFLPLMRequirementRepReference"
+    Uuid="37976710-b798-4b61-af363b6f98b08276"
+ 	  CustomerExposition="None"
+      Abstract="Yes"
+      SuperName="PLMCoreRepReference">
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <CAAComment>
+      <ShortRole>PLM Requirement Representation Reference Object</ShortRole>
+      <Role>PLM Requirement Representation Reference Object</Role>
+    </CAAComment>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+  </Class>
+
+  <!-- ************************************************** -->
+  <!-- * RFLPLMRequirementRepInstance (PLMCoreRepInstance) * -->
+  <!-- ************************************************** -->
+
+  <RelationClass Name="RFLPLMRequirementRepInstance"
+      Uuid="e4ee1aad-5dfb-4e16-9238-225b5a22f988"
+   	  CustomerExposition="None"
+      Abstract="Yes"
+      SuperName="PLMCoreRepInstance" >
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <CAAComment>
+      <ShortRole>PLM Requirement Representation Instance Object</ShortRole>
+      <Role>PLM Requirement Representation Instance Object</Role>
+    </CAAComment>
+
+    <!--
+             *********************************************************
+             * Overload(s) of PLMCoreRepInstance attributes.
+             ********************************************************* -->
+
+    <SubClause Name="from"   TargetName="RFLPLMRequirementReference"/>
+    <SubClause Name="to"   TargetName="RFLPLMRequirementRepReference"/>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+  </RelationClass>
+
+</Package>

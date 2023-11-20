@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY FOR CLASS Application Custo DS-->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2005, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" DataRDB_OID="ENODR_ENOCLGCLC" Name="ENOCLG_CLASS_DS" Uuid="54ae9aa6-77da-4d2d-a40c-3e66e8a7b778" 
+         UseNames="ENOCLG_CLASS" Alias="Class Structure Sample Customization" >
+	<CAAComment>
+		<ShortRole>Class Customization Package</ShortRole>
+		<Role>This package includes all the entities of Class Model</Role>
+	</CAAComment>
+	<Comment>last update 2007-12-04-00.00.00</Comment>
+
+  <Class Name="ENOCLG_DS_ClassReference" 
+      Uuid="8bd36922-4aa5-46d6-8ae0-3c8f2b05ae42"     
+      SuperName="ENOCLG_ClassReference" 
+      SuperRef="1594157b-37a9-41f7-b01c-57a5784eeaa5" >
+    
+		<CAAComment>
+			<ShortRole>Class Reference Customization</ShortRole>
+			<Role>Class Reference Customization</Role>
+		</CAAComment>
+		
+    <IdentifierSet Name="Identifier" 
+      Uuid="b8d3f507-996a-426b-9b61-c9f7d5a2ef5d" 
+      IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755 75142b3b-9cdd-48f4-b1e7-33d7945c4d53" 
+      IdentifierNames="PLM_ExternalID V_version V_IdNamingSpace"/>
+  </Class>
+
+  <Class Name="ENOCLG_DS_ClassInstance" 
+      Uuid="7c09d1b6-7e2e-41d5-96f1-01ff42e9f084"     
+      SuperName="ENOCLG_ClassInstance" 
+      SuperRef="d9c24603-699a-47ce-b26a-186ade411e53" >
+
+    <CAAComment>
+			<ShortRole>Class Instance Customization</ShortRole>
+			<Role>Class Instance Customization</Role>
+		</CAAComment>
+
+  </Class>
+</Package>

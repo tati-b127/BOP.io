@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2004, All rights reserved -->
+
+<!-- History
+    V6R2010 Added Procedures & Functions for Export
+-->
+
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" Name="PLMConfigInclusionRule" 
+    Uuid="E9AC6EA3-0B27-446D-B42E4496CF3A884E" 
+    UseNames="PLMConfigRule" 
+    BelongsToModeler="Configuration"
+    CustomerExposition="Programmer"
+   >
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+        <ShortRole>The Inclusion Rule Configuration Component Metadata.</ShortRole>
+        <Role>This package includes all the entities of Inclusion Rule Configuration Model.</Role>
+    </CAAComment>
+
+    <!-- ************************* -->
+    <!-- CLASS PLMCfgInclusionRule -->
+    <!-- ************************* -->
+
+    <Class Name="PLMCfgInclusionRule" 
+        Uuid="be7d7188-c7b1-466d-b1a8b5c3718f8f8b" 
+        SuperName="PLMCfgRule" 
+        Abstract="No" 
+           CustomerExposition="Programmer"
+        >
+      <!-- OwnerTypes="PLMCfgVariabilitySpace"  Integrate this line if you want to declare the aggregation constraint-->
+
+      <CAAComment>
+            <ShortRole>The Inclusion Rule.class</ShortRole>
+            <Role>The Inclusion Rule.class</Role>
+        </CAAComment>
+
+        <!-- Overloaded Attributes -->
+
+        <!-- New Attributes -->
+
+        <!-- Constraints 
+
+        <ContextKey Name="contextual_id" 
+            Uuid="f398d13e-c561-40f2-a638e42cbe483bf7" 
+            SimpleName="PLM_ExternalID" 
+            SimpleRef="86A2CB5C-4D50-4593-8489DF068C40FAAB"/> -->
+
+        <!-- *********************** -->
+        <!-- PROCEDURES Declaration  -->      
+        <!-- *********************** -->
+
+        <Method ImplementationType="None">
+            <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+        </Method>
+
+    </Class>
+</Package>

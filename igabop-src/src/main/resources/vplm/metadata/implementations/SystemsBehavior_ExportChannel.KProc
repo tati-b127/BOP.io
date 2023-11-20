@@ -1,0 +1,17 @@
+#Prog SystemsBehavior_ExportChannel (iPLMIDSet :  #In PLMIDSet,oPLMIDSet :  #Out PLMIDSet) : VoidType
+  {
+/*Declaring my local variable*/
+let PLMIDSet_RefLib(PLMIDSet)
+let PLMRouteSet_LibRepInstantiatedUnderInputLibRef(PLMRouteSet)
+
+/*filter entry PLMIDs to keep only Library Reference
+    -Channel completion don't export Lib for Fct or Log Rep
+    -Channel completion not allowed on Library Rep Ref*/
+
+PLMIDSet_RefLib = Restrict(iPLMIDSet,"CATSysBehaviorLibrary/CATSysBehaviorLibReference")
+
+/*Get All mono-instantiated Lib Rep under LibRefs*/
+PLMRouteSet_LibRepInstantiatedUnderInputLibRef = ExecutePLMFunction("CATSysBehaviorLibrary","CATSysBehaviorLibrary_GetAllMonoInstRepLibOfRefLib",PLMIDSet_RefLib)
+
+oPLMIDSet = PLMIDSet_RefLib + Ids(PLMRouteSet_LibRepInstantiatedUnderInputLibRef)
+}

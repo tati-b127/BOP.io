@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2010, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" Name="ENOSTProductionShiftModelDS" Uuid="4819B2AC-4E74-4c5e-99F9-55172A5F8543" UseNames="DELLmiProductionShiftModel" >
+	<CAAComment>
+		<ShortRole>PLM Customization of DELMIA System Shift Model for SMB</ShortRole>
+		<Role>PLM Customization of DELMIA System Shift Model for SMB</Role>
+	</CAAComment>
+	<Comment>last update 2010-10-21</Comment>
+
+	<Class Name="ENOSTProductionShiftModelReference" Uuid="259FEF01-042C-4d46-A7B7-E19CF944302E" SuperName="DELLmiProductionShiftModelReference" SuperRef="342E1001-D3E6-472d-98AE-807F250D1788"  >
+
+    <Simple Name="E_fromExternalId"
+            Uuid="2CBBE9A4-6C85-44ce-B003-91D4BEE4FA96"
+            Alias="Definition"
+            Type="String"
+            MaxLength="256"
+            Mandatory="No"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"/>
+    <Simple Name="E_versionComment"
+            Uuid="C988B412-6322-4135-ADC4-A448E7544A48"
+            Alias="Version Comment"
+            Type="String"
+            MaxLength="256"
+            Mandatory="No"
+            MultiValuated="No"
+            Protection="Free"
+            ResetOnNewVersion="Yes"
+            ResetOnCloning="Yes"
+            CAAExposition="L0"/>
+    <IdentifierSet Name="E_identifier"
+                   Uuid="754F45CB-3507-46a8-8263-9C4E57F98FA8"
+                   IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755"
+                   IdentifierNames="PLM_ExternalID V_version"/>
+
+    <CAAComment>
+			<ShortRole>PLM Customization of DELMIA System Shift Model Reference for SMB</ShortRole>
+			<Role>PLM Customization of DELMIA System Shift Model Reference for SMB</Role>
+		</CAAComment>
+	</Class>
+
+  <RelationClass Name="ENOSTProductionShiftModelInstance" Uuid="AFAA827F-BECE-4a13-80CC-54EAB00E6246" SuperName="DELLmiProductionShiftModelInstance" SuperRef="DF421F3D-89D0-4ac6-9485-8E479CE55BB3"  >
+		<CAAComment>
+			<ShortRole>PLM Customization of DELMIA System Shift Model Instance for SMB</ShortRole>
+			<Role>PLM Customization of DELMIA System Shift Model Instance for SMB</Role>
+		</CAAComment>		
+            <!-- ********************************************************* -->
+            <!-- * Overload(s) of PLMCoreInstance attributes. -->
+            <!-- ********************************************************* -->
+    <SubClause Name="to"   TargetName="ENOSTProductionShiftModelReference"/>
+	</RelationClass>
+
+</Package>

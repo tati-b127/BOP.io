@@ -1,0 +1,7 @@
+cas:
+  server:
+    url-prefix: https://eno-3de-sw-d01.igatec.com/3dpassport
+    login-url: ${cas.server.url-prefix}/login
+ematrix:
+  server:
+    host: https://eno-3de-sw-d01.igatec.com/3dspace

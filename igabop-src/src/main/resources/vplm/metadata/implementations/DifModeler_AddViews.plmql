@@ -1,0 +1,8 @@
+EXPAND 
+	T0.PLMID, T1.PLMID,
+	T0.PLM_ExternalID, T1.PLM_ExternalID
+FROM 
+	DIFModelerAbstractView/DIFAbstractView  T0,	
+	DIFModelerAbstractView/DIFAbstractViewInstance T1
+FROM_ROOTS  [?1?]
+;

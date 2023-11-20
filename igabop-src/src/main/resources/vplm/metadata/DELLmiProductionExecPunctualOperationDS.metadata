@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2009, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" Name="DELLmiProductionExecPunctualOperationDS" Uuid="b34b8de5-deb1-4114-845c-8666c64cad5e" UseNames="DELLmiProductionExecPunctualOperation" >
+<Property Name="OptionalInstallation" Value="Yes" /> 
+	<CAAComment>
+		<ShortRole>Standard DELMIA Execution Punctual Operation Package</ShortRole>
+		<Role>This package includes default customized DELMIA Execution Punctual Operation</Role>
+	</CAAComment>
+	<Comment>last update 2009-05-27</Comment>
+
+	<Class Name="DELLmiExecPunctualOperationRefCusto" Uuid="5ab01097-c78f-4620-8b73-9e01a4930914" SuperName="DELLmiExecPunctualOperationReference"  >
+
+    <IdentifierSet Name="Identifier"
+        Uuid="3add35f3-6784-4b13-b10a-c7f4a8b0b7da"
+        IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755"
+        IdentifierNames="PLM_ExternalID V_version" />
+
+    <CAAComment>
+			<ShortRole>Standard DELMIA Execution Punctual Operation Reference</ShortRole>
+			<Role>Default customized DELMIA Execution Punctual Operation Reference</Role>
+		</CAAComment>
+	</Class>
+
+  <RelationClass Name="DELLmiExecPunctualOperationInstCusto" Uuid="14ed91c8-e3de-48ea-b555-1b37292cd68c" SuperName="DELLmiExecPunctualOperationInstance"  >
+		<CAAComment>
+			<ShortRole>Standard DELMIA Execution Punctual Operation Instance</ShortRole>
+			<Role>Default customized DELMIA Execution Punctual Operation Instance</Role>
+		</CAAComment>		
+            <!-- ********************************************************* -->
+            <!-- * Overload(s) of PLMCoreInstance attributes. -->
+            <!-- ********************************************************* -->
+    <SubClause Name="to"   TargetName="DELLmiExecPunctualOperationRefCusto"/>
+	</RelationClass>
+</Package>

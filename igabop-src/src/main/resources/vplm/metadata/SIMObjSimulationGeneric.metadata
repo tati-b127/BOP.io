@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2007 (http://www.altova.com) by DASSAULT SYSTEMES (DASSAULT SYSTEMES) -->
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" BelongsToModeler="SIMObjSimulation" ModelerType="Top" UseProcedures="SIM_Procedures" Name="SIMObjSimulationGeneric" Uuid="0d73e0d7-159f-4641-b37efbf1474fcd43" UseNames="SIMObjSimulation" CustomerExposition="Programmer">
+	<Property Name="FormerTypingLegacy" Value="Yes"/>
+	<CAAComment>
+		<ShortRole>This package includes the basic entities of the Simulation.</ShortRole>
+		<Role>This package includes the basic entities of the Simulation.</Role>
+	</CAAComment>
+	<Class Name="SIMObjSimulationRepReferenceGeneric" Uuid="c368697c-10f8-467b-9f5550a703b7af22" Abstract="No" SuperName="SIMObjSimulationRepReference" CustomerExposition="Programmer" CreateInstName="SIMObjSimulationRepInstanceGeneric" Specializable="Yes" CustomerExtensible="No">
+    <Property Name="KweNew_InstanciationMethod" Value="CATESIMObjRepReferenceGeneric"/>
+		<Property Name="Searchable" Value="No"/>
+		<Property Name="DMCDerivable" Value="Yes"/>
+		<Property Name="Configurable" Value="No"/>
+		<Property Name="Filtrable" Value="No"/>
+		<Property Name="IconName" Value="I_SimulationExternalRep"/>
+		<Property Name="3DIconName" Value="PSM_REPGEN_3DNAVREP.cgr"/>
+		<!-- Behavior patterns: default values -->
+		<Property Name="TransferOwnershipAvailability" Value="No"/>
+		<Property Name="SaveAsNewAvailability" Value="No"/>
+		<CAAComment>
+			<ShortRole>Non V6 simulation representation reference</ShortRole>
+			<Role>Non V6 simulation representation reference</Role>
+		</CAAComment>
+		<Simple Name="V_DocName" Uuid="ee729b3f-356c-460b-8d99-e65ee7796156" Type="String" MaxLength="256" Protection="Free" CAAExposition="L0">
+			<CAAComment>
+				<ShortRole>Name of the document</ShortRole>
+				<Role>Name of the document</Role>
+			</CAAComment>
+		</Simple>
+		<Simple Name="V_DocExtension" Uuid="08b611f4-3bfe-4ede-b4c4-939720f36f12" Type="String" MaxLength="40" MultiValuated="No" Protection="External" CAAExposition="L0">
+			<CAAComment>
+				<ShortRole>Extension of the document</ShortRole>
+				<Role>Extension of the document</Role>
+			</CAAComment>
+		</Simple>
+		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+	</Class>
+	<RelationClass Name="SIMObjSimulationRepInstanceGeneric" Uuid="dbaf7d8a-1f0f-4d1f-a04f17504e816196" Abstract="No" SuperName="SIMObjSimulationRepInstance" CustomerExposition="Programmer" Specializable="No" CustomerExtensible="No">
+		<Property Name="Searchable" Value="No"/>
+		<Property Name="DMCDerivable" Value="Yes"/>
+		<Property Name="Configurable" Value="No"/>
+		<Property Name="Filtrable" Value="No"/>
+		<!-- Behavior patterns: default values -->
+		<Property Name="TransferOwnershipAvailability" Value="No"/>
+		<CAAComment>
+			<ShortRole>Non V6 simulation representation instance</ShortRole>
+			<Role>Non V6 simulation representation instance</Role>
+		</CAAComment>
+		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+	</RelationClass>
+	<Class Name="SIMObjSimulationConnectionGeneric" Uuid="84ffcffb-86eb-45ea-b973cffa223b972a" Abstract="No" SuperName="SIMObjSimulationConnection" CustomerExposition="Programmer" Specializable="No" CustomerExtensible="No">
+		<!-- CustomerExposition="None" -->
+		<Property Name="Searchable" Value="No"/>
+		<Property Name="DMCDerivable" Value="Yes"/>
+		<Property Name="Configurable" Value="No"/>
+		<Property Name="Filtrable" Value="No"/>
+		<!-- Behavior patterns: default values -->
+		<Property Name="TransferOwnershipAvailability" Value="No"/>
+		<CAAComment>
+			<ShortRole>Simulation Connection</ShortRole>
+			<Role>Simulation Connection </Role>
+		</CAAComment>
+		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+		<Path Name="SimuConnection" Uuid="E1DA2B83-8F1B-4385-B5D01BCD1CAC815B" Lower="0" Upper="1" RoleName="SIM_ByPassSimuRep" MultiValuated="Yes" Semantics="Reference2" Type="SemanticRelation" AdaptativeToMinor="No" Protection="Internal" SynchroSensitivity="None" RerouteOnEffectivityChange="No"/>
+	</Class>
+	<Class Name="SIMObjSimulationPortGeneric" Uuid="DAC8FEDC-74C3-4394-A072AAA319B0B868" Abstract="No" SuperName="SIMObjSimulationPort" CustomerExposition="Programmer" Specializable="Yes" CustomerExtensible="No">
+		<!-- CustomerExposition="None" -->
+    <Property Name="KweNew_InstanciationMethod" Value="CATESIMObjPortGeneric"/>
+    <Property Name="Searchable" Value="No"/>
+		<Property Name="Configurable" Value="No"/>
+		<Property Name="Filtrable" Value="No"/>
+		<CAAComment>
+			<ShortRole>Simulation Publication</ShortRole>
+			<Role>Simulation Publication</Role>
+		</CAAComment>
+		<Simple Name="V_SimStatus" Uuid="EAB20755-6BAC-4df0-9513E149EA5DA3E3" Type="Integer" Protection="ExternalRO" CAAExposition="L0" DefaultValue="1">
+			<CAAComment>
+				<ShortRole>Computation status</ShortRole>
+				<Role>Computation status</Role>
+			</CAAComment>
+			<Property Name="RangeAsEnumName" Value="SimStatus"/>
+			<Property Name="RangeAsEnumAuthorizedValues" Value="NotComputed;Computed"/>
+			<Range>
+				<Equal>1</Equal>
+				<Equal>2</Equal>
+			</Range>
+		</Simple>
+		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+		<Path Name="SimuPublication" Uuid="DD0CD791-89F9-4d36-9738-8E1A91455FAB" RoleName="SIM_Publication" MultiValuated="No" Semantics="Reference3" Type="SemanticRelation" AdaptativeToMinor="No" SynchroSensitivity="PathAndLast" RerouteOnEffectivityChange="No" Orientation="In"/>
+	</Class>
+	<Class Name="SIMObjSimulationObjectGeneric" Uuid="aad432dc-e008-48a0-b5eb2c69c98e85d0" Abstract="No" SuperName="SIMObjSimulationObject" CustomerExposition="Programmer" Specializable="No" CustomerExtensible="No" Abbreviation="sim">
+		<Property Name="Searchable" Value="Yes"/>
+		<Property Name="DMCDerivable" Value="Yes"/>
+		<Property Name="Configurable" Value="No"/>
+    <Property Name="ChangeManagementSupport" Value="Yes"/>
+    <Property Name="ChangeManagementReferential" Value="Yes"/>
+    <Property Name="EvolutionAvailability" Value="Yes"/>
+		<Property Name="Filtrable" Value="No"/>
+		<Property Name="IconName" Value="I_SimulationRef"/>
+		<Property Name="3DIconName" Value="PSM_REFGEN_3DNAVREP.cgr"/>
+		<Property Name="AggregatableTypes" Value="ParameterPort;SIMObjSimulationCategoryReference;PLMDocConnection"/>
+		<!-- Behavior patterns: default values -->
+		<Property Name="SaveAsNewAvailability" Value="Yes"/>
+		<CAAComment>
+			<ShortRole>Simulation Object</ShortRole>
+			<Role>Simulation Object</Role>
+		</CAAComment>
+		<Simple Name="V_SimulationAppType" Uuid="fe9b965a-e823-436c-b242-667ab011bca3" Type="String" MaxLength="100" Protection="Internal">
+			<CAAComment>
+				<ShortRole>Name of the application</ShortRole>
+				<Role>Name of the application</Role>
+			</CAAComment>
+		</Simple>
+		<Simple Name="V_ActualEndDate" Uuid="65d4a799-aa8f-4443-957d-8a32c2b1a876" Type="Date" Protection="Internal">
+			<CAAComment>
+				<ShortRole>Not used</ShortRole>
+				<Role>Not used</Role>
+			</CAAComment>
+		</Simple>
+		<Simple Name="V_AppExecute" Uuid="b70b3594-a7f6-4bfe-9e72-666eefd99d27" Type="String" MaxLength="64" Protection="Internal">
+			<CAAComment>
+				<ShortRole>Not used</ShortRole>
+				<Role>Not used</Role>
+			</CAAComment>
+		</Simple>
+		<Simple Name="V_AppName" Uuid="d4619f04-6ff4-4a2f-b9a7-97fac856a3ad" Type="String" MaxLength="64" Protection="Internal">
+			<CAAComment>
+				<ShortRole>Not used</ShortRole>
+				<Role>Not used</Role>
+			</CAAComment>
+		</Simple>
+		<Simple Name="V_ActualStartDate" Uuid="094799ce-09ce-4920-80cf-1b0b52398ff6" Type="Date" Protection="Internal">
+			<CAAComment>
+				<ShortRole>Not used</ShortRole>
+				<Role>Not used</Role>
+			</CAAComment>
+		</Simple>
+		<Simple Name="V_HostID" Uuid="c1e201ef-256f-4b7d-bfd5-6bbd3d5767ea" Type="String" MaxLength="82" Protection="Internal" ResetOnCloning="Yes" ResetOnNewVersion="Yes">
+			<CAAComment>
+				<ShortRole>Host Identifier</ShortRole>
+				<Role>Host Identifier</Role>
+			</CAAComment>
+		</Simple>
+		<Simple Name="V_BatchID" Uuid="8f53cb0e-bb1e-49f8-b671-88f312de4aba" Type="String" MaxLength="34" Protection="Internal" ResetOnCloning="Yes" ResetOnNewVersion="Yes">
+			<CAAComment>
+				<ShortRole>Batch Identifier</ShortRole>
+				<Role>Batch Identifier</Role>
+			</CAAComment>
+		</Simple>
+		<Method ImplementationType="Self">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+			<ProcedureForUsage>
+				<Usage href="ExportScope.meth#Design"/>
+				<UsedProcedure href="SIM_Procedures.proc#DefaultSimulationExport"/>
+			</ProcedureForUsage>
+			<ProcedureForUsage>
+				<Usage href="ExportScope.meth#Channel"/>
+				<UsedProcedure href="SIM_Procedures.proc#DefaultSimulationExport_Channel"/>
+			</ProcedureForUsage>
+			<ProcedureForUsage>
+				<Usage href="ExportScope.meth#Remove"/>
+				<UsedProcedure href="SIM_Procedures.proc#DefaultSimulationExport_Remove"/>
+			</ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#TransferSiteOwnership"/>
+        <UsedProcedure href="SIM_Procedures.proc#DefaultSimulationExport_Remove"/>
+      </ProcedureForUsage>
+		</Method>
+	</Class>
+	<!-- FUNCTIONS Declarations : here are delcared PLMQL Functions -->
+	<Function Name="sim_addSimulatedModel">
+		<Implementation Name="sim_addSimulatedModel" FileLocation="sim_addSimulatedModel.plmql" Language="PLMQL"/>
+		<Signature href="SIMSimulationSignature"/>
+	</Function>
+	<Function Name="sim_retrieveCategories">
+		<Implementation Name="sim_retrieveCategories" FileLocation="sim_retrieveCategories.plmql" Language="PLMQL"/>
+		<Signature href="SIMSimulationSignature"/>
+	</Function>
+	<Function Name="sim_retrieveSimuRep">
+		<Implementation Name="sim_retrieveSimuRep" FileLocation="sim_retrieveSimuRep.plmql" Language="PLMQL"/>
+		<Signature href="SIMSimulationSignature"/>
+	</Function>
+	<Function Name="sim_addPublishResultCnx">
+		<Implementation Name="sim_addPublishResultCnx" FileLocation="sim_addPublishResultCnx.plmql" Language="PLMQL"/>
+		<Signature href="SIMSimulationSignature"/>
+	</Function>
+	<Function Name="sim_addPublishResultCnxForOpen">
+		<Implementation Name="sim_addPublishResultCnxForOpen" FileLocation="sim_addPublishResultCnxForOpen.plmql" Language="PLMQL"/>
+		<Signature href="SIMSimulationSignature"/>
+	</Function>
+	<Function Name="sim_AddPointedDesignTable">
+		<Implementation Name="sim_AddPointedDesignTable" FileLocation="sim_AddPointedDesignTable.plmql" Language="PLMQL"/>
+		<Signature href="SIMSimulationSignature"/>
+	</Function>
+	<Function Name="sim_retrieveExternalDocumentfromFEMRep">
+		<Implementation Name="sim_retrieveExternalDocumentfromFEMRep" FileLocation="sim_retrieveExternalDocumentfromFEMRep.plmql" Language="PLMQL"/>
+		<Signature href="SIMSimulationSignature"/>
+	</Function>
+	<Function Name="sim_retrieveMatRefandDomainfromFEMRep">
+		<Implementation Name="sim_retrieveMatRefandDomainfromFEMRep" FileLocation="sim_retrieveMatRefandDomainfromFEMRep.plmql" Language="PLMQL"/>
+		<Signature href="SIMSimulationSignature"/>
+	</Function>
+	<Function Name="sim_retrieveExternalDocumentfromSimuRep">
+		<Implementation Name="sim_retrieveExternalDocumentfromSimuRep" FileLocation="sim_retrieveExternalDocumentfromSimuRep.plmql" Language="PLMQL"/>
+		<Signature href="SIMSimulationSignature"/>
+	</Function>
+	<Function Name="sim_addSystemCnx">
+		<Implementation Name="sim_addSystemCnx" FileLocation="sim_addSystemCnx.plmql" Language="PLMQL"/>
+		<Signature href="SIMSimulationSignature"/>
+  </Function>
+  <Function Name="sim_retrieveSOFromScenarioRep">
+    <Implementation Name="sim_retrieveSOFromScenarioRep" FileLocation="sim_retrieveSOFromScenarioRep.plmql" Language="PLMQL"/>
+    <Signature href="SIMSimulationSignature"/>
+	</Function>
+	<Signature id="SIMSimulationSignature">
+		<Parameter Name="InputIds" Lower="0" Upper="-1" Direction="in" MultiValuated="No" DataType="PLMId"/>
+		<Parameter Name="OutputIds" Lower="0" Upper="-1" Direction="out" MultiValuated="No" DataType="PLMRouteSet"/>
+	</Signature>
+</Package>

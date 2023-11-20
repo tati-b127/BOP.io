@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR Validation Application Custo-->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2007, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" DataRDB_OID="ENODR_VALPCUSTO" Name="DMUValidationReviewDS" Uuid="2597f970-3276-4990-88c461d65e26e7a4" UseNames="DMUValidationReview">
+<Property Name="OptionalInstallation" Value="Yes" /> 
+	<CAAComment>
+		<ShortRole>Validation Presentation Modeler Customization Package</ShortRole>
+		<Role>This package describes a Customization of Validation Presentation modeler</Role>
+	</CAAComment>
+	<Comment>Creation 2007-07-24 LJE</Comment>
+	
+	<Class Name="DMUValidationReviewReferenceDS" Uuid="1c959b01-efea-4d1d-9bf86cba803b07c3" SuperName="DMUValidationReviewReference" SuperRef="7b2ef30e-4e0a-474d-ad304cea43f40693" >
+		<IdentifierSet Name="Identifier" Uuid="4d1ccb19-6188-441c-9fe36a41ef654ab9" IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755" IdentifierNames="PLM_ExternalID V_version"/>
+    <Property Name="Searchable" Value="No"/>
+	</Class>
+	
+	<Class Name="DMUValidationReviewInstanceDS" Uuid="77ce0fc6-52f1-40a5-a772071f17a96ff9" SuperName="DMUValidationReviewInstance" SuperRef="dcd77a05-8ca6-4f88-acfd8929bb578f7f" >
+    <Property Name="Searchable" Value="No"/>
+	</Class>
+</Package>

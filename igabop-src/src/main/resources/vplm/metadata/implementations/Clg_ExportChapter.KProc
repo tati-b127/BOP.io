@@ -1,0 +1,98 @@
+#Prog Clg_ExportChapter( iPLMIDSet : #In PLMIDSet, oPLMIDSet : #Out PLMIDSet ) : VoidType
+{
+let RsChaptersHierarchy    (PLMRouteSet)
+let RsLibraryChapter       (PLMRouteSet)
+let RsChaptersStructure    (PLMRouteSet)
+let RsItems                (PLMRouteSet)
+let RsProductStructure     (PLMRouteSet)
+let RsComponentFamilies    (PLMRouteSet)
+let IdsChaptersIn1            (PLMIDSet)
+let IdsChaptersIn2            (PLMIDSet)
+let IdsChaptersHierarchy      (PLMIDSet)
+let IdsLibraryChapter         (PLMIDSet)
+let IdsChaptersStructure      (PLMIDSet)
+let IdsChapters               (PLMIDSet)
+let IdsItems                  (PLMIDSet)
+let IdsPointedReferences      (PLMIDSet)
+let IdsPointedRepReferences   (PLMIDSet)
+let IdsPointedConnections     (PLMIDSet)
+let IdsPointedProducts        (PLMIDSet)
+let IdsProductStructure1      (PLMIDSet)
+let IdsProductStructure2      (PLMIDSet)
+let IdsProductStructureInputs1 (PLMIDSet)
+let IdsProductStructureInputs2 (PLMIDSet)
+let IdsConnectionsItems       (PLMIDSet)
+let IdsComponentFamilies      (PLMIDSet)
+let IdsFamiliesRef            (PLMIDSet)
+let IdsFamiliesStructure      (PLMIDSet)
+let IdsTemplatesReps          (PLMIDSet)
+let IdsTemplatesStructure     (PLMIDSet)
+
+
+/* Isolate chapters provided thru input arg */
+IdsChaptersIn1 = Restrict( iPLMIDSet , "ENOCLG_CLASS/ENOCLG_ClassReference" )
+
+/* Navigate up to the top-level chapter */
+RsChaptersHierarchy = ExecutePLMFunction( "ENOCLG_CLASS", "clg_navigate_chapters_hierarchy", IdsChaptersIn1 )
+IdsChaptersHierarchy = Ids( RsChaptersHierarchy )
+
+/* Navigate up to the library, from the top-level chapter */
+IdsChaptersIn2 = Restrict( IdsChaptersHierarchy , "ENOCLG_CLASS/ENOCLG_ClassInstance" )
+RsLibraryChapter = ExecutePLMFunction( "ENOCLG_CLASS", "clg_navigate_library_of_chapter", IdsChaptersIn2 )
+IdsLibraryChapter = Ids( RsLibraryChapter )
+
+/* Get expanded chapters tree structure from input arg */
+RsChaptersStructure = ExecutePLMFunction( "ENOCLG_CLASS", "clg_expand_chapter", IdsChaptersIn1 )
+IdsChaptersStructure = Ids( RsChaptersStructure )
+IdsChapters = Restrict( IdsChaptersStructure , "ENOCLG_CLASS/ENOCLG_ClassReference" )
+
+/* Get references pointed by items of chapters */
+RsItems = ExecutePLMFunction( "ENOCLG_CLASS", "clg_navigate_reference", IdsChapters )
+IdsItems = Ids( RsItems )
+IdsPointedReferences = Restrict( IdsItems , "PLMCORE/PLMCoreReference" )
+IdsPointedRepReferences = Restrict( IdsItems , "PLMCORE/PLMCoreRepReference" )
+IdsPointedConnections = Restrict( IdsItems , "PLMCORE/PLMConnection" )
+
+
+/* Get product structure from function */
+IdsProductStructureInputs1 = Restrict( IdsPointedReferences, "PRODUCTCFG/VPMReference" )
+RsProductStructure = ExecutePLMFunction( "PRODUCTCFG", "ProductCfg_AddChildrenProduct", IdsProductStructureInputs1 )
+IdsProductStructure1 = Ids( RsProductStructure )
+
+/* Get product structure with reps from procedure */
+IdsProductStructureInputs2 = Restrict( IdsProductStructure1, "PRODUCTCFG/VPMReference" )
+							+ Restrict( IdsProductStructure1, "PRODUCTCFG/VPMRepReference" )
+							+ Restrict( IdsPointedRepReferences, "PRODUCTCFG/VPMRepReference" )
+IdsProductStructure2 = ExecutePLMProcedure( "VPMEditor_GetAllRepresentations", IdsProductStructureInputs2 )
+
+
+/* Get Component Families (Navigate connection->connection->reference)*/
+IdsConnectionsItems = Restrict( IdsPointedConnections , "ENOCLG_CLASS/ENOCLG_Item" )
+RsComponentFamilies = ExecutePLMFunction( "CATComponentsFamily", "cfy_navigate_connection_item", IdsConnectionsItems )
+IdsComponentFamilies = Ids( RsComponentFamilies )
+IdsFamiliesRef = Restrict( IdsComponentFamilies, "CATComponentsFamily/CATComponentsFamilyReference" )
+
+/* Get Component Families structure from procedure */
+IdsFamiliesStructure = ExecutePLMProcedure( "Cfy_ExportFamily", IdsFamiliesRef )
+
+
+/* Get Templates reps */
+IdsTemplatesReps = Restrict( IdsPointedRepReferences , "PLMKnowledgeTemplate/PLMTemplateRepReference" )
+
+/* Get Templates structure from procedure */
+IdsTemplatesStructure = ExecutePLMProcedure( "Pkt_ExportTemplate", IdsTemplatesReps )
+
+
+/* Provide back all that stuff */
+oPLMIDSet = IdsLibraryChapter
++ IdsChaptersHierarchy
++ IdsChaptersStructure
++ IdsItems
++ IdsPointedReferences
++ IdsPointedRepReferences
++ IdsPointedConnections
++ IdsProductStructure1
++ IdsProductStructure2
++ IdsFamiliesStructure
++ IdsTemplatesStructure
+}

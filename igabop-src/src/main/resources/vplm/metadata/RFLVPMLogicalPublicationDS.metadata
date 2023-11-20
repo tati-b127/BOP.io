@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR RFL Logical Publication DS -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2007, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" DataRDB_OID="ENODR_RFLLPubDS" Name="RFLVPMLogicalPublicationDS"
+	Uuid="4d429410-772b-436f-b0cb-cf79a304a7d3" 
+	UseNames="RFLVPMLogicalPublication" 
+	>
+	
+<Property Name="OptionalInstallation" Value="Yes" /> 
+	<CAAComment>
+		<ShortRole>VPM Logical Publication DS Package</ShortRole>
+		<Role>This package describes a Customization of PLM Logical Publication model</Role>
+	</CAAComment>
+	
+	<Comment>last update 2007-09-26</Comment>
+	
+	<!-- ************************************************************* -->
+	<!-- * RFLVPMLogicalPublicationDS (RFLVPMLogicalPublication) * -->
+	<!-- ************************************************************* -->
+	<Class Name="RFLVPMLogicalPublicationDS" 
+		Uuid="ac81f5d7-508e-4f53-a37b-f123c2ed9b18"
+		SuperName="RFLVPMLogicalPublication" 
+		SuperRef="83a8641f-6c23-4451-95b4-b4eb70fc03d6" 
+		>
+
+		<CAAComment>
+			<ShortRole>Customized PLM Logical Publication Object</ShortRole>
+			<Role>Customized PLM Logical Publication Object</Role>
+		</CAAComment>
+
+	</Class>
+
+</Package>

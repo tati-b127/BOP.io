@@ -1,0 +1,4 @@
+#Prog SystemsBehavior_ExportDesign (iPLMIDSet :  #In PLMIDSet,oPLMIDSet :  #Out PLMIDSet) : VoidType
+{
+    oPLMIDSet = ExecutePLMProcedure("SystemsBehavior_GetDependenciesINF",iPLMIDSet)
+}

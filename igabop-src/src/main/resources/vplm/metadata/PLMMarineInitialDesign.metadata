@@ -1,0 +1,118 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2012, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" 
+         ModelerType="Top" 
+         CustomerExposition="Programmer"
+         Name="PLMMarineInitialDesign"  
+         Uuid="efcfb602-5b74-41b5-99a8-a774bad6b082"
+         UseNames="PLMSpacePlanning PRODUCTCFG"
+         BelongsToModeler="PLMSpacePlanning">
+  <CAAComment>
+    <ShortRole>Marine InitialDesign Package</ShortRole>
+    <Role>This package describes Marine Initial Design data.</Role>
+  </CAAComment>
+
+  <Class Name="SSM_DesignSpaceRef"
+    Uuid="4dec560d-7f1a-4498-880d-8ceec067cd68"
+    Abbreviation="DSR"
+    Abstract="No"
+    CustomerExposition="Programmer"
+    SuperName="SPP_SpaceRef"
+    Discipline="Yes"
+    Specializable="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATESsmDesignSpaceRefDelegateInstanciation"/>
+    <Property Name="Newable" Value="All"/>
+    <Property Name="IconName" Value="I_SsmDesignSpaceRef"/>
+    <Property Name="3DPartAvailability" Value="3DPartOnly"/>
+    <Simple
+              Name="V_FloorArea"
+              Uuid="44cef151-9ce0-424a-956d-5258869038e1"
+              Type="Double"
+              Magnitude="AREA"
+              Protection="External"
+              CAAExposition="L0"
+     />
+    <Simple
+              Name="V_EstimatedFloorArea"
+              Uuid="1077bd26-60ba-4ba4-a498-190387067c1e"
+              Type="Double"
+              Magnitude="AREA"
+              Protection="Free"
+              CAAExposition="L0"
+     />
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+  <Class Name="SSM_ManufacturingSpaceRef"
+    Uuid="cf6cafb3-43d5-4c5f-ba58-ca04f2c6b815"
+    Abbreviation="MSR"
+    Abstract="No"
+    CustomerExposition="Programmer"
+    SuperName="SPP_SpaceRef"
+    Discipline="Yes"
+    Specializable="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATESsmManufacturingSpaceRefDelegateInstanciation"/>
+    <Property Name="Newable" Value="All"/>
+    <Property Name="IconName" Value="I_SsmManufacturingSpaceRef"/>
+    <Property Name="3DPartAvailability" Value="3DPartOnly"/>
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+  
+  <Class Name="SSM_SpaceSystem"
+    Uuid="07c91ff1-a814-464c-906a-131c6c06bba8"
+    Abbreviation="SPM"
+    Abstract="No"
+    CustomerExposition="Programmer"
+    SuperName="VPMReference"
+    CreateInstName="VPMInstance"
+    Discipline="Yes"
+    Specializable="No">
+    <Property Name="KweNew_InstanciationMethod" Value="CATESsmSpaceSystemDelegateInstanciation"/>
+    <Property Name="Newable" Value="All"/>
+    <Property Name="IconName" Value="I_SsmSpaceSystem"/>
+    <Property Name="3DPartAvailability" Value="3DPartOnly"/>
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+  <RelationClass Name="SSM_SpaceSystemInstance"
+    Uuid="fcda9291-2738-4780-bcd2-2215839e7b1c"
+    Abstract="No"
+    CustomerExposition="Programmer"
+    Discipline="Yes"
+    SuperName="VPMInstance"
+    Specializable="No">
+
+    <SubClause Name="from"   TargetName="SPP_SpaceRoot"/>
+    <SubClause Name="to"   TargetName="SSM_SpaceSystem"/>
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </RelationClass>
+
+  <Extension Name="SSM_Generated"  Uuid="8e33cd06-c051-46ad-b93b-ed3596dc0490" CustomerExposition="Programmer" Abstract="No" Specializable="No" ScopeNames="SPP_SpaceRef;SPP_AbstractSpaceConcept">
+    <Simple
+      Name="CreationMethod"
+      Uuid="a87a7d72-26e9-4d42-8624-e77cf3b87422"
+      Type="String"
+      Protection="External"
+      CAAExposition="L0"
+      />
+  </Extension>
+
+  <Extension Name="SSM_DesignSpaceMainPurpose"  Uuid="c8b9862e-eb0d-4f46-b302-875195ffdaa4" CustomerExposition="Programmer" Abstract="No" Specializable="Yes" ScopeNames="SSM_DesignSpaceRef">
+    <Property Name="KweNew_InstanciationMethod" Value="CATESsmDesignSpaceMainPurposeDelegateInstanciation"/>
+  </Extension>
+
+  <Extension Name="SSM_ManufacturingSpaceMainPurpose"  Uuid="6b95c104-65f6-43a5-b3c8-03f6226bd777" CustomerExposition="Programmer" Abstract="No" Specializable="Yes" ScopeNames="SSM_ManufacturingSpaceRef">
+    <Property Name="KweNew_InstanciationMethod" Value="CATESsmManufacturingSpaceMainPurposeDelegateInstanciation"/>
+  </Extension>
+  
+</Package>

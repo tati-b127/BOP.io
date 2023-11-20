@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2015, All rights reserved -->
+<Package
+	xmlns="PLMDictionaryUnified"
+	Name="CATSafetyFaultTreeAnalysis"
+	Uuid="05bb835b-43fa-4578-85b4-ca1a5fa351d7"
+	UseNames="PLMCORE"
+	BelongsToModeler="CATSafety"
+	CustomerExposition="Programmer"
+	ModelerType="Top"
+	Architecture="Web">
+  <Class
+		Uuid="78ccb0e1-1995-4f07-a774-a98240275ee5"
+		Name="FaultTreeElement"
+		CustomerExposition="Programmer"
+		SuperName="PLMCoreReference"
+		IconName="FaultTreeElement">
+     <Method ImplementationType="Self">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+			<ProcedureForUsage>
+				<Usage href="ExportScope.meth#Design"/>
+				<UsedProcedure href="CATSafety_Procedures.proc#SafetyFaultTreeElement_ExportDesign"/>
+			</ProcedureForUsage>
+			<ProcedureForUsage>
+				<Usage href="ExportScope.meth#Review"/>
+				<UsedProcedure href="CATSafety_Procedures.proc#SafetyFaultTreeElement_ExportReview"/>
+			</ProcedureForUsage>
+			<ProcedureForUsage>
+				<Usage href="ExportScope.meth#Channel"/>
+				<UsedProcedure href="CATSafety_Procedures.proc#SafetyFaultTreeElement_ExportChannel"/>
+			</ProcedureForUsage>
+	</Method>
+  </Class>
+  <RelationClass
+		Uuid="fe44789c-dde3-4798-937d-9b3f064a6b5b"
+		Name="FaultTreeElementChild"
+		SuperName="PLMCoreInstance"
+		CustomerExposition="Programmer">
+    <SubClause Name="from"   TargetName="FaultTreeElement"/>
+    <SubClause Name="to"   TargetName="FaultTreeElement"/>
+    <Path
+			Name="childContextPath"
+      Uuid="4090fe8c-db7e-4b26-8063-519f01bff8e4"
+			Orientation="In"
+			SynchroSensitivity="PathAndLast"
+			Protection="External"
+			RerouteOnEffectivityChange="No"
+			MultiValuated="No"
+		  Type="SemanticRelation"
+			TargetNames="RFLPLMFunctionalInstance;RFLVPMLogicalInstance"
+			RoleName="FaultTreeElementChildContextPath"
+			Semantics="Reference3"
+			/>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope" />
+    </Method>
+  </RelationClass>
+  <Class
+		Name="FaultTreeElementStandsFor"
+		Uuid="67e2a1d1-010f-4f22-81b4-e455aa128864"
+		CustomerExposition="Programmer"
+		Specializable="Yes"
+		CustomerExtensible="Yes"
+		SuperName="PLMPort"
+		OwnerTypes="FaultTreeElement"
+		>
+    <Path Name="standsFor"
+			Uuid="d0936815-5cc7-4df8-8db4-3775b6fed022"
+		    Orientation="In"
+		    SynchroSensitivity="PathAndLast"
+		    Protection="External"
+		    RerouteOnEffectivityChange="No"
+		    MultiValuated="No"
+		    Type="SemanticRelation"
+			  TargetNames="FailureMode"
+			  RoleName="FaultTreeElementStandsFor"
+		    Semantics="Reference3"
+			/>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope" />
+    </Method>
+  </Class>
+  <Class
+		Name="FaultTreeElementDSFContext"
+		Uuid="56657db2-a67e-4321-9237-ee2dba55d854"
+		CustomerExposition="Programmer"
+		Specializable="Yes"
+		CustomerExtensible="Yes"
+		SuperName="PLMPort"
+		OwnerTypes="FaultTreeElement"
+		>
+    <Path
+			Name="dsfContextPath"
+      Uuid="654577b3-d64a-484b-8b64-d7d3a442e1ae"
+			Orientation="In"
+			SynchroSensitivity="PathAndLast"
+			Protection="External"
+			RerouteOnEffectivityChange="No"
+			MultiValuated="No"
+		  Type="SemanticRelation"
+			TargetNames="RFLPLMFunctionalInstance;RFLVPMLogicalInstance"
+			RoleName="FaultTreeElementDSFContextPath"
+			Semantics="Reference3"
+			/>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope" />
+    </Method>
+  </Class>
+  <Class
+		Uuid="fcab03ac-324f-4d35-82b9-426fc0dc1ef9"
+		Name="FaultTreeElementReuseContext"
+		CustomerExposition="Programmer"
+		SuperName="PLMPort"
+		OwnerTypes="FaultTreeElement"
+		>
+    <Path Name="isAvailableIn"
+			Uuid="5beee61a-91ed-47cd-8b8b-ba916bc3fe8e"
+		    Orientation="In"
+		    SynchroSensitivity="PathAndLast"
+		    Protection="External"
+		    RerouteOnEffectivityChange="No"
+		    MultiValuated="No"
+		    Type="SemanticRelation"
+  			TargetNames="FallibleReference"
+			  RoleName="FaultTreeElementIsAvailableIn"
+		    Semantics="Reference3"
+			/>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope" />
+    </Method>
+  </Class>
+  <Class
+		Name="FaultTreeElementGraphicalRep"
+		Uuid="52647c79-4abc-4d3d-b314-060724fe9d6f"
+		SuperName="PLMCoreRepReference"
+		CustomerExposition="ProgrammerOnly">
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope" />
+    </Method>
+  </Class>
+  <RelationClass
+		Name="FaultTreeElementGraphicalRepInstance"
+		Uuid="c13e87f0-9099-4ad6-8890-55a8e7b3dc67"
+		CustomerExposition="ProgrammerOnly"
+		SuperName="PLMCoreRepInstance">
+    <SubClause Name="from"   TargetName="FaultTreeElement"/>
+    <SubClause Name="to"   TargetName="FaultTreeElementGraphicalRep"/>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope" />
+    </Method>
+  </RelationClass>
+</Package>

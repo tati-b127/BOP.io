@@ -1,0 +1,101 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified"
+         ModelerType="Top"
+         Name="DELLmiProductionSystemIOPort"
+         Uuid="4b8f9eba-0347-4962-ba7085661bafd580"
+         BelongsToModeler="DELLmiProductionSystem"
+         UseNames="PLMCORE"
+         CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>Production System Modeler</ShortRole>
+    <Role>This package describes Port associated to IO of a Production System</Role>
+  </CAAComment>
+
+  <Comment>last update 2012-01-20</Comment>
+
+  <Class Name="DELLmiProdSystemIOPort"
+         Uuid="986ddd8f-1b42-4ddc-ba3b733653ce57e5"
+         SuperName="PLMPort"
+         Abstract="No"
+         CustomerExposition="Programmer"
+         Specializable="No"
+         CustomerExtensible="No"
+         OwnerTypes="DELLmiAbstractProductionEntity"
+          >
+    <CAAComment>
+      <ShortRole>Defines Port associated to IO of a Production System</ShortRole>
+      <Role>Defines Port associated to IO of a Production System, used to plug material path</Role>
+    </CAAComment>
+
+    <Simple Name="V_PathDirection" Uuid="4e75b4b3-f105-411d-ad3e2ce1424dec21" Type="Integer" Protection="Free" CAAExposition="L0" DefaultValue="1">
+      <Property Name="RangeAsEnumName" Value="DELLmi_PathDirection_Enum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="In;Out"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+      </Range>
+      <CAAComment>
+        <ShortRole>Defines Production System IO Port Type</ShortRole>
+        <Role>Defines the type of the Port (In or Out)</Role>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_PathInformation"
+            Uuid="0456c478-2329-4ab4-8ed2-eaeae21cdd15"
+            Type="String"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"/>
+
+    <Simple Name="V_QueuingPriority"
+            Uuid="056CE212-ED99-4c65-8585-7C23679924B2"
+            Type="Integer"
+            DefaultValue="1"
+            MultiValuated="No"
+            ResetOnCloning="No"
+            ResetOnNewVersion="No"
+            Protection="Free"
+            CAAExposition="L0"/>
+
+    <Simple Name="V_QualifiedForSourcing"
+            Uuid="1826E2B6-8EC0-493c-9207-748F5B891C0D"
+            Type="Boolean"
+            MultiValuated="No"
+            DefaultValue="false"
+            Protection="Free"
+            CAAExposition="L0"/>
+ 
+    <Simple Name="V_DELSystemPortPosition" Uuid="A1A3781A-037F-4540-BE01-14707F01EC73" Type="Integer" Protection="Internal" DefaultValue="1">
+      <Property Name="RangeAsEnumName" Value="DELLmi_PortPosition_Enum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="Undef;Right;Left;Bottom;Top"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+        <Equal>5</Equal>
+      </Range>
+      <CAAComment>
+        <ShortRole>Defines Production System IO Port position in system thumbnail</ShortRole>
+        <Role>Defines the position of the Port (Undef, Right, Left, Bottom or Right) in system thumbnail</Role>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_IsMainPort"
+            Uuid="908DFCCC-C82C-4910-9C09-B8EC0D94C4D1"
+            Type="Boolean"
+            MultiValuated="No"
+            DefaultValue="false"
+            Protection="Internal"/>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+  </Class>
+
+</Package>

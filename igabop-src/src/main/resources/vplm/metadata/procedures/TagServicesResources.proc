@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<ProcedurePackage 
+	xmlns="PLMDictionaryProcedure" 
+	Name="TagServicesResources">
+
+  <Procedure Name="TagServices">
+    <Implementation Name="invoke" FileLocation="com.dassault_systemes.i3dx.rest.service.integration.Taggingservices" Language="JAVA"/>
+    <Signature href="Taggingservices_sig"/>
+  </Procedure>
+  <Signature id="Taggingservices_sig">
+    <Parameter Name="Method" MultiValuated="No" Direction="in" DataType="String" Order="1"/>
+    <Parameter Name="ArgNames" MultiValuated="Yes" Direction="in" DataType="String" Order="2"/>
+    <Parameter Name="ArgValues" MultiValuated="Yes" Direction="in" DataType="String" Order="3"/>
+    <Parameter Name="Result" MultiValuated="No" Direction="out" DataType="String" Order="1"/>
+  </Signature>
+</ProcedurePackage>
+

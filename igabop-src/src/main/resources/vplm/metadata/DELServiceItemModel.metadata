@@ -1,0 +1,384 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2007, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified"
+         ModelerType="Top"
+         Name="DELServiceItemModel"
+         Uuid="9AAE76FD-BBAE-4092-88B5-523B0EB27B82"
+         BelongsToModeler="DELServiceItemModel"
+         UseNames="DELAsmAssemblyModelDisciplines"
+         UseProcedures="ENOFPrcs_Procedures"
+         CustomerExposition="Programmer">
+
+  <CAAComment>
+    <ShortRole>Service Item Model Package</ShortRole>
+    <Role>This package describes the Service Item Model</Role>
+  </CAAComment>
+
+
+  <!-- Abstract Service Item Ref -->
+  <Class Name="DELFmiFunctionPPRServiceCreateReference"
+		     Uuid="4BEA634E-3388-4f76-957F-C16D48CD3300"
+		     Abstract="Yes"
+		     Discipline="Yes"
+		     SuperName="DELFmiFunctionPPRDiscreteReference"
+		     Specializable="No"
+		     CustomerExtensible="No"
+		     CustomerExposition="Programmer"
+         DeleteAvailability ="Yes">
+    
+    <Property Name="ChangeMaturityAvailability" Value="Yes"/>
+    <Property Name="LockUnlockAvailability" Value="Yes"/>
+    <Property Name="TransferOwnerShipAvailability" Value="Yes"/>
+    <Property Name="EditPropertiesAvailability" Value="Yes"/>
+    <Property Name="ChangeManagementSupport" Value="Yes"/>
+    <Property Name="ChangeManagementReferential"    Value="Yes"/>
+    <Property Name="ChangeManagementContext"    Value="Yes"/>
+    <Property Name="DupplicateAvailability"    Value="Yes"/>
+    <Property Name="SaveAsNewAvailability"    Value="Yes"/>
+    <Property Name="NewMajorRevisionAvailability"    Value="Yes"/>
+    <Property Name="EvolutionAvailability"    Value="Yes"/>
+    <Property Name="Configurable" Value="Yes"/>
+
+    <Property Name="IterationAvailability"    Value="No"/>
+    <Property Name="NewMinorRevisionAvailability"    Value="No"/>
+
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Design"/>
+        <UsedProcedure href="ENOFPrcs_Procedures.proc#Process_ExportAsDesign"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#TransferSiteOwnership"/>
+        <UsedProcedure href="ENOFPrcs_Procedures.proc#MBOM_TSO_References"/>
+      </ProcedureForUsage>
+    </Method>
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExchangeScope.meth#XPDM2"/>
+        <UsedProcedure href="ENOFPrcs_Procedures.proc#Process_ExchangeXPDM_XPDM2"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExchangeScope.meth#XPDM2_MBOMWithoutProcess"/>
+        <UsedProcedure href="ENOFPrcs_Procedures.proc#Process_ExchangeXPDM_XPDM2_MBOMWithoutProcess"/>
+      </ProcedureForUsage>
+    </Method>
+  </Class>
+  
+ 
+  <!-- Service Item Ref -->
+  <Class Name="DELServiceKitReference"
+			   Uuid="BD1BCCED-3390-4c03-AFA5-6FDD465A49B8"
+		     Abstract="No"
+			   Discipline="Yes"
+			   SuperName="DELFmiFunctionPPRServiceCreateReference"
+		     Specializable="Yes"
+		     CustomerExtensible="Yes"
+		     CustomerExposition="Programmer"
+		     CreateInstName="DELFmiFunctionIdentifiedInstance"
+         Abbreviation="srvk"
+         InstantiationOwnerTypes="DELServiceKitReference;DELServiceAssemblyReference">
+
+    <Property Name="XPGApplyDisciplineOnInstance" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELServiceItemDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELFmiFunctionIdentifiedInstance"/>
+    <Property Name="IconName" Value="I_InsertServiceKitItem"/>
+    <Property Name="3DIconName" Value="I_InsertServiceKitItem.cgr"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="Newable" Value="All_CAA"/>
+    <Property Name="OccurrenceType" Value="MfgProcessOccurrence"/>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+  
+      <Simple Name="V_NeedDedicatedSystem"
+         Uuid="772DEEE9-A77C-4143-8B91-35C9FF4B9AD5"
+         Type="String"
+         MaxLength="50"
+         MultiValuated="No"
+         Protection="Free"
+         ResetOnCloning="No"
+         ResetOnNewVersion="No"
+         CAAExposition="L0"
+         DefaultValue="Yes">
+      <Range>
+        <Equal>No</Equal>
+        <Equal>Yes</Equal>
+      </Range>
+    </Simple>
+
+  </Class>
+
+  <Class Name="DELServiceAssemblyReference"
+			   Uuid="14DE0E2B-6DC4-43ac-8F16-9B0A6119E2D0"
+		     Abstract="No"
+			   Discipline="Yes"
+			   SuperName="DELFmiFunctionPPRServiceCreateReference"
+		     Specializable="Yes"
+		     CustomerExtensible="Yes"
+		     CustomerExposition="Programmer"
+		     CreateInstName="DELFmiFunctionIdentifiedInstance"
+         Abbreviation="srva"
+         InstantiationOwnerTypes="DELServiceKitReference;DELServiceAssemblyReference">
+
+    <Property Name="XPGApplyDisciplineOnInstance" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELServiceItemDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELFmiFunctionIdentifiedInstance"/>
+    <Property Name="IconName" Value="I_InsertServiceAssemblyItem"/>
+    <Property Name="3DIconName" Value="I_InsertServiceAssemblyItem.cgr"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="Newable" Value="All_CAA"/>
+    <Property Name="OccurrenceType" Value="MfgProcessOccurrence"/>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+
+    <Simple Name="V_NeedDedicatedSystem"
+       Uuid="31FC937B-663C-4ef0-A6B7-499C2FE756D6"
+       Type="String"
+       MaxLength="50"
+       MultiValuated="No"
+       ResetOnCloning="No"
+       ResetOnNewVersion="No"
+       Protection="Free"
+       CAAExposition="L0"
+       DefaultValue="Yes">
+      <Range>
+        <Equal>No</Equal>
+        <Equal>Yes</Equal>
+      </Range>
+    </Simple>
+
+    <Simple Name="V_EstimatedMTBF"
+       Uuid="FAF5651D-D873-45ac-85FF-C3A8DCD81C96"
+       Type="Double"
+       Magnitude="TIME"
+       MultiValuated="No"
+       ResetOnCloning="No"
+       ResetOnNewVersion="No"
+       Protection="Free"
+       CAAExposition="L0"
+       DefaultValue="0.0">
+    </Simple>
+
+    <Simple Name="V_EstimatedMTTR"
+       Uuid="1C507EFA-DF5D-408c-9CD3-A7D7AD8F4BD2"
+       Type="Double"
+       Magnitude="TIME"
+       MultiValuated="No"
+       ResetOnCloning="No"
+       ResetOnNewVersion="No"
+       Protection="Free"
+       CAAExposition="L0"
+       DefaultValue="0.0">
+    </Simple>
+
+    <Simple Name="V_EstimatedMTBUR"
+       Uuid="D97E378F-0DAA-4180-9722-00607B1BACD9"
+       Type="Double"
+       Magnitude="TIME"
+       MultiValuated="No"
+       ResetOnCloning="No"
+       ResetOnNewVersion="No"
+       Protection="Free"
+       CAAExposition="L0"
+       DefaultValue="0.0">
+    </Simple>
+    
+    <Simple Name="V_Essentiality"
+       Uuid="5482AF1C-107A-4023-A695-435694F89F37"
+       Type="String"
+       MaxLength="264"
+       MultiValuated="No"
+       ResetOnCloning="No"
+       ResetOnNewVersion="No"
+       Protection="Free"
+       CAAExposition="L0">
+    </Simple>
+
+    <Simple Name="V_ReplacementType"
+       Uuid="1FF0CC6B-BA5D-4e04-A857-37B504608577"
+       Type="String"
+       MaxLength="50"
+       MultiValuated="No"
+       ResetOnCloning="No"
+       ResetOnNewVersion="No"
+       Protection="Free"
+       CAAExposition="L0"
+       DefaultValue="NotDefined">
+      <Range>
+        <Equal>LineAndShop</Equal>
+        <Equal>ShopOnly</Equal>
+        <Equal>NotDefined</Equal>
+      </Range>
+    </Simple>
+
+    <Simple Name="V_Replaceable"
+       Uuid="8DB93B07-90AC-4342-919C-0C9760AE9329"
+       Type="String"
+       MaxLength="50"
+       MultiValuated="No"
+       ResetOnCloning="No"
+       ResetOnNewVersion="No"
+       Protection="Free"
+       CAAExposition="L0"
+       DefaultValue="NotDefined">
+      <Range>
+        <Equal>Yes</Equal>
+        <Equal>No</Equal>
+        <Equal>NotDefined</Equal>
+      </Range>
+    </Simple>
+
+    <Simple Name="V_Repairable"
+       Uuid="13C55338-E551-49df-8B81-3FF91AEB7A37"
+       Type="String"
+       MaxLength="50"
+       MultiValuated="No"
+       ResetOnCloning="No"
+       ResetOnNewVersion="No"
+       Protection="Free"
+       CAAExposition="L0"
+       DefaultValue="NotDefined">
+      <Range>
+        <Equal>Yes</Equal>
+        <Equal>No</Equal>
+        <Equal>NotDefined</Equal>
+      </Range>
+    </Simple>
+
+  </Class>
+
+  <Class Name="DELServicePartReference"
+       Uuid="6A73B5FC-3244-4b16-9017-6922305F4594"
+       Abstract="No"
+       Discipline="Yes"
+       SuperName="DELFmiFunctionPPRServiceCreateReference"
+       Specializable="Yes"
+       CustomerExtensible="Yes"
+       CustomerExposition="Programmer"
+       CreateInstName="DELFmiFunctionIdentifiedInstance"
+       Abbreviation="srvp"
+       InstantiationOwnerTypes="DELServiceKitReference;DELServiceAssemblyReference">
+
+    <Property Name="XPGApplyDisciplineOnInstance" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELServiceItemDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELFmiFunctionIdentifiedInstance"/>
+    <Property Name="IconName" Value="I_InsertServicePartItem"/>
+    <Property Name="3DIconName" Value="I_InsertServicePartItem.cgr"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="Newable" Value="All_CAA"/>
+    <Property Name="OccurrenceType" Value="MfgProcessOccurrence"/>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+
+      <Simple Name="V_EstimatedMTBF"
+       Uuid="5FC29907-16DF-4de7-9F1C-051428BB1EB1"
+       Type="Double"
+       Magnitude="TIME"
+       MultiValuated="No"
+       ResetOnCloning="No"
+       ResetOnNewVersion="No"
+       Protection="Free"
+       CAAExposition="L0"
+       DefaultValue="0.0">
+    </Simple>
+
+    <Simple Name="V_EstimatedMTTR"
+       Uuid="F247821A-E1D2-4c51-80F3-ADCDA68FBF42"
+       Type="Double"
+       Magnitude="TIME"
+       MultiValuated="No"
+       ResetOnCloning="No"
+       ResetOnNewVersion="No"
+       Protection="Free"
+       CAAExposition="L0"
+       DefaultValue="0.0">
+    </Simple>
+
+    <Simple Name="V_EstimatedMTBUR"
+       Uuid="459FB921-D7B8-4d40-AC48-A813EA49E749"
+       Type="Double"
+       Magnitude="TIME"
+       MultiValuated="No"
+       ResetOnCloning="No"
+       ResetOnNewVersion="No"
+       Protection="Free"
+       CAAExposition="L0"
+       DefaultValue="0.0">
+    </Simple>
+    
+    <Simple Name="V_Essentiality"
+       Uuid="7B5B0BF7-6685-475a-8BA5-C69DB0133C8F"
+       Type="String"
+       MaxLength="264"
+       MultiValuated="No"
+       ResetOnCloning="No"
+       ResetOnNewVersion="No"
+       Protection="Free"
+       CAAExposition="L0">
+    </Simple>
+
+    <Simple Name="V_ReplacementType"
+       Uuid="4BE44C1B-B382-43c4-9E7D-E424AD422827"
+       Type="String"
+       MaxLength="50"
+       MultiValuated="No"
+       ResetOnCloning="No"
+       ResetOnNewVersion="No"
+       Protection="Free"
+       CAAExposition="L0"
+       DefaultValue="NotDefined">
+      <Range>
+        <Equal>LineAndShop</Equal>
+        <Equal>ShopOnly</Equal>
+        <Equal>NotDefined</Equal>
+      </Range>
+    </Simple>
+
+    <Simple Name="V_Replaceable"
+       Uuid="CA0BBFD9-5959-4f20-B264-408E91B67583"
+       Type="String"
+       MaxLength="50"
+       MultiValuated="No"
+       ResetOnCloning="No"
+       ResetOnNewVersion="No"
+       Protection="Free"
+       CAAExposition="L0"
+       DefaultValue="NotDefined">
+      <Range>
+        <Equal>Yes</Equal>
+        <Equal>No</Equal>
+        <Equal>NotDefined</Equal>
+      </Range>
+    </Simple>
+
+    <Simple Name="V_Repairable"
+       Uuid="0B37F1FA-DFA3-442b-8169-384E3C2EE7BC"
+       Type="String"
+       MaxLength="50"
+       MultiValuated="No"
+       ResetOnCloning="No"
+       ResetOnNewVersion="No"
+       Protection="Free"
+       CAAExposition="L0"
+       DefaultValue="NotDefined">
+      <Range>
+        <Equal>Yes</Equal>
+        <Equal>No</Equal>
+        <Equal>NotDefined</Equal>
+      </Range>
+    </Simple>
+
+  </Class>
+
+</Package>

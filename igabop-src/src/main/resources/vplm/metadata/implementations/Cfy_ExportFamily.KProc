@@ -1,0 +1,63 @@
+#Prog Cfy_ExportFamily( iPLMIDSet : #In PLMIDSet, oPLMIDSet : #Out PLMIDSet ) : VoidType
+{
+let RsFamilyRep                    (PLMRouteSet)
+let RsFamilyGenericModelRef        (PLMRouteSet)
+let RsFamilyGenericModelRepRef     (PLMRouteSet)
+let RsFamilyResolvedItems          (PLMRouteSet)
+let RsProductStructure             (PLMRouteSet)
+let IdsFamilyRep                 (PLMIDSet)
+let IdsFamilyGenericModelRef     (PLMIDSet)
+let IdsFamilyGenericModelRepRef  (PLMIDSet)
+let IdsFamilyResolvedItems       (PLMIDSet)
+let IdsProductStructureInputs1   (PLMIDSet)
+let IdsProductStructureInputs2   (PLMIDSet)
+let IdsProductStructure1         (PLMIDSet)
+let IdsProductStructure2         (PLMIDSet)
+
+let IdsRestrictedToFamilyReference(PLMIDSet)
+
+
+ 
+/* Restric the inputs */
+IdsRestrictedToFamilyReference = Restrict(iPLMIDSet,"CATComponentsFamily/CATComponentsFamilyReference")
+
+/* Get family rep-ref */
+RsFamilyRep = ExecutePLMFunction( "CATComponentsFamily", "cfy_expand_repref", IdsRestrictedToFamilyReference )
+IdsFamilyRep = Ids( RsFamilyRep )
+
+
+/* Get generic model */
+RsFamilyGenericModelRef = ExecutePLMFunction( "CATComponentsFamily", "cfy_navigate_genericmodel", IdsFamilyRep )
+RsFamilyGenericModelRepRef = ExecutePLMFunction( "CATComponentsFamily", "cfy_navigate_genericmodel_rep", IdsFamilyRep )
+IdsFamilyGenericModelRef = Ids( RsFamilyGenericModelRef )
+IdsFamilyGenericModelRepRef = Ids( RsFamilyGenericModelRepRef )
+
+
+/* Get resolved items */
+RsFamilyResolvedItems = ExecutePLMFunction( "CATComponentsFamily", "cfy_navigate_resolveditems", IdsFamilyRep )
+IdsFamilyResolvedItems = Ids( RsFamilyResolvedItems )
+
+
+/* Get product structure from function */
+IdsProductStructureInputs1 = Restrict( IdsFamilyGenericModelRef, "PRODUCTCFG/VPMReference" )
+							+ Restrict( IdsFamilyResolvedItems, "PRODUCTCFG/VPMReference" )
+RsProductStructure = ExecutePLMFunction( "PRODUCTCFG", "ProductCfg_AddChildrenProduct", IdsProductStructureInputs1 )
+IdsProductStructure1 = Ids( RsProductStructure )
+
+/* Get product structure with reps from procedure */
+IdsProductStructureInputs2 = Restrict( IdsProductStructure1, "PRODUCTCFG/VPMReference" )
+							+ Restrict( IdsProductStructure1, "PRODUCTCFG/VPMRepReference" )
+							+ Restrict( IdsFamilyGenericModelRepRef, "PRODUCTCFG/VPMRepReference" )
+							+ Restrict( IdsFamilyResolvedItems, "PRODUCTCFG/VPMReference" )
+IdsProductStructure2 = ExecutePLMProcedure( "VPMEditor_GetAllRepresentations", IdsProductStructureInputs2 )
+
+
+/* Provide back all that stuff */
+oPLMIDSet = iPLMIDSet
++ IdsFamilyRep
++ Ids(RsFamilyGenericModelRef)
++ Ids(RsFamilyGenericModelRepRef)
++ Ids(RsFamilyResolvedItems)
++ IdsProductStructure1
++ IdsProductStructure2
+}

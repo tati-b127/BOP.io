@@ -1,0 +1,22 @@
+#Prog Kwe_ExportRuleSet( iPLMIDSet : #In PLMIDSet, oPLMIDSet : #Out PLMIDSet ) : VoidType
+{
+let RsRuleEntity           (PLMRouteSet)
+let PLMRouteParam          (PLMRouteSet)
+let PLMIDSetParam          (PLMIDSet)
+let restrictedPLMIDSet     (PLMIDSet)
+let restrictedRuleSetPLMIDSet (PLMIDSet)
+
+
+/* Get rules entities */
+restrictedRuleSetPLMIDSet = Restrict(iPLMIDSet, "PLMKnowHowRuleSet/PLMRuleSet")
+RsRuleEntity = ExecutePLMFunction( "PLMKnowHowRuleSet", "kwe_expand_rules", restrictedRuleSetPLMIDSet )
+
+restrictedPLMIDSet = Restrict(Ids(RsRuleEntity), "PLMKnowHowCheck/PLMCheck")
+PLMRouteParam = ExecutePLMFunction("PLMParameter", "PAR_nav_params", restrictedPLMIDSet)
+
+PLMIDSetParam = Ids(PLMRouteParam,"all")
+
+/* Provide back all that stuff */
+oPLMIDSet = iPLMIDSet + Ids(RsRuleEntity) + PLMIDSetParam
+
+}

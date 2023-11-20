@@ -1,0 +1,74 @@
+#Prog VPMEditor_XPDM2_VPMReferenceCompletion(iPLMIDSet :  #In PLMIDSet,oPLMIDSet :  #Out PLMIDSet) : VoidType
+{ 
+let rsPortCnx(PLMRouteSet)
+let rsPortsOnReps(PLMRouteSet)
+let rsMCX(PLMRouteSet)
+let rs3DPartShapes( PLMRouteSet )
+
+let idsInputRefs(PLMIDSet)
+let idsInputReps(PLMIDSet)
+let idsPortCnx(PLMIDSet)
+let idsTmpAllReps(PLMIDSet)
+
+let idsXCADComposition(PLMIDSet)
+let idsXCADNonPS(PLMIDSet)
+
+let rsXCADRepRepInst(PLMRouteSet)
+
+/*              */
+/* Filter Input */ 
+/*              */
+
+idsInputRefs = Restrict(iPLMIDSet, "PRODUCTCFG/VPMReference")
+idsInputReps = Restrict(iPLMIDSet, "PRODUCTCFG/VPMRepReference")
+
+
+/*                      */
+/* Enrich Ref with XCAD */ 
+/*                      */
+idsXCADComposition =  ExecutePLMProcedure("XCAD_CompleteItems", idsInputRefs)
+idsInputRefs = idsInputRefs + Restrict(idsXCADComposition, "PRODUCTCFG/VPMReference")
+
+/*                              */
+/* Enrich Rep with XCAD Non PS  */ 
+/*                              */ 
+idsXCADNonPS =  ExecutePLMProcedure("XCAD_CompleteNonPS", idsInputRefs)
+idsInputRefs = idsInputRefs + Restrict(idsXCADNonPS, "PRODUCTCFG/VPMReference")
+
+
+/*           */
+/* Ref stuff */ 
+/*           */
+
+/* 
+ * Completes with all :
+ *		- Aggregated VPMPort
+ *		- Aggregated VPMConnection
+ *		- Aggregated MCX & MCXInstances for perfo... 
+ * Info : no need to retrieve PLM_ExternalID.
+ */
+rsPortCnx = ExecutePLMFunction( "PRODUCTCFG", "ProductCfg_AddVPMPortsAndConnections", idsInputRefs )
+idsPortCnx = Ids( rsPortCnx )
+
+/* Complete with XCADRepRepInsts */
+rsXCADRepRepInst = ExecutePLMFunction("XCADAssembly", "XcadAssembly_ExpandVPMRefToXCADRepRepInst", idsInputRefs)
+
+
+/* Completes with Engineering Connections */
+rsMCX = ExecutePLMFunction("CATMCXAssembly", "CATMCXAssembly_AddAllAggregatedMCX", idsInputRefs)
+
+/* Retrieve Reps of 3DPart */
+rs3DPartShapes = ExecutePLMFunction( "PRODUCTCFG", "ProductCfg_Add3DPartRepresentation", idsInputRefs )
+
+/*                */
+/* Post Rep stuff */ 
+/*                */
+idsTmpAllReps = idsInputReps + Restrict( idsPortCnx, "PRODUCTCFG/VPMRepReference" )
+
+/* Complete with Ports on Reps */
+rsPortsOnReps = ExecutePLMFunction("PRODUCTCFG", "ProductCfg_AddVPMPorts", idsTmpAllReps)
+
+/* Return the set of ids */
+oPLMIDSet = idsPortCnx + Ids( rsMCX ) + Ids( rs3DPartShapes ) + Ids( rsPortsOnReps ) + idsXCADNonPS + idsXCADComposition + Ids(rsXCADRepRepInst)
+
+}

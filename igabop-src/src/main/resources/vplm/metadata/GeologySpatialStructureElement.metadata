@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2017, All rights reserved -->
+
+<Package CustomerExposition = "Programmer" ModelerType = "Top" Name = "GeologySpatialStructureElement" UseNames = "CivilEngineeringSpatialStructureElement" Uuid = "DD232BA4-5ADF-4B09-8944-86027F1FDF97" xmlns = "PLMDictionaryUnified">
+  <Class Abstract = "Yes" CustomerExposition = "Programmer" Discipline = "Yes" Name = "GeologySpatialStructureElement" SuperName = "CivilEngineeringSpatialStructureElement" Uuid = "79880716-7039-4C55-A60F-C09F02B7DCAA">
+    <Property Name = "GroupingType" Value = "GeologySpatialStructureElement"/>
+  </Class>
+  <Class Abstract = "Yes" CustomerExposition = "Programmer" Discipline = "Yes" Name = "GeologySpatialStructureElementType" SuperName = "CivilEngineeringSpatialStructureElementType" Uuid = "0A457363-9A73-42A5-B2CE-A91C72BB0FCC">
+    <Property Name = "GroupingType" Value = "GeologySpatialStructureElementType"/>
+  </Class>
+  <Class Abbreviation = "geol" CustomerExposition = "Programmer" Discipline = "Yes" Name = "GeologyPart" SuperName = "GeologySpatialStructureElement" Uuid = "4FD6643F-09A0-465D-A86B-92CA77D67968">
+    <Property Name = "IconName" Value = "I_GeologyPart"/>
+    <Property Name = "3DIconName" Value = "I_GeologyPart.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATEAECDelegateInstanciation"/>
+    <Property Name = "KweNew_ReturnedType" Value = "VPMInstance"/>
+    <Property Name = "Newable" Value = "All_Offline_CAA"/>
+    <Property Name = "InstantiationOwnerTypes" Value = "PPRContext;AecOtherSpatialStructureElement;AecSite;GeologyPart;GeologyOtherSpatialStructureElement"/>
+    <Property Name = "3DPartAvailability" Value = "UserChoiceReferenceDefault"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "GeologyOtherSpatialStructureElement" Specializable = "Yes" SuperName = "GeologySpatialStructureElement" Uuid = "E5F2547D-0B6B-4A5F-B4D1-B1D2C42779AF">
+    <Property Name = "IconName" Value = "I_GeologyOtherSpatialStructureElement"/>
+    <Property Name = "3DIconName" Value = "I_GeologyOtherSpatialStructureElement.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATEAECDelegateInstanciation"/>
+    <Property Name = "KweNew_ReturnedType" Value = "VPMInstance"/>
+    <Property Name = "Newable" Value = "All_Offline_CAA"/>
+    <Property Name = "InstantiationOwnerTypes" Value = "PPRContext;AecOtherSpatialStructureElement;AecSite;GeologyPart;GeologyOtherSpatialStructureElement"/>
+    <Property Name = "3DPartAvailability" Value = "UserChoiceReferenceDefault"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "GeologyPartType" SuperName = "GeologySpatialStructureElementType" Uuid = "F36A488F-D434-4634-86FB-1CF6F1E3E366">
+    <Property Name = "IconName" Value = "I_GeologyPartType"/>
+    <Property Name = "3DIconName" Value = "I_GeologyPartType.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATCbaObjectTypeDelegateInstanciation"/>
+    <Property Name = "Newable" Value = "New_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "ReferenceOnly"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "GeologyOtherSpatialStructureElementType" Specializable = "Yes" SuperName = "GeologyPartType" Uuid = "67F499DD-9911-4E6D-AE1F-892AB76494D3">
+    <Property Name = "IconName" Value = "I_GeologyOtherSpatialStructureElementType"/>
+    <Property Name = "3DIconName" Value = "I_GeologyOtherSpatialStructureElementType.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATCbaObjectTypeDelegateInstanciation"/>
+    <Property Name = "Newable" Value = "New_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "ReferenceOnly"/>
+  </Class>
+</Package>

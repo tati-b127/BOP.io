@@ -1,0 +1,35 @@
+NAVIGATE     
+T0.PLM_ExternalID, T0.PLMID,
+T1.PLM_ExternalID, T1.PLMID,
+T2.physicalid, T2.logicalid, T2.majorid, T2.type, T2.name
+
+
+FROM      
+
+PRODUCTCFG/VPMReference T0,    
+CATMaterial/CATMatConnection T1,
+"Class/Internal Material" T2
+
+FROM_ROOTS[?1?]
+
+ON 
+( 
+  RELATION
+  (
+    FROM=PRODUCTCFG/VPMReference     
+    TO=CATMaterial/CATMatConnection
+    THROUGH=POINTEDBY 
+  )
+  WITH QUALITY_FILTER(CATEGORY=ISOWNEDBY) 
+)
+THEN 
+( 
+  RELATION
+  ( 
+    FROM=CATMaterial/CATMatConnection
+    TO="Class/Internal Material"
+    THROUGH=POINTSTO 
+  )  
+)
+;
+

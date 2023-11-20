@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<!-- edited with XMLSpy v2007 (http://www.altova.com) by ﻿DS (DASSAULT SYSTEMES) -->
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2006, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified"  ModelerType="Top" Name="ENOCLG_KEYWORD" Uuid="a32bda16-65cb-405d-a083-479bda45cd89" 
+         UseNames="ENOCLG_CLASS PLMCORE" CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+  <CAAComment>
+		<ShortRole>Keyword Package</ShortRole>
+		<Role>This package includes Keyword Model</Role>
+	</CAAComment>
+	<Comment>last update 2007-11-30-00.00.00</Comment>
+	<!-- **************************************************************************************************************** -->
+	<!-- * ENOCLG_KeywordReference(PLMCoreReference): concrete keyword, instanciable, non searchable, non CAA derivable * -->
+  <!-- **************************************************************************************************************** -->
+  <Class Name="ENOCLG_KeywordReference" 
+      Uuid="c9de22bd-49f1-4be7-809a-eb8d2f1bd6ff" 
+      Abstract="No" 
+      SuperName="PLMCoreReference" 
+      CustomerExposition="Programmer"
+      CreateInstName="ENOCLG_KeywordInstance">
+      <Property Name="Searchable" Value="No"/>
+		<CAAComment>
+			<ShortRole>Keyword Reference</ShortRole>
+			<Role>Keyword Reference</Role>
+		</CAAComment>
+		<!-- ********************************************************* -->
+		<!-- * Elementary Keyword attributes                         * -->
+		<!-- ********************************************************* -->
+    <Simple Name="V_IdLibraryOwner" 
+          Uuid="b040deba-79a9-4216-a282-5a2b3b47d189" 
+          Type="Binary" MaxLength="36" Protection="Internal"  MultiValuated="No"/>
+
+    <Simple Name="V_KeywordType" 
+      Uuid="4426ae17-a83a-4a8c-810f-94d2817dd61b" 
+      Type="String" MaxLength="50" Protection="Internal"  MultiValuated="No"/>
+    
+		<Simple Name="V_KeywordId" 
+      Uuid="df69757a-bb1f-4751-b677-8b28681b61bd"  
+      Type="String" MaxLength="100" Protection="Internal"  MultiValuated="No"/>
+    
+    
+
+    <Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>   
+	</Class>
+
+  <!-- ************************************* -->
+  <!-- * Unique key for keyword reference  * -->
+  <!-- ************************************* -->
+  <UniqueKey Name="ENOCLG_KeywordReferenceUK"
+             Uuid="2b9bab30-cd32-4be2-aa9a-d484af0b2ffd"
+             ClassName="ENOCLG_KeywordReference"
+             AttributeNames="PLM_ExternalID V_IdLibraryOwner" />
+
+  <!-- ************************************************************************************************ -->
+	<!-- * ENOCLG_KeywordInstance(PLMCoreReference): non CAA customisable instance of keyword reference * -->
+  <!-- ************************************************************************************************ -->
+  <RelationClass Name="ENOCLG_KeywordInstance" 
+      Uuid="c8fe47f8-0586-4e34-a504-304291965b33" 
+      Abstract="No" 
+      SuperName="PLMCoreInstance" 
+      CustomerExposition="Programmer">
+
+    <CAAComment>
+			<ShortRole>PLM Keyword instance aggregated in a ENOCLG_CLASS</ShortRole>
+			<Role>PLM Keyword instance aggregated in a ENOCLG_CLASS</Role>
+		</CAAComment>
+		<!-- ********************************************************* -->
+		<!-- * Elementary Keyword Instance attributes                         * -->
+		<!-- ********************************************************* -->
+
+    <SubClause Name="from"   TargetName="ENOCLG_ClassReference"/>
+    <SubClause Name="to"   TargetName="ENOCLG_KeywordReference"/>
+    
+    <Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>   
+ 	</RelationClass>
+</Package>

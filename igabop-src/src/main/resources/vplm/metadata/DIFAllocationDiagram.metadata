@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY FOR AllocationDiagram                 -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2014, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" 
+         ModelerType="Top" 
+         Name="DIFAllocationDiagram" 
+         Uuid="7432CD1A-D84E-11E4-B9D6-1681E6B88EC1" 
+         UseNames="DIFModelerAbstractView"
+         BelongsToModeler="DIFModeler01"
+         CustomerExposition="Programmer">
+
+  <!-- ******************************************* -->
+  <!-- *  AllocationDiagram (PLMCoreReference)      * -->
+  <!-- ******************************************* -->
+  <Class Name="AllocationDiagram" 
+         Uuid="E803C58E-D879-11E4-B9D6-1681E6B88EC1" 
+         Abstract="No" 
+         SuperName="DIFAbstractView"
+		 Abbreviation="ald"
+         CreateInstName="AllocationDiagramInstance"
+         CustomerExposition="Programmer"
+         Specializable="Yes">  
+  
+    <CAAComment>
+      <ShortRole>Allocation Diagram View Object</ShortRole>
+      <Role>Allocation Diagram View Object</Role>
+    </CAAComment>
+
+    <!-- PLM New UI/KWE Scripts New -->
+    <Property Name="KweNew_InstanciationMethod" Value="CATDifKBEDelegateInstanciation"/>
+	
+    <!-- Icon and 3D Icon -->
+    <Property Name="IconName" Value="I_FLE_AD_VIEW"/>
+	
+	<!-- Collaborative Space Applicability -->
+    <Property Name="ShareBetweenProjectsAvailability" Value="Yes"/>
+
+    <!-- Export -->
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Remove"/>
+        <UsedProcedure href="DIFpe_Procedures.proc#DIFModeler_ExportCompletion_DifAbstractView"/>
+      </ProcedureForUsage>
+
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#TransferSiteOwnership"/>
+        <UsedProcedure href="DIFpe_Procedures.proc#DIFModeler_ExportCompletion_DifAbstractView"/>
+      </ProcedureForUsage>
+    </Method>
+
+  </Class>
+
+  <!-- *************************************************** -->
+  <!-- * AllocationDiagramInstance (PLMCoreInstance)        * -->
+  <!-- *************************************************** -->
+  <RelationClass Name="AllocationDiagramInstance" 
+         Uuid="DE375F46-D84E-11E4-B9D6-1681E6B88EC1" 
+         Abstract="No" 
+         SuperName="DIFAbstractViewInstance"
+         CustomerExposition="Programmer"
+         Specializable="Yes">
+
+    <CAAComment>
+      <ShortRole>Allocation Diagram Instance Object</ShortRole>
+      <Role>Allocation Diagram Instance Object</Role>
+    </CAAComment>
+		
+    <!-- Configuration -->
+    <Property Name="Filtrable" Value="Yes"/>
+
+    <!-- PLM New UI/KWE Scripts New -->
+    <Property Name="KweNew_InstanciationMethod" Value="CATDifKBEDelegateInstanciation"/>
+
+    <!-- Icon and 3D Icon -->
+    <Property Name="IconName" Value="I_FLE_AD_VIEW"/>
+
+    <!-- Export -->
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+    <SubClause Name="from"   TargetName="DIFSheet"/>
+    <SubClause Name="to"   TargetName="AllocationDiagram"/>
+
+  </RelationClass>
+
+</Package>

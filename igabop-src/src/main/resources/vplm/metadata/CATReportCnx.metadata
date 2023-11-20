@@ -1,0 +1,63 @@
+<?xml version="1.0" ?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2011, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified"
+	ModelerType="Top"
+	Name="CATReportCnx"
+    Uuid="CDD1264D-65E2-4f18-BFF1-AE1EE60250A1"
+    UseNames="PLMCORE"    
+    CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>CATIA System Report Cnx to Document Package</ShortRole>
+    <Role>This package includes the connection between Report reference and the generated document as a complement of CATReport.metadata</Role>
+  </CAAComment>
+
+  <Class Name="CATReportGeneratedDoc"
+      Uuid="AD761877-2243-4f68-9971-733D90E3F2B1"
+      Abstract="No"
+      SuperName="PLMConnection"
+    OwnerTypes="CATReportReference"
+	  CustomerExposition="Programmer">
+    <!-- OwnerTypes="CATReportReference"  Integrate this line if you want to declare the aggregation constraint -->
+
+    <Property Name="IconName" Value="I_RGN_Report"/>
+    <Property Name="ChangeManagementSupport" Value="Yes"/>
+    <Property Name="Searchable" Value="No"/>
+   
+    <Path Name="CATReportGeneratedDoc"
+      Uuid="55C6D475-9AD3-494c-B4B4-3394BA87AF5D"
+      MultiValuated="No"
+      RoleName="CATReportGeneratedDoc"	
+      Type="SemanticRelation" AdaptativeToMinor="No"
+		  SynchroSensitivity="PathAndLast"
+		  RerouteOnEffectivityChange="No" Orientation="InOut"
+      Semantics="Reference6"/>
+
+    <Path Name="CATReportInput"
+        Uuid="98CF4F35-757D-4858-9C3D-53CF8D512FE8"
+        MultiValuated="No"
+        RoleName="CATReportInput"
+     		Type="SemanticRelation" AdaptativeToMinor="No"
+		    SynchroSensitivity="PathAndLast"
+		    RerouteOnEffectivityChange="No" Orientation="In"
+        Semantics="Reference3"/>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+  <!-- ********************************************************* -->
+  <!-- FUNCTIONS Declarations : here are delcared PLMQL Functions -->
+
+  <!-- ********************************************************* -->
+
+  <!-- DISCIPLINES DECLARATIONS -->
+
+  <!-- ********************************************************* -->
+</Package>
+

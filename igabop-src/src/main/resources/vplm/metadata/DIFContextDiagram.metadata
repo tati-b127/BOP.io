@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY FOR ContextDiagram                 -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2014, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" 
+         ModelerType="Top" 
+         Name="DIFContextDiagram" 
+         Uuid="669FB743-4111-4B01-84F4-A8C279CEA385" 
+         UseNames="DIFModelerAbstractView"
+         BelongsToModeler="DIFModeler01"
+         CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <!-- ******************************************* -->
+  <!-- *  ContextDiagram (PLMCoreReference)      * -->
+  <!-- ******************************************* -->
+  <Class Name="ContextDiagram" 
+         Uuid="7D767A6C-6DC4-4E24-8931-E64FE4F0631A" 
+         Abstract="No" 
+         SuperName="DIFAbstractView"
+         Abbreviation="ctd"
+         CreateInstName="ContextDiagramInstance"
+         CustomerExposition="Programmer"
+         Specializable="Yes">  
+  
+    <CAAComment>
+      <ShortRole>Context Diagram View Object</ShortRole>
+      <Role>Context Diagram View Object</Role>
+    </CAAComment>
+
+    <!-- PLM New UI/KWE Scripts New -->
+    <Property Name="KweNew_InstanciationMethod" Value="CATDifKBEDelegateInstanciation"/>
+
+    <!-- Icon and 3D Icon -->
+    <Property Name="IconName" Value="I_FLE_CTX_VIEW"/>
+
+    <!-- Collaborative Space Applicability -->
+    <Property Name="ShareBetweenProjectsAvailability" Value="Yes"/>
+
+    <!-- Export -->
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Remove"/>
+        <UsedProcedure href="DIFpe_Procedures.proc#DIFModeler_ExportCompletion_DifAbstractView"/>
+      </ProcedureForUsage>
+
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#TransferSiteOwnership"/>
+        <UsedProcedure href="DIFpe_Procedures.proc#DIFModeler_ExportCompletion_DifAbstractView"/>
+      </ProcedureForUsage>
+    </Method>
+
+  </Class>
+
+  <!-- *************************************************** -->
+  <!-- * ContextDiagramInstance (PLMCoreInstance)        * -->
+  <!-- *************************************************** -->
+  <RelationClass Name="ContextDiagramInstance" 
+         Uuid="D5841538-C606-47DB-B81D-B9FEB79A673C" 
+         Abstract="No" 
+         SuperName="DIFAbstractViewInstance"
+         CustomerExposition="Programmer"
+         Specializable="Yes">
+
+    <CAAComment>
+      <ShortRole>Context Diagram Instance Object</ShortRole>
+      <Role>Context Diagram Instance Object</Role>
+    </CAAComment>
+
+    <!-- Configuration -->
+    <Property Name="Filtrable" Value="Yes"/>
+
+    <!-- PLM New UI/KWE Scripts New -->
+    <Property Name="KweNew_InstanciationMethod" Value="CATDifKBEDelegateInstanciation"/>
+
+    <!-- Icon and 3D Icon -->
+    <Property Name="IconName" Value="I_FLE_CTX_VIEW"/>
+
+    <!-- Export -->
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+
+    <SubClause Name="from"   TargetName="DIFSheet"/>
+    <SubClause Name="to"   TargetName="ContextDiagram"/>
+    
+  </RelationClass>
+
+</Package>

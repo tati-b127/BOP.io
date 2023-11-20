@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<ProcedurePackage xmlns="PLMDictionaryProcedure" Name="PLMEnsPartsFilter_Procedures">
+<Procedure Name="ESE_PartsFilterExport">
+	<Implementation Name="ESE_PartsFilterExport" FileLocation="ESE_PartsFilterExport.KProc" Language="EKL"/>
+	<Signature href="ESE_PartsFilterExportSignature"/>
+</Procedure>
+<Signature id="ESE_PartsFilterExportSignature">
+	<Parameter Name="InputIds" Lower="0" Upper="-1" MultiValuated="Yes" Direction="in" DataType="PLMId" Order="1"/>
+	<Parameter Name="OutputIds" Lower="0" Upper="-1" MultiValuated="Yes" Direction="out" DataType="PLMId" Order="2"/>
+</Signature>
+<Procedure Name="ESE_PartsFilterRemove">
+  <Implementation Name="ESE_PartsFilterRemove" FileLocation="ESE_PartsFilterRemove.KProc" Language="EKL"/>
+  <Signature href="ESE_PartsFilterRemoveSignature"/>
+</Procedure>
+<Signature id="ESE_PartsFilterRemoveSignature">
+  <Parameter Name="InputIds" Lower="0" Upper="-1" MultiValuated="Yes" Direction="in" DataType="PLMId" Order="1"/>
+  <Parameter Name="OutputIds" Lower="0" Upper="-1" MultiValuated="Yes" Direction="out" DataType="PLMId" Order="2"/>
+</Signature>
+</ProcedurePackage>

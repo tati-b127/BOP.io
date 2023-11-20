@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<!-- edited with XMLSpy v2007 (http://www.altova.com) by ﻿DS (DASSAULT SYSTEMES) -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2007, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" Name="ENOSTResourceSetRepDS" Uuid="9e34a41c-8a63-4740-a1de-e9a7f8221cc5" UseNames="PLMResourceSetRep" Alias="Resource Set Representation SMB Custo">
+	<Class Name="ENOSTResourceSetRepresentation" Uuid="1a6faeea-aa79-4e45-97ef-64c6da98a740" SuperName="PLMResourceSetRepReference" SuperRef="9D4D5649-E0EA-4392-97EBA4AF59C9F81E">
+		<IdentifierSet Name="Identifier" Uuid="83fce2ff-ca14-49e6-98af-0b19c7e7f648" IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755" IdentifierNames="PLM_ExternalID V_version"/>
+    <Simple Name="E_fromExternalId" Uuid="fa675f44-4d2e-42da-b752-69bc9499397e" Alias="Definition" Type="String" MaxLength="256" Mandatory="No" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="E_versionComment" Uuid="2bcb9af5-ec38-4323-97a9-e138cc3289ca" Alias="Version Comment" Type="String" MaxLength="256" Mandatory="No" MultiValuated="No" Protection="Free" CAAExposition="L0"  ResetOnNewVersion="Yes"  ResetOnCloning="Yes"/>
+  </Class>
+</Package>

@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2009, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" Name="DELLmiProductionExecSinkOperationDS" Uuid="b114a41d-e37a-4777-859e-27b808e3d462" UseNames="DELLmiProductionExecSinkOperation" >
+<Property Name="OptionalInstallation" Value="Yes" /> 
+	<CAAComment>
+		<ShortRole>Standard DELMIA Execution Sink Operation Package</ShortRole>
+		<Role>This package includes default customized DELMIA Execution Sink Operation</Role>
+	</CAAComment>
+	<Comment>last update 2009-05-25</Comment>
+
+	<Class Name="DELLmiExecSinkOperationRefCusto" Uuid="1cac1dad-c725-4bc8-ba3c-64075f87ee2c" SuperName="DELLmiExecSinkOperationReference"  >
+
+    <IdentifierSet Name="Identifier"
+        Uuid="b7f01b0a-a493-4bc1-a217-47c18f820a03"
+        IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755"
+        IdentifierNames="PLM_ExternalID V_version" />
+
+    <CAAComment>
+			<ShortRole>Standard DELMIA Execution Sink Operation Reference</ShortRole>
+			<Role>Default customized DELMIA Execution Sink Operation Reference</Role>
+		</CAAComment>
+	</Class>
+
+  <RelationClass Name="DELLmiExecSinkOperationInstCusto" Uuid="ff6ebfda-6296-4dcc-8543-f9a79629391c" SuperName="DELLmiExecSinkOperationInstance"  >
+		<CAAComment>
+			<ShortRole>Standard DELMIA Execution Sink Operation Instance</ShortRole>
+			<Role>Default customized DELMIA Execution Sink Operation Instance</Role>
+		</CAAComment>		
+            <!-- ********************************************************* -->
+            <!-- * Overload(s) of PLMCoreInstance attributes. -->
+            <!-- ********************************************************* -->
+    <SubClause Name="to"   TargetName="DELLmiExecSinkOperationRefCusto"/>
+	</RelationClass>
+</Package>

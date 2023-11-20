@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2004, All rights reserved -->
+
+
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" DataRDB_OID="ENODR_DMTDOCC" Name="DMTDocumentDS" 
+	Uuid="b9c81319-823a-0000-020a1005b1000000" 
+	UseNames="PLMDmtDocument"
+	Alias="Document Model sample document">
+<Property Name="OptionalInstallation" Value="Yes" /> 
+	<CAAComment>
+		<ShortRole>Document Model sample document. </ShortRole>
+	</CAAComment>
+
+<Class Name="PLMDMT_DocCustom" 
+	Uuid="b9b89bc0-1ec0-0000-020a10055d000000"
+	 
+	
+	 
+	SuperName="PLMDMTDocument" 
+	SuperRef="B52D96F8-6F7B-46EC-AE39607835733DFC" 
+	>
+
+        <CAAComment>
+            <ShortRole>Sample Document </ShortRole>
+        </CAAComment>
+
+        <IdentifierSet Name="Identifier"
+            Uuid="b9b8cbf9-640f-0000-020a10055d000000"
+            IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755"
+            IdentifierNames="PLM_ExternalID V_version" />
+
+        <Simple Name="V_DocumentName"
+		Uuid="b9c81360-0000-e6e2-020a1005b1000000"
+		
+		Protection="Free"
+		Type="String"
+		MaxLength="80"
+		Mandatory="Yes"
+		MultiValuated="No" 
+		>
+
+		<CAAComment>
+	                <ShortRole>Document name</ShortRole>
+		</CAAComment>
+	</Simple> 
+
+
+</Class>
+
+</Package>

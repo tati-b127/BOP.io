@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified"
+         Name="DELRmiResourceModelDisciplines"
+         UseNames="PRODUCTCFG"
+         Uuid="271572b5-1c02-4de1-8579-5f67d61be856"
+         ModelerType="Top"
+         CustomerExposition="Programmer" >
+
+  <Class Name="ManufacturingStates"
+	       Uuid="46405eb2-fa18-4947-b589-a3855d8bccc2"
+         Abstract="No"
+			   Discipline="Yes"
+ 			   SuperName="VPMRepReference"
+		     Specializable="No"
+		     CustomerExtensible="No"
+		     CustomerExposition="Programmer">
+    <Method  ImplementationType="None">
+      <RealizeMethodType  href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+
+</Package>

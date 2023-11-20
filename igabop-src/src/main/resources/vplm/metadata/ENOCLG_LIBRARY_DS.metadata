@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY FOR CATALOG Application Custo DS-->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2005, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" DataRDB_OID="ENODR_ENOCLGLIBC" Name="ENOCLG_LIBRARY_DS" Uuid="067c004e-b59e-4ac2-a93e-b685636203fb" UseNames="ENOCLG_LIBRARY" Alias="Library Sample Customization" >
+	<CAAComment>
+		<ShortRole>Library Customization Package</ShortRole>
+		<Role>This package includes Library Model</Role>
+	</CAAComment>
+	<Comment>last update 2006-12-08-00.00.00</Comment>
+	<Class Name="ENOCLG_DS_LibraryReference" Uuid="1dbda4c7-fe42-41e6-b2bc-e4f4514116ab"     SuperName="ENOCLG_LibraryReference" SuperRef="d9ac6dca-27b6-4150-9e6f-e8583a86fcbd" >
+		<CAAComment>
+			<ShortRole>Catalog Reference Customization</ShortRole>
+			<Role>Catalog Reference Customization</Role>
+		</CAAComment>
+		<IdentifierSet Name="Identifier" Uuid="d5dc671a-071b-4188-93dd-502b58abe6a8" IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755" IdentifierNames="PLM_ExternalID V_version"/>
+	</Class>
+</Package>

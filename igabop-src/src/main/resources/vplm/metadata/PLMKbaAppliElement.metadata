@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" 
+	Name="PLMKbaAppliElement" 
+	Uuid="4feaf845-8241-474e-a189-4c378c195936"
+	UseNames="PLMCORE"
+	CustomerExposition="Programmer"
+>
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+  <CAAComment>
+        <ShortRole>PLM Knowledge Business Applications -- Elements' Modeler</ShortRole>
+        <Role>This package describes the Abstract Element used to build Knowledge Business Applications on top of PLM Core</Role>
+    </CAAComment>
+    <Comment>Created by PHB (2006-03-15)</Comment>
+  
+  
+    <!-- *************************************************** -->
+    <!-- *  PLMKbaAppliElement (PLMCoreRepReference) * -->
+    <!-- *************************************************** -->
+    <Class Name="PLMKbaAppliElement"
+		 Uuid="bf644f7f-f7f9-4f96-a54d054b5c75b92a"		
+		 CustomerExposition="Programmer"
+		 Abstract="Yes"
+		 SuperName="PLMCoreRepReference"
+	>
+        <CAAComment>
+            <ShortRole>PLM Applicative Element (RepRef Object)</ShortRole>
+            <Role>Abstract Applicative Element -- Representation Reference Object</Role>
+        </CAAComment>
+      <Method ImplementationType="AsFather">
+        <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      </Method>
+    </Class>
+  
+  
+    <!-- ******************************************************* -->
+    <!-- *  PLMKbaAppliElementUsage (PLMCoreRepInstance) * -->
+    <!-- ******************************************************* -->
+  <!-- ** -->
+  <RelationClass Name="PLMKbaAppliElementUsage"
+		 Uuid="6bbc9181-288a-43a2-a8db58d4d1d9b71c"		
+     CustomerExposition="Programmer"
+		 Abstract="No"
+		 SuperName="PLMCoreRepInstance"
+	>
+        <CAAComment>
+            <ShortRole>PLM Applicative Element Usage (RepInst Object)</ShortRole>
+            <Role>Applicative Element Usage - - Representation Instance Object</Role>
+        </CAAComment>
+  <!-- ** -->
+        <!--
+         *********************************************************
+         * Overload(s) of PLMCoreInstance attributes to fix metadata access issue. This should not be necessary!
+         *********************************************************
+         -->
+  <!-- ** -->
+    <SubClause Name="to"   TargetName="PLMKbaAppliElement"/>
+
+      <Method ImplementationType="AsFather">
+        <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      </Method>
+    </RelationClass>
+  <!-- ** -->
+</Package>

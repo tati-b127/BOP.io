@@ -1,0 +1,11 @@
+EXPAND  
+  	T0.PLMID, T1.PLMID, T2.PLMID
+
+ FROM 
+
+DELWkiWorkInstructionPPR/DELWkiPPRReference T0,
+DELPPRCompiled3DWki/DELPPRCompiled3DWkiRepresentationReference T1,	
+DELLmiProductionDocRep/DELLmiDocRepInstance T2
+
+FROM_ROOTS  [?1?]
+WITH ITERATIVE_FILTER(Keep, T1) ITER=1 ;    

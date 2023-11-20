@@ -1,0 +1,40 @@
+<?xml version="1.0" ?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2004, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" Name="SubstituteExtension"
+    Uuid="38ADEADB-5EAD-4ff9-96D0B5A55BC2F21D"
+    UseNames="PLMCORE"
+	CustomerExposition="None">
+	
+	<Extension Name="SubstituteExt"
+        Uuid="D1FB9C25-70A3-4b0c-A7983F421725ABE6"
+        ScopeNames="PLMInstance"
+		CustomerExposition="None">
+
+		<Simple Name="V_SubstituteFamilyID" 
+            Uuid="872C6884-BE05-4039-A54B495DD4E6810A"
+            Type="Binary" 
+            MaxLength="16" 
+            MultiValuated="No" 
+            Protection="Internal">
+            <CAAComment>
+                <ShortRole>Id of the substitute family</ShortRole>
+            </CAAComment>
+        </Simple>
+
+        <Simple Name="V_IsPreferredSubstitute"
+            Uuid="6EEBDADF-0FA9-43f4-B28C5E6A2E36369F"
+            Type="Boolean"
+            MultiValuated="No"
+            Protection="External"
+            DefaultValue="false"
+            CAAExposition="L0">
+            <CAAComment>
+                <ShortRole>Is it the preferred substitute in family ?</ShortRole>
+            </CAAComment>
+        </Simple>
+
+	</Extension>
+</Package>

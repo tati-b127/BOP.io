@@ -1,0 +1,117 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified"
+         ModelerType="Top"
+         Name="DELLmiProductionDetailedMaterialPathCnx"
+         Uuid="9288b78d-4dc7-448e-a746b7d2cafedd8c"
+         UseNames="PLMCORE"
+         CustomerExposition="None">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>DELMIA Production System model</ShortRole>
+    <Role>Connection that describes the Detailed Material Path between Production Systems</Role>
+  </CAAComment>
+
+  <Class Name="DELLmiDetailedMaterialPathCnx"
+         Uuid="adcd36b1-602f-479d-96d8e93ae5ff4367"
+         Abstract="No"
+         SuperName="PLMConnection"
+         CustomerExposition="None"
+         Specializable="No"
+         CustomerExtensible="No"
+         OwnerTypes="DELLmiProductionSystemReference"
+        >
+
+    <!-- OwnerTypes="DELLmiProductionSystemReference"  Integrate this line if you want to declare the aggregation constraint-->
+    
+    <CAAComment>
+      <ShortRole>Defines DELMIA Detailed Material Path Connection</ShortRole>
+      <Role>Connection that describes the Detailed Material Path between Production Systems</Role>
+    </CAAComment>
+
+    <Path Name="DELGeneralMaterialPath"
+        Uuid="a135ba2e-981e-4887-a8fcae5ebf4334f1"
+        MultiValuated="No"
+        RoleName="DEL_GeneralMaterialPath"
+        Type="SemanticRelation" AdaptativeToMinor="No"
+        SynchroSensitivity="Last"
+        RerouteOnEffectivityChange="No" Orientation="In"
+        Semantics="Reference4"/>
+
+    <Path Name="DELOperationLink1"
+        Uuid="2af6d9fa-8a95-4913-ba2d7597497de36e"
+        MultiValuated="Yes"
+        RoleName="DEL_OperationLink"
+        Type="SemanticRelation" AdaptativeToMinor="No"
+        SynchroSensitivity="PathAndLast"
+        RerouteOnEffectivityChange="No" Orientation="In"
+        Semantics="Reference3"/>
+
+    <Path Name="DELOperationLink2"
+        Uuid="0dfa2a76-0115-4ce1-8c5351faa16189e7"
+        MultiValuated="Yes"
+        RoleName="DEL_OperationLink2"
+        Type="SemanticRelation" AdaptativeToMinor="No"
+        SynchroSensitivity="PathAndLast"
+        RerouteOnEffectivityChange="No" Orientation="In"
+        Semantics="Reference3"/>
+
+    <Simple Name="V_Mode1" Uuid="aa12a421-6d4d-42b6-8102ca533a56c281" Type="Integer" Protection="Free" CAAExposition="L0" DefaultValue="1">
+      <Property Name="RangeAsEnumName" Value="DELLmi_ModeEnum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="Proportions;Priorities"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+      </Range>
+    </Simple>
+
+    <Simple Name="V_Proportions1"
+            Uuid="e878b50b-db37-49e8-af2f505d2ee50fde"
+            Type="Double"
+            MultiValuated="Yes"
+            CollectionType="List"
+            Protection="Free"
+            CAAExposition="L0"/>
+
+    <Simple Name="V_Priorities1"
+            Uuid="abe688ee-6d14-4272-8fe51e9900f1e8a3"
+            Type="Integer"
+            MultiValuated="Yes"
+            CollectionType="List"
+            Protection="Free"
+            CAAExposition="L0"/>
+
+    <Simple Name="V_Mode2" Uuid="81ff8dfe-4ad7-4c80-9ff7ecc74f1e1234" Type="Integer" Protection="Free" CAAExposition="L0" DefaultValue="1">
+      <Property Name="RangeAsEnumName" Value="DELLmi_ModeEnum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="Proportions;Priorities"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+      </Range>
+    </Simple>
+
+    <Simple Name="V_Proportions2"
+            Uuid="dce85b4a-3715-49cb-bf382fc4d8fa1043"
+            Type="Double"
+            MultiValuated="Yes"
+            CollectionType="List"
+            Protection="Free"
+            CAAExposition="L0"/>
+
+    <Simple Name="V_Priorities2"
+            Uuid="7bf3ea2c-b057-4217-a62572ab2a1e47e2"
+            Type="Integer"
+            MultiValuated="Yes"
+            CollectionType="List"
+            Protection="Free"
+            CAAExposition="L0"/>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+  </Class>
+
+</Package>

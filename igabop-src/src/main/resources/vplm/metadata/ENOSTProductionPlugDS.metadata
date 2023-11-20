@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2010, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" Name="ENOSTProductionPlugDS" Uuid="66E34C0D-BF20-447b-A44F-E67B75603526" UseNames="DELLmiProductionPlug" >
+	<CAAComment>
+		<ShortRole>PLM Customization of DELMIA System Plug for SMB</ShortRole>
+		<Role>PLM Customization of DELMIA System Plug for SMB</Role>
+	</CAAComment>
+	<Comment>last update 2010-10-21</Comment>
+
+	<Class Name="ENOSTProductionPlugReferenceCusto" Uuid="6D881D71-B4CA-40e8-8340-D34F78B8FEC2" SuperName="DELLmiProductionPlugReference" SuperRef="52E6C378-2A1B-4377-BE04-35342A3F4F6B"  >
+
+    <Simple Name="E_fromExternalId"
+            Uuid="BA5D9743-8A0E-4a2a-B117-09E5F95CB541"
+            Alias="Definition"
+            Type="String"
+            MaxLength="256"
+            Mandatory="No"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"/>
+    <Simple Name="E_versionComment"
+            Uuid="636EB875-7D53-4889-B616-A2C7C7DC0AC2"
+            Alias="Version Comment"
+            Type="String"
+            MaxLength="256"
+            Mandatory="No"
+            MultiValuated="No"
+            Protection="Free"
+            ResetOnNewVersion="Yes"
+            ResetOnCloning="Yes"
+            CAAExposition="L0"/>
+    <IdentifierSet Name="E_identifier"
+                   Uuid="3D05D2D2-DA1E-4a71-A0E8-1338B7B32B78"
+                   IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755"
+                   IdentifierNames="PLM_ExternalID V_version"/>
+    <Property Name="Searchable" Value="No"/>
+
+    <CAAComment>
+			<ShortRole>PLM Customization of DELMIA System Plug Reference for SMB</ShortRole>
+			<Role>PLM Customization of DELMIA System Plug Reference for SMB</Role>
+		</CAAComment>
+	</Class>
+
+  <RelationClass Name="ENOSTProductionPlugInstanceCusto" Uuid="FC84F181-6C4D-479a-80AE-7EE5CE440316" SuperName="DELLmiProductionPlugInstance" SuperRef="D9B737A6-2097-4bb0-B6D1-731C70DEC74A"  >
+    <CAAComment>
+      <ShortRole>PLM Customization of DELMIA System Plug Instance for SMB</ShortRole>
+      <Role>PLM Customization of DELMIA System Plug Instance for SMB</Role>
+    </CAAComment>
+    <!-- ********************************************************* -->
+    <!-- * Overload(s) of PLMCoreInstance attributes. -->
+    <!-- ********************************************************* -->
+    <SubClause Name="to"   TargetName="ENOSTProductionPlugReferenceCusto"/>
+  </RelationClass>
+
+</Package>

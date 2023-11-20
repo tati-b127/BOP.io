@@ -1,0 +1,57 @@
+#Prog VPMEditor_Detach_VPMReferenceVPMRepReference (iPLMIDSet :  #In PLMIDSet,oPLMIDSet :  #Out PLMIDSet) : VoidType
+{
+  let rsAggRepInst(PLMRouteSet)
+  let rsPrivateReps(PLMRouteSet)
+  let rs3DPartRefs(PLMRouteSet)
+  let rsXCADRepRepInst(PLMRouteSet)
+
+  let idsInputRefs(PLMIDSet)
+  let idsInputReps(PLMIDSet)
+  let idsAggRepInst(PLMIDSet)
+  let idsConfig(PLMIDSet)
+
+  /*              */
+  /* Filter Input */ 
+  /*              */
+
+  idsInputRefs = Restrict(iPLMIDSet, "PRODUCTCFG/VPMReference")
+  idsInputReps = Restrict(iPLMIDSet, "PRODUCTCFG/VPMRepReference")
+
+  /*           */
+  /* Ref stuff */ 
+  /*           */
+  /* Ports and applicative connections automatically detached */
+
+  /* Complete with Aggregated VPMRepresentation (exclude shared)*/
+  rsAggRepInst = ExecutePLMFunction("PRODUCTCFG", "ProductCfg_ExpandVPMRefToAggregatedVPMRep", idsInputRefs)
+  idsAggRepInst = Ids(rsAggRepInst)
+
+  /* Complete with PrivateReps only */
+  rsPrivateReps = ExecutePLMFunction("PRODUCTCFG", "ProductCfg_AddLPPrivateRep", idsInputRefs)
+
+  /* Completes with XCADRepRepInsts */
+  rsXCADRepRepInst = ExecutePLMFunction("XCADAssembly", "XcadAssembly_ExpandVPMRefToXCADRepRepInst", idsInputRefs)
+
+  /*                */
+  /* Post Cnx stuff */ 
+  /*                */
+
+  /*                */
+  /* Post Rep stuff */ 
+
+  /* Complete with 3DPart Reference */
+  rs3DPartRefs = ExecutePLMFunction("PRODUCTCFG", "ProductCfg_Add3DPartReference", idsInputReps)  
+  
+  /*        */
+  /* Config */ 
+  /*        */
+
+  /* Complete with configuration */
+  idsConfig = ExecutePLMProcedure("Config_GetStructConfig", iPLMIDSet)
+
+  /*        */
+  /* Output */ 
+  /*        */
+
+  oPLMIDSet = iPLMIDSet + idsAggRepInst + Ids(rsPrivateReps)  + Ids(rsXCADRepRepInst) + Ids(rs3DPartRefs) + idsConfig
+}

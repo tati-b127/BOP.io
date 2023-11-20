@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2005, All rights reserved -->
+<Package
+	xmlns="PLMDictionaryUnified" 
+	ModelerType="Top"
+	Name="LibraryFeature"
+	Uuid="5a9c84b2-5bdd-4d2d-99ee-80521769539c"
+	UseNames="PLMCORE "
+	CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+<Class
+    Name="LibraryFeatureReference"
+	Uuid="cf32e0aa-3ab4-4194-825b-af6d29c2cbf2" 
+	SuperName="PLMCoreReference" 
+	Abstract="No"
+	CustomerExposition="Programmer"
+    Specializable="No"
+    CustomerExtensible="No">
+	
+	<Method ImplementationType="None">
+    <RealizeMethodType href="ExportScope.meth#ExportScope" />
+	</Method>
+	
+	<Property Name="DMCDerivable" Value="No"/>	
+	<Property Name="AggregatableTypes" Value="LibraryFeaturePort"/>
+	<Property Name="Configurable" Value="No"/>
+	<Property Name="Searchable" Value="No"/>
+	<Property Name="Filtrable" Value="No"/>
+
+	
+</Class>
+
+<Class
+    Name="LibraryFeaturePort"
+	Uuid="f7be088a-aeda-44e3-88dc-f41c04a8689f" 
+	SuperName="PLMPort" 
+	Abstract="No"
+	CustomerExposition="Programmer"
+    Specializable="No"
+    CustomerExtensible="No">
+
+	<Property Name="3DIconName" Value="icon3DRepLibraryFeaturePort.cgr"/>
+    <Property Name="IconName" Value="iconSmallLibraryFeaturePort"/>
+	
+	<Path Name="FeaturePortAssignment"
+       Uuid="CE8645EF-A206-4395-9B04-20697CDC172A"
+       MultiValuated="No"
+          Type="SemanticRelation"
+       RoleName="PortAssignment"
+        SynchroSensitivity="PathAndLast"
+        Orientation="In"
+       Semantics="Reference3"/>
+
+	<Method ImplementationType="None">
+    <RealizeMethodType href="ExportScope.meth#ExportScope" />
+	</Method>
+	
+	<Property Name="DMCDerivable" Value="No"/>	
+	<Property Name="Configurable" Value="No"/>
+	<Property Name="Searchable" Value="Yes"/>
+	<Property Name="Filtrable" Value="No"/>
+	
+	<Simple Name="FeatureTypeName" 
+		Uuid="217879AC-85BB-4824-AEC1-2A2DC81B2D7A" 
+		Type="String" 
+		MaxLength="256" 
+		Protection="Internal" >
+		<CAAComment>
+			<ShortRole>Type of feature pointed by this port. </ShortRole>
+		</CAAComment>
+	</Simple>
+    
+</Class>
+
+</Package> 

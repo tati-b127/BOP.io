@@ -1,0 +1,61 @@
+#Prog LogicalSimulationExport (iPLMIDSet :  #In PLMIDSet,oPLMIDSet :  #Out PLMIDSet) : VoidType
+  {
+let PLMIDSet1(PLMIDSet)
+let PLMIDSet2(PLMIDSet)
+let PLMIDSet2P(PLMIDSet)
+let PLMIDSet3(PLMIDSet)
+let PLMIDSet4(PLMIDSet)
+let PLMIDSet5(PLMIDSet)
+let PLMIDSetM(PLMIDSet)
+let PLMIDSetMP(PLMIDSet)
+let IdsPortParam (PLMIDSet)
+let IdsRefInput (PLMIDSet)
+ 
+let PLMRouteSet1 (PLMRouteSet)
+let PLMRouteSet2 (PLMRouteSet)
+let PLMRouteSet2P (PLMRouteSet)
+let PLMRouteSet3 (PLMRouteSet)
+let PLMRouteSet4 (PLMRouteSet)
+let PLMRouteSet5 (PLMRouteSet)
+let RoutePortParam(PLMRouteSet)
+
+/* getting categories */
+IdsRefInput = Restrict(iPLMIDSet, "SIMObjSimulation/SIMObjSimulationObject") + Restrict(iPLMIDSet, " SIMObjSimulationCategoryAndProdCnx/SIMObjSimulationCategoryReference")
+PLMRouteSet1 = ExecutePLMFunction("SIMObjSimulationGeneric", "sim_retrieveCategories", IdsRefInput)
+PLMIDSet1 = Ids(PLMRouteSet1)
+
+/* getting Ports from SO  */
+ RoutePortParam = ExecutePLMFunction("PLMParameter", "PAR_nav_paramports", PLMIDSet1)
+IdsPortParam = Ids(RoutePortParam)
+
+/* getting model reference */
+PLMRouteSet2 = ExecutePLMFunction("SIMObjSimulationGeneric", "sim_addSimulatedModel", Restrict(PLMIDSet1, "SIMObjSimulationCategoryAndProdCnx/SIMObjSimulationCategoryReference"))
+PLMIDSet2 =  Ids(PLMRouteSet2)
+
+/*getting Product and Children from Product*/
+PLMRouteSet2P = ExecutePLMFunction("PRODUCTCFG", "ProductCfg_AddChildrenProduct",   Restrict(Ids(PLMRouteSet2, "last"), "PRODUCTCFG/VPMReference"))
+PLMIDSet2P = Ids(PLMRouteSet2P)
+
+
+/* getting simu rep under category */
+PLMRouteSet3 = ExecutePLMFunction("SIMObjSimulationGeneric", "sim_retrieveSimuRep", Restrict(PLMIDSet1, "SIMObjSimulationCategoryAndProdCnx/SIMObjSimulationCategoryReference"))
+PLMIDSet3 = Ids(PLMRouteSet3)
+
+/* getting external doc from simu rep */
+PLMRouteSet4 = ExecutePLMFunction("SIMObjSimulationGeneric", "sim_retrieveExternalDocumentfromSimuRep", Restrict(PLMIDSet3, "SIMObjSimulationV5Generic/SIMObjSimulationV5RepReferenceGeneric"))
+PLMIDSet4 = Ids(PLMRouteSet4)
+
+/*  getting  publish  result  */ 
+PLMRouteSet5  =  ExecutePLMFunction("SIMObjSimulationGeneric",  "sim_addPublishResultCnx",  Restrict(PLMIDSet1,  "SIMObjSimulationCategoryAndProdCnx/SIMObjSimulationCategoryReference"))
+PLMIDSet5 = Ids(PLMRouteSet5)
+
+/* call logical proc on model*/
+PLMIDSetM = ExecutePLMProcedure("Logical_ExportReference_Design",Restrict(PLMIDSet2, "RFLVPMLogical/RFLVPMLogicalReference")) 
+/* call Product Procedure*/
+PLMIDSetMP  =  ExecutePLMProcedure(  "VPMEditor_OpenCompletionOnReference",  PLMIDSet2P ) 
+
+oPLMIDSet = PLMIDSet1 + PLMIDSet2 + PLMIDSet3 + PLMIDSet4 + PLMIDSet5 + PLMIDSetM + PLMIDSetMP + IdsPortParam
+
+
+
+}

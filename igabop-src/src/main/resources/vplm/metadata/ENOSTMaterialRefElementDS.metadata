@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<!--DASSAULT SYSTEMES (DASSAULT SYSTEMES) -->
+<!-- ENOVIA DICTIONARY -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2004, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" DataRDB_OID="ENODR_STMATRELD" Name="ENOSTMaterialRefElementDS" Uuid="9113af3c-8b34-4c83-8674-a56febcc5494" UseNames="CATMaterialRefElement" Alias="Material Reference Element Concretized">
+	<Comment>last update 2008-03-18-</Comment>
+	<!--************************************************-->
+	<!--Material Reference Element DS Customization (derivated from Material Reference Element ) Concrete-->
+	<!--************************************************-->
+	<Class Name="ENOSTMatRefElemConnectionDS" Uuid="25e3b40b-4af4-42cc-a54a-b246afc4a22d" Alias="Connection for Materials DS Customization"   SuperName="CATMatRefElemConnection" SuperRef="300F7511-7CE8-4c41-A20B-481ED8A3F242" />
+</Package>

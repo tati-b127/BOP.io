@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR RFL GphView Application         -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2006, All rights reserved -->
+<!-- see: \\eros\R203rel\BSFTST\CATPLMDictionary.tst\CNext\code\dictionary\metadata\V5R201\PLMCORE.metadata -->
+<!-- Do: mkrun -c "ENODicCheckMetadata GphViewModel"                  -->
+  <Package xmlns="PLMDictionaryUnified" ModelerType="Top" Name="GphViewModel" 
+	Uuid="85ebb2d3-bd67-415b-8e98304aa50ddecd" 
+	UseNames="PLMCORE" 
+  CustomerExposition="None">
+    <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+    <CAAComment>
+		<ShortRole>PLM GphView Package</ShortRole>
+		<Role>This package describes the PLM GphView model on top of PLM Core</Role>
+	</CAAComment>
+	
+	<Comment>last update 2007-01-29</Comment>
+
+    <!-- ********************************************* -->
+    <!-- * GphViewRepReference (PLMCoreRepReference) * -->
+    <!-- * SuperRef = Uuid(PLMCoreRepReference)      * -->
+    <!-- ********************************************* -->
+
+    <Class Name="GphViewRepReference"
+        Uuid="7fd45675-2db7-4ff9-b4d8499b705c1622"
+CustomerExposition="None"
+        
+        
+        Abstract="No"
+        CreateInstName="GphViewRepInstance"
+        SuperName="PLMCoreRepReference">
+        
+		<CAAComment>
+			<ShortRole>PLM GphView Representation Reference Object</ShortRole>
+			<Role>PLM GphView Representation Reference Object</Role>
+		</CAAComment>
+
+    <!-- PLM New UI is not available (default behavior), and
+       CATDifKBEDelegateInstanciation will be implemented so as to
+       prevent instantiation -->
+    <Property Name="KweNew_InstanciationMethod" Value="No"/>
+
+    <!-- Advanced search -->
+    <Property Name="Searchable" Value="No"/>
+      
+      <Simple Name="V_ViewType" 
+       Uuid="c5fc0033-c059-43ac-b12c8f230dc767ce" 
+       Type="String"
+       MaxLength="40"
+       MultiValuated="No"
+       Protection="Free"
+       CAAExposition="L0"/>
+
+      <Simple Name="V_GphRepProperty"
+       Uuid="7f97d5d0-c732-464b-87c2-5828b19c2a95" 
+       Type="Integer" 
+       MultiValuated="No" 
+       PLMImpacting="No"
+       Protection="Internal" />
+<Method ImplementationType="None">
+    <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+  </Method>
+       
+       
+    </Class>
+      
+    <!-- ******************************************* -->
+    <!-- * GphViewRepInstance (PLMCoreRepInstance) * -->
+    <!-- * SuperRef = Uuid(PLMCoreRepInstance)     * -->
+    <!-- ******************************************* -->
+    <RelationClass Name="GphViewRepInstance"
+        Uuid="af3e3797-686f-4312-8793bbd97f85ac40"
+        CustomerExposition="None"
+        
+        
+        Abstract="Yes"
+        SuperName="PLMCoreRepInstance">
+
+		<CAAComment>
+			<ShortRole>PLM GphView Representation Instance Object</ShortRole>
+			<Role>PLM GphView Representation Instance Object</Role>
+		</CAAComment>
+
+    <!-- PLM New UI is not available (default behavior), and
+       CATDifKBEDelegateInstanciation will be implemented so as to
+       prevent instantiation -->
+    <Property Name="KweNew_InstanciationMethod" Value="No"/>
+
+    <!-- Advanced search -->
+    <Property Name="Searchable" Value="No"/>
+      
+
+        <!-- * TargetRef = uuid(GphViewRepReference) * -->
+      <SubClause Name="to"   TargetName="GphViewRepReference"/>
+
+      <Method ImplementationType="None">
+    <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+  </Method>
+    
+    </RelationClass>        
+        
+
+</Package>

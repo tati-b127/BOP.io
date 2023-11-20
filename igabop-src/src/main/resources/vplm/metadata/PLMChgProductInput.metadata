@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2005, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top"  Name="PLMChgProductInput" Uuid="b98c068e-732c-0000-020a100536000000" UseNames="PLMChgBase" BelongsToModeler="PLMChgActionBase" CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+  <CAAComment>
+    <ShortRole>Change Management Product Input Package</ShortRole>
+    <Role>This package includes the Concrete entity for Change Management Product Input Connections</Role>
+  </CAAComment>
+  <Comment>last update 2005-11-09-15.51.00</Comment>
+  <!-- *************************************** -->
+  <!-- * PLMChgProductInput (PLMChgInput)    * -->
+  <!-- *************************************** -->
+  <Class Name="PLMChgProductInput" Uuid="b8d20586-f955-0000-020a100536000000"  Abstract="No" SuperName="PLMChgInput" CustomerExposition="Programmer">
+    <CAAComment>
+      <ShortRole>Change Management Product Input</ShortRole>
+      <Role>Concrete entity for Change Management Product Input Connections - Products necessary as input to accomplish a modification and which have to be added to the action</Role>
+    </CAAComment>
+
+    <!-- *********************** -->
+    <!-- Properties Declaration  -->
+    <!-- *********************** -->
+    <Property Name="IconName"  Value="I_Action_Product_22"/>
+    <Property Name="3DIconName"  Value="ActionProductNavRep.cgr"/>
+
+    <!-- *********************** -->
+    <!-- PROCEDURES Declaration  -->
+    <!-- *********************** -->
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    
+  </Class>
+
+  <!-- ********************** -->
+  <!-- FUNCTIONS Declarations -->
+  <!-- ********************** -->
+
+  <Function Name="PLMChgProductInput_AddAssocObjects">
+    <Implementation Name="PLMChgProductInput_AddAssocObjects" FileLocation="PLMChgProductInput_AddAssocObjects.plmql" Language="PLMQL"/>
+    <Signature href="PLMChgProductInput_FunctionSignatureExport"/>
+  </Function>
+
+  <Signature id="PLMChgProductInput_FunctionSignatureExport">
+    <Parameter Name="InputIds" Lower="0" Upper="-1" Direction="in" MultiValuated="Yes" DataType="PLMId"/>
+    <Parameter Name="OutputIds" Lower="0" Upper="-1" Direction="out" MultiValuated="No" DataType="PLMRouteSet"/>
+  </Signature>
+  
+</Package>

@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2010, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified"
+         ModelerType="Top"
+         Name="PLMRequirementSpecifyHowToCnx"
+         Uuid="D9D1D9E0-E898-4914-829E-14C0156B66DC"
+         BelongsToModeler="PLMRequirementSpecifyHowToCnx"
+         UseNames="PLMRequirementSpecifyHowToCnxAbstract"
+         CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>PLM Requirement Specify How To Modeler </ShortRole>
+    <Role>This package describes the PLM Requirement Specify How To Modeler model on top of PLM Core</Role>
+  </CAAComment>
+
+  <Comment>last update 2012-01-20</Comment>
+
+  <Class Name="PLMReqSpecifyHowToCnx"
+         Uuid="7EC4C69E-45C0-4ed6-A9F1-5E39CBBF459E"
+         SuperName="PLMReqSpecifyHowToCnxAbstract"
+         Abstract="No"
+         Specializable="No"
+         CustomerExtensible="No"
+         CustomerExposition="Programmer"
+        >
+
+    <Simple Name="V_Contextual_Req_Info"
+            Uuid="121B332C-82B8-4805-AB91-1BB17466C60A"
+            Type="String"
+            MultiValuated="Yes"
+            MaxLength="256"
+            CollectionType="List"
+            Protection="External"
+            ResetOnCloning="No"
+            ResetOnNewVersion="No"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>.</ShortRole>
+      </CAAComment>
+    </Simple>
+    
+    <Simple Name="V_HowToUsage"
+            Uuid="CF74C38F-CE6C-4a90-ACA4-55D491AE79C3"
+            Type="String"
+            MultiValuated="No"
+            MaxLength="128"
+            Protection="Free"
+            ResetOnCloning="No"
+            ResetOnNewVersion="No"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Usage to apply on this requirement.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_Ignore"
+            Uuid="B36CA345-45A2-4ac8-B60F-D70A1C6B12DF"
+            Type="Boolean"
+            MultiValuated="No"
+            Protection="Free"
+            DefaultValue="false"
+            ResetOnCloning="No"
+            ResetOnNewVersion="No"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Do we ignore this requirement? Yes/No.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <CAAComment>
+      <ShortRole>The PLMReqSpecifyHowToCnx.class</ShortRole>
+      <Role>The PLMReqSpecifyHowToCnx.class is a connection that links a PLM reference to the requirement it is required to follow.</Role>
+    </CAAComment>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+  </Class>
+
+
+</Package>

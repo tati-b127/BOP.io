@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2005, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" BelongsToModeler="PLMChgActionBase"  Name="PLMChgDocumentationAction" Uuid="b8d20fd8-eb99-0000-020a100536000000" UseNames="PLMChgActionBase" CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+  <CAAComment>
+    <ShortRole>Documentation Action Package</ShortRole>
+    <Role>This package includes the entities of the Documentation Acton Reference and Documentation Child Action Instance</Role>
+  </CAAComment>
+  <Comment>last update 2012-05-09-09.00.00</Comment>
+  <!-- *************************************** -->
+  <!-- * PLMMDocumentationAction (PLMActionBase)   * -->
+  <!-- *************************************** -->
+  <Class Name="PLMDocumentationAction" Uuid="b8d2102a-56e5-0000-020a100536000000" Abstract="No" SuperName="PLMActionBase" CreateInstName="PLMDocChildAction" Specializable="Yes" CustomerExtensible="Yes" CustomerExposition="Programmer">
+    <CAAComment>
+      <ShortRole>Documentation Action Reference</ShortRole>
+      <Role>Action Reference for Documentation</Role>
+    </CAAComment>
+
+    <!-- *********************** -->
+    <!-- Properties Declaration  -->
+    <!-- *********************** -->
+    <Property Name="DMCDerivable"  Value="Yes"/>
+    <Property Name="Newable"  Value="All"/>
+    <Property Name="IconName"  Value="I_ActionDocumentation_22"/>
+    <Property Name="3DIconName"  Value="DocumentationActionNavRep2.cgr"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="PLMECANewFactory"/>
+    <Property Name="Configurable"  Value="No"/>
+    <Property Name="Filtrable"  Value="No"/>
+    <Property Name="ChangeManagementSupport"  Value="No"/>
+
+    <Property Name="ChangeMaturityAvailability" Value="Yes"/>
+    <Property Name="DeleteAvailability" Value="Yes"/>
+    <Property Name="DuplicateAvailability" Value="No"/>
+    <Property Name="EditPropertiesAvailability" Value="Yes"/>
+    <Property Name="EvolutionAvailability" Value="No"/>
+    <Property Name="LockUnlockAvailability" Value="No"/>
+    <Property Name="NewMajorRevisionAvailability" Value="No"/>
+    <Property Name="NewMinorRevisionAvailability" Value="No"/>
+    <Property Name="SaveAsNewAvailability" Value="No"/>
+    <Property Name="TransferOwnershipAvailability" Value="Yes"/>
+
+    <!-- *********************** -->
+    <!-- PROCEDURES Declaration  -->
+    <!-- *********************** -->
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+    
+  </Class>
+  <!-- *************************************** -->
+  <!-- * PLMDocChildAction (PLMChildAction)   * -->
+  <!-- *************************************** -->
+  <RelationClass Name="PLMDocChildAction" Uuid="298a99b6-a6ac-43be-bbfe48d42a22a746"  Abstract="No" SuperName="PLMChildAction" CustomerExposition="Programmer">
+    <CAAComment>
+      <ShortRole>Documentation Child Action Instance</ShortRole>
+      <Role>Child Action Instance for Documentation</Role>
+    </CAAComment>
+    <!-- Behavior patterns: default values -->
+    <Property Name="EditPropertiesAvailability" Value="No"/>
+
+    <!--
+	*********************************************************
+	* Overload(s) of PLMCoreInstance attributes.
+	********************************************************* -->
+    <SubClause Name="to"   TargetName="PLMDocumentationAction"/>
+
+    <!-- *********************** -->
+    <!-- PROCEDURES Declaration  -->
+    <!-- *********************** -->
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    
+  </RelationClass>
+</Package>

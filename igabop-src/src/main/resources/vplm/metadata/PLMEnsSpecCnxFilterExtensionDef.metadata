@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY for Ens Specifications Editor -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2011, all rights reserved -->
+
+<!-- 
+   =========
+    Package
+   =========  
+-->
+
+    <Package xmlns="PLMDictionaryUnified"
+             CustomerExposition="Programmer"             
+             ModelerType="Top"
+             Name="PLMEnsSpecCnxFilterExtensionDef"
+             Uuid="8710612E-0A4C-48e1-B755-709615ACB993"
+             UseNames="PLMCORE">
+      <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+      <CAAComment>
+         <ShortRole>Ens Specifications parts' filter extension definition Package</ShortRole>
+         <Role>This package describes the definition (in extension)of a parts' filter used in the Ens Specifications model.</Role>
+      </CAAComment>
+      <Comment>Initial creation: PA GLY Feb 2011</Comment>
+      <Comment>Review for V6R2012: JLN PGT PYR DRL JLM SLI ASG LBH GLY Dec 2010</Comment>
+      <Comment>Ens Specifications parts' filter extension definition connection</Comment>
+      
+  <!-- 
+   ========================================================
+    Ens filter Extension Definition connection (connection)   
+   ========================================================
+-->
+
+      <Class Name="EnsCnxFilterExtensionDef"
+             Uuid="693B695F-028F-475a-8EAC-FEED92813A43"
+             CustomerExposition="Programmer"
+             Abstract="No"
+             SuperName="PLMConnection"             
+             Specializable="No"    OwnerTypes="EnsFilter"  
+             CustomerExtensible="No">
+        <!-- OwnerTypes="EnsFilter"  Integrate this line if you want to declare the aggregation constraint -->
+
+        <Property Name="Searchable"      Value="No"/>
+
+        <Path Name="V_EnsSpec_FilterExtensionDef"
+           Uuid="F5596FF0-BAA7-4e2c-8AD4-87216057A1B3"
+           RoleName="EnsSpec_FilterExtensionDef"
+           Semantics="Reference"
+           MultiValuated="Yes"
+           Type="SemanticRelation" AdaptativeToMinor="No"
+		       SynchroSensitivity="None"
+		       RerouteOnEffectivityChange="No"
+           Lower="0"
+           Upper="-1" />
+        <Method ImplementationType="None">
+          <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+        </Method>
+      </Class>  
+</Package>
+
+
+
+
+
+
+
+
+
+
+
+
+

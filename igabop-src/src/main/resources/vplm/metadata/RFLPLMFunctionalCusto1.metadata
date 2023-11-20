@@ -1,0 +1,285 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR RFL Functional Application Custo 1-->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2006, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" DataRDB_OID="ENODR_RFLFunctC1" Name="RFLPLMFunctionalCusto1"
+	Uuid="9f89dbab-15ca-47bf-b51e08d5c86c7ba7"
+	UseNames="RFLPLMFunctional"
+	>
+
+  <Property Name="OptionalInstallation" Value="Yes" />
+  <CAAComment>
+    <ShortRole>PLM Functional Customization 1 Package</ShortRole>
+    <Role>This package describes a Customization of PLM Functional model</Role>
+  </CAAComment>
+
+  <Comment>last update 2007-02-15</Comment>
+
+  <!-- **************************************************************** -->
+  <!-- *  RFLPLMFunctionalReferenceCusto1 (RFLPLMFunctionalReference) * -->
+  <!-- **************************************************************** -->
+
+  <Class Name="RFLPLMFunctionalReferenceCusto1"
+		Uuid="7b14c341-2e15-4639-a55d52745671b556"
+		SuperName="RFLPLMFunctionalReference"
+		>
+
+    <CAAComment>
+      <ShortRole>Customized PLM Function Reference Object</ShortRole>
+      <Role>Customized PLM Function Reference Object</Role>
+    </CAAComment>
+
+    <Simple Name="Criticality"
+      Uuid="9A29DB8E-36E6-423b-99D2-C17F08C23B4C"
+      Type="String"
+      MaxLength="40"
+      MultiValuated="No"
+      Protection="Free"
+      CAAExposition="L0"/>
+
+    <Simple Name="Comment"
+     Uuid="c7bfc209-477e-4cc7-ac76-4b37045ce76b"
+     Type="String"
+     MaxLength="40"
+     MultiValuated="No"
+     Protection="Free"
+     CAAExposition="L0">
+    </Simple>
+
+    <Simple Name="Reliability"
+     Uuid="e16670d4-bc64-456c-a4c0-2c8f368cb710"
+     Type="Double"
+     MultiValuated="No"
+     Protection="Free"
+     CAAExposition="L0">
+    </Simple>
+
+    <Simple Name="Critical"
+     Uuid="46598306-44ac-4975-b30b-e27461d67650"
+     Type="Boolean"
+     MultiValuated="No"
+     Protection="Free"
+     CAAExposition="L0">
+    </Simple>
+
+    <Simple Name="Level"
+     Uuid="019bf595-1ed4-4088-b722-8ece0e7f2ac1"
+     Type="Integer"
+     MultiValuated="No"
+     Protection="Free"
+     CAAExposition="L0">
+    </Simple>
+
+    <Simple Name="Obsolescence_Date"
+     Uuid="1282d119-5c94-4136-a5dd-c9ec64363b26"
+     Type="Date"
+     MultiValuated="No"
+     Protection="Free"
+     CAAExposition="L0">
+    </Simple>
+
+    <Simple Name="Complexity" Uuid="efaa91af-f3e4-4615-b9b9-d43ebb53e29e" Type="Integer" Protection="Free" CAAExposition="L0" DefaultValue="1">
+      <Property Name="RangeAsEnumName" Value="ComplexityEnum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="Low;Medium;High;Very High"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+      </Range>
+    </Simple>
+
+    <Simple Name="String_List"
+     Uuid="44f1782c-635e-49a4-987b-1b19a8138c47"
+     Type="String"
+     MaxLength="40"
+     MultiValuated="Yes"
+     Protection="Free"
+     Lower="0"
+     Upper="-1"
+     CollectionType="Set"
+     CAAExposition="L0">
+    </Simple>
+
+    <Simple Name="Double_List"
+     Uuid="5409c153-609f-407f-a726-a15f39b9ebf7"
+     Type="Double"
+     MultiValuated="Yes"
+     Protection="Free"
+     Lower="0"
+     Upper="-1"
+     CollectionType="Set"
+     CAAExposition="L0">
+    </Simple>
+
+    <Simple Name="Boolean_List"
+     Uuid="6c9b4cb0-391d-4ef9-bd00-fce875028688"
+     Type="Boolean"
+     MultiValuated="Yes"
+     Protection="Free"
+     Lower="0"
+     Upper="-1"
+     CollectionType="Set"
+     CAAExposition="L0">
+    </Simple>
+
+    <Simple Name="Integer_List"
+     Uuid="d12da9bf-38d1-40d6-88ea-2c7b93b1b4fa"
+     Type="Integer"
+     MultiValuated="Yes"
+     Protection="Free"
+     Lower="0"
+     Upper="-1"
+     CollectionType="Set"
+     CAAExposition="L0">
+    </Simple>
+
+    <Simple Name="Date_List"
+     Uuid="aba1d9b0-754c-48fa-930f-47ab58dae24e"
+     Type="Date"
+     MultiValuated="Yes"
+     Protection="Free"
+     Lower="0"
+     Upper="-1"
+     CollectionType="Set"
+     CAAExposition="L0">
+    </Simple>
+
+    <Simple Name="Enum_List" Uuid="14d6b630-011f-4991-91d1-6b9c67c80239" Type="Integer" MultiValuated="Yes" Lower="0" Upper="-1" CollectionType="Set" Protection="Free" CAAExposition="L0">
+      <Property Name="RangeAsEnumName" Value="ComplexityEnum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="Low;Medium;High;Very High"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+      </Range>
+    </Simple>
+
+    <Simple Name="CatalogName"
+    Uuid="2293EDDE-FCAA-4da2-8D12-E1D104FBAA22"
+    Type="String"
+    MaxLength="40"
+    MultiValuated="No"
+    Protection="Free"
+    CAAExposition="L0">
+    </Simple>
+
+    <Simple Name="SymbolName"
+     Uuid="7666F70B-9976-4fd8-AA5A-A7FDC589E762"
+     Type="String"
+     MaxLength="40"
+     MultiValuated="No"
+     Protection="Free"
+     CAAExposition="L0">
+    </Simple>
+
+    <IdentifierSet Name="Identifier"
+            Uuid="327a9c1d-6b6a-49ff-8ccd1766f709103f"
+            IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755"
+            IdentifierNames="PLM_ExternalID V_version" />
+
+  </Class>
+
+  <!-- ************************************************************* -->
+  <!-- * RFLPLMFunctionalInstanceCusto1 (RFLPLMFunctionalInstance) * -->
+  <!-- ************************************************************* -->
+
+  <Class Name="RFLPLMFunctionalInstanceCusto1"
+		Uuid="3c697295-563f-48da-a68d06af5035be13"
+		SuperName="RFLPLMFunctionalInstance"
+		>
+
+    <CAAComment>
+      <ShortRole>Customized PLM Function Instance Object</ShortRole>
+      <Role>Customized PLM Function Instance Object</Role>
+    </CAAComment>
+
+  </Class>
+
+  <!-- *************************************************************** -->
+  <!-- * RFLPLMFunctionalConnectorCusto1 (RFLPLMFunctionalConnector) * -->
+  <!-- *************************************************************** -->
+
+  <Class Name="RFLPLMFunctionalConnectorCusto1"
+		Uuid="436b6568-4d5f-4c46-abb2eef51e7a585c"
+		SuperName="RFLPLMFunctionalConnector"
+		>
+
+    <CAAComment>
+      <ShortRole>Customized PLM Functional Connector Object</ShortRole>
+      <Role>Customized PLM Functional Connector Object</Role>
+    </CAAComment>
+
+    <Simple Name="QualityOfService"
+			Uuid="F2F24DDF-7D58-482f-AD3D-8EC408D158DF"
+			Type="String"
+			MaxLength="40"
+			MultiValuated="No"
+			Protection="Free"
+      CAAExposition="L0"/>
+
+    <Simple Name="SymbolName"
+     Uuid="9DB274F1-3424-435b-A56D-3D3B91B3FD7E"
+     Type="String"
+     MaxLength="40"
+     MultiValuated="No"
+     Protection="Free"
+     CAAExposition="L0">
+    </Simple>
+
+  </Class>
+
+  <!-- ***************************************************************** -->
+  <!-- * RFLPLMFunctionalConnectionCusto1 (RFLPLMFunctionalConnection) * -->
+  <!-- ***************************************************************** -->
+
+  <Class Name="RFLPLMFunctionalConnectionCusto1"
+		Uuid="c29cff51-1dec-4b86-9ac7fdd25187c9c3"
+		SuperName="RFLPLMFunctionalConnection"
+		>
+
+    <CAAComment>
+      <ShortRole>Customized PLM Function Connection Object</ShortRole>
+      <Role>Customized PLM Function Connection Object</Role>
+    </CAAComment>
+  </Class>
+
+  <!-- ********************************************************************** -->
+  <!-- *  RFLPLMFunctionalRepReferenceCusto1 (RFLPLMFunctionalRepReference) * -->
+  <!-- ********************************************************************** -->
+
+  <Class Name="RFLPLMFunctionalRepReferenceCusto1"
+		Uuid="80897e5c-8431-4ae8-b6a1e44dd278a4a7"
+		SuperName="RFLPLMFunctionalRepReference"
+		>
+
+    <IdentifierSet Name="Identifier"
+        Uuid="9857c19c-4d66-4029-9e59ac540e9f94ea"
+        IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755"
+        IdentifierNames="PLM_ExternalID V_version" />
+
+    <CAAComment>
+      <ShortRole>Customized PLM Functional Rep Reference Object</ShortRole>
+      <Role>Customized PLM Functional Rep Reference Object</Role>
+    </CAAComment>
+
+  </Class>
+
+  <!-- ******************************************************************** -->
+  <!-- *  RFLPLMFunctionalRepInstanceCusto1 (RFLPLMFunctionalRepInstance) * -->
+  <!-- ******************************************************************** -->
+
+  <Class Name="RFLPLMFunctionalRepInstanceCusto1"
+		Uuid="43d5e530-57ed-4c70-a9c3ac247bece349"
+		SuperName="RFLPLMFunctionalRepInstance"
+		>
+
+    <CAAComment>
+      <ShortRole>Customized PLM Logical Rep Reference Object</ShortRole>
+      <Role>Customized PLM Logical Rep Reference Object</Role>
+    </CAAComment>
+
+  </Class>
+
+</Package>

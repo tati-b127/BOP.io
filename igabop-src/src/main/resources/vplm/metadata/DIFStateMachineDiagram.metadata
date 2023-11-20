@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY FOR StateMachineDiagram                 -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2014, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" 
+         ModelerType="Top" 
+         Name="DIFStateMachineDiagram" 
+         Uuid="10FC1552-162A-499E-B18E-B6BD346B6901" 
+         UseNames="DIFModelerAbstractView"
+         BelongsToModeler="DIFModeler01"
+         CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <!-- ******************************************* -->
+  <!-- *  StateMachineDiagram (PLMCoreReference)     * -->
+  <!-- ******************************************* -->
+  <Class Name="StateMachineDiagram" 
+         Uuid="5AC01FB1-67F3-4CD6-B724-173B29A83E71" 
+         Abstract="No" 
+         SuperName="DIFAbstractView"
+         Abbreviation="smd"
+         CreateInstName="StateMachineDiagramInstance"
+         CustomerExposition="Programmer"
+         Specializable="Yes">  
+  
+    <CAAComment>
+      <ShortRole>State Machine Diagram View Object</ShortRole>
+      <Role>State Machine Diagram View Object</Role>
+    </CAAComment>
+
+    <!-- PLM New UI/KWE Scripts New -->
+    <Property Name="KweNew_InstanciationMethod" Value="CATDifKBEDelegateInstanciation"/>
+
+    <!-- Icon and 3D Icon -->
+    <Property Name="IconName" Value="I_FLE_SM_VIEW"/>
+
+    <!-- Collaborative Space Applicability -->
+    <Property Name="ShareBetweenProjectsAvailability" Value="Yes"/>
+
+    <!-- Export -->
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Remove"/>
+        <UsedProcedure href="DIFpe_Procedures.proc#DIFModeler_ExportCompletion_DifAbstractView"/>
+      </ProcedureForUsage>
+
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#TransferSiteOwnership"/>
+        <UsedProcedure href="DIFpe_Procedures.proc#DIFModeler_ExportCompletion_DifAbstractView"/>
+      </ProcedureForUsage>
+    </Method>
+
+  </Class>
+
+  <!-- *************************************************** -->
+  <!-- * StateMachineDiagramInstance (PLMCoreInstance)       * -->
+  <!-- *************************************************** -->
+  <RelationClass Name="StateMachineDiagramInstance" 
+         Uuid="6A9AB210-DF9B-47F4-825B-EF6AB6364C97" 
+         Abstract="No" 
+         SuperName="DIFAbstractViewInstance"
+         CustomerExposition="Programmer"
+         Specializable="Yes">
+
+    <CAAComment>
+      <ShortRole>State Machine Diagram Instance Object</ShortRole>
+      <Role>State Machine Diagram Instance Object</Role>
+    </CAAComment>
+
+    <!-- Configuration -->
+    <Property Name="Filtrable" Value="Yes"/>
+
+    <!-- PLM New UI/KWE Scripts New -->
+    <Property Name="KweNew_InstanciationMethod" Value="CATDifKBEDelegateInstanciation"/>
+
+    <!-- Icon and 3D Icon -->
+    <Property Name="IconName" Value="I_FLE_SM_VIEW"/>
+
+    <!-- Export -->
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+    <SubClause Name="from"   TargetName="DIFSheet"/>
+    <SubClause Name="to"   TargetName="StateMachineDiagram"/>
+
+  </RelationClass>
+
+</Package>

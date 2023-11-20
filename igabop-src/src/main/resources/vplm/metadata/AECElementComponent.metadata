@@ -1,0 +1,120 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2012, All rights reserved -->
+
+<Package CustomerExposition = "Programmer" ModelerType = "Top" Name = "AECElementComponent" UseNames = "AECKernel" Uuid = "480b49ca-88f2-4f40-a680-a45b2f458dde" xmlns = "PLMDictionaryUnified">
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "AecDiscreteAccessory" SuperName = "AecElementComponent" Uuid = "fb3a15fb-06e8-4037-a5e3-195806e63238">
+    <Property Name = "IconName" Value = "I_AecDiscreteAccessory"/>
+    <Property Name = "3DIconName" Value = "I_AecDiscreteAccessory.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATEAECDelegateInstanciation"/>
+    <Property Name = "KweNew_ReturnedType" Value = "VPMInstance"/>
+    <Property Name = "Newable" Value = "All_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "UserChoiceReferenceDefault"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "AecDiscreteAccessoryType" SuperName = "AecElementComponentType" Uuid = "35747916-2e5d-49b3-8179-9923865433bb">
+    <Property Name = "IconName" Value = "I_AecDiscreteAccessoryType"/>
+    <Property Name = "3DIconName" Value = "I_AecDiscreteAccessoryType.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATCbaObjectTypeDelegateInstanciation"/>
+    <Property Name = "Newable" Value = "New_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "ReferenceOnly"/>
+  </Class>
+  <Class Abstract = "Yes" CustomerExposition = "Programmer" Discipline = "Yes" Name = "AecElementComponent" SuperName = "AecElement" Uuid = "b69bf5e1-23e5-4673-ae90-73220c7bcef2">
+    <Property Name = "GroupingType" Value = "AecElementComponent"/>
+  </Class>
+  <Class Abstract = "Yes" CustomerExposition = "Programmer" Discipline = "Yes" Name = "AecElementComponentType" SuperName = "AecElementType" Uuid = "c3d13ccf-60ed-45b6-b3e8-524e8d297211">
+    <Property Name = "GroupingType" Value = "AecElementComponentType"/>
+  </Class>
+  <Class Abstract = "Yes" CustomerExposition = "Programmer" Discipline = "Yes" Name = "AecMechanicalFastener" SuperName = "AecElementComponent" Uuid = "1D54E67F-ABA2-4DEA-9320-97E9D7BD9B16"/>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "AecMechanicalFastenerAnchor" SuperName = "AecMechanicalFastener" Uuid = "411B9065-0880-47AD-B042-9B67B3A8D0C6">
+    <Property Name = "IconName" Value = "I_AecMechanicalFastenerAnchor"/>
+    <Property Name = "3DIconName" Value = "I_AecMechanicalFastenerAnchor.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATEAECDelegateInstanciation"/>
+    <Property Name = "KweNew_ReturnedType" Value = "VPMInstance"/>
+    <Property Name = "Newable" Value = "All_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "UserChoiceReferenceDefault"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "AecMechanicalFastenerAnchorType" SuperName = "AecMechanicalFastenerType" Uuid = "A0B6E41A-AABC-45AC-8E31-CBC80A6830D7">
+    <Property Name = "IconName" Value = "I_AecMechanicalFastenerAnchorType"/>
+    <Property Name = "3DIconName" Value = "I_AecMechanicalFastenerAnchorType.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATCbaObjectTypeDelegateInstanciation"/>
+    <Property Name = "Newable" Value = "New_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "ReferenceOnly"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "AecMechanicalFastenerCoupler" SuperName = "AecMechanicalFastener" Uuid = "A0AD894E-5207-4A46-B44D-044277D75EAB">
+    <Property Name = "IconName" Value = "I_AecMechanicalFastenerCoupler"/>
+    <Property Name = "3DIconName" Value = "I_AecMechanicalFastenerCoupler.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATEAECDelegateInstanciation"/>
+    <Property Name = "KweNew_ReturnedType" Value = "VPMInstance"/>
+    <Property Name = "Newable" Value = "All_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "UserChoiceReferenceDefault"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "AecMechanicalFastenerCouplerType" SuperName = "AecMechanicalFastenerType" Uuid = "A699DA42-6980-4781-B3A7-9939C83B1DFC">
+    <Property Name = "IconName" Value = "I_AecMechanicalFastenerCouplerType"/>
+    <Property Name = "3DIconName" Value = "I_AecMechanicalFastenerCouplerType.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATCbaObjectTypeDelegateInstanciation"/>
+    <Property Name = "Newable" Value = "New_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "ReferenceOnly"/>
+  </Class>
+  <Class Abstract = "Yes" CustomerExposition = "Programmer" Discipline = "Yes" Name = "AecMechanicalFastenerType" SuperName = "AecElementComponentType" Uuid = "89F9DA16-E069-49D6-88EC-DFF79BDCE7DD"/>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "AecReinforcingBar" SuperName = "AecReinforcingElement" Uuid = "e87f3425-7505-4172-80d1-2c3e133584b6">
+    <Property Name = "IconName" Value = "I_AecReinforcingBar"/>
+    <Property Name = "3DIconName" Value = "I_AecReinforcingBar.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATEAECDelegateInstanciation"/>
+    <Property Name = "KweNew_ReturnedType" Value = "VPMInstance"/>
+    <Property Name = "Newable" Value = "All_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "UserChoiceReferenceDefault"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "AecReinforcingBarType" SuperName = "AecReinforcingElementType" Uuid = "bb00d11a-1524-40a6-bf2b-1f8e821cfa8b">
+    <Property Name = "IconName" Value = "I_AecReinforcingBarType"/>
+    <Property Name = "3DIconName" Value = "I_AecReinforcingBarType.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATCbaObjectTypeDelegateInstanciation"/>
+    <Property Name = "Newable" Value = "New_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "ReferenceOnly"/>
+  </Class>
+  <Class Abstract = "Yes" CustomerExposition = "Programmer" Discipline = "Yes" Name = "AecReinforcingElement" SuperName = "AecElementComponent" Uuid = "0c4454bd-cb25-4baf-b080-d2ae3b0b163a"/>
+  <Class Abstract = "Yes" CustomerExposition = "Programmer" Discipline = "Yes" Name = "AecReinforcingElementType" SuperName = "AecElementComponentType" Uuid = "27c71c13-47bc-432b-938e-7aceefeb797c"/>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "AecReinforcingMesh" SuperName = "AecReinforcingElement" Uuid = "6f5e3d22-2d77-4795-9ff6-73d0dc9e762b">
+    <Property Name = "IconName" Value = "I_AecReinforcingMesh"/>
+    <Property Name = "3DIconName" Value = "I_AecReinforcingMesh.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATEAECDelegateInstanciation"/>
+    <Property Name = "KweNew_ReturnedType" Value = "VPMInstance"/>
+    <Property Name = "Newable" Value = "All_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "UserChoiceReferenceDefault"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "AecReinforcingMeshType" SuperName = "AecReinforcingElementType" Uuid = "b62fd90b-5e92-4341-ab8a-cb427a210dee">
+    <Property Name = "IconName" Value = "I_AecReinforcingMeshType"/>
+    <Property Name = "3DIconName" Value = "I_AecReinforcingMeshType.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATCbaObjectTypeDelegateInstanciation"/>
+    <Property Name = "Newable" Value = "New_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "ReferenceOnly"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "AecTendon" SuperName = "AecReinforcingElement" Uuid = "ff591df2-c251-4c95-852d-df71e6484f76">
+    <Property Name = "IconName" Value = "I_AecTendon"/>
+    <Property Name = "3DIconName" Value = "I_AecTendon.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATEAECDelegateInstanciation"/>
+    <Property Name = "KweNew_ReturnedType" Value = "VPMInstance"/>
+    <Property Name = "Newable" Value = "All_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "UserChoiceReferenceDefault"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "AecTendonAnchor" SuperName = "AecReinforcingElement" Uuid = "c00be145-5396-4581-a193-ad745dc86260">
+    <Property Name = "IconName" Value = "I_AecTendonAnchor"/>
+    <Property Name = "3DIconName" Value = "I_AecTendonAnchor.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATEAECDelegateInstanciation"/>
+    <Property Name = "KweNew_ReturnedType" Value = "VPMInstance"/>
+    <Property Name = "Newable" Value = "All_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "UserChoiceReferenceDefault"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "AecTendonAnchorType" SuperName = "AecReinforcingElementType" Uuid = "a4224b79-16d4-4ae7-b489-56ba3eab5fbb">
+    <Property Name = "IconName" Value = "I_AecTendonAnchorType"/>
+    <Property Name = "3DIconName" Value = "I_AecTendonAnchorType.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATCbaObjectTypeDelegateInstanciation"/>
+    <Property Name = "Newable" Value = "New_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "ReferenceOnly"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "AecTendonType" SuperName = "AecReinforcingElementType" Uuid = "aa9a1026-fc7c-4ba4-b752-6359b521d1ca">
+    <Property Name = "IconName" Value = "I_AecTendonType"/>
+    <Property Name = "3DIconName" Value = "I_AecTendonType.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATCbaObjectTypeDelegateInstanciation"/>
+    <Property Name = "Newable" Value = "New_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "ReferenceOnly"/>
+  </Class>
+</Package>

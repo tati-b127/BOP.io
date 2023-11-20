@@ -1,0 +1,64 @@
+#Prog MaterialUnifiedDesignCompletion (iPLMIDSet :  #In PLMIDSet,oPLMIDSet :  #Out PLMIDSet) : VoidType
+  {
+let Result(PLMIDSet)
+let AllReferences(PLMIDSet)
+let AllDomains(PLMIDSet)
+let AllCnxUnderRef(PLMIDSet)
+let AllDocsUnderRef(PLMIDSet)
+
+let MatRefsFromVector(PLMRouteSet)
+let MCCEntityFromVector(PLMRouteSet)
+let DomainFromMatRef (PLMRouteSet)
+let DomainFromMCCComposed (PLMRouteSet)
+let DomainFromMCCUsing (PLMRouteSet) 
+let CnxFromMatRef (PLMRouteSet)
+let CnxFromMCC (PLMRouteSet)
+let DocsFromDomains (PLMRouteSet)
+let DocsUnderMCC (PLMRouteSet)
+let DocsUnderMatRef (PLMRouteSet)
+
+
+/* -------------------------------------------------
+getting all materials references from material vector 
+----------------------------------------------------*/
+/* On a pas encore de vector en mode MCC
+MCCEntityFromVector = ExecutePLMFunction("MaterialUnifiedResources", "mat_retrieveMCCFromMCCVector", Restrict( iPLMIDSet, "Class/Internal Material" ) )*/
+MatRefsFromVector = ExecutePLMFunction("CATMaterialRef", "mat_retrieveMatRefFromVector", Restrict( iPLMIDSet, "CATMaterialRef/CATMatReference" ) )
+
+AllReferences = iPLMIDSet + Ids(MatRefsFromVector) /*+ Ids(MCCEntityFromVector)*/
+
+/* -------------------------------------------------
+getting all domains from references
+----------------------------------------------------*/
+DomainFromMCCComposed = ExecutePLMFunction("MaterialUnifiedResources", "mcc_retrieveDomains", Restrict( AllReferences, "Class/Internal Material" ))
+DomainFromMCCUsing = ExecutePLMFunction("MaterialUnifiedResources", "mcc_retrieveDomainsUsing", Restrict( AllReferences, "Class/Internal Material" ))
+DomainFromMatRef = ExecutePLMFunction("CATMaterialRef", "mat_retrieveDomains", Restrict( AllReferences, "CATMaterialRef/CATMatReference" ) )
+
+AllDomains = Ids(DomainFromMCCComposed) + Ids(DomainFromMatRef) + Ids(DomainFromMCCUsing) 
+
+/* -------------------------------------------------
+getting cnx aggregated under references (Behavior/Default)
+----------------------------------------------------*/
+CnxFromMCC = ExecutePLMFunction("MaterialUnifiedResources", "mcc_retrieveCnx", Restrict( AllReferences, "Class/Internal Material" ) )
+CnxFromMatRef = ExecutePLMFunction("CATMaterialRef", "mat_retrieveCnx", Restrict( AllReferences, "CATMaterialRef/CATMatReference" ))
+
+AllCnxUnderRef = Ids(CnxFromMCC) + Ids(CnxFromMatRef)
+
+
+/* -------------------------------------------------
+getting docs pointed by domains (Rendering)
+----------------------------------------------------*/
+DocsFromDomains = ExecutePLMFunction("CATMaterialRef", "rdg_retrieveTexture",Restrict(AllDomains, "CATMaterialRef/MaterialDomain"))
+
+/* -------------------------------------------------
+getting docs under references
+----------------------------------------------------*/
+/* NEED UNE FONCTION DE MUT POUR MCC
+DocsUnderMCC = ExecutePLMFunction("PLMDocConnection", "PLMDocConnection_retrieveAllDocuments", Restrict( AllReferences, "Class/Internal Material" )) */
+DocsUnderMatRef = ExecutePLMFunction("PLMDocConnection", "PLMDocConnection_retrieveAllDocuments", Restrict( AllReferences, "CATMaterialRef/CATMatReference" ))
+
+AllDocsUnderRef = Ids(DocsUnderMatRef) /*+ Ids(DocsUnderMCC)*/
+
+
+oPLMIDSet = iPLMIDSet + AllReferences + AllDomains + AllCnxUnderRef + Ids(DocsFromDomains) + AllDocsUnderRef
+}

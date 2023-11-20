@@ -1,0 +1,89 @@
+#Prog ProductionSystem_ExchangeXPDM_AllLevelNoRsc (iPLMIDSet :  #In PLMIDSet,oPLMIDSet :  #Out PLMIDSet) : VoidType
+  {
+let PLMRouteSet1 (PLMRouteSet)
+let PLMRouteSet2 (PLMRouteSet)
+let PLMRouteSet3 (PLMRouteSet)
+let PLMRouteSet4 (PLMRouteSet)
+let PLMRouteSet8 (PLMRouteSet)
+let PLMRouteSet_PlugRep (PLMRouteSet)
+let PLMRouteSetHisto (PLMRouteSet)
+let PLMRouteSetOutputs (PLMRouteSet)
+let PLMRouteSetCapable  (PLMRouteSet)
+let PLMRouteSetDRPorts  (PLMRouteSet)
+let PLMRouteSetResp  (PLMRouteSet)
+
+let PLMIDSet0 (PLMIDSet)
+let PLMIDSet1 (PLMIDSet)
+let PLMIDSet1a (PLMIDSet)
+let PLMIDSet1b (PLMIDSet)
+let PLMIDSet2 (PLMIDSet)
+let PLMIDSet3 (PLMIDSet)
+let PLMIDSet3a (PLMIDSet)
+let PLMIDSet4 (PLMIDSet)
+let PLMIDSet8 (PLMIDSet)
+let PLMIDSet_PlugRep (PLMIDSet)
+let PLMIDSetHisto(PLMIDSet)
+let PLMIDSetOutputs (PLMIDSet)
+let PLMIDSetCapable (PLMIDSet)
+let PLMIDSetRef (PLMIDSet)
+let PLMIDSetExpandedCapable(PLMIDSet)
+let PLMIDSetProcessRef(PLMIDSet)
+let PLMIDSetDRPorts(PLMIDSet)
+let PLMIDSetResp(PLMIDSet)
+
+
+/* Retrieves all entities aggregated by Systems or Operations Roots */
+PLMRouteSet1 = ExecutePLMFunction("DELLmiProductionSystemAbstract", "ENOPsm_ProductionSystem_addAllEntitiesWithoutDocRepAndCandidateRsc", Restrict(iPLMIDSet, "DELLmiProductionSystemAbstract/DELLmiAbstractProductionEntity"))
+PLMIDSet1 = Ids(PLMRouteSet1,"all")
+PLMIDSet1a = Restrict(iPLMIDSet, "DELLmiProductionSystemAbstract/DELLmiAbstractProductionEntity") + Restrict(PLMIDSet1,"DELLmiProductionSystemAbstract/DELLmiAbstractProductionEntity") 
+PLMIDSet1b = Restrict(iPLMIDSet, "DELLmiProductionSystem/DELLmiProductionSystemReference") + Restrict(PLMIDSet1,"DELLmiProductionSystem/DELLmiProductionSystemReference") 
+
+/* Retrieves fathers of Systems or Operations*/
+PLMRouteSet2 = ExecutePLMFunction("DELPPRContextModel", "ENOPpr_PPRData_addAllFathers", Restrict(iPLMIDSet, "DELLmiProductionSystemAbstract/DELLmiAbstractProductionEntity"))
+PLMIDSet2 = Ids(PLMRouteSet2,"all")
+PLMIDSetRef = Restrict(iPLMIDSet, "DELLmiProductionSystemAbstract/DELLmiAbstractProductionEntity") + Restrict(PLMIDSet1,"DELLmiProductionSystemAbstract/DELLmiAbstractProductionEntity") + Restrict(PLMIDSet2,"DELLmiProductionSystemAbstract/DELLmiAbstractProductionEntity") 
+
+/* Retrieves Implemented Process Scope from Systems References*/
+PLMRouteSet3 = ExecutePLMFunction("RFLPLMImplementConnection", "RFLPLMImplementConnection_AddAllImplementedComponents", PLMIDSet1 )
+/*PLMRouteSet3 = ExecutePLMFunction("RFLPLMImplementConnection", "RFLPLMImplementConnection_AddAllImplementedComponents", PLMIDSet1b )*/
+PLMIDSet3 = Ids(PLMRouteSet3,"all")
+PLMIDSet3a = Restrict(PLMIDSet3, "DELFmiFunctionalModel/DELFmiFunctionReference")
+
+/* Retrieves manufacturing responsabilities from MBOM (specific to custommer, not DS Model) */
+PLMRouteSetResp = ExecutePLMFunction("DELFmiFunctionalModel", "DELFmiFunctionReference_SystemScopes", PLMIDSet3a )
+PLMIDSetResp = Ids(PLMRouteSetResp,"all")
+
+/* Retrieves sons (instances + references) of Process scope*/
+PLMRouteSet4 = ExecutePLMFunction("DELPPRContextModel", "ENOPpr_PPRData_ExpandStructure", PLMIDSet3a)
+PLMIDSet4 = Ids(PLMRouteSet4,"all")
+
+PLMRouteSet_PlugRep = ExecutePLMFunction("DELLmiProductionSystemAbstract", "ENOPsm_ProductionSystem_addPlugRep", Restrict(iPLMIDSet, "DELLmiProductionSystemAbstract/DELLmiAbstractProductionEntity"))
+PLMIDSet_PlugRep = Ids(PLMRouteSet_PlugRep,"all")
+
+/* Retrieves Process Reference pointed by Plug Rep Reference */
+PLMRouteSet8 = ExecutePLMFunction("DELLmiProductionDocRep", "DELLmiProductionDocRep_addLinkToProcess", Restrict(PLMIDSet_PlugRep, "DELLmiProductionDocRep/DELLmiDocRepReference"))
+PLMIDSet8 =Restrict(Ids(PLMRouteSet8,"all") ,  "DELFmiFunctionalModel/DELFmiFunctionReference")
+
+/*Retrieves all historization link to system or operation from the system or operation in input */
+PLMRouteSetHisto = ExecutePLMFunction("DELPPRContextModel", "ENOPpr_PPRData_addAllHistorizationEntities", Restrict(iPLMIDSet, "DELLmiProductionSystemAbstract/DELLmiAbstractProductionEntity"))
+PLMIDSetHisto = Ids(PLMRouteSetHisto,"all") 
+
+/*Retrieves all outputs from System or Operation References */
+PLMRouteSetOutputs = ExecutePLMFunction("DELPPRContextModel", "ENOPsm_ProductionSystem_addOutputEntities", PLMIDSetRef)
+PLMIDSetOutputs = Ids(PLMRouteSetOutputs ,"all")
+
+/*Retrieves all capable resources from System or Operation References*/
+PLMRouteSetCapable = ExecutePLMFunction("DELPPRContextModel", "ENOPcs_Process_addCapableResources", PLMIDSetRef)
+PLMIDSetCapable = Ids(PLMRouteSetCapable,"all")
+
+/*Retrieves all aggregated representations (references / instances) */
+PLMIDSetExpandedCapable = ExecutePLMProcedure("PhysicalResource_GetAllEntities", Restrict(PLMIDSetCapable, "PLMCORE/PLMCoreReference"))
+
+/*Retrieves the Data Requierement Ports for Process, to avoid creation of implicit DR Ports that will creates incoherence*/
+PLMIDSetProcessRef = PLMIDSet3a + Restrict(PLMIDSet4, "DELFmiFunctionalModel/DELFmiFunctionReference") + Restrict(PLMIDSet8, "DELFmiFunctionalModel/DELFmiFunctionReference") + Restrict(PLMIDSetOutputs, "DELFmiFunctionalModel/DELFmiFunctionReference")
+PLMRouteSetDRPorts = ExecutePLMFunction("DELFmiFunctionalModel", "DELFmiFunctionModel_expandDRPorts", PLMIDSetProcessRef)
+PLMIDSetDRPorts = Ids(PLMRouteSetDRPorts,"all")
+
+oPLMIDSet = iPLMIDSet + PLMIDSet1 + PLMIDSet2 + PLMIDSet3 + PLMIDSet4 + PLMIDSet8 + PLMIDSet_PlugRep + PLMIDSetCapable + PLMIDSetExpandedCapable + PLMIDSetHisto + PLMIDSetOutputs + PLMIDSetDRPorts + PLMIDSetResp
+
+}

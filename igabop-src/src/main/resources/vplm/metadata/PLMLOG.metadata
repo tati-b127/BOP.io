@@ -1,0 +1,36 @@
+<?xml version="1.0" ?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" Name="PLMLOG"
+    Uuid="1673B597-805F-432d-9100-3473BD54A316"
+    ModelerType="Top"
+    UseNames="PLMCORE"
+    CustomerExposition="None"
+   >
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+  <CAAComment>
+        <ShortRole>Log Package</ShortRole>
+        <Role>This package includes all the entities of Log Model.</Role>
+    </CAAComment>
+	<Class Name="PLMLOGEntity"
+        Uuid="715D7FE3-3866-4fd2-B8B9-90DBF10F35E6"
+        CustomerExposition="None"
+        Abstract="No"
+        SuperName="PLMCoreReference" >
+      <Simple Name="V_DeletedIDList"
+          Uuid="0EBB3A10-F05F-4827-A268-D77742105955"
+          Type="String"
+          MaxLength="30000"
+          MultiValuated="No"
+          Protection="Free" CAAExposition="L0">
+        <CAAComment>
+          <ShortRole>List of deleted ID</ShortRole>
+        </CAAComment>
+      </Simple>
+      <Method ImplementationType="None">
+        <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      </Method>
+    </Class>	
+</Package>

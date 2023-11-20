@@ -1,0 +1,43 @@
+<?xml version="1.0" ?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2004, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" Name="VPMDECSubComponent"
+    Uuid="93eef126-8dd8-47ad-ae0b-46d1ad7cfed2"
+    UseNames="PHYSICALABSTRACT VPMDEC VPMDECAssembly">
+
+  <CAAComment>
+    <ShortRole>DEC SubComponent Package</ShortRole>
+    <Role>This package includes all the entities of DEC SubComponent Model</Role>
+  </CAAComment>
+
+  <RelationClass Name="VPMDECInstance"
+      Uuid="143a22a7-6a71-48ca-8a6f-9d14becf555f" 
+      Abstract="No"
+      SuperName="PHYSICALAbstractInstance"
+      CAAExposition="L1"
+        >
+    <Property Name="DatabaseName" Value="CAD SubComponent"/>
+    <Property Name="IconName"     Value="I_DECPrt"/>
+    <SubClause Name="from"   TargetName="VPMDECAssembly"/>
+    <SubClause Name="to"   TargetName="VPMDECReference"/>
+    
+    <Simple Name="V_SpatialLocation"
+		    Uuid="802636d8-c9a0-4b73-b8d8-a056eb8eb85c"
+		    Type="String"
+		    MaxLength="1024"
+		    MultiValuated="No"
+		    Protection="Internal">
+      <CAAComment>
+        <ShortRole>Spatial Location for DEC Object</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </RelationClass>
+  
+
+</Package>
+

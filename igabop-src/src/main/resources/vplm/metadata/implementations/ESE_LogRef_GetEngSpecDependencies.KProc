@@ -1,0 +1,144 @@
+ /*******************************************************************************************************************************/
+/* Export procedure                                                                                                             */
+/* --> Lev 0 : Propagation of data aggregated to the logical element.                                                           */
+/* --> Lev 1 : Propagation of data aggregated to the specifications.                                                            */
+/* --> Lev 2 : Propagation of data aggregated to the categories (techno table or parts filter) present under the specification. */
+/* --> Lev 3 : Propagation of data aggregated to the techno tables the categories rely on.                                      */
+/********************************************************************************************************************************/
+#Prog ESE_LogRef_GetEngSpecDependencies ( iPLMIDSet : #In PLMIDSet, oPLMIDSet : #Out PLMIDSet ) : VoidType
+{
+    let PLMRouteSetLev0LogToSpecCnxs (PLMRouteSet)	
+	let PLMRouteSetLev1Specifications (PLMRouteSet)	
+	let PLMRouteSetLev1Categories (PLMRouteSet)	           
+	let PLMRouteSetLev2FilterBuiltFromCnxs (PLMRouteSet)
+	/* MODIF PA DEB 15/03/2013 */
+	let PLMRouteSetLev2FilterExtensionDefCnxs (PLMRouteSet)
+	/* MODIF PA FIN 15/03/2013 */
+	let PLMRouteSetLev2RepEPFs (PLMRouteSet)	             
+	let PLMRouteSetLev2TableBuiltFromCnxs (PLMRouteSet)
+	let PLMRouteSetLev2RepETTs (PLMRouteSet)	
+	let PLMRouteSetLev3FilterBuiltFromRefETTs (PLMRouteSet)
+	let PLMRouteSetLev3FilterBuiltFromRefETTsCnxs (PLMRouteSet)
+	let PLMRouteSetLev3FilterBuiltFromRefETTsRepETTs (PLMRouteSet) 
+	let PLMRouteSetLev3TableBuiltFromRefETTs (PLMRouteSet)	
+	let PLMRouteSetLev3TableBuiltFromRefETTsCnxs (PLMRouteSet)
+	let PLMRouteSetLev3TableBuiltFromRefETTsRepETTs (PLMRouteSet)   
+	              
+			
+	let PLMIDSetLev0LogToSpecCnxs (PLMIDSet)	
+	let PLMIDSetLev1Specifications (PLMIDSet)
+	let PLMIDSetLev1Categories (PLMIDSet)	               
+	let PLMIDSetLev2FilterBuiltFromCnxs (PLMIDSet)
+	/* MODIF PA DEB 15/03/2013 */
+	let PLMIDSetLev2FilterExtensionDefCnxs (PLMIDSet)
+	/* MODIF PA FIN 15/03/2013 */
+	let PLMIDSetLev2RepEPFs (PLMIDSet)	                 
+	let PLMIDSetLev2TableBuiltFromCnxs (PLMIDSet)
+	let PLMIDSetLev2RepETTs (PLMIDSet)	
+	let PLMIDSetLev3FilterBuiltFromRefETTs (PLMIDSet)
+	let PLMIDSetLev3FilterBuiltFromRefETTsCnxs (PLMIDSet)	 
+	let PLMIDSetLev3FilterBuiltFromRefETTsRepETTs (PLMIDSet)  
+	let PLMIDSetLev3TableBuiltFromRefETTs (PLMIDSet)	
+	let PLMIDSetLev3TableBuiltFromRefETTsCnxs (PLMIDSet)		 
+	let PLMIDSetLev3TableBuiltFromRefETTsRepETTs (PLMIDSet) 	     
+	                  
+	
+	/********************            - Propagation Lev 0 -                     ***********************************/	
+	/**********************************************************/
+	/* Getting LogToSpecConnection from the logical reference */
+	/**********************************************************/ 	
+	PLMRouteSetLev0LogToSpecCnxs = ExecutePLMFunction("PLMEnsSpecSpecification", "ESE_AddLogToSpecConnectionForExport", Restrict(iPLMIDSet, "RFLVPMLogical/RFLVPMLogicalReference"))
+	PLMIDSetLev0LogToSpecCnxs = Ids(PLMRouteSetLev0LogToSpecCnxs)
+	
+	/********************            - Propagation Lev 1 -                     ***********************************/
+	/*************************************************************************************************************/
+	/* Getting engineering specifications from the logical reference                                             */
+	/*************************************************************************************************************/ 	
+	PLMRouteSetLev1Specifications = ExecutePLMFunction("PLMEnsSpecSpecification", "ESE_SpecLogRefToSpec", Restrict(iPLMIDSet, "RFLVPMLogical/RFLVPMLogicalReference"))
+	PLMIDSetLev1Specifications = Ids(PLMRouteSetLev1Specifications)
+				
+	/*************************************************************************************************************/
+	/* Getting techno table instances + references by expand from the eng spec specifications                    */
+	/*************************************************************************************************************/ 	
+	PLMRouteSetLev1Categories = ExecutePLMFunction("PLMEnsSpecSpecification", "ESE_SpecCategories", Restrict(PLMIDSetLev1Specifications, "PLMEnsSpecSpecification/EnsSpecification"))
+	PLMIDSetLev1Categories = Ids(PLMRouteSetLev1Categories)
+	
+	/********************            - Propagation Lev 2 -                     ***********************************/
+	/*************************************************************************************************************/
+	/* Getting parts filter BuiltFrom Cnxs from parts filter references Lev2                                     */
+	/*************************************************************************************************************/  	
+	PLMRouteSetLev2FilterBuiltFromCnxs = ExecutePLMFunction("PLMEnsSpecSpecification", "ESE_AddFilterBuiltFromConnectionForExport", Restrict(PLMIDSetLev1Categories, "PLMEnsSpecPartsFilter/EnsFilter"))  
+	PLMIDSetLev2FilterBuiltFromCnxs = Ids(PLMRouteSetLev2FilterBuiltFromCnxs) 
+
+	/* MODIF PA DEB 15/03/2013 */
+	/*************************************************************************************************************/
+	/* Getting parts filter ExtensionDef Cnxs from parts filter references Lev2                                  */
+	/*************************************************************************************************************/  	
+	PLMRouteSetLev2FilterExtensionDefCnxs = ExecutePLMFunction("PLMEnsSpecSpecification", "ESE_AddFilterExtensionDefConnectionForExport", Restrict(PLMIDSetLev1Categories, "PLMEnsSpecPartsFilter/EnsFilter"))  
+	PLMIDSetLev2FilterExtensionDefCnxs = Ids(PLMRouteSetLev2FilterExtensionDefCnxs) 
+	/* MODIF PA FIN 15/03/2013 */
+		
+	/*************************************************************************************************************/
+	/* Getting parts filter reps from parts filter references Lev2                                               */
+	/*************************************************************************************************************/  	
+	PLMRouteSetLev2RepEPFs = ExecutePLMFunction("PLMEnsSpecSpecification", "ESE_SpecEPFRep", Restrict(PLMIDSetLev1Categories, "PLMEnsSpecPartsFilter/EnsFilter")) 
+	PLMIDSetLev2RepEPFs = Ids(PLMRouteSetLev2RepEPFs) 
+	
+	/*************************************************************************************************************/
+	/* Getting techno table BuiltFrom Cnxs from techno table references Lev2                                     */
+	/*************************************************************************************************************/  	
+	PLMRouteSetLev2TableBuiltFromCnxs = ExecutePLMFunction("PLMEnsSpecSpecification", "ESE_AddTableBuiltFromConnectionForExport", Restrict(PLMIDSetLev1Categories, "PLMEnsSpecTechnoTable/EnsTechnologicalTable")) 
+	PLMIDSetLev2TableBuiltFromCnxs = Ids(PLMRouteSetLev2TableBuiltFromCnxs) 
+	
+	/*************************************************************************************************************/
+	/* Getting techno table reps from techno table references Lev2                                               */
+	/*************************************************************************************************************/  	
+	PLMRouteSetLev2RepETTs = ExecutePLMFunction("PLMEnsSpecSpecification", "ESE_SpecETTRep", Restrict(PLMIDSetLev1Categories, "PLMEnsSpecTechnoTable/EnsTechnologicalTable"))  
+	PLMIDSetLev2RepETTs = Ids(PLMRouteSetLev2RepETTs) 
+	
+	
+	/********************            - Propagation Lev 3 -                     ***********************************/
+	/*************************************************************************************************************/
+	/* Getting built from referenced techno tables from parts filter references Lev3                             */
+	/*************************************************************************************************************/  	
+	PLMRouteSetLev3FilterBuiltFromRefETTs = ExecutePLMFunction("PLMEnsSpecSpecification", "ESE_SpecEPFBuiltFromToETT", Restrict(PLMIDSetLev1Categories, "PLMEnsSpecPartsFilter/EnsFilter"))
+	PLMIDSetLev3FilterBuiltFromRefETTs = Ids(PLMRouteSetLev3FilterBuiltFromRefETTs)	
+	
+	/*************************************************************************************************************/
+	/* Getting techno table BuiltFrom Cnxs from techno table references Lev3                                     */
+	/*************************************************************************************************************/  	
+	PLMRouteSetLev3FilterBuiltFromRefETTsCnxs = ExecutePLMFunction("PLMEnsSpecSpecification", "ESE_AddTableBuiltFromConnectionForExport", Restrict(PLMIDSetLev3FilterBuiltFromRefETTs, "PLMEnsSpecTechnoTable/EnsTechnologicalTable")) 
+	PLMIDSetLev3FilterBuiltFromRefETTsCnxs = Ids(PLMRouteSetLev3FilterBuiltFromRefETTsCnxs) 
+	
+	/*************************************************************************************************************/
+	/* Getting techno table reps from techno table references Lev3                                               */
+	/*************************************************************************************************************/  	
+	PLMRouteSetLev3FilterBuiltFromRefETTsRepETTs = ExecutePLMFunction("PLMEnsSpecSpecification", "ESE_SpecETTRep", Restrict(PLMIDSetLev3FilterBuiltFromRefETTs, "PLMEnsSpecTechnoTable/EnsTechnologicalTable")) 
+	PLMIDSetLev3FilterBuiltFromRefETTsRepETTs = Ids(PLMRouteSetLev3FilterBuiltFromRefETTsRepETTs) 
+	
+	/*************************************************************************************************************/
+	/* Getting built from referenced techno tables from techno table references Lev3                             */
+	/*************************************************************************************************************/  	
+	PLMRouteSetLev3TableBuiltFromRefETTs = ExecutePLMFunction("PLMEnsSpecSpecification", "ESE_SpecETTBuiltFromToETT", Restrict(PLMIDSetLev1Categories, "PLMEnsSpecTechnoTable/EnsTechnologicalTable"))
+	PLMIDSetLev3TableBuiltFromRefETTs = Ids(PLMRouteSetLev3TableBuiltFromRefETTs) 
+	
+	/*************************************************************************************************************/
+	/* Getting techno table BuiltFrom Cnxs from techno table references Lev3                                     */
+	/*************************************************************************************************************/  	
+	PLMRouteSetLev3TableBuiltFromRefETTsCnxs = ExecutePLMFunction("PLMEnsSpecSpecification", "ESE_AddTableBuiltFromConnectionForExport", Restrict(PLMIDSetLev3TableBuiltFromRefETTs, "PLMEnsSpecTechnoTable/EnsTechnologicalTable")) 
+	PLMIDSetLev3TableBuiltFromRefETTsCnxs = Ids(PLMRouteSetLev3TableBuiltFromRefETTsCnxs) 
+	
+	/*************************************************************************************************************/
+	/* Getting techno table reps from techno table references Lev3                                               */
+	/*************************************************************************************************************/  	
+	PLMRouteSetLev3TableBuiltFromRefETTsRepETTs = ExecutePLMFunction("PLMEnsSpecSpecification", "ESE_SpecETTRep", Restrict(PLMIDSetLev3TableBuiltFromRefETTs, "PLMEnsSpecTechnoTable/EnsTechnologicalTable"))  
+	PLMIDSetLev3TableBuiltFromRefETTsRepETTs = Ids(PLMRouteSetLev3TableBuiltFromRefETTsRepETTs) 	
+	
+	
+	/**********************/
+	/* Returns all PLMIds */
+	/**********************/
+	/* MODIF PA DEB 15/03/2013 */
+	oPLMIDSet = iPLMIDSet + PLMIDSetLev0LogToSpecCnxs + PLMIDSetLev1Specifications + PLMIDSetLev1Categories + PLMIDSetLev2FilterBuiltFromCnxs + PLMIDSetLev2FilterExtensionDefCnxs + PLMIDSetLev2RepEPFs + PLMIDSetLev2TableBuiltFromCnxs + PLMIDSetLev2RepETTs + PLMIDSetLev3FilterBuiltFromRefETTs + PLMIDSetLev3FilterBuiltFromRefETTsCnxs + PLMIDSetLev3FilterBuiltFromRefETTsRepETTs + PLMIDSetLev3TableBuiltFromRefETTs + PLMIDSetLev3TableBuiltFromRefETTsCnxs + PLMIDSetLev3TableBuiltFromRefETTsRepETTs  
+	/* MODIF PA FIN 15/03/2013 */
+}

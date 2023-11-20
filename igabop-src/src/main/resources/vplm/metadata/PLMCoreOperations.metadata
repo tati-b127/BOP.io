@@ -1,0 +1,187 @@
+<?xml version="1.0" ?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+
+<Package xmlns="PLMDictionaryResources" Name="PLMCoreOperations"
+    Uuid="939419C6-B3C5-45E4-9B420957959EF372"
+    ModelerType="Resources"
+    UseScopes="PLMCORE"
+    >
+
+<!-- Une operation pour tester tous les attributs possibles  	
+	<Operation Name="TestDownloadable" >
+		<ClassOperation TargetName="PLMEntity" 						TargetRef="70A6D59F-D91B-4665-BFFA977C12FF9C41" >
+			<AttributeOperation TargetName="originated"       			TargetRef="6049B8B2-4244-4036-AA3F520DFDFD6324" Download="No"/>
+			<AttributeOperation TargetName="modified"      			TargetRef="35353313-929C-4853-ABEB8E1E598ACEF0" Download="No"/>
+			<AttributeOperation TargetName="C_updatestamp"   			TargetRef="FB58B9C0-8DB7-46D0-880109C40C741153" Download="No"/>
+			<AttributeOperation TargetName="PLM_ExternalID"  			TargetRef="86A2CB5C-4D50-4593-8489DF068C40FAAB" Download="No"/>
+			<AttributeOperation TargetName="V_description"   			TargetRef="B35C7975-01AA-4716-803057247E7A2DFD" Download="No"/>
+			<AttributeOperation TargetName="V_discipline"			    TargetRef="87627948-956F-445B-91B580FE5438C59F" Download="No"/>
+			<AttributeOperation TargetName="V_isUptodate"    			TargetRef="BA35398C-50E8-0000-0280030D7B000000" Download="No"/>
+			<AttributeOperation TargetName="V_Name"          			TargetRef="50aeef2d-58f6-4a18-98c069d57c666e07" Download="No"/>
+			<AttributeOperation TargetName="V_nature"        			TargetRef="0A8F7109-0AEB-43BF-9FC7871484D9D8C4" Download="No"/>
+			<AttributeOperation TargetName="organization"  			TargetRef="EE41BEB8-D935-46FD-AE27C98911CD9786" Download="No"/>
+			<AttributeOperation TargetName="project"       			TargetRef="D36CFEB8-A7F5-4134-AB157531077822D2" Download="No"/>
+			<AttributeOperation TargetName="V_usage"         			TargetRef="7317D967-ACD4-4C1D-A3C3DB952A4CC33B" Download="No"/>
+			<AttributeOperation TargetName="owner"          			TargetRef="AD28A8F4-A779-4631-A4A766FE56835EBD" Download="No"/>
+		</ClassOperation>	
+		<ClassOperation TargetName="PLMConnection" 					TargetRef="B1B9B0AC-F027-0000-0280030D7B000000" >
+			<AttributeOperation TargetName="V_isVPLMControlled" 		TargetRef="3da9cb91-7799-4982-a8abae6e0e36cf0d" Download="No"/>
+		</ClassOperation>	
+		<ClassOperation TargetName="PLMPort" 						TargetRef="A99E5CF8-27C7-4135-A2D5F6A185831C16" >
+			<AttributeOperation TargetName="V_isVPLMControlled" 		TargetRef="0d5df106-c21f-437d-abfc129214169a71" Download="No"/>
+		</ClassOperation>
+		<ClassOperation TargetName="PLMInstance" 					TargetRef="194574DC-5EF2-47FF-8ED219AAE28C5256" >
+			<AttributeOperation TargetName="V_EffectivityCompiledForm" 	TargetRef="836EDEDB-0000-23FA-4755532400014781" Download="No"/>
+			<AttributeOperation TargetName="V_hasConfigEffectivity" 	TargetRef="E7ACDE87-94E9-4EAE-B4EF63487A2464C8" Download="No"/>
+			<AttributeOperation TargetName="V_hasConfigStaticMapping" 	TargetRef="DEE9B92A-C5C1-4673-A431B7A0D077602B" Download="No"/>
+			<AttributeOperation TargetName="V_isVPLMControlled" 		TargetRef="1d89c567-3e8e-48ed-a302425073e1ce2b" Download="No"/>
+			<AttributeOperation TargetName="V_TreeOrder" 				TargetRef="B980CA3B-5777-0000-0280030D7B000000" Download="No"/>
+		</ClassOperation>	
+		<ClassOperation TargetName="PLMReference" 					TargetRef="D0D6EC3F-0FD3-4DFE-9F87340C127D611D" >
+			<AttributeOperation TargetName="V_ApplicabilityDate"        TargetRef="81115785-3AC1-4F32-A582EA3FD7EF0E84" Download="No"/>
+			<AttributeOperation TargetName="V_EffectivityKind"          TargetRef="668b4700-5741-4114-be0a31c7d3618447" Download="No"/>
+			<AttributeOperation TargetName="V_hasConfigContext"         TargetRef="7BE5C6C3-6C39-4296-95BFE44DB9AD69D8" Download="No"/>
+			<AttributeOperation TargetName="V_isLastVersion"            TargetRef="BDAB0AA3-B637-0000-0280030D7B000000" Download="No"/>
+			<AttributeOperation TargetName="V_isVPLMControlled"         TargetRef="3e0c3d27-fd4c-4b11-8d6d881ec25cb49b" Download="No"/>
+			<AttributeOperation TargetName="current"            		TargetRef="F07E230E-E46B-4100-8E36410473E4A405" Download="No"/>
+			<AttributeOperation TargetName="V_order"             		TargetRef="600151C5-EA86-4EF3-A26E602AB7993052" Download="No"/>
+			<AttributeOperation TargetName="majorrevision"             		TargetRef="9528ED8F-6280-43E0-AD67CCB0D32A0755" Download="No"/>
+			<AttributeOperation TargetName="revision"             		TargetRef="98A2AD58-EAD8-461c-B45E-202492035B8F" Download="No"/>
+			<AttributeOperation TargetName="V_AuthorityControl"        	TargetRef="efcf7194-e3fd-462b-9018-709736e7b933" Download="No"/>
+		</ClassOperation>
+		<ClassOperation TargetName="PLMCoreReference" 				TargetRef="1E96E1CF-EC6D-434B-84DEAF1B4A961990" >
+			<AttributeOperation TargetName="V_ChangeHistory"           	TargetRef="100f3fa4-23d6-4b52-80be-c8d205872554" Download="No"/>
+			<AttributeOperation TargetName="V_isTerminal" 	           	TargetRef="0fde43ad-7638-44ce-a6af-3cd9ac5eb146" Download="No"/>
+		</ClassOperation>
+		<ClassOperation TargetName="PLMCoreRepReference" 			TargetRef="72165EB6-D6A6-4F59-9BCCFBD40A0BB919" >
+			<AttributeOperation TargetName="V_isOnceInstantiable" 		TargetRef="B5B9009E-04A8-4EDD-85363DE7C827BBBE" Download="No"/>
+            <AttributeOperation TargetName="V_markstamp" 				TargetRef="04C9C6E6-FD4E-43C2-87CC71423422C510" Download="No"/>
+		</ClassOperation>
+	</Operation>
+-->	
+
+	<Operation Name="ChangeMaturity" >
+		<ClassOperation TargetName="PLMEntity" 						TargetRef="70A6D59F-D91B-4665-BFFA977C12FF9C41" >
+			<AttributeOperation TargetName="modified"      			TargetRef="35353313-929C-4853-ABEB8E1E598ACEF0" Download="Yes"/>
+		</ClassOperation>	
+		<ClassOperation TargetName="PLMReference" 					TargetRef="D0D6EC3F-0FD3-4DFE-9F87340C127D611D" >
+			<AttributeOperation TargetName="current"            		TargetRef="F07E230E-E46B-4100-8E36410473E4A405" Download="Yes"/>
+		</ClassOperation>
+	</Operation>
+
+	<Operation Name="ChangeOwn" >
+		<ClassOperation TargetName="PLMEntity" 						TargetRef="70A6D59F-D91B-4665-BFFA977C12FF9C41" >
+			<AttributeOperation TargetName="modified"      			TargetRef="35353313-929C-4853-ABEB8E1E598ACEF0" Download="Yes"/>
+			<AttributeOperation TargetName="organization"  			TargetRef="EE41BEB8-D935-46FD-AE27C98911CD9786" Download="Yes"/>
+			<AttributeOperation TargetName="project"       			TargetRef="D36CFEB8-A7F5-4134-AB157531077822D2" Download="Yes"/>
+			<AttributeOperation TargetName="owner"          			TargetRef="AD28A8F4-A779-4631-A4A766FE56835EBD" Download="Yes"/>
+		</ClassOperation>	
+	</Operation>
+
+	<Operation Name="Clone" >
+		<ClassOperation TargetName="PLMEntity" 						TargetRef="70A6D59F-D91B-4665-BFFA977C12FF9C41" >
+			<AttributeOperation TargetName="originated"       			TargetRef="6049B8B2-4244-4036-AA3F520DFDFD6324" Download="Yes"/>
+			<AttributeOperation TargetName="modified"      			TargetRef="35353313-929C-4853-ABEB8E1E598ACEF0" Download="Yes"/>
+			<AttributeOperation TargetName="organization"  			TargetRef="EE41BEB8-D935-46FD-AE27C98911CD9786" Download="Yes"/>
+			<AttributeOperation TargetName="project"       			TargetRef="D36CFEB8-A7F5-4134-AB157531077822D2" Download="Yes"/>
+			<AttributeOperation TargetName="owner"          			TargetRef="AD28A8F4-A779-4631-A4A766FE56835EBD" Download="Yes"/>
+			<AttributeOperation TargetName="PLM_ExternalID"                         TargetRef="86A2CB5C-4D50-4593-8489DF068C40FAAB" Download="Yes"/>
+			<AttributeOperation TargetName="V_sec_level"         			TargetRef="75773879-fca9-4e79-a6f9-9edbe238e009" Download="Yes"/>
+		</ClassOperation>	
+		<ClassOperation TargetName="PLMConnection" 					TargetRef="B1B9B0AC-F027-0000-0280030D7B000000" >
+			<AttributeOperation TargetName="V_isVPLMControlled" 		TargetRef="3da9cb91-7799-4982-a8abae6e0e36cf0d" Download="Yes"/>
+		</ClassOperation>	
+		<ClassOperation TargetName="PLMPort" 						TargetRef="A99E5CF8-27C7-4135-A2D5F6A185831C16" >
+			<AttributeOperation TargetName="V_isVPLMControlled" 		TargetRef="0d5df106-c21f-437d-abfc129214169a71" Download="Yes"/>
+		</ClassOperation>
+		<ClassOperation TargetName="PLMInstance" 					TargetRef="194574DC-5EF2-47FF-8ED219AAE28C5256" >
+			<AttributeOperation TargetName="V_hasConfigEffectivity" 	TargetRef="E7ACDE87-94E9-4EAE-B4EF63487A2464C8" Download="Yes"/>
+			<AttributeOperation TargetName="V_hasConfigStaticMapping" 	TargetRef="DEE9B92A-C5C1-4673-A431B7A0D077602B" Download="Yes"/>
+			<AttributeOperation TargetName="V_isVPLMControlled" 		TargetRef="1d89c567-3e8e-48ed-a302425073e1ce2b" Download="Yes"/>
+		</ClassOperation>	
+		<ClassOperation TargetName="PLMReference" 					TargetRef="D0D6EC3F-0FD3-4DFE-9F87340C127D611D" >
+			<AttributeOperation TargetName="V_ApplicabilityDate"        TargetRef="81115785-3AC1-4F32-A582EA3FD7EF0E84" Download="Yes"/>
+			<AttributeOperation TargetName="V_hasConfigContext"         TargetRef="7BE5C6C3-6C39-4296-95BFE44DB9AD69D8" Download="Yes"/>
+			<AttributeOperation TargetName="V_isLastVersion"            TargetRef="BDAB0AA3-B637-0000-0280030D7B000000" Download="Yes"/>
+			<AttributeOperation TargetName="V_isVPLMControlled"         TargetRef="3e0c3d27-fd4c-4b11-8d6d881ec25cb49b" Download="Yes"/>
+			<AttributeOperation TargetName="current"            		TargetRef="F07E230E-E46B-4100-8E36410473E4A405" Download="Yes"/>
+			<AttributeOperation TargetName="V_order"             		TargetRef="600151C5-EA86-4EF3-A26E602AB7993052" Download="Yes"/>
+			<AttributeOperation TargetName="majorrevision"             		TargetRef="9528ED8F-6280-43E0-AD67CCB0D32A0755" Download="Yes"/>
+      <AttributeOperation TargetName="revision"             		TargetRef="98A2AD58-EAD8-461c-B45E-202492035B8F" Download="Yes"/>
+      <AttributeOperation TargetName="V_AuthorityControl"        	TargetRef="efcf7194-e3fd-462b-9018-709736e7b933" Download="Yes"/>
+			<AttributeOperation TargetName="minororder"             		TargetRef="9BE940CE-0D74-4e66-8C41-D6F7A4DF1612" Download="Yes"/>
+			<AttributeOperation TargetName="minorrevision"             		TargetRef="834627F3-8C51-43f2-8CFF-0418354D90B8" Download="Yes"/>
+			<AttributeOperation TargetName="majororder"             		TargetRef="DF8256FD-6229-4644-9A38-76446FA91146" Download="Yes"/>	
+	</ClassOperation>
+		<ClassOperation TargetName="PLMCoreReference" 				TargetRef="1E96E1CF-EC6D-434B-84DEAF1B4A961990" >
+			<AttributeOperation TargetName="V_ChangeHistory"           	TargetRef="100f3fa4-23d6-4b52-80be-c8d205872554" Download="Yes"/>
+			<AttributeOperation TargetName="V_isTerminal" 	           	TargetRef="0fde43ad-7638-44ce-a6af-3cd9ac5eb146" Download="Yes"/>
+		</ClassOperation>
+	</Operation>	
+	
+
+	<Operation Name="NewVersion_New" >
+		<ClassOperation TargetName="PLMEntity" 						TargetRef="70A6D59F-D91B-4665-BFFA977C12FF9C41" >
+			<AttributeOperation TargetName="originated"       			TargetRef="6049B8B2-4244-4036-AA3F520DFDFD6324" Download="Yes"/>
+			<AttributeOperation TargetName="modified"      			TargetRef="35353313-929C-4853-ABEB8E1E598ACEF0" Download="Yes"/>
+			<AttributeOperation TargetName="organization"  			TargetRef="EE41BEB8-D935-46FD-AE27C98911CD9786" Download="Yes"/>
+			<AttributeOperation TargetName="project"       			TargetRef="D36CFEB8-A7F5-4134-AB157531077822D2" Download="Yes"/>
+			<AttributeOperation TargetName="owner"          			TargetRef="AD28A8F4-A779-4631-A4A766FE56835EBD" Download="Yes"/>
+			<AttributeOperation TargetName="V_sec_level"         			TargetRef="75773879-fca9-4e79-a6f9-9edbe238e009" Download="Yes"/>
+		</ClassOperation>	
+		<ClassOperation TargetName="PLMInstance" 					TargetRef="194574DC-5EF2-47FF-8ED219AAE28C5256" >
+			<AttributeOperation TargetName="V_hasConfigEffectivity" 	TargetRef="E7ACDE87-94E9-4EAE-B4EF63487A2464C8" Download="Yes"/>
+			<AttributeOperation TargetName="V_hasConfigStaticMapping" 	TargetRef="DEE9B92A-C5C1-4673-A431B7A0D077602B" Download="Yes"/>
+		</ClassOperation>	
+		<ClassOperation TargetName="PLMReference" 					TargetRef="D0D6EC3F-0FD3-4DFE-9F87340C127D611D" >
+			<AttributeOperation TargetName="V_ApplicabilityDate"        TargetRef="81115785-3AC1-4F32-A582EA3FD7EF0E84" Download="Yes"/>
+			<AttributeOperation TargetName="V_isLastVersion"            TargetRef="BDAB0AA3-B637-0000-0280030D7B000000" Download="Yes"/>
+			<AttributeOperation TargetName="current"            		TargetRef="F07E230E-E46B-4100-8E36410473E4A405" Download="Yes"/>
+			<AttributeOperation TargetName="V_order"             		TargetRef="600151C5-EA86-4EF3-A26E602AB7993052" Download="Yes"/>
+			<AttributeOperation TargetName="majorrevision"             		TargetRef="9528ED8F-6280-43E0-AD67CCB0D32A0755" Download="Yes"/>
+      <AttributeOperation TargetName="revision"             		TargetRef="98A2AD58-EAD8-461c-B45E-202492035B8F" Download="Yes"/>
+      <AttributeOperation TargetName="minororder"             		TargetRef="9BE940CE-0D74-4e66-8C41-D6F7A4DF1612" Download="Yes"/>
+			<AttributeOperation TargetName="minorrevision"             		TargetRef="834627F3-8C51-43f2-8CFF-0418354D90B8" Download="Yes"/>
+			<AttributeOperation TargetName="majororder"             		TargetRef="DF8256FD-6229-4644-9A38-76446FA91146" Download="Yes"/>		
+		</ClassOperation>
+	</Operation>	
+	
+	
+	<Operation Name="NewVersion_Old" >
+		<ClassOperation TargetName="PLMEntity" 						TargetRef="70A6D59F-D91B-4665-BFFA977C12FF9C41" >
+			<AttributeOperation TargetName="modified"      			TargetRef="35353313-929C-4853-ABEB8E1E598ACEF0" Download="Yes"/>
+		</ClassOperation>	
+		<ClassOperation TargetName="PLMReference" 					TargetRef="D0D6EC3F-0FD3-4DFE-9F87340C127D611D" >
+			<AttributeOperation TargetName="V_isLastVersion"            TargetRef="BDAB0AA3-B637-0000-0280030D7B000000" Download="Yes"/>
+		</ClassOperation>
+	</Operation>	
+		
+	<Operation Name="SaveModified" >
+		<ClassOperation TargetName="PLMEntity" 						TargetRef="70A6D59F-D91B-4665-BFFA977C12FF9C41" >
+			<AttributeOperation TargetName="modified"      			TargetRef="35353313-929C-4853-ABEB8E1E598ACEF0" Download="Yes"/>
+		</ClassOperation>	
+	</Operation>
+	
+	<Operation Name="SaveNew" >
+		<ClassOperation TargetName="PLMEntity" 						TargetRef="70A6D59F-D91B-4665-BFFA977C12FF9C41" >
+			<AttributeOperation TargetName="originated"       			TargetRef="6049B8B2-4244-4036-AA3F520DFDFD6324" Download="Yes"/>
+			<AttributeOperation TargetName="modified"      			TargetRef="35353313-929C-4853-ABEB8E1E598ACEF0" Download="Yes"/>
+			<AttributeOperation TargetName="organization"  			TargetRef="EE41BEB8-D935-46FD-AE27C98911CD9786" Download="Yes"/>
+			<AttributeOperation TargetName="project"       			TargetRef="D36CFEB8-A7F5-4134-AB157531077822D2" Download="Yes"/>
+			<AttributeOperation TargetName="owner"          			TargetRef="AD28A8F4-A779-4631-A4A766FE56835EBD" Download="Yes"/>
+	        <AttributeOperation TargetName="reserved"                TargetRef="E174A69D-9A3D-11E3-89043C970ECEA022" Download="Yes"/>
+	        <AttributeOperation TargetName="reservedby"              TargetRef="E366BF5D-9A3D-11E3-89043C970ECEA022" Download="Yes"/>
+		</ClassOperation>	
+		<ClassOperation TargetName="PLMReference" 					TargetRef="D0D6EC3F-0FD3-4DFE-9F87340C127D611D" >
+			<AttributeOperation TargetName="current"            		TargetRef="F07E230E-E46B-4100-8E36410473E4A405" Download="Yes"/>
+			<AttributeOperation TargetName="majorrevision"             		TargetRef="9528ED8F-6280-43E0-AD67CCB0D32A0755" Download="Yes"/>
+      <AttributeOperation TargetName="revision"             		TargetRef="98A2AD58-EAD8-461c-B45E-202492035B8F" Download="Yes"/>
+      <AttributeOperation TargetName="minororder"             		TargetRef="9BE940CE-0D74-4e66-8C41-D6F7A4DF1612" Download="Yes"/>
+			<AttributeOperation TargetName="minorrevision"             		TargetRef="834627F3-8C51-43f2-8CFF-0418354D90B8" Download="Yes"/>
+			<AttributeOperation TargetName="majororder"             		TargetRef="DF8256FD-6229-4644-9A38-76446FA91146" Download="Yes"/>		
+			<AttributeOperation TargetName="isbestsofar"             		TargetRef="9C4E9F1A-9443-4aef-B2CD-BB5BC7EE0A4D" Download="Yes"/>		
+		</ClassOperation>
+	</Operation>
+	
+</Package>

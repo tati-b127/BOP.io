@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2005, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" Name="PLMChgTaskAction" Uuid="cb8fb087-ace8-0000-020a100536000000" UseNames="PLMChgBase" CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+  <CAAComment>
+    <ShortRole>Task Action Package</ShortRole>
+    <Role>This package includes the entities of the Task Acton Reference and Task Child Action Instance</Role>
+  </CAAComment>
+  <Comment>last update 2008-14-05-09.00.00</Comment>
+  <!-- *************************************** -->
+  <!-- * PLMTaskAction (PLMChgBase)   * -->
+  <!-- *************************************** -->
+  <Class Name="PLMTaskAction" Uuid="cb8fb36d-c823-0000-020a100536000000" Abstract="No" SuperName="PLMChgBase" CreateInstName="PLMTaskChildAction" Specializable="Yes" CustomerExtensible="Yes" CustomerExposition="Programmer">
+    <CAAComment>
+      <ShortRole>Task Action Reference</ShortRole>
+      <Role>Action Reference for Task</Role>
+    </CAAComment>
+
+    <!-- *********************** -->
+    <!-- Properties Declaration  -->
+    <!-- *********************** -->
+    <Property Name="DMCDerivable"  Value="Yes"/>
+    <Property Name="Newable"  Value="All"/>
+    <Property Name="IconName"  Value="I_ActionTask_22"/>
+    <Property Name="3DIconName"  Value="TaskActionNavRep3.cgr"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="PLMTaskCatiaV6NewFactory"/>
+    <Property Name="Configurable"  Value="No"/>
+    <Property Name="Filtrable"  Value="No"/>
+    <Property Name="ChangeManagementSupport"  Value="No"/>
+
+    <Property Name="ChangeMaturityAvailability" Value="Yes"/>
+    <Property Name="DeleteAvailability" Value="Yes"/>
+    <Property Name="DuplicateAvailability" Value="No"/>
+    <Property Name="EditPropertiesAvailability" Value="Yes"/>
+    <Property Name="EvolutionAvailability" Value="No"/>
+    <Property Name="LockUnlockAvailability" Value="No"/>
+    <Property Name="NewMajorRevisionAvailability" Value="No"/>
+    <Property Name="NewMinorRevisionAvailability" Value="No"/>
+    <Property Name="SaveAsNewAvailability" Value="No"/>
+    <Property Name="TransferOwnershipAvailability" Value="Yes"/>
+
+    <!-- *********************** -->
+    <!-- PROCEDURES Declaration  -->
+    <!-- *********************** -->
+
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+	<Usage href="ExportScope.meth#Design"/>
+	<UsedProcedure href="ENOTaskMgmt_Procedures.proc#TaskManagement_GetTaskWithStructure"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+	<Usage href="ExportScope.meth#Channel"/>
+	<UsedProcedure href="ENOTaskMgmt_Procedures.proc#TaskManagement_GetTaskWithStructure"/>
+      </ProcedureForUsage>
+    </Method>
+    
+  </Class>
+  <!-- *************************************** -->
+  <!-- * PLMTaskChildAction (PLMChildAction)   * -->
+  <!-- *************************************** -->
+  <RelationClass Name="PLMTaskChildAction" Uuid="cb8fb7dd-49dc-0000-020a100536000000" Abstract="No" SuperName="PLMChgChild" CustomerExposition="Programmer">
+    <CAAComment>
+      <ShortRole>Task Child Action Instance</ShortRole>
+      <Role>Child Action Instance for Task</Role>
+    </CAAComment>		
+    <!-- ********************************************************* -->
+    <!-- * Overload(s) of PLMCoreInstance attributes. -->
+    <!-- ********************************************************* -->
+    <SubClause Name="from"   TargetName="PLMChgBase"/>
+    <SubClause Name="to"   TargetName="PLMTaskAction"/>
+
+    <!-- *********************** -->
+    <!-- PROCEDURES Declaration  -->
+    <!-- *********************** -->
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    
+  </RelationClass>
+</Package>

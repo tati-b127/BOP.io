@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY FOR DIFModeler01 - Custo sample     -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2010, All rights reserved -->
+
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" Name="ENOSTDIFModeler01DS"
+    Uuid="F994E69D-F83E-4854-AE89-9628602F118B"
+    UseNames="DIFModeler01">
+  <Property Name="OptionalInstallation" Value="No" />
+  <CAAComment>
+    <ShortRole>DIF model 01 - Layout - OOTB Custo</ShortRole>
+    <Role>This package describes a OOTB customization of Dif Model 01 - Layout</Role>
+  </CAAComment>
+
+  <!-- ************************************************ -->
+  <!-- *  OOTB custo of DIFLayout (PLMCoreReference)* -->
+  <!-- ************************************************ -->
+
+  <Class Name="ENOSTDIFLayoutDS"
+      Uuid="AEDC095C-1DBB-4fab-952D-A8A377936D80"
+      SuperName="DIFLayout"
+      SuperRef="CB9826E8-0056-406A-8CA4-0A47A18E7210"
+      CAAExposition="L0">
+    
+    <CAAComment>
+      <ShortRole>Layout Reference</ShortRole>
+      <Role>Layout</Role>
+    </CAAComment>
+
+  <!-- R206: contains identifier of object from which it is made from  -->
+  <!-- not exhanged between sites -->
+  <Simple Name="E_fromExternalId"
+  Uuid="282B70F9-6D7D-4843-B556-095CE62EE182"
+  Alias="Definition"
+  Type="String"
+  MaxLength="255"
+  Mandatory="No"
+  MultiValuated="No"
+  CAAExposition="L0"
+  Protection="Free"
+  />
+
+  <!-- R206: contains Name comments  -->
+  <!-- not exhanged between sites -->
+  <Simple Name="E_versionComment"
+  Uuid="C9525B0C-C4B1-4961-BA0C-09A91C105E80"
+  Alias="Version Comment"
+  Type="String"
+  MaxLength="255"
+  Mandatory="No"
+  MultiValuated="No"
+  CAAExposition="L0"
+  Protection="Free"
+  ResetOnNewVersion="Yes"
+  ResetOnCloning="Yes"
+  />
+
+    <IdentifierSet Name="Identifier" 
+                   Uuid="C5782C8F-5EC4-4d5a-B23A-681769CDC9C3" 
+                   IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755" 
+                   IdentifierNames="PLM_ExternalID V_version"/> 
+  </Class>
+  <!-- ********************************************************* -->
+  <!-- FUNCTIONS Declarations : here are delcared PLMQL Functions -->
+
+  <!-- ********************************************************* -->
+
+  <!-- DISCIPLINES DECLARATIONS -->
+
+  <!-- ********************************************************* -->
+</Package>

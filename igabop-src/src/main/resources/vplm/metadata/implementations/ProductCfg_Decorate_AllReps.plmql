@@ -1,0 +1,14 @@
+EXPAND 
+  T0.PLMID, T0.PLM_ExternalID, 
+  T1.PLMID, T1.PLM_ExternalID, 
+  T2.PLMID, T2.PLM_ExternalID, 
+  T3.PLMID, T3.PLM_ExternalID
+FROM
+  PLMCORE/PLMCoreRepReference T0, 
+  PLMCORE/PLMCoreRepInstance T1, 
+  PLMCORE/PLMPort T2, 
+  PLMCORE/PLMConnection T3
+FROM_ROOTS[?1?]
+WITH ATTRIBUTE_FILTER((T0.V_discipline!='NavRep'))
+
+DEPTH=2;

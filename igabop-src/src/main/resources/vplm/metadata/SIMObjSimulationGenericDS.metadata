@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2007 (http://www.altova.com) by DASSAULT SYSTEMES (DASSAULT SYSTEMES) -->
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" DataRDB_OID="ENODR_SIMGENDC" Name="SIMObjSimulationGenericDS" Uuid="42ffb620-f9b7-4e36-85f6febb6ada280f" UseNames="SIMObjSimulationGeneric" Alias="Simulation modeler concretization">
+  <Property Name="OptionalInstallation" Value="Yes"/>
+  <Class Name="SIMObjSimulationRepReferenceGenericDS" Uuid="7d65694a-4ee0-4aa6-9861-745bb5b8fd8b" SuperName="SIMObjSimulationRepReferenceGeneric" SuperRef="c368697c-10f8-467b-9f5550a703b7af22" Alias="SimulationRepresentationGenericDS">
+    <Property Name="Searchable" Value="No"/>
+    <IdentifierSet Name="Identifier" Uuid="059e6312-c80a-4234-81309cacdc05aada" IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755" IdentifierNames="PLM_ExternalID V_version"/>
+  </Class>
+  <Class Name="SIMObjSimulationRepInstanceGenericDS" Uuid="bd9720af-9504-4b4e-9514fa38d93e08a6" SuperName="SIMObjSimulationRepInstanceGeneric" SuperRef="dbaf7d8a-1f0f-4d1f-a04f17504e816196" Alias="SimulationRepInstanceGenericDS">
+    <Property Name="Searchable" Value="No"/>
+  </Class>
+  <Class Name="SIMObjSimulationConnectionGenericDS" Uuid="4e67350b-537c-4da8-963b059ff03f74bc" SuperName="SIMObjSimulationConnectionGeneric" SuperRef="84ffcffb-86eb-45ea-b973cffa223b972a" Alias="SimulationConnectionGenericDS">
+    <Property Name="Searchable" Value="No"/>
+  </Class>
+  <Class Name="SIMObjSimulationObjectGenericDS" Uuid="ce39aea2-1c3d-4c7d-925fcb429383a454" SuperName="SIMObjSimulationObjectGeneric" SuperRef="aad432dc-e008-48a0-b5eb2c69c98e85d0" Alias="SimulationBaseObjectGenericDS">
+    <Property Name="Searchable" Value="Yes"/>
+    <IdentifierSet Name="Identifier" Uuid="90829b33-d9e7-424a-9bf95337a8836416" IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB d2ad22d7-109f-4509-a6e169bcb1289daa 9528ED8F-6280-43E0-AD67CCB0D32A0755" IdentifierNames="PLM_ExternalID V_SimObj_InternalIdentifier V_version"/>
+  </Class>
+</Package>
+

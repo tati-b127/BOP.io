@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR RFL Logical Application -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2007, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" BelongsToModeler="RFLVPMLogical" Name="RFLVPMLogicalPublication" 
+	Uuid="6ea76704-8018-4300-a3d9-7b34ad9a9df9" 
+	UseNames="LPABSTRACT"  
+  CustomerExposition="Programmer"            
+><!--RFLVPMLogicalAbstract"-->
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+		<ShortRole>VPM RFL Logical Publication Package</ShortRole>
+		<Role>This package describes the PLM Logical Publication model on top of LPAbstract Modeler</Role>
+	</CAAComment>
+	
+	<Comment>last update 2007-09-11</Comment>
+
+	<!-- ******************************************** -->
+	<!-- * RFLVPMLogicalPublication (LPAbstractPort)* -->
+	<!-- ******************************************** -->
+
+  <Class Name="RFLVPMLogicalPublication"
+		Uuid="83a8641f-6c23-4451-95b4-b4eb70fc03d6"
+		 
+    CustomerExposition="Programmer"
+    CustomerExtensible="Yes"
+    Specializable="Yes"
+		Abstract="No"
+		SuperName="LPAbstractPort"
+		>
+
+    <Property Name="KweNew_InstanciationMethod" Value="CATKBEPublicationDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="RFLVPMLogicalPublication"/>
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="IconName" Value="I_PLMPort"/>
+    <Property Name="Searchable" Value="No"/>
+	<Property Name="Newable" Value="Insert"/>
+    <Property Name="OwnerTypes" Value="RFLVPMLogicalReference;RFLVPMLogical3DRepReference"/>
+
+    <CAAComment>
+      <ShortRole>PLM Logical Publication Object</ShortRole>
+      <Role>PLM Logical Publication Object</Role>
+    </CAAComment>
+    
+    <!--ContextKey
+        Name="context_key"
+        Uuid="49C5F60D-17D8-4133-8F9C-4DEF6D3FED62"
+        SimpleName="V_FunctionalName"
+		/--> 
+		<!--SimpleRef="49bcf022-478c-425e-939445cf51590d02"-->
+    
+    <!-- ******************* -->
+    <!-- * Path * -->
+    <!-- ******************* -->
+    <Path Name="_Pointed"
+			Uuid="e6aca2e2-741f-4423-8d78-5e857abe0730"
+			MultiValuated="No"
+			RoleName="Publish"
+      Type="SemanticRelation" AdaptativeToMinor="Yes"
+      SynchroSensitivity="PathAndLast"
+      RerouteOnEffectivityChange="No" Orientation="In"
+			Semantics="Reference3"/>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+        
+  <UniqueKey Name="RFLVPMLogicalPublicationUK"
+       Uuid="04DFD2B2-C702-11E3-8131-3C970ECEA022"
+       ClassName="RFLVPMLogicalPublication"
+       AttributeNames="V_FunctionalName type" 
+       IncludesComposer="Yes"/>
+	   
+</Package>

@@ -1,0 +1,58 @@
+ /********************************************************************************************************************************/
+/* Export procedure                                                                                                              */
+/* --> Lev 0 : Propagation of data aggregated to the techno table.                                                               */
+/* --> Lev 1 : Propagation of data aggregated to the techno table (if any) on which the techno table in input relies.            */
+/*********************************************************************************************************************************/
+#Prog ESE_TechnoTableExport ( iPLMIDSet : #In PLMIDSet, oPLMIDSet : #Out PLMIDSet ) : VoidType
+{
+	let PLMRouteSetLev0TableBuiltFromCnxs (PLMRouteSet)	
+	let PLMRouteSetLev0RepETTs (PLMRouteSet)	
+	let PLMRouteSetLev1TableBuiltFromRefETTs (PLMRouteSet)
+	let PLMRouteSetLev1TableBuiltFromCnxs (PLMRouteSet)	
+	let PLMRouteSetLev1RepETTs (PLMRouteSet)	
+			
+	let PLMIDSetLev0TableBuiltFromCnxs (PLMIDSet)	
+	let PLMIDSetLev0RepETTs (PLMIDSet)
+	let PLMIDSetLev1TableBuiltFromRefETTs (PLMIDSet)
+	let PLMIDSetLev1TableBuiltFromCnxs (PLMIDSet)	
+	let PLMIDSetLev1RepETTs (PLMIDSet)
+	
+	
+	/********************            - Propagation Lev 0 -                     ***********************************/
+	/************************************************************************************************************/
+	/* Getting techno table BuiltFrom Cnxs from techno table references                                         */
+	/************************************************************************************************************/  	
+	PLMRouteSetLev0TableBuiltFromCnxs = ExecutePLMFunction("PLMEnsSpecSpecification", "ESE_AddTableBuiltFromConnectionForExport", Restrict(iPLMIDSet, "PLMEnsSpecTechnoTable/EnsTechnologicalTable"))
+	PLMIDSetLev0TableBuiltFromCnxs = Ids(PLMRouteSetLev0TableBuiltFromCnxs)
+	
+	/*************************************************************************************************************/
+	/* Getting techno table reps from techno table references                                                    */
+	/*************************************************************************************************************/  	
+	PLMRouteSetLev0RepETTs = ExecutePLMFunction("PLMEnsSpecSpecification", "ESE_SpecETTRep", Restrict(iPLMIDSet, "PLMEnsSpecTechnoTable/EnsTechnologicalTable"))
+	PLMIDSetLev0RepETTs = Ids(PLMRouteSetLev0RepETTs)
+	
+	
+	/********************            - Propagation Lev 1 -                     ***********************************/
+	/*************************************************************************************************************/
+	/* Getting built from referenced techno tables from techno table references                                  */
+	/*************************************************************************************************************/  	
+	PLMRouteSetLev1TableBuiltFromRefETTs = ExecutePLMFunction("PLMEnsSpecSpecification", "ESE_SpecETTBuiltFromToETT", Restrict(iPLMIDSet, "PLMEnsSpecTechnoTable/EnsTechnologicalTable"))
+	PLMIDSetLev1TableBuiltFromRefETTs = Ids(PLMRouteSetLev1TableBuiltFromRefETTs)
+	
+	/*************************************************************************************************************/
+	/* Getting techno table BuiltFrom Cnxs from referenced techno tables Lev1                                    */
+	/*************************************************************************************************************/  	
+	PLMRouteSetLev1TableBuiltFromCnxs = ExecutePLMFunction("PLMEnsSpecSpecification", "ESE_AddTableBuiltFromConnectionForExport", Restrict(PLMIDSetLev1TableBuiltFromRefETTs, "PLMEnsSpecTechnoTable/EnsTechnologicalTable"))
+	PLMIDSetLev1TableBuiltFromCnxs = Ids(PLMRouteSetLev1TableBuiltFromCnxs)
+	
+	/*************************************************************************************************************/
+	/* Getting techno table reps from referenced techno tables Lev1                                              */
+	/*************************************************************************************************************/  	
+	PLMRouteSetLev1RepETTs = ExecutePLMFunction("PLMEnsSpecSpecification", "ESE_SpecETTRep", Restrict(PLMIDSetLev1TableBuiltFromRefETTs, "PLMEnsSpecTechnoTable/EnsTechnologicalTable"))
+	PLMIDSetLev1RepETTs = Ids(PLMRouteSetLev1RepETTs)
+	
+	/**********************/
+	/* Returns all PLMIds */
+	/**********************/
+	oPLMIDSet = iPLMIDSet + PLMIDSetLev0TableBuiltFromCnxs  + PLMIDSetLev0RepETTs + PLMIDSetLev1TableBuiltFromRefETTs + PLMIDSetLev1TableBuiltFromCnxs + PLMIDSetLev1RepETTs
+}

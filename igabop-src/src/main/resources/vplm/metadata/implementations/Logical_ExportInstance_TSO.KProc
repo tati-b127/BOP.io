@@ -1,0 +1,14 @@
+#Prog Logical_ExportInstance_TSO (iPLMIDSet :  #In PLMIDSet,oPLMIDSet :  #Out PLMIDSet) : VoidType
+{
+  let InputPLMIDSetRestrictedToInstances(PLMIDSet)
+  let SetOfConfigObjectsPLMIDs(PLMIDSet)
+
+  InputPLMIDSetRestrictedToInstances = Restrict(iPLMIDSet,"RFLVPMLogical/RFLVPMLogicalInstance")
+ 
+  /*Completes with configuration */
+  /*TO ADD - Need a specific procedure from Config*/
+  /*SetOfConfigObjectsPLMIDs = ExecutePLMProcedure("?????",InputPLMIDSetRestrictedToInstances)*/
+  
+  oPLMIDSet = iPLMIDSet
+  /*oPLMIDSet = iPLMIDSet + SetOfConfigObjectsPLMIDs*/
+}

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2015, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" BelongsToModeler="PLMExpMedia3DExperience" Name="PLMExpPublishingMediaImage"
+  Uuid="4BE4A426-413E-4B65-A888-C2E37F518A29"
+  UseNames="PLMExpMedia3DExperience"
+  CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <Class Name="MediaImage3DExp" 		
+					 Uuid="16DCF858-C771-4EF1-B9EA-6C0BB9A4C8CF" 
+					 Abstract="No" 
+					 SuperName="Media3DExperience"		
+					 Abbreviation="pimg"    
+					 CustomerExposition="Programmer">
+
+      <Property Name="NewMajorRevisionAvailability"  Value="Yes"/>
+      <Property Name="ChangeMaturityAvailability"    Value="Yes"/>
+      <Property Name="DeleteAvailability"            Value="Yes"/>
+      <Property Name="LockUnlockAvailability"        Value="Yes"/>
+      <Property Name="TransferOwnershipAvailability" Value="Yes"/>
+      <Property Name="DuplicateAvailability"         Value="Yes"/>
+      <Property Name="EditPropertiesAvailability"    Value="Yes"/>
+      <Property Name="SaveAsNewAvailability"         Value="Yes"/>
+      <Property Name="EvolutionAvailability"         Value="No"/>
+      <Property Name="NewMinorRevisionAvailability"  Value="No"/>
+      <Property Name="Searchable"                    Value="Yes"/>     
+      <Property Name="IconName"                      Value="I_MediaImage3DExp"/>
+      <Property Name="3DIconName"                    Value="CAT3DNav_MediaImage3DExp.cgr"/>
+      <Property Name="Configurable"                  Value="No" />
+      <Property Name="Filtrable"                     Value="No" />     
+			<Method ImplementationType="AsFather">
+				<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+			</Method>
+    </Class>
+  
+</Package>

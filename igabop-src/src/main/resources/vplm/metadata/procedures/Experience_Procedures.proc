@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!-- edited with XMLSpy v2007 (http://www.altova.com) by DASSAULT SYSTEMES (DASSAULT SYSTEMES) -->
+<ProcedurePackage xmlns="PLMDictionaryProcedure" Name="Experience_Procedures">
+  <Procedure Name="ExperienceExport">
+    <Implementation Name="ExperienceExport" FileLocation="ExperienceExport.KProc" Language="EKL"/>
+    <Signature href="Experience_ProcedureSignature"/>
+  </Procedure>
+  <Procedure Name="ExperienceExport_Channel">
+    <Implementation Name="ExperienceExport_Channel" FileLocation="ExperienceExport_Channel.KProc" Language="EKL"/>
+    <Signature href="Experience_ProcedureSignature"/>
+  </Procedure>
+  <Procedure Name="ExperienceOpen">
+    <Implementation Name="ExperienceOpen" FileLocation="ExperienceOpen.KProc" Language="EKL"/>
+    <Signature href="Experience_ProcedureSignature"/>
+  </Procedure>
+  <Signature id="Experience_ProcedureSignature">
+    <Parameter Name="InputIds" Lower="0" Upper="-1" MultiValuated="Yes" Direction="in" DataType="PLMId"/>
+    <Parameter Name="OutputIds" Lower="0" Upper="-1" MultiValuated="Yes" Direction="out" DataType="PLMId"/>
+  </Signature>
+</ProcedurePackage>

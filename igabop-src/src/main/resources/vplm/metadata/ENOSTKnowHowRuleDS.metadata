@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2005, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" Name="ENOSTKnowHowRuleDS" Uuid="82936284-84d9-43a2-a5db-2850dde039ab" UseNames="PLMKnowHowRule" Alias="KnowHow Rule SMB Custo" >
+	<Class Name="ENOSTRule" Uuid="16b740bf-ebaa-4f90-9d3c-1ce90e355edc" Alias="ENOSTRule"       SuperRef="CBA6EA43-9467-496b-BB4BCEABED5B2DC2" SuperName="PLMRule" >
+    <IdentifierSet Name="Identifier" Uuid="9c2e2d6c-dab7-4594-bb43-1c888cdda80c" 
+        IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755" 
+        IdentifierNames="PLM_ExternalID V_version"/>
+    <Simple Name="E_fromExternalId" Uuid="9405fec8-c992-49c6-81b7-3943a4788e4b" Alias="Definition" Type="String" MaxLength="256" Mandatory="No" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="E_versionComment" Uuid="0c39ebc7-b26c-45c3-ac0a-0fb3ec7444f4" Alias="Version Comment" Type="String" MaxLength="256" Mandatory="No" MultiValuated="No" Protection="Free" CAAExposition="L0"  ResetOnNewVersion="Yes"  ResetOnCloning="Yes"/>
+  </Class>
+	<Class Name="ENOSTRuleInstance" Uuid="10e98dd7-2612-48da-a1b0-92492589809a" Alias="ENOSTRuleInstance"       SuperRef="50BE900C-9892-43e8-918E6D858180A047" SuperName="PLMRuleInstance" />
+</Package>

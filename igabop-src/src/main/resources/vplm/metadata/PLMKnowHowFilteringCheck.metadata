@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2013, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" CustomerExposition="Programmer" BelongsToModeler="PLMKnowHowRule" ModelerType="Top" Name="PLMKnowHowFilteringCheck" Uuid="7A6EF9DC-D099-4254-A18D-65AC91CF7D43" UseNames="PLMKnowHowRuleBaseComponent" >
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+  <CAAComment>
+		<ShortRole>KnowHow Filtering Check Package</ShortRole>
+		<Role>This package includes the filtering Check entities of KnowHow Rule Model</Role>
+	</CAAComment>
+	<Comment>last update 2007-03-23</Comment>
+	<!-- ******************************* -->
+	<!-- * PLMFilteringCheck (PLMCoreReference) * -->
+	<!-- ******************************* -->
+  <Class Name="PLMFilteringCheck"  CustomerExposition="Programmer" Uuid="23DDFAE6-12B6-4B0D-9890-D56275DDE373" Abstract="No" SuperName="PLMRuleBaseComponent"  Specializable="No" CustomerExtensible="No" Abbreviation="kwf" >
+    <Property Name="IconName"        Value="I_PLMQccFilter"/>
+    <Property Name="Searchable"      Value="Yes"/>
+    <Property Name="Newable"         Value="All"/>
+    <Property Name="PQ_Attributes"   Value="PLM_ExternalID V_description V_user"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATKBEDelegateInstanciationRule"/>
+    <Property Name="KweNew_ReturnedType" Value="PLMFilteringCheckInstance"/>
+    <Property Name="DMCDerivable" Value="No"/>
+    <Property Name="DeleteAvailability" Value="Yes"/>
+    <CAAComment>
+      <ShortRole>PLM Filtering Check</ShortRole>
+      <Role>PLM Filtering Check</Role>
+    </CAAComment>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+	<!-- ************************************** -->
+	<!-- * PLMFilteringCheckInstance (PLMCoreInstance) * -->
+	<!-- ************************************** -->
+  <RelationClass Name="PLMFilteringCheckInstance"  CustomerExposition="Programmer" Uuid="C223D733-0379-4C1A-8777-77AFCD242227" Abstract="No" SuperName="PLMRuleBaseComponentInstance"   >
+    <Property Name="KweNew_InstanciationMethod" Value="CATKBEDelegateInstanciationRule"/>
+    <Property Name="KweNew_ReturnedType" Value="PLMFilteringCheckInstance"/>
+    <Property Name="DMCDerivable" Value="No"/>
+    <CAAComment>
+			<ShortRole>PLM Filtering Check instance aggregated in a PLM RuleSet</ShortRole>
+			<Role>PLM Filtering Check instance aggregated in a PLM RuleSet</Role>
+		</CAAComment>
+    <SubClause Name="to"   TargetName="PLMFilteringCheck"/>
+
+    <Method ImplementationType="None">
+        <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      </Method>
+  </RelationClass>  
+</Package>

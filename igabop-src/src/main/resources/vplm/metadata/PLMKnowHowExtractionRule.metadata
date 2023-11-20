@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2010, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" CustomerExposition="Programmer" Name="PLMKnowHowExtractionRule" Uuid="3F237C87-6886-4fb5-AEAC-1F74A5591F98" UseNames="PLMKnowHowRuleBaseComponent" Deprecated="Yes" >
+	<CAAComment>
+		<ShortRole>KnowHow Extraction Rule Package</ShortRole>
+		<Role>This package includes the Extraction Rule entities of KnowHow Rule Model</Role>
+	</CAAComment>
+	<Comment>Last update 2010-06-18</Comment>
+
+  <!-- ************************************** -->
+	<!-- * PLMBusinessRule (PLMCoreReference) * -->
+	<!-- ************************************** -->
+	<Class Name="PLMExtractionRule" CustomerExposition="ProgrammerOnly" Deprecated="Yes" Uuid="696AA002-8772-4ee9-8ED1-3DF7AE87FBF7" Abstract="Yes" SuperName="PLMRuleBaseComponent" >
+    <Property Name="IconName"        Value="I_PLMExtractionRule"/>
+    <Property Name="PQ_Attributes"   Value="PLM_ExternalID V_user"/>
+    <Property Name="Searchable"      Value="No"/>
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <CAAComment>
+			<ShortRole>PLM Extraction Rule</ShortRole>
+			<Role>PLM Extraction Rule</Role>
+		</CAAComment>
+    <!-- ********************************************************* -->
+    <!-- * Elementary PLMBusinessRule attributes                 * -->
+    <!-- ********************************************************* -->
+    <Simple Name="V_InspectedType" Uuid="5B74C181-9DE2-4ca6-AC73-F8E1AB61B34D" Type="String" MultiValuated="No" MaxLength="80" Protection="External" CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>The type of the objects that are inspected by the rule</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_ExtractedType" Uuid="DC6D34E8-E346-476f-9A30-B8DE1274EB5D"  Type="String"  MultiValuated="No" MaxLength="80" Protection="External" CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>The type of the objects that are extracted from the rule</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+  
+</Package>

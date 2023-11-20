@@ -1,0 +1,60 @@
+<?xml version="1.0" ?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2006, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" BelongsToModeler="Folder" Name="ENOFLD_FOLDER_ROOT"
+    Uuid="13737910-0f03-4211-a518-84e59e5390ef"
+    UseNames="ENOFLD_ABSTRACT_ROOT"
+  	UseProcedures="PRGProcAttach"
+	  CustomerExposition="Programmer"
+   >
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>FolderRoot Package</ShortRole>
+    <Role>This package includes Root Folder Model</Role>
+  </CAAComment>
+
+  <Comment>last update 2006-11-16-00.00.00</Comment>
+
+  <!-- **************************************************************************************************************** -->
+  <!-- * ENOFLD_FolderRootReference(PLMCoreReference): concrete reference, CAA derivable, can be created by PLM New   * -->
+  <!-- **************************************************************************************************************** -->
+
+  <Class Name="ENOFLD_FolderRootReference"
+      Uuid="ce84bc2e-ca56-4de4-b8fc-e4940ca1ab2b"
+      CustomerExposition="Programmer"
+      Abstract="No"
+      SuperName="ENOFLD_AbstractRootReference"
+      Abbreviation="rfld"
+      Specializable="Yes">
+    <Property Name="DMCDerivable" Value="Yes"/>
+
+    <CAAComment>
+      <ShortRole>Root Folder</ShortRole>
+      <Role>Root Folder</Role>
+    </CAAComment>
+
+    <Property Name="KweNew_InstanciationMethod" Value="KnlgRootFolderNewFactory"/>
+    <Property Name="Newable" Value="New"/>
+    <Property Name="IconName" Value="I_FolderFolder"/>
+    <Property Name="3DIconName" Value="Folder_3DNAVREP.cgr"/>
+    <Property Name="DeleteAvailability" Value="Yes"/>
+    <Property Name="Searchable" Value="Yes"/>
+
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Design"/>
+        <UsedProcedure href="PLMFolder_Procedures.proc#PLMFolder_ExportSelf"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Channel"/>
+        <UsedProcedure href="PLMFolder_Procedures.proc#PLMFolder_ExportSelf"/>
+      </ProcedureForUsage>
+    </Method>
+  </Class>
+
+
+
+</Package>

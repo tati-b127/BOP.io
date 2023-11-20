@@ -1,0 +1,10 @@
+#Prog ObjectTypeReferenceExport_Remove( iPLMIDSet : #In PLMIDSet, oPLMIDSet : #Out PLMIDSet ) : VoidType
+{
+  let PLMIDRepRouteSet (PLMRouteSet)
+  let PLMIDRepSet (PLMIDSet)
+
+  PLMIDRepRouteSet = ExecutePLMFunction("CATComponentBasedDesign", "CATComponentBasedDesign_ExpandRefToRepRef", iPLMIDSet)
+  PLMIDRepSet = Ids(PLMIDRepRouteSet,"all")
+  
+  oPLMIDSet = iPLMIDSet + PLMIDRepSet
+}

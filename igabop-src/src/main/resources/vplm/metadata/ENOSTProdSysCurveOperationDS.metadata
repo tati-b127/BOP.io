@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" Name="ENOSTProdSysCurveOperationDS" Uuid="2d5de56e-f6d2-4b5f-825154c888e3e8d1" UseNames="DELLmiProductionCurveOperation" >
+	<CAAComment>
+		<ShortRole>PLM Customization of DELMIA Curve Operation for SMB</ShortRole>
+		<Role>PLM Customization of DELMIA Curve Operation for SMB</Role>
+	</CAAComment>
+	<Comment>last update 2008-11-25</Comment>
+
+	<Class Name="ENOSTCurveOpReferenceCusto" Uuid="5b352493-d059-4714-9d78f4238d106fce" SuperName="DELLmiCurveOperationReference" SuperRef="d03c2c00-abe4-4292-ad506e96ac00b41b"  >
+
+    <Simple Name="E_fromExternalId"
+            Uuid="b723b041-16f7-4846-a7e40e433d5038a7"
+            Alias="Definition"
+            Type="String"
+            MaxLength="256"
+            Mandatory="No"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"/>
+    <Simple Name="E_versionComment"
+            Uuid="c6c7126d-ea53-4504-bdf7d2a5a6924253"
+            Alias="Version Comment"
+            Type="String"
+            MaxLength="256"
+            Mandatory="No"
+            MultiValuated="No"
+            Protection="Free"
+            ResetOnNewVersion="Yes"
+            ResetOnCloning="Yes"
+            CAAExposition="L0"/>
+    <IdentifierSet Name="E_identifier"
+                   Uuid="df8d22f6-f227-485c-81e9cd6a15113ae7"
+                   IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755"
+                   IdentifierNames="PLM_ExternalID V_version"/>
+
+    <CAAComment>
+			<ShortRole>PLM Customization of DELMIA Curve Operation Reference for SMB</ShortRole>
+			<Role>PLM Customization of DELMIA Curve Operation Reference for SMB</Role>
+		</CAAComment>
+	</Class>
+
+  <RelationClass Name="ENOSTCurveOpInstanceCusto" Uuid="a743a2d6-5315-4c03-93929c5428de1938" SuperName="DELLmiCurveOperationInstance" SuperRef="7738eb99-d4c8-424b-b49479207923d182"  >
+		<CAAComment>
+			<ShortRole>PLM Customization of DELMIA Curve Operation Instance for SMB</ShortRole>
+			<Role>PLM Customization of DELMIA Curve Operation Instance for SMB</Role>
+		</CAAComment>		
+            <!-- ********************************************************* -->
+            <!-- * Overload(s) of PLMCoreInstance attributes. -->
+            <!-- ********************************************************* -->
+    <SubClause Name="to"   TargetName="ENOSTCurveOpReferenceCusto"/>
+	</RelationClass>
+
+</Package>

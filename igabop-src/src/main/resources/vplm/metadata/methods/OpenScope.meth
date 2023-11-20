@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+<MethodPackage xmlns="PLMDictionaryMethod" Name="OpenScope">
+  <MethodType id="OpenScope">
+    <Usage id="Open" Name="Open"/>    
+    <Signature href="SignatureOpenScope"/>
+  </MethodType>
+
+  <Signature id="SignatureOpenScope">
+    <Parameter Name="InputIds" Lower="0" Upper="-1" Direction="in" DataType="PLMId" MultiValuated="Yes"/>
+    <Parameter Name="OutputIds" Lower="0" Upper="-1" Direction="out" DataType="PLMId" MultiValuated="Yes"/>
+  </Signature>
+</MethodPackage>

@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY for Ens Specifications Editor -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2017, all rights reserved -->
+
+<!-- 
+   =========
+    Package
+   =========
+ -->
+<Package xmlns="PLMDictionaryUnified" CustomerExposition="Programmer" ModelerType="Top" BelongsToModeler="PLMEquipment_EngSpecification"
+         Name="PLMEquipment_EngSpecification" Uuid="71ecb826-83ae-47d3-bb16-8d0f6b5ed8e1" UseNames="PLMEnsSpecPartsFilter;PLMEnsSpecSpecification" >
+
+  <CAAComment>
+    <ShortRole>Shared Equipment Engineering Specification Package</ShortRole>
+    <Role>This package describes the Engineering Specification objects for Shared Equipment Application.</Role>
+  </CAAComment>
+  <Comment>[V6R2018x] 2017-04-20 GLY ADZ Initial creation</Comment>
+  
+  <!--
+     ===================================================
+     Reference Filters
+     ===================================================
+     -->
+  <Class Name="EquipmentFilter" Uuid="5928a669-a650-4cd2-b3df-6a92e485f440" Abbreviation="eqtf" CustomerExposition="Programmer" Abstract="No"
+         SuperName="EnsFilter" Discipline="Yes" CustomerExtensible="Yes" CreateInstName="EnsFilterInstance">
+
+    <Property Name="IconName"                    Value="I_EqtEngSpec_Filter"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsFilterInstance"/>
+    <CAAComment>
+      <ShortRole>Shared Equipment Filter</ShortRole>
+      <Role>Shared Equipment Filter</Role>
+    </CAAComment>
+
+    <Simple Name="V_Standard"       Uuid="768debb0-2b08-4919-9b64-e80fcb705487" Type="String" MultiValuated="No" MaxLength="100" Protection="Free" CAAExposition="L0">
+      <Property Name="Controller" Value="CATEqtEngAttController"/>
+    </Simple>
+    <Simple Name="V_Eqt_Discipline" Uuid="db29d709-6652-40ac-9d15-cfa19b00fcf0" Type="String" Protection="ExternalIN" CAAExposition="L0" DefaultValue="Fluidic">
+      <Range>
+        <Equal>Fluidic</Equal>
+        <Equal>Electrical</Equal>
+        <Equal>HVAC</Equal>
+      </Range>
+    </Simple>
+
+  </Class>
+
+  <!--
+     ===================================================
+     Reference Specifications
+     ===================================================
+     -->
+  <Class Name="EquipmentSpecification" Uuid="1e096772-f17a-4c92-b48a-a1bbf9997b05" Abbreviation="eqts" CustomerExposition="Programmer" Abstract="No"
+         SuperName="EnsSpecification" Discipline="Yes" CustomerExtensible="Yes">
+    
+    <Property Name="IconName"                    Value="I_EqtEngSpec_Spec"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="New"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="ProposedInDataSetup"         Value="Yes"/>
+    <CAAComment>
+      <ShortRole>Equipment Specification</ShortRole>
+      <Role>Equipment Specification</Role>
+    </CAAComment>
+
+    <Simple Name="V_Standard"       Uuid="2d39636a-8593-40fc-a856-df48ba8b5fc9" Type="String" MultiValuated="No" MaxLength="100" Protection="Free" CAAExposition="L0">
+      <Property Name="Controller" Value="CATEqtEngAttController"/>
+    </Simple>
+    <Simple Name="V_Eqt_Discipline" Uuid="795ef1e6-2a2a-4eea-89e9-ac40e99d5ce0" Type="String" Protection="ExternalIN" CAAExposition="L0" DefaultValue="Fluidic">
+      <Range>
+        <Equal>Fluidic</Equal>
+        <Equal>Electrical</Equal>
+        <Equal>HVAC</Equal>
+      </Range>
+    </Simple>
+
+  </Class>
+
+  <Class Name="EquipmentCustomerAdditionalSpec" Uuid="b9127be5-4be4-409a-9f84-c849594b5d2a" Abbreviation="eqtcas" CustomerExposition="Programmer" Abstract="No"
+       SuperName="CustomerAdditionalSpec" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes">
+    
+    <Property Name="IconName"                    Value="I_EqtEngSpec_CustomerAdditionalSpec"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="New"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="ProposedInDataSetup"         Value="Yes"/>
+    <CAAComment>
+      <ShortRole>Shared Equipment Customer Additional Spec</ShortRole>
+      <Role>Shared Equipment Customer Additional Spec</Role>
+    </CAAComment>
+
+    <Simple Name="V_Eqt_Discipline" Uuid="e8f6d08c-e1b6-46d3-a896-ac7826da2d92" Type="String" Protection="ExternalIN" CAAExposition="L0" DefaultValue="Fluidic">
+      <Range>
+        <Equal>Fluidic</Equal>
+        <Equal>Electrical</Equal>
+        <Equal>HVAC</Equal>
+      </Range>
+    </Simple>
+    
+  </Class>
+    
+</Package>

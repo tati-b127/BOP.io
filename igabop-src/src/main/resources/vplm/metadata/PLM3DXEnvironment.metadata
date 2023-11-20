@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- COPYRIGHT DASSAULT SYSTEMES 2015, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" BelongsToModeler="PLM3DXEnvironment" Name="PLM3DXEnvironment" 
+  Uuid="E2B24E73-ED94-454A-A7B8-D7B8114596F1" 
+  UseNames="PLMCORE" 
+  CustomerExposition="Programmer">
+
+  <Class Name="PLM3DXEnvironment"
+         Uuid="903BE5F7-A865-4DE3-BF86-9A929C367E98"
+         Abstract="Yes" 
+         SuperName="PLMCoreRepReference"
+         CustomerExposition="None">
+    <Property Name="Searchable" Value="Yes"/>
+    
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Design"/>
+        <UsedProcedure href="Environment_Procedures.proc#EnvironmentExport"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Channel"/>
+        <UsedProcedure href="Environment_Procedures.proc#EnvironmentExport"/>
+      </ProcedureForUsage>
+    </Method>
+
+  </Class>
+  <!-- PLMQL FUNCTIONS Declarations -->
+  <Function Name="PLM3DX_getAmbienceDocument">
+    <Implementation Name="PLM3DX_getAmbienceDocument" FileLocation="PLM3DX_getAmbienceDocument.plmql" Language="PLMQL"/>
+    <Signature href="Environment_ProcedureSignature"/>
+  </Function>
+
+  <Signature id="Environment_ProcedureSignature">
+    <Parameter Name="InputIds" Lower="0" Upper="-1" Direction="in" MultiValuated="No" DataType="PLMId"/>
+    <Parameter Name="OutputIds" Lower="0" Upper="-1" Direction="out" MultiValuated="No" DataType="PLMRouteSet"/>
+  </Signature>
+  
+</Package>

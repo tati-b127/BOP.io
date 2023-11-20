@@ -1,0 +1,58 @@
+<?xml version="1.0" ?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2015, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" 
+    ModelerType="Top" 
+    BelongsToModeler="PRODUCT" 
+    Name="EnterpriseReference"
+    Uuid="ea0c155b-0000-0f88-598c-7f0600000000"
+    UseNames="PRODUCTCFG"
+    CustomerExposition="Programmer">
+
+  <CAAComment>
+    <ShortRole>EnterpriseReference Package</ShortRole>
+    <Role>EnterpriseReference Package</Role>
+  </CAAComment>
+
+  
+  <!-- Extension on Reference -->
+  <Extension Name="EnterpriseExtension" 
+      Uuid="ea0c155b-0000-33fc-598c-7eaa00000000"
+      CustomerExposition="Programmer"
+      ScopeNames="VPMReference"
+      Searchable="Yes" >
+
+    <!-- Used to define Part Number -->
+    <Simple Name="V_PartNumber"
+      Uuid="ea0c155b-0000-2be4-598c-7f4e00000000"
+      Type="String"
+      Protection="External"
+	  MaxLength="256"
+	  ResetOnCloning="Yes"
+	  ResetOnNewVersion="No"
+      UIAccess="ReadOnly" >
+
+    </Simple>
+  </Extension>
+
+      <Extension Name="MaterialUsageExtension" 
+      Uuid="ad6171f9-0000-2b28-5d03-6fd600000000"
+      CustomerExposition="Programmer"
+      ScopeNames="VPMReference"
+      Searchable="No" >
+
+    <!-- Used to define Part Number -->
+    <Simple Name="DeclaredQuantity"
+      Uuid="ad6171f9-0000-4210-5d03-6fea00000000"
+      Type="Double"
+      Protection="Free"
+	ResetOnCloning="No"
+	ResetOnNewVersion="No"
+	UIAccess="ReadWrite">
+
+    </Simple>
+  </Extension>
+</Package>
+

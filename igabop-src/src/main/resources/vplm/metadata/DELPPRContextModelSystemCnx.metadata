@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" 
+         ModelerType="Top" 
+         Name="DELPPRContextModelSystemCnx"
+         Uuid="d127b12d-3af0-4fc1-a8f9d7e984ac0610"
+         BelongsToModeler="DELPPRContextModel"
+         UseNames="PLMCORE"
+         CustomerExposition="None">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+    <CAAComment>
+        <ShortRole>DELPPRContextModelSystemCnx Modeler Package</ShortRole>
+        <Role>This package describes PPR Context Connection to System</Role>
+    </CAAComment>
+
+    <Comment>PPR Context Connection to System</Comment>
+
+    <Class Name="PLMDELPPRSystemCnx"
+           Uuid="de012fab-1d98-4ce3-ab80632f111ded5f"
+           SuperName="PLMConnection"
+           Abstract="No" 
+           CAAExposition="L0"
+           CustomerExposition="None"
+OwnerTypes="VPMReference"
+                   
+        >
+      <!-- OwnerTypes="VPMReference"  Integrate this line if you want to declare the aggregation constraint -->
+        <Path Name="DELLinkFromPPRToSystem"
+            Uuid="d1a360ce-cab6-4a5b-80f7fe7bd4c60615"
+            RoleName="PLM_PPRContextLink_System"
+            MultiValuated="Yes"
+            Lower="1"
+            Upper="1"
+         		Type="SemanticRelation" AdaptativeToMinor="No"
+		        SynchroSensitivity="Last"
+                          Orientation="In"
+		        RerouteOnEffectivityChange="No"
+            Semantics="Reference4"/>
+
+        <Simple Name="V_TreeOrder_System"
+                Uuid="9d641819-fece-4e31-aba9710883082117"
+                Type="Double"
+                MultiValuated="No"
+                Protection="Internal">
+            <CAAComment>
+                <ShortRole>Remember the position of the pointed System relatively to others. Valuated by application.</ShortRole>
+            </CAAComment>
+        </Simple>
+
+        <CAAComment>
+            <ShortRole>The PLMDELPPRSystemCnx.class</ShortRole>
+            <Role>The PLMDELPPRSystemCnx.class</Role>
+        </CAAComment>
+
+      <Method ImplementationType="None">
+        <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      </Method>
+
+    </Class>
+
+</Package>

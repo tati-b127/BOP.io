@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR RFL Logical Application -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2007, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" BelongsToModeler="RFLVPMLogical" Name="RFLVPMLogicalSubRep" 
+	Uuid="41B652DA-A1A7-499b-A678-7C30A03D509F" 
+	UseNames="RFLVPMLogical" 
+  CustomerExposition="Programmer"         
+	>
+	
+	<CAAComment>
+		<ShortRole>VPM RFL Logical Sub Rep Package</ShortRole>
+		<Role>This package describes the PLM Logical model on top of LPAbstract Modeler</Role>
+	</CAAComment>
+		
+	<!-- ************************************************************* -->
+	<!-- *  LogicalDSContentRepReference (RFLVPMLogicalRepReference) * -->
+	<!-- ************************************************************* -->
+
+	<Class Name="LogicalDSContentRepReference" Uuid="BC569C80-250B-473a-B9FB-AB7C6BC06BD7" 
+         CustomerExposition="Programmer"
+         CustomerExtensible="No"
+         Specializable="No"
+         Abstract="Yes"
+		     SuperName="RFLVPMLogicalRepReference"
+         Discipline="Yes"
+		     >    
+    
+		<CAAComment>
+			<ShortRole>PLM Logical DS Content Rep Reference Object</ShortRole>
+			<Role>PLM Logical DS Content Rep Reference Object</Role>
+		</CAAComment>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+  </Class>
+
+  <Class Name="LogicalNonDSContentRepReference" Uuid="70EDD8E5-A613-4b5c-A4E8-034C65F210B7"
+        CustomerExposition="Programmer"
+        CustomerExtensible="Yes"
+        Specializable="Yes"
+        Abstract="Yes"
+		    SuperName="RFLVPMLogicalRepReference"
+        Discipline="Yes"
+		    >
+
+    <CAAComment>
+      <ShortRole>PLM Logical Non DS Content Rep Reference Object</ShortRole>
+      <Role>PLM Logical Non DS Content Rep Reference Object</Role>
+    </CAAComment>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+  </Class>  
+  
+</Package>

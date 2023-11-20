@@ -1,0 +1,28 @@
+NAVIGATE
+
+     T0.PLM_ExternalID,
+     T0.PLMID 
+
+FROM 
+
+     SIMObjSimulationPublishedResultCnx/SIMObjectSimulationPublishedResultCnx T0
+ 
+     
+
+FROM_ROOTS [?1?]
+
+ON ( RELATION(
+
+     FROM=SIMObjSimulationCategoryAndProdCnx/SIMObjSimulationCategoryReference
+
+     TO=SIMObjSimulationPublishedResultCnx/SIMObjectSimulationPublishedResultCnx
+
+     THROUGH=POINTEDBY )
+
+WITH QUALITY_FILTER(CATEGORY=ISOWNEDBY))
+
+ 
+
+; 
+
+

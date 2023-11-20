@@ -1,0 +1,187 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2012, All rights reserved -->
+
+<Package CustomerExposition = "Programmer" ModelerType = "Top" Name = "AECStructuralElement" UseNames = "AECKernel" Uuid = "5f641f0a-6065-45f5-b494-7278f8fa5238" xmlns = "PLMDictionaryUnified">
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "AecBeam" SuperName = "AecStructuralElement" Uuid = "77d8a56c-c0c0-4e63-ac71-74d9cd3dae06">
+    <Property Name = "IconName" Value = "I_AecBeam"/>
+    <Property Name = "3DIconName" Value = "I_AecBeam.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATEAECDelegateInstanciation"/>
+    <Property Name = "KweNew_ReturnedType" Value = "VPMInstance"/>
+    <Property Name = "Newable" Value = "All_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "UserChoiceReferenceDefault"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "AecBeamType" SuperName = "AecStructuralElementType" Uuid = "0cb76902-41cd-4ad8-82fb-c17e30cb26d8">
+    <Property Name = "IconName" Value = "I_AecBeamType"/>
+    <Property Name = "3DIconName" Value = "I_AecBeamType.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATCbaObjectTypeDelegateInstanciation"/>
+    <Property Name = "Newable" Value = "New_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "ReferenceOnly"/>
+  </Class>
+  <Class Abstract = "Yes" CustomerExposition = "Programmer" Discipline = "Yes" Name = "AecBooleanElement" SuperName = "AecElement" Uuid = "df35f3bb-3867-4372-a662-868a8fec2adb">
+    <Property Name = "GroupingType" Value = "AecBooleanElement"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "AecCable" SuperName = "AecStructuralElement" Uuid = "0e2941dc-de10-4c2c-9c74-a3ff51699dce">
+    <Property Name = "IconName" Value = "I_AecCable"/>
+    <Property Name = "3DIconName" Value = "I_AecCable.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATEAECDelegateInstanciation"/>
+    <Property Name = "KweNew_ReturnedType" Value = "VPMInstance"/>
+    <Property Name = "Newable" Value = "All_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "UserChoiceReferenceDefault"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "AecCableType" SuperName = "AecStructuralElementType" Uuid = "f4b6a69f-fefe-49ca-a5fe-4bc7ef072bb6">
+    <Property Name = "IconName" Value = "I_AecCableType"/>
+    <Property Name = "3DIconName" Value = "I_AecCableType.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATCbaObjectTypeDelegateInstanciation"/>
+    <Property Name = "Newable" Value = "New_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "ReferenceOnly"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "AecColumn" SuperName = "AecStructuralElement" Uuid = "e19f4283-c304-4643-8dd1-6920f6fcdca6">
+    <Property Name = "IconName" Value = "I_AecColumn"/>
+    <Property Name = "3DIconName" Value = "I_AecColumn.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATEAECDelegateInstanciation"/>
+    <Property Name = "KweNew_ReturnedType" Value = "VPMInstance"/>
+    <Property Name = "Newable" Value = "All_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "UserChoiceReferenceDefault"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "AecColumnType" SuperName = "AecStructuralElementType" Uuid = "45822f09-e801-447c-9516-48a684ee3435">
+    <Property Name = "IconName" Value = "I_AecColumnType"/>
+    <Property Name = "3DIconName" Value = "I_AecColumnType.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATCbaObjectTypeDelegateInstanciation"/>
+    <Property Name = "Newable" Value = "New_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "ReferenceOnly"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "AecFooting" SuperName = "AecStructuralElement" Uuid = "170d24a6-0309-4895-8ad9-0ff0c75810e4">
+    <Property Name = "IconName" Value = "I_AecFooting"/>
+    <Property Name = "3DIconName" Value = "I_AecFooting.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATEAECDelegateInstanciation"/>
+    <Property Name = "KweNew_ReturnedType" Value = "VPMInstance"/>
+    <Property Name = "Newable" Value = "All_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "UserChoiceReferenceDefault"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "AecFootingType" SuperName = "AecStructuralElementType" Uuid = "5169e709-c122-401e-8976-e2cdd19cdf1a">
+    <Property Name = "IconName" Value = "I_AecFootingType"/>
+    <Property Name = "3DIconName" Value = "I_AecFootingType.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATCbaObjectTypeDelegateInstanciation"/>
+    <Property Name = "Newable" Value = "New_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "ReferenceOnly"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "AecMember" SuperName = "AecStructuralElement" Uuid = "c8df968e-701f-40ba-b5d2-709b32bec3bf">
+    <Property Name = "IconName" Value = "I_AecMember"/>
+    <Property Name = "3DIconName" Value = "I_AecMember.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATEAECDelegateInstanciation"/>
+    <Property Name = "KweNew_ReturnedType" Value = "VPMInstance"/>
+    <Property Name = "Newable" Value = "All_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "UserChoiceReferenceDefault"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "AecMemberType" SuperName = "AecStructuralElementType" Uuid = "3ce9a525-5d35-4996-a698-8d486649af76">
+    <Property Name = "IconName" Value = "I_AecMemberType"/>
+    <Property Name = "3DIconName" Value = "I_AecMemberType.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATCbaObjectTypeDelegateInstanciation"/>
+    <Property Name = "Newable" Value = "New_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "ReferenceOnly"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "AecOpeningElement" SuperName = "AecBooleanElement" Uuid = "ec3d7bb4-59e9-41f3-856a-51edb7946f05">
+    <Property Name = "IconName" Value = "I_AecOpeningElement"/>
+    <Property Name = "3DIconName" Value = "I_AecOpeningElement.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATEAECDelegateInstanciation"/>
+    <Property Name = "KweNew_ReturnedType" Value = "VPMInstance"/>
+    <Property Name = "Newable" Value = "All_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "3DPartOnly"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "AecOtherStructuralElement" Specializable = "Yes" SuperName = "AecStructuralElement" Uuid = "14d9ae54-ed0b-4456-95fa-40c85777d9f0">
+    <Property Name = "IconName" Value = "I_AecOtherStructuralElement"/>
+    <Property Name = "3DIconName" Value = "I_AecOtherStructuralElement.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATEAECDelegateInstanciation"/>
+    <Property Name = "KweNew_ReturnedType" Value = "VPMInstance"/>
+    <Property Name = "Newable" Value = "All_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "UserChoiceReferenceDefault"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "AecOtherStructuralElementType" Specializable = "Yes" SuperName = "AecStructuralElementType" Uuid = "641f8fab-f83c-43c3-aa11-8bf7247f6e0b">
+    <Property Name = "IconName" Value = "I_AecOtherStructuralElementType"/>
+    <Property Name = "3DIconName" Value = "I_AecOtherStructuralElementType.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATCbaObjectTypeDelegateInstanciation"/>
+    <Property Name = "Newable" Value = "New_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "ReferenceOnly"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "AecPile" SuperName = "AecStructuralElement" Uuid = "4e5c4af5-bc7c-4725-bbdf-93112ba23e13">
+    <Property Name = "IconName" Value = "I_AecPile"/>
+    <Property Name = "3DIconName" Value = "I_AecPile.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATEAECDelegateInstanciation"/>
+    <Property Name = "KweNew_ReturnedType" Value = "VPMInstance"/>
+    <Property Name = "Newable" Value = "All_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "UserChoiceReferenceDefault"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "AecPileType" SuperName = "AecStructuralElementType" Uuid = "110a5cd7-b886-4dc0-9634-6261023d87c7">
+    <Property Name = "IconName" Value = "I_AecPileType"/>
+    <Property Name = "3DIconName" Value = "I_AecPileType.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATCbaObjectTypeDelegateInstanciation"/>
+    <Property Name = "Newable" Value = "New_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "ReferenceOnly"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "AecPlate" SuperName = "AecStructuralElement" Uuid = "45327711-2c5b-4e27-9189-1f02c666bb45">
+    <Property Name = "IconName" Value = "I_AecPlate"/>
+    <Property Name = "3DIconName" Value = "I_AecPlate.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATEAECDelegateInstanciation"/>
+    <Property Name = "KweNew_ReturnedType" Value = "VPMInstance"/>
+    <Property Name = "Newable" Value = "All_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "UserChoiceReferenceDefault"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "AecPlateType" SuperName = "AecStructuralElementType" Uuid = "4171dabb-202d-4acd-a819-5d65a373d82b">
+    <Property Name = "IconName" Value = "I_AecPlateType"/>
+    <Property Name = "3DIconName" Value = "I_AecPlateType.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATCbaObjectTypeDelegateInstanciation"/>
+    <Property Name = "Newable" Value = "New_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "ReferenceOnly"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "AecSlab" SuperName = "AecStructuralElement" Uuid = "fcb6dcf9-9876-40d2-844e-6d1b735f04cd">
+    <Property Name = "IconName" Value = "I_AecSlab"/>
+    <Property Name = "3DIconName" Value = "I_AecSlab.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATEAECDelegateInstanciation"/>
+    <Property Name = "KweNew_ReturnedType" Value = "VPMInstance"/>
+    <Property Name = "Newable" Value = "All_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "UserChoiceReferenceDefault"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "AecSlabType" SuperName = "AecStructuralElementType" Uuid = "779b230c-d38b-4096-aa84-1da9838e5759">
+    <Property Name = "IconName" Value = "I_AecSlabType"/>
+    <Property Name = "3DIconName" Value = "I_AecSlabType.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATCbaObjectTypeDelegateInstanciation"/>
+    <Property Name = "Newable" Value = "New_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "ReferenceOnly"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "AecStiffener" SuperName = "AecStructuralElement" Uuid = "e1f48644-657b-499e-83cf-69315f5a659c">
+    <Property Name = "IconName" Value = "I_AecStiffener"/>
+    <Property Name = "3DIconName" Value = "I_AecStiffener.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATEAECDelegateInstanciation"/>
+    <Property Name = "KweNew_ReturnedType" Value = "VPMInstance"/>
+    <Property Name = "Newable" Value = "All_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "UserChoiceReferenceDefault"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "AecStiffenerType" SuperName = "AecStructuralElementType" Uuid = "8d7ae586-c2af-44d8-8213-fec07311e0ba">
+    <Property Name = "IconName" Value = "I_AecStiffenerType"/>
+    <Property Name = "3DIconName" Value = "I_AecStiffenerType.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATCbaObjectTypeDelegateInstanciation"/>
+    <Property Name = "Newable" Value = "New_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "ReferenceOnly"/>
+  </Class>
+  <Class Abstract = "Yes" CustomerExposition = "Programmer" Discipline = "Yes" Name = "AecStructuralElement" SuperName = "AecElement" Uuid = "74444479-9020-498d-aa18-10c1532c2a44">
+    <Property Name = "GroupingType" Value = "AecStructuralElement"/>
+  </Class>
+  <Class Abstract = "Yes" CustomerExposition = "Programmer" Discipline = "Yes" Name = "AecStructuralElementType" SuperName = "AecElementType" Uuid = "060ed008-8c83-4524-975b-7c4a8594c6c3">
+    <Property Name = "GroupingType" Value = "AecStructuralElementType"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "AecWall" SuperName = "AecStructuralElement" Uuid = "f0494b0b-3f3b-481a-a96f-bd503b452dbb">
+    <Property Name = "IconName" Value = "I_AecWall"/>
+    <Property Name = "3DIconName" Value = "I_AecWall.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATEAECDelegateInstanciation"/>
+    <Property Name = "KweNew_ReturnedType" Value = "VPMInstance"/>
+    <Property Name = "Newable" Value = "All_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "UserChoiceReferenceDefault"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "AecWallType" SuperName = "AecStructuralElementType" Uuid = "dae421b9-7576-42c7-b6fc-3d1a34fdf92d">
+    <Property Name = "IconName" Value = "I_AecWallType"/>
+    <Property Name = "3DIconName" Value = "I_AecWallType.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATCbaObjectTypeDelegateInstanciation"/>
+    <Property Name = "Newable" Value = "New_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "ReferenceOnly"/>
+  </Class>
+</Package>

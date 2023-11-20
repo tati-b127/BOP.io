@@ -1,0 +1,15 @@
+NAVIGATE
+	T0.PLM_ExternalID,
+	T0.PLMID,
+	T1.PLM_ExternalID,
+	T1.PLMID 
+FROM
+	PLMBRIDGE_CfgStaticMapping/PLMCfgStaticMapping T0,
+	PLMCORE/PLMCoreInstance T1
+FROM_ROOTS [?1?]
+ON ( RELATION(
+	FROM=PLMCORE/PLMCoreInstance
+	TO=PLMBRIDGE_CfgStaticMapping/PLMCfgStaticMapping 
+	THROUGH=POINTEDBY )
+WITH QUALITY_FILTER (ROLE=PLMConfiguredInstance))
+;

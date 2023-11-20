@@ -1,0 +1,533 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- [FRH:14.11.28] xsd reduite pour les ODTs correspondant a la customisation new typing-->
+
+
+<xs:schema
+        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        xmlns:tns="PLMDictionaryDeployment"
+        targetNamespace="PLMDictionaryDeployment"
+        elementFormDefault="qualified"
+        attributeFormDefault="unqualified">
+    <!-- Description package: a package is a set of logically connected concepts (Class, RelationClass, Simple, ...) belonging to a modeler -->
+    <xs:complexType name="Package">
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="tns:CAAComment"/>
+            <xs:element ref="tns:Class"/>
+            <xs:element ref="tns:RelationClass"/>
+            <xs:element ref="tns:Comment"/>
+            <xs:element ref="tns:Extension"/>
+            <xs:element ref="tns:CustomerExtension"/>
+            <xs:element ref="tns:Property"/>
+        </xs:choice>
+        <!-- Name of the package: must be unique -->
+        <xs:attribute name="Name" type="xs:string" use="required"/>
+        <!--Used by MQL generator to identify a type uniquely-->
+        <xs:attribute name="Uuid" type="xs:string" use="required"/>
+        <!--Indicates if this packages contains elements that are public (known by customer through UI or customization tools) or pure private modeling elements -->
+        <!--None means private -->
+        <!--Indicates the kind of package: customer (Specialization or Deployment) or DS (Top or Core) -->
+        <xs:attribute name="ModelerType" default="Specialization">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="Specialization"/>
+                    <xs:enumeration value="Deployment"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <!--Indicates if this package is a sub package of another one (in the UI, we will present only the super one) -->
+        <xs:attribute name="BelongsToModeler" type="xs:string"/>
+        <!--Contains the list of packages where we will find necessary definitions used in this package -->
+        <xs:attribute name="UseNames" type="xs:string"/>
+        <!-- Indicates the name of the icon associated to the package-->
+        <xs:attribute name="IconName" type="xs:string"/>
+        <!-- Indicates if a package is deprecated (should not be seen anymore): in this case, all content of the package is deprecated-->
+        <xs:attribute name="Deprecated">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="Yes"/>
+                    <xs:enumeration value="No"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:complexType>
+    <xs:element name="Package" type="tns:Package"/>
+
+    <!-- Description Class: defines a type of object in the database -->
+    <xs:complexType name="Class">
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="tns:Comment"/>
+            <xs:element ref="tns:CAAComment"/>
+            <xs:element ref="tns:Property"/>
+            <xs:element ref="tns:Simple"/>
+            <xs:element ref="tns:Volatile"/>
+        </xs:choice>
+        <!--Name of the class: must be unique-->
+        <xs:attribute name="Name" type="xs:string" use="required"/>
+        <!--Used by MQL generator to identify a type uniquely-->
+        <xs:attribute name="Uuid" type="xs:string" use="required"/>
+        <!--Indicates if the class can be used to create objects: abstract=No-->
+        <xs:attribute name="Abstract" default="No">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="Yes"/>
+                    <xs:enumeration value="No"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <!-- Defines the class, this class inherits from-->
+        <xs:attribute name="SuperName" type="xs:string" use="required"/>
+        <!-- Indicates if a class is indexable/searchable: used by the crawler and by win advanced search-->
+        <xs:attribute name="Searchable">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="Yes"/>
+                    <xs:enumeration value="No"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <!-- RDFClass: how the class will be mapped to a RDF Class in the navigation model / Indexer  -->
+        <xs:attribute name="RDFClass" type="xs:string"/>
+        <!--Indicates the corresponding types of instances that are valid for a class. Determines also the fact that it can be instantiated -->
+        <!--Contains different instance types, separated by ";". The first one is the instance type chosen by default -->
+        <xs:attribute name="CreateInstName" type="xs:string"/>
+        <!-- Indicates what are the aggregatable classes for a given type - used by UI Insert New generic dialog box-->
+        <xs:attribute name="AggregatableTypes" type="xs:string"/>
+        <!-- Indicates what are the possible owner types for a given type: verified at PLM Core level-->
+        <xs:attribute name="OwnerTypes" type="xs:string"/>
+        <!-- Indicates what are the possible owner classes of instances of a given type: verified at PLM Core level-->
+        <xs:attribute name="InstantiationOwnerTypes" type="xs:string"/>
+        <!-- Indicates the name of the icon associated to the class: used by the wintop UI-->
+        <xs:attribute name="IconName" type="xs:string"/>
+        <!-- Abbreviation of a class used in OOTB naming computation -->
+        <xs:attribute name="Abbreviation" type="xs:string"/>
+        <!-- Indicates if a class is deprecated (should not be seen anymore)-->
+        <xs:attribute name="Deprecated">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="Yes"/>
+                    <xs:enumeration value="No"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:complexType>
+    <xs:element name="Class" type="tns:Class"/>
+
+    <!-- Description of an extension type: is a set of attributes (and a types) that can be added on the fly on an object of a given type -->
+    <xs:complexType name="Extension">
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="tns:Property"/>
+            <xs:element ref="tns:Comment"/>
+            <xs:element ref="tns:CAAComment"/>
+            <xs:element ref="tns:Simple"/>
+            <xs:element ref="tns:Volatile"/>
+        </xs:choice>
+        <!--Name of the extension: must be unique-->
+        <xs:attribute name="Name" type="xs:string" use="required"/>
+        <!--Used by MQL generator to identify a type uniquely-->
+        <xs:attribute name="Uuid" type="xs:string" use="required"/>
+        <!--Indicates if the extension can be used to really extend objects: Abstract=No-->
+        <xs:attribute name="Abstract" default="No">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="Yes"/>
+                    <xs:enumeration value="No"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <!-- list of classes (or relation classes) that can be extended by this extension -->
+        <xs:attribute name="ScopeNames" type="xs:string"/>
+        <!-- extension from which the current extension inherit -->
+        <xs:attribute name="SuperName" type="xs:string"/>
+        <!-- Indicates if an extension is indexable/searchable-->
+        <xs:attribute name="Searchable">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="Yes"/>
+                    <xs:enumeration value="No"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <!-- RDFClass: how the class will be mapped to a RDF Class in the navigation model / Indexer  -->
+        <xs:attribute name="RDFClass" type="xs:string"/>
+        <!-- Indicates the name of the icon associated to the extension-->
+        <xs:attribute name="IconName" type="xs:string"/>
+        <!-- Indicates if the deployment extension is statically assigned or not: makes sense only on deployment extensions-->
+        <xs:attribute name="Automatic">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="Yes"/>
+                    <xs:enumeration value="No"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <!-- Indicates if an extension is deprecated (should not be seen anymore)-->
+        <xs:attribute name="Deprecated">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="Yes"/>
+                    <xs:enumeration value="No"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:complexType>
+    <xs:element name="Extension" type="tns:Extension"/>
+
+    <!-- Description de la customer Extension -->
+    <xs:complexType name="CustomerExtension">
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="tns:Property"/>
+            <xs:element ref="tns:Comment"/>
+            <xs:element ref="tns:CAAComment"/>
+            <xs:element ref="tns:Simple"/>
+        </xs:choice>
+        <xs:attribute name="Name" type="xs:string" use="required"/>
+        <xs:attribute name="Uuid" type="xs:string"/>
+        <xs:attribute name="Abstract" default="No">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="Yes"/>
+                    <xs:enumeration value="No"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <!-- le type pointé par l'extension est obligatoire ... non car si elle herite d'une autre -->
+        <xs:attribute name="ScopeNames" type="xs:string"/>
+        <xs:attribute name="SuperName" type="xs:string"/>
+    </xs:complexType>
+    <xs:element name="CustomerExtension" type="tns:CustomerExtension"/>
+
+    <!-- Description of standard persistent attributes -->
+    <xs:complexType name="Simple">
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="tns:Property"/>
+            <xs:element ref="tns:CAAComment"/>
+            <xs:element ref="tns:Comment"/>
+            <xs:element ref="tns:Range"/>
+        </xs:choice>
+        <!-- Name of the attribute: must be unique inside the scope of the class/relation class/extension where it is defined -->
+        <xs:attribute name="Name" type="xs:string" use="required"/>
+        <!--Used by MQL generator to identify a type uniquely-->
+        <xs:attribute name="Uuid" type="xs:string"/>
+        <!--Type of value -->
+        <xs:attribute name="Type" use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="Boolean"/>
+                    <xs:enumeration value="Integer"/>
+                    <xs:enumeration value="Double"/>
+                    <xs:enumeration value="String"/>
+                    <xs:enumeration value="Date"/>
+                    <xs:enumeration value="timestamp"/>
+                    <xs:enumeration value="Real"/>
+                    <xs:enumeration value="Binary"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <!--is attribute multi valuated?: correspond to a list of values -->
+        <xs:attribute name="MultiValuated">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="Yes"/>
+                    <xs:enumeration value="No"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <!--indicates if this attribute will be considered as Faceted in search (seen as a discrete list of values) -->
+        <xs:attribute name="Faceted">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="Yes"/>
+                    <xs:enumeration value="No"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <!--indicates if this attribute is PLM impacting: means that if it is modified, the update stamp of the owner of the attribute is modified -->
+        <xs:attribute name="PLMImpacting">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="Yes"/>
+                    <xs:enumeration value="No"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <!--default value of the attribute -->
+        <xs:attribute name="DefaultValue" type="xs:string"/>
+        <!--max length for a string attribute -->
+        <xs:attribute name="MaxLength" type="xs:string"/>
+        <!--magnitude of a real attribute: list of possible values is defined in CATCkeMagnitudes file  -->
+        <xs:attribute name="Magnitude" type="xs:string"/>
+        <!--defines both the visibility of the attribute (public/private) and who controls it  -->
+        <!--Private means private: not seen from user and controlled by the modeler only. Can not be get or set by anybody else-->
+        <!--Internal means private: not seen from user and controlled by the modeler. It cannot be read or set by anybody except the modeler. The modeler may provide some access -->
+        <!--InternalRO means private to the server -->
+        <!--External means public but under the control of the modeler and computed by the modeler. It is read only from a user perspective -->
+        <!--ExternalRO means public but under the control of the server. It is read only from a user perspective -->
+        <!--ExternalIN means public but under the control of the modeler. It is read write from a user perspective -->
+        <!--Free means public and without any control from the modeler. It is read write from a user perspective -->
+        <xs:attribute name="Protection" use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="Free"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <!--indicates that the attribute will be reset during cloning operation  -->
+        <xs:attribute name="ResetOnCloning">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="Yes"/>
+                    <xs:enumeration value="No"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <!--indicates that the attribute will be reset during revision operation  -->
+        <xs:attribute name="ResetOnNewVersion">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="Yes"/>
+                    <xs:enumeration value="No"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <!-- Is the attribute defined once and cannot be modified afterwards?: for date and string attributes. Default is No -->
+        <xs:attribute name="SetOnlyOnce">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="AtCreation"/>
+                    <xs:enumeration value="Later"/>
+                    <xs:enumeration value="No"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <!-- For External/ExternalRO/ExternalIN/Free attributes, we can restrict the access in the UI. By defaut, it is deduced from protection -->
+        <xs:attribute name="UIAccess">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="None"/>
+                    <xs:enumeration value="ReadOnly"/>
+                    <xs:enumeration value="ReadWrite"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <!-- Indicates if an attribute is deprecated (should not be seen anymore)-->
+        <xs:attribute name="Deprecated">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="Yes"/>
+                    <xs:enumeration value="No"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:complexType>
+    <xs:element name="Simple" type="tns:Simple"/>
+
+    <!-- Description of volatile attribute: is a pure programming language notion. No persistency behind this -->
+    <xs:complexType name="Volatile">
+        <xs:sequence>
+            <xs:element ref="tns:Comment" minOccurs="0"/>
+            <xs:element ref="tns:Property" minOccurs="0"/>
+        </xs:sequence>
+        <!-- name of the attribute as it will be used in EKL  -->
+        <xs:attribute name="Name" type="xs:string" use="required"/>
+        <!-- obsolete: not used  -->
+        <xs:attribute name="Uuid" type="xs:string"/>
+        <!-- C++ class that is able to compute the attribute value in read mode (and even write mode) on the rich client  -->
+        <xs:attribute name="Accessor" type="xs:string" use="required"/>
+        <!-- Java class that is able to compute the attribute value in read mode (and even write mode) on the server -->
+        <xs:attribute name="ServerAccessor" type="xs:string"/>
+        <!-- EKL data type: Boolean, Integer, Real, String, or Magnitude  -->
+        <xs:attribute name="TypeName" type="xs:string" use="required"/>
+        <!-- Indicates if this attribute is only computed (read only) or can be used in both mode (read write)  -->
+        <xs:attribute name="AccessMode" use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="ReadOnly"/>
+                    <xs:enumeration value="ReadWrite"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:complexType>
+    <xs:element name="Volatile" type="tns:Volatile"/>
+
+    <!-- Obsolete: was used to generate a documentation in CAA. May be replaced by NLS declarations  -->
+    <xs:complexType name="CAAComment">
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="tns:ShortRole"/>
+            <xs:element ref="tns:Role"/>
+        </xs:choice>
+    </xs:complexType>
+    <xs:element name="CAAComment" type="tns:CAAComment"/>
+
+    <!-- Obsolete: was used to generate a documentation in CAA. May be replaced by NLS declarations  -->
+    <xs:complexType name="ShortRole" mixed="true">
+        <xs:choice minOccurs="0" maxOccurs="unbounded"/>
+    </xs:complexType>
+    <xs:element name="ShortRole" type="tns:ShortRole"/>
+
+    <!-- Obsolete: was used to generate a documentation in CAA. May be replaced by NLS declarations  -->
+    <xs:complexType name="Role" mixed="true">
+        <xs:choice minOccurs="0" maxOccurs="unbounded"/>
+    </xs:complexType>
+    <xs:element name="Role" type="tns:Role"/>
+
+    <xs:element name="Comment" type="xs:string"/>
+
+    <!-- Property that can be added on any object: is a couple name/value -->
+    <xs:complexType name="Property">
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="tns:Comment"/>
+        </xs:choice>
+        <!-- Name of the property  -->
+        <xs:attribute name="Name" type="xs:string" use="required"/>
+        <!-- Value of the property  -->
+        <xs:attribute name="Value" type="xs:string" use="required"/>
+    </xs:complexType>
+    <xs:element name="Property" type="tns:Property"/>
+
+    <!-- SubClause of a RelationClass: defines the possible types for the "to" and the "from" -->
+    <xs:complexType name="SubClause">
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="tns:Comment"/>
+        </xs:choice>
+        <!-- Name must be equal to "to" or "from"-->
+        <xs:attribute name="Name" type="xs:string" use="required"/>
+        <!-- Name of the types that can be used for such a sub clause, separated by ; -->
+        <xs:attribute name="TargetName" type="xs:string" use="required"/>
+    </xs:complexType>
+    <xs:element name="SubClause" type="tns:SubClause"/>
+
+    <!-- Description of a relation class: it is a type that leads to the creation of objects, that models a relation between 2 objects -->
+    <xs:complexType name="RelationClass">
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="tns:Comment"/>
+            <xs:element ref="tns:CAAComment"/>
+            <xs:element ref="tns:Simple"/>
+            <xs:element ref="tns:Volatile"/>
+            <xs:element ref="tns:Property"/>
+            <xs:element ref="tns:SubClause"/>
+        </xs:choice>
+        <!--Name of the relation class: must be unique-->
+        <xs:attribute name="Name" type="xs:string" default="No"/>
+        <!--Used by MQL generator to identify a type uniquely-->
+        <xs:attribute name="Uuid" type="xs:string" use="required"/>
+        <!--Indicates if the relation class can be used to create objects (Abstract=No) -->
+        <xs:attribute name="Abstract" default="No">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="Yes"/>
+                    <xs:enumeration value="No"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <!--Indicates if this relation class is public (known by customer through UI or customization tools) or is a pure private one-->
+        <!--Modification 2015x: adding ProgrammerOnly to indicate a public type but not shown in UI-->
+        <xs:attribute name="CustomerExposition">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="None"/>
+                    <xs:enumeration value="Programmer"/>
+                    <xs:enumeration value="ProgrammerOnly"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <!-- Defines the relation class, this relation class inherits from-->
+        <xs:attribute name="SuperName" type="xs:string" use="required"/>
+        <!-- Indicates if an extension is deprecated (should not be seen anymore)-->
+        <xs:attribute name="Deprecated">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="Yes"/>
+                    <xs:enumeration value="No"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <!-- RDFClass: how the Relation class will be mapped to a RDF Class in the navigation model / Indexer  -->
+        <xs:attribute name="RDFClass" type="xs:string"/>
+        <!-- SIXW predicate: how the Relation class, used as a pointer, will be mapped in 6W tagger / Indexer  -->
+        <xs:attribute name="SIXW" type="xs:string"/>
+        <!-- SIXW predicate: how the to pointer of the relation class will be mapped in 6W tagger / Indexer  -->
+        <xs:attribute name="SIXW_to" type="xs:string"/>
+        <!-- SIXW predicate: how the from pointer of the relation class will be mapped in 6W tagger / Indexer  -->
+        <xs:attribute name="SIXW_from" type="xs:string"/>
+    </xs:complexType>
+    <xs:element name="RelationClass" type="tns:RelationClass"/>
+
+
+    <!-- Description of a Range: a range is a constraing for the values of an attribute  -->
+    <xs:complexType name="Range">
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="tns:Property"/>
+            <xs:element ref="tns:Comment"/>
+            <xs:element ref="tns:Equal"/>
+            <xs:element ref="tns:NotEqual"/>
+            <xs:element ref="tns:LessThan"/>
+            <xs:element ref="tns:LessThanEqual"/>
+            <xs:element ref="tns:GreaterThan"/>
+            <xs:element ref="tns:GreaterThanEqual"/>
+            <xs:element ref="tns:Between"/>
+            <xs:element ref="tns:Program"/>
+        </xs:choice>
+    </xs:complexType>
+    <xs:element name="Range" type="tns:Range"/>
+    <!-- Constraint of equality: contains the value   -->
+    <xs:element name="Equal" type="xs:string"/>
+    <!-- Constraint of inequality: contains the value   -->
+    <xs:element name="NotEqual" type="xs:string"/>
+    <!-- Constraint of less than a value: contains the value   -->
+    <xs:element name="LessThan" type="xs:string"/>
+    <!-- Constraint of less than or equal to a value: contains the value   -->
+    <xs:element name="LessThanEqual" type="xs:string"/>
+    <!-- Constraint of greater than a value: contains the value   -->
+    <xs:element name="GreaterThan" type="xs:string"/>
+    <!-- Constraint of greater than or equal a value: contains the value   -->
+    <xs:element name="GreaterThanEqual" type="xs:string"/>
+    <!-- Constraint of between two values   -->
+    <xs:complexType name="Between">
+        <xs:choice>
+            <xs:element maxOccurs="1" name="Min" type="xs:string"/>
+            <xs:element maxOccurs="1" name="MinEqual" type="xs:string"/>
+            <xs:element maxOccurs="1" name="Max" type="xs:string"/>
+            <xs:element maxOccurs="1" name="MaxEqual" type="xs:string"/>
+        </xs:choice>
+    </xs:complexType>
+    <xs:element name="Between" type="tns:Between"/>
+    <!-- Constraint modeled by a program that is executed   -->
+    <xs:complexType name="Program">
+        <!-- name of the program that is executed   -->
+        <xs:attribute name="Name" type="xs:string" use="required"/>
+    </xs:complexType>
+    <xs:element name="Program" type="tns:Program"/>
+
+    <!-- TO SUPPORT NEW TYPING WAITING FOR ENUM MIGRATION: PREFER RANGES -->
+
+    <!--Description of a unique key: a unique key determines a unicity rule for a collection of attributes of an object. Attributes are taken on a type and a deployment extension -->
+    <xs:complexType name="UniqueKey">
+        <xs:choice minOccurs="0" maxOccurs="0">
+            <xs:element ref="tns:Comment"/>
+            <xs:element ref="tns:CAAComment"/>
+            <xs:element ref="tns:Property"/>
+        </xs:choice>
+        <!-- Name of the unique key -->
+        <xs:attribute name="Name" type="xs:string" use="required"/>
+        <!--Used by MQL generator to identify a type uniquely-->
+        <xs:attribute name="Uuid" type="xs:string"/>
+        <!-- The name of the Class that contains some attribute of the unique key -->
+        <xs:attribute name="ClassName" type="xs:string" use="required"/>
+        <!-- Potentially, name of the deployment extension that contains some attributes of the unique key -->
+        <xs:attribute name="ExtensionName" type="xs:string"/>
+        <!--List of attributes -->
+        <xs:attribute name="AttributeNames" type="xs:string"/>
+        <!--Indicates if this key includes the composer ID. By default it is not the case-->
+        <xs:attribute name="IncludesComposer">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="Yes"/>
+                    <xs:enumeration value="No"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:complexType>
+    <xs:element name="UniqueKey" type="tns:UniqueKey"/>
+
+
+</xs:schema>

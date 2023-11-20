@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2013, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" CustomerExposition="Programmer" BelongsToModeler="PLMAssessmentResult" ModelerType="Top" Name="PLMAssessmentResult" Uuid="62156D8C-E4E8-4048-A626-C563F4495D16" UseNames="PLMCORE" >
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+  <!-- ********************************************* -->
+	
+<!-- * PLMAssessmentResult (PLMCoreRepReference) * -->
+	<!-- ********************************************* -->
+	<Class Name="PLMAssessmentResultRepReference" CustomerExposition="Programmer" Uuid="F1A4A70F-581F-4573-BF26-507B6CCBED6A"  Abstract="No" SuperName="PLMCoreRepReference"  Specializable="No" Abbreviation="art" >
+		<Property Name="Searchable"	 Value="Yes"/>
+		<Property Name="Newable"	    Value="No"/>
+		<Property Name="KweNew_InstanciationMethod" Value="CATDelegateInstanciationAssessmentResult"/>
+		<Property Name="KweNew_ReturnedType" Value="PLMAssessmentResultRepReference"/>
+		<CAAComment>
+			<ShortRole>Assessment result specs representation reference</ShortRole>
+			<Role>Result Specifications Representation Reference Object</Role>
+		</CAAComment>
+		<Simple Name="V_TotalKO" Uuid="1F307428-C0FF-4042-B799-6B470BFB7810" Type="Integer" Protection="External" CAAExposition="L0" >
+			<CAAComment>
+				<ShortRole>An attribute used to specify the total number of KO</ShortRole>
+			</CAAComment>
+		</Simple>
+		<Simple Name="V_TotalOK" Uuid="CE9DC720-D4EC-439D-AE72-B617E8189832" Type="Integer" Protection="External" CAAExposition="L0" >
+			<CAAComment>
+				<ShortRole>An attribute used to specify the total number of OK</ShortRole>
+			</CAAComment>
+		</Simple>
+		<Simple Name="V_TotalTBR" Uuid="09d45817-86bd-4eee-ad1c-cdb0e74b36e5" Type="Integer" Protection="External" CAAExposition="L0" >
+			<CAAComment>
+				<ShortRole>An attribute used to specify the total number of to be reviewed</ShortRole>
+			</CAAComment>
+		</Simple>
+		<Simple Name="V_ContextSumupUpdateStamp" Uuid="C4DAF30E-0fcf-4B9C-8CEC-D1F2DCB04502" Type="String" MultiValuated="No" Protection="External" CAAExposition="L0">
+			<CAAComment>
+				<ShortRole>An attribute used to specify the update stamp every context linked with</ShortRole>
+			</CAAComment>
+		</Simple>
+		<Simple Name="V_ComputedAssessmentValue" Uuid="EF50C071-E247-4D75-8A17-0BB4DBA69E30" Type="Integer" MultiValuated="No" Protection="External" CAAExposition="L0" Faceted="Yes" >
+			<CAAComment>
+				<ShortRole>An attribute used to specify the update stamp every context linked with</ShortRole>
+			</CAAComment>
+		</Simple>
+		<Simple Name="V_ComputedAssessmentQuality" Uuid="9934FEAD-490F-435A-AC0F-6BEC19CBD864" Type="Integer" MultiValuated="No" Protection="External" CAAExposition="L0">
+			<CAAComment>
+				<ShortRole>An attribute used to specify the update stamp every context linked with</ShortRole>
+			</CAAComment>
+		</Simple>
+		<Simple Name="V_XMLReport" Uuid="9F911C2F-D1AE-4558-96EA-FD9B5B3965D1" Type="String" MultiValuated="No" Protection="External" CAAExposition="L0"/>
+		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+	</Class>
+	</Package>

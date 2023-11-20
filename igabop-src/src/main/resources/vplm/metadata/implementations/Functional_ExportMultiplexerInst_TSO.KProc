@@ -1,0 +1,14 @@
+#Prog Functional_ExportMultiplexerInst_TSO (iPLMIDSet :  #In PLMIDSet,oPLMIDSet :  #Out PLMIDSet) : VoidType
+{
+  let InputPLMIDSetRestrictedToMultiplexerInstances(PLMIDSet)
+  let SetOfConfigObjectsPLMIDs(PLMIDSet)
+
+  InputPLMIDSetRestrictedToMultiplexerInstances = Restrict(iPLMIDSet,"RFLPLMFunctionalCommunication/RFLPLMFunctionalCommunicationInstance")
+ 
+  /*Completes with configuration */
+  /*TO ADD - Need a specific procedure from Config*/
+  /*SetOfConfigObjectsPLMIDs = ExecutePLMProcedure("?????",InputPLMIDSetRestrictedToMultiplexerInstances)*/
+  
+  oPLMIDSet = iPLMIDSet
+  /*oPLMIDSet = iPLMIDSet + SetOfConfigObjectsPLMIDs*/
+}

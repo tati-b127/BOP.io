@@ -1,0 +1,185 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" CustomerExposition="Programmer" ModelerType="Top" 
+	Name="PLMKbaApplication" 
+	Uuid="4a5ce17d-2217-4220-afa4-1f5926222125"
+        BelongsToModeler="PLMKbaAppliConfig"
+	UseNames="PLMCORE"
+>
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+  <!--	ModelerName="PLMKbaAPPL" -->
+    <CAAComment>
+        <ShortRole>PLM Knowledge Business Applications -- Applications' Modeler</ShortRole>
+        <Role>This package describes the Knowledge Business Applications on top of PLM Core</Role>
+    </CAAComment>
+    <Comment>Created by PHB (2006-03-15)</Comment>
+  
+  
+    <!-- ************************************************* -->
+    <!-- *  PLMKbaBusinessApplication (PLMCoreReference) * -->
+    <!-- ************************************************* -->
+    <Class Name="PLMKbaBusinessApplication"
+		 Uuid="fc9ac7f0-0180-4eb6-a88cbbf46ea8ce67"		
+		 CustomerExposition="Programmer"
+		 Abstract="No"
+		 SuperName="PLMCoreReference"
+     Specializable="Yes"
+     CustomerExtensible="Yes"
+     CreateInstName="PLMKbaConfigCompositionItem"
+     Abbreviation="kap" 
+     DeleteAvailability="Yes"
+  >
+      <Property Name="IconName"        Value="I_Kwe2_Puzzle_4Pieces_tlb"/>
+      <Property Name="Searchable"      Value="Yes"/>
+      <Property Name="Newable"         Value="All"/>
+      <Property Name="PQ_Attributes"   Value="PLM_ExternalID V_description V_user"/>
+      <Property Name="KweNew_InstanciationMethod" Value="CATKBEDelegateInstanciationAppli"/>
+      <Property Name="DMCDerivable" Value="Yes"/>
+      <CAAComment>
+            <ShortRole>Knowledge Business Application (Reference)</ShortRole>
+            <Role>PLM Knowledge Business Application -- Reference Object</Role>
+        </CAAComment>
+
+      <!-- PROCEDURES Declaration  -->
+      <Method ImplementationType="Self">
+        <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+        <ProcedureForUsage>
+          <Usage href="ExportScope.meth#Design"/>
+          <UsedProcedure href="KBApe_Procedures.proc#Kba_ExportAppli"/>
+        </ProcedureForUsage>
+        <ProcedureForUsage>
+          <Usage href="ExportScope.meth#Channel"/>
+          <UsedProcedure href="KBApe_Procedures.proc#Kba_ExportAppli"/>
+        </ProcedureForUsage>
+		<ProcedureForUsage>
+          <Usage href="ExportScope.meth#Remove"/>
+          <UsedProcedure href="KBApe_Procedures.proc#Kba_ExportAppli"/>
+        </ProcedureForUsage>
+		<ProcedureForUsage>
+          <Usage href="ExportScope.meth#TransferSiteOwnership"/>
+          <UsedProcedure href="KBApe_Procedures.proc#Kba_ExportAppli"/>
+        </ProcedureForUsage>
+      </Method>
+    </Class>
+
+
+  <!-- ********************************************************* -->
+  <!-- *  PLMKbaConfigCompositionItem (PLMCoreInstance) * -->
+  <!-- ********************************************************* -->
+  <RelationClass Name="PLMKbaConfigCompositionItem"
+   Uuid="5d1fe775-e520-4f6a-81326d9beb4c6dc8"		
+   CustomerExposition="Programmer"
+   Abstract="No"
+   SuperName="PLMCoreInstance"
+  >
+    <CAAComment>
+      <ShortRole>Applicative Configuration Composition Item (Instance)</ShortRole>
+      <Role>PLM Knowledge Business Applicative Configuration Composition Item - Instance Object</Role>
+    </CAAComment>
+    <!--
+         *********************************************************
+         * Overload(s) of PLMCoreInstance attributes to fix metadata access issue. This should not be necessary!
+         *********************************************************
+         -->
+    <SubClause Name="from"   TargetName="PLMKbaAppliConfiguration"/>
+    <SubClause Name="to"   TargetName="PLMKbaBusinessApplication"/>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </RelationClass>
+  
+  
+  <!-- ********************************************************** -->
+    <!-- *  PLMKbaAppliResolutionElement (PLMConnection)		  * -->
+    <!-- ********************************************************** -->
+    <Class Name="PLMKbaAppliResolutionElement"
+		 Uuid="376af2d4-f806-4fc0-b801-f33f0df2bded"		
+		 CustomerExposition="None"
+		 Abstract="No"   OwnerTypes="PLMKbaBusinessApplication"
+		 SuperName="PLMConnection"
+	>
+      <!-- OwnerTypes="PLMKbaBusinessApplication"  Integrate this line if you want to declare the aggregation constraint -->
+
+      <Property Name="DMCDerivable" Value="Yes"/>
+      <CAAComment>
+            <ShortRole>Application Resolution Element (Connection)</ShortRole>
+            <Role>PLM Knowledge Business Application Resolution Element -- Connection Object</Role>
+        </CAAComment>
+	   <Path Name="Replacing"
+			    Uuid="954932e6-fc51-4310-801d-89790c80ab9a" 
+			    MultiValuated="No"
+                RoleName="Default" 		
+                Type="SemanticRelation" AdaptativeToMinor="No"
+		            SynchroSensitivity="None"
+              RerouteOnEffectivityChange="No" Protection="Internal"
+			    Semantics="Reference2"/>
+	   <Path Name="Replaced"
+			    Uuid="4ce79b92-a28e-4f3c-a136-1373617c388b" 
+			    MultiValuated="No" 
+                RoleName="Default" 		
+                Type="SemanticRelation" AdaptativeToMinor="No"
+	            	SynchroSensitivity="None"
+              RerouteOnEffectivityChange="No" Protection="Internal"
+			    Semantics="Reference2"/>
+
+      <Method ImplementationType="None">
+        <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      </Method>
+    </Class>
+
+  
+  <!-- ********************************************************** -->
+  <!-- *  PLMKbaAppliPublishedDefinition (PLMPort)		  * -->
+  <!-- ********************************************************** -->
+  <Class Name="PLMKbaAppliPublishedDefinition"
+   Uuid="8f412cbe-4117-4705-9ace-99146bb7e3ac"		
+   CustomerExposition="None" OwnerTypes="PLMKbaBusinessApplication"
+   Abstract="No"
+   SuperName="PLMPort"
+	>
+    <!-- OwnerTypes="PLMKbaBusinessApplication"  Integrate this line if you want to declare the aggregation constraint -->
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <CAAComment>
+      <ShortRole>Application Published Definition (Port)</ShortRole>
+      <Role>PLM Knowledge Business Application Published Definition -- Port Object</Role>
+    </CAAComment>
+    <Simple Name="DefinitionKind"
+            Uuid="11ff590f-6c86-4530-9aa3-9c7ccc55e76f"
+            Type="String"
+            MaxLength="16"
+            MultiValuated="No"
+            PLMImpacting="Yes"
+            Protection="Free"
+            CAAExposition="L0"
+            />
+    <Path Name="Exposes"
+         Uuid="1de0f318-9df5-4aff-9f50-ea38c90c791d" 
+         MultiValuated="No" 
+         RoleName="Default" 		
+         Type="SemanticRelation" AdaptativeToMinor="No"
+		     SynchroSensitivity="None"
+		     RerouteOnEffectivityChange="No"
+         Semantics="Reference2" Protection="Internal"
+         />
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+  <!-- ******************************* -->
+  <!-- FUNCTIONS Declarations : PLMQL  -->
+  <Function Name="kba_expand_appli">
+    <Implementation Name="kba_expand_appli" FileLocation="kba_expand_appli.plmql" Language="PLMQL"/>
+    <Signature href="PLMKbaAppliSignature"/>
+  </Function>
+
+  <Signature id="PLMKbaAppliSignature">
+    <Parameter Name="InputIds" Lower="0" Upper="-1" Direction="in" MultiValuated="Yes" DataType="PLMId"/>
+    <Parameter Name="OutputIds" Lower="0" Upper="-1" Direction="out" MultiValuated="No" DataType="PLMRouteSet"/>
+  </Signature>
+  <!-- ******************************* -->
+
+</Package>

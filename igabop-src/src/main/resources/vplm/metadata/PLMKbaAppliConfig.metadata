@@ -1,0 +1,119 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" 
+	Name="PLMKbaAppliConfig" 
+	CustomerExposition="Programmer"
+        BelongsToModeler="PLMKbaCONF"
+	Uuid="58a02259-2b58-4fd6-be8c-dbe2a757dc30"
+	UseNames="PLMCORE"
+>
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+  <!--	ModelerName="PLMKbaCONF"  -->
+        <!--
+    <CAAComment>
+        <ShortRole>PLM Knowledge Business Applications - Applicative Configurations' Modeler</ShortRole>
+        <Role>This package describes the Knowledge Business Applicative Configurations on top of PLM Core</Role>
+    </CAAComment>
+    <Comment>Created by PHB (2006-03-15)</Comment>
+         -->
+    <!-- ****************************************************** -->
+    <!-- *  PLMKbaAppliConfiguration (PLMCoreReference) * -->
+    <!-- ****************************************************** -->
+    <Class Name="PLMKbaAppliConfiguration"
+		 Uuid="5afb26b4-ad45-4007-a02f877f20810003"		
+		 CustomerExposition="Programmer"
+		 Abstract="No"
+		 SuperName="PLMCoreReference"
+     Specializable="Yes"
+     CustomerExtensible="Yes"
+     Abbreviation="kcf" 
+     DeleteAvailability="Yes"
+  	>
+      <Property Name="IconName"        Value="I_Kwe2_Puzzle_4Pieces_Deploy_tlb"/>
+      <Property Name="Searchable"      Value="Yes"/>
+      <Property Name="Newable"         Value="New"/>
+      <Property Name="PQ_Attributes"   Value="PLM_ExternalID V_description V_user"/>
+      <Property Name="KweNew_InstanciationMethod" Value="CATKBEDelegateInstanciationAppli"/>
+      <Property Name="DMCDerivable" Value="Yes"/>
+      <CAAComment>
+            <ShortRole>Knowledge Business Applicative Configuration (Reference)</ShortRole>
+            <Role>PLM Knowledge Business Applicative Configuration - Reference Object</Role>
+        </CAAComment>
+
+      <Simple Name="V_ConfigVersion" Uuid="9A293429-123B-4c61-B903-6D3FC6584043" Type="Integer" DefaultValue="0" Protection="External"  CAAExposition="L0">
+      </Simple>
+      <Simple Name="V_CfgDeployment" Uuid="3607379A-8A4E-4336-ADA2-8F6A75D8C742" Type="Integer" DefaultValue="2" Protection="External"  CAAExposition="L0">
+      </Simple>
+      
+        
+      <!-- PROCEDURES Declaration  -->
+      <Method ImplementationType="Self">
+        <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+        <ProcedureForUsage>
+          <Usage href="ExportScope.meth#Design"/>
+          <UsedProcedure href="KBApe_Procedures.proc#Kba_ExportAppConfig"/>
+        </ProcedureForUsage>
+        <ProcedureForUsage>
+          <Usage href="ExportScope.meth#Channel"/>
+          <UsedProcedure href="KBApe_Procedures.proc#Kba_ExportAppConfig"/>
+        </ProcedureForUsage>
+		<ProcedureForUsage>
+          <Usage href="ExportScope.meth#Remove"/>
+          <UsedProcedure href="KBApe_Procedures.proc#Kba_ExportAppConfig"/>
+        </ProcedureForUsage>
+		<ProcedureForUsage>
+          <Usage href="ExportScope.meth#TransferSiteOwnership"/>
+          <UsedProcedure href="KBApe_Procedures.proc#Kba_ExportAppConfig"/>
+        </ProcedureForUsage>
+      </Method>
+    </Class>
+
+
+  <!-- ********************************************************** -->
+  <!-- *  PLMKbaAppliConfigAggregationLinkToRZip (PLMPort)		  * -->
+  <!-- ********************************************************** -->
+  <Class Name="PLMKbaAppliConfigAggregationLinkToRZip"
+   Uuid="030277fe-e5bd-458c-8170-a684de0f44d0"
+   Abstract="No"
+   SuperName="PLMPort" OwnerTypes="PLMKbaAppliConfiguration"
+   CustomerExposition="Programmer"
+	>
+    <!-- OwnerTypes="PLMKbaAppliConfiguration"  Integrate this line if you want to declare the aggregation constraint -->
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <CAAComment>
+      <ShortRole>Applicative Configuration Aggregation Link to RZip (Port)</ShortRole>
+      <Role>PLM Knowledge Applicative Configuration Aggregation Link to RZip -- Port Object</Role>
+    </CAAComment>
+    <Path Name="Aggregates"
+         Uuid="2d89c7be-6d3b-4927-a766-9751a15bc2f1"
+         MultiValuated="No"
+         RoleName="Default"		
+         Type="SemanticRelation" AdaptativeToMinor="No"
+		     SynchroSensitivity="None"
+		     RerouteOnEffectivityChange="No"
+         Semantics="Composition"
+         />
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+  <!-- ******************************* -->
+  <!-- FUNCTIONS Declarations : PLMQL  -->
+  <Function Name="kba_expand_config">
+    <Implementation Name="kba_expand_config" FileLocation="kba_expand_config.plmql" Language="PLMQL"/>
+    <Signature href="PLMKbaConfigSignature"/>
+  </Function>
+  <Function Name="kba_navigate_config">
+    <Implementation Name="kba_navigate_config" FileLocation="kba_navigate_config.plmql" Language="PLMQL"/>
+    <Signature href="PLMKbaConfigSignature"/>
+  </Function>
+
+  <Signature id="PLMKbaConfigSignature">
+    <Parameter Name="InputIds" Lower="0" Upper="-1" Direction="in" MultiValuated="Yes" DataType="PLMId"/>
+    <Parameter Name="OutputIds" Lower="0" Upper="-1" Direction="out" MultiValuated="No" DataType="PLMRouteSet"/>
+  </Signature>
+  <!-- ******************************* -->
+</Package>

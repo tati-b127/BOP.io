@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" Name="DELLmiProductionBufferOperationDS" Uuid="5f3bd1ab-9b7c-429a-ba13b3268ed586f8" UseNames="DELLmiProductionBufferOperation" >
+<Property Name="OptionalInstallation" Value="Yes" /> 
+	<CAAComment>
+		<ShortRole>Standard DELMIA Buffer Operation Package</ShortRole>
+		<Role>This package includes default customized DELMIA Buffer Operation</Role>
+	</CAAComment>
+	<Comment>last update 2008-11-21</Comment>
+
+	<Class Name="DELLmiBufferOperationReferenceCusto" Uuid="bf6349f9-9cea-4e94-8dce4d9c065ed905" SuperName="DELLmiBufferOperationReference"   >
+
+    <IdentifierSet Name="Identifier"
+        Uuid="5574b21b-6d9b-4620-a76e1e0f6349cf3c"
+        IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755"
+        IdentifierNames="PLM_ExternalID V_version" />
+
+    <CAAComment>
+			<ShortRole>Standard DELMIA Buffer Operation Reference</ShortRole>
+			<Role>Default customized DELMIA Buffer Operation Reference</Role>
+		</CAAComment>
+	</Class>
+	
+	<RelationClass Name="DELLmiBufferOperationInstanceCusto" Uuid="358ffb1a-47a1-424a-8a3ec0f1fc159d7a" SuperName="DELLmiBufferOperationInstance"   >
+		<CAAComment>
+			<ShortRole>Standard DELMIA Buffer Operation Instance</ShortRole>
+			<Role>Default customized DELMIA Buffer Operation Instance</Role>
+		</CAAComment>		
+            <!-- ********************************************************* -->
+            <!-- * Overload(s) of PLMCoreInstance attributes. -->
+            <!-- ********************************************************* -->
+    <SubClause Name="to"   TargetName="DELLmiBufferOperationReferenceCusto"/>
+	</RelationClass>
+</Package>

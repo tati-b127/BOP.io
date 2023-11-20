@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR DELMIA Work Instruction Application -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2010, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" 
+         ModelerType="Top" 
+         Name="DELWkiExecSignOff"
+	       Uuid="8bb49150-9290-4b51-848233be5c8c720f"
+  	     BelongsToModeler="DELWkiUPR"         
+	       UseNames="DELWkiUPR"
+	       CustomerExposition="Programmer"  >
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>DELMIA Work Instruction Execution Sign Off</ShortRole>
+    <Role>This package describes the DELMIA Work Instruction Execution SignOff model.</Role>
+  </CAAComment>
+
+  <Comment>last update 2012-07-06</Comment>
+  <Comment>last update 2013-09-24</Comment>
+
+  <Class Name="DELWkiExecSignOffReference"
+         Uuid="345baf08-3496-499d-9ff17eb5e462cfbe"
+		     Abstract="No"
+    		 SuperName="DELWkiUPRReference"
+         Specializable="No"
+         CustomerExtensible="Yes"
+         CreateInstName="DELWkiExecSignOffInstance"
+		     CustomerExposition="Programmer"
+         Abbreviation="xis">
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="IconName" Value="I_WI_SignOff"/>
+    <Property Name="3DIconName" Value="I_WI_SignOff.cgr"/>
+    <Property Name="Newable" Value="No"/>
+    <Property Name="Searchable" Value="Yes"/>
+
+    <CAAComment>
+      <ShortRole>DELMIA Work Instruction Execution SignOff Reference</ShortRole>
+      <Role>DELMIA Work Instruction Execution SignOff Reference</Role>
+    </CAAComment>
+
+    <Simple Name="V_WISignOff_Actors"
+            Uuid="5992e710-b6a1-46e6-a74673d86e0c97ef"
+            Type="String"
+            MultiValuated="Yes"
+            MaxLength="128"
+            CollectionType="List"
+            Protection="Free"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>The person(s) that need to sign off on the task after it has been completed by the Shop Floor worker.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_WISignOff_Text"
+            Uuid="18afddf2-b737-4740-8c94bdda0b2963c9"
+            Type="String"
+            MultiValuated="No"
+            MaxLength="4000"
+            Protection="Free"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>The Instruction message to give the Shop Floor worker details on how to do the sign off.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+
+  </Class>
+
+  <RelationClass Name="DELWkiExecSignOffInstance"
+         Uuid="1ab7ce37-be84-46d9-875378672588afc2"
+		     Abstract="No"
+   		   SuperName="DELWkiUPRInstance"
+         Specializable="No"
+         CustomerExtensible="No"
+		     CustomerExposition="Programmer">
+
+      <Property Name="DMCDerivable" Value="Yes"/>
+    
+    <CAAComment>
+      <ShortRole>DELMIA Work Instruction Execution SignOff Instance</ShortRole>
+      <Role>DELMIA Work Instruction Execution SignOff Instance</Role>
+    </CAAComment>
+
+    <Volatile Name="Reference" Uuid="9693b5b4-3908-4543-936a9709413bd584" Accessor="PLMModelerReferenceKweAttribute" TypeName="DELWkiExecSignOffReference" AccessMode="ReadOnly" />
+
+    <SubClause Name="to"   TargetName="DELWkiExecSignOffReference"/>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+
+  </RelationClass>
+
+</Package>

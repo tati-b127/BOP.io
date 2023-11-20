@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2005, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" DataRDB_OID="ENODR_TASK" Name="TaskActionDS" Uuid="cb8fbf94-6984-0000-020a100536000000" UseNames="PLMChgTaskAction"  >
+<Property Name="OptionalInstallation" Value="Yes" /> 
+	<CAAComment>
+		<ShortRole>Standard Task Action Package</ShortRole>
+		<Role>This package includes the entities of the Standard Task Action Reference and Standard Task Child Action Instance - these are default customized change entities</Role>
+	</CAAComment>
+	<Comment>last update 2006-12-05-09.00.00</Comment>
+	<!-- *************************************** -->
+	<!-- * PLMTaskActionCusto(PLMTaskAction)   * -->
+	<!-- *************************************** -->
+	<Class Name="PLMTaskActionCusto" Uuid="cb8fc0dc-9bdb-0000-020a100536000000" SuperName="PLMTaskAction"  >
+		<CAAComment>
+			<ShortRole>Standard Task Action Reference</ShortRole>
+			<Role>Standard Action Reference for Task - this is a default customized Task Action</Role>
+		</CAAComment>
+    <IdentifierSet Name="Identifier" Uuid="e2660fea-05f1-414c-a0e567b53a91208d" IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB" IdentifierNames="PLM_ExternalID"/>
+	</Class>
+	<!-- *************************************** -->
+	<!-- * PLMTaskChildActionCusto(PLMTaskChildAction)   * -->
+	<!-- *************************************** -->
+  <RelationClass Name="PLMTaskChildActionCusto" Uuid="cb8fc2fe-7b4b-0000-020a100536000000" SuperName="PLMTaskChildAction"   >
+		<CAAComment>
+			<ShortRole>Standard Task Child Action Instance</ShortRole>
+			<Role>Standard Child Action Instance for Task - this is a default customized Task Child Action</Role>
+		</CAAComment>		
+            <!-- ********************************************************* -->
+            <!-- * Overload(s) of PLMCoreInstance attributes. -->
+            <!-- ********************************************************* -->
+    <SubClause Name="to"   TargetName="PLMTaskActionCusto"/>
+	</RelationClass>
+</Package>

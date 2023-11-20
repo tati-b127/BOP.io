@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" Name="ENOSTWkiSignOffDS" Uuid="e6b0195d-00f2-454b-92c3d70c60c12864" UseNames="DELWkiSignOff" >
+	<CAAComment>
+		<ShortRole>PLM Customization of DELMIA Work Instruction SignOff for SMB</ShortRole>
+		<Role>PLM Customization of DELMIA Work Instruction SignOff for SMB</Role>
+	</CAAComment>
+	<Comment>last update 2010-07-01</Comment>
+
+	<Class Name="ENOSTWkiSignOffReferenceCusto" Uuid="09b9b7d3-6df5-4961-b3863bcb121fd72a" SuperName="DELWkiSignOffReference" SuperRef="08dfcb3e-0874-4445-884b6ee6a0ff35fa"  >
+
+    <Simple Name="E_fromExternalId"
+            Uuid="5dfa8222-bad6-4e86-a011b2452d9aed62"
+            Alias="Definition"
+            Type="String"
+            MaxLength="256"
+            Mandatory="No"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"/>
+    <Simple Name="E_versionComment"
+            Uuid="62248e33-c84b-4864-a58f05f4752f6e3e"
+            Alias="Version Comment"
+            Type="String"
+            MaxLength="256"
+            Mandatory="No"
+            MultiValuated="No"
+            Protection="Free"
+            ResetOnNewVersion="Yes"
+            ResetOnCloning="Yes"
+            CAAExposition="L0"/>
+    <IdentifierSet Name="E_identifier"
+                   Uuid="b287f783-5b33-445e-86b4e96bda9b854a"
+                   IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755"
+                   IdentifierNames="PLM_ExternalID V_version"/>
+
+    <CAAComment>
+			<ShortRole>PLM Customization of DELMIA DELMIA Work Instruction SignOff Reference for SMB</ShortRole>
+			<Role>PLM Customization of DELMIA DELMIA Work Instruction SignOff Reference for SMB</Role>
+		</CAAComment>
+	</Class>
+
+  <RelationClass Name="ENOSTWkiSignOffInstanceCusto" Uuid="469b3c7e-bc40-462e-9b78bc341b3a9007" SuperName="DELWkiSignOffInstance" SuperRef="3b7a4495-d35e-4e92-a21c1c56ad41712f"  >
+		<CAAComment>
+			<ShortRole>PLM Customization of DELMIA Work Instruction SignOff Instance for SMB</ShortRole>
+			<Role>PLM Customization of DELMIA Work Instruction SignOff Instance for SMB</Role>
+		</CAAComment>		
+            <!-- ********************************************************* -->
+            <!-- * Overload(s) of PLMCoreInstance attributes. -->
+            <!-- ********************************************************* -->
+    <SubClause Name="to"   TargetName="ENOSTWkiSignOffReferenceCusto"/>
+	</RelationClass>
+
+</Package>

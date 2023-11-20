@@ -1,0 +1,34 @@
+NAVIGATE
+
+   	T1.physicalid , T1.logicalid , T1.type , T1.name ,
+   	T2.physicalid , T2.logicalid , T2.type
+
+FROM
+
+	"Class/Test Case" T1,
+
+	"RelationClass/Sub Test Case" T2
+
+FROM_ROOTS
+
+	[?1?]
+
+ON
+
+	(RELATION 
+		(FROM="Class/Test Case"
+		 TO="RelationClass/Sub Test Case"
+		 THROUGH=POINTEDBY
+		 )
+		 WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY)
+	)
+OR
+	(RELATION 
+		(FROM="RelationClass/Sub Test Case"
+		 TO="Class/Test Case"
+		 THROUGH=POINTSTO
+		 )
+		 WITH QUALITY_FILTER (CATEGORY=ISINSTANCEOF)
+	)
+
+ITER = 10 ;

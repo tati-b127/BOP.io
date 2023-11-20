@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2013, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" CustomerExposition="Programmer" ModelerType="Top" Name="WorkInstructionTypePackage" Uuid="c2a0bad9-da6e-42d9-be3e-019c354fd509" UseNames="PLMProductionSystemTypePackage" >
+	<CAAComment>
+		<ShortRole>Fake modelers</ShortRole>
+		<Role>This package includes the fake DELMIA Modeler</Role>
+	</CAAComment>
+	<Comment>last update 2013-03-17</Comment>
+	<!-- ******************************* -->
+	<!-- * PLMOperation (PLMCoreReference) * -->
+	<!-- ******************************* -->
+  <Extension Name="WkiAlertReference"  CustomerExposition="ProgrammerOnly" Uuid="e1884e9c-010a-449e-a92b-9e71a6091d5d" Abstract="Yes" SuperName="PLMOperation"  Searchable="No" >
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Extension>
+
+  <Extension Name="WkiDataCollectReference"  CustomerExposition="ProgrammerOnly" Uuid="be844b83-4750-494d-b83c-5293047eb2b4" Abstract="Yes" SuperName="PLMOperation"  Searchable="No" >
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Extension>
+
+  <Extension Name="WkiSignOffReference"  CustomerExposition="ProgrammerOnly" Uuid="cfdd7d64-b930-47e8-97dc-a578a7158dae" Abstract="Yes" SuperName="PLMOperation"  Searchable="No" >
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Extension>
+  
+  <Extension Name="WkiInstructionReference"  CustomerExposition="ProgrammerOnly" Uuid="26af14d8-e9fb-48ba-91cb-1472670d39e8" Abstract="Yes" SuperName="PLMOperation"  Searchable="No" >
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Extension>
+
+  <Extension Name="WkiExecAlertReference"  CustomerExposition="ProgrammerOnly" Uuid="229c1883-fda7-4391-9f34-bc637628e46d" Abstract="Yes" SuperName="PLMOperation"  Searchable="No" >
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Extension>
+
+  <Extension Name="WkiExecDataCollectReference"  CustomerExposition="ProgrammerOnly" Uuid="ff53f656-7456-4b06-a87c-462bfaecf431" Abstract="Yes" SuperName="PLMOperation"  Searchable="No" >
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Extension>
+
+  <Extension Name="WkiExecSignOffReference"  CustomerExposition="ProgrammerOnly" Uuid="83db8af6-609d-42e2-a78b-3b884fd51301" Abstract="Yes" SuperName="PLMOperation"  Searchable="No" >
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Extension>
+
+  <Extension Name="WkiExecInstructionReference"  CustomerExposition="ProgrammerOnly" Uuid="b9bef0fe-27bc-4e4d-a32d-018be909aafd" Abstract="Yes" SuperName="PLMOperation"  Searchable="No" >
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Extension>
+
+  <Extension Name="WkiAlertInstance"  CustomerExposition="ProgrammerOnly" Uuid="f230a89a-7ad9-4d70-aa24-54ddcf900ac0" Abstract="Yes" SuperName="PLMOperationInstance"  Searchable="No" >
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Extension>
+
+  <Extension Name="WkiDataCollectInstance"  CustomerExposition="ProgrammerOnly" Uuid="75f82b25-a9e3-49a3-bd48-067a3f06426b" Abstract="Yes" SuperName="PLMOperationInstance"  Searchable="No" >
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Extension>
+
+  <Extension Name="WkiSignOffInstance"  CustomerExposition="ProgrammerOnly" Uuid="3ce06b11-aaba-4c5b-be52-132657fc9bf5" Abstract="Yes" SuperName="PLMOperationInstance"  Searchable="No" >
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Extension>
+
+  <Extension Name="WkiInstructionInstance"  CustomerExposition="ProgrammerOnly" Uuid="62c93d76-694a-4903-9ed8-9a269a2adea1" Abstract="Yes" SuperName="PLMOperationInstance"  Searchable="No" >
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Extension>
+  
+  <Extension Name="WkiExecAlertInstance"  CustomerExposition="ProgrammerOnly" Uuid="3f76c632-5b00-4ba2-a743-43dfac9ec084" Abstract="Yes" SuperName="PLMOperationInstance"  Searchable="No" >
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Extension>
+
+  <Extension Name="WkiExecDataCollectInstance"  CustomerExposition="ProgrammerOnly" Uuid="720841d0-565a-4feb-9723-77a329326b7e" Abstract="Yes" SuperName="PLMOperationInstance"  Searchable="No" >
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Extension>
+
+  <Extension Name="WkiExecSignOffInstance"  CustomerExposition="ProgrammerOnly" Uuid="53e12279-f878-49bf-b4e8-1c026869b424" Abstract="Yes" SuperName="PLMOperationInstance"  Searchable="No" >
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Extension>
+
+  <Extension Name="WkiExecInstructionInstance"  CustomerExposition="ProgrammerOnly" Uuid="8666311c-3733-402a-9474-47acdc661b8d" Abstract="Yes" SuperName="PLMOperationInstance"  Searchable="No" >
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Extension>
+
+</Package>

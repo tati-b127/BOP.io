@@ -1,0 +1,22 @@
+#Prog Functional_ExportFlow_PLMChannel( iPLMIDSet : #In PLMIDSet, oPLMIDSet : #Out PLMIDSet ) : VoidType
+{
+  let InputPLMIDSetRestrictedToRefs(PLMIDSet)
+  let SetOfPLMRoutesForStructuredFlow(PLMRouteSet)
+  let PLMIDSetRestrictedToRefs(PLMIDSet)
+  let SetOfPLMRoutesForImplementLinks(PLMRouteSet)
+  let SetOfPLMRoutesForDocuments(PLMRouteSet)
+
+  InputPLMIDSetRestrictedToRefs = Restrict(iPLMIDSet,"RFLPLMFlow/RFLPLMFlowReference")
+ 
+  /* Recursively expand the structured flow (resp: LRG) */
+  SetOfPLMRoutesForStructuredFlow = ExecutePLMFunction("RFLPLMFlow","RFLPLMFlow_Expand",InputPLMIDSetRestrictedToRefs)
+   
+  /* Implement Link Connections associated to Functional Flows (resp LVT) */
+  PLMIDSetRestrictedToRefs = InputPLMIDSetRestrictedToRefs + Restrict(Ids(SetOfPLMRoutesForStructuredFlow),"RFLPLMFlow/RFLPLMFlowReference")
+  SetOfPLMRoutesForImplementLinks = ExecutePLMFunction("RFLPLMImplementConnection","RFLPLMImplementConnection_AddAllImplementCnx",PLMIDSetRestrictedToRefs)
+
+  /* Add PLMDocConnections plus documents pointed by these PLMDocConnections (resp:MUT)*/
+  SetOfPLMRoutesForDocuments = ExecutePLMFunction("PLMDocConnection","PLMDocConnection_retrieveAllDocuments",PLMIDSetRestrictedToRefs)
+  
+  oPLMIDSet = iPLMIDSet + Ids(SetOfPLMRoutesForStructuredFlow) + Ids(SetOfPLMRoutesForImplementLinks) + Ids(SetOfPLMRoutesForDocuments)
+}

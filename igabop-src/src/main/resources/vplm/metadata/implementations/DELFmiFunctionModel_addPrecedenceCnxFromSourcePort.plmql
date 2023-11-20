@@ -1,0 +1,16 @@
+NAVIGATE
+T0.PLMID, T1.PLMID
+FROM
+DELFmiFunctionalModelPrecedenceCnx/DELFmiProcessPrecedenceCnx T0,
+DELFmiFunctionalModelPrecedenceCnx1/DELFmiProcessPrecedenceCnxCust T1
+
+FROM_ROOTS [?1?]
+ON
+((
+RELATION(FROM= DELFmiFunctionalModelPrecedencePort/DELFmiProcessPrecedencePort TO= DELFmiFunctionalModelPrecedenceCnx/DELFmiProcessPrecedenceCnx THROUGH=POINTEDBY) WITH QUALITY_FILTER (ROLE=DELFmi_PrecedenceCst_Source)
+)
+OR
+(
+RELATION(FROM= DELFmiFunctionalModelPrecedencePort/DELFmiProcessPrecedencePort TO= DELFmiFunctionalModelPrecedenceCnx1/DELFmiProcessPrecedenceCnxCust THROUGH=POINTEDBY) WITH QUALITY_FILTER (ROLE=DELFmi_PrecedenceCst_Source)
+))
+ITER=1;

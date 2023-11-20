@@ -1,0 +1,136 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2007, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" 
+		ModelerType="Top" 
+		CustomerExposition="Programmer" 
+		Name="CATSysBehaviorLibrary" 
+		Uuid="0C08E7C9-CF2E-41a3-A941-B0AB257F5F43" 
+		UseNames="PLMCORE" 
+		BelongsToModeler="CATSysBehaviorLibrary"
+		>
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+  <CAAComment>
+		<ShortRole>PLM CATSysBehaviorLibrary Package</ShortRole>
+		<Role>This package describes the PLM CATSysBehaviorLibrary model on top of PLM Core</Role>
+	</CAAComment>
+	<!-- **************************************************** -->
+	<!-- * CATSysBehaviorLibReference (PLMCoreReference) * -->
+	<!-- * SuperRef = Uuid(PLMCoreReference)             * -->
+	<!-- **************************************************** -->
+	<Class Name="CATSysBehaviorLibReference" Uuid="74a6694c-82ea-4fe7-899b-0b0b8a8cd82b" CustomerExposition="Programmer" Abstract="No" SuperName="PLMCoreReference" DeleteAvailability="Yes">
+		<Property Name="KweNew_InstanciationMethod" 
+				Value="CATSysDelegateInstanciation"/>
+		<Property Name="IconName" 
+				Value="I_BehaviorLib"/>
+		<Property Name="ChangeCollaborativeSpaceAvailability" Value="Yes"/>
+		<CAAComment>
+			<ShortRole>PLM CATSysBehavior Library Reference Object</ShortRole>
+			<Role>PLM CATSysBehavior Library Reference Object</Role>
+		</CAAComment>
+		<Simple Name="E_fromExternalId" Uuid="9A92EC72-B025-4684-9AE6-5B5F4606BDA8" Faceted="Yes" Type="String" MaxLength="256" MultiValuated="No" Protection="Free" CAAExposition="L0">
+			<Property Name="SIXW" Value="ds6w:supplier"/>
+		</Simple>
+		<Simple Name="E_versionComment" Uuid="B3A9F1F2-A522-4590-8FA7-873423A57EE8" Type="String" MaxLength="256" MultiValuated="No" Protection="Free" CAAExposition="L0" ResetOnNewVersion="Yes" ResetOnCloning="Yes"/>
+		<Simple Name="V_LibraryId" Uuid="4b8fab61-361c-44f3-bdfe-9bc8f4e90e1b" Type="String" MaxLength="100" MultiValuated="No" Protection="External" CAAExposition="L0"/>
+		<Simple Name="V_LibraryVersion" Uuid="bd2ae0aa-7506-4228-a72c-a5ef85beb641" Type="String" MaxLength="32" MultiValuated="No" Protection="External" CAAExposition="L0"/>
+		<Simple Name="V_ComponentType" Uuid="e0f05e43-b334-4dcb-8f25-b15499197478" Type="String" MaxLength="32" MultiValuated="No" Protection="Internal"/>
+		<!-- *********************************************************
+			 * Define Export Method 
+			 ********************************************************* -->
+		<Method ImplementationType="Self">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+			<ProcedureForUsage>
+				<Usage href="ExportScope.meth#Design"/>
+				<UsedProcedure href="CATSbi_Procedures.proc#SystemsBehavior_ExportDesign"/>
+			</ProcedureForUsage>
+			<ProcedureForUsage>
+				<Usage href="ExportScope.meth#Channel"/>
+				<UsedProcedure href="CATSbi_Procedures.proc#SystemsBehavior_ExportChannel"/>
+			</ProcedureForUsage>
+		</Method>
+	</Class>
+	<!-- **************************************************** -->
+	<!-- * CATSysBehaviorLibRepReference (PLMCoreRepReference) * -->
+	<!-- * SuperRef = Uuid(PLMCoreRepReference)             * -->
+	<!-- **************************************************** -->
+	<Class Name="CATSysBehaviorLibRepReference" Uuid="7433EF51-CADF-453c-8129-671776D92650" CustomerExposition="Programmer" Abstract="No" SuperName="PLMCoreRepReference" CreateInstName="CATSysBehaviorLibRepInstance" DeleteAvailability="Yes">
+		<Property Name="Searchable" Value="No" /> 
+		<Property Name="KweNew_InstanciationMethod" Value="CATSysDelegateInstanciation"/>
+		<Property Name="IconName" Value="I_BehaviorLib"/>
+		<Property Name="ChangeCollaborativeSpaceAvailability" Value="Yes"/>
+		<CAAComment>
+			<ShortRole>PLM CATSysBehavior Library Representation Reference Object</ShortRole>
+			<Role>PLM CATSysBehavior Library Representation Reference Object. V_LibraryId and V_LibraryVersion attributes will be cleaned in next drop.</Role>
+		</CAAComment>
+		<Simple Name="E_fromExternalId" Uuid="FAA1B5BB-2D78-46AE-9BD8-ACAB053D791E" Faceted="Yes" Type="String" MaxLength="256" MultiValuated="No" Protection="Free" CAAExposition="L0">
+			<Property Name="SIXW" Value="ds6w:supplier"/>
+		</Simple>
+		<Simple Name="E_versionComment" Uuid="B9C75189-52A8-441B-B452-AA2178C7725E" Type="String" MaxLength="256" MultiValuated="No" Protection="Free" CAAExposition="L0" ResetOnNewVersion="Yes" ResetOnCloning="Yes"/>
+		<Simple Name="V_LibraryId" Uuid="D000C650-3FC9-4576-9555-67CC8969AD0B" Type="String" MaxLength="100" MultiValuated="No" Protection="External" CAAExposition="L0"/>
+		<Simple Name="V_LibraryVersion" Uuid="5C34AFC9-2746-4520-99EA-887072636C4F" Type="String" MaxLength="32" MultiValuated="No" Protection="External" CAAExposition="L0">
+			<Property Name="SIXW" Value="ds6w:release"/>
+		</Simple>
+		<Simple Name="V_ComponentType" Uuid="7AA9CC62-91E2-4529-8B10-DFEA9C46C15F" Type="String" MaxLength="32" MultiValuated="No" Protection="Internal"/>
+		<!-- *********************************************************
+			 * Define Export Method 
+			 ********************************************************* -->
+		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+	</Class>
+	<UniqueKey  Name="RepRefIdentifier" Uuid="F15F6A4C-C7B1-4a83-8C5E-C325FB495A52" ClassName="CATSysBehaviorLibRepReference" AttributeNames="PLM_ExternalID majorrevision minorrevision"/>
+	<!-- ***************************************************** -->
+	<!-- * CATSysBehaviorLibRepInstance (PLMCoreRepInstance) * -->
+	<!-- ***************************************************** -->
+	<RelationClass Name="CATSysBehaviorLibRepInstance" Uuid="bfb9fa19-7e43-473a-897a-15e216f7df5c" CustomerExposition="Programmer" Abstract="No" SuperName="PLMCoreRepInstance">
+		<Property Name="Searchable" Value="No" /> 
+		<Property Name="KweNew_InstanciationMethod" Value="CATSysDelegateInstanciation"/>
+		<Property Name="ChangeCollaborativeSpaceAvailability" Value="Yes"/>
+		<CAAComment>
+			<ShortRole>PLM CATSysBehavior Library Representation Instance Object</ShortRole>
+			<Role>PLM CATSysBehavior Library Representation Instance Object</Role>
+		</CAAComment>
+		<!-- *********************************************************
+             * Overload(s) of PLMCoreRepInstance attributes.         *
+             ********************************************************* -->
+    <SubClause Name="from"   TargetName="CATSysBehaviorLibReference"/>
+    <SubClause Name="to"   TargetName="CATSysBehaviorLibRepReference"/>
+    <!-- *********************************************************
+			 * 				   Define Export Method 
+			 ********************************************************* -->
+		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+	</RelationClass>
+
+
+
+	<!-- **************************************************** 
+		 * Declaration of functions to Import Ref Lib		*
+		 **************************************************** -->
+	<Function Name="CATSysBehaviorLibrary_GetAllMonoInstRepLibOfRefLib">
+		<Implementation Name="CATSysBehaviorLibrary_GetAllMonoInstRepLibOfRefLib" FileLocation="CATSysBehaviorLibrary_GetAllMonoInstRepLibOfRefLib.plmql" Language="PLMQL"/>
+		<Signature href="CATSbiBehaviorFunctionSignature"/>
+	</Function>
+	<Function Name="CATSysBehaviorLibrary_GetRepLibDependancy">
+		<Implementation Name="CATSysBehaviorLibrary_GetRepLibDependancy" FileLocation="CATSysBehaviorLibrary_GetRepLibDependancy.plmql" Language="PLMQL"/>
+		<Signature href="CATSbiBehaviorFunctionSignature"/>
+	</Function>
+	<Function Name="CATSysBehaviorLibrary_GetRefLibFromRepLib">
+		<Implementation Name="CATSysBehaviorLibrary_GetRefLibFromRepLib" FileLocation="CATSysBehaviorLibrary_GetRefLibFromRepLib.plmql" Language="PLMQL"/>
+		<Signature href="CATSbiBehaviorFunctionSignature"/>
+	</Function>
+	<Function Name="CATSysBehaviorLibrary_GetRepLibPointedByFunctionalRep">
+		<Implementation Name="CATSysBehaviorLibrary_GetRepLibPointedByFunctionalRep" FileLocation="CATSysBehaviorLibrary_GetRepLibPointedByFunctionalRep.plmql" Language="PLMQL"/>
+		<Signature href="CATSbiBehaviorFunctionSignature"/>
+	</Function>
+	<Function Name="CATSysBehaviorLibrary_GetRepLibPointedByLogicalRep">
+		<Implementation Name="CATSysBehaviorLibrary_GetRepLibPointedByLogicalRep" FileLocation="CATSysBehaviorLibrary_GetRepLibPointedByLogicalRep.plmql" Language="PLMQL"/>
+		<Signature href="CATSbiBehaviorFunctionSignature"/>
+	</Function>
+	<Signature id="CATSbiBehaviorFunctionSignature">
+		<Parameter Name="InputIds" Lower="0" Upper="-1" Direction="in" MultiValuated="Yes" DataType="PLMId"/>
+		<Parameter Name="OutputIds" Lower="0" Upper="-1" Direction="out" MultiValuated="No" DataType="PLMRouteSet"/>
+	</Signature>
+
+</Package>

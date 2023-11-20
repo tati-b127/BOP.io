@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<Package xmlns              = "PLMDictionaryUnified"
+         Uuid               = "BE162905-8B98-4557-8797855F63EBD8F2"
+         Name               = "CATDistillerDiscipline"
+         ModelerType        = "Top"
+		     UseNames           = "PRODUCTCFG"
+         CustomerExposition = "Programmer">
+
+  <Class Name					 = "CAT_Distiller_Ref"
+              Uuid               = "4FF462DA-0A68-43f6-94FD1468DC89DD69"
+              CustomerExposition = "Programmer"
+              SuperName          = "VPMReference"
+			        Discipline		 = "Yes"
+              CAAExposition      = "L1">
+
+    <!-- PROCEDURES Declaration  -->
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Review"/>
+        <UsedProcedure href="Distiller_Procedures.proc#CATDistillerDiscipline_GetRepresentationsForReview"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Design"/>
+        <UsedProcedure href="Distiller_Procedures.proc#CATDistillerDiscipline_GetAllRepresentations"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Channel"/>
+        <UsedProcedure href="Distiller_Procedures.proc#CATDistillerDiscipline_GetAllRepresentations"/>
+      </ProcedureForUsage>
+    </Method>
+  </Class>
+
+  <Function Name="CATDistillerDiscipline_AddDstRepresentation">
+    <Implementation Name         = "CATDistillerDiscipline_AddDstRepresentation"
+                    FileLocation = "CATDistillerDiscipline_AddDstRepresentation.plmql"
+                    Language     = "PLMQL"/>
+    <Signature href="Distiller_FunctionSignature"/>
+  </Function>
+
+  <Signature id="Distiller_FunctionSignature">
+    <Parameter Name="InputIds" Lower="0" Upper="-1" Direction="in" MultiValuated="Yes" DataType="PLMId"/>
+    <Parameter Name="OutputIds" Lower="0" Upper="-1" Direction="out" MultiValuated="No" DataType="PLMRouteSet"/>
+  </Signature>
+
+  <Class Name               = "CAT_Distiller_RepRef"
+              Uuid               = "1747B320-850B-4fbf-B443AF8900E2B6E4"
+              CustomerExposition = "Programmer"
+              SuperName          = "VPMRepReference"
+			  Discipline		 = "Yes"
+              CAAExposition      = "L1">
+    <Method ImplementationType = "AsFather">
+      <RealizeMethodType href = "ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+</Package>

@@ -1,0 +1,16 @@
+NAVIGATE 
+
+T0.PLMID, 
+T1.physicalid, 
+T1.logicalid, 
+T1.majorid, 
+T1.type, 
+T1.name
+
+FROM PLMCORE/PLMCoreRepReference T0, RelationClass/XCADBaseDependency T1
+FROM_ROOTS [?1?]
+
+ON ( RELATION ( FROM=PLMCORE/PLMCoreReference TO=RelationClass/XCADBaseDependency THROUGH=POINTEDBY ) WITH QUALITY_FILTER ( CATEGORY=ISOWNEDBY ) )
+THEN ( RELATION ( FROM=RelationClass/XCADBaseDependency TO=PLMCORE/PLMCoreRepReference THROUGH=POINTSTO ) WITH QUALITY_FILTER ( CATEGORY=ISINSTANCEOF ) ) 
+
+ITER=1;

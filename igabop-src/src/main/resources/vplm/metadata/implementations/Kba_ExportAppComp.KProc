@@ -1,0 +1,137 @@
+#Prog Kba_ExportAppComp( iPLMIDSet : #In PLMIDSet, oPLMIDSet : #Out PLMIDSet ) : VoidType
+{
+let RsPrereqsKComp         (PLMRouteSet)
+let RsRZipKComp            (PLMRouteSet)
+let RsARMpointedCoreRef    (PLMRouteSet)
+let RsARMpointedCoreRepRef (PLMRouteSet)
+let RsARMpointedCoreRepRef3DPart (PLMRouteSet)
+let RsARMpointedCoreRepInst3DPart (PLMRouteSet)
+let RsARMpointedCoreRef3DPart (PLMRouteSet)
+let RsARMpointedCoreRepInst3DPart2 (PLMRouteSet)
+let RsARMpointedCoreRef3DPart2 (PLMRouteSet)
+let RsProductStructure     (PLMRouteSet)
+let RsRuleEntity           (PLMRouteSet)
+let IdsKComp0                (PLMIDSet)
+let IdsKComp                 (PLMIDSet)
+let IdsRZipKComp              (PLMIDSet)
+let IdsPreqsKComp             (PLMIDSet)
+let IdsARMpointedCoreRef      (PLMIDSet)
+let IdsARMpointedCoreRefRestr      (PLMIDSet)
+let IdsARMpointedCoreRepRef   (PLMIDSet)
+
+let IdsARMpointedCoreRepRef3DPart (PLMIDSet)
+let IdsARMpointedCoreRepInst3DPart (PLMIDSet)
+let IdsARMpointedCoreRef3DPart (PLMIDSet)
+let IdsARMpointedCoreRef3DPart2 (PLMIDSet) 
+let IdsARMpointedCoreRepInst3DPart2 (PLMIDSet)
+
+let IdsCatalogs               (PLMIDSet)
+let IdsCatalogsContents       (PLMIDSet)
+let IdsChapters               (PLMIDSet)
+let IdsChaptersContents       (PLMIDSet)
+let IdsTemplates              (PLMIDSet)
+let IdsTemplatesStructure     (PLMIDSet)
+let IdsProductStructureInputs1 (PLMIDSet)
+let IdsProductStructureInputs2 (PLMIDSet)
+let IdsProductStructure1      (PLMIDSet)
+let IdsProductStructure2      (PLMIDSet)
+let IdsRulesets               (PLMIDSet)
+
+
+/* Isolate the component(s) */
+IdsKComp0 = Restrict( iPLMIDSet, "PLMKbaAppliComponent/PLMKbaAppliComponent" )
+RsPrereqsKComp = ExecutePLMFunction( "PLMKbaAppliComponent", "kba_navigate_component_prereqs", IdsKComp0 )
+IdsPreqsKComp = iPLMIDSet + Ids( RsPrereqsKComp )
+IdsKComp = Restrict( IdsPreqsKComp, "PLMKbaAppliComponent/PLMKbaAppliComponent" )
+
+/* Get their aggregated zip(s) thru the rep-rep link(s) */
+RsRZipKComp = ExecutePLMFunction( "PLMKbaAppliComponent", "kba_navigate_component_rzip", IdsKComp )
+IdsRZipKComp = Ids( RsRZipKComp )
+
+/* Get core reference(s) pointed thru ARM link(s) */
+RsARMpointedCoreRef = ExecutePLMFunction( "PLMKbaAppliComponent", "kba_navigate_component_arm_ref", IdsKComp )
+IdsARMpointedCoreRef = Ids( RsARMpointedCoreRef )
+
+/* Get core representation(s) reference(s) pointed thru ARM link(s) */
+RsARMpointedCoreRepRef = ExecutePLMFunction( "PLMKbaAppliComponent", "kba_navigate_component_arm_repref", IdsKComp )
+IdsARMpointedCoreRepRef = Ids( RsARMpointedCoreRepRef )
+
+
+/* Get RepInst of all RepRef */
+RsARMpointedCoreRepInst3DPart  = ExecutePLMFunction("PLMKbaAppliComponent", "kba_navigate_component_arm_repInst_3DPart", IdsARMpointedCoreRepRef)
+IdsARMpointedCoreRepInst3DPart = Ids(RsARMpointedCoreRepInst3DPart)
+
+/* Get the Ref of preceding RepInst */ 
+RsARMpointedCoreRef3DPart = ExecutePLMFunction("PRODUCTCFG", "ProductCfg_AddAggregatingReference", IdsARMpointedCoreRepInst3DPart)
+IdsARMpointedCoreRef3DPart = Ids(RsARMpointedCoreRef3DPart)
+
+/* restrict to Ref only!! */
+IdsARMpointedCoreRefRestr = Restrict(IdsARMpointedCoreRef3DPart, "PRODUCTCFG/VPMReference")
+
+/* Get only 3DPart RepRef under preceding Ref */
+RsARMpointedCoreRepRef3DPart = ExecutePLMFunction("PLMKbaAppliComponent", "kba_navigate_Ref_3DPart", IdsARMpointedCoreRefRestr)
+IdsARMpointedCoreRepRef3DPart = Ids(RsARMpointedCoreRepRef3DPart)
+
+/* Get RepInsts of preceding 3DPart RepRef */
+RsARMpointedCoreRepInst3DPart2  = ExecutePLMFunction("PLMKbaAppliComponent", "kba_navigate_component_arm_repInst_3DPart", IdsARMpointedCoreRepRef3DPart)
+IdsARMpointedCoreRepInst3DPart2 = Ids(RsARMpointedCoreRepInst3DPart2)
+
+/* Get only 3DPart Ref*/
+RsARMpointedCoreRef3DPart2 = ExecutePLMFunction("PRODUCTCFG", "ProductCfg_AddAggregatingReference", IdsARMpointedCoreRepInst3DPart2)
+IdsARMpointedCoreRef3DPart2 = Ids(RsARMpointedCoreRef3DPart2)
+
+
+/* Isolate the catalogs */
+IdsCatalogs = Restrict( IdsARMpointedCoreRef , "ENOCLG_LIBRARY/ENOCLG_LibraryReference" )
+
+/* Get catalogs pointed contents from procedure */
+IdsCatalogsContents = ExecutePLMProcedure( "Clg_ExportCatalog", IdsCatalogs )
+
+
+/* Isolate the chapters */
+IdsChapters = Restrict( IdsARMpointedCoreRef , "ENOCLG_CLASS/ENOCLG_ClassReference" )
+
+/* Get chapters pointed contents from procedure */
+IdsChaptersContents = ExecutePLMProcedure( "Clg_ExportChapter", IdsChapters )
+
+
+/* Isolate the Templates */
+IdsTemplates = Restrict( IdsARMpointedCoreRepRef , "PLMKnowledgeTemplate/PLMTemplateRepReference" )
+
+/* Get the Templates structure from procedure */
+IdsTemplatesStructure = ExecutePLMProcedure( "Pkt_ExportTemplate", IdsTemplates )
+
+
+/* Get product structure from function */
+IdsProductStructureInputs1 = Restrict( IdsARMpointedCoreRef, "PRODUCTCFG/VPMReference" )
+RsProductStructure = ExecutePLMFunction( "PRODUCTCFG", "ProductCfg_AddChildrenProduct", IdsProductStructureInputs1 )
+IdsProductStructure1 = Ids( RsProductStructure )
+
+/* Get product structure with reps from procedure */
+IdsProductStructureInputs2 = Restrict( IdsProductStructure1, "PRODUCTCFG/VPMReference" )
+							+ Restrict( IdsProductStructure1, "PRODUCTCFG/VPMRepReference" )
+							+ Restrict( IdsARMpointedCoreRepRef, "PRODUCTCFG/VPMRepReference" )
+IdsProductStructure2 = ExecutePLMProcedure( "VPMEditor_GetAllRepresentations", IdsProductStructureInputs2 )
+
+
+/* Isolate the rulesets */
+IdsRulesets = Restrict( IdsARMpointedCoreRef, "PLMKnowHowRuleSet/PLMRuleSet" )
+
+/* Get rules entities */
+RsRuleEntity = ExecutePLMFunction( "PLMKnowHowRuleSet", "kwe_expand_rules", IdsRulesets )
+
+
+/* Provide back all that stuff */
+oPLMIDSet = IdsPreqsKComp
++ IdsRZipKComp
++ Ids(RsARMpointedCoreRef)
++ Ids(RsARMpointedCoreRepRef)
++ IdsCatalogsContents
++ IdsChaptersContents
++ IdsTemplatesStructure
++ IdsProductStructure1
++ IdsProductStructure2
++ Ids(RsRuleEntity)
++ IdsARMpointedCoreRepInst3DPart2
++ IdsARMpointedCoreRef3DPart2
+}

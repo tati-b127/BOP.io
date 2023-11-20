@@ -1,0 +1,15 @@
+NAVIGATE
+        T0.type, T0.name, T1.type, T2.PLM_ExternalID, T2.PLMID 
+FROM
+        "Class/Change Task" T0, "RelationClass/Task Deliverable" T1, PLMChgActionBase/PLMActionBase T2
+FROM_ROOTS [?1?]
+ON  RELATION(
+        FROM=PLMChgActionBase/PLMActionBase
+        TO="RelationClass/Task Deliverable" 
+        THROUGH=POINTEDBY) WITH QUALITY_FILTER (CATEGORY=ISINSTANCEOF)
+     THEN RELATION(
+        FROM="RelationClass/Task Deliverable" 
+        TO="Class/Change Task" 
+        THROUGH=POINTSTO )
+        WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY)
+ITER=1;

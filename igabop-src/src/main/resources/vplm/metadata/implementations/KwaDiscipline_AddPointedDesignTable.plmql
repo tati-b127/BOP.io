@@ -1,0 +1,17 @@
+NAVIGATE
+  T0.PLMID
+
+FROM 
+  PRODUCTCFG/VPMRepReference T0
+
+FROM_ROOTS [?1?]
+
+ON (
+  RELATION (
+    FROM=PRODUCTCFG/VPMRepReference
+    TO=PRODUCTCFG/VPMRepReference, PLMDmtDocument/PLMDMTDocument
+    THROUGH=POINTSTO
+  )
+  WITH QUALITY_FILTER (ROLE=DesignTableSourceFile)
+)
+;

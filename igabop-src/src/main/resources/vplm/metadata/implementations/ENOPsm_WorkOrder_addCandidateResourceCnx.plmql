@@ -1,0 +1,30 @@
+NAVIGATE 
+T0.physicalid, 
+T0.logicalid, 
+T0.majorid, 
+T0.type, 
+T0.name,
+T1.physicalid, 
+T1.logicalid, 
+T1.majorid, 
+T1.type, 
+T1.name,
+T2.PLMID,
+T3.PLMID
+FROM RelationClass/UPR_LinkToWhoResource T0, RelationClass/LinkToCandResourceLink T1, PLMDELMIASystemDisciplines/SecondaryCandidateResourceLink T2, DELAsmAssemblyModelCnx/DELAsmProcessCanUseCnx T3
+FROM_ROOTS [?1?]
+ON 
+((
+RELATION ( FROM=RelationClass/UPR_LinkToWhoResource TO=RelationClass/LinkToCandResourceLink THROUGH=POINTEDBY ) WITH QUALITY_FILTER ( CATEGORY=ISOWNEDBY ) 
+THEN RELATION ( FROM=RelationClass/LinkToCandResourceLink TO=PLMDELMIASystemDisciplines/SecondaryCandidateResourceLink THROUGH=POINTSTO ) WITH QUALITY_FILTER ( CATEGORY=ISINSTANCEOF ) 
+)
+OR
+(
+RELATION ( FROM=RelationClass/UPR_LinkToWhoResource TO=RelationClass/LinkToCandResourceLink THROUGH=POINTEDBY ) WITH QUALITY_FILTER ( CATEGORY=ISOWNEDBY ) 
+THEN RELATION ( FROM=RelationClass/LinkToCandResourceLink TO=DELAsmAssemblyModelCnx/DELAsmProcessCanUseCnx THROUGH=POINTSTO ) WITH QUALITY_FILTER ( CATEGORY=ISINSTANCEOF )
+))
+
+;
+
+
+

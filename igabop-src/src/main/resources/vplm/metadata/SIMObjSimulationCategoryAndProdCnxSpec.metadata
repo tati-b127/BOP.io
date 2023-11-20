@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<!-- edited with XMLSpy v2007 (http://www.altova.com) by DASSAULT SYSTEMES (DASSAULT SYSTEMES) -->
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" BelongsToModeler="SIMObjSimulation" ModelerType="Top" Name="SIMObjSimulationCategoryAndProdCnxSpec" Uuid="37C9EFEA-5014-47e0-9F39-49D68403E55A" UseNames="SIMObjSimulationCategoryAndProdCnx" CustomerExposition="Programmer">
+	<CAAComment>
+		<ShortRole>This package includes the Disciplines of basic entities of the Simulation.</ShortRole>
+		<Role>This package includes the Disciplines of basic entities of the Simulation.</Role>
+	</CAAComment>
+	<!-- <Class Name="dsc_Model_Category_Inst" Uuid="f6402ce5-0788-41d1-9407-cddeaedbc064" Abstract ="No" SuperName="SIMObjSimulationCategoryInstance" CustomerExposition="Programmer" Discipline="Yes" Specializable="No" CustomerExtensible="No">
+		<Property Name="Searchable" Value="No"/>
+    <Property Name="IconName"        Value="I_PSMCategory_1"/>
+    <Property Name="Configurable" Value="No" />
+    <Property Name="Filtrable" Value="No" />
+		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+  </Class> -->
+	<!-- <Class Name="dsc_Scenario_Category_Inst" Uuid="7c3f2ebe-4278-4483-82e7-b712d47d991a" Abstract ="No" SuperName="SIMObjSimulationCategoryInstance" CustomerExposition="Programmer" Discipline="Yes" Specializable="No" CustomerExtensible="No">
+		<Property Name="Searchable" Value="No"/>
+    <Property Name="IconName"        Value="I_PSMCategory_4"/>
+    <Property Name="Configurable" Value="No" />
+    <Property Name="Filtrable" Value="No" />
+		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+	</Class> -->
+	<!-- <Class Name="dsc_Result_Category_Inst" Uuid="6d7cbbd8-ff77-4a0e-812a-fc2140c07b6e" Abstract ="No" SuperName="SIMObjSimulationCategoryInstance" CustomerExposition="Programmer" Discipline="Yes" Specializable="No" CustomerExtensible="No">
+		<Property Name="Searchable" Value="No"/>
+    <Property Name="IconName"        Value="I_PSMCategory_6"/>
+    <Property Name="Configurable" Value="No" />
+    <Property Name="Filtrable" Value="No" />
+		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+	</Class> -->
+	<Class Name="dsc_Model_Category_Ref" Uuid="911d1eea-402a-43d0-9f68-26c270cb88e9" Abstract="No" SuperName="SIMObjSimulationCategoryReference" CustomerExposition="Programmer" Discipline="Yes" Specializable="No" Abbreviation="mod" CustomerExtensible="No">
+    <Property Name="KweNew_InstanciationMethod" Value="CATESIMObjModelCategory"/>
+    <Property Name="Searchable" Value="No"/>
+		<Property Name="IconName" Value="I_PSMCategory_1"/>
+		<Property Name="3DIconName" Value="PSM_CAT_1_3DNAVREP.cgr"/>
+		<Property Name="Configurable" Value="No"/>
+		<Property Name="Filtrable" Value="No"/>
+		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+	</Class>
+	<Class Name="dsc_Scenario_Category_Ref" Uuid="2a884208-e0f9-40de-b649-61419bb47650" Abstract="No" SuperName="SIMObjSimulationCategoryReference" CustomerExposition="Programmer" Discipline="Yes" Specializable="No" Abbreviation="scn" CustomerExtensible="No">
+    <Property Name="KweNew_InstanciationMethod" Value="CATESIMObjScenarioCategory"/>
+    <Property Name="Searchable" Value="No"/>
+		<Property Name="IconName" Value="I_PSMCategory_4"/>
+		<Property Name="3DIconName" Value="PSM_CAT_4_3DNAVREP.cgr"/>
+		<Property Name="Configurable" Value="No"/>
+		<Property Name="Filtrable" Value="No"/>
+		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+	</Class>
+	<Class Name="dsc_Result_Category_Ref" Uuid="1fa54f6f-65e8-49fa-a3e1-8ef3e377b59c" Abstract="No" SuperName="SIMObjSimulationCategoryReference" CustomerExposition="Programmer" Discipline="Yes" Specializable="No" Abbreviation="res" CustomerExtensible="No">
+    <Property Name="KweNew_InstanciationMethod" Value="CATESIMObjResultCategory"/>
+    <Property Name="Searchable" Value="No"/>
+		<Property Name="IconName" Value="I_PSMCategory_6"/>
+		<Property Name="3DIconName" Value="PSM_CAT_6_3DNAVREP.cgr"/>
+		<Property Name="Configurable" Value="No"/>
+		<Property Name="Filtrable" Value="No"/>
+		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+	</Class>
+</Package>

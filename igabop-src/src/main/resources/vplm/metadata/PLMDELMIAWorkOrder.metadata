@@ -1,0 +1,1071 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2018, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" 
+         Name="PLMDELMIAWorkOrder"
+         BelongsToModeler="DELLmiProductionPlan"
+         UseNames="PRODUCTCFG DELLmiProductionOperationPPR DELLmiProductionOperationUPR DELLmiWorkOrder PLMDELMIASystemDisciplines DELLmiProductionPlanAbstract DELLmiProductionSystemUPR DELAsmAssemblyModelCnx"
+         Uuid="AE7FB858-7C89-428b-A57B-A1D4B8340543" 
+         ModelerType="Top"
+         CustomerExposition="Programmer">
+
+  <!-- Extensions on Work Order-->
+  <Extension Name="DELLmiWOQuantityAbstract"
+            Uuid="304E454B-3D83-4e99-BC00-62C0FA297434"
+            ScopeNames="DELLmiWorkOrderReference"
+            Discipline="No"
+            Abstract="Yes"
+            Specializable="No"
+            CAAExposition="L0"
+            CustomerExposition="Programmer">
+
+
+    <CAAComment>
+      <ShortRole>Abstract Work Order Quantity Extension</ShortRole>
+    </CAAComment>
+  </Extension>
+  <Extension Name="DELLmiWOContinuousQuantityAbstract"
+            Uuid="F39297D9-4A7B-4f3f-AEBF-4A5F6AFC004C"
+            SuperName="DELLmiWOQuantityAbstract"
+            Discipline="No"
+            Abstract="Yes"
+            Specializable="No"
+            CAAExposition="L0"
+            CustomerExposition="Programmer">
+
+
+    <CAAComment>
+      <ShortRole>Abstract Work Order Quantity Extension</ShortRole>
+    </CAAComment>
+  </Extension>
+
+  <Extension Name="DELLmiWOQuantity_Each"
+             Uuid="3A326132-CFC9-49c3-A94C-B12A04E5BD01"
+             SuperName="DELLmiWOQuantityAbstract"
+             Discipline="No"
+             Abstract="No"
+		         Specializable="No"
+             CAAExposition="L0"
+             CustomerExposition="Programmer">
+
+    <Simple Name="V_OrderQuantity"
+            Uuid="DF8434FE-372B-4d6c-96B1-DB9D9DFC24E2"
+            Type="Integer"
+            DefaultValue="1"
+            MultiValuated="No"
+            Protection="External"
+  	        ResetOnCloning="No"
+	          ResetOnNewVersion="No"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Order Quantity.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <CAAComment>
+      <ShortRole>Each Quantity Extension</ShortRole>
+    </CAAComment>
+  </Extension>
+
+  <Extension Name="DELLmiWOQuantity_Area"
+             Uuid="C150CC66-B187-4dd7-9E75-694C60E0584B"
+             SuperName="DELLmiWOContinuousQuantityAbstract"
+             Discipline="No"
+             Abstract="No"
+		         Specializable="No"
+             CAAExposition="L0"
+             CustomerExposition="Programmer">
+
+    <Simple Name="V_OrderQuantity"
+            Uuid="5551E886-2EB1-4585-978D-65B7FA5FF78A"
+            Type="Double"
+            Magnitude="AREA"
+            DefaultValue="1.0"
+            MultiValuated="No"
+            Protection="External"
+  	        ResetOnCloning="No"
+	          ResetOnNewVersion="No"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Order Quantity.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <CAAComment>
+      <ShortRole>Area Quantity Extension</ShortRole>
+    </CAAComment>
+  </Extension>
+
+  <Extension Name="DELLmiWOQuantity_Volume"
+             Uuid="3E731A1F-DD89-4337-9E2E-CCD52048186B"
+             SuperName="DELLmiWOContinuousQuantityAbstract"
+             Discipline="No"
+             Abstract="No"
+		         Specializable="No"
+             CAAExposition="L0"
+             CustomerExposition="Programmer">
+
+    <Simple Name="V_OrderQuantity"
+            Uuid="ECCCDFA7-6F1B-46af-BD0F-0A53373231E2"
+            Type="Double"
+            Magnitude="VOLUME"
+            DefaultValue="1.0"
+            MultiValuated="No"
+            Protection="External"
+  	        ResetOnCloning="No"
+	          ResetOnNewVersion="No"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Order Quantity.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <CAAComment>
+      <ShortRole>Volume Quantity Extension</ShortRole>
+    </CAAComment>
+  </Extension>
+
+  <Extension Name="DELLmiWOQuantity_Length"
+             Uuid="1F2771C3-8E16-4d60-802C-A769E87EF639"
+             SuperName="DELLmiWOContinuousQuantityAbstract"
+             Discipline="No"
+             Abstract="No"
+		         Specializable="No"
+             CAAExposition="L0"
+             CustomerExposition="Programmer">
+
+    <Simple Name="V_OrderQuantity"
+            Uuid="CA956667-5796-4881-9E07-EE39325DC950"
+            Type="Double"
+            Magnitude="LENGTH"
+            DefaultValue="1.0"
+            MultiValuated="No"
+            Protection="External"
+  	        ResetOnCloning="No"
+	          ResetOnNewVersion="No"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Order Quantity.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <CAAComment>
+      <ShortRole>Length Quantity Extension</ShortRole>
+    </CAAComment>
+  </Extension>
+
+  <Extension Name="DELLmiWOQuantity_Weight"
+             Uuid="A33A3866-7532-440f-A3CB-1EA262E55B89"
+             SuperName="DELLmiWOContinuousQuantityAbstract"
+             Discipline="No"
+             Abstract="No"
+		         Specializable="No"
+             CAAExposition="L0"
+             CustomerExposition="Programmer">
+
+    <Simple Name="V_OrderQuantity"
+            Uuid="60CE1AC9-DF51-4fe3-93A9-131DE92E9F4B"
+            Type="Double"
+            Magnitude="MASS"
+            DefaultValue="1.0"
+            MultiValuated="No"
+            Protection="External"
+  	        ResetOnCloning="No"
+	          ResetOnNewVersion="No"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Order Quantity.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <CAAComment>
+      <ShortRole>Weight Quantity Extension</ShortRole>
+    </CAAComment>
+  </Extension>
+
+  <!-- Extensions on operation reference-->
+  <Extension Name="DELLmiQtyToBeProducedPerTimeAbstract"
+           Uuid="A67F5F1A-0B15-43cd-9522-55D62DAB4250"
+           ScopeNames="DELLmiOperationPPRReference;DELLmiOperationUPRReference;CandidateResourceLink;SecondaryCandidateResourceLink;AllocatedResourceLink;DELAsmProcessCanUseCnx"
+           Discipline="No"
+           Abstract="Yes"
+           Specializable="No"
+           CAAExposition="L0"
+           CustomerExposition="Programmer">
+
+    <CAAComment>
+      <ShortRole>Abstract Quantity to be Produced Per Time Extension</ShortRole>
+    </CAAComment>
+  </Extension>
+
+  <Extension Name="DELLmiQtyToBeProducedPerTimeContinuousAbstract"
+           Uuid="00995C79-7253-4655-8DD1-5B8B3E68326B"
+           SuperName="DELLmiQtyToBeProducedPerTimeAbstract"
+           Discipline="No"
+           Abstract="Yes"
+           Specializable="No"
+           CAAExposition="L0"
+           CustomerExposition="Programmer">
+
+    <CAAComment>
+      <ShortRole>Continuous Quantity to be Produced Per Time Extension</ShortRole>
+    </CAAComment>
+  </Extension>
+
+
+  <Extension Name="DELLmiQtyToBeProducedPerTime_Each"
+             Uuid="4737BEB6-65FD-4a6f-B3F6-03BEF3CA8674"
+             SuperName="DELLmiQtyToBeProducedPerTimeAbstract"
+             Discipline="No"
+             Abstract="No"
+		         Specializable="No"
+             CAAExposition="L0"
+             CustomerExposition="Programmer">
+
+    <Simple Name="V_QuantityToBeProducedPerTime"
+            Uuid="7A2CC1C7-2B77-4ed8-9131-9A120FE98C36"
+            Type="Integer"
+            DefaultValue="1"
+            MultiValuated="No"
+            Protection="Free"
+  	        ResetOnCloning="No"
+	          ResetOnNewVersion="No"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>The produced quantity of an operation expresses either the quantity to be produced per time unit (e.g. 500 parts per hour), or the time required to produce a quantity unit (e.g. 3 minutes for 1 part).</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <CAAComment>
+      <ShortRole>Each Quantity to be Produced Per Time Extension</ShortRole>
+    </CAAComment>
+  </Extension>
+
+  <Extension Name="DELLmiQtyToBeProducedPerTime_Area"
+             Uuid="B4A3F95D-2F81-46be-A46E-43B0E8911CD9"
+             SuperName="DELLmiQtyToBeProducedPerTimeContinuousAbstract"
+             Discipline="No"
+             Abstract="No"
+		         Specializable="No"
+             CAAExposition="L0"
+             CustomerExposition="Programmer">
+
+    <Simple Name="V_QuantityToBeProducedPerTime"
+            Uuid="724392B4-C5B4-4458-94A8-AE1AE7E803FE"
+            Type="Double"
+            Magnitude="AREA"
+            DefaultValue="1.0"
+            MultiValuated="No"
+            Protection="Free"
+  	        ResetOnCloning="No"
+	          ResetOnNewVersion="No"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>The produced quantity of an operation expresses either the quantity to be produced per time unit (e.g. 500 parts per hour), or the time required to produce a quantity unit (e.g. 3 minutes for 1 part).</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <CAAComment>
+      <ShortRole>Area Quantity to be Produced Per Time Extension</ShortRole>
+    </CAAComment>
+  </Extension>
+
+  <Extension Name="DELLmiQtyToBeProducedPerTime_Length"
+             Uuid="FCEB7ADE-8463-4d49-B203-94F29D548728"
+             SuperName="DELLmiQtyToBeProducedPerTimeContinuousAbstract"
+             Discipline="No"
+             Abstract="No"
+		         Specializable="No"
+             CAAExposition="L0"
+             CustomerExposition="Programmer">
+
+    <Simple Name="V_QuantityToBeProducedPerTime"
+            Uuid="7BA20B78-6E62-445c-8FF1-9130D9CC2B76"
+            Type="Double"
+            Magnitude="LENGTH"
+            DefaultValue="1.0"
+            MultiValuated="No"
+            Protection="Free"
+  	        ResetOnCloning="No"
+	          ResetOnNewVersion="No"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>The produced quantity of an operation expresses either the quantity to be produced per time unit (e.g. 500 parts per hour), or the time required to produce a quantity unit (e.g. 3 minutes for 1 part).</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <CAAComment>
+      <ShortRole>Length Quantity to be Produced Per Time Extension</ShortRole>
+    </CAAComment>
+  </Extension>
+
+  <Extension Name="DELLmiQtyToBeProducedPerTime_Weight"
+             Uuid="D2804F2F-7F69-41ce-A8BA-0448D92F9B0C"
+             SuperName="DELLmiQtyToBeProducedPerTimeContinuousAbstract"
+             Discipline="No"
+             Abstract="No"
+		         Specializable="No"
+             CAAExposition="L0"
+             CustomerExposition="Programmer">
+
+    <Simple Name="V_QuantityToBeProducedPerTime"
+            Uuid="57EA8864-7178-417c-985A-3666459DD9E1"
+            Type="Double"
+            Magnitude="MASS"
+            DefaultValue="1.0"
+            MultiValuated="No"
+            Protection="Free"
+  	        ResetOnCloning="No"
+	          ResetOnNewVersion="No"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>The produced quantity of an operation expresses either the quantity to be produced per time unit (e.g. 500 parts per hour), or the time required to produce a quantity unit (e.g. 3 minutes for 1 part).</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <CAAComment>
+      <ShortRole>Weight Quantity to be Produced Per Time Extension</ShortRole>
+    </CAAComment>
+  </Extension>
+
+  <Extension Name="DELLmiQtyToBeProducedPerTime_Volume"
+             Uuid="F830C0F9-AECE-4322-8CC9-6414FB6255D2"
+             SuperName="DELLmiQtyToBeProducedPerTimeContinuousAbstract"
+             Discipline="No"
+             Abstract="No"
+		         Specializable="No"
+             CAAExposition="L0"
+             CustomerExposition="Programmer">
+
+    <Simple Name="V_QuantityToBeProducedPerTime"
+            Uuid="F940D10A-B897-4713-90D3-20B05D8F127F"
+            Type="Double"
+            Magnitude="VOLUME"
+            DefaultValue="1.0"
+            MultiValuated="No"
+            Protection="Free"
+  	        ResetOnCloning="No"
+	          ResetOnNewVersion="No"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>The produced quantity of an operation expresses either the quantity to be produced per time unit (e.g. 500 parts per hour), or the time required to produce a quantity unit (e.g. 3 minutes for 1 part)..</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <CAAComment>
+      <ShortRole>Volume Quantity to be Produced Per Time Extension</ShortRole>
+    </CAAComment>
+  </Extension>
+
+  <Extension Name="DELLmiAdditionalTime"
+              Uuid="073C4D73-2B98-40e1-9BEC-B97B949758AA"
+              ScopeNames="DELLmiOperationPPRReference;DELLmiOperationUPRReference"
+              Discipline="No"
+              Abstract="No"
+              Specializable="No"
+              CAAExposition="L0"
+              CustomerExposition="Programmer">
+
+    <Simple Name="V_TimeOutMachineBefore"
+            Uuid="6C786910-0D3F-4d0d-B353-7B6FDF819B8C"
+            Type="Double"
+            Magnitude="TIME"
+            DefaultValue="0.0"
+            MultiValuated="No"
+            Protection="Free"
+  	        ResetOnCloning="No"
+	          ResetOnNewVersion="No"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Time Outside Machine Before.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_TimeOutMachineAfter"
+            Uuid="C2984891-696F-4ce0-B346-33FF6BB5D0C5"
+            Type="Double"
+            Magnitude="TIME"
+            DefaultValue="0.0"
+            MultiValuated="No"
+            Protection="Free"
+  	        ResetOnCloning="No"
+	          ResetOnNewVersion="No"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Time Outside Machine After.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_PreparationTime"
+            Uuid="90A8ADA8-B544-4fea-9898-E934857E878B"
+            Type="Double"
+            Magnitude="TIME"
+            DefaultValue="0.0"
+            MultiValuated="No"
+            Protection="Free"
+  	        ResetOnCloning="No"
+	          ResetOnNewVersion="No"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Preparation Time.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <CAAComment>
+      <ShortRole>Weight Quantity Extension</ShortRole>
+    </CAAComment>
+  </Extension>
+
+  <!-- Extensions on work order operation reference-->
+  <Extension Name="DELLmiEOQuantityAbstract"
+             Uuid="7D31C44C-D899-4870-BA46-FB6C3464EC95"
+             ScopeNames="DELLmiOperationUPRReference"
+             Discipline="No"
+             Abstract="Yes"
+		         Specializable="No"
+             CAAExposition="L0"
+             CustomerExposition="Programmer">
+
+
+    <CAAComment>
+      <ShortRole>Abstract Operation Quantity Extension</ShortRole>
+    </CAAComment>
+  </Extension>
+  
+  <Extension Name="DELLmiEOContinuousQuantityAbstract"
+             Uuid="DDD150D8-4553-458c-9E5E-5EEAC42D0E0A"
+             SuperName="DELLmiEOQuantityAbstract"
+             Discipline="No"
+             Abstract="Yes"
+		         Specializable="No"
+             CAAExposition="L0"
+             CustomerExposition="Programmer">
+
+
+    <CAAComment>
+      <ShortRole>Abstract Operation Continuous Quantity Extension</ShortRole>
+    </CAAComment>
+  </Extension>
+
+  <Extension Name="DELLmiEOQuantity_Each"
+             Uuid="BC3DB4C0-38AF-4021-B0A9-43D4277C7E8F"
+             SuperName="DELLmiEOQuantityAbstract"
+             Discipline="No"
+             Abstract="No"
+		         Specializable="No"
+             CAAExposition="L0"
+             CustomerExposition="Programmer">
+
+    <Simple Name="V_InitialQuantity"
+            Uuid="E3451E99-3ECD-490e-8BED-CDB312F8A2D4"
+            Type="Integer"
+            DefaultValue="1"
+            MultiValuated="No"
+            Protection="External"
+  	        ResetOnCloning="No"
+	          ResetOnNewVersion="No"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Initial Quantity.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_RemainingQuantity"
+            Uuid="CD30B2D1-BD48-469d-BDF7-2CD3AC4BDAD6"
+            Type="Integer"
+            DefaultValue="0"
+            MultiValuated="No"
+            Protection="External"
+  	        ResetOnCloning="Yes"
+	          ResetOnNewVersion="No"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Remaining Quantity.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_CompletedQuantity"
+            Uuid="6A223CA7-1023-4791-BDEE-2EB62B471F8F"
+            Type="Integer"
+            DefaultValue="0"
+            MultiValuated="No"
+            Protection="External"
+  	        ResetOnCloning="Yes"
+	          ResetOnNewVersion="No"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Completed Quantity.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <CAAComment>
+      <ShortRole>Operation Each Quantity Extension</ShortRole>
+    </CAAComment>
+  </Extension>
+
+  <Extension Name="DELLmiEOQuantity_Volume"
+             Uuid="DC1C495E-51F1-4fcf-AF4B-33097384C353"
+             SuperName="DELLmiEOContinuousQuantityAbstract"
+             Discipline="No"
+             Abstract="No"
+		         Specializable="No"
+             CAAExposition="L0"
+             CustomerExposition="Programmer">
+
+    <Simple Name="V_InitialQuantity"
+            Uuid="FDDBE6A6-7697-4256-83E7-28AD1F7293D3"
+            Type="Double"
+            Magnitude="VOLUME"
+            DefaultValue="1.0"
+            MultiValuated="No"
+            Protection="External"
+  	        ResetOnCloning="No"
+	          ResetOnNewVersion="No"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Initial Quantity.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_RemainingQuantity"
+            Uuid="E4D65678-22C2-42f6-B029-B7EDA47B269C"
+            Type="Double"
+            Magnitude="VOLUME"
+            DefaultValue="0.0"
+            MultiValuated="No"
+            Protection="External"
+  	        ResetOnCloning="Yes"
+	          ResetOnNewVersion="No"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Remaining Quantity.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_CompletedQuantity"
+            Uuid="467FDD90-61AD-4723-87A7-FDB3BD8C23EF"
+            Type="Double"
+            Magnitude="VOLUME"
+            DefaultValue="0.0"
+            MultiValuated="No"
+            Protection="External"
+  	        ResetOnCloning="Yes"
+	          ResetOnNewVersion="No"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Completed Quantity.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <CAAComment>
+      <ShortRole>Operation Volume Quantity Extension</ShortRole>
+    </CAAComment>
+  </Extension>
+
+  <Extension Name="DELLmiEOQuantity_Area"
+             Uuid="F821C095-76C3-43e2-85A1-95AE2E6807B1"
+             SuperName="DELLmiEOContinuousQuantityAbstract"
+             Discipline="No"
+             Abstract="No"
+		         Specializable="No"
+             CAAExposition="L0"
+             CustomerExposition="Programmer">
+
+    <Simple Name="V_InitialQuantity"
+            Uuid="6C04B8A4-3356-41ac-9F90-DCE60496A5C0"
+            Type="Double"
+            Magnitude="AREA"
+            DefaultValue="1.0"
+            MultiValuated="No"
+            Protection="External"
+  	        ResetOnCloning="No"
+	          ResetOnNewVersion="No"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Initial Quantity.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_RemainingQuantity"
+            Uuid="4512A6F6-97C8-4d9a-8945-6AC958779441"
+            Type="Double"
+            Magnitude="AREA"
+            DefaultValue="0.0"
+            MultiValuated="No"
+            Protection="External"
+  	        ResetOnCloning="Yes"
+	          ResetOnNewVersion="No"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Remaining Quantity.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_CompletedQuantity"
+            Uuid="C2A85980-DAB8-4526-934D-F06856B650BA"
+            Type="Double"
+            Magnitude="AREA"
+            DefaultValue="0.0"
+            MultiValuated="No"
+            Protection="External"
+  	        ResetOnCloning="Yes"
+	          ResetOnNewVersion="No"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Completed Quantity.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <CAAComment>
+      <ShortRole>Operation Area Quantity Extension</ShortRole>
+    </CAAComment>
+  </Extension>
+
+  <Extension Name="DELLmiEOQuantity_Length"
+             Uuid="A6E33330-102C-40ef-88B8-13CC1F19EF9A"
+             SuperName="DELLmiEOContinuousQuantityAbstract"
+             Discipline="No"
+             Abstract="No"
+		         Specializable="No"
+             CAAExposition="L0"
+             CustomerExposition="Programmer">
+
+    <Simple Name="V_InitialQuantity"
+            Uuid="B10647F4-AEEC-4dd2-AD82-72A3F016B50A"
+            Type="Double"
+            Magnitude="LENGTH"
+            DefaultValue="1.0"
+            MultiValuated="No"
+            Protection="External"
+  	        ResetOnCloning="No"
+	          ResetOnNewVersion="No"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Initial Quantity.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_RemainingQuantity"
+            Uuid="706F1C58-2915-47b2-9D6F-B85932102191"
+            Type="Double"
+            Magnitude="LENGTH"
+            DefaultValue="0.0"
+            MultiValuated="No"
+            Protection="External"
+  	        ResetOnCloning="Yes"
+	          ResetOnNewVersion="No"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Remaining Quantity.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_CompletedQuantity"
+            Uuid="53CC2B35-E560-422d-BB4E-1F1C7810C59D"
+            Type="Double"
+            Magnitude="LENGTH"
+            DefaultValue="0.0"
+            MultiValuated="No"
+            Protection="External"
+  	        ResetOnCloning="Yes"
+	          ResetOnNewVersion="No"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Completed Quantity.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <CAAComment>
+      <ShortRole>Operation Length Quantity Extension</ShortRole>
+    </CAAComment>
+  </Extension>
+
+  <Extension Name="DELLmiEOQuantity_Weight"
+             Uuid="3145EB5A-DD20-4256-A66D-9A40A8FE1793"
+             SuperName="DELLmiEOContinuousQuantityAbstract"
+             Discipline="No"
+             Abstract="No"
+		         Specializable="No"
+             CAAExposition="L0"
+             CustomerExposition="Programmer">
+
+    <Simple Name="V_InitialQuantity"
+            Uuid="962D7D94-D13F-4879-8C33-D1B712DFF3AF"
+            Type="Double"
+            Magnitude="MASS"
+            DefaultValue="1.0"
+            MultiValuated="No"
+            Protection="External"
+  	        ResetOnCloning="No"
+	          ResetOnNewVersion="No"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Initial Quantity.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_RemainingQuantity"
+            Uuid="C0F11DE5-8FDF-4cb8-85AE-87E56A723A9A"
+            Type="Double"
+            Magnitude="MASS"
+            DefaultValue="0.0"
+            MultiValuated="No"
+            Protection="External"
+  	        ResetOnCloning="Yes"
+	          ResetOnNewVersion="No"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Remaining Quantity.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_CompletedQuantity"
+            Uuid="B477940D-1B4B-43fc-A1C8-8BBECD309241"
+            Type="Double"
+            Magnitude="MASS"
+            DefaultValue="0.0"
+            MultiValuated="No"
+            Protection="External"
+  	        ResetOnCloning="Yes"
+	          ResetOnNewVersion="No"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Completed Quantity.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <CAAComment>
+      <ShortRole>Operation Weight Quantity Extension</ShortRole>
+    </CAAComment>
+  </Extension>
+
+  
+  <Extension Name="DELLmiEOPinInfo"
+           Uuid="304236C5-BA27-4ddd-81EE-D16220821000"
+           ScopeNames="DELLmiOperationUPRReference;AllocatedResourceLink;DELAsmProcessCanUseCnx"
+           Discipline="No"
+           Abstract="No"
+           Specializable="No"
+           CAAExposition="L0"
+           CustomerExposition="Programmer">
+
+    <Simple Name="V_PinStatus"
+            Uuid="88C45A3A-55E8-491e-8A37-8CB7AF5C9833"
+            Type="String"
+            MultiValuated="No"
+            Protection="Free"
+  	        ResetOnCloning="No"
+	          ResetOnNewVersion="No"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Pin Status.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_PinStartDate"
+            Uuid="65256331-90CB-4753-A9F9-701BA9985A16"
+            Type="Date"
+            MultiValuated="No"
+            Protection="Free"
+  	        ResetOnCloning="No"
+	          ResetOnNewVersion="No"
+            CAAExposition="L0">
+      <Property Name="CreateAsDateTime" Value="Yes"/>
+      <CAAComment>
+        <ShortRole>Pin Start Date.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_PinEndDate"
+            Uuid="65E408D7-7982-401f-8800-A07A8BBC4289"
+            Type="Date"
+            MultiValuated="No"
+            Protection="Free"
+  	        ResetOnCloning="No"
+	          ResetOnNewVersion="No"
+            CAAExposition="L0">
+      <Property Name="CreateAsDateTime" Value="Yes"/>
+      <CAAComment>
+        <ShortRole>Pin End Date.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_PinSetupTime"
+            Uuid="8B21EC39-C2CA-4d9b-A90D-F5711F6F0EC2"
+            Type="Double"
+            Magnitude="TIME"
+            MultiValuated="No"
+            Protection="Free"
+  	        ResetOnCloning="No"
+	          ResetOnNewVersion="No"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Pin Setup Time.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <CAAComment>
+      <ShortRole>Weight Quantity Extension</ShortRole>
+    </CAAComment>
+  </Extension>
+
+  <Extension Name="DELLmiMinStartDateUser"
+           Uuid="24A7CD60-87DA-4a24-9AE4-01756B2146A4"
+           ScopeNames="DELLmiOperationUPRReference"
+           Discipline="No"
+           Abstract="No"
+           Specializable="No"
+           CAAExposition="L0"
+           CustomerExposition="Programmer">
+
+    <Simple Name="V_DescriptionUser"
+            Uuid="868C79D3-CEB7-4265-8010-CBC4972E62C0"
+            Type="String"
+            MultiValuated="No"
+            Protection="Free"
+  	        ResetOnCloning="No"
+	          ResetOnNewVersion="No"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Minimum Start Date Description.</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_MinStartDateUser"
+            Uuid="BA67F896-428F-49e6-B5DC-DA521DDC0087"
+            Type="Date"
+            MultiValuated="No"
+            Protection="Free"
+  	        ResetOnCloning="No"
+	          ResetOnNewVersion="No"
+            CAAExposition="L0">
+      <Property Name="CreateAsDateTime" Value="Yes"/>
+      <CAAComment>
+        <ShortRole>Minimum Start Date.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <CAAComment>
+      <ShortRole>Minimum Start Date User Extension</ShortRole>
+    </CAAComment>
+  </Extension>
+
+  <Extension Name="DELLmiMinStartDateRawMaterial"
+           Uuid="0B70EF0A-D360-4f3e-8886-F7D807B3974E"
+           ScopeNames="DELLmiOperationUPRReference"
+           Discipline="No"
+           Abstract="No"
+           Specializable="No"
+           CAAExposition="L0"
+           CustomerExposition="Programmer">
+
+    <Simple Name="V_DescriptionRawMaterial"
+            Uuid="28C705B2-DEC0-4dae-8C36-37BE008F2E27"
+            Type="String"
+            MultiValuated="No"
+            Protection="Free"
+  	        ResetOnCloning="No"
+	          ResetOnNewVersion="No"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Minimum Start Date Description.</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_MinStartDateRawMaterial"
+            Uuid="B349C9FA-4763-4a2b-A970-820C28887D1F"
+            Type="Date"
+            MultiValuated="No"
+            Protection="Free"
+  	        ResetOnCloning="No"
+	          ResetOnNewVersion="No"
+            CAAExposition="L0">
+      <Property Name="CreateAsDateTime" Value="Yes"/>
+      <CAAComment>
+        <ShortRole>Minimum Start Date.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <CAAComment>
+      <ShortRole>Minimum Start Date Raw Material Extension</ShortRole>
+    </CAAComment>
+  </Extension>
+
+  <Extension Name="DELLmiMinStartDateSemiFinished"
+           Uuid="8004CCF7-77AD-4aae-BBC4-51986DE0FC30"
+           ScopeNames="DELLmiOperationUPRReference"
+           Discipline="No"
+           Abstract="No"
+           Specializable="No"
+           CAAExposition="L0"
+           CustomerExposition="Programmer">
+
+    <Simple Name="V_DescriptionSemiFinished"
+            Uuid="2757DC54-9FF9-4448-BDF0-8854072CD778"
+            Type="String"
+            MultiValuated="No"
+            Protection="Free"
+  	        ResetOnCloning="No"
+	          ResetOnNewVersion="No"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Minimum Start Date Description.</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_MinStartDateSemiFinished"
+            Uuid="8DC4AC9A-FB66-44c3-8852-C092C018E788"
+            Type="Date"
+            MultiValuated="No"
+            Protection="Free"
+  	        ResetOnCloning="No"
+	          ResetOnNewVersion="No"
+            CAAExposition="L0">
+      <Property Name="CreateAsDateTime" Value="Yes"/>
+      <CAAComment>
+        <ShortRole>Minimum Start Date.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <CAAComment>
+      <ShortRole>Minimum Start Date Semi Finished Extension</ShortRole>
+    </CAAComment>
+  </Extension>
+
+  <Extension Name="DELLmiMinStartDateAuto"
+           Uuid="1B0A3A1E-1D54-4cad-940A-F222CEE617C0"
+           ScopeNames="DELLmiOperationUPRReference"
+           Discipline="No"
+           Abstract="No"
+           Specializable="No"
+           CAAExposition="L0"
+           CustomerExposition="Programmer">
+
+    <Simple Name="V_DescriptionAuto"
+            Uuid="19345A0F-4898-4907-AC95-3F3E70FC2B29"
+            Type="String"
+            MultiValuated="No"
+            Protection="Free"
+  	        ResetOnCloning="No"
+	          ResetOnNewVersion="No"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Minimum Start Date Description.</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_MinStartDateAuto"
+            Uuid="9C74761D-15F7-4400-BE4B-0277C5F34F81"
+            Type="Date"
+            MultiValuated="No"
+            Protection="Free"
+  	        ResetOnCloning="No"
+	          ResetOnNewVersion="No"
+            CAAExposition="L0">
+      <Property Name="CreateAsDateTime" Value="Yes"/>
+      <CAAComment>
+        <ShortRole>Minimum Start Date.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <CAAComment>
+      <ShortRole>Minimum Start Date Auto Extension</ShortRole>
+    </CAAComment>
+  </Extension>
+
+  <!-- Common Extensions on Work Order model-->
+  <Extension Name="DELLmiAPSInternalInfo"
+             Uuid="CE4D0C65-219D-4024-8C26-F133DB606437"
+             ScopeNames="DELLmiUPRSystemReference;DELLmiOperationUPRReference;DELSProductionPlanAbstract;VPMReference"
+             Discipline="No"
+             Abstract="No"
+		         Specializable="No"
+             CAAExposition="L0"
+             CustomerExposition="Programmer">
+
+    <Simple Name="V_APSData"
+             Uuid="9A4C6502-7694-4e39-B31B-0988AAD92317"
+             Type="Clob"
+             ResetOnCloning="No"
+             ResetOnNewVersion="No"
+             MultiValuated="No"
+             Protection="Internal">
+      <CAAComment>
+        <ShortRole>Scheduling Information.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <CAAComment>
+      <ShortRole>Extension to store internal APS data</ShortRole>
+    </CAAComment>
+  </Extension>
+
+  <Extension Name="DELLmiMESInternalInfo"
+           Uuid="DFFFDF6C-30DF-49b6-A47C-B5C7A1C8D494"
+           ScopeNames="DELLmiUPRSystemReference;DELLmiOperationUPRReference"
+           Discipline="No"
+           Abstract="No"
+           Specializable="No"
+           CAAExposition="L0"
+           CustomerExposition="Programmer">
+
+    <Simple Name="V_MESData"
+            Uuid="B0B50E2B-A42B-4c46-BABA-30B4EB08319E"
+            Type="Clob"
+            ResetOnCloning="No"
+            ResetOnNewVersion="No"
+            MultiValuated="No"
+            Protection="Internal">
+      <CAAComment>
+        <ShortRole>Execution Information.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <CAAComment>
+      <ShortRole>Extension to store internal MES data</ShortRole>
+    </CAAComment>
+  </Extension>
+
+  <!-- Extensions on production plan reference-->
+  <Extension Name="DELTimeZone"
+           Uuid="1715B907-5F83-4aac-9F43-6F0CB07AECC1"
+           ScopeNames="DELSProductionPlanAbstract"
+           Discipline="No"
+           Abstract="No"
+           Specializable="No"
+           CAAExposition="L0"
+           CustomerExposition="Programmer">
+
+    <Simple Name="V_TimeZone"
+            Uuid="B0AA206A-A9E7-4c27-B726-1421FB105DEE"
+            Type="String"
+            ResetOnCloning="No"
+            ResetOnNewVersion="No"
+            MultiValuated="No"
+            Protection="Free">
+      <CAAComment>
+        <ShortRole>Time zone.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <CAAComment>
+      <ShortRole>Extension to store time zone data</ShortRole>
+    </CAAComment>
+  </Extension>
+
+  <!-- Extensions on TimeConstraintCnx-->
+  <Extension Name="DELOnHold"
+             Uuid="159982C8-2AD7-421B-8F79-3543EEFE99AB"
+             ScopeNames="DELLmiUPRSystemReference;DELLmiOperationUPRReference"
+             Abstract="No"
+             CAAExposition="L0"
+             CustomerExposition="Programmer"
+             Specializable="No">
+    <Simple Name="V_OnHoldComment"
+            Uuid="C4FDFD3D-B405-4C6A-A276-18A41A7FA9ED"
+            Type="String"
+            MultiValuated="No"
+            Protection="Free"
+            ResetOnCloning="No"
+            ResetOnNewVersion="No">
+    </Simple>
+  </Extension>
+</Package>
+

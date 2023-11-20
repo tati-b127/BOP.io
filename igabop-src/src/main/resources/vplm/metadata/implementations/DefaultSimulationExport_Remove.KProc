@@ -1,0 +1,48 @@
+#Prog DefaultSimulationExport_Remove (iPLMIDSet :  #In PLMIDSet,oPLMIDSet :  #Out PLMIDSet) : VoidType
+  {
+let IdsCategoriesAndSo(PLMIDSet)
+ 
+let IdsSimuRep(PLMIDSet)
+let IdsPublishResult(PLMIDSet)
+let IdsSetModel (PLMIDSet) 
+let IdsRefInput (PLMIDSet)
+
+let RouteSetCategoriesAndSo (PLMRouteSet)
+let RouteSetModel (PLMRouteSet)
+let RouteSimuRep (PLMRouteSet)
+let RoutePublishResult (PLMRouteSet)
+ 
+
+
+
+/* getting categories + so */
+IdsRefInput = Restrict(iPLMIDSet, " SIMObjSimulation/SIMObjSimulationObject") + Restrict(iPLMIDSet, " SIMObjSimulationCategoryAndProdCnx/SIMObjSimulationCategoryReference")
+RouteSetCategoriesAndSo = ExecutePLMFunction("SIMObjSimulationGeneric", "sim_retrieveCategories",  IdsRefInput)
+IdsCategoriesAndSo = Ids( RouteSetCategoriesAndSo)
+
+ 
+
+
+/* getting system connection */
+RouteSetModel = ExecutePLMFunction("SIMObjSimulationGeneric", "sim_addSystemCnx", Restrict(IdsCategoriesAndSo, "SIMObjSimulationCategoryAndProdCnx/SIMObjSimulationCategoryReference"))
+IdsSetModel =   Ids(RouteSetModel)
+
+
+
+
+/* getting simu rep under category Scenario*/
+RouteSimuRep = ExecutePLMFunction("SIMObjSimulationGeneric", "sim_retrieveSimuRep", Restrict(IdsCategoriesAndSo, "SIMObjSimulationCategoryAndProdCnx/SIMObjSimulationCategoryReference"))
+IdsSimuRep = Ids(RouteSimuRep)
+
+ 
+
+ 
+
+/* getting publish result connection + target of the connection */
+ RoutePublishResult  = ExecutePLMFunction("SIMObjSimulationGeneric", "sim_addPublishResultCnx", Restrict(IdsCategoriesAndSo, "SIMObjSimulationCategoryAndProdCnx/SIMObjSimulationCategoryReference"))
+ IdsPublishResult = Ids(RoutePublishResult)
+ 
+ 
+oPLMIDSet = IdsCategoriesAndSo + IdsSetModel+  IdsSimuRep  +  IdsPublishResult 
+
+}

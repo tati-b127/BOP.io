@@ -1,0 +1,205 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2012, All rights reserved -->
+
+<Package CustomerExposition = "Programmer" ModelerType = "Top" Name = "BridgeSpatialStructureElement" UseNames = "CivilEngineeringSpatialStructureElement" Uuid = "fc220509-d2e9-4b0f-969a-5891d994f908" xmlns = "PLMDictionaryUnified">
+  <Class Abbreviation = "brd" CustomerExposition = "Programmer" Discipline = "Yes" Name = "Bridge" SuperName = "BridgeSpatialStructureElement" Uuid = "60533187-078d-409e-a8a8-aed85e918fad">
+    <Property Name = "IconName" Value = "I_Bridge"/>
+    <Property Name = "3DIconName" Value = "I_Bridge.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATEAECDelegateInstanciation"/>
+    <Property Name = "KweNew_ReturnedType" Value = "VPMInstance"/>
+    <Property Name = "Newable" Value = "All_Offline_CAA"/>
+    <Property Name = "InstantiationOwnerTypes" Value = "PPRContext;AecOtherSpatialStructureElement;AecSite;Building;BuildingStorey;Bridge;BridgeOtherSpatialStructureElement;Dam;Road;RoadInterchange;RoadOtherSpatialStructureElement;RoadRamp;RoadStretch;Railway;RailwayOtherSpatialStructureElement;RailwayStretch;Tunnel"/>
+    <Property Name = "3DPartAvailability" Value = "UserChoiceReferenceDefault"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "BridgeAbutment" SuperName = "BridgePart" Uuid = "14e81a28-f0ce-4a96-b69c-dd1fe6f6cacd">
+    <Property Name = "IconName" Value = "I_BridgeAbutment"/>
+    <Property Name = "3DIconName" Value = "I_BridgeAbutment.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATEAECDelegateInstanciation"/>
+    <Property Name = "KweNew_ReturnedType" Value = "VPMInstance"/>
+    <Property Name = "Newable" Value = "All_Offline_CAA"/>
+    <Property Name = "InstantiationOwnerTypes" Value = "PPRContext;AecOtherSpatialStructureElement;Bridge;BridgeAbutment;BridgeOtherSpatialStructureElement"/>
+    <Property Name = "3DPartAvailability" Value = "UserChoiceReferenceDefault"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "BridgeAbutmentType" SuperName = "BridgePartType" Uuid = "8DF0E207-52FE-4E5E-A529-E8343EDF8EC6">
+    <Property Name = "IconName" Value = "I_BridgeAbutmentType"/>
+    <Property Name = "3DIconName" Value = "I_BridgeAbutmentType.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATCbaObjectTypeDelegateInstanciation"/>
+    <Property Name = "Newable" Value = "New_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "ReferenceOnly"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "BridgeAnchorBlock" SuperName = "BridgePart" Uuid = "a7a09fda-2649-45bd-9ac4-77253c84adb0">
+    <Property Name = "IconName" Value = "I_BridgeAnchorBlock"/>
+    <Property Name = "3DIconName" Value = "I_BridgeAnchorBlock.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATEAECDelegateInstanciation"/>
+    <Property Name = "KweNew_ReturnedType" Value = "VPMInstance"/>
+    <Property Name = "Newable" Value = "All_Offline_CAA"/>
+    <Property Name = "InstantiationOwnerTypes" Value = "PPRContext;AecOtherSpatialStructureElement;Bridge;BridgeAnchorBlock;BridgeOtherSpatialStructureElement"/>
+    <Property Name = "3DPartAvailability" Value = "UserChoiceReferenceDefault"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "BridgeAnchorBlockType" SuperName = "BridgePartType" Uuid = "11D1FD27-D182-4D57-86A0-B55983ADC276">
+    <Property Name = "IconName" Value = "I_BridgeAnchorBlockType"/>
+    <Property Name = "3DIconName" Value = "I_BridgeAnchorBlockType.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATCbaObjectTypeDelegateInstanciation"/>
+    <Property Name = "Newable" Value = "New_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "ReferenceOnly"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "BridgeArch" SuperName = "BridgePart" Uuid = "3ed4a5ce-132b-4ac0-a7ea-fbd25adfee60">
+    <Property Name = "IconName" Value = "I_BridgeArch"/>
+    <Property Name = "3DIconName" Value = "I_BridgeArch.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATEAECDelegateInstanciation"/>
+    <Property Name = "KweNew_ReturnedType" Value = "VPMInstance"/>
+    <Property Name = "Newable" Value = "All_Offline_CAA"/>
+    <Property Name = "InstantiationOwnerTypes" Value = "PPRContext;AecOtherSpatialStructureElement;Bridge;BridgeArch;BridgeOtherSpatialStructureElement"/>
+    <Property Name = "3DPartAvailability" Value = "UserChoiceReferenceDefault"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "BridgeArchType" SuperName = "BridgePartType" Uuid = "5423660A-44BA-49F3-ACAE-A9A23CFB2B52">
+    <Property Name = "IconName" Value = "I_BridgeArchType"/>
+    <Property Name = "3DIconName" Value = "I_BridgeArchType.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATCbaObjectTypeDelegateInstanciation"/>
+    <Property Name = "Newable" Value = "New_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "ReferenceOnly"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "BridgeDeck" SuperName = "BridgePart" Uuid = "bb000fc3-499f-4184-8900-97c5fef3f30a">
+    <Property Name = "IconName" Value = "I_BridgeDeck"/>
+    <Property Name = "3DIconName" Value = "I_BridgeDeck.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATEAECDelegateInstanciation"/>
+    <Property Name = "KweNew_ReturnedType" Value = "VPMInstance"/>
+    <Property Name = "Newable" Value = "All_Offline_CAA"/>
+    <Property Name = "InstantiationOwnerTypes" Value = "PPRContext;AecOtherSpatialStructureElement;Bridge;BridgeDeck;BridgeOtherSpatialStructureElement"/>
+    <Property Name = "3DPartAvailability" Value = "UserChoiceReferenceDefault"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "BridgeDeckType" SuperName = "BridgePartType" Uuid = "8C0CB0CA-F78E-4758-9304-E2937A991114">
+    <Property Name = "IconName" Value = "I_BridgeDeckType"/>
+    <Property Name = "3DIconName" Value = "I_BridgeDeckType.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATCbaObjectTypeDelegateInstanciation"/>
+    <Property Name = "Newable" Value = "New_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "ReferenceOnly"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "BridgeHangerBelt" SuperName = "BridgePart" Uuid = "d8d997c1-4e5c-4301-ad06-f3ff137326b8">
+    <Property Name = "IconName" Value = "I_BridgeHangerBelt"/>
+    <Property Name = "3DIconName" Value = "I_BridgeHangerBelt.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATEAECDelegateInstanciation"/>
+    <Property Name = "KweNew_ReturnedType" Value = "VPMInstance"/>
+    <Property Name = "Newable" Value = "All_Offline_CAA"/>
+    <Property Name = "InstantiationOwnerTypes" Value = "PPRContext;AecOtherSpatialStructureElement;Bridge;BridgeHangerBelt;BridgeOtherSpatialStructureElement;BridgeSuspensionSystem"/>
+    <Property Name = "3DPartAvailability" Value = "UserChoiceReferenceDefault"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "BridgeHangerBeltType" SuperName = "BridgePartType" Uuid = "9F0B3410-B550-4206-90F7-BBAF48BA9123">
+    <Property Name = "IconName" Value = "I_BridgeHangerBeltType"/>
+    <Property Name = "3DIconName" Value = "I_BridgeHangerBeltType.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATCbaObjectTypeDelegateInstanciation"/>
+    <Property Name = "Newable" Value = "New_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "ReferenceOnly"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "BridgeOtherSpatialStructureElement" Specializable = "Yes" SuperName = "BridgePart" Uuid = "b685d3ed-b059-427d-a1f9-dbab9ab4380b">
+    <Property Name = "IconName" Value = "I_BridgeOtherSpatialStructureElement"/>
+    <Property Name = "3DIconName" Value = "I_BridgeOtherSpatialStructureElement.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATEAECDelegateInstanciation"/>
+    <Property Name = "KweNew_ReturnedType" Value = "VPMInstance"/>
+    <Property Name = "Newable" Value = "All_Offline_CAA"/>
+    <Property Name = "InstantiationOwnerTypes" Value = "PPRContext;AecOtherSpatialStructureElement;Bridge;BridgeAbutment;BridgeAnchorBlock;BridgeArch;BridgeDeck;BridgeHangerBelt;BridgeOtherSpatialStructureElement;BridgePier;BridgeSpan;BridgeStayBelt;BridgeSuspensionSystem;BridgeTower"/>
+    <Property Name = "3DPartAvailability" Value = "UserChoiceReferenceDefault"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "BridgeOtherSpatialStructureElementType" Specializable = "Yes" SuperName = "BridgePartType" Uuid = "B1461830-8356-4E5F-A8E0-CB19036662F3">
+    <Property Name = "IconName" Value = "I_BridgeOtherSpatialStructureElementType"/>
+    <Property Name = "3DIconName" Value = "I_BridgeOtherSpatialStructureElementType.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATCbaObjectTypeDelegateInstanciation"/>
+    <Property Name = "Newable" Value = "New_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "ReferenceOnly"/>
+  </Class>
+  <Class Abstract = "Yes" CustomerExposition = "Programmer" Discipline = "Yes" Name = "BridgePart" SuperName = "BridgeSpatialStructureElement" Uuid = "58c87f6f-6b19-4a37-a6ef-120beb2713fb"/>
+  <Class Abstract = "Yes" CustomerExposition = "Programmer" Discipline = "Yes" Name = "BridgePartType" SuperName = "BridgeSpatialStructureElementType" Uuid = "CAA6ACB8-A6DD-4B46-921C-91C0DF9D70FC"/>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "BridgePier" SuperName = "BridgePart" Uuid = "22216040-ce0c-4831-8889-1bae290d1db4">
+    <Property Name = "IconName" Value = "I_BridgePier"/>
+    <Property Name = "3DIconName" Value = "I_BridgePier.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATEAECDelegateInstanciation"/>
+    <Property Name = "KweNew_ReturnedType" Value = "VPMInstance"/>
+    <Property Name = "Newable" Value = "All_Offline_CAA"/>
+    <Property Name = "InstantiationOwnerTypes" Value = "PPRContext;AecOtherSpatialStructureElement;Bridge;BridgeOtherSpatialStructureElement;BridgePier"/>
+    <Property Name = "3DPartAvailability" Value = "UserChoiceReferenceDefault"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "BridgePierType" SuperName = "BridgePartType" Uuid = "F071F9BA-94CD-4524-8011-0C2A160D3A5B">
+    <Property Name = "IconName" Value = "I_BridgePierType"/>
+    <Property Name = "3DIconName" Value = "I_BridgePierType.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATCbaObjectTypeDelegateInstanciation"/>
+    <Property Name = "Newable" Value = "New_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "ReferenceOnly"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "BridgeSpan" SuperName = "BridgePart" Uuid = "faa3f092-36c6-4df2-b219-5ada53624020">
+    <Property Name = "IconName" Value = "I_BridgeSpan"/>
+    <Property Name = "3DIconName" Value = "I_BridgeSpan.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATEAECDelegateInstanciation"/>
+    <Property Name = "KweNew_ReturnedType" Value = "VPMInstance"/>
+    <Property Name = "Newable" Value = "All_Offline_CAA"/>
+    <Property Name = "InstantiationOwnerTypes" Value = "PPRContext;AecOtherSpatialStructureElement;Bridge;BridgeDeck;BridgeOtherSpatialStructureElement;BridgeSpan"/>
+    <Property Name = "3DPartAvailability" Value = "UserChoiceReferenceDefault"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "BridgeSpanType" SuperName = "BridgePartType" Uuid = "C53ED76F-3F5A-40FB-BBD4-A7EBF3903FA8">
+    <Property Name = "IconName" Value = "I_BridgeSpanType"/>
+    <Property Name = "3DIconName" Value = "I_BridgeSpanType.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATCbaObjectTypeDelegateInstanciation"/>
+    <Property Name = "Newable" Value = "New_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "ReferenceOnly"/>
+  </Class>
+  <Class Abstract = "Yes" CustomerExposition = "Programmer" Discipline = "Yes" Name = "BridgeSpatialStructureElement" SuperName = "CivilEngineeringSpatialStructureElement" Uuid = "be6d5b8f-7c1d-42ad-acd1-63cbeba3a49a">
+    <Property Name = "GroupingType" Value = "BridgeSpatialStructureElement"/>
+  </Class>
+  <Class Abstract = "Yes" CustomerExposition = "Programmer" Discipline = "Yes" Name = "BridgeSpatialStructureElementType" SuperName = "CivilEngineeringSpatialStructureElementType" Uuid = "D86AF868-8C70-4328-8149-F7B804063255">
+    <Property Name = "GroupingType" Value = "BridgeSpatialStructureElementType"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "BridgeStayBelt" SuperName = "BridgePart" Uuid = "87962cc2-58fd-4f58-ba86-7057c2d2087c">
+    <Property Name = "IconName" Value = "I_BridgeStayBelt"/>
+    <Property Name = "3DIconName" Value = "I_BridgeStayBelt.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATEAECDelegateInstanciation"/>
+    <Property Name = "KweNew_ReturnedType" Value = "VPMInstance"/>
+    <Property Name = "Newable" Value = "All_Offline_CAA"/>
+    <Property Name = "InstantiationOwnerTypes" Value = "PPRContext;AecOtherSpatialStructureElement;Bridge;BridgeOtherSpatialStructureElement;BridgeStayBelt;BridgeSuspensionSystem"/>
+    <Property Name = "3DPartAvailability" Value = "UserChoiceReferenceDefault"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "BridgeStayBeltType" SuperName = "BridgePartType" Uuid = "E3063C5E-3E87-4C04-8069-4DCF583393DB">
+    <Property Name = "IconName" Value = "I_BridgeStayBeltType"/>
+    <Property Name = "3DIconName" Value = "I_BridgeStayBeltType.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATCbaObjectTypeDelegateInstanciation"/>
+    <Property Name = "Newable" Value = "New_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "ReferenceOnly"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "BridgeSuspensionSystem" SuperName = "BridgePart" Uuid = "fa685774-66b4-443e-b4f9-ba183225b370">
+    <Property Name = "IconName" Value = "I_BridgeSuspensionSystem"/>
+    <Property Name = "3DIconName" Value = "I_BridgeSuspensionSystem.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATEAECDelegateInstanciation"/>
+    <Property Name = "KweNew_ReturnedType" Value = "VPMInstance"/>
+    <Property Name = "Newable" Value = "All_Offline_CAA"/>
+    <Property Name = "InstantiationOwnerTypes" Value = "PPRContext;AecOtherSpatialStructureElement;Bridge;BridgeOtherSpatialStructureElement;BridgeSuspensionSystem"/>
+    <Property Name = "3DPartAvailability" Value = "UserChoiceReferenceDefault"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "BridgeSuspensionSystemType" SuperName = "BridgePartType" Uuid = "900464A4-371E-443A-AF2B-4E3AA9786A58">
+    <Property Name = "IconName" Value = "I_BridgeSuspensionSystemType"/>
+    <Property Name = "3DIconName" Value = "I_BridgeSuspensionSystemType.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATCbaObjectTypeDelegateInstanciation"/>
+    <Property Name = "Newable" Value = "New_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "ReferenceOnly"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "BridgeTower" SuperName = "BridgePart" Uuid = "447f128a-1e66-4426-8798-6c611600e53e">
+    <Property Name = "IconName" Value = "I_BridgeTower"/>
+    <Property Name = "3DIconName" Value = "I_BridgeTower.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATEAECDelegateInstanciation"/>
+    <Property Name = "KweNew_ReturnedType" Value = "VPMInstance"/>
+    <Property Name = "Newable" Value = "All_Offline_CAA"/>
+    <Property Name = "InstantiationOwnerTypes" Value = "PPRContext;AecOtherSpatialStructureElement;Bridge;BridgeOtherSpatialStructureElement;BridgeTower"/>
+    <Property Name = "3DPartAvailability" Value = "UserChoiceReferenceDefault"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "BridgeTowerType" SuperName = "BridgePartType" Uuid = "8A5EB9AF-B362-47BD-9D23-844BA4BED74E">
+    <Property Name = "IconName" Value = "I_BridgeTowerType"/>
+    <Property Name = "3DIconName" Value = "I_BridgeTowerType.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATCbaObjectTypeDelegateInstanciation"/>
+    <Property Name = "Newable" Value = "New_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "ReferenceOnly"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "BridgeType" SuperName = "BridgeSpatialStructureElementType" Uuid = "467AE7E1-A371-466F-85DB-016D374A269B">
+    <Property Name = "IconName" Value = "I_BridgeType"/>
+    <Property Name = "3DIconName" Value = "I_BridgeType.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATCbaObjectTypeDelegateInstanciation"/>
+    <Property Name = "Newable" Value = "New_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "ReferenceOnly"/>
+  </Class>
+</Package>

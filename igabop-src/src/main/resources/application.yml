@@ -1,0 +1,39 @@
+server:
+  servlet:
+    context-path: /bop
+service:
+  host: https://eno-3de-sw-d01.igatec.com
+  url: ${service.host}${server.servlet.context-path}${cas.client.filter.processes-url}
+cas:
+  security:
+    csrf: false
+  client:
+    filter:
+      processes-url: /api
+      proxy-receptor-url: /proxyCallback
+      proxy-callback-url: ${service.url}${cas.client.filter.proxy-receptor-url}
+spring:
+  profiles:
+    active:
+      - cas
+      - premise
+      - remote
+  servlet:
+    multipart:
+      max-request-size: 100MB
+      max-file-size: 100MB
+logging:
+  level:
+    root: info
+    web: debug
+    com:
+      igatec:
+        bop:
+          report: trace
+  file:
+    name: logs/bop.log
+
+ppr:
+  id: D35565C9000042A05EFB4C0A0000B6EE
+report:
+  organization: "SkyWay"

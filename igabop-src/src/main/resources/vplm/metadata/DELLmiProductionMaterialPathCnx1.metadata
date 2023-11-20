@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2010, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified"
+         ModelerType="Top"
+         Name="DELLmiProductionMaterialPathCnx1"
+         Uuid="71BC081F-BC44-4206-9618-1628D1C483BA"
+         BelongsToModeler="DELLmiProductionSystem"
+         UseNames="PLMCORE"
+         CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>DELMIA Production System model</ShortRole>
+    <Role>Connection that describes the Material Path between IOs of Production Systems</Role>
+  </CAAComment>
+
+  <Comment>last update 2012-01-20</Comment>
+
+  <Class Name="DELLmiMaterialPathCnxCust"
+         Uuid="91545055-58CD-499d-8540-0CEAF11D2F15"
+         Abstract="No"
+         SuperName="PLMConnection"
+         CustomerExposition="Programmer"
+         Specializable="No"
+         CustomerExtensible="No"
+         OwnerTypes="DELLmiProductionSystemReference"
+         >
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+
+    <CAAComment>
+      <ShortRole>Defines DELMIA Material Path Connection</ShortRole>
+      <Role>Connection that describes the Material Path between IOs of Production Systems</Role>
+    </CAAComment>
+
+    <Path Name="DELMaterialPathIN"
+        Uuid="3673D38F-BC40-4064-B420-C4FC6A2F3427"
+        MultiValuated="No"
+        RoleName="DEL_MaterialPathIN"		
+        Type="SemanticRelation" AdaptativeToMinor="Yes"
+		    SynchroSensitivity="None"
+		    RerouteOnEffectivityChange="Yes"
+        Semantics="Reference"/>
+
+    <Path Name="DELMaterialPathOUT"
+        Uuid="B7F0380E-6A95-404b-83C1-5C5B88F97E28"
+        MultiValuated="No"
+        RoleName="DEL_MaterialPathOUT"		
+        Type="SemanticRelation" AdaptativeToMinor="Yes"
+		    SynchroSensitivity="None"
+		    RerouteOnEffectivityChange="Yes"
+        Semantics="Reference"/>
+
+    <Simple Name="V_PriorityIN"
+            Uuid="732D751A-E027-4f73-ABFD-9776C4EE7431"
+            Type="Integer"
+            MultiValuated="No"
+            DefaultValue="1"
+            Protection="Free"
+            CAAExposition="L0"/>
+
+    <Simple Name="V_PriorityOUT"
+            Uuid="5AB0F433-DF1D-4f54-974E-8980468E2AE5"
+            Type="Integer"
+            MultiValuated="No"
+            DefaultValue="1"
+            Protection="Free"
+            CAAExposition="L0"/>
+
+    <Simple Name="V_ProportionIN"
+            Uuid="F9EC0584-024E-498d-9DB1-8CA3A807B82A"
+            Type="Double"
+            MultiValuated="No"
+            DefaultValue="1.0"
+            Protection="Free"
+            CAAExposition="L0"/>
+
+    <Simple Name="V_ProportionOUT"
+            Uuid="0272F508-41EC-44e0-84BA-6AC7370B2D5D"
+            Type="Double"
+            MultiValuated="No"
+            DefaultValue="1.0"
+            Protection="Free"
+            CAAExposition="L0"/>
+
+   
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+  </Class>
+
+
+</Package>

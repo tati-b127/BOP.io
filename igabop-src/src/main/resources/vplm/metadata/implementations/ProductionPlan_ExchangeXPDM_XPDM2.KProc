@@ -1,0 +1,60 @@
+#Prog ProductionPlan_ExchangeXPDM_XPDM2 (iPLMIDSet :  #In PLMIDSet,oPLMIDSet :  #Out PLMIDSet) : VoidType
+{
+	let PLMRouteSetConstraintOp (PLMRouteSet)
+	let PLMRouteSetWhoResource (PLMRouteSet)
+	let PLMRouteSetWhereResource (PLMRouteSet)
+	let PLMRouteSetOldWhereResource (PLMRouteSet)
+	let PLMRouteSetPlanningSystem (PLMRouteSet)
+	let PLMRouteSetPlanningOpInst (PLMRouteSet)
+	let PLMRouteSetAggrRef (PLMRouteSet)
+
+	let PLMIDSetExecHeaderOpRef (PLMIDSet)
+	let PLMIDSetExecHeaderOpInst (PLMIDSet)
+	let PLMIDSetWorkOrderRef (PLMIDSet)
+	let PLMIDSetProdPlanRef (PLMIDSet)
+	let PLMIDSetConstraintOp (PLMIDSet)
+	let PLMIDSetWhoResource (PLMIDSet)
+	let PLMIDSetWhereResource (PLMIDSet)
+	let PLMIDSetOldWhereResource (PLMIDSet)
+	let PLMIDSetPlaningSystem (PLMIDSet)
+	let PLMIDSetPlaningOpInst (PLMIDSet)
+	let PLMIDSetAggrRef (PLMIDSet)
+
+	PLMIDSetExecHeaderOpRef = Restrict(iPLMIDSet, "DELLmiProductionExecHeaderOperation/DELLmiExecHeaderOperationReference")
+	PLMIDSetExecHeaderOpInst = Restrict(iPLMIDSet, "DELLmiProductionExecHeaderOperation/DELLmiExecHeaderOperationInstance")
+	PLMIDSetWorkOrderRef = Restrict(iPLMIDSet, "DELLmiWorkOrder/DELLmiWorkOrderReference")
+	PLMIDSetProdPlanRef = Restrict(iPLMIDSet, "DELLmiProductionPlan/DELLmiProductionPlanReference")
+
+	/* get all constraining and constrained Exec Header Operation */
+	PLMRouteSetConstraintOp  = ExecutePLMFunction("DELLmiProductionSystemAbstract", "ENOPsm_WorkOrder_addTimeConstraint", PLMIDSetExecHeaderOpRef)
+	PLMIDSetConstraintOp =Ids(PLMRouteSetConstraintOp,"all")
+
+	/* get all who resource from Exec Header Operation references*/
+	PLMRouteSetWhoResource  = ExecutePLMFunction("DELLmiProductionSystemAbstract", "ENOPsm_WorkOrder_addWhoResource", PLMIDSetExecHeaderOpRef)
+	PLMIDSetWhoResource =Ids(PLMRouteSetWhoResource,"all")
+
+	/* get planning system serialized by work orders*/
+	PLMRouteSetPlanningSystem  = ExecutePLMFunction("DELLmiProductionSystemAbstract", "ENOPsm_ProductionSystem_addSerializedFrom", PLMIDSetWorkOrderRef)
+	PLMIDSetPlaningSystem =Ids(PLMRouteSetPlanningSystem,"all")
+
+	/* get planning Header Op Inst serialized by Exec Header Op Inst*/
+	PLMRouteSetPlanningOpInst  = ExecutePLMFunction("DELLmiProductionSystemAbstract", "ENOPsm_WorkOrder_addSerializationFromFromSR", PLMIDSetExecHeaderOpInst)
+	PLMIDSetPlaningOpInst =Ids(PLMRouteSetPlanningOpInst,"all")
+
+	/* get Aggregating and Aggregated references from instances */
+	PLMRouteSetAggrRef  = ExecutePLMFunction("DELPPRContextModel", "ENOPpr_PPRData_addAllFathers", PLMIDSetPlaningOpInst)
+	PLMIDSetAggrRef =Ids(PLMRouteSetAggrRef,"all")
+
+	/* get all where resource from ProductionPlan references*/
+	PLMRouteSetWhereResource  = ExecutePLMFunction("DELLmiProductionSystemAbstract", "ENOPsm_WorkOrder_addWhereResource", PLMIDSetProdPlanRef)
+	PLMIDSetWhereResource =Ids(PLMRouteSetWhereResource,"all")
+
+	/* get all old where resource from ProductionPlan references*/
+	PLMRouteSetOldWhereResource  = ExecutePLMFunction("DELLmiProductionSystemAbstract", "ENOPsm_ProductionSystem_addImplementingResources", PLMIDSetProdPlanRef)
+	PLMIDSetOldWhereResource =Ids(PLMRouteSetOldWhereResource,"all")
+
+
+	oPLMIDSet = iPLMIDSet + PLMIDSetConstraintOp + PLMIDSetWhoResource + PLMIDSetPlaningSystem + PLMIDSetPlaningOpInst + PLMIDSetAggrRef + PLMIDSetWhereResource + PLMIDSetOldWhereResource
+}
+
+

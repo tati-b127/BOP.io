@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2010, All rights reserved -->
+
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" Name="ENOSTGroupOfInstancesModelDS" Uuid="B87CEB73-0B28-4610-B475-873C8DE5B4AD" UseNames="PLMGroupOfInstancesModel" Alias="Package Group connection Custo">
+	
+	<CAAComment>
+		<ShortRole>Package to customize Group connection</ShortRole>
+		<Role>Package to customize package PLMGroupOfInstancesModel for Group connection</Role>
+	</CAAComment>
+	
+	<Class Name="ENOSTGroupOfInstancesCusto" Alias="Group connection" Uuid="1DEEF16A-CC20-42bd-81E2-41A15C823332"
+		SuperName="PLMGroupOfInstances" SuperRef="F72F3615-48D3-41ef-8429-2E5267EAB43D">
+
+    <Simple Name="E_fromExternalId"
+        Uuid="3C146D6A-3E13-477e-A119-3481D27FB147"
+        Alias="Definition"
+        Type="String"
+        MaxLength="256"
+        Mandatory="No"
+        MultiValuated="No"
+        Protection="Free"
+        CAAExposition="L0"/>
+
+    <CAAComment>
+			<ShortRole>PLM Customization for Group connection</ShortRole>
+			<Role>PLM Customization for Group connection "PLMGroupOfInstances"</Role>
+		</CAAComment>
+
+	</Class>
+	
+</Package>

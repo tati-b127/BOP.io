@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2005, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" Name="ENOSTKnowHowCheckDS" Uuid="097976f6-b6cb-4ef2-8c05-6224a72a819d" UseNames="PLMKnowHowCheck" Alias="KnowHow Check SMB Custo" >
+	<Class Name="ENOSTCheck" Uuid="6bc09d2d-a9db-48b9-8265-d66c30552f9c" Alias="ENOSTCheck"       SuperRef="A3BE9B37-9EE5-4f14-9A0BB92CA1C456DD" SuperName="PLMCheck" >
+    <IdentifierSet Name="Identifier" Uuid="d793cf3e-89b2-4770-ac51-05d4685a5974" 
+      IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755" 
+      IdentifierNames="PLM_ExternalID V_version"/>
+    <Simple Name="E_fromExternalId" Uuid="d2e62dd2-c0fe-4d7d-a87f-65e669553a18" Alias="Definition" Type="String" MaxLength="256" Mandatory="No" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+    <Simple Name="E_versionComment" Uuid="eec769d9-6985-41fe-b00a-1c94093d02ae" Alias="Version Comment" Type="String" MaxLength="256" Mandatory="No" MultiValuated="No" Protection="Free" CAAExposition="L0"  ResetOnNewVersion="Yes"  ResetOnCloning="Yes"/>
+  </Class>
+	<Class Name="ENOSTCheckInstance" Uuid="a290e2a3-aff0-481c-b7e1-a442236e244e" Alias="ENOSTCheckInstance"       SuperRef="C3FDC21B-F7B9-4d00-8A90A09053178F38" SuperName="PLMCheckInstance" />
+</Package>

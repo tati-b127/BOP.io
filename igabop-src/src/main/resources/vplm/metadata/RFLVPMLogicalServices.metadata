@@ -1,0 +1,154 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR Logical Application -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2012, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" BelongsToModeler="RFLVPMLogical" Name="RFLVPMLogicalServices"
+    Uuid="579E5F4E-495C-481F-AA47-7FB3DA47F912"
+    UseNames="LPABSTRACT;PLMCORE"
+	UseProcedures="ENOLog_Procedures"
+    CustomerExposition="Programmer"
+    >
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>VPM Logical Services Interface Package</ShortRole>
+    <Role>This package describes the PLM Logical model for VPM Logical Services Interface on top of LPAbstract Modeler</Role>
+  </CAAComment>
+
+  <!-- ************************************************* -->
+  <!-- * RFLVPMServicesReference (LPAbstractReference) * -->
+  <!-- ************************************************* -->
+  <Class Name="RFLVPMServicesReference" Uuid="47DAE412-9406-4DED-88D2-A771F37982F2"
+  CustomerExposition="Programmer"
+  CustomerExtensible="Yes"
+  Specializable="Yes"
+  Abstract="No"
+  SuperName="LPAbstractReference"
+  CreateInstName="RFLVPMServicesExpositionInstance"
+  Abbreviation="logsvc">
+
+    <CAAComment>
+      <ShortRole>PLM Logical Services Interface Definition</ShortRole>
+      <Role>PLM Logical Services Interface Definition</Role>
+    </CAAComment>
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="AggregatableTypes" Value="RFLVPMLogicalInterfaceRepReference"/>
+    <Property Name="InstantiationOwnerTypes" Value="RFLVPMLogicalReference"/>
+
+    <Property Name="KweNew_InstanciationMethod" Value="CATELogDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="RFLVPMServicesExpositionInstance"/>
+    <Property Name="Newable" Value="Insert" />
+
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="ChangeManagementSupport" Value="Yes"/>
+
+    <Property Name="ShareBetweenProjectsAvailability" Value="Yes"/>
+    <!-- Collaborative Space Applicability -->
+
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Design"/>
+        <UsedProcedure href="ENOLog_Procedures.proc#Logical_ExportServices_Design"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Channel"/>
+        <UsedProcedure href="ENOLog_Procedures.proc#Logical_ExportServices_PLMChannel"/>
+      </ProcedureForUsage>
+	  <ProcedureForUsage>
+	    <Usage href="ExportScope.meth#Remove"/>
+        <UsedProcedure href="ENOLog_Procedures.proc#Logical_ExportServicesRef_Remove"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#TransferSiteOwnership"/>
+        <UsedProcedure href="ENOLog_Procedures.proc#Logical_ExportServicesRef_TSO"/>
+      </ProcedureForUsage>
+    </Method>
+  </Class>
+
+  <!-- ********************************************************* -->
+  <!-- * RFLVPMServicesExpositionInstance (PLMCoreInstance) * -->
+  <!-- ********************************************************* -->
+  <RelationClass Name="RFLVPMServicesExpositionInstance" Uuid="283DA7FC-4E04-4B56-AD55-51415CE58D0F"
+  CustomerExposition="Programmer"
+  CustomerExtensible="Yes"
+  Specializable="Yes"
+  Abstract="No"
+  SuperName="PLMCoreInstance"
+    >
+
+    <CAAComment>
+      <ShortRole>PLM Logical Services Interface Exposition Usage</ShortRole>
+      <Role>PLM Logical Services Interface Exposition Usage</Role>
+    </CAAComment>
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATELogDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="RFLVPMServicesExpositionInstance"/>
+    <Property Name="Searchable" Value="No"/>
+
+    <Simple Name="V_Identifier" Uuid="B6DFB1C3-B639-4E82-850D-8A86EE0758FD"
+            Protection="ExternalIN"
+            Type="String"
+            MaxLength="100"
+            MultiValuated="No"
+            PLMImpacting="No"
+            CAAExposition="L1"
+                >
+
+      <CAAComment>
+        <ShortRole>Identifier of Services Interface Exposition Usage</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_InteractionType" Uuid="BCED5CBE-5740-4B82-BAC9-C4221EA02860" Type="Integer" Protection="ExternalIN" CAAExposition="L1" DefaultValue="2" PLMImpacting="Yes" Faceted="Yes">
+      <Property Name="SIXW" Value="ds6w:technology"/>
+      <Property Name="RangeAsEnumName" Value="V_InteractionTypeEnum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="Required;Provided"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+      </Range>
+      <CAAComment>
+        <ShortRole>Direction of the Services Interface Exposition (Provided or Required)</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <!-- ******************************************** -->
+    <!-- * Define Owner and InstanceOf              * -->
+    <!-- ******************************************** -->
+    <SubClause Name="from"   TargetName="RFLVPMLogicalAbstractReference"/>
+      <SubClause Name="to"   TargetName="RFLVPMServicesReference"/>
+
+    <Volatile Name="Reference" Uuid="888758C6-9390-43A0-A9B3-91A5CFF3ACE8" Accessor="PLMModelerReferenceKweAttribute" TypeName="RFLVPMServicesReference" AccessMode="ReadOnly" >
+      <Property Name="ServerAccessor" Value="com.dassault_systemes.vplm.modelerBaseNav.services.PLMInstance_Reference_Accessor"/>
+    </Volatile>
+
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+	  <ProcedureForUsage>
+	    <Usage href="ExportScope.meth#Remove"/>
+        <UsedProcedure href="ENOLog_Procedures.proc#Logical_ExportServicesExpoInst_Remove"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#TransferSiteOwnership"/>
+        <UsedProcedure href="ENOLog_Procedures.proc#Logical_ExportServicesExpoInst_TSO"/>
+      </ProcedureForUsage>
+    </Method>
+  </RelationClass>
+  
+  <!-- **************************************************** -->
+  <!-- * Declaration of functions                           -->
+  <!-- **************************************************** -->
+
+  <Function Name="RFLVPMServicesReference_Aggregated1stLvlObjects">
+    <Implementation Name="RFLVPMServicesReference_Aggregated1stLvlObjects" FileLocation="RFLVPMServicesReference_Aggregated1stLvlObjects.plmql" Language="PLMQL"/>
+    <Signature href="ENOLogServicesSignature"/>
+  </Function>
+
+  <Signature id="ENOLogServicesSignature">
+    <Parameter Name="InputIds" Lower="0" Upper="-1" Direction="in" MultiValuated="Yes" DataType="PLMId"/>
+    <Parameter Name="OutputIds" Lower="0" Upper="-1" Direction="out" MultiValuated="No" DataType="PLMRouteSet"/>
+  </Signature>
+</Package>

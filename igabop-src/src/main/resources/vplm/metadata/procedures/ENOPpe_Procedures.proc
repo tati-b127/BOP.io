@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+<ProcedurePackage 
+	xmlns="PLMDictionaryProcedure"
+	Name="ENOPpe_Procedures">
+
+  <Procedure Name="PPRContext_GetAllEntities">
+    <Implementation Name="PPRContext_GetAllEntities" FileLocation="PPRContext_GetAllEntities.KProc" Language="EKL"/>
+    <Signature href="ENOPpe_ProcedureSignatureExport"/>
+  </Procedure>
+
+  <Procedure Name="PPRContext_GetAllEntitiesForOpen">
+    <Implementation Name="PPRContext_GetAllEntitiesForOpen" FileLocation="PPRContext_GetAllEntitiesForOpen.KProc" Language="EKL"/>
+    <Signature href="ENOPpe_ProcedureSignatureExport"/>
+  </Procedure>
+
+  <Signature id="ENOPpe_ProcedureSignatureExport">
+		<Parameter Name="InputIds" Lower="0" Upper="-1" MultiValuated="Yes" Direction="in" DataType="PLMId"/>
+		<Parameter Name="OutputIds" Lower="0" Upper="-1" MultiValuated="Yes" Direction="out" DataType="PLMId"/>
+	</Signature>
+	
+</ProcedurePackage>

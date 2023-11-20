@@ -1,0 +1,110 @@
+<?xml version="1.0" ?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2006, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" BelongsToModeler="Folder" Name="ENOFLD_FOLDER_REF"
+	Uuid="1c46186a-397a-4499-a024-55438f48768d"
+	UseNames="ENOFLD_ABSTRACT_REF"
+	CustomerExposition="Programmer"
+>
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>FolderStructure Package</ShortRole>
+    <Role>This package includes all the entities of non-Root Folder Model</Role>
+  </CAAComment>
+
+  <Comment>last update 2006-11-16-00.00.00</Comment>
+
+  <!-- **************************************************** -->
+  <!-- * ENOFLD_FolderReference(ENOFLD_AbstractReference) * -->
+  <!-- **************************************************** -->
+
+  <Class Name="ENOFLD_FolderReference"
+		Uuid="d559c381-0049-4413-9c35-d0d34cb23dc8"
+		CustomerExposition="Programmer"
+		Abstract="No"
+		SuperName="ENOFLD_AbstractReference"
+    Abbreviation="fld"
+    Specializable="Yes"
+    CreateInstName="ENOFLD_FolderInstance">
+
+    <CAAComment>
+      <ShortRole>Non-Root Folder</ShortRole>
+      <Role>Non-Root Folder</Role>
+    </CAAComment>
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="KnlgFolderNewFactory"/>
+    <Property Name="Newable" Value="Insert"/>
+    <Property Name="IconName" Value="I_FolderFolder"/>
+    <Property Name="3DIconName" Value="Folder_3DNAVREP.cgr"/>
+    <Property Name="DeleteAvailability" Value="Yes"/>
+    <Property Name="Searchable" Value="Yes"/>
+
+      <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Design"/>
+        <UsedProcedure href="PLMFolder_Procedures.proc#PLMFolder_ExportSelf"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Channel"/>
+        <UsedProcedure href="PLMFolder_Procedures.proc#PLMFolder_ExportSelf"/>
+      </ProcedureForUsage>
+    </Method>
+
+  </Class>
+
+
+  <!-- ************************************************** -->
+  <!-- * ENOFLD_FolderInstance(ENOFLD_AbstractInstance) * -->
+  <!-- ************************************************** -->
+
+  <RelationClass Name="ENOFLD_FolderInstance"
+		Uuid="53f2713e-f07e-4294-a72e-239e82de244c"
+		CustomerExposition="Programmer"
+		Abstract="No"
+		SuperName="ENOFLD_AbstractInstance"
+        Specializable="Yes">
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <!-- Behavior patterns: default values -->
+    <Property Name="EditPropertiesAvailability" Value="No"/>
+    
+
+    <CAAComment>
+      <ShortRole>Instance between a Folder and another Folder</ShortRole>
+      <Role>Instance between a Folder and another Folder</Role>
+    </CAAComment>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </RelationClass>
+
+  <!-- ******************************************** -->
+  <!-- * ENOFLD_FolderConnection(PLMConnection)   * -->
+  <!-- ******************************************** -->
+
+  <Class Name="ENOFLD_FolderConnection"
+		Uuid="1fa4c57b-8a02-4d0c-b4b4-90d9619a05db"
+		CustomerExposition="Programmer"
+		Abstract="No"
+		SuperName="ENOFLD_AbstractConnection">
+
+    <CAAComment>
+      <ShortRole>Folder Connection Object</ShortRole>
+      <Role>Folder Connection Object to link an Abstract non-Root Folder to any PLMReference</Role>
+    </CAAComment>
+
+
+    <!-- ********************************************************* -->
+    <!-- * Security processes                                    * -->
+    <!-- ********************************************************* -->
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+
+</Package>

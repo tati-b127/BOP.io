@@ -1,0 +1,14 @@
+#Prog VPMEditor_TSO_VPMInstance (iPLMIDSet :  #In PLMIDSet,oPLMIDSet :  #Out PLMIDSet) : VoidType
+{ 
+  let rsRelatedPrivateReps(PLMRouteSet)
+
+  let idsInstances (PLMIDSet)
+
+  /*Completes with all PrivateRep pointing a VPMInstance*/
+  idsInstances = Restrict(iPLMIDSet, "PRODUCTCFG/VPMInstance")
+  rsRelatedPrivateReps = ExecutePLMFunction("PRODUCTCFG", "ProductCfg_AddLPPrivateRepForInstance", idsInstances)
+
+  /* Config not handled for now (risk of desynchro between effectivities and model) */
+
+  oPLMIDSet = iPLMIDSet + Ids(rsRelatedPrivateReps)
+}

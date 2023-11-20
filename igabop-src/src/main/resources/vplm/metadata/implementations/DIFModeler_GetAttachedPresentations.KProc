@@ -1,0 +1,87 @@
+#Prog DIFModeler_GetAttachedPresentations (iPLMIDSet :  #In PLMIDSet, oPLMIDSet :  #Out PLMIDSet) : VoidType
+{
+
+/* Connections retrieved from the input objects */
+let PLMDifAttachedPresentationSet(PLMRouteSet)
+let PLMDifAttachedPresentationIDSet(PLMIDSet)
+
+/* List of presentation retrieved on the connection, it might be sheet reference or layout */
+let PLMDifPresentationSet(PLMRouteSet)
+let PLMDifPresentationIDSet(PLMIDSet)
+
+let PLMDifExpendedSheet(PLMRouteSet)
+let PLMDifExpendedSheetIDSet(PLMIDSet)
+
+let PLMRestrictedDifLayoutFromInputIDSet(PLMIDSet)
+let PLMRestrictedDifSheetFromInputIDSet(PLMIDSet)
+
+/* view stream retrieved */
+let PLMDifViewStreamIDSet(PLMIDSet)
+let PLMDifBackgroundViewIDSet(PLMIDSet)
+
+/* Standard */
+let PLMDifStandardSet(PLMRouteSet)
+let PLMDifStandardIDSet(PLMIDSet)
+
+let PLMVPMReferenceIDSet(PLMIDSet) /* Inputs VPMReference input */
+let PLMRFLVPMLogicalReferenceIDSet(PLMIDSet) /* Inputs RFLVPMLogicalReference  input */
+let PLMRFLPLMFunctionalReferenceIDSet(PLMIDSet) /* Inputs RFLPLMFunctionalReference input */
+
+let PLMReferenceWithConnection(PLMIDSet) /* References with potential connection */
+let PLMDifReferenceToExpand(PLMIDSet) /* Dif Reference to expand, retrieved from input and from the retrieved connexion */
+let PLMDifRepReferenceWithStandard(PLMIDSet) /*Rep Ref with standard*/
+let PLMDifAbstractViewIDSet(PLMIDSet) /* View Ref */
+
+let PLMDifViewImplementLinks(PLMRouteSet)
+let PLMDifViewImplementLinksIDSet(PLMIDSet)
+
+
+/* Perform a pertinent restrict on the input, we only want the layouts and sheets from in the input */
+PLMRestrictedDifLayoutFromInputIDSet = Restrict(iPLMIDSet,"DIFModeler01/DIFLayout")
+PLMRestrictedDifSheetFromInputIDSet = Restrict(iPLMIDSet,"DIFModelerAbstractSheet/DIFAbstractSheet")
+
+/* Perform a Restrict on the input, we want to avoid the maximum of un pertinent object*/
+PLMVPMReferenceIDSet = Restrict(iPLMIDSet,"PRODUCTCFG/VPMReference")
+PLMRFLVPMLogicalReferenceIDSet = Restrict(iPLMIDSet,"RFLVPMLogical/RFLVPMLogicalReference")
+PLMRFLPLMFunctionalReferenceIDSet = Restrict(iPLMIDSet,"RFLPLMFunctional/RFLPLMFunctionalReference")
+
+
+PLMReferenceWithConnection = PLMVPMReferenceIDSet + PLMRFLVPMLogicalReferenceIDSet + PLMRFLPLMFunctionalReferenceIDSet
+
+/* Retrieve all DIFAttachedPresentation connexion from PLMReferenceWithConnection */
+PLMDifAttachedPresentationSet = ExecutePLMFunction("DIFModeler01", "DifModeler_AddPresentationCnx", PLMReferenceWithConnection)
+PLMDifAttachedPresentationIDSet = Ids(PLMDifAttachedPresentationSet)
+
+/* Retrieve all DIFLayout from connexions */
+/* The method DifModeler_AddLayouts add the layouts AND the sheets pointed by the connexions */
+PLMDifPresentationSet  =  ExecutePLMFunction("DIFModeler01", "DifModeler_AddLayouts", PLMDifAttachedPresentationIDSet)
+PLMDifPresentationIDSet = Ids(PLMDifPresentationSet)
+
+/* 
+Retrieve all DIFSheet from  the diffents inputs
+	- From direct input iPLMIDSet (might contain sheet or layout) but we have to perform a restrict first
+	- From the object retrieved from the connections
+ */
+
+ /* Retrieve Expand all components in order to retrieve all the instances/References aggregated under the inputs layout/sheets/connexions*/
+PLMDifReferenceToExpand = PLMDifPresentationIDSet + PLMRestrictedDifSheetFromInputIDSet + PLMRestrictedDifLayoutFromInputIDSet
+PLMDifExpendedSheet  =  ExecutePLMFunction("DIFModeler01", "DifModeler_AddSheets", PLMDifReferenceToExpand)
+PLMDifExpendedSheetIDSet = Ids(PLMDifExpendedSheet)
+
+/* Restrict to get the DIFViewStream and DIFBackgroundViewRep in order to get the standard*/
+PLMDifViewStreamIDSet = Restrict(PLMDifExpendedSheetIDSet,"DIFModeler03/DIFViewStream")
+PLMDifBackgroundViewIDSet = Restrict(PLMDifExpendedSheetIDSet,"DIFModeler04/DIFBackgroundViewRep")
+
+/* Retrieve all DIFStandard from DIFBackgroundViewRep and DifViewStream */
+PLMDifRepReferenceWithStandard = PLMDifBackgroundViewIDSet + PLMDifViewStreamIDSet
+PLMDifStandardSet = ExecutePLMFunction("DIFModeler01", "DifModeler_AddStandard", PLMDifRepReferenceWithStandard)
+PLMDifStandardIDSet = Ids(PLMDifStandardSet) 
+
+/* Retrieve all view implements link */
+PLMDifAbstractViewIDSet = Restrict(PLMDifExpendedSheetIDSet,"DIFModelerAbstractView/DIFAbstractView")
+PLMDifViewImplementLinks = ExecutePLMFunction("RFLPLMImplementConnection","RFLPLMImplementConnection_AddAllImplementCnx",PLMDifAbstractViewIDSet)
+PLMDifViewImplementLinksIDSet = Ids(PLMDifViewImplementLinks)
+
+oPLMIDSet = iPLMIDSet + PLMDifAttachedPresentationIDSet + PLMDifPresentationIDSet + PLMDifExpendedSheetIDSet + PLMDifStandardIDSet + PLMDifViewImplementLinksIDSet
+
+}

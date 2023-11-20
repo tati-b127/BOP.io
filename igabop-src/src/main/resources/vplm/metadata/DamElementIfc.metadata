@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2012, All rights reserved -->
+
+<Package CustomerExposition = "Programmer" ModelerType = "Top" Name = "DamElementIfc" UseNames = "DamElement" Uuid = "C461D47E-5BA3-4B23-BB4F-7031CCCE259D" xmlns = "PLMDictionaryUnified">
+  <Extension CustomerExposition = "Programmer" Name = "IfcDamElement" ScopeNames = "DamElement" Uuid = "07562D60-FE24-4D36-8FA5-052F8973C271">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcDamElement_ObjectType" Protection = "Free" Type = "String" Uuid = "07562D60-FE24-4D36-8FA5-1ad52eb2ea5e"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcDamElement_Tag" Protection = "Free" Type = "String" Uuid = "07562D60-FE24-4D36-8FA5-ed12431a92f4"/>
+    <Simple CAAExposition = "L0" DefaultValue = "99" Name = "IfcDamElement_PredefinedType" Protection = "Free" Type = "Integer" Uuid = "51780693-C87C-45EC-8EAB-477777821125">
+      <Property Name = "RangeAsEnumName" Value = "IfcDamElementTypeEnum"/>
+      <Property Name = "RangeAsEnumAuthorizedValues" Value = "USERDEFINED;NOTDEFINED"/>
+      <Range>
+        <Equal>98</Equal>
+        <Equal>99</Equal>
+      </Range>
+    </Simple>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcDamElementType" ScopeNames = "DamElementType" Uuid = "B6A7EC4A-376A-49C4-9F91-477063ED03D1">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcDamElementType_Tag" Protection = "Free" Type = "String" Uuid = "B6A7EC4A-376A-49C4-9F91-cc2a36316812"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcDamElementType_ElementType" Protection = "Free" Type = "String" Uuid = "B6A7EC4A-376A-49C4-9F91-4fccfb51960c"/>
+    <Simple CAAExposition = "L0" DefaultValue = "99" Name = "IfcDamElementType_PredefinedType" Protection = "Free" Type = "Integer" Uuid = "004FA2E1-07D2-4486-BF3E-453C692A924C">
+      <Property Name = "RangeAsEnumName" Value = "IfcDamElementTypeEnum"/>
+      <Property Name = "RangeAsEnumAuthorizedValues" Value = "USERDEFINED;NOTDEFINED"/>
+      <Range>
+        <Equal>98</Equal>
+        <Equal>99</Equal>
+      </Range>
+    </Simple>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcQto_DS_DamOtherElementBaseQuantities" ScopeNames = "DamOtherElement DamOtherElementType" Uuid = "9FDC712F-A809-4899-9641-5FE1A1C2CCF6">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcQto_DS_DamOtherElementBaseQuantities_MethodOfMeasurement" Protection = "Free" Type = "String" Uuid = "9FDC712F-A809-4899-9641-14b1550b5f09"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcQto_DS_DamOtherElementBaseQuantities_Height" Protection = "Free" Type = "Double" Uuid = "954ABEB4-4C2D-412E-BD10-20C0EED0A2B5"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcQto_DS_DamOtherElementBaseQuantities_Width" Protection = "Free" Type = "Double" Uuid = "E7AE0076-15F0-4E75-A7DA-DA52933889A8"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcQto_DS_DamOtherElementBaseQuantities_Length" Protection = "Free" Type = "Double" Uuid = "419E2D6D-1CFC-4938-850C-626F559C7BC6"/>
+    <Simple CAAExposition = "L0" Magnitude = "AREA" Name = "IfcQto_DS_DamOtherElementBaseQuantities_GrossSurfaceArea" Protection = "Free" Type = "Double" Uuid = "E1B996C0-9DF2-48FB-AECA-3F2E90B26681"/>
+    <Simple CAAExposition = "L0" Magnitude = "AREA" Name = "IfcQto_DS_DamOtherElementBaseQuantities_NetSurfaceArea" Protection = "Free" Type = "Double" Uuid = "72357350-0C44-4E9C-A1AF-DB5F6784ED0F"/>
+    <Simple CAAExposition = "L0" Magnitude = "VOLUME" Name = "IfcQto_DS_DamOtherElementBaseQuantities_GrossVolume" Protection = "Free" Type = "Double" Uuid = "99C8D6DA-F77C-4981-96C8-DDCC3EDB5499"/>
+    <Simple CAAExposition = "L0" Magnitude = "VOLUME" Name = "IfcQto_DS_DamOtherElementBaseQuantities_NetVolume" Protection = "Free" Type = "Double" Uuid = "18CCB597-87AB-4687-866C-E61BD3E3801C"/>
+    <Simple CAAExposition = "L0" Magnitude = "MASS" Name = "IfcQto_DS_DamOtherElementBaseQuantities_GrossWeight" Protection = "Free" Type = "Double" Uuid = "A79037BC-879D-425A-83C4-90DE89ED2A69"/>
+    <Simple CAAExposition = "L0" Magnitude = "MASS" Name = "IfcQto_DS_DamOtherElementBaseQuantities_NetWeight" Protection = "Free" Type = "Double" Uuid = "EFAE039E-E985-4F1F-A3D3-E1C7F0F96714"/>
+  </Extension>
+</Package>

@@ -1,0 +1,115 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR DELMIA Execution Production System Application -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2009, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" 
+         ModelerType="Top" 
+         Name="DELLmiProductionExecBufferOperation"
+	       Uuid="7654e2e1-929f-4e54-966c-20a0886757d9"
+	       UseNames="DELLmiProductionOperationUPR" 
+         CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>Execution Buffer Operation. OBSOLETE. Not used in current applications </ShortRole>
+    <Role>This package describes the Execution Buffer Operation model on top of DELLmiProductionOperationUPR</Role>
+  </CAAComment>
+
+  <Comment>last update 2008-05-25</Comment>
+  <Comment>last update 2013-06-21</Comment>
+
+  <Class Name="DELLmiExecBufferOperationReference"
+		     Uuid="92c128dc-2627-44da-bce3-32c94f7ebce1"
+     		 Abstract="No"
+         SuperName="DELLmiOperationUPRReference"
+         CustomerExposition="Programmer"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         CreateInstName="DELLmiExecBufferOperationInstance"
+         Abbreviation="wbop"
+         InstantiationOwnerTypes="ExecBufferSystem">
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELLmiExecOpDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELLmiExecBufferOperationInstance"/>
+    <Property Name="IconName" Value="I_PPRSeqExecBuffer"/>
+    <Property Name="3DIconName" Value="I_PPRSeqExecBuffer.cgr"/>
+    <Property Name="Newable" Value="No"/>
+    <Property Name="Searchable" Value="Yes"/>
+
+    <CAAComment>
+      <ShortRole>Execution Buffer Operation Reference</ShortRole>
+      <Role>Execution Buffer Operation Reference. Specialization is not supported yet.</Role>
+    </CAAComment>
+
+    <Simple Name="V_Capacity"
+            Uuid="1f308aa4-f295-4a8f-ad8a-2cbc35a96166"
+            Type="Integer"
+            MultiValuated="No"
+            Protection="Free"
+            Faceted="Yes"
+            CAAExposition="L0">
+      <Property Name="SIXW" Value="ds6w:quantityCapacity"/>
+    </Simple>
+
+    <Simple Name="V_RecorderLevel"
+            Uuid="1421bce3-82f0-4e0a-8403-c6f3dd731400"
+            Type="Integer"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0">
+    </Simple>
+    
+    <Simple Name="V_InitialStock" 
+            Uuid="b57f588c-c567-466c-9907-27d3d60fb11e" 
+            Type="Integer" 
+            MultiValuated="No" 
+            Protection="Free" 
+            CAAExposition="L0"/>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+
+  </Class>
+
+  <RelationClass Name="DELLmiExecBufferOperationInstance"
+		     Uuid="6c073ea4-f651-4db4-b5e5-96d63f95f4f7"
+		     Abstract="No"
+         SuperName="DELLmiOperationUPRInstance"
+         CustomerExposition="Programmer"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         >
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELMPProdSystemAdvDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELLmiExecBufferOperationInstance"/>
+    
+    <CAAComment>
+      <ShortRole>Execution Buffer Operation Instance</ShortRole>
+      <Role>Execution BufferOperation Instance. Specialization is not supported yet.</Role>
+    </CAAComment>
+
+    <Volatile Name="Reference" 
+              Uuid="81A075BF-2479-429e-8A7E-0F9DCFB7B47D" 
+              Accessor="PLMModelerReferenceKweAttribute" 
+              TypeName="DELLmiExecBufferOperationReference" 
+              AccessMode="ReadOnly" />
+
+    <SubClause Name="to"   TargetName="DELLmiExecBufferOperationReference"/>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+
+
+  </RelationClass>
+
+</Package>

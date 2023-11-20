@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2004, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" 
+         ModelerType="Top"
+         Name="DELMachiningProcessModel" 
+         Uuid="e75013b1-fbe9-4e8a-b3ff708e8a22119e" 
+         BelongsToModeler="DELFmiFunctionalModel"
+         UseNames="DELFmiFunctionalModel"
+         CustomerExposition="Programmer">
+	<Comment>DELMIA Machining Process Modeler Message Catalog</Comment>
+
+  <Extension Name="DELMachiningProcessReference"
+            Uuid="8c16694c-b84a-403f-86713b8bccbe3919"
+            ScopeNames="DELFmiFunctionReference"
+            CustomerExposition="Programmer"/>
+
+</Package>

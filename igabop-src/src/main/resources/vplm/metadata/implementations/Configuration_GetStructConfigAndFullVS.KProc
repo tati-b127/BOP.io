@@ -1,0 +1,72 @@
+#Prog Configuration_GetStructConfigAndFullVS( iPLMIDSet : #In PLMIDSet, oPLMIDSet : #Out PLMIDSet ) : VoidType
+{
+
+let PLMRouteSetContext (PLMRouteSet)
+let PLMRouteSetQueries (PLMRouteSet)
+let PLMRouteSetVS (PLMRouteSet)
+let PLMRouteSetVSContent (PLMRouteSet)
+let PLMRouteSetInstEff (PLMRouteSet)
+let PLMRouteSetInstStcMpg (PLMRouteSet)
+let PLMRouteSetStcMpgQuery (PLMRouteSet)
+
+let PLMIDSetInputRef (PLMIDSet)
+let PLMIDSetInputInst (PLMIDSet)
+
+let PLMIDSetContext (PLMIDSet)
+let PLMIDSetQueries (PLMIDSet)
+let PLMIDSetVS (PLMIDSet)
+let PLMIDSetVSContent (PLMIDSet)
+let PLMIDSetInstEff (PLMIDSet)
+let PLMIDSetInstStcMpg (PLMIDSet)
+let PLMIDSetStcMpgQuery (PLMIDSet)
+
+
+/* Completes with Context associated to the configured References */
+
+PLMIDSetInputRef = Restrict(iPLMIDSet, "PLMCORE/PLMCoreReference")
+PLMRouteSetContext = ExecutePLMFunction("PLMBRIDGE_CfgContext", "PLMBRIDGE_CfgContext_AddReferenceContext", PLMIDSetInputRef)
+PLMIDSetContext = Restrict(Ids(PLMRouteSetContext), "PLMBRIDGE_CfgContext/PLMCfgContext")
+
+
+/* Completes with Queries associated to the Context */
+
+PLMRouteSetQueries = ExecutePLMFunction("PLMBRIDGE_CfgContext", "PLMBRIDGE_CfgContext_AddContextQueries", PLMIDSetContext)
+PLMIDSetQueries = Restrict(Ids(PLMRouteSetQueries), "PLMConfigQuery/PLMCfgQuery")
+
+
+/* Completes with Variability-Space associated to the Context */
+
+PLMRouteSetVS = ExecutePLMFunction("PLMBRIDGE_CfgContext", "PLMBRIDGE_CfgContext_AddContextVariabilitySpace", PLMIDSetContext)
+PLMIDSetVS = Restrict(Ids(PLMRouteSetVS), "PLMConfigVariabilitySpace/PLMCfgVariabilitySpace")
+
+
+/* Completes with the full content of the Variability-Space */
+
+PLMRouteSetVSContent = ExecutePLMFunction("PLMConfigVariabilitySpace", "PLMConfigVariabilitySpace_AddVariabilitySpaceFullContent", PLMIDSetVS)
+PLMIDSetVSContent = Ids(PLMRouteSetVSContent)
+
+
+/* Completes with Effectivity associated to the configured instances */
+
+PLMIDSetInputInst = Restrict(iPLMIDSet, "PLMCORE/PLMCoreInstance")
+PLMRouteSetInstEff = ExecutePLMFunction("PLMConfigEffectivity", "PLMConfigEffectivity_AddInstanceEffectivity", PLMIDSetInputInst)
+PLMIDSetInstEff = Restrict(Ids(PLMRouteSetInstEff), "PLMConfigEffectivity/PLMCfgEffectivity")
+
+
+/* Completes with StaticMapping associated to the configured instances */
+
+PLMRouteSetInstStcMpg = ExecutePLMFunction("PLMBRIDGE_CfgStaticMapping", "PLMBRIDGE_CfgStaticMapping_AddInstanceStaticMapping", PLMIDSetInputInst)
+PLMIDSetInstStcMpg = Restrict(Ids(PLMRouteSetInstStcMpg), "PLMBRIDGE_CfgStaticMapping/PLMCfgStaticMapping")
+
+
+/* Completes with Queries associated to the StaticMapping */
+
+PLMRouteSetStcMpgQuery = ExecutePLMFunction("PLMBRIDGE_CfgStaticMapping", "PLMBRIDGE_CfgStaticMapping_AddStaticMappingQuery", PLMIDSetInstStcMpg)
+PLMIDSetStcMpgQuery = Restrict(Ids(PLMRouteSetStcMpgQuery), "PLMConfigQuery/PLMCfgQuery")
+
+
+/* Fill output ID set */
+
+oPLMIDSet = iPLMIDSet + PLMIDSetContext + PLMIDSetQueries + PLMIDSetVSContent + PLMIDSetInstEff + PLMIDSetInstStcMpg + PLMIDSetStcMpgQuery 
+
+}

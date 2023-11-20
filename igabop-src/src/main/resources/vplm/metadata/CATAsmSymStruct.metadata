@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!-- Edited with Visual Studio 2005 by DASSAULT SYSTEMES (DASSAULT SYSTEMES) -->
+<!-- ENOVIA DICTIONARY -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2007, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" Name="CATAsmSymStruct" CustomerExposition="Programmer" Uuid="B96370C8-D9B4-413c-861EC9BE0B441F05" UseNames="CATAsmSymAbstract"
+   >
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+  <Comment> Metadata historic :</Comment>
+  <Comment> Creation       18-07-2007 by YFZ</Comment>
+  <Comment> Modification   05-09-2008 by CRX</Comment>
+  <Comment> Modification   02-10-2008 by CRX</Comment>
+  <Comment> Modification   17-11-2009 by WEZ</Comment>
+  <Comment> Modification   04-16-2012 by EWN</Comment>
+  <Comment> Modification   11-27-2012 by EE4</Comment>
+  <Comment> Modification   22-06-2017 by EE4</Comment>
+  <!--PLM Symmetry (derivation from PLMConnection)-->
+  <Class Name="CATAsmSymStruct" Uuid="D083FE40-AA86-4580-8E28C3FAF8AFDA7C" SuperName="AsmSymDiscipline" CustomerExposition="Programmer" Abstract="No" >
+    <!-- Simple -->
+    <!-- Permet de stocker le nom de la connection -->
+    <Simple Name="V_SymStructName" Uuid="FE230BD8-5800-4a5a-A5444870CE9170A4" DefaultValue="" Protection="Internal" Type="String" MaxLength="80" MultiValuated="No"/>
+    <!-- Permet de stocker l'option de creation de la connection -->
+    <Simple Name="V_IsApplyAllInstance" Uuid="782BB48B-2FBB-4bf4-93E78E919FAB4299" DefaultValue="false" Protection="Internal" Type="Boolean" MultiValuated="No"/>
+    <!-- Permet de stocker l'enum qui represente la methode de creation de la reference Cf Enum CreatedWith-->
+    <Simple Name="V_CreatedWith" Uuid="7B97E981-4EA7-4cf4-ACA9057457731E0F" Type="Integer" Protection="Internal" DefaultValue="1">
+      <Property Name="RangeAsEnumName" Value="CreatedWith"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="NewRef;ExistingRef;SameRef;NoSymmetry;NoOriginal"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+        <Equal>5</Equal>
+      </Range>
+    </Simple>
+    <!-- Permet de savoir si la reference a ete cree avec l'option associativite position-->
+    <Simple Name="V_IsPositionAssociativity" Uuid="3421A0DC-20F9-41fa-A6D97BD49E2B94CC" DefaultValue="false" Protection="Internal" Type="Boolean" MultiValuated="No"/>
+    <!-- Permet de stocker un contexte de creation -->
+    <Simple Name="V_Context" Uuid="029AE859-E53C-40F7-BBCA-C55E0D23E6E6" DefaultValue="" Protection="Internal" Type="String" MaxLength="32" MultiValuated="No"/>
+    <!--Icon definition-->
+    <Property Name="IconName" Value="I_SymStructCtion"/>
+    <!-- Path -->
+    <Path Name="V_RefInst" Uuid="CF2626C3-F9A3-4015-B3A9-4463AEFEF9C9"  MultiValuated="No" RoleName="AsmSym_RefInst"    Semantics="Reference2" Protection="Internal" Type="SemanticRelation" AdaptativeToMinor="Yes"		SynchroSensitivity="None"		RerouteOnEffectivityChange="Yes"/>
+    <Path Name="V_SymInst" Uuid="5B645A40-0006-49d8-B236-9BAF34551070"  MultiValuated="No" RoleName="AsmSym_SymInst"    Semantics="Reference2" Protection="Internal" Type="SemanticRelation" AdaptativeToMinor="Yes"		SynchroSensitivity="None" 		RerouteOnEffectivityChange="Yes"/>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+  </Class>
+
+</Package>
+

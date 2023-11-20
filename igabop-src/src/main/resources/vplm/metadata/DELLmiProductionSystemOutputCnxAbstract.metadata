@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2006, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" 
+         ModelerType="Top" 
+         Name="DELLmiProductionSystemOutputCnxAbstract"
+         BelongsToModeler="DELLmiProductionSystem"
+         Uuid="FCD45CA7-86D4-4344-A749-2E8FCC07F2A9"
+         UseNames="DELLmiProductionSystemIOCnxAbstract"
+         CustomerExposition="Programmer">
+
+	<CAAComment>
+		<ShortRole>DELLmiProductionSystemOutputCnxAbstract Modeler Package</ShortRole>
+		<Role>This package describes DELLmiProductionSystemOutputCnxAbstract connection.</Role>
+	</CAAComment>
+
+	<!-- Output Abstract Connection -->
+	<Class  Name="DELLmiProductionSystemOutputCnxAbstract"
+		      Uuid="9B97E205-BFA6-48B2-8676-7FF96A607065"
+		      Abstract="Yes"
+		      SuperName="DELLmiProductionSystemIOCnxAbstract"
+		      Specializable="No"
+		      CustomerExtensible="No"
+		      CustomerExposition="Programmer">   
+			
+			<Path Name="DELIsFilteredBy"
+			    Uuid="63F24CBB-8E80-4BEC-81E3-90FBFC7D672A"
+			    MultiValuated="No"
+          RoleName="DEL_IsFilteredBy"	
+          Type="SemanticRelation" AdaptativeToMinor="No"
+          SynchroSensitivity="None"
+          RerouteOnEffectivityChange="No"
+			    Semantics="Reference"/>	 
+			<!--RoleRef to be copied from RELATION_ENUMS-->
+			
+			<Method ImplementationType="None">
+			  <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+			</Method>
+			
+	</Class>
+
+</Package>

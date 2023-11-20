@@ -1,0 +1,101 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR DELMIA Production System Application -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified"
+         ModelerType="Top"
+         Name="DELLmiProductionSystemPPR"
+         BelongsToModeler="DELLmiProductionSystem"
+	       Uuid="74DD6D46-E4C8-4dc8-89DA-3685FF5813A5"
+	       UseNames="DELLmiProductionSystem"
+         UseProcedures="ENOPsm_Procedures"
+         CustomerExposition="Programmer">
+
+  <CAAComment>
+    <ShortRole>PLM DELMIA Abstract PPR Production System </ShortRole>
+    <Role>This package describes the PLM DELMIA Abstract PPR Production System model on top of DELLmiProductionSystem</Role>
+  </CAAComment>
+
+  <Comment>last update 2012-01-20</Comment>
+
+
+  <Class Name="DELLmiPPRSystemReference"
+		     Uuid="E70BE532-9353-4261-81E0-5687D0477594"
+		     Abstract="Yes"
+         SuperName="DELLmiProductionSystemReference"
+         CustomerExposition="Programmer"
+         Specializable="No"
+         CustomerExtensible="No"
+         CreateInstName="DELLmiPPRSystemInstance"
+         >
+
+    <CAAComment>
+      <ShortRole>PLM DELMIA Abstract PPR Production System Reference</ShortRole>
+      <Role>PLM DELMIA Abstract PPR Production System Reference</Role>
+    </CAAComment>
+
+    <Property Name="Configurable" Value="Yes"/>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExchangeScope.meth#XPDM"/>
+        <UsedProcedure href="ENOPsm_Procedures.proc#ProductionSystem_ExchangeXPDM_GetAllEntities"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExchangeScope.meth#StandAlone"/>
+        <UsedProcedure href="ENOPsm_Procedures.proc#ProductionSystem_ExchangeXPDM_StandAlone"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExchangeScope.meth#AllLevelNoRsc"/>
+        <UsedProcedure href="ENOPsm_Procedures.proc#ProductionSystem_ExchangeXPDM_AllLevelNoRsc"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExchangeScope.meth#SupplyChainSourcing"/>
+        <UsedProcedure href="ENOPsm_Procedures.proc#ProductionSystem_ExchangeXPDM_SupplyChainSourcing"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExchangeScope.meth#GetAllEntitiesWithRootRscScope"/>
+        <UsedProcedure href="ENOPsm_Procedures.proc#ProductionSystem_ExchangeXPDM_GetAllEntitiesWithRootRscScope"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExchangeScope.meth#Execution"/>
+        <UsedProcedure href="ENOPsm_Procedures.proc#ProductionSystem_ExchangeXPDM_Execution"/>
+      </ProcedureForUsage>
+    </Method>
+
+
+  </Class>
+
+  <RelationClass Name="DELLmiPPRSystemInstance"
+		     Uuid="CAD0FD73-2916-46d8-AAB0-C3B607AD8E5B"
+		     Abstract="Yes"
+         SuperName="DELLmiProductionSystemInstance"
+         Specializable="No"
+         CustomerExtensible="No"
+         CustomerExposition="Programmer">
+
+    <CAAComment>
+      <ShortRole>PLM DELMIA Abstract PPR Production System Instance</ShortRole>
+      <Role>PLM DELMIA Abstract PPR Production System Instance</Role>
+    </CAAComment>
+
+    <Property Name="Filtrable" Value="Yes"/>
+
+    <SubClause Name="to"   TargetName="DELLmiPPRSystemReference"/>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+
+
+  </RelationClass>
+
+
+</Package>

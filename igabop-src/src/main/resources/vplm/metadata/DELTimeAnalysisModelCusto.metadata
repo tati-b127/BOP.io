@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2007, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" Name="DELTimeAnalysisModelCusto" Uuid="5E9ADFB0-E685-4da6-9A53-3FD937D9B603" UseNames="DELTimeAnalysisModel" Alias="Time Analysis Customization">
+<Property Name="OptionalInstallation" Value="Yes" /> 
+	<CAAComment>
+		<ShortRole>PLM Customization for Time Analysis</ShortRole>
+		<Role>This package describes a customization of Time Analysis modeler "DELTimeAnalysisModel".</Role>
+	</CAAComment>
+	<Class Name="DELTimeAnalysisRepReferenceCusto" Alias="Time Analysis Representation Reference Custo" 
+         Uuid="CD864A38-2B85-48af-B915-1629195A4CF6" 
+         SuperName="DELTimeAnalysisRepReference" >
+		<CAAComment>
+			<ShortRole>Customization for Time Analysis Representation Reference</ShortRole>
+			<Role>Customization for Time Analysis Representation Reference "DELTimeAnalysisRepReference".</Role>
+		</CAAComment>
+		<IdentifierSet Name="Identifier" 
+                   Uuid="23A6046C-44DE-4763-8A26-FBCA7A0BE225" 
+                   IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755" 
+                   IdentifierNames="PLM_ExternalID V_version"/>
+	</Class>
+
+  <RelationClass Name="DELTimeAnalysisRepInstanceCusto"
+         Uuid="08B395D0-775F-453c-8989-DE9FC4F61FBD"
+         SuperName="DELTimeAnalysisRepInstance" >
+    <CAAComment>
+      <ShortRole>Customization for Time Analysis Representation Instance</ShortRole>
+      <Role>Customization for Time Analysis Representation Instance "DELTimeAnalysisRepInstance".</Role>
+    </CAAComment>
+    <!-- ********************************************************* -->
+    <!-- * Overload(s) of PLMCoreInstance attributes. -->
+    <!-- ********************************************************* -->
+    <SubClause Name="to"   TargetName="DELTimeAnalysisRepReferenceCusto"/>
+  </RelationClass>
+
+</Package>

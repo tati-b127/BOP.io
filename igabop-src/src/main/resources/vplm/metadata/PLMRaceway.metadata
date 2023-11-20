@@ -1,0 +1,614 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" CustomerExposition="Programmer"
+         Name="PLMRaceway" Uuid="c1afd8c3-1c67-41f4-b372-f8414d7aa69d"
+         UseNames="PRODUCTCFG">
+  <Property Name="IconName" Value="I_PLMRaceway"/>
+  <CAAComment>
+    <ShortRole>Raceway Physical Design Package</ShortRole>
+    <Role>This package describes Raceway physical design data on top of physical modeler.</Role>
+  </CAAComment>
+
+  <Comment>Initial creation: 2012-07-30</Comment>
+  <Comment>[V6R2013x] 2012-10-23 ADZ Add Property Name="Newable" Value="All" on Raceway_PartV2</Comment>
+  <Comment>[V6R2014] 2012-11-19 ADZ Add V_Height and V_Width on Raceway_Tray and RwyTray</Comment>
+  <Comment>[V6R2014] 2012-11-19 ADZ Change ExternalIN Raceway_PartPort attributes to External</Comment>
+  <Comment>[V6R2014] 2012-11-19 ADZ Add V_PortType on RwyTrayXPort and RwyPartPort</Comment>
+  <Comment>[V6R2014] 2012-11-19 ADZ Remove useless 'ExportScope' with ImplementationType 'AsFather'</Comment>
+  <Comment>[V6R2014] 2012-11-19 ADZ Rename V_Shape_Enum into V_RwyShape_Enum as the name is already defined in PLMHVAC.metadata</Comment>
+  <Comment>[V6R2014] 2012-11-21 ADZ Remove V_Shape enum property on Raceway_Entity class and RwyPart extension</Comment>
+  <Comment>[V6R2014] 2012-11-26 ADZ Add OccurrenceType property on Raceway_Part and Raceway_Tray classes</Comment>
+  <Comment>[V6R2014] 2012-12-03 ADZ Add OccurrenceType property on Raceway_Spool class</Comment>
+  <Comment>[V6R2014] 2012-12-17 ADZ Add V_LinearWeight on Raceway_Tray class and RwyTray extension</Comment>
+  <Comment>[V6R2014] 2012-12-20 ADZ Fix BelongsToModeler as per PGT request</Comment>
+  <Comment>[V6R2014] 2012-12-20 ADZ Modify Property Name="Newable" Value="All" on Raceway_Tray</Comment>
+  <Comment>[V6R2014] 2013-01-04 ADZ Add volatile Attributes on Raceway_Tray class and RwyTray extension</Comment>
+  <Comment>[V6R2014] 2013-01-16 ADZ Add V_RealisationType Attribute on Raceway_Entity class and RwyPart extension</Comment>
+  <Comment>[V6R2014] 2013-03-18 ADZ Add V_NominalSize Attribute on Raceway_Entity, Raceway_PartPort class and RwyPart, RwyPartPort extensions</Comment>
+  <Comment>[V6R2014] 2013-04-30 ADZ Add Property Name="Controller" Value="CATRcdAttributeController" on attributes</Comment>
+  <Comment>[V6R2014] 2013-05-15 ADZ Protection="Free" for "V_WallThickness", "V_Height", "V_Width" and "V_LinearWeight" of "Raceway_Tray" class</Comment>
+  <Comment>[V6R2014] 2013-05-15 ADZ Protection="Free" for "V_WallThickness", "V_Height", "V_Width" and "V_LinearWeight" of "RwyTray" extension</Comment>
+  <Comment>[V6R2014] 2013-06-05 ADZ Remove Property Name="Controller" Value="CATRcdAttributeController" on "V_LinearWeight" attributes</Comment>
+  <Comment>[V6R2014] 2013-06-05 ADZ Add Property Name="Controller" Value="CATRcdAttributeController" on "V_Shape" attributes</Comment>
+  <Comment>[V6R2014x] 2013-09-24 ADZ Add Property Name="3DPartAvailability" Value="3DPartOnly" on Raceway_Entity class</Comment>
+  <Comment>[V6R2014x] 2013-11-07 ADZ Add Property Name="3DPartAvailability" Value="ReferenceOnly" on Raceway_Spool class</Comment>
+  <Comment>[V6R2015x] 2014-03-24 ADZ Add Property Name="Allow_V_Direction_Change" Value="Yes" on Raceway_Port class</Comment>
+  <Comment>[V6R2015x] 2014-03-24 ADZ on PLMDictionaryCheck.sh request. 'ScopeRefs' is a deprecated tag. It MUST now be removed</Comment>
+  <Comment>[V6R2015x] 2014-04-07 ADZ Change V_SubPartType attribute protection to Free on Raceway_PartV2 class</Comment>
+  <Comment>[V6R2015x] 2014-04-07 ADZ Add Property Name="Controller" Value="CATRcdAttributeController" on Raceway_PartV2 V_SubPartType attribute</Comment>
+  <Comment>[V6R2015x] 2014-05-21 ADZ Add Raceway_*_Inst classes</Comment>
+  <Comment>[V6R2015x] 2014-05-21 ADZ Replace VPMInstance to Raceway_*_Inst in CreateInstName and KweNew_ReturnedType properties of Raceway_* (VPMReference) classes</Comment>
+  <Comment>[V6R2015x] 2014-05-26 ADZ Add V_InstanciationRule attribute on Raceway_Entity class</Comment>
+  <Comment>[V6R2015x] 2014-05-26 ADZ Add V_ReferenceMode attribute on Raceway_Entity_Inst class</Comment>
+  <Comment>[V6R2015x] 2014-05-26 ADZ Add V_BendAngle, V_ReferenceBendAngle, V_BendRadius, V_Guidance attributes on Raceway_Elbow class</Comment>
+  <Comment>[V6R2015x] 2014-06-02 ADZ Add V_Standard attribute on Raceway_Entity class</Comment>
+  <Comment>[V6R2015x] 2014-06-10 ADZ Add V_BendAngle (ExternalIN), V_ReferenceBendAngle (Free) Property Name="Controller" Value="CATRcdAttributeController"</Comment>
+  <Comment>[V6R2015x] 2014-06-11 ADZ Add V_ReferenceBendAngle (Free) Property Name="Controller" Value="CATHvaAttributeController" on Raceway_Tee</Comment>
+  <Comment>[V6R2015x] 2014-07-02 ADZ Remove CreateInstName on all instance classes</Comment>
+  <Comment>[V6R2015x] 2014-11-10 ADZ V_BendAngle and V_ReferenceBendAngle DefaultValue to 0"</Comment>
+  <Comment>[V6R2016x] 2015-02-03 CHD Enum->Range migration</Comment>
+  <Comment>[V6R2016x] 2015-02-27 ADZ Move 3DPartAvailability Property from 3DPartOnly to UserChoice3DPartDefault for Raceway_Entity class</Comment>
+  <Comment>[V6R2016x] 2015-03-19 ADZ New Raceway_Branch and Raceway_Branch_Inst classes</Comment>
+  <Comment>[V6R2016x] 2015-04-13 ADZ New attribute V_RcwSpecification on Raceway_Entity_Inst class</Comment>
+  <Comment>[V6R2017x] 2016-04-28 ADZ New attribute V_Standard on Raceway_PartPort class</Comment>
+  <Comment>[V6R2017x] 2016-06-06 ADZ Dedicated .cgr for classes</Comment>
+  <Comment>[V6R2017x] 2016-07-05 ADZ [IR-455532-3DEXPERIENCER2017x] From MaxLength="40" to "100" for V_RcwSpecification attribute to comply with latest update in Logical</Comment>
+  <Comment>[V6R2017x] 2016-08-16 ADZ Modify Raceway_PartV2 class. Change Abstract="Yes" to "No" and add Property Name="NewableForSubTypesOnly" Value="Yes"</Comment>
+  <Comment>[V6R2018x] 2017-05-30 GLY ADZ Add type Circle in V_Shape enum</Comment>
+
+    <Class Name="Raceway_Entity"
+         Uuid="3a67c1bd-7964-4b9b-907a-859b6308af44"
+         Abbreviation="rcwent"
+         Abstract="Yes"
+         CustomerExposition="Programmer"
+         SuperName="VPMReference"
+         Discipline="Yes">
+
+    <Property Name="Configurable"            Value="Yes"/>
+    <Property Name="ChangeManagementSupport" Value="Yes"/>
+    <!--<Property Name="3DPartAvailability"      Value="3DPartOnly"/>-->
+    <Property Name="3DPartAvailability"      Value="UserChoice3DPartDefault" />
+
+    <Simple Name="V_PartType"           Type="String" Uuid="3f9cfad2-a3c5-4b0f-b643-949b2f8e2798" MaxLength="40"  Protection="External"   CAAExposition="L0" MultiValuated="No"/>
+    <Simple Name="V_NominalSize"        Type="String" Uuid="c3063cc3-a92a-44c8-aecf-3e2aca903f3c" MaxLength="80"  Protection="Free"       CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" Value="CATRcdAttributeController"/>
+    </Simple>
+    <Simple Name="V_EndStyle"           Type="String" Uuid="70a66a41-b0df-4983-9a91-f42d97539de4" MaxLength="180" Protection="Free"       CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" Value="CATRcdAttributeController"/>
+    </Simple>
+    <Simple Name="V_Standard"           Type="String" Uuid="35e7d7e4-7afa-4b0a-9da3-728ecf3c7268" MaxLength="80"  Protection="Free"       CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" Value="CATRcdAttributeController"/>
+    </Simple>
+    <Simple Name="V_MaterialName"       Type="String" Uuid="fd70e7fb-4c1b-42ce-bdbd-686625e93b04" MaxLength="100" Protection="Free"       CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" Value="CATRcdAttributeController"/>
+    </Simple>
+    <Simple Name="V_RealisationType"    Type="String" Uuid="3d9710bb-563f-47ba-ad73-f1779c748e68" MaxLength="40"  Protection="Free"       CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" Value="CATRcdAttributeController"/>
+    </Simple>
+    <Simple Name="V_Shape"              Type="String" Uuid="ddb26961-3349-492a-a93c-bc7ea5b23f6e" MaxLength="180" Protection="Free"       CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" Value="CATRcdAttributeController"/>
+    </Simple>
+    <Simple Name="V_InstanciationRule" Uuid="13894600-c1b1-4823-a257-996960cbc7f0" Type="Integer" Protection="ExternalIN" CAAExposition="L0" DefaultValue="1">
+      <Property Name="RangeAsEnumName" Value="Raceway_InstanciationRule_Enum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="ReuseReference;NewReference;ReuseOrNewReference"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+      </Range>
+    </Simple>
+
+  </Class>
+
+  <Class Name="Raceway_Part"
+         Uuid="b4cb52bc-d17e-4d2a-8614-e2bc69172d63"
+         Abbreviation="rcwprt"
+         Abstract="Yes"
+         CustomerExposition="Programmer"
+         SuperName="Raceway_Entity"
+         Discipline="Yes"
+         CreateInstName="Raceway_Part_Inst">
+
+    <Property Name="MergedExtensionType"        Value="RwyPart"/>
+    <Property Name="TypeForDisciplineValuation" Value="Raceway_Part"/>
+    <Property Name="GroupingType"               Value="Raceway_Part"/>
+    <Property Name="KweNew_ReturnedType"        Value="Raceway_Part_Inst"/>
+    <Property Name="Newable"                    Value="All"/>
+    <Property Name="IconName"                   Value="I_PLMRaceway_Part"/>
+    <Property Name="3DIconName"                 Value="V_PLMRaceway_Part.cgr"/>
+    <Property Name="OccurrenceType"             Value="Raceway_Part_Occurrence"/>
+
+  </Class>
+
+  <Class Name="Raceway_PartV1"
+         Uuid="3b543f61-862e-40df-832e-f7589c3aaf18"
+         Abbreviation="rcwmisc"
+         CustomerExposition="Programmer"
+         SuperName="Raceway_Part"
+         Discipline="Yes"
+         CustomerExtensible="Yes"
+         CreateInstName="Raceway_PartV1_Inst">
+
+    <Property Name="KweNew_InstanciationMethod" Value="CATERwyDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="Raceway_PartV1_Inst"/>
+    <Property Name="Newable"                    Value="All"/>
+    <Property Name="IconName"                   Value="I_PLMRaceway_Part"/>
+    <Property Name="3DIconName"                 Value="V_PLMRaceway_PartV1.cgr"/>
+
+    <Simple Name="V_SubPartType" Type="String" Uuid="f378ccef-0c77-4e5a-9b3d-fd8b008f2491" MaxLength="100" Protection="Free" CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" Value="CATRcdAttributeController"/>
+    </Simple>
+
+  </Class>
+
+  <Class Name="Raceway_PartV2"
+         Uuid="f5673081-ddeb-4d9d-bb4d-4193e48b85ef"
+         Abstract="No"
+         CustomerExposition="Programmer"
+         SuperName="Raceway_Part"
+         Discipline="Yes"
+         Specializable="Yes"
+         CreateInstName="Raceway_PartV2_Inst">
+
+    <Property Name="KweNew_InstanciationMethod" Value="CATERwyDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="Raceway_PartV2_Inst"/>
+    <Property Name="Newable"                    Value="All"/>
+    <Property Name="NewableForSubTypesOnly"     Value="Yes"/>
+
+    <Simple Name="V_SubPartType" Type="String" Uuid="7f75c413-56be-4cce-b1e0-d0d775d51913" MaxLength="100" Protection="Free" CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" Value="CATRcdAttributeController"/>
+    </Simple>
+
+  </Class>
+
+  <Class Name="Raceway_Branch"
+       Uuid="82650f81-3428-4960-8db7-91eeee798b74"
+       Abbreviation="rcwbra"
+       CustomerExposition="Programmer"
+       SuperName="Raceway_PartV2"
+       Discipline="Yes"
+       Specializable="Yes"
+       CustomerExtensible="Yes"
+       CreateInstName="Raceway_Branch_Inst">
+
+    <Property Name="KweNew_InstanciationMethod" Value="CATERwyDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="Raceway_Branch_Inst"/>
+    <Property Name="Newable"                    Value="All"/>
+    <Property Name="IconName"                   Value="I_PLMRaceway_Branch"/>
+    <Property Name="3DIconName"                 Value="V_PLMRaceway_Part.cgr"/>
+
+    <Simple Name="V_ReferenceBendAngle" Type="Double" Uuid="d2687ea2-2ea1-4fbd-8a82-cf3d320337f9" Magnitude="ANGLE"  Protection="Free"       CAAExposition="L0" MultiValuated="No" DefaultValue="0">
+      <Property Name="Controller" Value="CATRcdAttributeController"/>
+    </Simple>
+    
+  </Class>
+  
+  <Class Name="Raceway_Cross"
+         Uuid="e6367472-e2cf-44c3-9d45-42bceccabee4"
+         Abbreviation="rcwcro"
+         CustomerExposition="Programmer"
+         SuperName="Raceway_PartV2"
+         Discipline="Yes"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         CreateInstName="Raceway_Cross_Inst">
+
+    <Property Name="KweNew_InstanciationMethod" Value="CATERwyDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="Raceway_Cross_Inst"/>
+    <Property Name="Newable"                    Value="All"/>
+    <Property Name="IconName"                   Value="I_PLMRaceway_Cross"/>
+    <Property Name="3DIconName"                 Value="V_PLMRaceway_Cross.cgr"/>
+
+  </Class>
+
+  <Class Name="Raceway_Elbow"
+         Uuid="800aba42-3a26-442f-a9aa-ad5c17c7ed8d"
+         Abbreviation="rcwelb"
+         CustomerExposition="Programmer"
+         SuperName="Raceway_PartV2"
+         Discipline="Yes"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         CreateInstName="Raceway_Elbow_Inst">
+
+    <Property Name="KweNew_InstanciationMethod" Value="CATERwyDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="Raceway_Elbow_Inst"/>
+    <Property Name="Newable"                    Value="All"/>
+    <Property Name="IconName"                   Value="I_PLMRaceway_Elbow"/>
+    <Property Name="3DIconName"                 Value="V_PLMRaceway_Elbow.cgr"/>
+
+    <Simple Name="V_BendAngle"          Type="Double" Uuid="92243eaf-8ad3-4ce3-adee-2bcde058eeea" Magnitude="ANGLE"  Protection="ExternalIN" CAAExposition="L0" MultiValuated="No" DefaultValue="0">
+      <Property Name="Controller" Value="CATRcdAttributeController"/>
+    </Simple>
+    <Simple Name="V_ReferenceBendAngle" Type="Double" Uuid="a598f9e2-4639-46fb-b6dd-c72c1263d716" Magnitude="ANGLE"  Protection="Free"       CAAExposition="L0" MultiValuated="No" DefaultValue="0">
+      <Property Name="Controller" Value="CATRcdAttributeController"/>
+    </Simple>
+    <Simple Name="V_BendRadius"         Type="Double" Uuid="fddafcff-cdb3-40e7-bc79-e1bef6e78383" Magnitude="LENGTH" Protection="Free"       CAAExposition="L0" MultiValuated="No"/>
+    <Simple Name="V_Guidance" Uuid="793b8704-f053-4f0d-998b-9e179c88c8a7" Type="Integer" Protection="Free" CAAExposition="L0" DefaultValue="1">
+      <Property Name="RangeAsEnumName" Value="Raceway_Guidance_Enum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="Horizontal;Vertical;VerticalUp;VerticalDown"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+      </Range>
+    </Simple>
+
+  </Class>
+
+  <Class Name="Raceway_Reducer"
+         Uuid="b1a09994-d574-4721-aa4c-6474200dc473"
+         Abbreviation="rcwred"
+         CustomerExposition="Programmer"
+         SuperName="Raceway_PartV2"
+         Discipline="Yes"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         CreateInstName="Raceway_Reducer_Inst">
+
+    <Property Name="KweNew_InstanciationMethod" Value="CATERwyDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="Raceway_Reducer_Inst"/>
+    <Property Name="Newable"                    Value="All"/>
+    <Property Name="IconName"                   Value="I_PLMRaceway_Reducer"/>
+    <Property Name="3DIconName"                 Value="V_PLMRaceway_Reducer.cgr"/>
+
+  </Class>
+
+  <Class Name="Raceway_Tee"
+         Uuid="9c734e2e-7f60-4dee-a0d6-fc4519f296c0"
+         Abbreviation="rcwtee"
+         CustomerExposition="Programmer"
+         SuperName="Raceway_PartV2"
+         Discipline="Yes"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         CreateInstName="Raceway_Tee_Inst">
+
+    <Property Name="KweNew_InstanciationMethod" Value="CATERwyDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="Raceway_Tee_Inst"/>
+    <Property Name="Newable"                    Value="All"/>
+    <Property Name="IconName"                   Value="I_PLMRaceway_Tee"/>
+    <Property Name="3DIconName"                 Value="V_PLMRaceway_Tee.cgr"/>
+
+    <Simple Name="V_ReferenceBendAngle" Type="Double" Uuid="a90dd304-eb32-4efa-b2b9-e370197f2dc3" Magnitude="ANGLE"  Protection="Free"       CAAExposition="L0" MultiValuated="No" DefaultValue="0">
+      <Property Name="Controller" Value="CATRcdAttributeController"/>
+    </Simple>
+
+  </Class>
+
+  <Class Name="Raceway_Tray"
+         Uuid="42b846b8-7262-4a8c-b527-d844cc64d20c"
+         Abbreviation="rcwtray"
+         Abstract="No"
+         CustomerExposition="Programmer"
+         SuperName="Raceway_Entity"
+         Discipline="Yes"
+         CustomerExtensible="Yes"
+         CreateInstName="Raceway_Tray_Inst">
+
+    <Property Name="MergedExtensionType"        Value="RwyPart;RwyTray"/>
+    <Property Name="TypeForDisciplineValuation" Value="Raceway_Tray"/>
+    <Property Name="GroupingType"               Value="Raceway_Tray"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATERwyDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="Raceway_Tray_Inst"/>
+    <Property Name="IconName"                   Value="I_PLMRaceway_Tray"/>
+    <Property Name="3DIconName"                 Value="V_PLMRaceway_Tray.cgr"/>
+    <Property Name="Newable"                    Value="All"/>
+    <Property Name="OccurrenceType"             Value="Raceway_Tray_Occurrence"/>
+
+    <Simple Name="V_Length"         Type="Double" Uuid="fc5fd946-20cc-4d3d-81fd-5b75299b956e" Magnitude="LENGTH"    Protection="External" CAAExposition="L0" MultiValuated="No"/>
+    <Simple Name="V_WallThickness"  Type="Double" Uuid="f9c3882e-1868-4a8b-ac38-028cacd1d13c" Magnitude="LENGTH"    Protection="Free"     CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" Value="CATRcdAttributeController"/>
+    </Simple>
+    <Simple Name="V_Height"         Type="Double" Uuid="ad3e7f0e-81ce-4fe9-9b1e-e348bb6de925" Magnitude="LENGTH"    Protection="Free"     CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" Value="CATRcdAttributeController"/>
+    </Simple>
+    <Simple Name="V_Width"          Type="Double" Uuid="1bd6de05-59f6-4e5e-a7a1-6874a0115ae4" Magnitude="LENGTH"    Protection="Free"     CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" Value="CATRcdAttributeController"/>
+    </Simple>
+    <Simple Name="V_LinearWeight"   Type="Double" Uuid="e7aa98f4-d46c-4d06-b95c-bbb5335b556a" Magnitude="LINEMASS"  Protection="Free"     CAAExposition="L0" MultiValuated="No"/>
+
+    <Volatile Name="V_NodePositions"          Uuid="43dbd1da-7ea3-4eaf-aae6-45fbc6bd5cd0" Accessor="CATRcdKweAttrAccess" TypeName="List" AccessMode="ReadOnly"/>
+    <Volatile Name="V_NodeBendRadii"          Uuid="9a79679f-e954-4b4f-a47d-1d6df2f87ab5" Accessor="CATRcdKweAttrAccess" TypeName="List" AccessMode="ReadOnly"/>
+    <Volatile Name="V_NodeBendAngles"         Uuid="b5de2a49-f368-4760-bf3b-a254e1106d73" Accessor="CATRcdKweAttrAccess" TypeName="List" AccessMode="ReadOnly"/>
+    <Volatile Name="V_SegmentStraightLengths" Uuid="fdd109ac-2bf0-4857-8295-441b2af4959e" Accessor="CATRcdKweAttrAccess" TypeName="List" AccessMode="ReadOnly"/>
+
+  </Class>
+
+  <Class Name="Raceway_Spool"
+       Uuid="a7664cc2-01f5-4922-bc4a-a38b4b71a2c4"
+       Abbreviation="rcwspo"
+       CustomerExposition="Programmer"
+       SuperName="VPMReference"
+       Discipline="Yes"
+       CustomerExtensible="Yes"
+       CreateInstName="Raceway_Spool_Inst">
+
+    <Property Name="TypeForDisciplineValuation" Value="Raceway_Spool"/>
+    <Property Name="GroupingType"               Value="Raceway_Spool"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATERwyDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="Raceway_Spool_Inst"/>
+    <Property Name="IconName"                   Value="I_PLMRaceway_Spool"/>
+    <Property Name="3DIconName"                 Value="V_PLMRaceway_Spool.cgr"/>
+    <Property Name="Newable"                    Value="Insert"/>
+    <Property Name="Configurable"               Value="Yes"/>
+    <Property Name="ChangeManagementSupport"    Value="Yes"/>
+    <Property Name="3DPartAvailability"         Value="ReferenceOnly"/>
+    <Property Name="OccurrenceType"             Value="Raceway_Spool_Occurrence"/>
+
+  </Class>
+
+  <RelationClass Name="Raceway_Entity_Inst"
+       Uuid="185b61ff-a2a0-446b-a6b3-c863134934b7"
+       Abstract="Yes"
+       CustomerExposition="Programmer"
+       SuperName="VPMInstance"
+       Discipline="Yes">
+
+    <Simple Name="V_ReferenceMode" Uuid="d2c85068-d74d-4127-8c35-5454d5f8a2d9" Type="Integer" Protection="External" CAAExposition="L0" DefaultValue="1">
+      <Property Name="RangeAsEnumName" Value="Raceway_ReferenceMode_Enum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="Reuse;NewFrom"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+      </Range>
+    </Simple>
+
+   <Simple Name="V_RcwSpecification" Type="String" Uuid="93cf7abe-f587-4782-960b-1efa3bbddb54" MaxLength="100" Protection="External" CAAExposition="L0" MultiValuated="No" />
+  </RelationClass>
+
+  <RelationClass Name="Raceway_Part_Inst"
+         Uuid="4151fb17-85a7-4cfe-813a-524b600c759b"
+         Abstract="Yes"
+         CustomerExposition="Programmer"
+         SuperName="Raceway_Entity_Inst"
+         Discipline="Yes">
+  </RelationClass>
+
+  <RelationClass Name="Raceway_PartV1_Inst"
+         Uuid="f30c3ead-0ff4-4391-a56d-b050b55fd4b5"
+         CustomerExposition="Programmer"
+         SuperName="Raceway_Part_Inst"
+         Discipline="Yes"
+         CustomerExtensible="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATERwyDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="Raceway_PartV1_Inst"/>
+    <Property Name="IconName"                   Value="I_PLMRaceway_Part"/>
+  </RelationClass>
+
+  <RelationClass Name="Raceway_PartV2_Inst"
+         Uuid="a3ee364d-50a1-4c6c-b49d-6a70f4a2a736"
+         Abstract="No"
+         CustomerExposition="Programmer"
+         SuperName="Raceway_Part_Inst"
+         Discipline="Yes"
+         Specializable="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATERwyDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="Raceway_PartV2_Inst"/>
+    <Property Name="IconName"                   Value="I_PLMRaceway_Part"/>
+  </RelationClass>
+ <RelationClass Name="Raceway_Branch_Inst"
+       Uuid="80f6ccf2-ad6c-4890-96cc-0558d2ecc6df"
+       CustomerExposition="Programmer"
+       SuperName="Raceway_PartV2_Inst"
+       Discipline="Yes"
+       Specializable="Yes"
+       CustomerExtensible="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATERwyDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="Raceway_Branch_Inst"/>
+    <Property Name="IconName"                   Value="I_PLMRaceway_Branch"/>
+  </RelationClass>
+  <RelationClass Name="Raceway_Cross_Inst"
+         Uuid="664ad668-52a2-4f57-9ff3-e7e98bbba067"
+         CustomerExposition="Programmer"
+         SuperName="Raceway_PartV2_Inst"
+         Discipline="Yes"
+         Specializable="Yes"
+         CustomerExtensible="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATERwyDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="Raceway_Cross_Inst"/>
+    <Property Name="IconName"                   Value="I_PLMRaceway_Cross"/>
+  </RelationClass>
+
+  <RelationClass Name="Raceway_Elbow_Inst"
+         Uuid="c73399b0-0d49-4508-a58b-c94f4cef8c7a"
+         CustomerExposition="Programmer"
+         SuperName="Raceway_PartV2_Inst"
+         Discipline="Yes"
+         Specializable="Yes"
+         CustomerExtensible="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATERwyDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="Raceway_Elbow_Inst"/>
+    <Property Name="IconName"                   Value="I_PLMRaceway_Elbow"/>
+  </RelationClass>
+
+  <RelationClass Name="Raceway_Reducer_Inst"
+         Uuid="e9428328-b38c-4ae4-b410-7541c68d9e66"
+         CustomerExposition="Programmer"
+         SuperName="Raceway_PartV2_Inst"
+         Discipline="Yes"
+         Specializable="Yes"
+         CustomerExtensible="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATERwyDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="Raceway_Reducer_Inst"/>
+    <Property Name="IconName"                   Value="I_PLMRaceway_Reducer"/>
+  </RelationClass>
+
+  <RelationClass Name="Raceway_Tee_Inst"
+         Uuid="2cd3b62d-c8ed-4d00-ba3a-6245b5b07a63"
+         CustomerExposition="Programmer"
+         SuperName="Raceway_PartV2_Inst"
+         Discipline="Yes"
+         Specializable="Yes"
+         CustomerExtensible="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATERwyDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="Raceway_Tee_Inst"/>
+    <Property Name="IconName"                   Value="I_PLMRaceway_Tee"/>
+  </RelationClass>
+
+  <RelationClass Name="Raceway_Tray_Inst"
+         Uuid="f87e8573-c623-490c-bc64-e1ba9cc634e0"
+         Abstract="No"
+         CustomerExposition="Programmer"
+         SuperName="Raceway_Entity_Inst"
+         Discipline="Yes"
+         CustomerExtensible="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATERwyDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="Raceway_Tray_Inst"/>
+    <Property Name="IconName"                   Value="I_PLMRaceway_Tray"/>
+  </RelationClass>
+
+  <RelationClass Name="Raceway_Spool_Inst"
+       Uuid="a42a6dd3-f002-41ac-a12a-8db29f4fb786"
+       CustomerExposition="Programmer"
+       SuperName="VPMInstance"
+       Discipline="Yes"
+       CustomerExtensible="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATERwyDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="Raceway_Spool_Inst"/>
+    <Property Name="IconName"                   Value="I_PLMRaceway_Spool"/>
+  </RelationClass>
+
+  <Class Name="Raceway_Port"
+         Uuid="ab345cf5-5735-491a-8887-eab2d5bcda6e"
+         Abstract="Yes"
+         CustomerExposition="Programmer"
+         SuperName="VPMPort"
+         Discipline="Yes">
+
+    <Property Name="TypeForDisciplineValuation" Value="Raceway_Port"/>
+    <Property Name="IconName"                   Value="I_PLMRaceway_Port"/>
+    <Property Name="3DIconName"                 Value="V_PLMRaceway_Port.cgr"/>
+    <Property Name="Allow_V_Direction_Change"   Value="Yes"/>
+
+    <Simple Name="V_EndStyle" Type="String" Uuid="15347c7b-408d-4573-97e6-c09b92a99416" MaxLength="40" Protection="External" CAAExposition="L0" MultiValuated="No"/>
+
+  </Class>
+
+  <Class Name="Raceway_PartPort"
+         Uuid="480b9c4f-fccb-4b9e-8b71-8558d2a8a7f3"
+         CustomerExposition="Programmer"
+         SuperName="Raceway_Port"
+         Discipline="Yes">
+
+    <Property Name="MergedExtensionType"        Value="RwyPartPort"/>
+    <Property Name="TypeForDisciplineValuation" Value="Raceway_Port"/>
+    <Property Name="GroupingType"               Value="Raceway_Port"/>
+
+    <Simple Name="V_NominalSize"    Type="String" Uuid="bc8ec747-105b-476d-b454-06e7064a40ae" MaxLength="40"      Protection="External" CAAExposition="L0" MultiValuated="No"/>
+    <Simple Name="V_WallThickness"  Type="Double" Uuid="e22126b5-e7a6-400e-bbcd-f28d48d3944d" Magnitude="LENGTH"  Protection="External" CAAExposition="L0" MultiValuated="No"/>
+    <Simple Name="V_Height"         Type="Double" Uuid="bd3b3e3e-2b8e-4b23-9693-c63ddb860219" Magnitude="LENGTH"  Protection="External" CAAExposition="L0" MultiValuated="No"/>
+    <Simple Name="V_Width"          Type="Double" Uuid="f2597d67-ac1e-4c9c-ba79-e86633d18ff0" Magnitude="LENGTH"  Protection="External" CAAExposition="L0" MultiValuated="No"/>
+    <Simple Name="V_Shape" Uuid="e8fba8a8-5ad4-4c34-b586-777a58f7cf94" Type="Integer" Protection="External" CAAExposition="L0" DefaultValue="1">
+      <Property Name="RangeAsEnumName" Value="V_RwyShape_Enum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="U;H;Circle"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+      </Range>
+    </Simple>
+    <Simple Name="V_Standard"       Type="String" Uuid="3e3a12ad-0e2c-438c-af00-9eb79fd2a999" MaxLength="40"      Protection="External" CAAExposition="L0" MultiValuated="No"/>
+  </Class>
+
+  <Class Name="Raceway_TrayXPort"
+         Uuid="3be195f9-4a02-44ee-90ed-0db9d2a694e5"
+         CustomerExposition="Programmer"
+         SuperName="Raceway_Port"
+         Discipline="Yes">
+
+    <Property Name="MergedExtensionType" Value="RwyTrayXPort"/>
+
+  </Class>
+
+  <Extension Name="RwyPart"
+             Uuid="223733b4-0327-4fdc-985f-78b7b0cb4c38"
+             CustomerExposition="Programmer"
+             CAAExposition="L0"
+             ScopeNames="VPMReference">
+
+    <Simple Name="V_PartType"         Type="String" Uuid="7420dc94-8f27-43ff-acd2-3163236c7268" MaxLength="40"  Protection="External" CAAExposition="L0" MultiValuated="No"/>
+    <Simple Name="V_NominalSize"      Type="String" Uuid="43b2f386-1cd4-4ee1-957a-5afef60085d6" MaxLength="80"  Protection="Free"     CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" Value="CATRcdAttributeController"/>
+    </Simple>
+    <Simple Name="V_MaterialName"     Type="String" Uuid="101d4c88-80af-4b69-b0f7-9ec9a2a5f9a3" MaxLength="100" Protection="Free"     CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" Value="CATRcdAttributeController"/>
+    </Simple>
+    <Simple Name="V_SubPartType"      Type="String" Uuid="cd1e962a-2d6d-4d1c-8acd-a034650d0899" MaxLength="100" Protection="Free"     CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" Value="CATRcdAttributeController"/>
+    </Simple>
+    <Simple Name="V_EndStyle"         Type="String" Uuid="6aa0cc69-3ed6-4645-9316-d1065ca43d9a" MaxLength="40"  Protection="Free"     CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" Value="CATRcdAttributeController"/>
+    </Simple>
+    <Simple Name="V_RealisationType"  Type="String" Uuid="ee2e55f3-f7df-49d2-9c57-1655aff0f3b6" MaxLength="40"  Protection="Free"     CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" Value="CATRcdAttributeController"/>
+    </Simple>
+    <Simple Name="V_Shape"            Type="String" Uuid="d825c2e8-8a14-423d-930b-2ef8dc535590" MaxLength="180" Protection="Free"     CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" Value="CATRcdAttributeController"/>
+    </Simple>
+
+  </Extension>
+
+  <Extension Name="RwyTray"
+             Uuid="92503cba-d660-43dc-bf06-a92b8528c0cc"
+             CustomerExposition="Programmer"
+             CAAExposition="L0"
+             ScopeNames="VPMReference">
+
+    <Simple Name="V_Length"         Type="Double" Uuid="0dafde08-5ae1-4688-9773-841274022451" Magnitude="LENGTH"    Protection="External" CAAExposition="L0" MultiValuated="No"/>
+    <Simple Name="V_WallThickness"  Type="Double" Uuid="81bb69f4-64cd-4934-8811-ba7eeed9d96f" Magnitude="LENGTH"    Protection="Free"     CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" Value="CATRcdAttributeController"/>
+    </Simple>
+    <Simple Name="V_Height"         Type="Double" Uuid="cdd125c1-c1b6-4088-b352-9d5e6bd8fa58" Magnitude="LENGTH"    Protection="Free"     CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" Value="CATRcdAttributeController"/>
+    </Simple>
+    <Simple Name="V_Width"          Type="Double" Uuid="9bd09010-c5e3-4d94-91d0-482a96cecf6e" Magnitude="LENGTH"    Protection="Free"     CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" Value="CATRcdAttributeController"/>
+    </Simple>
+    <Simple Name="V_LinearWeight"   Type="Double" Uuid="a6a663c1-f193-4646-b17a-0050dbc5026a" Magnitude="LINEMASS"  Protection="Free"     CAAExposition="L0" MultiValuated="No"/>
+
+    <Volatile Name="V_NodePositions"          Uuid="0798382a-9fdc-46b7-b78c-416777413bb8" Accessor="CATRcdKweAttrAccess" TypeName="List" AccessMode="ReadOnly"/>
+    <Volatile Name="V_NodeBendRadii"          Uuid="045a7f5e-3de4-45fd-8c86-fe540d70eacc" Accessor="CATRcdKweAttrAccess" TypeName="List" AccessMode="ReadOnly"/>
+    <Volatile Name="V_NodeBendAngles"         Uuid="1fe5da83-6e03-4f3e-9b1a-96118d1850b4" Accessor="CATRcdKweAttrAccess" TypeName="List" AccessMode="ReadOnly"/>
+    <Volatile Name="V_SegmentStraightLengths" Uuid="e963b1f8-6f39-4250-9323-9903b25ae30e" Accessor="CATRcdKweAttrAccess" TypeName="List" AccessMode="ReadOnly"/>
+
+  </Extension>
+
+  <Extension Name="RwyTrayXPort"
+             Uuid="567d244a-63f0-45c2-80c4-46b2f2095cb6"
+             CustomerExposition="Programmer"
+             CAAExposition="L0"
+             ScopeNames="VPMPort">
+
+    <Simple Name="V_EndStyle" Type="String" Uuid="4e7b48f2-0eb7-4ae7-8925-196de86171d1" MaxLength="40" Protection="External" CAAExposition="L0" MultiValuated="No"/>
+    <Simple Name="V_PortType" Type="String" Uuid="03e90b26-f0ef-47eb-bcb2-a9131d08336a" MaxLength="40" Protection="External" CAAExposition="L0" MultiValuated="No"/>
+
+  </Extension>
+
+  <Extension Name="RwyPartPort"
+             Uuid="690dba6c-b267-4cd5-86ef-3e4f612ac9af"
+             CustomerExposition="Programmer"
+             CAAExposition="L0"
+             ScopeNames="VPMPort">
+
+    <Simple Name="V_NominalSize"    Type="String" Uuid="6c4d3d31-aacd-4392-94e3-d6dc96909cc4" MaxLength="40"      Protection="External" CAAExposition="L0" MultiValuated="No"/>
+    <Simple Name="V_EndStyle"       Type="String" Uuid="0c514dab-d68c-48b0-a5c6-e25c89b705c8" MaxLength="40"      Protection="External" CAAExposition="L0" MultiValuated="No"/>
+    <Simple Name="V_WallThickness"  Type="Double" Uuid="7442b832-9e44-41d6-8ed2-2b508bd0c098" Magnitude="LENGTH"  Protection="External" CAAExposition="L0" MultiValuated="No"/>
+    <Simple Name="V_Shape" Uuid="336bd6e0-fe1a-4c6d-8618-4110a4fff6dc" Type="Integer" Protection="External" CAAExposition="L0" DefaultValue="1">
+      <Property Name="RangeAsEnumName" Value="V_RwyShape_Enum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="U;H;Circle"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+      </Range>
+    </Simple>
+    <Simple Name="V_Height"         Type="Double" Uuid="0f06570a-8302-485a-9e52-3ed0d663bf2c" Magnitude="LENGTH"  Protection="External" CAAExposition="L0" MultiValuated="No"/>
+    <Simple Name="V_Width"          Type="Double" Uuid="9395c746-f31d-4329-b21a-b9b3d7c54fd7" Magnitude="LENGTH"  Protection="External" CAAExposition="L0" MultiValuated="No"/>
+    <Simple Name="V_PortType"       Type="String" Uuid="86079498-b120-425f-9473-c0e550d5e75e" MaxLength="40"      Protection="External" CAAExposition="L0" MultiValuated="No"/>
+
+  </Extension>
+
+</Package>

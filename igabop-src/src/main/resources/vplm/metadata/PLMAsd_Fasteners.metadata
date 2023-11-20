@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2005, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" 
+   Name="PLMAsd_Fasteners" 
+   Uuid="17d838e1-2b9a-4d66-97a7-fcade5090393" 
+   UseNames="PRODUCTCFG"  
+   CustomerExposition="Programmer"
+   >
+	<CAAComment>              
+		<ShortRole>PLM Fastener Model Package</ShortRole>
+		<Role>This package describes FastenerSet Reference and FastenerSet Representation Reference Extensions</Role>
+	</CAAComment>
+	<Comment>last update 2007-01-09</Comment>  
+
+	<!-- PLM extension portee par le Product de Reference -->
+	<Extension Name="PLMAsd_FastenerType" 
+	   Uuid="8ec56d87-078e-4fa5-9a11-c8f2e51332d5" 
+	   ScopeNames="VPMReference" 
+   CustomerExposition="Programmer"
+	   >
+      <CAAComment>         
+		   <ShortRole>Fastener Set Reference Extension</ShortRole>
+		   <Role>This PLM entity defines the Fastener Set Reference characteristics</Role>
+      </CAAComment>
+	   
+		   <Simple Name="V_Description" 
+		      Uuid="94d94af0-3676-44e2-a8c0-a3fbcf1932c2" 
+		      Type="String" 
+		      MaxLength="254" 
+		      MultiValuated="No" 
+		      Protection="External" 
+		      CAAExposition="L1"> 
+				<CAAComment>           
+				   <ShortRole>Fastener Type description</ShortRole>
+			   </CAAComment>
+		   </Simple>
+		
+		
+	</Extension>
+	
+	<!-- PLM extension portee par la Representation de Reference -->
+	<Extension Name="PLMAsd_FastenerInstance" 
+	   Uuid="8beb35c7-e4cd-4d8c-a688-05888dfa1746" 
+	   ScopeNames="VPMRepReference"  
+     CustomerExposition="Programmer"
+	   >
+      <CAAComment>          
+		   <ShortRole>Fastener Set Representation Extension</ShortRole>
+		   <Role>This PLM entity defines the Fastener Set Representation characteristics</Role>
+      </CAAComment>
+      
+		   <Simple Name="V_FastenersCount" 
+		      Uuid="a3b3e359-0a46-44f7-b42b-c1ccafbe533d" 
+		      Type="Integer" 
+		      MultiValuated="No" 
+		      Protection="External" 
+		      CAAExposition="L1"> 
+				<CAAComment>        
+				   <ShortRole>Fasteners Count</ShortRole>
+			   </CAAComment>
+		   </Simple>
+    
+		   <Simple Name="V_ZonesCount" 
+		      Uuid="8d5a59c6-b195-4263-b481-342203fff0f3"
+		      Type="Integer" 
+		      MultiValuated="No" 
+		      Protection="External" 
+		      CAAExposition="L1">   
+				<CAAComment>           
+				   <ShortRole>Joined Zones Count</ShortRole>
+			   </CAAComment>
+		   </Simple>
+		
+		   <Simple Name="V_ForecastCount"
+		      Uuid="0ca9a5d3-1483-410f-b8ac-a76491ed7a95" 
+		      Type="Integer" 
+		      MultiValuated="No" 
+		      Protection="Free" 
+		      CAAExposition="L1">
+				<CAAComment>          
+				   <ShortRole>Forecast Count</ShortRole>
+			   </CAAComment>
+		   </Simple>
+		      
+		   <Simple Name="V_FastenerNameList" 
+		      Uuid="b825cc65-56a6-4450-b470-bd4ef41e26e1"
+		      Type="String" 
+		      MaxLength="254" 
+		      MultiValuated="Yes" 
+		      CollectionType="List" 
+		      Protection="External" 
+		      CAAExposition="L1">
+				<CAAComment>            
+				   <ShortRole>Fastener Names List</ShortRole>
+			   </CAAComment>
+		   </Simple>
+		      
+	</Extension>
+		
+</Package>

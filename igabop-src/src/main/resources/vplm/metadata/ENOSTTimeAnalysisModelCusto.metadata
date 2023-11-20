@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" Name="ENOSTTimeAnalysisModelCusto" Uuid="14cfe637-8751-4ffd-80ba-b33efb9a01a0" UseNames="DELTimeAnalysisModel" Alias="Time Analysis Customization">
+	<CAAComment>
+		<ShortRole>PLM Customization of Time Analysis for SMB</ShortRole>
+		<Role>This package describes a customization of Time Analysis modeler "DELTimeAnalysisModel" for SMB.</Role>
+	</CAAComment>
+	<Class Name="ENOSTTimeAnalysisRepReferenceCusto" Alias="Time Analysis Representation Reference Custo" 
+         Uuid="335ce453-140c-4f21-8b25d2467acdae7f" 
+         SuperName="DELTimeAnalysisRepReference" 
+         SuperRef="00DEC632-1F44-425a-B418-F16F0AD11913">
+		<CAAComment>
+			<ShortRole>Customization of Time Analysis Representation Reference for SMB</ShortRole>
+			<Role>Customization of Time Analysis Representation Reference "DELTimeAnalysisRepReference" for SMB.</Role>
+		</CAAComment>
+    <Simple Name="E_fromExternalId"
+            Uuid="85ca4386-51e3-401a-aeb915715dc210e1"
+            Alias="Definition"
+            Type="String"
+            MaxLength="256"
+            Mandatory="No"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"/>
+    <Simple Name="E_versionComment"
+            Uuid="03d2faf8-dc3e-47fc-aeaa5fcb56e4d10a"
+            Alias="Version Comment"
+            Type="String"
+            MaxLength="256"
+            Mandatory="No"
+            MultiValuated="No"
+            Protection="Free"
+            ResetOnNewVersion="Yes"
+            ResetOnCloning="Yes"
+            CAAExposition="L0"/>
+    <IdentifierSet Name="E_identifier"
+                   Uuid="153e0ac3-2372-4db5-abb3b42470538ece"
+                   IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755"
+                   IdentifierNames="PLM_ExternalID V_version"/>
+  </Class>
+
+  <RelationClass Name="ENOSTTimeAnalysisRepInstanceCusto"
+         Uuid="2cfd3ae0-b9c4-4b21-b70f91b151cc9d21"
+         SuperName="DELTimeAnalysisRepInstance"
+         SuperRef="c9181f3d-4ea4-4dce-b19b6a78808d25e7"  >
+    <CAAComment>
+      <ShortRole>Customization of Time Analysis Representation Instance for SMB</ShortRole>
+      <Role>Customization of Time Analysis Representation Instance "DELTimeAnalysisRepInstance" for SMB.</Role>
+    </CAAComment>
+    <!-- ********************************************************* -->
+    <!-- * Overload(s) of PLMCoreInstance attributes. -->
+    <!-- ********************************************************* -->
+    <SubClause Name="to"   TargetName="ENOSTTimeAnalysisRepReferenceCusto"/>
+
+  </RelationClass>
+
+</Package>

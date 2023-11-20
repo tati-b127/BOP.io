@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2012, All rights reserved -->
+
+<Package CustomerExposition = "Programmer" ModelerType = "Top" Name = "BuildingSpatialStructureElement" UseNames = "AECKernel" Uuid = "202209f0-e4a0-4fc4-b15b-8dbfcf9a917a" xmlns = "PLMDictionaryUnified">
+  <Class Abbreviation = "bld" CustomerExposition = "Programmer" Discipline = "Yes" Name = "Building" SuperName = "BuildingSpatialStructureElement" Uuid = "6507555e-c83a-48a4-b8cb-45cfd99d8403">
+    <Property Name = "IconName" Value = "I_Building"/>
+    <Property Name = "3DIconName" Value = "I_Building.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATEAECDelegateInstanciation"/>
+    <Property Name = "KweNew_ReturnedType" Value = "VPMInstance"/>
+    <Property Name = "Newable" Value = "All_Offline_CAA"/>
+    <Property Name = "InstantiationOwnerTypes" Value = "PPRContext;AecOtherSpatialStructureElement;AecSite;Building;Bridge;BridgeOtherSpatialStructureElement;Organizational"/>
+    <Property Name = "3DPartAvailability" Value = "UserChoiceReferenceDefault"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "BuildingShellAndCore" SuperName = "BuildingSpatialStructureElement" Uuid = "5f3aa749-d82d-4f8e-9ec0-b954e039731b">
+    <Property Name = "IconName" Value = "I_BuildingShellAndCore"/>
+    <Property Name = "3DIconName" Value = "I_BuildingShellAndCore.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATEAECDelegateInstanciation"/>
+    <Property Name = "KweNew_ReturnedType" Value = "VPMInstance"/>
+    <Property Name = "Newable" Value = "No"/>
+    <Property Name = "InstantiationOwnerTypes" Value = "PPRContext;Building"/>
+    <Property Name = "3DPartAvailability" Value = "ReferenceOnly"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "BuildingSpace" SuperName = "BuildingSpatialStructureElement" Uuid = "0340c29f-1f91-48dc-b607-819c01ffbdca">
+    <Property Name = "IconName" Value = "I_BuildingSpace"/>
+    <Property Name = "3DIconName" Value = "I_BuildingSpace.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATEAECDelegateInstanciation"/>
+    <Property Name = "KweNew_ReturnedType" Value = "VPMInstance"/>
+    <Property Name = "Newable" Value = "All_Offline_CAA"/>
+    <Property Name = "InstantiationOwnerTypes" Value = "PPRContext;AecFoundation;AecOtherSpatialStructureElement;AecSite;BuildingSpace;BuildingStorey;BuildingShellAndCore;Bridge;BridgePart;Dam;DamPart;Railway;RailwayPart;Road;RoadPart;Subgrade;SubgradePart;Tunnel;TunnelPart"/>
+    <Property Name = "3DPartAvailability" Value = "UserChoiceReferenceDefault"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "BuildingSpaceType" SuperName = "BuildingSpatialStructureElementType" Uuid = "D51C8948-F848-4810-A682-EE919E5EB776">
+    <Property Name = "IconName" Value = "I_BuildingSpaceType"/>
+    <Property Name = "3DIconName" Value = "I_BuildingSpaceType.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATCbaObjectTypeDelegateInstanciation"/>
+    <Property Name = "Newable" Value = "New_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "ReferenceOnly"/>
+  </Class>
+  <Class Abstract = "Yes" CustomerExposition = "Programmer" Discipline = "Yes" Name = "BuildingSpatialStructureElement" SuperName = "AecSpatialStructureElement" Uuid = "1B200B7A-596C-4B36-82B0-D2255E0DCC34">
+    <Property Name = "GroupingType" Value = "BuildingSpatialStructureElement"/>
+  </Class>
+  <Class Abstract = "Yes" CustomerExposition = "Programmer" Discipline = "Yes" Name = "BuildingSpatialStructureElementType" SuperName = "AecObjectType" Uuid = "A8C59AC3-1EEB-470A-B6F8-3887DA33AE72">
+    <Property Name = "GroupingType" Value = "BuildingSpatialStructureElementType"/>
+  </Class>
+  <Class Abbreviation = "sto" CustomerExposition = "Programmer" Discipline = "Yes" Name = "BuildingStorey" SuperName = "BuildingSpatialStructureElement" Uuid = "5bb2a0a5-aa33-4230-b76b-0146bcac7b74">
+    <Property Name = "IconName" Value = "I_BuildingStorey"/>
+    <Property Name = "3DIconName" Value = "I_BuildingStorey.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATEAECDelegateInstanciation"/>
+    <Property Name = "KweNew_ReturnedType" Value = "VPMInstance"/>
+    <Property Name = "Newable" Value = "All_Offline_CAA"/>
+    <Property Name = "InstantiationOwnerTypes" Value = "PPRContext;AecOtherSpatialStructureElement;Building;BuildingStorey;BridgeOtherSpatialStructureElement"/>
+    <Property Name = "3DPartAvailability" Value = "UserChoiceReferenceDefault"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "BuildingStructure" SuperName = "BuildingSpatialStructureElement" Uuid = "97984164-c1d3-42f7-85fc-e1c8da1ab286">
+    <Property Name = "IconName" Value = "I_BuildingStructure"/>
+    <Property Name = "3DIconName" Value = "I_BuildingStructure.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATEAECDelegateInstanciation"/>
+    <Property Name = "KweNew_ReturnedType" Value = "VPMInstance"/>
+    <Property Name = "Newable" Value = "No"/>
+    <Property Name = "InstantiationOwnerTypes" Value = "PPRContext;Building"/>
+    <Property Name = "3DPartAvailability" Value = "ReferenceOnly"/>
+  </Class>
+</Package>

@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR LP BEHAVIOR CONNECTION -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2011, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" Name="LPBehaviorMapping"
+  Uuid="93BC87F1-EC6B-446a-B6B3-30B6BA61F717"
+  UseNames="LPABSTRACT"
+  CustomerExposition="None"
+  BelongsToModeler="CATSysBehaviorLibrary"
+>
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>PLM LP behavior connection Package</ShortRole>
+    <Role>This package describes the PLM Logical/Physical behavior Connection</Role>
+  </CAAComment>
+
+  <Comment>last update 2011-12-01</Comment>
+
+  <!-- ************************************************************* -->
+  <!-- * LPBehaviorMappingConnection (LPConnection)                * -->
+  <!-- ************************************************************* -->
+
+  <Class Name="LPBehaviorMappingConnection"
+    Uuid="10077CA4-42C2-4bd3-9427-113E6C348A02"
+     
+    CustomerExposition="None"
+    Abstract="No"
+    Specializable="No"
+            OwnerTypes="LPAbstractReference"
+
+        
+    SuperName="LPAbstractConnection"
+    >
+    <!-- OwnerTypes="LPAbstractReference"  Integrate this line if you want to declare the aggregation constraint -->
+ 
+    <!-- Define Picture -->
+    <Property Name="IconName"        Value="I_LPBehaviorMapping"/>
+    
+   
+   
+    <Path Name="V_LogicalSignals"
+      Uuid="C24BFE61-256A-48b8-A5CA-49AE9201DC99"
+      MultiValuated="Yes"
+      Lower="0"
+      Upper="-1"
+      RoleName="LP_ToLogicalSystemInterface"
+      Type="SemanticRelation" AdaptativeToMinor="No"
+		  SynchroSensitivity="None"
+		  RerouteOnEffectivityChange="No"
+      Semantics="Reference"/>
+
+    <Path Name="V_PhysicalSignals"
+      Uuid="2001D282-BD97-43d3-917F-B60401A205BF"
+      MultiValuated="Yes"
+      Lower="0"
+      Upper="-1"
+      RoleName="LP_ToPhysicalSignals"		
+      Type="SemanticRelation" AdaptativeToMinor="No"
+		  SynchroSensitivity="None"
+		  RerouteOnEffectivityChange="No"
+      Semantics="Reference"/>
+    
+    <Path Name="V_ConnectionBehaviorModel" 
+          Uuid="F5A06026-24F3-11E7-93AE-92361F002671" 
+          RoleName="RFL_LogMap_RepModel"
+          Type="SemanticRelation" 
+		  AdaptativeToMinor="No"
+		  Orientation="InOut"
+          MultiValuated="No" 
+          Semantics="Reference6" 
+          SynchroSensitivity="PathAndLast"	
+          RerouteOnEffectivityChange="No"/>
+    
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+  </Class>
+
+  <!-- **************************************************** -->
+  <!-- * Declaration of functions                           -->
+  <!-- **************************************************** -->
+  <Function Name="LPBehaviorMappingConnection_AddAll">
+    <Implementation Name="LPBehaviorMappingConnection_AddAll" FileLocation="LPBehaviorMappingConnection_AddAll.plmql" Language="PLMQL"/>
+    <Signature href="ENOLPBehaviorMappingSignature"/>
+  </Function>
+
+  <Signature id="ENOLPBehaviorMappingSignature">
+    <Parameter Name="InputIds" Lower="0" Upper="-1" Direction="in" MultiValuated="Yes" DataType="PLMId"/>
+    <Parameter Name="OutputIds" Lower="0" Upper="-1" Direction="out" MultiValuated="No" DataType="PLMRouteSet"/>
+  </Signature>
+
+</Package>

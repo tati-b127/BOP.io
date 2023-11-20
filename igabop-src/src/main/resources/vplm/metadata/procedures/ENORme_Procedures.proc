@@ -1,0 +1,48 @@
+<?xml version="1.0" ?>
+<ProcedurePackage 
+	xmlns="PLMDictionaryProcedure"
+	Name="ENORme_Procedures">
+			
+	<Procedure Name="PhysicalResource_GetAllEntities">
+		<Implementation Name="PhysicalResource_GetAllEntities" FileLocation="PhysicalResource_GetAllEntities.KProc" Language="EKL"/>
+		<Signature href="ENORme_ProcedureSignatureExport"/>
+	</Procedure>
+
+	
+	<Procedure Name="PhysicalResource_ExchangeXPDM_GetAllEntities">
+		<Implementation Name="PhysicalResource_ExchangeXPDM_GetAllEntities" FileLocation="PhysicalResource_ExchangeXPDM_GetAllEntities.KProc" Language="EKL"/>
+		<Signature href="ENORme_ProcedureSignatureExchange"/>
+	</Procedure>
+
+  <Procedure Name="PhysicalResource_GetOneLevelEntitiesForDesign">
+    <Implementation Name="PhysicalResource_GetOneLevelEntitiesForDesign" FileLocation="PhysicalResource_GetOneLevelEntitiesForDesign.KProc" Language="EKL"/>
+    <Signature href="ENORme_ProcedureSignatureExport"/>
+  </Procedure>
+
+  <Procedure Name="PhysicalResource_GetOneLevelEntitiesForReview">
+    <Implementation Name="PhysicalResource_GetOneLevelEntitiesForReview" FileLocation="PhysicalResource_GetOneLevelEntitiesForReview.KProc" Language="EKL"/>
+    <Signature href="ENORme_ProcedureSignatureExport"/>
+  </Procedure>
+
+  <Procedure Name="PhysicalResource_GetOneLevelEntitiesForChannel">
+    <Implementation Name="PhysicalResource_GetOneLevelEntitiesForChannel" FileLocation="PhysicalResource_GetOneLevelEntitiesForChannel.KProc" Language="EKL"/>
+    <Signature href="ENORme_ProcedureSignatureExport"/>
+  </Procedure>
+
+  <Procedure Name="Resource_TSO_References">
+    <Implementation Name="Resource_TSO_References" FileLocation="Resource_TSO_References.KProc" Language="EKL"/>
+    <Signature href="ENORme_ProcedureSignatureExport"/>
+  </Procedure>
+
+  <Signature id="ENORme_ProcedureSignatureExport">
+    <Parameter Name="InputIds" Lower="0" Upper="-1" MultiValuated="Yes" Direction="in" DataType="PLMId"/>
+    <Parameter Name="OutputIds" Lower="0" Upper="-1" MultiValuated="Yes" Direction="out" DataType="PLMId"/>
+  </Signature>
+
+  <Signature id="ENORme_ProcedureSignatureExchange">
+		<Parameter Name="InputIds" Lower="0" Upper="-1" MultiValuated="Yes" Direction="in" DataType="PLMId"/>
+		<Parameter Name="OutputIds" Lower="0" Upper="-1" MultiValuated="Yes" Direction="out" DataType="PLMId"/>
+	</Signature>
+
+</ProcedurePackage>
+

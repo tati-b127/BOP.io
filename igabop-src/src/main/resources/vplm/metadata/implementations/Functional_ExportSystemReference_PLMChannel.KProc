@@ -1,0 +1,41 @@
+#Prog Functional_ExportSystemReference_PLMChannel( iPLMIDSet : #In PLMIDSet, oPLMIDSet : #Out PLMIDSet ) : VoidType
+{
+  let InputPLMIDSetRestrictedToRefs(PLMIDSet)
+  let SetOfPLMRoutesForFirstLevelFctObjects(PLMRouteSet)
+  let SetOfPLMRoutesForImplementLinks(PLMRouteSet)
+  let SetOfPLMRoutesForFunctionalPortMapping(PLMRouteSet)
+  let SetOfPLMRoutesForDocuments(PLMRouteSet)
+  let SetOfFirstLevelFctObjectsPLMIDs(PLMIDSet)
+  let SetOfFlowRefsPLMIDsToExpand(PLMIDSet)
+  let SetOfFlowsPLMIDs(PLMIDSet)
+  let SetOfConfigObjectsPLMIDs(PLMIDSet)
+  let SetOfPLMParameters(PLMRouteSet)
+
+  InputPLMIDSetRestrictedToRefs = Restrict(iPLMIDSet,"RFLPLMFunctional/RFLPLMFunctionalReference")
+ 
+  /* Get functional connections, ports, flow instances and references directly aggregated under the functional reference (1st level) (resp: LRG) */
+  /* no instances of functional systems nor instances of mux/demuxes */
+  SetOfPLMRoutesForFirstLevelFctObjects = ExecutePLMFunction("RFLPLMFunctional","RFLPLMFunctional_Get1stLevelObjects",InputPLMIDSetRestrictedToRefs)
+   
+  /* Add implement Links connections (resp: LRG) */
+  SetOfPLMRoutesForImplementLinks = ExecutePLMFunction("RFLPLMImplementConnection","RFLPLMImplementConnection_AddAllImplementCnx",InputPLMIDSetRestrictedToRefs)
+
+  /* Add Connections for Functional Ports Mapping (resp: LST/SVV) */
+  SetOfPLMRoutesForFunctionalPortMapping = ExecutePLMFunction("RFLPLMFunctionalConnectorMapping","RFLPLMFunctionalConnectorMapping_AllFctMappingCnx",InputPLMIDSetRestrictedToRefs)
+
+  /* Add PLMDocConnections plus documents pointed by these PLMDocConnections (resp:BCC) */
+  SetOfPLMRoutesForDocuments = ExecutePLMFunction("PLMDocConnection","PLMDocConnection_retrieveAllDocuments",InputPLMIDSetRestrictedToRefs)
+
+  /*Completes with complete expand of Flow definitions (resp : LRG) */
+  SetOfFirstLevelFctObjectsPLMIDs = Ids(SetOfPLMRoutesForFirstLevelFctObjects)
+  SetOfFlowRefsPLMIDsToExpand = Restrict(SetOfFirstLevelFctObjectsPLMIDs,"RFLPLMFlow/RFLPLMFlowReference")
+  SetOfFlowsPLMIDs = ExecutePLMProcedure("Functional_ExportFlow_PLMChannel",SetOfFlowRefsPLMIDsToExpand) 
+  
+  /*Completes with configuration */
+  SetOfConfigObjectsPLMIDs = ExecutePLMProcedure("Config_GetStructConfig",iPLMIDSet)
+  
+  /* Get PLMParameters */
+  SetOfPLMParameters = ExecutePLMFunction("PLMParameter", "PAR_nav_params", InputPLMIDSetRestrictedToRefs)
+  
+  oPLMIDSet = iPLMIDSet + SetOfFirstLevelFctObjectsPLMIDs + SetOfFlowsPLMIDs + SetOfConfigObjectsPLMIDs + Ids(SetOfPLMRoutesForDocuments) +Ids(SetOfPLMRoutesForFunctionalPortMapping) + Ids(SetOfPLMRoutesForImplementLinks) + Ids(SetOfPLMParameters)
+}

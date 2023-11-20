@@ -1,0 +1,365 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR RFL Functional Application -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2006, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" BelongsToModeler="RFLPLMFunctional" Name="RFLPLMFunctional" 
+	Uuid="9f648371-8ab7-4c46-a64f55faa397ee71" 
+	UseNames="PLMCORE RFLPLMFunctionalAbstract"
+  UseProcedures="ENOFct_Procedures"
+  CustomerExposition="Programmer"
+>
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>PLM RFL Functional Package</ShortRole>
+    <Role>This package describes the PLM Functional model on top of PLM Core</Role>
+  </CAAComment>
+
+  <Comment>last update 2007-09-13</Comment>
+
+  <!-- ****************************************************************** -->
+  <!-- *  RFLPLMFunctionalReference (RFLPLMFunctionalAbstractReference) * -->
+  <!-- ****************************************************************** -->
+
+  <Class Name="RFLPLMFunctionalReference" 
+	Uuid="4baf5d55-289a-4680-b2abd513d7a0d2fb" 
+	CustomerExposition="Programmer"
+	CustomerExtensible="Yes"
+	Specializable="Yes"
+	Abstract="No"
+	SuperName="RFLPLMFunctionalAbstractReference" 
+	CreateInstName="RFLPLMFunctionalInstance"
+	Abbreviation="fct">
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEFctDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="RFLPLMFunctionalInstance"/>
+    <Property Name="Newable" Value="All_CAA"/>
+    <Property Name="IconName" Value="I_VPMNavFunction"/>
+    <Property Name="3DIconName" Value="Default3DFunctionRep.cgr"/>
+    <Property Name="Configurable" Value="Yes"/>
+    <Property Name="ChangeManagementSupport" Value="Yes"/>
+    <Property Name="ChangeManagementReferential" Value="Yes"/>
+    <Property Name="ChangeManagementContext" Value="Yes"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="InstantiationOwnerTypes" Value="RFLPLMFunctionalReference"/>
+	<Property Name="AggregatableTypes" Value="RFLPLMFunctionalReference;RFLPLMFunctionalRepReference;RFLPLMFunctionalCommunicationReference;RFLPLMFlowReference;RFLPLMFunctionalConnector;RFLPLMFunctionalConnection;PARParameter"/> <!-- PLMNew UI Constraints -->
+	<Property Name="ShareBetweenProjectsAvailability" Value="Yes"/> <!-- Collaborative Space Applicability -->
+
+    <CAAComment>
+      <ShortRole>PLM Functional Reference Object</ShortRole>
+      <Role>PLM Functional Reference Object</Role>
+    </CAAComment>
+
+    <Method ImplementationType="Self">
+        <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+        <ProcedureForUsage>
+            <Usage href="ExportScope.meth#Design"/>
+            <UsedProcedure href="ENOFct_Procedures.proc#Functional_ExportReference_Decoration"/>
+        </ProcedureForUsage>
+        <ProcedureForUsage>
+            <Usage href="ExportScope.meth#Channel"/>
+            <UsedProcedure href="ENOFct_Procedures.proc#Functional_ExportSystemReference_PLMChannel"/>
+        </ProcedureForUsage>
+		<ProcedureForUsage>
+			<Usage href="ExportScope.meth#Remove"/>
+			<UsedProcedure href="ENOFct_Procedures.proc#Functional_ExportSystemReference_Remove"/>
+		</ProcedureForUsage>
+		<ProcedureForUsage>
+			<Usage href="ExportScope.meth#TransferSiteOwnership"/>
+			<UsedProcedure href="ENOFct_Procedures.proc#Functional_ExportSystemReference_TSO"/>
+		</ProcedureForUsage>
+    </Method> 
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExchangeScope.meth#XPDM"/>
+        <UsedProcedure href="ENOFct_Procedures.proc#Functional_GetExchangeCompletionOnReference"/>
+      </ProcedureForUsage>
+    </Method>
+	
+
+  </Class>
+
+  <!-- ******************************************** -->
+  <!-- * RFLPLMFunctionalInstance (PLMCoreInstance) * -->
+  <!-- ******************************************** -->
+
+  <RelationClass Name="RFLPLMFunctionalInstance" 
+		Uuid="38804f9a-9a1f-4c4e-9e6a39e8f72bc3cc"
+		 
+    CustomerExposition="Programmer"
+    CustomerExtensible="Yes"
+    Specializable="Yes"
+		Abstract="No" 
+		SuperName="PLMCoreInstance" 
+		>
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEFctDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="RFLPLMFunctionalInstance"/>
+    <Property Name="Searchable" Value="No"/>
+    <Property Name="Filtrable" Value="Yes"/>
+
+    <CAAComment>
+      <ShortRole>PLM Functional Instance Object</ShortRole>
+      <Role>PLM Function Instance Object</Role>
+    </CAAComment>
+
+    <!-- *********************************************************
+             * Define Owner and InstanceOf
+             ********************************************************* -->
+
+    <SubClause Name="from" TargetName="RFLPLMFunctionalAbstractReference"/>
+    <SubClause Name="to"   TargetName="RFLPLMFunctionalReference"/>
+    
+    <Volatile Name="Reference" Uuid="18a6b0a9-6eab-4926-a106-f1420daccb22" Accessor="PLMModelerReferenceKweAttribute" TypeName="RFLPLMFunctionalReference" AccessMode="ReadOnly" >
+	  <Property Name="ServerAccessor" Value="com.dassault_systemes.EKLEngine.openings.lib.PLMEnt_Accessor"/>
+	</Volatile>
+
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Channel"/>
+        <UsedProcedure href="ENOFct_Procedures.proc#Functional_ExportSystemInstance_PLMChannel"/>
+      </ProcedureForUsage>
+	  <ProcedureForUsage>
+	    <Usage href="ExportScope.meth#Remove"/>
+	    <UsedProcedure href="ENOFct_Procedures.proc#Functional_ExportInstance_Remove"/>
+	  </ProcedureForUsage>
+	  <ProcedureForUsage>
+	    <Usage href="ExportScope.meth#TransferSiteOwnership"/>
+	    <UsedProcedure href="ENOFct_Procedures.proc#Functional_ExportInstance_TSO"/>
+	  </ProcedureForUsage>
+    </Method>
+  </RelationClass>
+
+  <!-- ****************************************** -->
+  <!-- * RFLPLMFunctionalConnector (PLMPort)    * -->
+  <!-- ****************************************** -->
+
+  <Class Name="RFLPLMFunctionalConnector"  
+		Uuid="de9b0140-dc42-4efa-8642d3dc72820ec3" 
+		 
+    CustomerExposition="Programmer"
+    CustomerExtensible="Yes"		
+    Specializable="Yes"         
+		Abstract="No" 
+		SuperName="PLMPort"
+    OwnerTypes="RFLPLMFunctionalReference;RFLPLMFunctionalCommunicationReference"
+         >
+
+    <CAAComment>
+      <ShortRole>PLM Functional Connector Object</ShortRole>
+      <Role>PLM Functional Connector Object</Role>
+    </CAAComment>
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEFctDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="RFLPLMFunctionalConnector"/>
+    <Property Name="Newable" Value="Insert" />
+    <Property Name="IconName" Value="I_VPMNav_FctPort"/>
+    <Property Name="Searchable" Value="No"/>
+    
+    <Path 
+        Name="SR_FunctionalExpose" 
+        Uuid="0ff29337-b414-4274-b3b8-8cea0ad3b617" 
+        MultiValuated="No"
+        RoleName="Publish"		
+        Type="SemanticRelation" AdaptativeToMinor="Yes"
+		    SynchroSensitivity="PathAndLast"
+		    RerouteOnEffectivityChange="No" Orientation="In"
+        Semantics="Reference3"/>
+
+<Simple Name="V_Direction" Uuid="34ba02f2-2133-4b06-826ced0fa75d85d9" Type="Integer" Protection="ExternalIN" CAAExposition="L0" DefaultValue="2" PLMImpacting="Yes" Faceted="Yes">
+      <CAAComment>
+        <ShortRole>Direction of the Port (In, Out)</ShortRole>
+      </CAAComment>
+<Property Name="SIXW" Value="ds6w:technology"/>
+<Property Name="RangeAsEnumName" Value="V_FctPortDirectionEnum"/>
+<Property Name="RangeAsEnumAuthorizedValues" Value="Consumption;Emission"/>
+<Range>
+<Equal>1</Equal>
+<Equal>2</Equal>
+</Range>
+</Simple>
+
+<Simple Name="V_Exposition" Uuid="06689afa-8a3f-4c27-ae773ce75e72d526" Type="Integer" Protection="External" CAAExposition="L0" DefaultValue="1">
+      <CAAComment>
+        <ShortRole>Deprecated</ShortRole>
+      </CAAComment>
+<Property Name="RangeAsEnumName" Value="V_ExpositionEnum"/>
+<Property Name="RangeAsEnumAuthorizedValues" Value="Standard;Exposition"/>
+<Range>
+<Equal>1</Equal>
+<Equal>2</Equal>
+</Range>
+</Simple>
+
+    <Method ImplementationType="None">
+        <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+  <!-- ********************************************** -->
+  <!-- * RFLPLMFunctionalConnection (PLMConnection) * -->
+  <!-- ********************************************** -->
+
+  <Class Name="RFLPLMFunctionalConnection" 
+		Uuid="77698fb6-4395-4b55-9e6240e9afd872c6"  
+		
+    CustomerExposition="Programmer"
+    CustomerExtensible="Yes"
+    Specializable="Yes"
+		Abstract="No" 
+		SuperName="PLMConnection" 
+    OwnerTypes="RFLPLMFunctionalReference"
+		>
+    <!-- OwnerTypes="RFLPLMFunctionalAbstractReference"  Integrate this line if you want to declare the aggregation constraint -->
+
+    <CAAComment>
+      <ShortRole>PLM Functional Connection Object</ShortRole>
+      <Role>PLM Functional Connection Object</Role>
+    </CAAComment>
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEFctDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="RFLPLMFunctionalConnection"/>
+    <Property Name="Newable" Value="Insert" />
+    <Property Name="IconName" Value="I_RFLPLMFunctionalConnection"/>
+    <Property Name="Searchable" Value="No"/>
+    
+    <Path Name="V_ConnectionPorts"
+			Uuid="1a2eb18a-4dd5-4f21-a148517e3d8e9b2c"
+			Semantics="Reference4"
+			RoleName="RFLPLM_FunctionalCnx_Ext"
+			Lower="0"
+			Upper="2"	
+      Type="SemanticRelation" AdaptativeToMinor="Yes"
+		  SynchroSensitivity="Last"
+		  RerouteOnEffectivityChange="Yes" Orientation="In"
+			MultiValuated="Yes" />
+
+    <Method ImplementationType="None">
+        <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+  </Class>
+
+  <!-- ****************************************************** -->
+  <!-- * RFLPLMFunctionalRepReference (PLMCoreRepReference) * -->
+  <!-- ****************************************************** -->
+
+  <Class Name="RFLPLMFunctionalRepReference"
+	Uuid="986a0879-a20a-4d28-89b4ae686df55627"
+	CustomerExposition="Programmer"
+	CustomerExtensible="No"
+	Specializable="Yes"
+	Abstract="No"
+	SuperName="PLMCoreRepReference"       
+	CreateInstName="RFLPLMFunctionalRepInstance"
+	Abbreviation="fctrep" 
+  DeleteAvailability="Yes">
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEFctDelegateInstanciation"/>
+    <Property Name="IconName" Value="I_PLMNonV5Rep"/>
+    <Property Name="3DIconName" Value="Default3DFunctionRep.cgr"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="InstantiationOwnerTypes" Value="RFLPLMFunctionalReference"/>
+	<Property Name="ShareBetweenProjectsAvailability" Value="Yes"/> <!-- Collaborative Space Applicability -->
+    
+    <CAAComment>
+      <ShortRole>PLM Functional Representation Reference Object</ShortRole>
+      <Role>PLM Functional Representation Reference Object</Role>
+    </CAAComment>
+
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+	  <ProcedureForUsage>
+	    <Usage href="ExportScope.meth#Remove"/>
+	    <UsedProcedure href="ENOFct_Procedures.proc#Functional_ExportRepRef_Remove"/>
+	  </ProcedureForUsage>
+	  <ProcedureForUsage>
+	    <Usage href="ExportScope.meth#TransferSiteOwnership"/>
+	    <UsedProcedure href="ENOFct_Procedures.proc#Functional_ExportRepRef_TSO"/>
+	  </ProcedureForUsage>
+    </Method>
+
+  </Class>
+
+  <!-- **************************************************** -->
+  <!-- * RFLPLMFunctionalRepInstance (PLMCoreRepInstance) * -->
+  <!-- **************************************************** -->
+
+  <RelationClass Name="RFLPLMFunctionalRepInstance"
+      Uuid="c7fd4815-3af5-49eb-84ca2c090b1fb2a3"
+        
+      CustomerExposition="Programmer"
+      CustomerExtensible="No"
+      Specializable="No"         
+      Abstract="No"
+      SuperName="PLMCoreRepInstance" 
+      >
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="Searchable" Value="No"/>
+    
+    <CAAComment>
+      <ShortRole>PLM Functional Representation Instance Object</ShortRole>
+      <Role>PLM Functional Representation Instance Object</Role>
+    </CAAComment>
+
+    <!-- *********************************************************
+             * Overload(s) of PLMCoreRepInstance attributes.
+             ********************************************************* -->
+
+    <SubClause Name="from" TargetName="RFLPLMFunctionalAbstractReference"/>
+    <SubClause Name="to"   TargetName="RFLPLMFunctionalRepReference"/>
+
+    <Volatile Name="Reference" Uuid="d251a024-eca8-4f4d-8f9e-04a3c8acdb3a" Accessor="PLMModelerReferenceKweAttribute" TypeName="RFLPLMFunctionalRepReference" AccessMode="ReadOnly" >
+	  <Property Name="ServerAccessor" Value="com.dassault_systemes.EKLEngine.openings.lib.PLMEnt_Accessor"/>
+	</Volatile>
+
+    <Method ImplementationType="None">
+        <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </RelationClass>
+
+  <!-- **************************************************** -->
+  <!-- * Declaration of functions                           -->
+  <!-- **************************************************** -->
+
+    <Function Name="RFLPLMFunctional_AllFctObjects">
+       <Implementation Name="RFLPLMFunctional_AllFctObjects" FileLocation="RFLPLMFunctional_AllFctObjects.plmql" Language="PLMQL"/>
+       <Signature href="ENOFctSignature"/>
+   </Function>
+
+  <Function Name="RFLPLMFunctional_AllFctObjects4Exchange">
+    <Implementation Name="RFLPLMFunctional_AllFctObjects4Exchange" FileLocation="RFLPLMFunctional_AllFctObjects4Exchange.plmql" Language="PLMQL"/>
+    <Signature href="ENOFctSignature"/>
+  </Function>
+
+  <Function Name="RFLPLMFunctional_Get1stLevelObjects">
+    <Implementation Name="RFLPLMFunctional_Get1stLevelObjects" FileLocation="RFLPLMFunctional_Get1stLevelObjects.plmql" Language="PLMQL"/>
+    <Signature href="ENOFctSignature"/>
+  </Function>
+
+  <Function Name="RFLPLMFunctionalReference_Aggregated1stLvlObjects">
+    <Implementation Name="RFLPLMFunctionalReference_Aggregated1stLvlObjects" FileLocation="RFLPLMFunctionalReference_Aggregated1stLvlObjects.plmql" Language="PLMQL"/>
+    <Signature href="ENOFctSignature"/>
+  </Function>
+
+  <Function Name="RFLPLMFunctionalReference_RepAggregated">
+    <Implementation Name="RFLPLMFunctionalReference_RepAggregated" FileLocation="RFLPLMFunctionalReference_RepAggregated.plmql" Language="PLMQL"/>
+    <Signature href="ENOFctSignature"/>
+  </Function>
+
+  <Signature id="ENOFctSignature">
+        <Parameter Name="InputIds" Lower="0" Upper="-1" Direction="in" MultiValuated="Yes" DataType="PLMId"/>
+        <Parameter Name="OutputIds" Lower="0" Upper="-1" Direction="out" MultiValuated="No" DataType="PLMRouteSet"/>
+    </Signature>
+
+  <!-- ********************************************************* -->
+
+</Package>

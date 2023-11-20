@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" Name="DMUReviewDisciplines" UseNames="PRODUCTCFG" Uuid="e18c8a07-0b66-4649-9916-fbf9fdd79178" CustomerExposition="Programmer" BelongsToModeler="DMUValidationAbstract">
+	<CAAComment>
+		<ShortRole>DMU Review disciplines resources package</ShortRole>
+		<Role>This package describes the DMU Review disciplines</Role>
+	</CAAComment>
+	<Comment>Creation 2009-04-06 LJE</Comment>
+	
+  <Class Name="Review" Uuid="d09388ef-53a2-4765-8762-a311530ec978" Discipline="Yes" Abstract="No" SuperName="VPMRepReference" CustomerExposition="Programmer" Specializable="Yes" Abbreviation="mkp">
+    <Property Name="IconName" Value="I_Validation"/>
+    <Property Name="3DIconName" Value="CAT3DNav_BSMRepReview.cgr"/>
+    <Property Name="Newable" Value="Insert_Offline"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATReviewNewFactory"/>
+    <Property Name="Searchable" Value="No"/>
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Remove"/>
+        <UsedProcedure href="ENOVAL_Procedures.proc#ProductMarkup_Complete"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#TransferSiteOwnership"/>
+        <UsedProcedure href="ENOVAL_Procedures.proc#ProductMarkup_Complete"/>
+      </ProcedureForUsage>
+    </Method>
+	</Class>
+
+  <Class Name="Review3DShape" Uuid="b2bee16e-186f-4a6e-bb9e-dae9fa67789c" Discipline="Yes" Abstract="No" SuperName="VPMRepReference" CustomerExposition="Programmer" Specializable="Yes">
+    <Property Name="IconName" Value="I_Validation"/>
+    <Property Name="3DIconName" Value="CAT3DNav_BSMRepReview.cgr"/>
+    <Property Name="Searchable" Value="No"/>
+		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+	</Class>
+
+	<Function Name="DMUReviewDisciplines_AddReview">
+		<Implementation Name="DMUReviewDisciplines_AddReview" FileLocation="DMUReviewDisciplines_AddReview.plmql" Language="PLMQL"/>
+		<Signature href="DMUREV_FunctionSignature"/>
+	</Function>
+	<Signature id="DMUREV_FunctionSignature">
+		<Parameter Name="InputIds" Lower="0" Upper="-1" Direction="in" MultiValuated="Yes" DataType="PLMId"/>
+		<Parameter Name="OutputIds" Lower="0" Upper="-1" Direction="out" MultiValuated="No" DataType="PLMRouteSet"/>
+	</Signature>
+</Package>

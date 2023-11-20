@@ -1,0 +1,15 @@
+NAVIGATE 
+  T0.physicalid, T0.logicalid, T0.type, T0.majorid,
+  T1.physicalid, T1.logicalid, T1.type, T1.majorid,
+  T2.physicalid, T2.logicalid, T2.type, T2.majorid
+FROM
+  Class/Requirement T0, 
+  "Class/Requirement Specification" T1, 
+  Class/Chapter T2
+FROM_ROOTS 
+  [?1?]
+ ON  
+(
+   RELATION(FROM=PLMRequirementSpecifyHowToCnxAbstract/PLMReqSpecifyHowToCnxAbstract TO=Class/Requirement,"Class/Requirement Specification",Class/Chapter THROUGH=POINTSTO) WITH QUALITY_FILTER  ( CATEGORY=Reference3 AND ROLE=PLM_SpecifyingReq) 
+ ) 
+ITER=1 ;

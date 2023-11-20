@@ -1,0 +1,181 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2012, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified"
+         ModelerType="Top"
+         CustomerExposition="Programmer"
+         Name="PLMAccommodationDesign"
+         Uuid="3E337A83-71DC-461C-BD14-4FDE272139C6"
+         UseNames="PRODUCTCFG" >
+  <CAAComment>
+    <ShortRole>Accommodation Design Package</ShortRole>
+    <Role>This package describes Accommodation Design data.</Role>
+  </CAAComment>
+
+  <Comment>Created  2012-10-23 by CLT</Comment>
+  <Comment>Modified 2013-04-02 by CLT</Comment>
+  <Comment>Modified 2014-11-10 by CLT</Comment>
+  <Comment>Modified 2015-04-01 by BK7</Comment>
+  <Comment>Modified 2015-09-21 by BK7: Define Strong type for AgtSystem</Comment>
+  <Comment>Modified 2016-03-28 by BK7: Change newable and Abbreviation</Comment>
+
+  <Class Name="AgtRefComponent"
+         Uuid="B8256B5B-B43D-4733-809C-8AE7B2F9AC96"
+         Abstract="No"
+         CustomerExposition="Programmer"
+         SuperName="VPMReference"
+         Discipline="Yes"
+         CreateInstName="AgtRefComponentInstance"
+         Specializable="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATEAGTComponentDelegateInstanciation"/>
+    <Property Name="Newable" Value="All"/>
+    <Property Name="IconName" Value="I_ACCComponent_PLMNew"/>
+    <Property Name="Abbreviation" Value="ACC"/>
+    <Property Name="3DPartAvailability" Value="UserChoice3DPartDefault"/>
+    <!--<Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>-->
+  </Class>
+
+  <RelationClass Name="AgtRefComponentInstance"
+         Uuid="DED98A65-1AB9-4B94-9FDF-6B9BA38697D7"
+         Abstract="No"
+         CustomerExposition="Programmer"
+         SuperName="VPMInstance"
+         Discipline="Yes"
+         Specializable="Yes">
+  <SubClause Name="to"   TargetName="AgtRefComponent"/>
+  <Property Name="KweNew_InstanciationMethod" Value="CATEAGTComponentDelegateInstanciation"/>
+  </RelationClass>
+
+  <Class Name="AgtSystemRef"
+        Uuid="F0BF4EF5-20D3-4A87-8932-CE0CCD7A9720"
+        Abstract="No"
+        CustomerExposition="Programmer"
+        SuperName="VPMReference"
+        Discipline="Yes"
+        Specializable="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATEAGTDelegateInstanciation"/>
+    <Property Name="Newable" Value="All"/>
+    <Property Name="IconName" Value="I_ACCSystem_PLMNew"/>
+    <Property Name="Abbreviation" Value="ACS"/>
+    <Property Name="3DPartAvailability" Value="UserChoice3DPartDefault"/>
+    <!--<Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>-->
+  </Class>
+
+
+  <Extension Name="AgtSystem" Uuid="96120AF0-F4AB-4BBE-9711-A0FCB394FE82" CustomerExposition="Programmer" Abstract="No" Specializable="Yes" ScopeNames="VPMReference" Discipline="Yes" >
+    <CAAComment>
+      <ShortRole>PLM Accommodation System</ShortRole>
+      <Role>PLM Accommodation System Object</Role>
+    </CAAComment>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEAGTDelegateInstanciation"/>
+    <!--<Property Name="Newable" Value="All"/>-->
+    <Property Name="IconName" Value="I_ACCSystem_PLMNew"/>
+    <Property Name="KweDisciplineAttributeValue" Value="AgtSystem"/>
+    <Property Name="3DPartAvailability" Value="3DPartOnly"/>
+  </Extension>
+
+  <Extension Name="AgtComponent" Uuid="BE2AF1ED-DEFA-4F11-9F7A-1B0285CED95F" CustomerExposition="Programmer" Abstract="No" Specializable="Yes" ScopeNames="VPMReference" Discipline="Yes" >
+    <CAAComment>
+      <ShortRole>PLM Accommodation Component</ShortRole>
+      <Role>PLM Accommodation Component Object</Role>
+    </CAAComment>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEAGTComponentDelegateInstanciation"/>
+    <!--<Property Name="Newable" Value="All"/>-->
+    <Property Name="IconName" Value="I_ACCComponent_PLMNew"/>
+    <Property Name="KweDisciplineAttributeValue" Value="AgtComponent"/>
+    <Property Name="3DPartAvailability" Value="UserChoice3DPartDefault"/>
+  </Extension>
+
+  <Extension Name="AGTCabin" Uuid="5C4B25EA-8D5E-4F69-9B99-AD759799DA45" CustomerExposition="Programmer" Abstract="No" Specializable="Yes" SuperName="AgtComponent" Discipline="Yes">
+    <CAAComment>
+      <ShortRole>PLM Accommodation Cabin Component</ShortRole>
+      <Role>PLM Accommodation Cabin Component Object</Role>
+    </CAAComment>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEAGTComponentDelegateInstanciation"/>
+  </Extension>
+
+  <Extension Name="AGTHandRail" Uuid="C5EA4525-C2F9-4AC9-84C2-D7E8AD33C8F5" CustomerExposition="Programmer" Abstract="No" Specializable="Yes" SuperName="AgtComponent" Discipline="Yes">
+    <CAAComment>
+      <ShortRole>PLM Accommodation HandRail Component</ShortRole>
+      <Role>PLM Accommodation HandRail Component Object</Role>
+    </CAAComment>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEAGTComponentDelegateInstanciation"/>
+  </Extension>
+
+  <Extension Name="AGTDoor" Uuid="F63301DB-A1BB-4B66-83DF-1F2C8A757177" CustomerExposition="Programmer" Abstract="No" Specializable="Yes" SuperName="AgtComponent" Discipline="Yes">
+    <CAAComment>
+      <ShortRole>PLM Accommodation Door Component</ShortRole>
+      <Role>PLM Accommodation Door Component Object</Role>
+    </CAAComment>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEAGTComponentDelegateInstanciation"/>
+  </Extension>
+
+  <Extension Name="AGTWindow" Uuid="DA7CA5BA-6B33-493C-AB95-0BE58145D5AC" CustomerExposition="Programmer" Abstract="No" Specializable="Yes" SuperName="AgtComponent" Discipline="Yes">
+    <CAAComment>
+      <ShortRole>PLM Accommodation Window Component</ShortRole>
+      <Role>PLM Accommodation Window Component Object</Role>
+    </CAAComment>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEAGTComponentDelegateInstanciation"/>
+  </Extension>
+
+  <Extension Name="AGTStair" Uuid="9A0052DA-E2AE-47ED-B6E2-735ECFC6F53C" CustomerExposition="Programmer" Abstract="No" Specializable="Yes" SuperName="AgtComponent" Discipline="Yes">
+    <CAAComment>
+      <ShortRole>PLM Accommodation Stair Component</ShortRole>
+      <Role>PLM Accommodation Stair Component Object</Role>
+    </CAAComment>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEAGTComponentDelegateInstanciation"/>
+  </Extension>
+
+  <Extension Name="AGTFurniture" Uuid="2962991D-C138-4347-A387-BE6F66C50B95" CustomerExposition="Programmer" Abstract="No" Specializable="Yes" SuperName="AgtComponent" Discipline="Yes">
+    <CAAComment>
+      <ShortRole>PLM Accommodation Furniture Component</ShortRole>
+      <Role>PLM Accommodation Furniture Component Object</Role>
+    </CAAComment>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEAGTComponentDelegateInstanciation"/>
+  </Extension>
+
+  <Extension Name="AGTSafetySign" Uuid="65858129-6B86-4A1F-B6B0-AD50323B39DE" CustomerExposition="Programmer" Abstract="No" Specializable="Yes" SuperName="AgtComponent" Discipline="Yes">
+    <CAAComment>
+      <ShortRole>PLM Accommodation SafetySign Component</ShortRole>
+      <Role>PLM Accommodation SafetySign Component Object</Role>
+    </CAAComment>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEAGTComponentDelegateInstanciation"/>
+  </Extension>
+
+  <Extension Name="AGTDecorativeSign" Uuid="4AA3F2ED-88C6-43AA-AF13-00B8977A42C2" CustomerExposition="Programmer" Abstract="No" Specializable="Yes" SuperName="AgtComponent" Discipline="Yes">
+    <CAAComment>
+      <ShortRole>PLM Accommodation DecorativeSign Component</ShortRole>
+      <Role>PLM Accommodation DecorativeSign Component Object</Role>
+    </CAAComment>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEAGTComponentDelegateInstanciation"/>
+  </Extension>
+
+  <Extension Name="AGTExtinguisher" Uuid="052388B6-439D-421E-8280-F5433330E385" CustomerExposition="Programmer" Abstract="No" Specializable="Yes" SuperName="AgtComponent" Discipline="Yes">
+    <CAAComment>
+      <ShortRole>PLM Accommodation Extinguisher Component</ShortRole>
+      <Role>PLM Accommodation Extinguisher Component Object</Role>
+    </CAAComment>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEAGTComponentDelegateInstanciation"/>
+  </Extension>
+
+  <Extension Name="AGTProtectedCorner" Uuid="8BDF963C-EE81-4A8E-82E9-6FE30C188E84" CustomerExposition="Programmer" Abstract="No" Specializable="Yes" SuperName="AgtComponent" Discipline="Yes">
+    <CAAComment>
+      <ShortRole>PLM Accommodation ProtectedCorner Component</ShortRole>
+      <Role>PLM Accommodation ProtectedCorner Component Object</Role>
+    </CAAComment>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEAGTComponentDelegateInstanciation"/>
+  </Extension>
+
+  <Extension Name="AGTBaseboard" Uuid="50C70DF1-A2AE-487F-9BAD-B86B6249D508" CustomerExposition="Programmer" Abstract="No" Specializable="Yes" SuperName="AgtComponent" Discipline="Yes">
+    <CAAComment>
+      <ShortRole>PLM Accommodation Baseboard Component</ShortRole>
+      <Role>PLM Accommodation Baseboard Component Object</Role>
+    </CAAComment>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEAGTComponentDelegateInstanciation"/>
+  </Extension>
+</Package>

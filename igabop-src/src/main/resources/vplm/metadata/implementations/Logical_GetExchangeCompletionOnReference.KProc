@@ -1,0 +1,47 @@
+#Prog Logical_GetExchangeCompletionOnReference (iPLMIDSet :  #In PLMIDSet,oPLMIDSet :  #Out PLMIDSet) : VoidType
+  {
+  let SetOfAllLogObjects(PLMRouteSet)
+  let SetOfAllLogObjPLMIDs(PLMIDSet)
+  let SetOfFctImplementedComponents(PLMRouteSet)
+  let SetOfReqImplementedComponents(PLMRouteSet)
+  let SetOfImplementFctRefPLMIDs(PLMIDSet)
+  let SetOfAllFctObjects(PLMRouteSet)
+  let SetOfImplementReqSpecIds(PLMIDSet)
+  let SetOfAllReqSpecObjects(PLMIDSet)
+  let SetOfImplementReqIds(PLMIDSet)
+  let SetOfAllReqObjects(PLMIDSet)
+  let SetOfImplementReqGroupIds(PLMIDSet)
+  let SetOfAllReqGroupObjects(PLMIDSet)
+  
+  let InputPLMIDSetRestricted(PLMIDSet)
+  InputPLMIDSetRestricted = Restrict(iPLMIDSet,"RFLVPMLogical/RFLVPMLogicalReference")
+  
+  /* Add logical objects */
+  SetOfAllLogObjects = ExecutePLMFunction("RFLVPMLogical","RFLVPMLogical_AllLogObjects4Exchange",InputPLMIDSetRestricted)
+  SetOfAllLogObjPLMIDs = Ids(SetOfAllLogObjects)
+ 
+  /* Add implemented objects */
+  /* First: navigate on Implement Links related to Fct domain*/
+  SetOfFctImplementedComponents = ExecutePLMFunction("RFLPLMImplementConnection","RFLPLMImplementConnection_AddAllFctImplementedComponents",SetOfAllLogObjPLMIDs)
+  
+  /* Call plmql function on Functional */
+  SetOfImplementFctRefPLMIDs = Restrict(Ids(SetOfFctImplementedComponents),"RFLPLMFunctional/RFLPLMFunctionalReference") + Restrict(Ids(SetOfFctImplementedComponents),"RFLPLMFlow/RFLPLMFlowReference")
+  SetOfAllFctObjects = ExecutePLMFunction("RFLPLMFunctional","RFLPLMFunctional_AllFctObjects4Exchange",SetOfImplementFctRefPLMIDs)
+
+  /* Second: navigate on Implement Links related to Req domain*/
+  SetOfReqImplementedComponents = ExecutePLMFunction("RFLPLMImplementConnection","RFLPLMImplementConnection_AddAllReqImplementedComponents",SetOfAllLogObjPLMIDs)
+  
+  /* Call completion procedure on Requirement Specifications */
+  SetOfImplementReqSpecIds = Restrict(Ids(SetOfReqImplementedComponents), "Class/Requirement Specification")
+  SetOfAllReqSpecObjects = ExecutePLMProcedure("Rmt_ReqSpec_ExportCompletion", SetOfImplementReqSpecIds)
+
+  /* Call completion procedure on Requirements */
+  SetOfImplementReqIds = Restrict(Ids(SetOfReqImplementedComponents), "Class/Requirement")
+  SetOfAllReqObjects = ExecutePLMProcedure("Rmt_Requirement_ExportCompletion", SetOfImplementReqIds)
+
+  /* Call completion procedure on Requirement Groups*/
+  SetOfImplementReqGroupIds = Restrict(Ids(SetOfReqImplementedComponents), "Class/Requirement Group")
+  SetOfAllReqGroupObjects = ExecutePLMProcedure("Rmt_ReqGroup_ExportCompletion", SetOfImplementReqGroupIds)
+  
+  oPLMIDSet = SetOfAllLogObjPLMIDs + Ids(SetOfAllFctObjects) + Ids(SetOfFctImplementedComponents) + Ids(SetOfReqImplementedComponents) + SetOfAllReqSpecObjects + SetOfAllReqObjects + SetOfAllReqGroupObjects
+}

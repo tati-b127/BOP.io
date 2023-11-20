@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" Name="DELLmiProductionStorageSystemDS" Uuid="d2e5fcb9-4933-49c4-82aab50e403ae552" UseNames="DELLmiProductionStorageSystem" >
+<Property Name="OptionalInstallation" Value="Yes" /> 
+	<CAAComment>
+		<ShortRole>Standard DELMIA Storage System Package</ShortRole>
+		<Role>This package includes default customized DELMIA Storage System Operation</Role>
+	</CAAComment>
+	<Comment>last update 2008-10-13</Comment>
+
+	<Class Name="DELLmiStorageSystemReferenceCusto" Uuid="94a05c0e-c916-4cd6-99d5bcb16e1ad39a" SuperName="DELLmiStorageSystemReference"  >
+
+    <IdentifierSet Name="Identifier"
+        Uuid="14a0c840-2b6c-4609-8e35162a377aa0ab"
+        IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755"
+        IdentifierNames="PLM_ExternalID V_version" />
+
+    <CAAComment>
+			<ShortRole>Standard DELMIA Storage System Reference</ShortRole>
+			<Role>Default customized DELMIA Storage System Reference</Role>
+		</CAAComment>
+	</Class>
+
+  <RelationClass Name="DELLmiStorageSystemInstanceCusto" Uuid="f92ab8a1-d969-44ee-a097ef7fc26d0ba8" SuperName="DELLmiStorageSystemInstance"  >
+    <CAAComment>
+      <ShortRole>Standard DELMIA General System Instance</ShortRole>
+      <Role>Default customized DELMIA General System Instance</Role>
+    </CAAComment>
+    <!-- ********************************************************* -->
+    <!-- * Overload(s) of PLMCoreInstance attributes. -->
+    <!-- ********************************************************* -->
+    <SubClause Name="to"   TargetName="DELLmiStorageSystemReferenceCusto"/>
+  </RelationClass>
+
+</Package>

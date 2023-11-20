@@ -1,0 +1,419 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR DELMIA Control Plan Application -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified"
+         ModelerType="Top"
+         Name="DELControlPlan"
+	       Uuid="3B2EAA13-616A-4B55-9894-E42135E1A22E"
+         BelongsToModeler="DELLmiProductionSystem"
+         CustomerExposition="Programmer"
+         UseNames="PLMCORE">
+
+	<CAAComment>
+		<ShortRole>PLM DELMIA Control Plan </ShortRole>
+		<Role>This package describes the PLM DELMIA Control Plan model</Role>
+	</CAAComment>
+
+	<Comment>last update 2017-07-17</Comment>
+
+	<Class Name="DELControlPlanReference"
+		   Uuid="ED9C763D-704E-4BEC-9EBB-8CF7C8CA03FF"
+		   Abstract="No"
+		   SuperName="PLMCoreReference"
+		   CustomerExposition="Programmer"
+		   Specializable="No"
+		   CustomerExtensible="Yes"
+		   Abbreviation="cpln"
+       InstantiationOwnerTypes="None"
+    >
+
+    <Property Name="ChangeManagementSupport"    Value="No"/>
+    <Property Name="ChangeManagementReferential"    Value="No"/>
+    <Property Name="ChangeManagementContext"    Value="No"/>
+    <Property Name="IconName" Value="I_PPRSeqControlPlan"/>
+		<Property Name="3DIconName" Value="I_PPRSeqControlPlan.cgr"/>
+		<Property Name="Searchable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELControlPlanRefDelegateInstanciation"/>
+
+		<CAAComment>
+			<ShortRole>PLM DELMIA Control Plan Reference</ShortRole>
+			<Role>PLM DELMIA Control Plan n Reference</Role>
+		</CAAComment>
+	
+		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+		
+		<Method ImplementationType="None">
+			<RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+		</Method>
+
+	</Class>
+
+  <Class Name="DELControlPlanIsControlling"
+      Uuid="B8B20E5E-1C88-4F2C-9D0F-F7830A78B82E"
+      SuperName="PLMConnection"
+      CustomerExposition="Programmer"
+      CustomerExtensible="No"
+      Specializable="No"
+      Abstract="No"
+      >
+
+    <Property Name="Searchable" Value="No"/>
+    <Property Name="Newable" Value="No"/>
+    <Property Name="OwnerTypes" Value="DELControlPlanReference"/>
+
+    <CAAComment>
+      <ShortRole>Defines Control Plan Connection "Is Controlling"</ShortRole>
+      <Role>Connects the Control Plan Reference to the controlled Production System Reference.</Role>
+    </CAAComment>
+
+    <!-- ********************************************************* -->
+    <!-- * Paths declaration -->
+    <!-- ********************************************************* -->
+
+    <Path Name="Is_Controlling"
+          Uuid="13641F6E-4247-489B-9CE7-FB7E215B78BF"
+          TargetName="V_SRs"
+          MultiValuated="No"
+          Type="SemanticRelation"
+          RoleName="Is_Controlling"
+          SynchroSensitivity="Last"
+          RerouteOnEffectivityChange="Yes"
+          Orientation="Out"
+          Semantics="Reference5"/>
+
+    <Path Name="Is_Controlled"
+          Uuid="2046791F-D530-44DB-B0D0-D6E2B11CF79B"
+          TargetName="V_SRs"
+          MultiValuated="No"
+          Type="SemanticRelation"
+          RoleName="Is_Controlled"
+          SynchroSensitivity="PathAndLast"
+          RerouteOnEffectivityChange="No"
+          Orientation="In"
+          Semantics="Reference3"/>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+  </Class>
+
+  <Class Name="DELControlRowCnx"
+      Uuid="92117AEB-8934-4C6A-8062-DA34A0ADEB70"
+      SuperName="PLMConnection"
+      CustomerExposition="Programmer"
+      CustomerExtensible="Yes"
+      Specializable="No"
+      Abstract="No"
+      >
+
+    <Property Name="Searchable" Value="No"/>
+    <Property Name="Newable" Value="No"/>
+    <Property Name="OwnerTypes" Value="DELControlPlanReference"/>
+
+    <CAAComment>
+      <ShortRole>Defines Control Row Connection</ShortRole>
+      <Role>Connects the Control Plan Row to the controlled Operation and characteristic Requirements.</Role>
+    </CAAComment>
+    
+    <!-- attributes declaration -->
+    <Simple Name="V_IsCriticalForQuality"
+      Uuid="775178B8-98EE-46EB-A397-3747CC0D976B"
+      Type="Boolean"
+      DefaultValue="true"
+      MultiValuated="No"
+      Protection="Free"
+      CAAExposition="L0">
+    </Simple>
+
+    <Simple Name="V_ToleranceCriterion"
+          Uuid="85CC9052-6540-4F36-8580-6D569F22E999"
+          Type="String"
+          MultiValuated="No"
+          Protection="Free"
+          CAAExposition="L0">
+    </Simple>
+
+    <Simple Name="V_TechnicalEvalution"
+      Uuid="515318A1-78EF-4C7B-9EC5-6E3CD8BDF3CA"
+      Type="String"
+      MultiValuated="No"
+      Protection="Free"
+      CAAExposition="L0">
+    </Simple>
+
+    <Simple Name="V_FrequencySampleMode"
+        Uuid="A0E79E74-EE1E-499D-833A-AEE9180576FC"
+        Type="String"
+        Protection="Free"
+        CAAExposition="L0"
+        DefaultValue="Quantity"
+        MultiValuated="No">
+      <Range>
+        <Equal>Quantity</Equal>
+        <Equal>Duration</Equal>
+        <Equal>Event</Equal>
+      </Range>
+    </Simple>
+
+    <Simple Name="V_SampleDuration"
+        Uuid="D45D631B-9926-4A78-B944-16CC9A3917BD"
+        Type="Double"
+        Magnitude="TIME"
+        MultiValuated="No"
+        DefaultValue="3600"
+        Protection="Free"
+        CAAExposition="L0">
+    </Simple>
+
+    <Simple Name="V_SampleEvent"
+     Uuid="284E52B4-A2E0-42CC-BFAC-83DA028AFF29"
+     Type="String"
+     MultiValuated="No"
+     Protection="Free"
+     CAAExposition="L0">
+    </Simple>
+    
+    <!--- attributes as clob -->
+    <Simple Name="V_ControlMethod"
+      Uuid="55E2B204-BC3C-4018-8C6A-ED21577FF855"
+      Type="Clob"
+      Protection="Internal"
+      MultiValuated="No">
+    </Simple>
+
+    <Simple Name="V_ReactionPlan"
+     Uuid="BEB554EC-638B-4729-89A7-1F1594624187"
+     Type="Clob"
+     Protection="Internal"
+     MultiValuated="No">
+    </Simple>
+    
+    <!-- ********************************************************* -->
+    <!-- * Paths declaration -->
+    <!-- ********************************************************* -->
+
+    <Path Name="Is_referencing_ProductCharacteristic"
+          Uuid="757E3307-1651-40E3-BBD4-738E18AADFEA"
+          TargetName="V_SRs"
+          MultiValuated="No"
+          Type="SemanticRelation"
+          RoleName="Is_referencing_ProductCharacteristic"
+          SynchroSensitivity="None"
+          RerouteOnEffectivityChange="Yes"
+          Orientation="Neutral"
+          Semantics="Reference"/>
+
+    <Path Name="Is_referencing_ProcessCharacteristic"
+      Uuid="CD5194BF-0396-4E8A-A5A9-FB394B498645"
+      TargetName="V_SRs"
+      MultiValuated="No"
+      Type="SemanticRelation"
+      RoleName="Is_referencing_ProcessCharacteristic"
+      SynchroSensitivity="None"
+      RerouteOnEffectivityChange="Yes"
+      Orientation="Neutral"
+      Semantics="Reference"/>
+
+    <Path Name="Is_referencing_Operation"
+          Uuid="40C3F0E4-F403-4C2D-A135-D27FD13D1806"
+          TargetName="V_SRs"
+          MultiValuated="No"
+          Type="SemanticRelation"
+          RoleName="Is_referencing_Operation"
+          SynchroSensitivity="PathAndLast"
+          RerouteOnEffectivityChange="No"
+          Orientation="In"
+          Semantics="Reference3"/>
+		  
+	<Path Name="Is_referencing_RecoveryPlan"
+		Uuid="1E14F4F4-3BFA-11E8-B467-0ED5F89F718B"
+		TargetName="V_SRs"
+		MultiValuated="No"
+		Type="SemanticRelation"
+		RoleName="Is_referencing_RecoveryPlan"
+		SynchroSensitivity="None"
+		RerouteOnEffectivityChange="No"
+		Orientation="Neutral"
+		Semantics="Reference"/>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+  </Class>
+
+  <!--- attributes in extension -->
+  <Extension
+    Name="DelExtPrdPrcsCharacteristic"
+    CustomerExposition="Programmer"
+    Uuid="9AE3B79B-0609-4EDD-B760-11663F61E781"
+    ScopeNames="DELControlRowCnx"
+    Specializable="No">
+
+    <Simple Name="V_ProductCharacteristicDesc"
+       Uuid="884D3768-3BDF-41A5-A318-E7D4EFA4C7E4"
+       Type="String"
+       MultiValuated="No"
+       Protection="Free"
+       CAAExposition="L0">
+    </Simple>
+
+    <Simple Name="V_ProcessCharacteristicDesc"
+       Uuid="43971329-6263-42BB-B5A6-5915D0A9B16E"
+       Type="String"
+       MultiValuated="No"
+       Protection="Free"
+       CAAExposition="L0">
+    </Simple>
+
+  </Extension>
+
+  <!--- extensions for sample size and quantity  -->
+  <Extension
+   Name="DelExtDiscreteSampleSizeandQuantity"
+   CustomerExposition="Programmer"
+   Uuid="072BAEA2-83BF-4DA9-BC88-7B1C44D9DE8A"
+   ScopeNames="DELControlRowCnx"
+   Specializable="No">
+
+    <Simple Name="V_SampleSize"
+       Uuid="DC7D4F6B-1A42-491E-805B-7166C2FEF62D"
+       Type="Integer"
+       MultiValuated="No"
+       Protection="Free"
+       CAAExposition="L0"
+       DefaultValue="1">
+    </Simple>
+
+    <Simple Name="V_SampleQuantity"
+       Uuid="D700D284-94EA-43EA-AC2E-7C5F0542826B"
+       Type="Integer"
+       MultiValuated="No"
+       Protection="Free"
+       CAAExposition="L0"
+       DefaultValue="1">
+    </Simple>
+
+  </Extension>
+
+  <Extension
+   Name="DelExtMassSampleSizeandQuantity"
+   CustomerExposition="Programmer"
+   Uuid="B9A8BA1C-20E6-4D06-AB0D-8DAAB80EF646"
+   ScopeNames="DELControlRowCnx"
+   Specializable="No">
+
+    <Simple Name="V_SampleSize"
+       Uuid="C29DBF8B-BACD-44CF-BDBF-ECA0DCA73FEC"
+       Type="Double"
+       Magnitude="MASS"
+       MultiValuated="No"
+       Protection="Free"
+       CAAExposition="L0"
+       DefaultValue="1.0">
+    </Simple>
+
+    <Simple Name="V_SampleQuantity"
+       Uuid="91D3A688-CD2E-4EAF-AFE0-026B15D6324F"
+       Type="Double"
+       Magnitude="MASS"
+       MultiValuated="No"
+       Protection="Free"
+       CAAExposition="L0"
+       DefaultValue="1.0">
+    </Simple>
+
+  </Extension>
+
+  <Extension
+   Name="DelExtLengthSampleSizeandQuantity"
+   CustomerExposition="Programmer"
+   Uuid="C00961DD-2223-4EF9-91F2-ACBB788ABFB0"
+   ScopeNames="DELControlRowCnx"
+   Specializable="No">
+
+    <Simple Name="V_SampleSize"
+       Uuid="20C6905B-5AFD-4B52-B317-0200E0CF1564"
+       Type="Double"
+       Magnitude="LENGTH"
+       MultiValuated="No"
+       Protection="Free"
+       CAAExposition="L0"
+       DefaultValue="1.0">
+    </Simple>
+
+    <Simple Name="V_SampleQuantity"
+       Uuid="D8C00DCD-8258-443F-8CE2-C78BE5C5C468"
+       Type="Double"
+       Magnitude="LENGTH"
+       MultiValuated="No"
+       Protection="Free"
+       CAAExposition="L0"
+       DefaultValue="1.0">
+    </Simple>
+
+  </Extension>
+
+  <Extension
+   Name="DelExtVolumeSampleSizeandQuantity"
+   CustomerExposition="Programmer"
+   Uuid="457E4E7C-7EA2-465E-9B84-068D845871DB"
+   ScopeNames="DELControlRowCnx"
+   Specializable="No">
+
+    <Simple Name="V_SampleSize"
+       Uuid="EBCF5F91-B193-4448-AE56-93BABE77A73C"
+       Type="Double"
+       Magnitude="VOLUME"
+       MultiValuated="No"
+       Protection="Free"
+       CAAExposition="L0"
+       DefaultValue="1.0">
+    </Simple>
+
+    <Simple Name="V_SampleQuantity"
+       Uuid="E2C64CE0-86E0-40C9-957A-D8E4DA05588B"
+       Type="Double"
+       Magnitude="VOLUME"
+       MultiValuated="No"
+       Protection="Free"
+       CAAExposition="L0"
+       DefaultValue="1.0">
+    </Simple>
+
+  </Extension>
+
+  <Extension
+   Name="DelExtAreaSampleSizeandQuantity"
+   CustomerExposition="Programmer"
+   Uuid="78046363-44F3-4D32-A0D3-E9E98884604D"
+   ScopeNames="DELControlRowCnx"
+   Specializable="No">
+
+    <Simple Name="V_SampleSize"
+       Uuid="2813F660-7125-4789-A110-7DECFB16E55D"
+       Type="Double"
+       Magnitude="AREA"
+       MultiValuated="No"
+       Protection="Free"
+       CAAExposition="L0"
+       DefaultValue="1.0">
+    </Simple>
+
+    <Simple Name="V_SampleQuantity"
+       Uuid="4882D48A-D856-4950-AC9E-820B0582B054"
+       Type="Double"
+       Magnitude="AREA"
+       MultiValuated="No"
+       Protection="Free"
+       CAAExposition="L0"
+       DefaultValue="1.0">
+    </Simple>
+
+  </Extension>
+
+</Package>

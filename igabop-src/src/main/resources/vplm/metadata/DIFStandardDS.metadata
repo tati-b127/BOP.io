@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY FOR DIFStandard - Custo sample     -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2012, All rights reserved -->
+
+<Package xmlns="PLMDictionaryCusto"
+         ModelerType="Custo"
+         Name="DIFStandardDS"
+         Uuid="6D5B49BC-3A9C-4E45-903A-5D1E522F8CC5"
+         UseNames="DIFStandard">
+
+    <Property Name="OptionalInstallation" Value="Yes" />
+
+    <CAAComment>
+        <ShortRole>DIF Standard - Custo Sample Package</ShortRole>
+        <Role>This package describes a sample customization of DIFStandard package </Role>
+    </CAAComment>
+
+    <!-- ***************************************************** -->
+    <!-- *  Sample custo of DIFStandardRep (PLMCoreRepReference)* -->
+    <!-- ***************************************************** -->
+
+    <Class Name="DIFStandardRepDS"
+           Uuid="B1B9E333-E5B5-4551-BBC7-CB868D931F6E"
+           SuperName="DIFStandardRep"
+           SuperRef="C4CABA72-19C3-42d4-A8A8-B7C7161A7D81">
+
+    <CAAComment>
+        <ShortRole>DIF Standard Representation Reference Object</ShortRole>
+        <Role>DIF Standard Representation Reference Object</Role>
+    </CAAComment>
+
+    <IdentifierSet Name="Identifier"
+                   Uuid="76EC1F2F-662F-4B8C-90D6-558E8626D4DB"
+                   IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755"
+                   IdentifierNames="PLM_ExternalID V_version"/>
+  </Class>
+</Package>

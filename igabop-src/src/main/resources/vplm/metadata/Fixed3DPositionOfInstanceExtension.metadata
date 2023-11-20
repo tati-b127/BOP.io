@@ -1,0 +1,28 @@
+<?xml version="1.0" ?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2004, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified"
+    ModelerType="Top" 
+    BelongsToModeler="PRODUCT" 
+    Name="Fixed3DPositionOfInstanceExtension"
+    Uuid="bdf15cec-6db0-49dd-bc18-84d482f25b8e"
+    UseNames="LPABSTRACT"
+    CustomerExposition="Programmer">
+
+    <CAAComment>
+        <Role>Extension dedicated to Fix status of an instance</Role>
+    </CAAComment>
+
+    <Extension Name="Fixed3DPositionOfInstanceExt"
+        Uuid="32e35780-8d64-4fe9-9825-6c11d4f6ad52"
+        ScopeNames="LPAbstractInstance"
+        CAAExposition="L0"
+        CustomerExposition="Programmer">
+              
+    </Extension>
+
+
+</Package>
+ 

@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2005, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" BelongsToModeler="PLMChgActionBase"  Name="PLMChgManufacturingAction" Uuid="b8d2029f-d979-0000-020a100536000000" UseNames="PLMChgActionBase" CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+  <CAAComment>
+    <ShortRole>Manufacturing Action Package</ShortRole>
+    <Role>This package includes the entities of the Manufacturing Acton Reference and Manufacturing Child Action Instance</Role>
+  </CAAComment>
+  <Comment>last update 2006-12-05-09.00.00</Comment>
+  <!-- *************************************** -->
+  <!-- * PLMManufacturingAction (PLMActionBase)   * -->
+  <!-- *************************************** -->
+  <Class Name="PLMManufacturingAction" Uuid="b8d20434-f181-0000-020a100536000000" Abstract="No" SuperName="PLMActionBase" CreateInstName="PLMMfgChildAction" Specializable="Yes" CustomerExtensible="Yes" CustomerExposition="Programmer">
+    <CAAComment>
+      <ShortRole>Manufacturing Action Reference</ShortRole>
+      <Role>Action Reference for Manufacturing</Role>
+    </CAAComment>
+
+    <!-- *********************** -->
+    <!-- Properties Declaration  -->
+    <!-- *********************** -->
+    <Property Name="DMCDerivable"  Value="Yes"/>
+    <Property Name="Newable"  Value="All"/>
+    <Property Name="IconName"  Value="I_ActionManufacturing_22"/>
+    <Property Name="3DIconName"  Value="ManufacturingActionNavRep2.cgr"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="PLMECANewFactory"/>
+    <Property Name="Configurable"  Value="No"/>
+    <Property Name="Filtrable"  Value="No"/>
+    <Property Name="ChangeManagementSupport"  Value="No"/>
+
+    <Property Name="ChangeMaturityAvailability" Value="Yes"/>
+    <Property Name="DeleteAvailability" Value="Yes"/>
+    <Property Name="DuplicateAvailability" Value="No"/>
+    <Property Name="EditPropertiesAvailability" Value="Yes"/>
+    <Property Name="EvolutionAvailability" Value="No"/>
+    <Property Name="LockUnlockAvailability" Value="No"/>
+    <Property Name="NewMajorRevisionAvailability" Value="No"/>
+    <Property Name="NewMinorRevisionAvailability" Value="No"/>
+    <Property Name="SaveAsNewAvailability" Value="No"/>
+    <Property Name="TransferOwnershipAvailability" Value="Yes"/>
+
+    
+    <!-- *********************** -->
+    <!-- PROCEDURES Declaration  -->
+    <!-- *********************** -->
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+    
+  </Class>
+  <!-- *************************************** -->
+  <!-- * PLMMfgChildAction (PLMChildAction)   * -->
+  <!-- *************************************** -->
+  <RelationClass Name="PLMMfgChildAction" Uuid="d39e2930-7778-4243-b6bb33f45cdc7840" Abstract="No" SuperName="PLMChildAction" CustomerExposition="Programmer">
+    <CAAComment>
+      <ShortRole>Manufacturing Child Action Instance</ShortRole>
+      <Role>Child Action Instance for Manufacturing</Role>
+    </CAAComment>
+    <!--
+	*********************************************************
+	* Overload(s) of PLMCoreInstance attributes.
+	********************************************************* -->
+    <SubClause Name="to"   TargetName="PLMManufacturingAction"/>
+
+    <!-- *********************** -->
+    <!-- PROCEDURES Declaration  -->
+    <!-- *********************** -->
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    
+  </RelationClass>
+</Package>

@@ -1,0 +1,18 @@
+NAVIGATE
+        T0.PLM_ExternalID, T1.PLM_ExternalID, T2.PLM_ExternalID,
+        T0.PLMID, T1.PLMID, T2.PLMID
+
+FROM
+        SIMObjSimulationV5Generic/SIMObjSimulationV5RepInstanceGeneric T0,
+        SIMObjSimulationV5Generic/SIMObjSimulationV5RepReferenceGeneric T1,
+        PLMWspFilter/PLMWspPVS  T2
+
+FROM_ROOTS [?1?]
+
+ON ( RELATION (
+        FROM=SIMObjSimulationV5Generic/SIMObjSimulationV5RepReferenceGeneric
+        TO=PLMWspFilter/PLMWspPVS
+        THROUGH=POINTSTO )
+     WITH QUALITY_FILTER ( CATEGORY=Reference4 AND ROLE=PIM_PointedPVSFromGroup )
+   )
+;

@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" 
+         ModelerType="Top" 
+         Name="DELLmiProductionMaterialPathCnx"
+         Uuid="6e88d6d3-d246-483d-aa662c29f6e7b31f"
+         UseNames="PLMCORE"
+         CustomerExposition="None">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>DELMIA Production System model</ShortRole>
+    <Role>Connection that describes the Material Path between IOs of Production Systems</Role>
+  </CAAComment>
+
+    <Class Name="DELLmiMaterialPathCnx"
+           Uuid="640803b9-281b-4387-b8ff-ca71c51e3d5a"
+           Abstract="No"
+           SuperName="PLMConnection"
+           CustomerExposition="None"
+           Specializable="No"
+           CustomerExtensible="No"
+           OwnerTypes="DELLmiProductionSystemReference"
+           >
+
+      <CAAComment>
+        <ShortRole>Defines DELMIA Material Path Connection</ShortRole>
+        <Role>Connection that describes the Material Path between IOs of Production Systems</Role>
+      </CAAComment>
+
+      <Path Name="DELMaterialPath"
+          Uuid="658870fe-1866-47be-b097ecb8d4825645"
+          MultiValuated="Yes"
+          RoleName="DEL_MaterialPath"		
+          Type="SemanticRelation" AdaptativeToMinor="No"
+		      SynchroSensitivity="None"
+		      RerouteOnEffectivityChange="No"
+          Semantics="Reference"/>
+
+      <Method ImplementationType="None">
+        <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      </Method>
+
+    </Class>
+
+
+</Package>

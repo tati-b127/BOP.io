@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2010, All rights reserved -->
+
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" Name="ENOSTProdMaterialPathCnxDS" Uuid="470C5440-D345-4ca6-B3D9-1E8E159430C6" UseNames="DELLmiProductionMaterialPathCnx1" Alias="Package Material Path connection Custo">
+	
+	<CAAComment>
+		<ShortRole>Package to customize Material Path connection</ShortRole>
+		<Role>Package to customize package DELLmiMaterialPathCnxCust for Material Path connection</Role>
+	</CAAComment>
+	
+	<Class Name="ENOSTMaterialPathCnxCusto" Alias="Material path connection" Uuid="FA9FC21C-D311-49d5-821F-349948D36FAD"
+		SuperName="DELLmiMaterialPathCnxCust" SuperRef="91545055-58CD-499d-8540-0CEAF11D2F15">
+
+		<CAAComment>
+			<ShortRole>PLM Customization for Material Path connection</ShortRole>
+			<Role>PLM Customization for Material Path connection "DELLmiMaterialPathCnxCust"</Role>
+		</CAAComment>
+
+	</Class>
+	
+</Package>

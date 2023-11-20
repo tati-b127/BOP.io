@@ -1,0 +1,116 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR RFL Logical Application -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2007, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" BelongsToModeler="RFLVPMLogical" Name="RFLVPMLogical3DRep" 
+	Uuid="ab7a061f-a00f-42ba-a8b4-18f168af1ee3" 
+	UseNames="LPABSTRACT3DREP"
+  CustomerExposition="Programmer"
+	>
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+  <CAAComment>
+		<ShortRole>VPM RFL Logical for 3D Representations Package</ShortRole>
+		<Role>This package describes the PLM Logical model for 3D Representations on top of LPAbstract3DREP Modeler</Role>
+	</CAAComment>
+	
+    	<!-- **************************************************** -->
+    	<!-- * RFLVPMLogical3DRepReference (LPAbstract3DRepReference) * -->
+    	<!-- **************************************************** -->
+
+  <Class Name="RFLVPMLogical3DRepReference" Uuid="e7554101-09fc-4fe5-914e-122f3e19c3b5"
+    CustomerExposition="Programmer"
+    CustomerExtensible="Yes"
+    Specializable="Yes"
+    Abstract="No" 
+    SuperName="LPAbstract3DRepReference" 
+    CreateInstName="RFLVPMLogical3DRepInstance"
+	Abbreviation="log3drep">
+		<CAAComment>
+			<ShortRole>PLM Logical 3D Representation Reference Object</ShortRole>
+			<Role>PLM Logical 3D Representation Reference Object</Role>
+		</CAAComment>
+
+    <Property Name="DMCDerivable" Value="Yes"/>        
+		<Property Name="KweNew_InstanciationMethod" Value="CATELogDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="RFLVPMLogical3DRepInstance"/>
+    <Property Name="IconName" Value="I_VPMNavLogical3D"/>
+    <Property Name="3DIconName" Value="CAT3DNav_Logical3DRep.cgr"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="InstantiationOwnerTypes" Value="RFLVPMLogicalReference"/>
+	<Property Name="ShareBetweenProjectsAvailability" Value="Yes"/> <!-- Collaborative Space Applicability -->
+
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Design"/>
+        <UsedProcedure href="ENOLog_Procedures.proc#Logical_ExportRepresentation_Design"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Channel"/>
+        <UsedProcedure href="ENOLog_Procedures.proc#Logical_ExportRepresentation_PLMChannel"/>
+      </ProcedureForUsage>
+	  <ProcedureForUsage>
+	    <Usage href="ExportScope.meth#Remove"/>
+        <UsedProcedure href="ENOLog_Procedures.proc#Logical_Export3DRepRef_Remove"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#TransferSiteOwnership"/>
+        <UsedProcedure href="ENOLog_Procedures.proc#Logical_Export3DRepRef_TSO"/>
+      </ProcedureForUsage>
+    </Method>
+
+  </Class>
+
+  <!-- ************************************************** -->
+  <!-- * RFLVPMLogical3DRepInstance (LPAbstract3DRepInstance) * -->
+  <!-- ************************************************** -->
+
+  <RelationClass Name="RFLVPMLogical3DRepInstance" Uuid="6aa6f475-5be8-4ccd-a2dd-ac6ebed61722"
+    CustomerExposition="Programmer"
+    CustomerExtensible="No"
+    Specializable="No"
+    Abstract="No"
+    SuperName="LPAbstract3DRepInstance"
+		>
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="Searchable" Value="No"/>
+
+    <CAAComment>
+      <ShortRole>PLM Logical Representation Instance Object</ShortRole>
+      <Role>PLM Logical Representation Instance Object</Role>
+    </CAAComment>
+
+    <!-- *********************************************************
+            * Overload(s) of PLMCoreRepInstance attributes.
+            ********************************************************* -->
+    <SubClause Name="from" TargetName="RFLVPMLogicalAbstractReference"/>
+    <SubClause Name="to"   TargetName="RFLVPMLogical3DRepReference"/>
+
+    <Volatile Name="Reference" Uuid="f8454851-717f-473e-beeb-3697a68a5a81"
+      Accessor="PLMModelerReferenceKweAttribute"
+      TypeName="RFLVPMLogical3DRepReference"
+      AccessMode="ReadOnly"
+		>
+	  <Property Name="ServerAccessor" Value="com.dassault_systemes.vplm.modelerBaseNav.services.PLMInstance_Reference_Accessor"/>
+	</Volatile>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+  </RelationClass>
+
+  <!-- **************************************************** -->
+  	<!-- * Declaration of functions                           -->
+  	<!-- **************************************************** -->
+    <Function Name="RFLVPMLogical_AddLogicalPublications">
+        <Implementation Name="RFLVPMLogical_AddLogicalPublications" FileLocation="RFLVPMLogical_AddLogicalPublications.plmql" Language="PLMQL"/>
+        <Signature href="ENOLogSignature"/>
+    </Function>
+
+    <Signature id="ENOLogSignature">
+        <Parameter Name="InputIds" Lower="0" Upper="-1" Direction="in" MultiValuated="Yes" DataType="PLMId"/>
+        <Parameter Name="OutputIds" Lower="0" Upper="-1" Direction="out" MultiValuated="No" DataType="PLMRouteSet"/>
+    </Signature>
+</Package>

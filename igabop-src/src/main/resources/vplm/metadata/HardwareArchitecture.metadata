@@ -1,0 +1,539 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY for E/E Editor -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2012, all rights reserved -->
+
+<Package Name="HardwareArchitecture"
+    Uuid="B7ABBF6D-3D19-45cf-9D26-E1A22B059B44"
+    xmlns="PLMDictionaryUnified"
+    ModelerType="Top"
+	CustomerExposition="Programmer"
+    BelongsToModeler="HardwareArchitecture"
+	UseNames="RFLVPMLogical RFLVPMSystemType RFLVPMSystemTypeExposition LPABSTRACT" >
+
+	<CAAComment>
+        <ShortRole>Hardware Architecture Package</ShortRole>
+        <Role>This package describes the PLM Hardware Architecture package on top of RFLVPMLogical Modeler.</Role>
+	</CAAComment>
+	<Comment>Initial creation: A58 Feb 2013</Comment>
+	<Property Name="OptionalInstallation" Value="Yes" /> 
+
+<!-- ************************** -->
+<!-- EETopology : RFLVPMLogicalReference -->
+<!-- ************************** -->
+	<Class 
+		Name="EETopology"
+		Uuid="702BC8F6-78EF-44b0-B739-E88F531CB689"
+		Abstract="No"
+		Specializable="Yes"
+		CustomerExposition="Programmer"
+		CustomerExtensible="Yes"
+		Discipline="Yes"
+		SuperName="RFLVPMLogicalReference"
+		CreateInstName="EESubSystem"
+		Abbreviation="eetop">
+		<Property Name="IconName" Value="EETopology"/>
+		<Property Name="Newable" Value="All"/>
+		<Property Name="Searchable" Value="Yes"/>
+		<Property Name="Configurable" Value="Yes"/>
+		<Property Name="KweNew_InstanciationMethod" Value="CATELogDelegateInstanciation"/>
+	   	<Property Name="KweNew_ReturnedType" Value="EESubSystem"/>
+	</Class>
+<!-- **************************************************** -->
+<!-- *  EESubSystem :  RFLVPMLogicalInstance  * -->
+<!-- **************************************************** -->
+	<RelationClass
+		Name="EESubSystem"
+		Uuid="F78A7B33-E269-4a4d-9774-934CD577F430"
+		Abstract="No"
+		Specializable="Yes"
+		CustomerExposition="Programmer"
+		CustomerExtensible="Yes"
+		Discipline="Yes"
+		SuperName="RFLVPMLogicalInstance">
+		<Property Name="IconName" Value="EESubSystem"/>
+		<Property Name="Newable" Value="Insert"/>
+		<Property Name="Searchable" Value="Yes"/>
+		<Property Name="Filtrable" Value="Yes"/>
+		<Property Name="KweNew_InstanciationMethod" Value="CATELogDelegateInstanciation"/>
+	   	<Property Name="KweNew_ReturnedType" Value="EESubSystem"/>
+	</RelationClass>
+<!-- ************************** -->
+<!-- EEECU : RFLVPMLogicalReference -->
+<!-- ************************** -->
+	<Class 
+		Name="EEECU"
+		Uuid="37B6C06F-9ED6-45b4-93EE-BF8D99A6D2FB"
+		Abstract="No"
+		Specializable="Yes"
+		CustomerExposition="Programmer"
+		CustomerExtensible="Yes"
+		Discipline="Yes"
+		SuperName="RFLVPMLogicalReference"
+		CreateInstName="EEECUInstance"
+		Abbreviation="eeecu">
+		<Property Name="IconName" Value="EEECU"/>
+		<Property Name="Newable" Value="All"/>
+		<Property Name="Searchable" Value="Yes"/>
+		<Property Name="Configurable" Value="Yes"/>
+		<Property Name="KweNew_InstanciationMethod" Value="CATELogDelegateInstanciation"/>
+	   	<Property Name="KweNew_ReturnedType" Value="EEECUInstance"/>
+		<Simple Name="ecuCategory"
+			Uuid="F8031F8E-3050-4f14-82CE-D3ED090056A3" 
+			Protection="Free"
+			Type="Integer"
+			DefaultValue="1">
+			<Property Name="RangeAsEnumName" Value="EEECUCategory"/>
+			<Property Name="RangeAsEnumAuthorizedValues" Value="ECU;Actuator;Sensor;ElectricalDevice;Other"/>
+			<Range>
+				<Equal>1</Equal>
+				<Equal>2</Equal>
+				<Equal>3</Equal>
+				<Equal>4</Equal>
+				<Equal>5</Equal>
+			</Range>
+		</Simple>
+		<Simple Name="wakeUpOverBusSupported"
+			Uuid="7FC878E1-1D0F-420a-AA3A-2242F1E2FDF8"
+			Type="Boolean"
+			DefaultValue="true"
+			MultiValuated="No"
+			Protection="Free">
+		</Simple>
+	</Class>
+<!-- **************************************************** -->
+<!-- *  EEECUInstance :  RFLVPMLogicalInstance  * -->
+<!-- **************************************************** -->
+	<RelationClass
+		Name="EEECUInstance"
+		Uuid="94343E76-56A9-4afb-AECD-DD2B4CA53CA8"
+		Abstract="No"
+		Specializable="Yes"
+		CustomerExposition="Programmer"
+		CustomerExtensible="Yes"
+		Discipline="Yes"
+		SuperName="RFLVPMLogicalInstance">
+		<Property Name="IconName" Value="EEECUInstance"/>
+		<Property Name="Newable" Value="Insert"/>
+		<Property Name="Searchable" Value="Yes"/>
+		<Property Name="Filtrable" Value="Yes"/>
+		<Property Name="KweNew_InstanciationMethod" Value="CATELogDelegateInstanciation"/>
+	   	<Property Name="KweNew_ReturnedType" Value="EEECUInstance"/>
+		<Simple Name="comConfigurationGwTimeBase"
+			Uuid="5C45807B-6A61-4fe2-B79C-53846FD44246"
+			Type="Double"
+			DefaultValue="0.005"
+			MultiValuated="No"
+			Protection="Free">
+		</Simple>
+		<Simple Name="comConfigurationRxTimeBase"
+			Uuid="53D40603-7BEE-425b-B3A0-E91D83DF3E98"
+			Type="Double"
+			DefaultValue="0.005"
+			MultiValuated="No"
+			Protection="Free">
+		</Simple>
+		<Simple Name="comConfigurationTxTimeBase"
+			Uuid="30E60F6F-36DB-43c2-9F29-1F21E4349ED6"
+			Type="Double"
+			DefaultValue="0.005"
+			MultiValuated="No"
+			Protection="Free">
+		</Simple>
+	</RelationClass>
+<!-- ************************** -->
+<!-- EECommunicationCluster : RFLVPMLogicalReference -->
+<!-- ************************** -->
+	<Class 
+		Name="EECommunicationCluster"
+		Uuid="D4A00F0A-025D-4190-9487-A88AFC6E241F"
+		Abstract="No"
+		Specializable="Yes"
+		CustomerExposition="Programmer"
+		CustomerExtensible="Yes"
+		Discipline="Yes"
+		SuperName="RFLVPMLogicalReference"
+	    InstantiationOwnerTypes="EETopology"
+		CreateInstName="RFLVPMLogicalInstance"
+		Abbreviation="eeccl">
+	    <Property Name="AggregatableTypes" Value="None"/>
+		<Property Name="IconName" Value="EECommunicationCluster"/>
+		<Property Name="Newable" Value="All"/>
+		<Property Name="Searchable" Value="Yes"/>
+		<Property Name="Configurable" Value="Yes"/>
+		<Property Name="KweNew_InstanciationMethod" Value="CATELogDelegateInstanciation"/>
+	   	<Property Name="KweNew_ReturnedType" Value="RFLVPMLogicalInstance"/>
+		<Simple Name="flexRayCycle"
+			Uuid="D214E4E6-F1B7-461c-8E98-A7A086213EC6"
+			Type="Double"
+			DefaultValue="0"
+			MultiValuated="No"
+			Protection="ExternalIN">
+		</Simple>
+		<Simple Name="flexRayMiniSlotDuration"
+			Uuid="5B8CFE1D-C037-4529-BA62-5FF92ADE8DCB"
+			Type="Double"
+			DefaultValue="0"
+			MultiValuated="No"
+			Protection="ExternalIN">
+		</Simple>
+		<Simple Name="flexRayNumberOfMiniSlot"
+			Uuid="33EC19FC-7728-48ca-B8C2-D02CFC7D2387"
+			Type="Double"
+			DefaultValue="0"
+			MultiValuated="No"
+			Protection="ExternalIN">
+		</Simple>
+		<Simple Name="flexRayNumberOfStaticSlot"
+			Uuid="BAAF90A8-EF7E-4ea0-8C73-AF1A80569F96"
+			Type="Double"
+			DefaultValue="0"
+			MultiValuated="No"
+			Protection="ExternalIN">
+		</Simple>
+		<Simple Name="flexRayStaticSlotDuration"
+			Uuid="DA21B983-BE38-464d-87E7-FB5D9B71C238"
+			Type="Double"
+			DefaultValue="0"
+			MultiValuated="No"
+			Protection="ExternalIN">
+		</Simple>
+	</Class>
+
+<!-- ************************** -->
+<!-- EEPhysicalChannel : RFLVPMLogicalReference -->
+<!-- ************************** -->
+	<Class 
+		Name="EEPhysicalChannel"
+		Uuid="831D6ACD-3E44-47d7-A8A8-75120F628848"
+		Abstract="No"
+		Specializable="Yes"
+		CustomerExposition="Programmer"
+		CustomerExtensible="Yes"
+		Discipline="Yes"
+		SuperName="RFLVPMLogicalReference"
+	    InstantiationOwnerTypes="EETopology"
+		CreateInstName="RFLVPMLogicalInstance"
+		Abbreviation="eepch">
+		<Property Name="IconName" Value="EEPhysicalChannel"/>
+		<Property Name="Newable" Value="All"/>
+		<Property Name="Searchable" Value="Yes"/>
+		<Property Name="Configurable" Value="Yes"/>
+		<Property Name="KweNew_InstanciationMethod" Value="CATELogDelegateInstanciation"/>
+	   	<Property Name="KweNew_ReturnedType" Value="RFLVPMLogicalInstance"/>
+		<Simple Name="speed"
+			Uuid="BAF55112-8153-44d0-95B1-BC3E19561A28"
+			Type="Double"
+			DefaultValue="500000"
+			MultiValuated="No"
+			Protection="Free">
+		</Simple>
+		<Simple Name="VLanIdentifier"
+			Uuid="C87F4F80-F727-11E5-A837-0800200C9A66"
+			Type="String"
+			DefaultValue=""
+			MultiValuated="No"
+			Protection="ExternalIN">
+		</Simple>
+		<Simple Name="flexRayCycle"
+			Uuid="B8DEE9F0-F727-11E5-A837-0800200C9A66"
+			Type="Double"
+			DefaultValue="0"
+			MultiValuated="No"
+			Protection="ExternalIN">
+		</Simple>
+		<Simple Name="flexRayMiniSlotDuration"
+			Uuid="CF991710-F727-11E5-A837-0800200C9A66"
+			Type="Double"
+			DefaultValue="0"
+			MultiValuated="No"
+			Protection="ExternalIN">
+		</Simple>
+		<Simple Name="flexRayNumberOfMiniSlot"
+			Uuid="D5222C80-F727-11E5-A837-0800200C9A66"
+			Type="Integer"
+			DefaultValue="0"
+			MultiValuated="No"
+			Protection="ExternalIN">
+		</Simple>
+		<Simple Name="flexRayNumberOfStaticSlot"
+			Uuid="E5932880-F727-11E5-A837-0800200C9A66"
+			Type="Integer"
+			DefaultValue="0"
+			MultiValuated="No"
+			Protection="ExternalIN">
+		</Simple>
+		<Simple Name="flexRayStaticSlotDuration"
+			Uuid="FC200410-F727-11E5-A837-0800200C9A66"
+			Type="Double"
+			DefaultValue="0"
+			MultiValuated="No"
+			Protection="ExternalIN">
+		</Simple>
+	</Class>
+
+<!-- **************************************************** -->
+<!-- *  EESRChannelCluster :  LPAbstractConnection  * -->
+<!-- **************************************************** -->
+	<Class Name="EESRChannelCluster"
+		Uuid="31F3AA59-F1EA-46c0-A470-F0BF524187C8"
+		SuperName="LPAbstractConnection"
+		Discipline="Yes"
+		Abstract="No"
+		OwnerTypes="EECommunicationCluster"
+		CustomerExposition="Programmer"
+		CustomerExtensible="No">
+		<Path Name="channel"
+			Uuid="9ED41240-20C2-4002-BE12-C33A28250D81"
+			RoleName="EEPhysicalChannel"
+			TargetName="V_SRs"
+			Semantics="Reference"
+			Type="SemanticRelation"
+			MultiValuated="Yes"
+			Lower="0"
+			Upper="-1" />
+		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+	</Class>
+<!-- **************************************************** -->
+<!-- *  EESRConnectorBus :  PLMConnection  * -->
+<!-- *  EECommunicationCluster to EEConnectorType -->
+<!-- **************************************************** -->
+	<Class Name="EESRConnectorBus"
+		Uuid="3E7EE9DC-78E9-41f4-983A-EF5C51167EA3"
+		SuperName="LPAbstractConnection"
+		Discipline="Yes"
+		Abstract="No"
+		OwnerTypes="EECommunicationCluster"
+		CustomerExposition="None"
+		CustomerExtensible="No">
+		<Path
+			Name="V_CommonConnector"
+			Uuid="EF9F14C5-0ED3-4a67-B1DD-150905E47858"
+			RoleName="EECommonConnectorType"
+			TargetName="V_SRs"
+			Semantics="Reference"
+			Type="SemanticRelation"
+			MultiValuated="No"/>
+		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+	</Class>
+<!-- **************************************************** -->
+<!-- *  EESRConnectorBus1 :  PLMConnection  * -->
+<!-- *  EEPhysicalChannel to EEConnectorType -->
+<!-- **************************************************** -->
+	<Class Name="EESRConnectorBus1"
+		Uuid="ACCD6700-7AD4-4d0c-8CD7-4BEA53DB7851"
+		SuperName="LPAbstractConnection"
+		Discipline="Yes"
+		Abstract="No"
+		CustomerExposition="None"
+		CustomerExtensible="No">
+		<Path
+			Name="V_CommonConnector"
+			Uuid="2DA0368E-7B94-4d36-9F2F-D9AB6BDD1CD1"
+			RoleName="EECommonConnectorType"
+			TargetName="V_SRs"
+			Semantics="Reference"
+			MultiValuated="No"
+			Type="SemanticRelation"/>
+		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+	</Class>
+<!-- **************************************************** -->
+<!-- *  EECommunicationConnector :  RFLVPMSystemTypeExpositionInstance  * -->
+<!-- **************************************************** -->
+	<RelationClass 
+		Name="EECommunicationConnector"
+		Uuid="A74E1938-2517-4de0-9B5C-A11A4959163B"
+		Abstract="No"
+		Specializable="Yes"
+		CustomerExposition="Programmer"
+		CustomerExtensible="Yes"
+		Discipline="Yes"
+		SuperName="RFLVPMSystemTypeExpositionInstance">
+		<Property Name="IconName" Value="EECommunicationConnector"/>
+		<Property Name="Newable" Value="Insert"/>
+		<Property Name="Searchable" Value="Yes"/>
+		<Property Name="Configurable" Value="Yes"/>
+		<Property Name="KweNew_InstanciationMethod" Value="CATELogDelegateInstanciation"/>
+	   	<Property Name="KweNew_ReturnedType" Value="EECommunicationConnector"/>
+		<Simple Name="isLinMasterController"
+			Uuid="12018AE6-2493-4ba9-B4E8-AC136630A8DD"
+			Type="Boolean"
+			DefaultValue="false"
+			MultiValuated="No"
+			Protection="Free">
+		</Simple>
+		<Simple
+			Name="linProtocolVersion"
+			Uuid="2D80758D-1A52-4296-9052-A93AE36B29EE"
+			Type="String"
+			DefaultValue=""
+			MultiValuated="No"
+			Protection="ExternalIN">
+		</Simple>
+		<Simple Name="timeBase"
+			Uuid="EA327D99-3F42-47fb-81E4-CC04403843FB"
+			Type="Double"
+			DefaultValue="0"
+			MultiValuated="No"
+			Protection="ExternalIN">
+		</Simple>
+		<Simple Name="flexRayLatestTx"
+			Uuid="459833B6-C155-4dc0-A833-0B0D11A79B10"
+			Type="Integer"
+			DefaultValue="0"
+			MultiValuated="No"
+			Protection="ExternalIN">
+		</Simple>
+		<Simple Name="macAddress"
+			Uuid="6E63DF2B-9C49-4B80-B731-28B73699A21A"
+			Type="String"
+			DefaultValue="0"
+			MultiValuated="No"
+			Protection="ExternalIN">
+		</Simple>
+		<Simple Name="macMulticastAddress"
+			Uuid="2812A619-B602-4DA3-A371-DED5A8E76450"
+			Type="String"
+			DefaultValue="0"
+			MultiValuated="No"
+			Protection="ExternalIN">
+		</Simple>
+		<Simple Name="ipAddress"
+			Uuid="369A4FD2-CF6A-4B8A-893D-71ED86CF5264"
+			Type="String"
+			DefaultValue="0"
+			MultiValuated="No"
+			Protection="ExternalIN">
+		</Simple>
+		<Simple Name="tpAddress"
+			Uuid="BF0DC90C-FB37-4720-A452-8C164E88A15D"
+			Type="String"
+			DefaultValue="0"
+			MultiValuated="No"
+			Protection="ExternalIN">
+		</Simple>
+		<Simple Name="tpProtocol"
+			Uuid="58EC58EC-74D7-4779-A411-FF133CF6F7B9"
+			Type="String"
+			DefaultValue="0"
+			MultiValuated="No"
+			Protection="ExternalIN">
+		</Simple>
+	</RelationClass>
+<!-- ************************** -->
+<!-- EEConnectorType : RFLVPMSystemTypeReference -->
+<!-- ************************** -->
+	<Class 
+		Name="EEConnectorType"
+		Uuid="AEF82837-0483-433e-9EB8-D57ECF8D9280"
+		Abstract="No"
+		Specializable="Yes"
+		Discipline="Yes"
+		CustomerExposition="Programmer"
+		CustomerExtensible="Yes"
+		SuperName="RFLVPMSystemTypeReference"
+		CreateInstName="EECommunicationConnector"
+		Abbreviation="eecty">
+	    <Property Name="AggregatableTypes" Value="None"/>
+		<Property Name="IconName" Value="EEConnectorType"/>
+		<Property Name="Newable" Value="All"/>
+		<Property Name="Searchable" Value="Yes"/>
+		<Property Name="Configurable" Value="Yes"/>
+		<Property Name="KweNew_InstanciationMethod" Value="CATELogDelegateInstanciation"/>
+	   	<Property Name="KweNew_ReturnedType" Value="EECommunicationConnector"/>
+		<Simple Name="linkTechnology"
+			Uuid="D9ADC578-CE6C-45ad-979C-C17C1A914454" 
+			Protection="Free"
+			Type="Integer"
+			DefaultValue="1">
+			<Property Name="RangeAsEnumName" Value="EELinkTechnology"/>
+			<Property Name="RangeAsEnumAuthorizedValues" Value="WiredLink;WireLess;CAN;LIN;FlexRay;Ethernet;MOST;K-BUS;Other"/>
+			<Range>
+				<Equal>1</Equal>
+				<Equal>2</Equal>
+				<Equal>3</Equal>
+				<Equal>4</Equal>
+				<Equal>5</Equal>
+				<Equal>6</Equal>
+				<Equal>7</Equal>
+				<Equal>8</Equal>
+				<Equal>9</Equal>
+			</Range>
+		</Simple>
+		<Simple
+			Name="subTechnology"
+			Uuid="A168FB54-6214-4AD6-8090-537A2213A55B"
+			Type="String"
+			DefaultValue=""
+			MultiValuated="No"
+			Protection="Free">
+		</Simple>
+	</Class>
+<!-- ************************** -->
+<!-- EEGenericConnectorType : RFLVPMSystemTypeReference -->
+<!-- ************************** -->
+	<Class 
+		Name="EEGenericConnectorType"
+		Uuid="22A8AFC9-9CDE-4B91-B700-539E158B66E9"
+		Abstract="No"
+		Specializable="Yes"
+		Discipline="Yes"
+		CustomerExposition="Programmer"
+		CustomerExtensible="Yes"
+		SuperName="RFLVPMSystemTypeReference"
+		CreateInstName="EECommunicationConnector"
+		Abbreviation="eegct">
+	    <Property Name="AggregatableTypes" Value="EESubConnectorType"/>
+		<Property Name="IconName" Value="EEGenericConnectorType"/>
+		<Property Name="Newable" Value="All"/>
+		<Property Name="Searchable" Value="Yes"/>
+		<Property Name="Configurable" Value="Yes"/>
+		<Property Name="KweNew_InstanciationMethod" Value="CATELogDelegateInstanciation"/>
+	   	<Property Name="KweNew_ReturnedType" Value="EECommunicationConnector"/>
+		<Simple
+			Name="subTechnology"
+			Uuid="74CA21B4-F929-454C-B4B3-63D190355CA0"
+			Type="String"
+			DefaultValue=""
+			MultiValuated="No"
+			Protection="Free">
+		</Simple>
+	</Class>
+<!-- ************************** -->
+<!-- EESubConnectorType : RFLVPMSystemTypeReference -->
+<!-- ************************** -->
+	<Class 
+		Name="EESubConnectorType"
+		Uuid="C642AC0B-9E96-4CF8-AA17-6B73CC4F16EC"
+		Abstract="No"
+		Specializable="Yes"
+		Discipline="Yes"
+		CustomerExposition="Programmer"
+		CustomerExtensible="Yes"
+		SuperName="RFLVPMSystemTypeReference"
+		InstantiationOwnerTypes="EEGenericConnectorType"
+		CreateInstName="RFLVPMSystemTypeInstance"
+		Abbreviation="eesct">
+	    <Property Name="AggregatableTypes" Value="None"/>
+		<Property Name="IconName" Value="EESubConnectorType"/>
+		<Property Name="Newable" Value="All"/>
+		<Property Name="Searchable" Value="Yes"/>
+		<Property Name="Configurable" Value="Yes"/>
+		<Property Name="KweNew_InstanciationMethod" Value="CATELogDelegateInstanciation"/>
+	   	<Property Name="KweNew_ReturnedType" Value="RFLVPMSystemTypeInstance"/>
+		<Simple
+			Name="subTechnology"
+			Uuid="7B9AE2DE-22DB-4896-B787-45D56361D2CC"
+			Type="String"
+			DefaultValue=""
+			MultiValuated="No"
+			Protection="Free">
+		</Simple>
+	</Class>
+</Package>

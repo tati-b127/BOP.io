@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!-- edited with XMLSpy v2007 (http://www.altova.com) by DASSAULT SYSTEMES (DASSAULT SYSTEMES) -->
+<!-- ENOVIA DICTIONARY FOR RFL Functional Application -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" Name="RFLPLMFunctionalConnectorMapping" Uuid="8cda6214-8d84-4c56-ab1a-9784d8524b02" CustomerExposition="Programmer" UseNames="PLMCORE" BelongsToModeler="CATSysBehaviorLibrary">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+  <Class Name="RFLPLMFunctionalConnectorMappingConnection" Uuid="87d2ef74-94ab-4dc7-9817-ac8b30769139" CustomerExposition="Programmer" Abstract="No"   OwnerTypes="RFLPLMFunctionalAbstractReference" SuperName="PLMConnection">
+    <!-- OwnerTypes="RFLPLMFunctionalAbstractReference"  Integrate this line if you want to declare the aggregation constraint -->
+    <CAAComment>
+			<ShortRole>PLM Functional Connector Mapping Connection Object</ShortRole>
+			<Role>PLM Functional Connector Mapping Connection</Role>
+		</CAAComment>
+		<!--     *********************************************************
+    * Define Owner 
+    ********************************************************* -->
+		<Simple Name="V_MappingName" Uuid="78e1ec99-e7f4-412b-a8de-dc9c8babff6d" Type="String" MaxLength="120" MultiValuated="No" PLMImpacting="Yes" Protection="Internal"/>
+		<Path Name="V_ConnectionPLMPorts" Uuid="fd687ce3-1887-40a6-b6a2-86dba0b5d9cb"  RoleName="RFL_FctMap_PLMPort" MultiValuated="Yes" Lower="0" Upper="-1" Semantics="Reference6" Type="SemanticRelation" AdaptativeToMinor="No"		SynchroSensitivity="PathAndLast"		RerouteOnEffectivityChange="No" Orientation="InOut"/>
+		<Path Name="V_ConnectionBehaviorPorts" Uuid="87a65cae-8fbc-4e3b-af24-9e6324582020"   RoleName="RFL_FctMap_RepPort" MultiValuated="Yes" Lower="0" Upper="-1" Semantics="Reference6" Type="SemanticRelation" AdaptativeToMinor="No"		SynchroSensitivity="PathAndLast"		RerouteOnEffectivityChange="No" Orientation="InOut"/>
+		<Path Name="V_ConnectionBehaviorModel" Uuid="c95aa27b-315d-4535-b42b-8790e18886f5"   RoleName="RFL_FctMap_RepModel" MultiValuated="No" Semantics="Reference" Type="SemanticRelation" AdaptativeToMinor="No"		SynchroSensitivity="None"		RerouteOnEffectivityChange="No"/>
+		<!--*********************************************************
+    * Define Export Method 
+    ********************************************************* -->
+		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+	</Class>
+	<!-- ****************************************************
+   * Declaration of functions                           
+	**************************************************** -->
+	<Function Name="RFLPLMFunctionalConnectorMapping_AllFctMappingCnx">
+		<Implementation Name="RFLPLMFunctionalConnectorMapping_AllFctMappingCnx" FileLocation="RFLPLMFunctionalConnectorMapping_AllFctMappingCnx.plmql" Language="PLMQL"/>
+		<Signature href="CATSbiFctMapCnxSignature"/>
+	</Function>
+	<Signature id="CATSbiFctMapCnxSignature">
+		<Parameter Name="InputIds" Lower="0" Upper="-1" Direction="in" MultiValuated="Yes" DataType="PLMId"/>
+		<Parameter Name="OutputIds" Lower="0" Upper="-1" Direction="out" MultiValuated="No" DataType="PLMRouteSet"/>
+	</Signature>
+</Package>

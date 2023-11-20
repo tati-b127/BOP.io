@@ -1,0 +1,74 @@
+<?xml version="1.0" ?>
+<ProcedurePackage
+    xmlns="PLMDictionaryProcedure"
+    Name="ENOChgMgmt_Procedures">
+
+	<Procedure Name="ChangeManagement_ExportECA_Light">
+		<Implementation Name="ChangeManagement_ExportECA_Light" FileLocation="ChangeManagement_ExportECA_Light.KProc" Language="EKL"/>
+		<Signature href="ENOChgMgmt_ProcedureSignatureExport"/>
+	</Procedure>
+
+	<Procedure Name="ChangeManagement_ExportECA_PeersAndChildren">
+		<Implementation Name="ChangeManagement_ExportECA_PeersAndChildren" FileLocation="ChangeManagement_ExportECA_PeersAndChildren.KProc" Language="EKL"/>
+		<Signature href="ENOChgMgmt_ProcedureSignatureExport"/>
+	</Procedure>
+
+  <Procedure Name="ChangeManagement_XPDMExchangeECA_Completion">
+    <Implementation Name="ChangeManagement_XPDMExchangeECA_Completion" FileLocation="ChangeManagement_XPDMExchangeECA_Completion.KProc" Language="EKL"/>
+    <Signature href="ENOChgMgmt_ProcedureSignatureExport"/>
+  </Procedure>
+
+	<Signature id="ENOChgMgmt_ProcedureSignatureExport">
+		<Parameter Name="InputIds" Lower="0" Upper="-1" MultiValuated="Yes" Direction="in" DataType="PLMId"/>
+		<Parameter Name="OutputIds" Lower="0" Upper="-1" MultiValuated="Yes" Direction="out" DataType="PLMId"/>
+	</Signature>
+
+	<Procedure Name="VPMApplicabilityFromChangeTask">
+		<Implementation Name="invoke" FileLocation="com.dassault_systemes.vplm.chg.services.changetask.VPLMgetApplicabityFromChangeTask" Language="JAVA"/>
+		<Signature href="VPLMgetApplicabityFromChangeTask_sign"/>
+	</Procedure>
+
+	<Signature id="VPLMgetApplicabityFromChangeTask_sign">
+		<Parameter Name="ChangeTaskPLMIds"		Direction="in"	Order="1"	DataType="PLMId"	MultiValuated="Yes"/>
+		<Parameter Name="HR"				Direction="out"	Order="1"	DataType="String"	MultiValuated="No"/>
+		<Parameter Name="ChangeTasksApplicability"	Direction="out"	Order="2"	DataType="String"	MultiValuated="Yes"/>
+	</Signature>
+
+	<Procedure Name="VPLMconnectActionsToChangeTask">
+		<Implementation Name="invoke" FileLocation="com.dassault_systemes.vplm.chg.services.action.VPLMconnectActionsToChangeTask" Language="JAVA"/>
+		<Signature href="VPLMconnectActionsToChangeTask_sign"/>
+	</Procedure>
+
+	<Signature id="VPLMconnectActionsToChangeTask_sign">
+		<Parameter Name="ChangeTaskPLMId"	Direction="in"	Order="1"	DataType="PLMId"	MultiValuated="No"/>
+		<Parameter Name="ActionsPLMIds"		Direction="in"	Order="2"	DataType="PLMId"	MultiValuated="Yes"/>
+		<Parameter Name="HR"			Direction="out"	Order="1"	DataType="String"	MultiValuated="No"/>
+		<Parameter Name="WarningMessage"	Direction="out"	Order="2"	DataType="String"	MultiValuated="No"/>
+	</Signature>
+
+	<Procedure Name="VPLMgetChangeTasksForImplement">
+		<Implementation Name="invoke" FileLocation="com.dassault_systemes.vplm.chg.services.action.VPLMgetChangeTasksForImplement" Language="JAVA"/>
+		<Signature href="VPLMgetChangeTasksForImplement_sign"/>
+	</Procedure>
+
+	<Signature id="VPLMgetChangeTasksForImplement_sign">
+		<Parameter Name="ActionPLMId"		Direction="in"	Order="1"	DataType="PLMId"	MultiValuated="No"/>
+		<Parameter Name="ChangeDiscipline"	Direction="in"	Order="2"	DataType="String"	MultiValuated="No"/>
+		<Parameter Name="CustomValues"		Direction="in"	Order="3"	DataType="String"	MultiValuated="Yes"/>
+		<Parameter Name="HR"			Direction="out"	Order="1"	DataType="String"	MultiValuated="No"/>
+		<Parameter Name="ChangeTaskPLMIds"	Direction="out"	Order="2"	DataType="PLMId"	MultiValuated="Yes"/>
+	</Signature>
+
+	<Procedure Name="VPLMgetActionChangeDisciplinesAssociation">
+		<Implementation Name="invoke" FileLocation="com.dassault_systemes.vplm.chg.services.action.VPLMgetActionChangeDisciplinesAssociation" Language="JAVA"/>
+		<Signature href="VPLMgetActionChangeDisciplinesAssociation_sign"/>
+	</Procedure>
+
+	<Signature id="VPLMgetActionChangeDisciplinesAssociation_sign">
+		<Parameter Name="ActionPLMId" 		Direction="in"	Order="1"	DataType="PLMId"	MultiValuated="No"/>
+		<Parameter Name="HR" 			Direction="out"	Order="1"	DataType="String"	MultiValuated="No"/>
+		<Parameter Name="ChangeDisciplines" 	Direction="out"	Order="2"	DataType="String"	MultiValuated="Yes"/>
+		<Parameter Name="ChangeDisciplinesNLS" 	Direction="out"	Order="3"	DataType="String"	MultiValuated="Yes"/>
+	</Signature>
+
+</ProcedurePackage>

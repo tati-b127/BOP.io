@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2017, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified"
+	ModelerType="Top"
+	Name="XCADIsItemOf"
+	Uuid="c1da661f-f23b-4fcf-bdeb-561d0731aba5"
+	UseNames="ERCoreModeler"
+	CustomerExposition="Programmer" 
+	Architecture="All"
+	BelongsToModeler="XCADModelAndItemsModeler"
+>
+
+    <CAAComment>
+		<ShortRole>XCAD Model and Item Modeler Package</ShortRole>
+		<Role>This package includes all the relations involved in the XCAD modelisation for XCADModel and items (aka Family and Instances).</Role>
+	</CAAComment>
+
+	<Comment>last update 2017-09-18</Comment>
+	
+	<RelationClass Name="XCADItem" 
+		Uuid="0c798130-1cc8-48f3-a1ef-16068cf0afba" 
+		Abstract="No" 
+		CustomerExposition="Programmer"
+		SuperName="RelationType"
+		Specializable="No"
+		CustomerExtensible="No"
+		>
+
+		<SubClause Name="from"
+			TargetName="XCADModelRepReference"
+			clone="replicate"
+                        minorrevision="replicate"
+		/>
+		<SubClause Name="to"
+			TargetName="PLMCoreReference"
+		/>
+		
+		<!-- Used to define the active item -->
+		<Simple Name="Is_ActiveItem"
+			Uuid="403f79da-aa6d-4d2b-bf76-1414ecc967ec"
+			Type="Boolean"
+			DefaultValue="false"
+			ResetOnCloning="No"
+			ResetOnNewVersion="No"
+			Protection="External"
+			UIAccess="ReadOnly" >
+		</Simple>
+	
+		
+		<!-- PROCEDURES Declaration  -->
+		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+	</RelationClass>
+
+</Package>

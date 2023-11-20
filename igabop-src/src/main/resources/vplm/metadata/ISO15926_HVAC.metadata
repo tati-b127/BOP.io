@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2012, All rights reserved -->
+
+<Package xmlns = "PLMDictionaryUnified" Name = "ISO15926_HVAC" Uuid = "89673ed4-884b-0000-5226-475b01000000" UseNames = "PRODUCTCFG" CustomerExposition = "Programmer">
+  <Extension Name = "ISO15926_HVAC" Uuid = "89673ed4-884b-0000-5226-475b02000000" Abstract = "No" ScopeNames = "VPMReference VPMInstance" Specializable = "No" CustomerExposition = "Programmer">
+    <Simple Name = "ISO15926_NominalDiameter" Uuid = "89673ed4-884b-0000-5226-475b03000000" Type = "Double" Magnitude = "LENGTH" DefaultValue = "0.0" ResetOnCloning = "Yes" ResetOnNewVersion = "Yes" UIAccess = "ReadWrite" Protection = "Free" PLMImpacting = "No">
+      <Property Name = "V6Exportable" Value = "TRUE"/>
+      <Property Name = "Indexation" Value = "TRUE"/>
+    </Simple>
+  </Extension>
+  <Extension Name = "ISO15926_HVACBend" Uuid = "89673ed4-884b-0000-5226-475b04000000" Abstract = "No" ScopeNames = "VPMReference VPMInstance" Specializable = "No" CustomerExposition = "Programmer">
+    <Simple Name = "ISO15926_Radius" Uuid = "89673ed4-884b-0000-5226-475b05000000" Type = "Double" Magnitude = "LENGTH" DefaultValue = "0.0" ResetOnCloning = "Yes" ResetOnNewVersion = "Yes" UIAccess = "ReadWrite" Protection = "Free" PLMImpacting = "No">
+      <Property Name = "V6Exportable" Value = "TRUE"/>
+      <Property Name = "Indexation" Value = "TRUE"/>
+    </Simple>
+  </Extension>
+  <Extension Name = "ISO15926_HVACCircularShape" Uuid = "89673ed4-884b-0000-5226-475b06000000" Abstract = "No" ScopeNames = "VPMReference VPMInstance" Specializable = "No" CustomerExposition = "Programmer">
+    <Simple Name = "ISO15926_NominalDiameter" Uuid = "89673ed4-884b-0000-5226-475b07000000" Type = "Double" Magnitude = "LENGTH" DefaultValue = "0.0" ResetOnCloning = "Yes" ResetOnNewVersion = "Yes" UIAccess = "ReadWrite" Protection = "Free" PLMImpacting = "No">
+      <Property Name = "V6Exportable" Value = "TRUE"/>
+      <Property Name = "Indexation" Value = "TRUE"/>
+    </Simple>
+    <Simple Name = "ISO15926_OutsideDiameter" Uuid = "89673ed4-884b-0000-5226-475b08000000" Type = "Double" Magnitude = "LENGTH" DefaultValue = "0.0" ResetOnCloning = "Yes" ResetOnNewVersion = "Yes" UIAccess = "ReadWrite" Protection = "Free" PLMImpacting = "No">
+      <Property Name = "V6Exportable" Value = "TRUE"/>
+      <Property Name = "Indexation" Value = "TRUE"/>
+    </Simple>
+    <Simple Name = "ISO15926_LargeDiameter" Uuid = "89673ed4-884b-0000-5226-475b09000000" Type = "Double" Magnitude = "LENGTH" DefaultValue = "0.0" ResetOnCloning = "Yes" ResetOnNewVersion = "Yes" UIAccess = "ReadWrite" Protection = "Free" PLMImpacting = "No">
+      <Property Name = "V6Exportable" Value = "TRUE"/>
+      <Property Name = "Indexation" Value = "TRUE"/>
+    </Simple>
+    <Simple Name = "ISO15926_SmallDiameter" Uuid = "89673ed4-884b-0000-5226-475b0a000000" Type = "Double" Magnitude = "LENGTH" DefaultValue = "0.0" ResetOnCloning = "Yes" ResetOnNewVersion = "Yes" UIAccess = "ReadWrite" Protection = "Free" PLMImpacting = "No">
+      <Property Name = "V6Exportable" Value = "TRUE"/>
+      <Property Name = "Indexation" Value = "TRUE"/>
+    </Simple>
+  </Extension>
+  <Extension Name = "ISO15926_HVACRectangularShape" Uuid = "89673ed4-884b-0000-5226-475b0b000000" Abstract = "No" ScopeNames = "VPMReference VPMInstance" Specializable = "No" CustomerExposition = "Programmer">
+    <Simple Name = "ISO15926_Width" Uuid = "89673ed4-884b-0000-5226-475b0c000000" Type = "Double" Magnitude = "LENGTH" DefaultValue = "0.0" ResetOnCloning = "Yes" ResetOnNewVersion = "Yes" UIAccess = "ReadWrite" Protection = "Free" PLMImpacting = "No">
+      <Property Name = "V6Exportable" Value = "TRUE"/>
+      <Property Name = "Indexation" Value = "TRUE"/>
+    </Simple>
+    <Simple Name = "ISO15926_Depth" Uuid = "89673ed4-884b-0000-5226-475b0d000000" Type = "Double" Magnitude = "LENGTH" DefaultValue = "0.0" ResetOnCloning = "Yes" ResetOnNewVersion = "Yes" UIAccess = "ReadWrite" Protection = "Free" PLMImpacting = "No">
+      <Property Name = "V6Exportable" Value = "TRUE"/>
+      <Property Name = "Indexation" Value = "TRUE"/>
+    </Simple>
+  </Extension>
+  <Extension Name = "ISO15926_HVACDuct" Uuid = "89673ed4-884b-0000-5226-475b0e000000" Abstract = "No" ScopeNames = "VPMReference VPMInstance" Specializable = "No" CustomerExposition = "Programmer">
+    <Simple Name = "ISO15926_Length" Uuid = "89673ed4-884b-0000-5226-475b0f000000" Type = "Double" Magnitude = "LENGTH" DefaultValue = "0.0" ResetOnCloning = "Yes" ResetOnNewVersion = "Yes" UIAccess = "ReadWrite" Protection = "Free" PLMImpacting = "No">
+      <Property Name = "V6Exportable" Value = "TRUE"/>
+      <Property Name = "Indexation" Value = "TRUE"/>
+    </Simple>
+    <Simple Name = "ISO15926_Thickness" Uuid = "89673ed4-884b-0000-5226-475b10000000" Type = "Double" Magnitude = "LENGTH" DefaultValue = "0.0" ResetOnCloning = "Yes" ResetOnNewVersion = "Yes" UIAccess = "ReadWrite" Protection = "Free" PLMImpacting = "No">
+      <Property Name = "V6Exportable" Value = "TRUE"/>
+      <Property Name = "Indexation" Value = "TRUE"/>
+    </Simple>
+    <Simple Name = "ISO15926_WallThickness" Type = "String" Uuid = "89673ed4-884b-0000-5226-475b11000000" DefaultValue = " " ResetOnCloning = "Yes" ResetOnNewVersion = "Yes" UIAccess = "ReadWrite" Protection = "Free" PLMImpacting = "No">
+      <Property Name = "V6Exportable" Value = "TRUE"/>
+      <Property Name = "Indexation" Value = "TRUE"/>
+    </Simple>
+    <Simple Name = "ISO15926_FabricationCategory" Type = "String" Uuid = "89673ed4-884b-0000-5226-475b12000000" DefaultValue = " " ResetOnCloning = "Yes" ResetOnNewVersion = "Yes" UIAccess = "ReadWrite" Protection = "Free" PLMImpacting = "No">
+      <Property Name = "V6Exportable" Value = "TRUE"/>
+      <Property Name = "Indexation" Value = "TRUE"/>
+    </Simple>
+  </Extension>
+  <Extension Name = "ISO15926_HVACSegment" Uuid = "89673ed4-884b-0000-5226-475b13000000" Abstract = "No" ScopeNames = "VPMReference VPMInstance" Specializable = "No" CustomerExposition = "Programmer">
+    <Simple Name = "ISO15926_NominalDiameter" Uuid = "89673ed4-884b-0000-5226-475b14000000" Type = "Double" Magnitude = "LENGTH" DefaultValue = "0.0" ResetOnCloning = "Yes" ResetOnNewVersion = "Yes" UIAccess = "ReadWrite" Protection = "Free" PLMImpacting = "No">
+      <Property Name = "V6Exportable" Value = "TRUE"/>
+      <Property Name = "Indexation" Value = "TRUE"/>
+    </Simple>
+    <Simple Name = "ISO15926_WallThickness" Type = "String" Uuid = "89673ed4-884b-0000-5226-475b15000000" DefaultValue = " " ResetOnCloning = "Yes" ResetOnNewVersion = "Yes" UIAccess = "ReadWrite" Protection = "Free" PLMImpacting = "No">
+      <Property Name = "V6Exportable" Value = "TRUE"/>
+      <Property Name = "Indexation" Value = "TRUE"/>
+    </Simple>
+  </Extension>
+</Package>

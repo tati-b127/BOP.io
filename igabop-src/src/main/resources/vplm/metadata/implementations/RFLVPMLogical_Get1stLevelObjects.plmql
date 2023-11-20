@@ -1,0 +1,21 @@
+EXPAND
+
+T0.PLMID, T1.PLMID, T2.PLMID, T3.PLMID, T4.PLMID, T5.PLMID, T6.PLMID, T7.PLMID, T8.PLMID, T9.PLMID, T10.PLMID, T11.PLMID
+
+FROM
+RFLVPMLogical/RFLVPMLogicalPort T0,
+RFLVPMLogical/RFLVPMLogicalConnection T1,
+RFLVPMLogical/RFLVPMLogicalRepReference T2,
+RFLVPMLogical/RFLVPMLogicalRepInstance T3,
+RFLVPMLogical3DRep/RFLVPMLogical3DRepReference T4,
+RFLVPMLogical3DRep/RFLVPMLogical3DRepInstance T5,
+RFLVPMLogicalPublication/RFLVPMLogicalPublication T6,
+RFLVPMSystemType/RFLVPMSystemTypeReference T7,
+RFLVPMSystemType/RFLVPMSystemTypeInstance T8,
+RFLVPMSystemTypeExposition/RFLVPMSystemTypeExpositionInstance T9,
+RFLVPMLogicalServices/RFLVPMServicesReference T10,
+RFLVPMLogicalServices/RFLVPMServicesExpositionInstance T11
+
+FROM_ROOTS [?1?]
+
+DEPTH=1;

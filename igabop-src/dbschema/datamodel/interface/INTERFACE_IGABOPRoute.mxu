@@ -1,0 +1,5 @@
+mxUpdate interface "${NAME}" {
+    description ""
+    !hidden
+    for type "Route"
+}

@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY FOR FOLDER_REF Application Custo DS-->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2005, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" DataRDB_OID="ENODR_FLDFREFDS" Name="ENOFLD_FOLDER_REF_DS" 
+    Uuid="6099758C-B35E-4061-B7B3-046023702C7A"
+    UseNames="ENOFLD_FOLDER_REF"
+    Alias="Folder Structure Sample Customization"
+
+    >
+
+    <CAAComment>
+        <ShortRole>FolderRef customization Package</ShortRole>
+        <Role>This package includes Ref Folder Model</Role>
+    </CAAComment>
+
+    <Comment>last update 2006-11-16-00.00.00</Comment>
+ 
+    <!-- *************************************************** -->
+    <!-- * ENOFLD_DS_FolderReference(PLMCoreReference)     * -->
+    <!-- *************************************************** -->
+
+    <Class Name="ENOFLD_DS_FolderReference"
+        Uuid="0A7ED013-A0D5-4E8D-A24E-EB552829726B"
+        
+        
+
+        SuperName="ENOFLD_FolderReference" SuperRef="d559c381-0049-4413-9c35-d0d34cb23dc8"
+        >
+
+	  <CAAComment>
+	    <ShortRole>Reference Folder customization</ShortRole>
+	    <Role>Reference Folder customization</Role>
+	  </CAAComment>
+
+        <IdentifierSet Name="Identifier"
+            Uuid="21190493-96AB-47B7-B388-E81FF9028EAC"
+            IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 75142b3b-9cdd-48f4-b1e7-33d7945c4d53"
+            IdentifierNames="PLM_ExternalID V_IdNamingSpace" />
+
+    </Class>
+
+    <!-- *************************************************** -->
+    <!-- * ENOFLD_DS_FolderInstance(PLMCoreInstance)       * -->
+    <!-- *************************************************** -->
+
+    <Class Name="ENOFLD_DS_FolderInstance"
+        Uuid="93dcdee2-568e-460e-922a-745a7ea342b4"
+        
+		
+        SuperName="ENOFLD_FolderInstance" SuperRef="53f2713e-f07e-4294-a72e-239e82de244c"
+        >
+        
+	  <CAAComment>
+	    <ShortRole>Instance Folder customization</ShortRole>
+	    <Role>Instance Folder customization</Role>
+	  </CAAComment>
+
+    </Class>
+</Package>

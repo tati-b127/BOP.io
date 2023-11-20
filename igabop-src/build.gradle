@@ -1,0 +1,161 @@
+plugins {
+    id 'org.springframework.boot' version '2.2.6.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+    id 'org.asciidoctor.convert' version '1.5.8'
+    id 'java'
+}
+
+group = 'com.igatec.bop'
+sourceCompatibility = '1.8'
+project.version = '1.0.0'
+targetCompatibility = JavaVersion.current()
+
+configurations {
+    developmentOnly
+    runtimeClasspath {
+        extendsFrom developmentOnly
+    }
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+compileJava {
+    options.encoding = 'UTF-8'
+    if (JavaVersion.current() == JavaVersion.VERSION_1_8) {
+        if (!project.hasProperty("excludeLicense")) {
+            throw new GradleException("This project could be built with java 8 only with parameter 'excludeLicense', passing in gradle build task. " +
+                    "Change java version to java 11 or add parameter.")
+        }
+        exclude("**/license/**")
+    }
+    if (JavaVersion.current() > JavaVersion.VERSION_1_8) {
+        if (project.hasProperty("excludeLicense")) {
+            exclude("**/license/**")
+        }
+        options.compilerArgs << '--add-exports' << 'java.xml/com.sun.org.apache.xerces.internal.dom=ALL-UNNAMED'
+    }
+}
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+    maven {
+        url "https://nexus.igatec.com/repository/maven-public/"
+        name "Nexus IGA"
+        credentials {
+            username = System.getenv("NEXUS_USER")
+            password = System.getenv("NEXUS_PASS")
+        }
+    }
+}
+
+ext {
+    set('snippetsDir', file("build/generated-snippets"))
+    enoviaGroupId = 'dassault.enovia'
+    enoviaRelease = '19x.8'
+}
+
+jar {
+    enabled = true
+    archiveFileName = "igabop.dependency-${project.version}.jar"
+}
+
+bootJar() {
+    archiveFileName = "igabop-${project.version}.jar"
+    if (project.hasProperty("excludeLicense")) {
+        exclude("**/license/**")
+    }
+}
+
+dependencies {
+    implementation "$enoviaGroupId:eMatrixServletRMI:$enoviaRelease"
+    implementation "$enoviaGroupId:FcsServer:$enoviaRelease"
+    implementation "$enoviaGroupId:RestServicesInfra:$enoviaRelease"
+    implementation "$enoviaGroupId:framework:$enoviaRelease"
+    implementation "$enoviaGroupId:CATRgnJPLMConnector:$enoviaRelease"
+    implementation "$enoviaGroupId:i3DxMdCommonServices:$enoviaRelease"
+    implementation "$enoviaGroupId:i3DxMdCommonServicesItf:$enoviaRelease"
+    implementation "$enoviaGroupId:REQModeler:$enoviaRelease"
+    implementation "$enoviaGroupId:PLMSetupParamInfra:$enoviaRelease"
+    implementation "$enoviaGroupId:i3DXMQLServices:$enoviaRelease"
+    implementation "$enoviaGroupId:slf4j-ext:$enoviaRelease"
+    implementation "$enoviaGroupId:PLMSecurity:$enoviaRelease"
+    implementation "$enoviaGroupId:IPLMDictionaryAccessPublicItf:$enoviaRelease"
+    implementation "$enoviaGroupId:IPLMDictionary:$enoviaRelease"
+    implementation "$enoviaGroupId:SiteAffix:$enoviaRelease"
+    implementation "$enoviaGroupId:TeamEngineeringParameter:$enoviaRelease"
+    implementation "$enoviaGroupId:i3DXCore:$enoviaRelease"
+    implementation "$enoviaGroupId:i3DXJSDK:$enoviaRelease"
+    implementation "$enoviaGroupId:javax.json:$enoviaRelease"
+
+    implementation "$enoviaGroupId:CATRgnJCommon:$enoviaRelease"
+    implementation "$enoviaGroupId:PLMJCommonModeler:$enoviaRelease"
+    implementation "$enoviaGroupId:VPLMJCoreDictionaryInterfaces:$enoviaRelease"
+    implementation "$enoviaGroupId:PLMDictionary:$enoviaRelease"
+    implementation "$enoviaGroupId:VPLMJRadeDictionaryInterfaces:$enoviaRelease"
+    implementation "$enoviaGroupId:VPLMJPublicDictionaryItf:$enoviaRelease"
+    implementation "$enoviaGroupId:VPLMJRestrictedDictionaryItf:$enoviaRelease"
+    implementation "$enoviaGroupId:IPLMDictionaryCoreItf:$enoviaRelease"
+    implementation "$enoviaGroupId:PLMJCoreModeler:$enoviaRelease"
+    implementation "$enoviaGroupId:VPLMQLEngine:$enoviaRelease"
+    implementation "$enoviaGroupId:common:$enoviaRelease"
+
+    implementation "$enoviaGroupId:FcsBackEnd:$enoviaRelease"
+    implementation "$enoviaGroupId:metrics-core:$enoviaRelease"
+    implementation "$enoviaGroupId:mx_jdom_1.0:$enoviaRelease"
+
+    //need only on m-04 server ¯\_| ✖ 〜 ✖ |_/¯
+    implementation "$enoviaGroupId:PLMJCoreAccess:$enoviaRelease"
+    implementation "$enoviaGroupId:CATRgnJGenerationToolkit:$enoviaRelease"
+    implementation "$enoviaGroupId:CATRgnJConnectorItf:$enoviaRelease"
+    implementation "$enoviaGroupId:IPLMBusinessLogicsOnTypes:$enoviaRelease"
+    implementation "$enoviaGroupId:JKnowledgeInterfaces:$enoviaRelease"
+    implementation "$enoviaGroupId:i3DXCoreInterfaces:$enoviaRelease"
+
+    implementation "com.igatec:utilsspring:$enoviaRelease-0.0.1-SNAPSHOT"
+    implementation "org.apache.xmlgraphics:fop:2.2"
+    implementation "org.apache.xmlgraphics:fop-pdf-images:2.3"
+    implementation "org.apache.pdfbox:pdfbox:2.0.1"
+
+    compile 'io.springfox:springfox-swagger2:2.9.2'
+    compile 'io.springfox:springfox-swagger-ui:2.9.2'
+    compile 'org.springframework.plugin:spring-plugin-core:1.2.0.RELEASE'
+
+    compile 'org.springframework.security:spring-security-config'
+    compile 'org.springframework.security:spring-security-cas'
+
+    implementation 'org.springframework.boot:spring-boot-starter-hateoas'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-webflux'
+    implementation 'org.apache.kafka:kafka-streams'
+    implementation 'org.springframework.kafka:spring-kafka'
+    implementation 'org.springframework.session:spring-session-core'
+    implementation 'org.springframework.boot:spring-boot-starter-aop'
+
+    implementation group: 'com.javax0.license3j', name: 'license3j', version: '3.1.6'
+
+
+    compileOnly 'org.projectlombok:lombok'
+    compile 'org.springframework.boot:spring-boot-devtools'
+
+    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+    annotationProcessor 'org.projectlombok:lombok'
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
+    testImplementation 'io.projectreactor:reactor-test'
+    testImplementation 'org.springframework.kafka:spring-kafka-test'
+    testImplementation 'org.springframework.restdocs:spring-restdocs-mockmvc'
+}
+
+test {
+    outputs.dir snippetsDir
+    useJUnitPlatform()
+}
+
+asciidoctor {
+    inputs.dir snippetsDir
+    dependsOn test
+}

@@ -1,0 +1,12 @@
+NAVIGATE
+T0.PLMID, T1.PLMID, T2.logicalid, T2.physicalid, T2.majorid, T2.type 
+FROM
+DELFmiFunctionalModel/DELFmiFunctionInstance T0,
+PRODUCTCFG/VPMInstance T1,
+RelationClass/EBOM T2
+FROM_ROOTS [?1?]
+ON
+(
+RELATION(FROM= DELFmiFunctionalModel/DELFmiFunctionInstance TO= PRODUCTCFG/VPMInstance,RelationClass/EBOM THROUGH=POINTSTO) WITH QUALITY_FILTER (ROLE=PLM_ImplementLink_Target AND CATEGORY=Reference3)
+)
+ITER=1;

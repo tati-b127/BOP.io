@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2010, All rights reserved -->
+<Package  xmlns="PLMDictionaryTop"  Name="VPMExposedDataDisciplines"  UseScopes="PRODUCTCFG"  Uuid="9CE3ECDD-5EAF-480d-BA43-D7EFCC2CCE07"  ModelerType="Top"> 
+<Discipline Name="VPMExposedData"
+                Uuid="63746AC0-106F-4dcf-8754-7F0C5DCE4900"
+                CreationMode="Yes"
+                TypeNames="VPMRepReference">
+		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+</Discipline>
+<Discipline Name="VPMExposedDataInst"
+                Uuid="AEEF85A5-6A79-4fae-AA7F-710F53E32FFF"
+                CreationMode="Yes"
+                TypeNames="VPMRepInstance">
+		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+</Discipline>
+</Package>
+

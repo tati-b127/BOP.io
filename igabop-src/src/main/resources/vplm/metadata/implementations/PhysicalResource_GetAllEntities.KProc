@@ -1,0 +1,59 @@
+/*********************************************************************************************************************************/
+/* Export procedure for Physical Resource                                                                                        */
+/* --> Retrieves all agregated PLM objects (References, Ref Instances, Rep References, Rep Instances, Ports and Connections)     */
+/*********************************************************************************************************************************/
+#Prog PhysicalResource_GetAllEntities( iPLMIDSet : #In PLMIDSet, oPLMIDSet : #Out PLMIDSet ) : VoidType
+{
+	let PLMRouteSetProduct (PLMRouteSet)
+	let PLMRouteSetAcceptedPack (PLMRouteSet)
+	let PLMRouteSetPortCnx (PLMRouteSet)
+	let PLMRouteSetBehaviorLibraryReps (PLMRouteSet)
+	let PLMRouteSetRepLib (PLMRouteSet)
+
+	let PLMIDProductRep (PLMIDSet)		
+	let PLMIDSetA (PLMIDSet)		
+	let BehaviorLibraryReps (PLMIDSet)		
+	let PLMIDPortCnx (PLMIDSet)	
+	let PLMIDProduct (PLMIDSet)	
+	let PLMIDProductRef (PLMIDSet)	
+	let PLMIDAcceptedPackCnx (PLMIDSet)	
+	let PLMIDAcceptedPack (PLMIDSet)
+	let PLMIDProductRepRef (PLMIDSet)
+	let PLMIDRepLib (PLMIDSet)
+
+	let restrictedPLMIDSet (PLMIDSet)
+	restrictedPLMIDSet = Restrict( iPLMIDSet, "PRODUCTCFG/VPMReference")
+	
+	/* Retrieves all aggregated references and ref. instances */
+	PLMRouteSetProduct = ExecutePLMFunction("PRODUCTCFG", "ProductCfg_AddChildrenProduct", restrictedPLMIDSet)
+	PLMIDProduct = Ids(PLMRouteSetProduct,"all")
+	
+	/* Retrieves all aggregated representations (references / instances) */
+	PLMIDProductRef = Restrict(Ids(PLMRouteSetProduct), "PRODUCTCFG/VPMReference") + restrictedPLMIDSet
+	PLMIDProductRep = ExecutePLMProcedure("VPMEditor_GetAllRepresentations", PLMIDProductRef)
+	
+	/* Retrieves all aggregated connections for PRODUCTS and RESOURCES */
+	PLMRouteSetPortCnx = ExecutePLMFunction("DELPPRContextModel", "ENOPcx_PPRContext_addAllConnections", PLMIDProductRef)
+	PLMIDPortCnx = Ids(PLMRouteSetPortCnx,"all")
+
+	/* Retrieves all accepted packaging references */
+	PLMIDAcceptedPackCnx = Restrict(Ids(PLMRouteSetPortCnx), "DELRmiAcceptedPackagingCnx/DELRmiAcceptedPackagingCnx")
+	PLMRouteSetAcceptedPack = ExecutePLMFunction("DELPPRContextModel", "ENORsc_Resource_addAcceptedPackagings", PLMIDAcceptedPackCnx)
+	PLMIDAcceptedPack = Ids(PLMRouteSetAcceptedPack,"all")
+
+	/* Get all VPMRepReference Behavior and SimulationLogic */
+	PLMIDProductRepRef = Restrict(PLMIDProductRep, "PRODUCTCFG/VPMRepReference")
+	PLMRouteSetBehaviorLibraryReps = ExecutePLMFunction("DELPPRContextModel", "ENORsc_Resource_addBehaviorLibraryReps", PLMIDProductRepRef )
+	BehaviorLibraryReps = Restrict(Ids(PLMRouteSetBehaviorLibraryReps ,"all"), "CATSysBehaviorLibrary/CATSysBehaviorLibRepReference")
+
+	/* Get Behavior Lidraries */
+	PLMRouteSetRepLib = ExecutePLMFunction("CATSysBehaviorLibrary","CATSysBehaviorLibrary_GetRefLibFromRepLib",BehaviorLibraryReps)
+	PLMIDRepLib = Restrict(Ids(PLMRouteSetRepLib ,"all"), "CATSysBehaviorLibrary/CATSysBehaviorLibReference")
+
+	/* Export Behavior Libraries */
+	PLMIDSetA = ExecutePLMProcedure("SystemsBehavior_GetDependencies",PLMIDRepLib)
+
+	
+	/* Returns all PLMIds */
+	oPLMIDSet = iPLMIDSet + PLMIDProduct + PLMIDProductRep + PLMIDAcceptedPack + BehaviorLibraryReps + PLMIDRepLib + PLMIDPortCnx + PLMIDSetA
+}

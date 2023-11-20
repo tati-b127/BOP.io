@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!-- Edited with Visual Studio 2008 by DASSAULT SYSTEMES (DASSAULT SYSTEMES) -->
+<!-- ENOVIA DICTIONARY -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2010, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" Name="CATAsmPattern" CustomerExposition="Programmer" Uuid="74EFAFE6-0AA4-4624-9106-02D486546000" UseNames="PLMCORE"
+   >
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+  <Comment> Metadata historic :</Comment>
+  <Comment> Creation       11-10-2010 by JPD</Comment>
+  <Comment> Modification   11-27-2012 by EE4</Comment>
+  <!--PLM Assembly Pattern (derivation from PLMConnection)-->
+  <Class Name="CATAsmPatternConnection" Structured="Yes"  CarryStreams="Yes" Uuid="8E32429D-F089-47d3-8829-E7E7912835E3" SuperName="PLMConnection" CustomerExposition="Programmer" Abstract="No">
+    <!-- Simple -->
+    <Simple Name="V_AsmPatternUpdateStatus" Uuid="F1A4DE5F-4F0A-4ee7-AD76-224994292BC1" Type="Integer" Protection="External" CAAExposition="L0" DefaultValue="1">
+      <Property Name="RangeAsEnumName" Value="CATAsmPatternStatus"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="CATAsmPatternStatus_unknown;CATAsmPatternStatus_error;CATAsmPatternStatus_notsatisfied;CATAsmPatternStatus_satisfied"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+      </Range>
+    </Simple>
+    <!-- Knows creation context -->
+    <Simple Name="V_Context" Uuid="E496176A-B805-4060-B0FD-9054FC6BDA79" DefaultValue="" Protection="Internal" Type="String" MaxLength="32" MultiValuated="No"/>
+    <!--Icon definition-->
+    <Property Name="IconName" Value="I_AssemblyPattern"/>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+  <!-- PLMQL Functions: use for 3dxml export -->
+  <Function Name="CATAsmPattern_AddAllAsmPattern">
+    <Implementation Name="CATAsmPattern_AddAllAsmPattern" FileLocation="CATAsmPattern_AddAllAsmPattern.plmql" Language="PLMQL"/>
+    <Signature href="ENO_AsmPatternExportSignature"/>
+  </Function>
+  <Signature id="ENO_AsmPatternExportSignature">
+    <Parameter Name="InputIds" Direction="in" MultiValuated="Yes" DataType="PLMId"/>
+    <Parameter Name="OutputIds" Direction="out" MultiValuated="No" DataType="PLMRouteSet"/>
+  </Signature>
+</Package>
+
+
+

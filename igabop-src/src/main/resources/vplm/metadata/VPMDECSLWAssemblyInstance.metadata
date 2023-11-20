@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2004, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" Name="VPMDECSLWAssemblyInstance" CustomerExposition="Programmer"
+    Uuid="0acbe6ef-9b38-40d8-8f46-9234f2f5a6f4"
+    UseNames="VPMDECAssembly">
+
+  <Class Name="VPMDECSLWAssemblyInstance" Uuid="da03116a-9962-451e-9628-b79bfb10bbb5"  SuperName="VPMDECAssembly" CustomerExposition="Programmer">
+    <Property Name="IconName"   Value="I_DECAsmSW"/>
+    <Property Name="3DIconName" Value="DECAsmSW.cgr"/>
+    <!-- Behavior patterns: default values -->
+    <Property Name="LockUnlockAvailability" Value="No"/>
+    <Property Name="TransferOwnershipAvailability" Value="No"/>
+    
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+  
+</Package>

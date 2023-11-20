@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR DELMIA Production System Application -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2009, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" 
+         ModelerType="Top" 
+         Name="DELLmiProductionExecPickingOperation"
+	       Uuid="4718EF1C-F86C-419b-869D-DADCB0AC33B6"
+         BelongsToModeler="DELLmiProductionPlan"
+	       UseNames="DELLmiProductionOperationUPR"
+         CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>Execution Picking Operation. OBSOLETE. Not used in current applications </ShortRole>
+    <Role>This package describes the Execution Picking Operation model on top of DELLmiProductionOperationUPR</Role>
+  </CAAComment>
+
+  <Comment>last update 2018-01-23</Comment>
+
+  <Class Name="DELLmiExecPickingOperationReference"
+		     Uuid="40CB63D3-9567-498b-BD56-3CDA794B12F9"
+      	 Abstract="No"
+    	   SuperName="DELLmiOperationUPRReference"
+         CustomerExposition="Programmer"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         CreateInstName="DELLmiExecPickingOperationInstance"
+         Abbreviation="wpiop"
+         InstantiationOwnerTypes="DELLmiExecHeaderOperationReference;DELLmiExecGeneralSystemReference;DELLmiExecTransfoSystemReference;DELLmiExecGeneralOperationReference;DELLmiExecInterruptOperationReference;DELLmiWorkOrderReference"
+        >
+    <!-- we want only support InstantiationOwnerTypes="DELLmiWorkOrderReference"-->
+    <!-- we keep all for historical reasons"-->
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELLmiExecOpDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELLmiExecPickingOperationInstance"/>
+    <Property Name="IconName" Value="I_PPRSeqExecPicking"/>
+    <Property Name="3DIconName" Value="I_PPRSeqExecPicking.cgr"/>
+    <Property Name="Newable" Value="Insert_CAA"/>
+    <Property Name="Searchable" Value="Yes"/>
+
+    <CAAComment>
+      <ShortRole>Picking Operation Reference</ShortRole>
+      <Role>Picking Operation Reference.</Role>
+    </CAAComment>
+
+    <Simple Name="V_MaterialScrap" 
+            Uuid="6E245B0C-3483-4424-9791-8A99078B4AD2"
+	          Type="Double"
+	          DefaultValue="0.0"
+	          MultiValuated="No"
+	          Protection="Free"
+	          CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Defines the Scrap/Yield lost by the operation.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+	  <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+
+
+  </Class>
+
+  <RelationClass Name="DELLmiExecPickingOperationInstance"
+		     Uuid="8C74DC8E-9159-431e-A181-16BF3F8A97E2"
+		     Abstract="No"
+    		 SuperName="DELLmiOperationUPRInstance"
+         CustomerExposition="Programmer"
+         Specializable="Yes"
+         CustomerExtensible="Yes">
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELLmiExecOpDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELLmiExecPickingOperationInstance"/>
+    <CAAComment>
+      <ShortRole>Execution Picking Operation Instance</ShortRole>
+      <Role>Execution Picking Operation Instance. Specialization is not supported yet.</Role>
+    </CAAComment>
+
+    <Volatile Name="Reference" 
+              Uuid="4BE0F1A1-7439-46d4-8A60-AC9E0F73A4A9" 
+              Accessor="PLMModelerReferenceKweAttribute" 
+              TypeName="DELLmiExecPickingOperationReference" 
+              AccessMode="ReadOnly" />
+
+    <SubClause Name="to"   TargetName="DELLmiExecPickingOperationReference"/>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+<Method ImplementationType="None">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+
+
+  </RelationClass>
+
+</Package>

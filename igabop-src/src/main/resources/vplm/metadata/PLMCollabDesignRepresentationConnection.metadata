@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" Uuid="67bff3a5-7752-489c-99e00e6b9d54d5e4" CustomerExposition="Programmer" UseNames="PLMCORE" Name="PLMCollabDesignRepresentationConnection" >
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+  <Comment> First Delivery 04-08-2008 by VVO</Comment>
+  <!-- ***************************************** -->
+  <!-- CCD Project Elements -->
+  <!-- ***************************************** -->
+  <!-- ***************************************** -->
+  <!-- CCD connection Elements  - link to representation reference-->
+  <!-- ***************************************** -->
+  <Class Name="PLMCCDProjectDataConnection" Uuid="9c29287d-3262-4767-8693978df93e9b10" CustomerExposition="Programmer" SuperName="PLMConnection" Abstract="No" Specializable="No" CustomerExtensible="No">
+    <!--~~ RelationShip to the Representation reference of the project ~~-->
+    <Path Name="PLMCCDProjectDataLink" Uuid="a6cb3b9f-895b-4987-89a2047fb9f460ea"  MultiValuated="Yes" RoleName="PLMChgActionInput" Semantics="Reference2" Protection="Internal" Type="SemanticRelation" AdaptativeToMinor="No"		SynchroSensitivity="None"		RerouteOnEffectivityChange="No" />
+    <Property Name="Searchable"	Value="No"/>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+</Package>

@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY for HVAC Logical Model Group Connection-->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2012, all rights reserved -->
+<!-- Package -->
+<Package Name="PLMHVACLogicalGroupCnx" Uuid="5fd98f4f-9878-45c3-83ef-243626340fc1" xmlns="PLMDictionaryUnified" ModelerType="Top" BelongsToModeler="PLMHVACLogical" UseNames="LPABSTRACT" CustomerExposition="Programmer">
+  <CAAComment>
+		<ShortRole>PLM HVAC Logical Group Connection Package</ShortRole>
+		<Role>This package describes the PLM HVAC Logical model Group Connection under the top LPABSTRACT Modeler.</Role>
+	</CAAComment>
+	<Comment>Initial creation: ZTB JEC Nov 2012</Comment>
+	<!-- HVAC Logical Group Connection -->
+	<Class Name="HVAC_Logical_Group_Connection" Uuid="4cf471ad-3b5c-409c-bb20-b9fe4c93cb0f" SuperName="LPAbstractConnection" CustomerExposition="Programmer"  OwnerTypes="RFLVPMLogicalReference">
+    <!-- OwnerTypes="RFLVPMLogicalReference"  Integrate this line if you want to declare the aggregation constraint -->
+    <CAAComment>
+			<ShortRole>PLM HVAC Logical Group Connection</ShortRole>
+			<Role>PLM HVAC Logical Group Connection</Role>
+		</CAAComment>
+		<Simple Name="V_EquivalentDiameter" Type="String" Uuid="f0ab35a2-7320-4cf3-b212-60ed22a54719" MaxLength="100" Protection="External" CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" Value="CATHVACLogicalDuctLineController"/>
+    </Simple>
+		<Simple Name="V_Standard" Type="String" Uuid="e42ff2eb-7535-4929-8d4d-c0c1fbf5f68c" MaxLength="100" Protection="External" CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" Value="CATHVACLogicalDuctLineController"/>
+    </Simple>
+		<Simple Name="V_DuctSpecification" Type="String" Uuid="74499dcb-673a-43e0-a459-0c669d346e6a" MaxLength="100" Protection="External" CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" Value="CATHVACLogicalDuctLineController"/>
+    </Simple>
+		<Path Name="V_Group" Uuid="0004657b-e663-4f01-bc2b-951bccd0c9fe"  Semantics="Reference7"  RoleName="PLM_EnsGrouping_Group" MultiValuated="No"		Type="SemanticRelation" AdaptativeToMinor="No" SynchroSensitivity="Last"		RerouteOnEffectivityChange="No"  Orientation="Out"/>
+		<Path Name="V_Member" Uuid="171c5cfe-2f86-43ef-9522-82d456d71a38"  Semantics="Reference" RoleName="PLM_EnsGrouping_Member" MultiValuated="No"		Type="SemanticRelation" AdaptativeToMinor="No"		SynchroSensitivity="None"		RerouteOnEffectivityChange="No"/>
+		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+	</Class>
+	<!-- HVAC Line Connection Discipline -->
+	<Class Name="HVAC_Line_Cnx" Uuid="9d7541e9-2963-43f5-987e-1664ef868f31" SuperName="HVAC_Logical_Group_Connection" Discipline="Yes" CustomerExposition="Programmer">
+		<Property Name="TypeForDisciplineValuation" Value="HVAC_Line_Cnx"/>
+  </Class>
+	
+	<!--  Import/Export FUNCTIONS Declarations -->
+	<Function Name="PLMHVACLogicalGroupCnx_AddPleCnx">
+		<Implementation Name="PLMHVACLogicalGroupCnx_AddPleCnx" FileLocation="PLMHVACLogicalGroupCnx_AddPleCnx.plmql" Language="PLMQL"/>
+		<Signature href="PLMHVACGroupingFuncSignature"/>
+	</Function>
+	<Signature id="PLMHVACGroupingFuncSignature">
+		<Parameter Name="InputIds" Lower="0" Upper="-1" Direction="in" MultiValuated="Yes" DataType="PLMId"/>
+		<Parameter Name="OutputIds" Lower="0" Upper="-1" Direction="out" MultiValuated="No" DataType="PLMRouteSet"/>
+	</Signature>
+</Package>

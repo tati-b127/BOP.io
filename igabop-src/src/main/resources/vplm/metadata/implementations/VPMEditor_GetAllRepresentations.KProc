@@ -1,0 +1,160 @@
+#Prog VPMEditor_GetAllRepresentations (iPLMIDSet :  #In PLMIDSet,oPLMIDSet :  #Out PLMIDSet) : VoidType
+{
+
+let rsTmpRepRepInst(PLMRouteSet)
+let rsTmpPortsCnxPRep(PLMRouteSet)
+let rsDocs(PLMRouteSet)
+let rsPortsOnReps(PLMRouteSet)
+let rsDesignTable(PLMRouteSet)
+let rsFemRendering(PLMRouteSet)
+let rsTmpRulesets(PLMRouteSet)
+let rsRuleEntities(PLMRouteSet)
+let rsTmpARMRefAndRep(PLMRouteSet)
+let rsARM3DPartRepRef(PLMRouteSet)
+let rsXCADRepRepInst(PLMRouteSet)
+/* RI 548950 - rollback RI 558468
+let SetOfReqImplementedComponents(PLMRouteSet)
+*/
+let rsSPPConnection(PLMRouteSet)
+
+let idsInputRefs(PLMIDSet)
+let idsInputReps(PLMIDSet)
+let idsRepRepInst(PLMIDSet)
+let idsPortsCnxPRep(PLMIDSet)
+let idsMat(PLMIDSet)
+let idsLayout(PLMIDSet)
+let idsTmpDocCnx(PLMIDSet)
+let idsTmpAllReps(PLMIDSet)
+let idsTmpRulesets(PLMIDSet)
+let idsARMRefAndRep(PLMIDSet)
+let idsTmpARMRef(PLMIDSet)
+let idsConfig(PLMIDSet)
+let idsXCADComposition(PLMIDSet)
+let idsXCADDependencies(PLMIDSet)
+
+/* RI 548950 - rollback RI 558468
+let SetOfImplementReqSpecIds(PLMIDSet)
+let SetOfAllReqSpecObjects(PLMIDSet)
+let idsInputForReqSpec(PLMIDSet)
+*/
+
+
+/*              */
+/* Filter Input */ 
+/*              */
+
+idsInputRefs = Restrict(iPLMIDSet, "PRODUCTCFG/VPMReference")
+idsInputReps = Restrict(iPLMIDSet, "PRODUCTCFG/VPMRepReference")
+
+/*           */
+/* Enrich Ref with XCAD */ 
+/*                      */
+idsXCADComposition =  ExecutePLMProcedure("XCAD_CompleteItems", idsInputRefs)
+idsInputRefs = idsInputRefs + Restrict(idsXCADComposition, "PRODUCTCFG/VPMReference")
+
+/*                              */
+/* Enrich Rep with XCAD Non PS  */ 
+/*                              */ 
+idsXCADDependencies =  ExecutePLMProcedure("XCAD_CompleteNonPS", idsInputRefs)
+idsInputRefs = idsInputRefs + Restrict(idsXCADDependencies, "PRODUCTCFG/VPMReference")
+
+
+/*           */
+/* Ref stuff */ 
+/*           */
+
+/* Complete with VPMRepresentation */
+rsTmpRepRepInst = ExecutePLMFunction("PRODUCTCFG", "ProductCfg_ExpandVPMRefToVPMRep", idsInputRefs)
+idsRepRepInst = Ids(rsTmpRepRepInst)
+
+/* Complete with Ports and Connections (including applicative connections - not materials) and PrivateReps */
+rsTmpPortsCnxPRep = ExecutePLMFunction("PRODUCTCFG", "ProductCfg_ExpandVPMRefToPRepVPMPortAppCnx", idsInputRefs)
+idsPortsCnxPRep = Ids(rsTmpPortsCnxPRep)
+
+/* Complete with XCADRepRepInsts */
+rsXCADRepRepInst = ExecutePLMFunction("XCADAssembly", "XcadAssembly_ExpandVPMRefToXCADRepRepInst", idsInputRefs)
+
+
+/* Completes with Material procedure */
+idsMat = ExecutePLMProcedure("MatAppliedExportDesign", idsInputRefs)
+
+/* Call DifPresentation proc (Layout Modelers)*/
+idsLayout = ExecutePLMProcedure("DIFModeler_GetAttachedPresentations", idsInputRefs)
+
+/*                */
+/* Post Cnx stuff */ 
+/*                */
+
+/* Completes with Documents pointed by PLMDocConnection */
+idsTmpDocCnx = Restrict(idsPortsCnxPRep, "PLMDocConnection/PLMDocConnection") 
+rsDocs = ExecutePLMFunction("PLMDocConnection", "PLMDocConnection_NavDocCnxToDoc", idsTmpDocCnx)
+
+/*                */
+/* Post Rep stuff */ 
+/*                */
+
+idsTmpAllReps = idsInputReps + Restrict(idsRepRepInst, "PRODUCTCFG/VPMRepReference")
+
+/* Complete with Ports on Reps */
+rsPortsOnReps = ExecutePLMFunction("PRODUCTCFG", "ProductCfg_AddVPMPorts", idsTmpAllReps)
+
+/* Completes with PointedDesignTable (Reps/Docs) */
+rsDesignTable = ExecutePLMFunction("PLMKnowledgewareDiscipline", "KwaDiscipline_AddPointedDesignTable", idsTmpAllReps)
+
+/* Completes with PLMDMTDocument pointed by a FEM Rep or Rendering Rep */
+rsFemRendering = ExecutePLMFunction("PRODUCTCFG", "ProductCfg_NavVPMRepToFemAndRenderingDoc", idsTmpAllReps)
+
+/* Get imported rulesets and then entities (ruleset not in output) */
+rsTmpRulesets = ExecutePLMFunction("PLMKnowHowRuleSet", "kwe_navigate_ruleset", idsTmpAllReps)
+idsTmpRulesets = Restrict(Ids(rsTmpRulesets), "PLMKnowHowRuleSet/PLMRuleSet")
+rsRuleEntities = ExecutePLMFunction("PLMKnowHowRuleSet", "kwe_expand_rules", idsTmpRulesets)
+
+/* Get Core Refs and RepRefs pointed thru ARM link(s) */
+rsTmpARMRefAndRep = ExecutePLMFunction("PLMKnowledgewareDiscipline", "KWA_NavVPMRepToARMRefAndRep", idsTmpAllReps)
+idsARMRefAndRep = Ids(rsTmpARMRefAndRep)
+
+/* Get 3D Part representation to avoid integrity issues */
+idsTmpARMRef = Restrict(idsARMRefAndRep, "PRODUCTCFG/VPMReference")
+rsARM3DPartRepRef = ExecutePLMFunction("PRODUCTCFG", "ProductCfg_Add3DPartRepresentation", idsTmpARMRef)
+
+/*        */
+/* Config */ 
+/*        */
+
+/* Complete with configuration */
+idsConfig = ExecutePLMProcedure("Config_GetStructConfig", iPLMIDSet)
+
+/*                                       */
+/* Requirement Specifications completion */ 
+/*                                       */
+
+/* Navigate on Implement Links related to Req domain*/
+/* RI 548950 - add restrict RI 558468 */
+/*SetOfReqImplementedComponents = ExecutePLMFunction("RFLPLMImplementConnection","RFLPLMImplementConnection_AddAllReqImplementedComponents",iPLMIDSet)*/
+/* RI 548950 - rollback RI 558468
+idsInputForReqSpec = Restrict(iPLMIDSet, "FTARequirement/FTARootRequirementCnx")
+SetOfReqImplementedComponents = ExecutePLMFunction("RFLPLMImplementConnection","RFLPLMImplementConnection_AddAllReqImplementedComponents",idsInputForReqSpec)
+*/
+
+/* Call completion procedure on Requirement Specifications */
+/* RI 548950 - rollback RI 558468
+SetOfImplementReqSpecIds = Restrict(Ids(SetOfReqImplementedComponents), "Class/Requirement Specification")
+SetOfAllReqSpecObjects = ExecutePLMProcedure("Rmt_ReqSpec_ExportCompletion", SetOfImplementReqSpecIds)
+*/
+
+/*        */
+/* Output */ 
+/*        */
+/* RI 548950 - rollback RI 558468
+oPLMIDSet = iPLMIDSet + idsRepRepInst + idsPortsCnxPRep + Ids(rsXCADRepRepInst) + idsMat + idsLayout + Ids(rsDocs) + Ids(rsPortsOnReps) + Ids(rsDesignTable)
+          + Ids(rsFemRendering) + Ids(rsRuleEntities) + idsARMRefAndRep + Ids(rsARM3DPartRepRef) + idsConfig + SetOfAllReqSpecObjects
+*/
+
+/* Complete with SPPConnection for Space Allocation/Space Usage Apps (resp: USV/TL9) */
+rsSPPConnection = ExecutePLMFunction("PLMSpacePlanning", "SPPConnection_addAllSPPConnection", idsInputRefs)
+
+oPLMIDSet = iPLMIDSet + idsRepRepInst + idsPortsCnxPRep + Ids(rsXCADRepRepInst) + idsMat + idsLayout + Ids(rsDocs) + Ids(rsPortsOnReps) + Ids(rsDesignTable)
+          + Ids(rsFemRendering) + Ids(rsRuleEntities) + idsARMRefAndRep + Ids(rsARM3DPartRepRef) + Ids(rsSPPConnection) + idsConfig + idsXCADDependencies + idsXCADComposition
+
+}
+

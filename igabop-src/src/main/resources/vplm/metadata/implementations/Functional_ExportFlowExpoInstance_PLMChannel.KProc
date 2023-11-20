@@ -1,0 +1,12 @@
+#Prog Functional_ExportFlowExpoInstance_PLMChannel ( iPLMIDSet : #In PLMIDSet, oPLMIDSet : #Out PLMIDSet ) : VoidType
+{
+  let SetOfPLMRoutesForFctContracts(PLMRouteSet)
+  
+  let InputPLMIDSetRestricted(PLMIDSet)
+  InputPLMIDSetRestricted = Restrict(iPLMIDSet, "RFLPLMFlowExposition/RFLPLMFlowExpositionInstance")
+
+  /* Add all referenced Functional Contracts */
+  SetOfPLMRoutesForFctContracts = ExecutePLMFunction("RFLPLMFlowExposition", "RFLPLMFunctional_AddFctContracts", InputPLMIDSetRestricted)
+
+  oPLMIDSet = iPLMIDSet + Ids(SetOfPLMRoutesForFctContracts)
+}

@@ -1,0 +1,15 @@
+NAVIGATE      T0.PLM_ExternalID, T1.PLM_ExternalID ,T2.PLM_ExternalID , T0.PLMID, T1.PLMID ,T2.PLMID
+
+FROM     CATMaterialRef/CATMatReference T0,     CATMaterialRef/MaterialDomainInstance T1,     CATMaterialRef/MaterialDomain T2
+
+FROM_ROOTS[?1?]
+ON 
+  RELATION 
+    (FROM=CATMaterialRef/CATMatReference TO=CATMaterialRef/MaterialDomainInstance THROUGH=POINTEDBY)
+    WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY)
+  
+  THEN 
+  RELATION 
+		(FROM=CATMaterialRef/MaterialDomainInstance TO=CATMaterialRef/MaterialDomain THROUGH=POINTSTO)
+		WITH QUALITY_FILTER (CATEGORY=ISINSTANCEOF)
+;

@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<ProcedurePackage 
+	xmlns="PLMDictionaryProcedure"
+	Name="Distiller_Procedures">
+			
+	<Procedure Name="CATDistillerDiscipline_GetRepresentationsForReview">
+		<Implementation Name="CATDistillerDiscipline_GetRepresentationsForReview" FileLocation="CATDistillerDiscipline_GetRepresentationsForReview.KProc" Language="EKL"/>
+		<Signature href="Distiller_ProcedureSignatureExport"/>
+	</Procedure>
+	
+	<Procedure Name="CATDistillerDiscipline_GetAllRepresentations">
+		<Implementation Name="CATDistillerDiscipline_GetAllRepresentations" FileLocation="CATDistillerDiscipline_GetAllRepresentations.KProc" Language="EKL"/>
+		<Signature href="Distiller_ProcedureSignatureExport"/>
+	</Procedure>
+
+	<Signature id="Distiller_ProcedureSignatureExport">
+		<Parameter Name="InParameter" Lower="0" Upper="-1" MultiValuated="Yes" Direction="in" DataType="PLMId"/>
+		<Parameter Name="OutParameter" Lower="0" Upper="-1" MultiValuated="Yes" Direction="out" DataType="PLMId"/>
+	</Signature>
+	
+</ProcedurePackage>
+

@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY for Electrical Logical Editor, defining Electrical connection -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2010, all rights reserved -->
+
+<!-- 
+   =========
+    Package
+   =========
+   xmlns :           Type of model defined. "PLMDictionaryTop", "PLMDictionaryAbstract", "Core", "Custo".
+   ModelerType :     Type of model defined. "Top", "Abstract", "Core", "Custo".  
+   Alias :           Other name for the object. To be removed.
+   UseNames :        Other dictionaries required to define class derivation or extension.
+   UseScopes :       Other dictionaries required to define relationships between entities.
+   ExpositionLevel : "CAA" for all RFLVPM dictonaries, none for FluidSystemsLogical.
+-->
+
+   <Package Name="PLMElectricalLogicalConnection"
+      Uuid="1bed6e18-bdce-45ef-9101-7716a1e510ee"
+      xmlns="PLMDictionaryUnified"
+      ModelerType="Top"
+      BelongsToModeler="PLMElectricalLogical"
+      UseNames="LPABSTRACT"
+      CustomerExposition="None" >
+
+     <CAAComment>
+         <ShortRole>Electrical Logical Connection Package</ShortRole>
+         <Role>This package describes the PLM Electrical Logical model of Electrical connections on top of RFLVPMLogical Modeler.</Role>
+      </CAAComment>
+      <Comment>Initial creation : LOK JRI 2010-06-03</Comment>
+     <Comment>Creation mode to "Yes" for electrical connections in V6R2012x: ZTB Jun 2011</Comment>
+     <Comment>Deprecated disciplines: CustomerExposition from "Programmer" to "None" in V6R2012x: ZTB Jul 2011</Comment>
+	 <Comment>[V6R2013x] New Typing project: ZTB Apr 2012</Comment>
+
+
+<!-- 
+   ============================================
+    Electrical Logical Connection (connection)
+   ============================================
+-->
+      
+      <Class Name="PLMElecLogicalConnection"
+         Uuid="c4923032-af8b-4776-8484-95a662312947"
+         SuperName="LPAbstractConnection"
+         Abstract="No"   OwnerTypes="RFLVPMLogicalReference"
+         CustomerExposition="None" >
+        <!-- OwnerTypes="RFLVPMLogicalReference"  Integrate this line if you want to declare the aggregation constraint -->
+
+        <Simple Name="V_Elec_SubType"
+            Uuid="cf422805-5458-488a-8003-d0bfb4c40cbb"
+            Type="String"
+            MaxLength="40"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0" />
+
+        <Path Name="V_Elec_Connected"
+            Uuid="e03f504b-0bfa-43fc-9254-75f387ab7367"
+            RoleName="PLM_ElectricalLogical_To"
+            Semantics="Reference"
+            MultiValuated="Yes"		
+            Type="SemanticRelation" AdaptativeToMinor="No"
+		        SynchroSensitivity="None"
+		        RerouteOnEffectivityChange="No"
+            Lower="0"
+            Upper="-1" />
+	     <Method ImplementationType="None">
+   	        <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+         </Method>
+      </Class>
+
+	   <Class Name="EleLogicalConnection"
+			Uuid="d74485ae-69e1-4386-a83c-07a506f81925"
+			CustomerExposition="None"
+			SuperName="PLMElecLogicalConnection"
+			Discipline="Yes">
+	   </Class>
+</Package>

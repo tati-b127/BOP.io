@@ -1,0 +1,42 @@
+<?xml version="1.0" ?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2004, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" 
+    ModelerType="Top" 
+    BelongsToModeler="PRODUCT" 
+    Name="PLMPrdShellExtension"
+    Uuid="EAD20E7C-7B06-4eb7-8531-FCF6731C7117"
+    UseNames="PRODUCTCFG"
+    CustomerExposition="Programmer">
+    <!-- Alias="PLMExtension for Shell Products identification" -->
+
+    <CAAComment>
+        <Role>Extension dedicated to the Shell Products identification</Role>
+    </CAAComment>
+
+    <Extension Name="PLMPrdShellExt"
+        Uuid="05014CA8-36D3-465c-8970-3D03EE119B05"
+        ScopeNames="VPMReference"
+        CAAExposition="L0"
+        CustomerExposition="Programmer">
+        
+        <Simple Name="V_IsAShell"
+            Uuid="13A307A7-CBF0-4ba6-943D-45573273B4DF"
+            Type="Boolean"
+            MultiValuated="No"
+            DefaultValue="false"
+            Protection="External"
+            CAAExposition="L0">
+            
+            <CAAComment>
+                <ShortRole>Shell Product identification</ShortRole>
+            </CAAComment>
+            
+        </Simple>
+        
+    </Extension>
+
+</Package>
+ 

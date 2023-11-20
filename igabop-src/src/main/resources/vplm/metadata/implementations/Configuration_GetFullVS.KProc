@@ -1,0 +1,37 @@
+#Prog Configuration_GetFullVS( iPLMIDSet : #In PLMIDSet, oPLMIDSet : #Out PLMIDSet ) : VoidType
+{
+
+let PLMIDSetVS (PLMIDSet)
+let PLMIDSetVSContent (PLMIDSet)
+let PLMIDSetModel (PLMIDSet)
+
+let PLMRouteSetVSContent (PLMRouteSet)
+let PLMRouteSetVSModelAssociation (PLMRouteSet)
+let PLMRouteSetModelContent (PLMRouteSet)
+let PLMRouteSetVSContentProjections (PLMRouteSet)
+
+
+/* Completes with the full content of the Variability-Space */
+
+PLMIDSetVS = Restrict(iPLMIDSet, "PLMConfigVariabilitySpace/PLMCfgVariabilitySpace")
+PLMRouteSetVSContent = ExecutePLMFunction("PLMConfigVariabilitySpace", "PLMConfigVariabilitySpace_AddVariabilitySpaceFullContent", PLMIDSetVS)
+
+
+/* Completes with the associated Models content  */
+
+PLMRouteSetVSModelAssociation = ExecutePLMFunction("PLMConfigVariabilitySpace", "PLMConfigVariabilitySpace_AddVariabilitySpaceModel", PLMIDSetVS)
+PLMIDSetModel = Restrict(Ids(PLMRouteSetVSModelAssociation), "Class/Model")
+PLMRouteSetModelContent = ExecutePLMFunction("Product", "Product_AddCriteriaFromModel", PLMIDSetModel)
+
+
+/* Completes with the projections from Model to Variability-Space */
+
+PLMIDSetVSContent = Ids(PLMRouteSetVSContent)
+PLMRouteSetVSContentProjections = ExecutePLMFunction("PLMConfigVariabilitySpace", "PLMConfigVariabilitySpace_AddVariabilitySpaceContentProjections", PLMIDSetVSContent)
+
+
+/* Fill output ID set */
+
+oPLMIDSet = iPLMIDSet + PLMIDSetVSContent + Ids(PLMRouteSetVSModelAssociation) + Ids(PLMRouteSetModelContent) + Ids(PLMRouteSetVSContentProjections) 
+
+}

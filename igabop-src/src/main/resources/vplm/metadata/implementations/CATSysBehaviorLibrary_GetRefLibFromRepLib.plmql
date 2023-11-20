@@ -1,0 +1,9 @@
+NAVIGATE T0.PLM_ExternalID,T1.PLM_ExternalID,T2.PLM_ExternalID,T0.PLMID,T1.PLMID,T2.PLMID
+FROM CATSysBehaviorLibrary/CATSysBehaviorLibRepReference T0,CATSysBehaviorLibrary/CATSysBehaviorLibRepInstance T1,CATSysBehaviorLibrary/CATSysBehaviorLibReference T2
+FROM_ROOTS[?1?]
+ON (RELATION(FROM=CATSysBehaviorLibrary/CATSysBehaviorLibRepReference TO=CATSysBehaviorLibrary/CATSysBehaviorLibRepInstance THROUGH=POINTEDBY)
+WITH QUALITY_FILTER(CATEGORY=IsInstanceOf))
+THEN (RELATION(FROM=CATSysBehaviorLibrary/CATSysBehaviorLibRepInstance TO=CATSysBehaviorLibrary/CATSysBehaviorLibReference THROUGH=POINTSTO)
+WITH QUALITY_FILTER(CATEGORY=IsOwnedBy))
+WITH ATTRIBUTE_FILTER T2.V_ComponentType=''
+ITER=1;

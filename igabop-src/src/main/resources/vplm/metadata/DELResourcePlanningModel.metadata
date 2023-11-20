@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2004, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified"
+         ModelerType="Top"
+         Name="DELResourcePlanningModel"
+         Uuid="0BD497A3-5B96-4221-89BE-2DBA6A52F49E"
+         UseNames="PRODUCTCFG"
+         CustomerExposition="None">
+  <CAAComment>
+    <ShortRole>Resource Planning Package</ShortRole>
+    <Role>This package includes all the base entities of Resource Planning</Role>
+  </CAAComment>
+  <Comment>Resource Planning Message Catalog</Comment>
+
+  <!-- * PLMDELResPlanningPremisesTyping (VPMReference) * -->
+  <!-- ************************************************** -->
+  <Extension Name="PLMDELResPlanningPremisesTyping"
+             Uuid="8104333F-CF08-45ad-A9C3-24AC1B2F7212"
+             ScopeNames="VPMReference"
+		         Specializable="No"
+             CustomerExposition="None">
+
+    <CAAComment>
+      <ShortRole>Resource Premises Typing Extension for Organizational Resource, Worker or Robot</ShortRole>
+      <Role>This extension defines OrganizationalResource/Worker/Robot characteristics, notably its premises attributes</Role>
+    </CAAComment>
+
+    <Simple Name="V_GoalNumberOfPointFasteners"
+            Uuid="C6827BBE-779E-4b79-B43B-AE241D711939"
+            Type="Integer"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0">
+
+      <CAAComment>
+        <ShortRole>Defines the Target for Number of Point Fasteners of a Resource with Type Organizational/Worker/Robot.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_GoalLengthOfCurveFasteners"
+            Uuid="FE102EA5-8958-481c-B074-A2F780C7472B"
+            Type="Double"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0">
+
+      <CAAComment>
+        <ShortRole>Defines the Target for Number of Curve Fasteners for a Resource with Type Organizational/Worker/Robot.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_TimePerFastener"
+            Uuid="4CB57A65-FEBB-4e8b-969D-4CC3C4B0E498"
+            Type="Double"
+            MultiValuated="No"
+            Magnitude="TIME"
+            Protection="Free"
+            CAAExposition="L0">
+
+      <CAAComment>
+        <ShortRole>Defines the Time consumed per Welding Activity</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_CurveFasteningRate"
+            Uuid="A04EB7B8-8232-41e3-B185-EE4193A7F051"
+            Type="Double"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0">
+
+      <CAAComment>
+        <ShortRole>Defines the Curve Fastening Rate</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_ResourceNoOfMulticycles" 
+            Uuid="AAAD646B-B4CA-4924-9B82-904AA154E086"
+            Type="Integer"
+            MultiValuated="No" 
+            Protection="Free" CAAExposition="L0">
+      
+      <CAAComment>
+        <ShortRole>Defines the number of multi-cycles that a workplace is capable of.</ShortRole>
+      </CAAComment>
+    </Simple>
+  </Extension>
+</Package>

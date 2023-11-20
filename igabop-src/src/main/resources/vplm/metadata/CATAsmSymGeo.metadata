@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<!-- Edited with Visual Studio 2005 by DASSAULT SYSTEMES (DASSAULT SYSTEMES) -->
+<!-- ENOVIA DICTIONARY -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2007, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" CustomerExposition="Programmer" Name="CATAsmSymGeo" Uuid="37A506D0-FF33-4e3e-9F501F86BAAD0DFE" UseNames="CATAsmSymAbstract" >
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+  <Comment> Metadata historic :</Comment>
+  <Comment> Creation       18-07-2007 by YFZ</Comment>
+  <Comment> Modification   02-10-2008 by CRX</Comment>
+  <Comment> Modification   02-09-2009 by CRX</Comment>
+  <Comment> Modification   17-11-2009 by WEZ</Comment>
+  <Comment> Modification   04-16-2012 by EWN</Comment>
+  <Comment> Modification   11-27-2012 by EE4</Comment>
+  <Comment> Modification   22-06-2017 by EE4</Comment>
+  <!--PLM Symmetry (derivation from PLMConnection)-->
+  <Class Name="CATAsmSymmetryGeo" Uuid="1CE33ED0-E63F-49c3-B6F765CF9768CEF4" CustomerExposition="Programmer" SuperName="AsmSymDiscipline" Abstract="No">
+    <!-- Simple -->
+    <!-- Permet de stocker le nom de la connection -->
+    <Simple Name="V_SymGeoName" Uuid="DCF07730-4474-415e-96D77D9BBC53B5F7" DefaultValue="" Protection="Internal" Type="String" MaxLength="80" MultiValuated="No"/>
+    <!-- Permet de stocker l'enum qui represente le plan de symetrie Cf Enum DefPlane-->
+    <Simple Name="V_DefPlane" Uuid="87FDA4D3-7795-442c-814A01B3A5AFC51F" Type="Integer" Protection="Internal" DefaultValue="3">
+      <Property Name="RangeAsEnumName" Value="DefPlane"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="ExternalPlane;XYPlane;YZPlane;ZXPlane"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+      </Range>
+    </Simple>
+    <!-- Permet de savoir si la reference a ete cree avec l'option associativite en struct-->
+    <Simple Name="V_IsStructureAssociativity" Uuid="3E6052AB-F582-4a8f-8DA2A3A94B5896CF" DefaultValue="false" Protection="Internal" Type="Boolean" MultiValuated="No"/>
+    <!-- Permet de stocker un contexte de creation -->
+    <Simple Name="V_Context" Uuid="0026C03B-5BD9-45CE-A2A1-248B67AB88D3" DefaultValue="" Protection="Internal" Type="String" MaxLength="32" MultiValuated="No"/>
+    <!--Icon definition-->
+    <Property Name="IconName" Value="I_SymGeomCtion"/>
+    <!-- Path -->
+    <Path Name="V_ProductRef" Uuid="F9221719-C681-47f0-BF7D-79A0E50DF1EF"  MultiValuated="No" RoleName="AsmSym_ProductRef"      Semantics="Reference2" Protection="Internal" Type="SemanticRelation" AdaptativeToMinor="Yes"		SynchroSensitivity="None"		RerouteOnEffectivityChange="No"/>
+    <Path Name="V_ProductSym" Uuid="2DBF37E7-5CFF-4174-9E91-6160DD396307"  MultiValuated="No" RoleName="AsmSym_ProductSym"      Semantics="Reference2" Protection="Internal" Type="SemanticRelation" AdaptativeToMinor="Yes" 		SynchroSensitivity="None" 		RerouteOnEffectivityChange="No"/>
+    <Path Name="V_SymPlane"   Uuid="BE951714-D6E7-440f-9EA5-641F16F9DF41"  MultiValuated="No" RoleName="AsmSym_PlaneImpactedIn" Semantics="Reference3" Type="SemanticRelation" AdaptativeToMinor="No"		SynchroSensitivity="PathAndLast"		RerouteOnEffectivityChange="No" Orientation="In"/>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+  </Class>
+
+  <!-- FUNCTIONS Declarations : here are declared PLMQL Functions -->
+  <Function Name="CATAsmSymObj_AddAllSymObj">
+    <Implementation Name="CATAsmSymObj_AddAllSymObj" FileLocation="CATAsmSymObj_AddAllSymObj.plmql" Language="PLMQL"/>
+    <Signature href="ENO_SymGeoExportSignature"/>
+  </Function>
+  <Signature id="ENO_SymGeoExportSignature">
+    <Parameter Name="InputIds" Direction="in" MultiValuated="Yes" DataType="PLMId"/>
+    <Parameter Name="OutputIds" Direction="out" MultiValuated="No" DataType="PLMRouteSet"/>
+  </Signature>
+
+</Package>
+

@@ -1,0 +1,12 @@
+NAVIGATE 
+    T0.PLM_ExternalID, T1.PLM_ExternalID, 
+    T0.PLMID, T1.PLMID    
+FROM 
+    PLMEnsSpecCnxLogicalToSpecBase/EnsSpecCnxLogicalToSpecBase T0, PLMEnsSpecSpecification/EnsSpecification T1    
+FROM_ROOTS [?1?]
+
+ON RELATION(FROM=RFLVPMLogical/RFLVPMLogicalReference TO=PLMEnsSpecCnxLogicalToSpecBase/EnsSpecCnxLogicalToSpecBase THROUGH=POINTEDBY) WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY) 
+THEN RELATION(FROM=PLMEnsSpecCnxLogicalToSpecBase/EnsSpecCnxLogicalToSpecBase TO=PLMEnsSpecSpecification/EnsSpecification THROUGH=POINTSTO) WITH QUALITY_FILTER (CATEGORY=Reference)
+ITER=1
+;
+

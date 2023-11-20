@@ -1,0 +1,19 @@
+NAVIGATE   
+T0.PLM_ExternalID, T1.PLM_ExternalID,
+T0.PLMID, T1.PLMID 
+
+FROM 
+PLMWspSpecFilter/PLMWspSpecPVS T0, PRODUCTCFG/VPMReference T1
+
+FROM_ROOTS[?1?]
+ON 	
+   (
+   RELATION
+        (
+		FROM=PRODUCTCFG/VPMReference 
+		TO=PLMWspSpecFilter/PLMWspSpecPVS 
+		THROUGH=POINTEDBY
+		)
+ 	WITH QUALITY_FILTER	( CATEGORY=ISOWNEDBY ) 	
+	)
+; 

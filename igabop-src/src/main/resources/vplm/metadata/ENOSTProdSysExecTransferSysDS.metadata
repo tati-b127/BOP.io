@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2009, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" Name="ENOSTProdSysExecTransferSysDS" Uuid="d286fbe3-968a-4e8c-a2d3-9801d8083274" UseNames="DELLmiProductionExecTransferSystem" >
+	<CAAComment>
+		<ShortRole>PLM Customization of DELMIA Execution Transfer System for SMB</ShortRole>
+		<Role>PLM Customization of DELMIA Execution Transfer System for SMB</Role>
+	</CAAComment>
+	<Comment>last update 2008-05-29</Comment>
+
+	<Class Name="ENOSTExecTransferSysRefCusto" Uuid="d6b2db70-b616-4a62-8789-5fd7027e0127" SuperName="DELLmiExecTransferSystemReference" SuperRef="f3d8697b-6761-40ad-bacb-a8a8d8ba34ee"  >
+
+    <Simple Name="E_fromExternalId"
+            Uuid="2559bcb7-c3a1-4451-a81d-4325cd87d84d"
+            Alias="Definition"
+            Type="String"
+            MaxLength="256"
+            Mandatory="No"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"/>
+    <Simple Name="E_versionComment"
+            Uuid="e0163496-9fa1-4f65-b458-7e45c22906d2"
+            Alias="Version Comment"
+            Type="String"
+            MaxLength="256"
+            Mandatory="No"
+            MultiValuated="No"
+            Protection="Free"
+            ResetOnNewVersion="Yes"
+            ResetOnCloning="Yes"
+            CAAExposition="L0"/>
+    <IdentifierSet Name="E_identifier"
+                   Uuid="e3890021-9863-4b88-a4c4-3894d63ab80d"
+                   IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755"
+                   IdentifierNames="PLM_ExternalID V_version"/>
+
+    <CAAComment>
+			<ShortRole>PLM Customization of DELMIA Execution Transfer System Reference for SMB</ShortRole>
+			<Role>PLM Customization of DELMIA Execution Transfer System Reference for SMB</Role>
+		</CAAComment>
+	</Class>
+
+  <RelationClass Name="ENOSTExecTransferSysInstCusto" Uuid="15ae8906-2daa-4b5c-b702-e7557f0de0ce" SuperName="DELLmiExecTransferSystemInstance" SuperRef="cdfb66fc-3cc4-4249-97ce-8f8f832c3537"  >
+		<CAAComment>
+			<ShortRole>PLM Customization of DELMIA Execution Transfer System Instance for SMB</ShortRole>
+			<Role>PLM Customization of DELMIA Execution Transfer System Instance for SMB</Role>
+		</CAAComment>		
+            <!-- ********************************************************* -->
+            <!-- * Overload(s) of PLMCoreInstance attributes. -->
+            <!-- ********************************************************* -->
+    <SubClause Name="to"   TargetName="ENOSTExecTransferSysRefCusto"/>
+	</RelationClass>
+
+</Package>

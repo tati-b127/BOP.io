@@ -1,0 +1,15 @@
+NAVIGATE
+	T0.PLM_ExternalID,
+	T0.PLMID,
+	T1.PLM_ExternalID,
+	T1.PLMID 
+FROM
+	PLMCORE/PLMCoreReference T0,
+	VPMCfgConfiguration/VPMCfgConfiguration T1
+FROM_ROOTS [?1?]
+ON ( RELATION(
+	FROM=VPMCfgConfiguration/VPMCfgConfiguration
+	TO=PLMCORE/PLMCoreReference
+	THROUGH=POINTSTO)
+WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY))
+;

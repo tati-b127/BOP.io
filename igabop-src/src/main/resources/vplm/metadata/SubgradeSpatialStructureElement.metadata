@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2012, All rights reserved -->
+
+<Package CustomerExposition = "Programmer" ModelerType = "Top" Name = "SubgradeSpatialStructureElement" UseNames = "CivilEngineeringSpatialStructureElement" Uuid = "B311E534-F5B2-4AB1-BBC2-FEE6FDC59102" xmlns = "PLMDictionaryUnified">
+  <Class Abbreviation = "sub" CustomerExposition = "Programmer" Discipline = "Yes" Name = "Subgrade" SuperName = "SubgradeSpatialStructureElement" Uuid = "481FF362-1FA7-4A17-A618-B2BD0371C9E3">
+    <Property Name = "IconName" Value = "I_Subgrade"/>
+    <Property Name = "3DIconName" Value = "I_Subgrade.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATEAECDelegateInstanciation"/>
+    <Property Name = "KweNew_ReturnedType" Value = "VPMInstance"/>
+    <Property Name = "Newable" Value = "All_Offline_CAA"/>
+    <Property Name = "InstantiationOwnerTypes" Value = "PPRContext;AecOtherSpatialStructureElement;AecSite;Dam;DamOtherSpatialStructureElement;Railway;RailwayOtherSpatialStructureElement;RailwayStretch;RailwaySwitch;Road;RoadInterchange;RoadOtherSpatialStructureElement;RoadRamp;RoadStretch;Subgrade;SubgradeOtherSpatialStructureElement"/>
+    <Property Name = "3DPartAvailability" Value = "UserChoiceReferenceDefault"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "SubgradeOtherSpatialStructureElement" Specializable = "Yes" SuperName = "SubgradePart" Uuid = "3F98FA13-E8C9-447C-AEE7-CF5A8D8C586D">
+    <Property Name = "IconName" Value = "I_SubgradeOtherSpatialStructureElement"/>
+    <Property Name = "3DIconName" Value = "I_SubgradeOtherSpatialStructureElement.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATEAECDelegateInstanciation"/>
+    <Property Name = "KweNew_ReturnedType" Value = "VPMInstance"/>
+    <Property Name = "Newable" Value = "All_Offline_CAA"/>
+    <Property Name = "InstantiationOwnerTypes" Value = "PPRContext;AecOtherSpatialStructureElement;AecSite;Dam;DamOtherSpatialStructureElement;Subgrade;SubgradeOtherSpatialStructureElement;SubgradeRetainingStructure"/>
+    <Property Name = "3DPartAvailability" Value = "UserChoiceReferenceDefault"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "SubgradeOtherSpatialStructureElementType" Specializable = "Yes" SuperName = "SubgradePartType" Uuid = "AE272222-135C-44AC-A64E-CEFFB52278C8">
+    <Property Name = "IconName" Value = "I_SubgradeOtherSpatialStructureElementType"/>
+    <Property Name = "3DIconName" Value = "I_SubgradeOtherSpatialStructureElementType.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATCbaObjectTypeDelegateInstanciation"/>
+    <Property Name = "Newable" Value = "New_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "ReferenceOnly"/>
+  </Class>
+  <Class Abstract = "Yes" CustomerExposition = "Programmer" Discipline = "Yes" Name = "SubgradePart" SuperName = "SubgradeSpatialStructureElement" Uuid = "45462EFE-15A2-42AC-8191-5154F75AFD08"/>
+  <Class Abstract = "Yes" CustomerExposition = "Programmer" Discipline = "Yes" Name = "SubgradePartType" SuperName = "SubgradeSpatialStructureElementType" Uuid = "A50E0942-0ECA-44C8-9485-DA1D35799273"/>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "SubgradeRetainingStructure" SuperName = "SubgradePart" Uuid = "1313B63B-87AC-45B9-BEA7-9C648BBD655B">
+    <Property Name = "IconName" Value = "I_SubgradeRetainingStructure"/>
+    <Property Name = "3DIconName" Value = "I_SubgradeRetainingStructure.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATEAECDelegateInstanciation"/>
+    <Property Name = "KweNew_ReturnedType" Value = "VPMInstance"/>
+    <Property Name = "Newable" Value = "All_Offline_CAA"/>
+    <Property Name = "InstantiationOwnerTypes" Value = "PPRContext;Dam;DamOtherSpatialStructureElement;Subgrade;SubgradeRetainingStructure;SubgradeOtherSpatialStructureElement;Tunnel;TunnelBay;TunnelInterchange;TunnelOtherSpatialStructureElement;TunnelRing;TunnelStretch"/>
+    <Property Name = "3DPartAvailability" Value = "UserChoiceReferenceDefault"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "SubgradeRetainingStructureType" SuperName = "SubgradePartType" Uuid = "4F1B1175-BF0B-46F5-90B0-144F9AD01643">
+    <Property Name = "IconName" Value = "I_SubgradeRetainingStructureType"/>
+    <Property Name = "3DIconName" Value = "I_SubgradeRetainingStructureType.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATCbaObjectTypeDelegateInstanciation"/>
+    <Property Name = "Newable" Value = "New_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "ReferenceOnly"/>
+  </Class>
+  <Class Abstract = "Yes" CustomerExposition = "Programmer" Discipline = "Yes" Name = "SubgradeSpatialStructureElement" SuperName = "CivilEngineeringSpatialStructureElement" Uuid = "960D95A9-240C-4907-9CB5-73A254B0C99E">
+    <Property Name = "GroupingType" Value = "SubgradeSpatialStructureElement"/>
+  </Class>
+  <Class Abstract = "Yes" CustomerExposition = "Programmer" Discipline = "Yes" Name = "SubgradeSpatialStructureElementType" SuperName = "CivilEngineeringSpatialStructureElementType" Uuid = "7218560E-57AC-4151-B864-23143959E724">
+    <Property Name = "GroupingType" Value = "SubgradeSpatialStructureElementType"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "SubgradeType" SuperName = "SubgradeSpatialStructureElementType" Uuid = "B825C930-AB5A-4DF8-A749-67E6C4613EBF">
+    <Property Name = "IconName" Value = "I_SubgradeType"/>
+    <Property Name = "3DIconName" Value = "I_SubgradeType.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATCbaObjectTypeDelegateInstanciation"/>
+    <Property Name = "Newable" Value = "New_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "ReferenceOnly"/>
+  </Class>
+</Package>

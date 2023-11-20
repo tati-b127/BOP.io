@@ -1,0 +1,84 @@
+#Prog Clg_ExportCatalog( iPLMIDSet : #In PLMIDSet, oPLMIDSet : #Out PLMIDSet ) : VoidType
+{
+let RsClgStructure         (PLMRouteSet)
+let RsItems                (PLMRouteSet)
+let RsProductStructure     (PLMRouteSet)
+let RsComponentFamilies    (PLMRouteSet)
+let IdsClgIn                  (PLMIDSet)
+let IdsClgStructure           (PLMIDSet)
+let IdsChapters               (PLMIDSet)
+let IdsItems                  (PLMIDSet)
+let IdsPointedReferences      (PLMIDSet)
+let IdsPointedRepReferences   (PLMIDSet)
+let IdsPointedConnections     (PLMIDSet)
+let IdsPointedProducts        (PLMIDSet)
+let IdsProductStructure1      (PLMIDSet)
+let IdsProductStructure2      (PLMIDSet)
+let IdsProductStructureInputs1 (PLMIDSet)
+let IdsProductStructureInputs2 (PLMIDSet)
+let IdsConnectionsItems       (PLMIDSet)
+let IdsComponentFamilies      (PLMIDSet)
+let IdsFamiliesRef            (PLMIDSet)
+let IdsFamiliesStructure      (PLMIDSet)
+let IdsTemplatesReps          (PLMIDSet)
+let IdsTemplatesStructure     (PLMIDSet)
+
+
+/* Isolate library/chapters provided thru input arg */
+IdsClgIn = Restrict( iPLMIDSet , "ENOCLG_LIBRARY/ENOCLG_LibraryReference" )
+			+ Restrict( iPLMIDSet , "ENOCLG_CLASS/ENOCLG_ClassReference" )
+
+/* Get expanded library/chapters tree structure */
+RsClgStructure = ExecutePLMFunction( "ENOCLG_LIBRARY", "clg_expand_library", IdsClgIn )
+IdsClgStructure = Ids( RsClgStructure )
+IdsChapters = Restrict( IdsClgStructure , "ENOCLG_CLASS/ENOCLG_ClassReference" )
+
+/* Get references pointed by items of chapters */
+RsItems = ExecutePLMFunction( "ENOCLG_CLASS", "clg_navigate_reference", IdsChapters )
+IdsItems = Ids( RsItems )
+IdsPointedReferences = Restrict( IdsItems , "PLMCORE/PLMCoreReference" )
+IdsPointedRepReferences = Restrict( IdsItems , "PLMCORE/PLMCoreRepReference" )
+IdsPointedConnections = Restrict( IdsItems , "PLMCORE/PLMConnection" )
+
+
+/* Get product structure from function */
+IdsProductStructureInputs1 = Restrict( IdsPointedReferences, "PRODUCTCFG/VPMReference" )
+RsProductStructure = ExecutePLMFunction( "PRODUCTCFG", "ProductCfg_AddChildrenProduct", IdsProductStructureInputs1 )
+IdsProductStructure1 = Ids( RsProductStructure )
+
+/* Get product structure with reps from procedure */
+IdsProductStructureInputs2 = Restrict( IdsProductStructure1, "PRODUCTCFG/VPMReference" )
+							+ Restrict( IdsProductStructure1, "PRODUCTCFG/VPMRepReference" )
+							+ Restrict( IdsPointedRepReferences, "PRODUCTCFG/VPMRepReference" )
+IdsProductStructure2 = ExecutePLMProcedure( "VPMEditor_GetAllRepresentations", IdsProductStructureInputs2 )
+
+
+/* Get Component Families (Navigate connection->connection->reference)*/
+IdsConnectionsItems = Restrict( IdsPointedConnections , "ENOCLG_CLASS/ENOCLG_Item" )
+RsComponentFamilies = ExecutePLMFunction( "CATComponentsFamily", "cfy_navigate_connection_item", IdsConnectionsItems )
+IdsComponentFamilies = Ids( RsComponentFamilies )
+IdsFamiliesRef = Restrict( IdsComponentFamilies, "CATComponentsFamily/CATComponentsFamilyReference" )
+
+/* Get Component Families structure from procedure */
+IdsFamiliesStructure = ExecutePLMProcedure( "Cfy_ExportFamily", IdsFamiliesRef )
+
+
+/* Get Templates reps */
+IdsTemplatesReps = Restrict( IdsPointedRepReferences , "PLMKnowledgeTemplate/PLMTemplateRepReference" )
+
+/* Get Templates structure from procedure */
+IdsTemplatesStructure = ExecutePLMProcedure( "Pkt_ExportTemplate", IdsTemplatesReps )
+
+
+/* Provide back all that stuff */
+oPLMIDSet = IdsClgStructure
++ IdsItems
++ IdsPointedReferences
++ IdsPointedRepReferences
++ IdsPointedConnections
++ IdsProductStructure1
++ IdsProductStructure2
++ IdsFamiliesStructure
++ IdsTemplatesStructure
+}
+

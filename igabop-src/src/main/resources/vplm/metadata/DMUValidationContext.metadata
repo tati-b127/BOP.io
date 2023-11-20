@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR Validation Application -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2006, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" Name="DMUValidationContext" Uuid="c9c44bf3-85cb-4a88-b1ae07755334174f" UseNames="PLMCORE" BelongsToModeler="DMUValidationAbstract" CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+  <CAAComment>
+		<ShortRole>Validation Context Modeler Package</ShortRole>
+		<Role>This package describes the Context of the Validation inside Validation modeler</Role>
+	</CAAComment>
+	<Comment>Creation 2006-03-14 LJE</Comment>
+	
+	<Class Name="DMUValidationContext" Uuid="7c060325-99d3-4ef1-a462bb921ee5df56" Abstract="No" SuperName="PLMConnection" CustomerExposition="Programmer" OwnerTypes="DMUValidationValidationAbstract">
+    <!-- OwnerTypes="DMUValidationValidationAbstract"  Integrate this line if you want to declare the aggregation constraint -->
+    <CAAComment>
+			<ShortRole>Context Object</ShortRole>
+			<Role>Context Object exposes the context of the Validation</Role>
+		</CAAComment>
+    <Property Name="IconName" Value="I_VALContext"/>
+    <Property Name="3DIconName" Value="I_VALContext.cgr"/>
+    <Property Name="Searchable" Value="No"/>
+		<Path Name="V_Validation_Context" Uuid="640d8cc7-9ec1-46e9-9e91601f5912c92f"  Lower="0" Upper="-1" MultiValuated="Yes"  RoleName="DMU_Context" Semantics="Reference" 		Type="SemanticRelation" AdaptativeToMinor="No"		SynchroSensitivity="None"		RerouteOnEffectivityChange="No"/>
+		<Path Name="V_Validation_Ctxtval" Uuid="b8319f71-4bcb-40c2-a67507fd59be79de"  MultiValuated="No"  RoleName="DMU_Impacted_Validation" Semantics="Reference5" Type="SemanticRelation" AdaptativeToMinor="No"		SynchroSensitivity="Last"		RerouteOnEffectivityChange="No"  Orientation="Out"/>
+		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+    <!-- Behavior patterns: default values -->
+    <Property Name="LockUnlockAvailability" Value="No"/>
+    <Property Name="TransferOwnershipAvailability" Value="No"/>
+
+	</Class>
+</Package>

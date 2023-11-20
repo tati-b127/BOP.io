@@ -1,0 +1,123 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2004, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top"  Name="PLMDmtDocument" Uuid="76F860CF-8497-4D7A-8DC31D15B87215D1" UseNames="PLMCORE" BelongsToModeler="Document" CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+  <CAAComment>
+    <ShortRole>PLM Document Model</ShortRole>
+    <Role>This package includes all the entities in PLM Document Model</Role>
+  </CAAComment>
+  <Class Name="PLMDMTDocument" Uuid="B52D96F8-6F7B-46EC-AE39607835733DFC"  Abstract="No"  SuperName="PLMCoreRepReference"  CAAExposition="L1" Abbreviation="vdoc" CustomerExposition="Programmer" Specializable="Yes">
+    <CAAComment>
+      <ShortRole>Document representation reference </ShortRole>
+      <Role>
+        PLMDMTDocument models vaulted documents, URL document, or external document.
+        It can be linked by external PLMReferences through PLMConnection.
+      </Role>
+    </CAAComment>
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="KnlgCBPDocNewFactory"/>
+	  <Property Name="KweNew_ReturnedType" Value="PLMDMTDocument"/>
+	  <Property Name="Newable" Value="All"/>
+      <Property Name="IconName" Value="I_PLMDmtDocument2"/>
+      <Property Name="3DIconName" Value="CAT3DNav_BSMInstance.cgr"/>
+      <Property Name="ChangeCollaborativeSpaceAvailability" Value="Yes"/>
+      <Property Name="DeleteAvailability" Value="Yes"/>
+      <Property Name="Searchable" Value="Yes"/>
+
+        <!-- 
+		*********************************************************
+		* V_FilePath : Volatile attribute
+		********************************************************* -->
+    <Volatile Name="V_FilePath" Uuid="803d520f-ed5f-4616-b9ff-c8e1ab5fea54" TypeName="String" Accessor="CATEDocFilePathAttributeAccess" AccessMode="ReadWrite"/>
+    <!-- 
+		*********************************************************
+		* V_Keywords : keywords of the document
+		********************************************************* -->
+    <Simple Name="V_Keywords" Uuid="C73F99E0-7FEC-4407-A075A4CB51EA79BB" Type="String" MaxLength="32"   MultiValuated="Yes"  CollectionType="Set" Protection="Free" CAAExposition="L0">
+      <CAAComment>
+        <ShortRole> Keywords for the content or characteristics of the document </ShortRole>
+      </CAAComment>
+    </Simple>
+    <!-- 
+		*********************************************************
+		* V_DocType : whether the document is Vaulted, URL, or external.
+		********************************************************* -->
+    <Simple Name="V_DocType" Uuid="983BC173-D36D-40A7-9E539EF0C10BF24D" Type="Integer" Protection="External" CAAExposition="L0" DefaultValue="1">
+      <CAAComment>
+        <ShortRole> Determine whether the document is a vaulted, URL, or external document </ShortRole>
+      </CAAComment>
+      <Property Name="RangeAsEnumName" Value="PLMDMTDocumentTypes"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="Vaulted;URL;External"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+      </Range>
+    </Simple>
+    <!-- 
+		*********************************************************
+		* V_IsCheckedOut : whether the doument is checked-out
+		********************************************************* -->
+    <Simple Name="V_IsCheckedOut" Uuid="B9D05760-4DE0-45D5-8B5F49AB991E2582" Type="Boolean"  MultiValuated="No"  Protection="External" CAAExposition="L0">
+      <CAAComment>
+        <ShortRole> Determine whether the document is checked-out </ShortRole>
+      </CAAComment>
+    </Simple>
+    <!-- 
+		*********************************************************
+		* V_CheckedOutUser : the current checked-out user
+		********************************************************* -->
+    <Simple Name="V_CheckedOutUser" Uuid="01B41CC9-C702-4920-98058A424A17C622" Type="String" MaxLength="32" MultiValuated="No"  Protection="External" CAAExposition="L0">
+      <CAAComment>
+        <ShortRole> The current check-out user name </ShortRole>
+      </CAAComment>
+    </Simple>
+    <!-- 
+		*********************************************************
+		* V_CheckedOutPath : the file path to where the user checked out the document
+		********************************************************* -->
+    <Simple Name="V_CheckedOutPath" Uuid="5D4A6F33-FA1E-443f-A882-2204D4895D62" Type="String" MaxLength="1024"  MultiValuated="No"  Protection="External" CAAExposition="L0">
+      <CAAComment>
+        <ShortRole> The file path to where the user checked out the document </ShortRole>
+      </CAAComment>
+    </Simple>
+    <!-- 
+		*********************************************************
+		* V_PrimaryMimetype : Mimetype of the primary format of document
+		********************************************************* -->
+    <Simple Name="V_PrimaryMimetype" Uuid="98FF5D5F-55BC-4164-A327FCAF52723128" Type="String" MaxLength="40"  MultiValuated="No"  Protection="External" CAAExposition="L1">
+      <CAAComment>
+        <ShortRole> Mimetype for the primary format. </ShortRole>
+      </CAAComment>
+    </Simple>
+    <!-- 
+		*********************************************************
+		* V_PrimaryFileName is used to hold the physical file name
+		********************************************************* -->
+    <Simple Name="V_PrimaryFileName" Uuid="b9af548a-b11c-0000-020a10055d000000" Type="String" MaxLength="1024"  MultiValuated="No"  Protection="Free" CAAExposition="L0">
+      <CAAComment>
+        <ShortRole> For vaulted document, it is set to the physical file name. </ShortRole>
+      </CAAComment>
+    </Simple>
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Design"/>
+        <UsedProcedure href="PLMDoc_Procedures.proc#PLMDoc_ExportSelf"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Channel"/>
+        <UsedProcedure href="PLMDoc_Procedures.proc#PLMDoc_ExportSelf"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#TransferSiteOwnership"/>
+        <UsedProcedure href="PLMDoc_Procedures.proc#PLMDoc_ExportSelf"/>
+      </ProcedureForUsage>
+	  <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Remove"/>
+	    <UsedProcedure href="PLMDoc_Procedures.proc#PLMDoc_ExportSelf"/>
+      </ProcedureForUsage>	  
+    </Method>
+  </Class>
+</Package>

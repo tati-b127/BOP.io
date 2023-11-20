@@ -1,0 +1,9 @@
+NAVIGATE
+   T0.PLMID
+FROM
+   RFLVPMLogicalInterfaceRep/RFLVPMLogicalInterfaceRepInstance T0
+FROM_ROOTS [?1?]
+ON
+RELATION (FROM=RFLVPMLogicalServices/RFLVPMServicesReference TO=RFLVPMLogicalInterfaceRep/RFLVPMLogicalInterfaceRepInstance  THROUGH=POINTEDBY)
+WITH QUALITY_FILTER  (CATEGORY=ISOWNEDBY)
+ITER=1;

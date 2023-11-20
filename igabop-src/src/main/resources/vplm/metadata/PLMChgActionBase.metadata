@@ -1,0 +1,211 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2005, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top"  Name="PLMChgActionBase" Uuid="b98c0316-2c63-0000-020a100536000000" UseNames="PLMCORE PLMChgBase" CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+  <CAAComment>
+    <ShortRole>Action Base Package</ShortRole>
+    <Role>This package includes base entity for Action References, the base entity for Change Management Associated Data Connections, and the base entity for Child Action Instances</Role>
+  </CAAComment>
+  <Comment>last update 2006-12-05-09.00.00</Comment>
+  <!-- *************************************** -->
+  <!-- * PLMActionBase (PLMChgBase)          * -->
+  <!-- *************************************** -->
+  <Class Name="PLMActionBase" Uuid="b8d1ead3-8aeb-0000-020a100536000000" Abstract="No" SuperName="PLMChgBase" CreateInstName="PLMChildAction" Specializable="Yes" CustomerExtensible="Yes" CustomerExposition="Programmer" Abbreviation="eca">
+    <CAAComment>
+      <ShortRole>Engineering Change Action</ShortRole>
+      <Role>Used to request, define, and track a modification to a product. It contains the whole information (methodological documentation, affected parts, configuration specifications, CAD/CAM models, and electronic documents) necessary to implement the requested modification.</Role>
+    </CAAComment>
+    
+        <!-- *********************** -->
+    <!-- Properties Declaration  -->
+    <!-- *********************** -->
+    <Property Name="DMCDerivable"  Value="No"/>
+    <Property Name="Newable"  Value="All"/>
+    <Property Name="IconName"  Value="I_Action_22"/>
+    <Property Name="3DIconName"  Value="ActionNavRep2.cgr"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="PLMECANewFactory"/>
+    <Property Name="Configurable"  Value="No"/>
+    <Property Name="Filtrable"  Value="No"/>
+    <Property Name="ChangeManagementSupport"  Value="No"/>
+
+    <Property Name="ChangeMaturityAvailability" Value="Yes"/>
+    <Property Name="DeleteAvailability" Value="Yes"/>
+    <Property Name="DuplicateAvailability" Value="No"/>
+    <Property Name="EditPropertiesAvailability" Value="Yes"/>
+    <Property Name="EvolutionAvailability" Value="No"/>
+    <Property Name="LockUnlockAvailability" Value="No"/>
+    <Property Name="NewMajorRevisionAvailability" Value="No"/>
+    <Property Name="NewMinorRevisionAvailability" Value="No"/>
+    <Property Name="SaveAsNewAvailability" Value="No"/>
+    <Property Name="TransferOwnershipAvailability" Value="Yes"/>
+
+    <!-- ********************************* -->
+    <!-- CALCULATED ATTRIBUTE Declaration  -->
+    <!-- ********************************* -->
+
+    <Volatile Name="parentChangeTasks"
+	      Uuid="3BCA4EBC-0C79-4999-9ADE-25F971CBBD8A"
+	      Accessor="None"
+	      TypeName="List"
+	      AccessMode="ReadOnly">
+      <Property Name="ServerAccessor" Value="com.dassault_systemes.EKLEngine.openings.lib.PLMEnt_Accessor"/>
+    </Volatile>
+    
+    <Volatile Name="children" 
+	      Uuid="48BCE76C-AFF4-4e38-993E-4CF96D722856" 
+	      Accessor="None"
+	      TypeName="List" 
+	      AccessMode="ReadOnly">
+      <Property Name="ServerAccessor" Value="com.dassault_systemes.EKLEngine.openings.lib.PLMEnt_Accessor"/>
+    </Volatile>
+
+    <Volatile Name="reportedAgainstItems" 
+	      Uuid="3A8A200B-BB52-4a77-90E4-525354B73714" 
+	      Accessor="None"
+	      TypeName="List" 
+	      AccessMode="ReadOnly">
+      <Property Name="ServerAccessor" Value="com.dassault_systemes.EKLEngine.openings.lib.PLMEnt_Accessor"/>
+    </Volatile>
+
+    <Volatile Name="affectedItems" 
+	      Uuid="2EA2AE9D-B2B1-4b6a-9E39-1D61A345A1E8" 
+	      Accessor="None"
+	      TypeName="List" 
+	      AccessMode="ReadOnly">
+      <Property Name="ServerAccessor" Value="com.dassault_systemes.EKLEngine.openings.lib.PLMEnt_Accessor"/>
+    </Volatile>
+
+    <Volatile Name="progressStatus" 
+	      Uuid="D08AA491-6D12-4fc7-B36A-EDCC9B9B0D97" 
+	      Accessor="None"
+	      TypeName="List" 
+	      AccessMode="ReadOnly">
+      <Property Name="ServerAccessor" Value="com.dassault_systemes.EKLEngine.openings.lib.PLMEnt_Accessor"/>
+    </Volatile>
+
+    <Volatile Name="isPublished" 
+	      Uuid="D12662EE-9DF4-4562-8A18-0F8FFDE12C07" 
+	      Accessor="None"
+	      TypeName="Boolean" 
+	      AccessMode="ReadOnly">
+      <Property Name="ServerAccessor" Value="com.dassault_systemes.EKLEngine.openings.lib.PLMEnt_Accessor"/>
+    </Volatile>
+
+    <Volatile Name="namedEffectivity" 
+	      Uuid="F25F94AA-0A7D-492f-A609-A5ECF7DA121C" 
+	      Accessor="None"
+	      TypeName="List" 
+	      AccessMode="ReadOnly">
+      <Property Name="ServerAccessor" Value="com.dassault_systemes.EKLEngine.openings.lib.PLMEnt_Accessor"/>
+    </Volatile>
+
+    <Volatile Name="implementedItems" 
+	      Uuid="C7FF737D-9206-4cd2-851A-0AD5CABC9674" 
+	      Accessor="None"
+	      TypeName="List" 
+	      AccessMode="ReadOnly">
+      <Property Name="ServerAccessor" Value="com.dassault_systemes.EKLEngine.openings.lib.PLMEnt_Accessor"/>
+    </Volatile>
+
+    <Volatile Name="relatedChanges" 
+	      Uuid="2D84815A-CFDD-4c1c-88DC-9FD0883A91D2" 
+	      Accessor="None"
+	      TypeName="List" 
+	      AccessMode="ReadOnly">
+      <Property Name="ServerAccessor" Value="com.dassault_systemes.EKLEngine.openings.lib.PLMEnt_Accessor"/>
+    </Volatile>      
+    
+    <!-- *********************** -->
+    <!-- PROCEDURES Declaration  -->
+    <!-- *********************** -->
+
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+	<Usage href="ExportScope.meth#Design"/>
+	<UsedProcedure href="ENOChgMgmt_Procedures.proc#ChangeManagement_ExportECA_Light"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+	<Usage href="ExportScope.meth#Channel"/>
+	<UsedProcedure href="ENOChgMgmt_Procedures.proc#ChangeManagement_ExportECA_PeersAndChildren"/>
+      </ProcedureForUsage>
+    </Method>
+    <!-- XPDM exchange -->
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExchangeScope.meth#XPDM"/>
+        <UsedProcedure href="ENOChgMgmt_Procedures.proc#ChangeManagement_XPDMExchangeECA_Completion"/>
+      </ProcedureForUsage>
+    </Method>
+  </Class>
+
+  <!-- *************************************** -->
+  <!-- * PLMAssociatedData (PLMConnection)   * -->
+  <!-- *************************************** -->
+  <Class Name="PLMChgAssociatedData" Uuid="b8d1fdf5-0635-0000-020a100536000000" Abstract="Yes" SuperName="PLMConnection" CustomerExposition="None" OwnerTypes="PLMChgBase">
+    <CAAComment>
+      <ShortRole>Change Management Associated Data Base</ShortRole>
+      <Role>Base entity for Change Management Associated Data Connections - objects impacted by or associated to a modification and which are added to the action</Role>
+    </CAAComment>
+    <Path Name="DefaultAssocData" Uuid="fdbb48fb-5aed-4841-bb88-538ba854a908"  Lower="0" Upper="-1" MultiValuated="Yes"  RoleName="PLMChgAssocData" Semantics="Reference"		Type="SemanticRelation" AdaptativeToMinor="No"		SynchroSensitivity="None" 		RerouteOnEffectivityChange="No"/>
+    <!-- OwnerTypes="PLMChgBase"  Integrate this line if you want to declare the aggregation constraint -->
+
+    <!-- *********************** -->
+    <!-- PROCEDURES Declaration  -->
+    <!-- *********************** -->
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    
+  </Class>
+  
+  <!-- ********************** -->
+  <!-- FUNCTIONS Declarations -->
+  <!-- ********************** -->
+
+  <Function Name="PLMChgActionBase_GetAggregated">
+    <Implementation Name="PLMChgActionBase_GetAggregated" FileLocation="PLMChgActionBase_GetAggregated.plmql" Language="PLMQL"/>
+    <Signature href="PLMChgActionBase_FuntionSignatureExport"/>
+  </Function>
+
+  <Function Name="PLMChgActionBase_GetPeers">
+    <Implementation Name="PLMChgActionBase_GetPeers" FileLocation="PLMChgActionBase_GetPeers.plmql" Language="PLMQL"/>
+    <Signature href="PLMChgActionBase_FuntionSignatureExport"/>
+  </Function>
+
+  <Signature id="PLMChgActionBase_FuntionSignatureExport">
+    <Parameter Name="InputIds" Lower="0" Upper="-1" Direction="in" MultiValuated="Yes" DataType="PLMId"/>
+    <Parameter Name="OutputIds" Lower="0" Upper="-1" Direction="out" MultiValuated="No" DataType="PLMRouteSet"/>
+  </Signature>
+  
+  <!-- *************************************** -->
+  <!-- * PLMChildAction (PLMChgChild)   * -->
+  <!-- *************************************** -->
+  <RelationClass Name="PLMChildAction" Uuid="b8d1f28d-28e8-0000-020a100536000000" Abstract="No" SuperName="PLMChgChild" CustomerExposition="Programmer" Specializable="No" CustomerExtensible="No">
+    <CAAComment>
+      <ShortRole>Action Child Base</ShortRole>
+      <Role>Base entity for Child Action Instances - establishes a parent/child link between two actions</Role>
+    </CAAComment>
+    <!-- Behavior patterns: default values -->
+    <Property Name="EditPropertiesAvailability" Value="No"/>   
+    <!--
+	*********************************************************
+	* Overload(s) of PLMCoreInstance attributes.
+	********************************************************* -->
+    <SubClause Name="from"   TargetName="PLMChgBase"/>
+    <SubClause Name="to"   TargetName="PLMActionBase"/>
+
+    <!-- *********************** -->
+    <!-- PROCEDURES Declaration  -->
+    <!-- *********************** -->
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    
+  </RelationClass>
+</Package>

@@ -1,0 +1,92 @@
+/*********************************************************************************************************************************/
+/* Exchange XPDM procedure for Process                                                                                        */
+/* --> Retrieves all agregated PLM objects (References, Ref Instances, Rep References, Rep Instances, Ports and Connections)     */
+/*********************************************************************************************************************************/
+#Prog Process_ExchangeXPDM_GetAllEntities( iPLMIDSet : #In PLMIDSet, oPLMIDSet : #Out PLMIDSet ) : VoidType
+{
+	let PLMRouteSet1 (PLMRouteSet)
+	let PLMRouteSetProd (PLMRouteSet)
+	let PLMRouteSet4 (PLMRouteSet)
+	let PLMRouteSet5 (PLMRouteSet)
+	let PLMRouteSet6 (PLMRouteSet)
+	let PLMRouteSet8 (PLMRouteSet)
+	let PLMRouteSet9 (PLMRouteSet)
+	let PLMRouteSet12 (PLMRouteSet)
+	let PLMRouteSetReq (PLMRouteSet)
+
+	let PLMIDSet1 (PLMIDSet)
+	let PLMIDSet1a (PLMIDSet)
+	let PLMIDSet1b (PLMIDSet)
+	let PLMIDSet2 (PLMIDSet)
+	let PLMIDSetProd (PLMIDSet)
+	let PLMIDSet3a (PLMIDSet)
+	let PLMIDSet4 (PLMIDSet)
+	let PLMIDSet4a (PLMIDSet)
+	let PLMIDSet5 (PLMIDSet)
+	let PLMIDSet6 (PLMIDSet)
+	let PLMIDSet8 (PLMIDSet)
+	let PLMIDSet8a (PLMIDSet)
+	let PLMIDSet8b (PLMIDSet)
+	let PLMIDSet9 (PLMIDSet)
+	let PLMIDSet10 (PLMIDSet)
+	let PLMIDSet12 (PLMIDSet)
+	let PLMIDSetReqs (PLMIDSet)
+	let PLMIDSetAllProcess (PLMIDSet)
+	let PLMIDSetReqSpec (PLMIDSet)
+	let IdsReqSpecVersions (PLMIDSet)
+
+	/* Retrieves all entities aggregated by PROCESSES Roots */
+	PLMRouteSet1 = ExecutePLMFunction("DELFmiFunctionalModel", "DELFmiFunctionalModel_addAllProcessEntities", Restrict(iPLMIDSet, "DELFmiFunctionalModel/DELFmiFunctionReference"))
+	PLMIDSet1 = Ids(PLMRouteSet1,"all")
+	PLMIDSet1a = Restrict(iPLMIDSet, "DELFmiFunctionalModel/DELFmiFunctionReference") + Restrict(PLMIDSet1,"DELFmiFunctionalModel/DELFmiFunctionReference") 
+	PLMIDSet1b = Restrict(PLMIDSet1,"DELFmiFunctionalModel/DELFmiFunctionInstance") 
+
+	/* Export All Requirements */
+	PLMRouteSetReq = ExecutePLMFunction("DELPPRContextModel", "GetAllLinkedRequirementsAndCnxs", PLMIDSet1a)
+	PLMIDSetReqs = Ids(PLMRouteSetReq,"all")
+	
+	/* Complete Requirement Specification*/
+	PLMIDSetReqSpec = Restrict(PLMIDSetReqs, "Class/Requirement Specification")
+	IdsReqSpecVersions = ExecutePLMProcedure( "DocumentCompletion", PLMIDSetReqSpec )
+
+	/* Retrieves all implemented products from PROCESSES references*/
+	PLMIDSetAllProcess = PLMIDSet1a + PLMIDSet1b
+	PLMRouteSetProd = ExecutePLMFunction("DELFmiFunctionalModelImplementCnx", "DELFmiFunctionModelImplCnx_AddAllImplementedComponents", PLMIDSetAllProcess)
+	PLMIDSetProd = Ids(PLMRouteSetProd,"all")
+	PLMIDSet2 = Restrict(PLMIDSetProd,"PRODUCTCFG/VPMReference")
+	PLMIDSet3a = Restrict(PLMIDSetProd,"PRODUCTCFG/VPMInstance")
+
+	/* Retrieves all references and aggregating references from products instances*/
+	PLMRouteSet4 = ExecutePLMFunction("DELPPRContextModel", "ENOPpr_PPRData_addRefAndAggregatingRef", PLMIDSet3a)
+	PLMIDSet4 = Ids(PLMRouteSet4,"all")
+
+	/* Retreives Prototype from Product and Process References*/
+	PLMIDSet4a = PLMIDSet4 + PLMIDSet2 + PLMIDSet1a
+	PLMRouteSet5 = ExecutePLMFunction("DELPPRContextModel", "ENOPpr_PPRData_addPrototypesRef", PLMIDSet4a)
+	PLMIDSet5 = Ids(PLMRouteSet5,"all")
+
+	/* Retreives Capable Resources from Process References*/
+	PLMRouteSet6 = ExecutePLMFunction("DELPPRContextModel", "ENOPcs_Process_addCapableResources", PLMIDSet1a)
+	PLMIDSet6 = Ids(PLMRouteSet6,"all")
+
+	/* Retreives Implementing System scope from Process References*/
+	PLMRouteSet8 = ExecutePLMFunction("RFLPLMImplementConnection", "RFLPLMImplementConnection_AddAllImplementingComponents", PLMIDSet1a)
+	PLMIDSet8 = Ids(PLMRouteSet8,"all")
+
+	PLMIDSet8a = Restrict(PLMIDSet8 ,"DELLmiProductionSystem/DELLmiProductionSystemReference")
+	PLMIDSet8b = Restrict(PLMIDSet8 ,"RFLPLMImplementConnection/RFLPLMImplementConnection")
+
+	/* Retrieves all Rule Sets references for PROCESSES */
+	PLMRouteSet9 = ExecutePLMFunction("DELPPRContextModel", "ENOPcs_Process_addRuleSets", PLMIDSet1a)
+	PLMIDSet9 = Ids(PLMRouteSet9,"all")
+
+	/* Export Rule Sets references*/
+	PLMIDSet10 = ExecutePLMProcedure("Kwe_ExportRuleSet", Restrict(PLMIDSet9 , "PLMCORE/PLMCoreReference"))
+
+	/* Retrieves Product materialization pointed by DR Ports by PROCESSES */
+	PLMRouteSet12 = ExecutePLMFunction("DELPPRContextModel", "ENOPcx_PPRContext_addProductsLinkedToProcessPorts", Restrict(Ids(PLMRouteSet1 ), "DELFmiFunctionalModelPrereqMatCnx/DELFmiProcessPrereqMaterializationCnx"))
+	PLMIDSet12 = Ids(PLMRouteSet12,"all")
+
+
+	oPLMIDSet = iPLMIDSet + PLMIDSet1 + PLMIDSet2 + PLMIDSetProd + PLMIDSet4 + PLMIDSet5 + PLMIDSet6 + PLMIDSet8a + PLMIDSet8b + PLMIDSet9 + PLMIDSet10 + PLMIDSet12  + PLMIDSetReqs + IdsReqSpecVersions
+}

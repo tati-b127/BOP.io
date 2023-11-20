@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!-- edited with XMLSpy v2007 (http://www.altova.com) by DASSAULT SYSTEMES (DASSAULT SYSTEMES) -->
+<!-- ENOVIA DICTIONARY FOR RFL Logical Application -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" Name="RFLVPMLogicalPortMapping" CustomerExposition="Programmer" Uuid="ae3b3ffc-cec9-4345-9dc6-4a0f1772df3d" UseNames="PLMCORE" BelongsToModeler="CATSysBehaviorLibrary">
+	<Class Name="RFLVPMLogicalPortMappingConnection" Uuid="a8f681cf-f4e3-432b-a376-cfbfe1bef272" CustomerExposition="Programmer" Abstract="No" SuperName="PLMConnection"  OwnerTypes="RFLVPMLogicalAbstractReference">
+    <Property Name="FormerTypingLegacy" Value="Yes"/>
+    <CAAComment>
+			<ShortRole>PLM Logical Port Mapping Connection Object</ShortRole>
+			<Role>PLM Logical Port Mapping Connection</Role>
+		</CAAComment>
+	<!-- 	*********************************************************
+			* 						Define Owner                    *
+			********************************************************* -->
+		<Path Name="V_ConnectionPLMPorts" Uuid="5c95eec8-4216-45c9-8fa3-0ff9cc051dd4"  RoleName="RFL_LogMap_PLMPort" MultiValuated="Yes" Lower="0" Upper="-1" Semantics="Reference6" Type="SemanticRelation" AdaptativeToMinor="No"		SynchroSensitivity="PathAndLast"		RerouteOnEffectivityChange="No" Orientation="InOut"/>
+		<Path Name="V_ConnectionBehaviorPorts" Uuid="3c28741a-6498-4c69-9aea-8bc8292a3549"   RoleName="RFL_LogMap_RepPort" MultiValuated="Yes" Lower="0" Upper="-1" Semantics="Reference6" Type="SemanticRelation" AdaptativeToMinor="No"		SynchroSensitivity="PathAndLast"		RerouteOnEffectivityChange="No"  Orientation="InOut"/>
+		<Path Name="V_ConnectionBehaviorModel" Uuid="5ba868cd-2d4a-4b4c-bb53-3e87becd9763"   RoleName="RFL_LogMap_RepModel" MultiValuated="No" Semantics="Reference" Type="SemanticRelation" AdaptativeToMinor="No"		SynchroSensitivity="None"		RerouteOnEffectivityChange="No"/>
+		<Simple Name="V_MappingName" Uuid="f1323936-6752-42d3-a6e4-818ae8eaac42" Type="String" MaxLength="120" MultiValuated="No" PLMImpacting="Yes" Protection="Internal"/>
+	<!-- 	*********************************************************
+			* 				Define Export Method                    *
+			********************************************************* -->
+		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+	</Class>
+	<!-- 	*********************************************************
+			* 				Declaration of functions                *
+			********************************************************* -->
+	<Function Name="RFLVPMLogicalPortMapping_AllLogMappingCnx">
+		<Implementation Name="RFLVPMLogicalPortMapping_AllLogMappingCnx" FileLocation="RFLVPMLogicalPortMapping_AllLogMappingCnx.plmql" Language="PLMQL"/>
+		<Signature href="CATSbiLogMapCnxSignature"/>
+	</Function>
+	<Signature id="CATSbiLogMapCnxSignature">
+		<Parameter Name="InputIds" Direction="in" MultiValuated="Yes" DataType="PLMId"/>
+		<Parameter Name="OutputIds" Lower="0" Upper="-1" Direction="out" MultiValuated="No" DataType="PLMRouteSet"/>
+	</Signature>
+</Package>

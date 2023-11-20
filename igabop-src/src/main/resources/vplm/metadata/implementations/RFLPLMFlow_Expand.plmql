@@ -1,0 +1,11 @@
+EXPAND
+
+T0.PLMID, T1.PLMID, T2.PLMID,
+T0.PLM_ExternalID, T1.PLM_ExternalID, T2.PLM_ExternalID
+
+FROM
+RFLPLMFlow/RFLPLMFlowReference T0,
+RFLPLMFlow/RFLPLMFlowInstance T1,
+RFLPLMFlowExposition/RFLPLMFlowExpositionInstance T2
+
+FROM_ROOTS [?1?];

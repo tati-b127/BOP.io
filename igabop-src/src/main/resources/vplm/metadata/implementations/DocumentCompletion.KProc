@@ -1,0 +1,11 @@
+#Prog DocumentCompletion( iPLMIDSet : #In PLMIDSet, oPLMIDSet : #Out PLMIDSet ) : VoidType
+{
+let PLMIDSet1(PLMIDSet)
+let PLMRouteSet1 (PLMRouteSet)
+	
+/* get files from document */
+PLMRouteSet1 = ExecutePLMFunction("Document", "documentexpand", iPLMIDSet)
+PLMIDSet1 = Ids(PLMRouteSet1)
+	
+oPLMIDSet = PLMIDSet1
+}

@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY for Electrical Logical Editor, defining Allocation connection -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, all rights reserved -->
+
+<!-- 
+   =========
+    Package
+   =========
+   xmlns :           Type of model defined. "PLMDictionaryTop", "PLMDictionaryAbstract", "Core", "Custo".
+   ModelerType :     Type of model defined. "Top", "Abstract", "Core", "Custo".  
+   Alias :           Other name for the object. To be removed.
+   UseNames :        Other dictionaries required to define class derivation or extension.
+   UseScopes :       Other dictionaries required to define relationships between entities.
+   ExpositionLevel : "CAA" for all RFLVPM dictonaries, none for FluidSystemsLogical.
+-->
+
+   <Package Name="PLMElectricalLogicalAllocation"
+      Uuid="dcd0e7c2-15c2-4fc8-96ec-fbf810da28bb"
+      xmlns="PLMDictionaryUnified"
+      ModelerType="Top"
+      BelongsToModeler="PLMElectricalLogical"
+      UseNames="LPABSTRACT"
+	  CustomerExposition="None">
+
+     <CAAComment>
+         <ShortRole>Electrical Logical Allocation Package</ShortRole>
+         <Role>This package describes the PLM Electrical Logical model of Allocation connections on top of RFLVPMLogical Modeler.</Role>
+      </CAAComment>
+      <Comment>Initial creation : LOK JRI 2008-07-15</Comment>
+     <Comment>Creation mode to "Yes" for electrical connections in V6R2012x: ZTB Jun 2011</Comment>
+	 <Comment>[V6R2013x] New Typing project: ZTB Apr 2012</Comment>
+
+
+<!-- 
+   =========================
+    Allocation (connection)
+   =========================
+-->
+      
+      <Class Name="PLMElecLogicalAllocation"
+         Uuid="101be9d0-e5f3-41cb-9a69-6b3030a1120f"
+         SuperName="LPAbstractConnection"
+         Abstract="No"
+         CustomerExposition="None"  OwnerTypes="RFLVPMLogicalReference">
+
+         <Simple Name="V_Elec_SubType"
+            Uuid="c3bd45a6-f83b-4250-80b5-b1ab354580dd"
+            Type="String"
+            MaxLength="40"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0" />
+        <!-- OwnerTypes="RFLVPMLogicalReference"  Integrate this line if you want to declare the aggregation constraint -->
+          <Path Name="V_Elec_From"
+		      Uuid="2dab0a23-1a74-4bc4-a323-d177e98efea9"
+            RoleName="EleLogical_AllocFrom"
+            Semantics="Reference7"		
+            Type="SemanticRelation" AdaptativeToMinor="No"
+		        SynchroSensitivity="Last"
+		        RerouteOnEffectivityChange="No" Orientation="Out"
+            MultiValuated="No" />
+         <Path Name="V_Elec_To"
+            Uuid="d2b49b94-160d-4966-b3e7-c2b8daea07eb"
+            RoleName="ElelLogical_AllocTo"
+            Semantics="Reference"
+            MultiValuated="Yes"
+         		Type="SemanticRelation" AdaptativeToMinor="No"
+        		SynchroSensitivity="None"
+		        RerouteOnEffectivityChange="No"
+            Lower="0"
+            Upper="-1" />
+	     <Method ImplementationType="None">
+   	        <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+         </Method>
+      </Class>
+
+	   <Class Name="EleLogicalHarnessAllocation"
+			Uuid="83248275-b3a4-44e4-9df6-669c7e6677a2"
+			CustomerExposition="None"
+			SuperName="PLMElecLogicalAllocation"
+			Discipline="Yes">
+	   </Class>
+
+	   <Class Name="EleLogicalNetAllocation"
+			Uuid="8fae9a94-adc1-4136-97a6-68baa7cdf804"
+			CustomerExposition="None"
+			SuperName="PLMElecLogicalAllocation"
+			Discipline="Yes">
+	   </Class>
+</Package>

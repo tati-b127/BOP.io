@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2012, All rights reserved -->
+
+<Package CustomerExposition = "Programmer" ModelerType = "Top" Name = "BridgeUniFormat" UseNames = "AECKernel AECCommonSpatialStructureElement BridgeSpatialStructureElement BridgeStructuralElement" Uuid = "0bcfb34b-e569-42db-9fe3-dda96fcb0cf9" xmlns = "PLMDictionaryUnified">
+  <Extension CustomerExposition = "Programmer" Name = "UniFormatBridge" ScopeNames = "AecFoundation AecOtherSpatialStructureElement AecElement AecElementType BridgePart BridgePartType BridgeStructuralElement BridgeStructuralElementType" Uuid = "8838f9e3-bcd5-48f8-8d78-3d01ad0bedb5">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" DefaultValue = "A" MaxLength = "255" Name = "UniFormatBridge_V_UfBridgeClassification" Protection = "Free" Type = "String" Uuid = "e7ca557a-70ed-4c7b-843c-9da7b1e7a1b7">
+      <Range>
+        <Equal>A</Equal>
+        <Equal>A10</Equal>
+        <Equal>A1010</Equal>
+        <Equal>A1020</Equal>
+        <Equal>A1030</Equal>
+        <Equal>A1040</Equal>
+        <Equal>A20</Equal>
+        <Equal>A2010</Equal>
+        <Equal>A2020</Equal>
+        <Equal>A2030</Equal>
+        <Equal>A2040</Equal>
+        <Equal>A30</Equal>
+        <Equal>A3010</Equal>
+        <Equal>A3020</Equal>
+        <Equal>A3030</Equal>
+        <Equal>A40</Equal>
+        <Equal>A4010</Equal>
+        <Equal>A4020</Equal>
+        <Equal>B</Equal>
+        <Equal>B10</Equal>
+        <Equal>B1010</Equal>
+        <Equal>B1020</Equal>
+        <Equal>B1030</Equal>
+        <Equal>B1040</Equal>
+        <Equal>B20</Equal>
+        <Equal>B2010</Equal>
+        <Equal>B2020</Equal>
+        <Equal>B2030</Equal>
+        <Equal>B2040</Equal>
+        <Equal>B2050</Equal>
+        <Equal>B2060</Equal>
+        <Equal>B2070</Equal>
+        <Equal>B30</Equal>
+        <Equal>B3010</Equal>
+        <Equal>B3020</Equal>
+        <Equal>C</Equal>
+        <Equal>C10</Equal>
+        <Equal>C1010</Equal>
+        <Equal>C1020</Equal>
+        <Equal>C1030</Equal>
+        <Equal>C1040</Equal>
+        <Equal>C1050</Equal>
+        <Equal>C1060</Equal>
+        <Equal>C20</Equal>
+        <Equal>C2010</Equal>
+        <Equal>C2020</Equal>
+        <Equal>C2030</Equal>
+        <Equal>C30</Equal>
+        <Equal>C3010</Equal>
+        <Equal>C3020</Equal>
+        <Equal>C3030</Equal>
+        <Equal>C3040</Equal>
+        <Equal>C3050</Equal>
+        <Equal>D</Equal>
+        <Equal>D10</Equal>
+        <Equal>D1010</Equal>
+        <Equal>D1020</Equal>
+        <Equal>D1030</Equal>
+        <Equal>D1040</Equal>
+        <Equal>D1050</Equal>
+        <Equal>D20</Equal>
+        <Equal>D2010</Equal>
+        <Equal>D2020</Equal>
+        <Equal>D2030</Equal>
+      </Range>
+    </Simple>
+  </Extension>
+</Package>

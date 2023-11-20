@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2009, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" Name="ENOSTProdSysExecInterruptOpDS" Uuid="b2d76598-f716-4681-9c23-efb54238f577" UseNames="DELLmiProductionExecInterruptOperation" >
+	<CAAComment>
+		<ShortRole>PLM Customization of DELMIA Execution Interrupt Operation for SMB</ShortRole>
+		<Role>PLM Customization of DELMIA Execution Interrupt Operation for SMB</Role>
+	</CAAComment>
+	<Comment>last update 2009-05-29</Comment>
+
+	<Class Name="ENOSTExecInterruptOpRefCusto" Uuid="631497e1-fda6-4fe1-b745-e5eafeb54d6e" SuperName="DELLmiExecInterruptOperationReference" SuperRef="6ca613b8-03ec-4853-b557-c50cb1ac632c"  >
+
+    <Simple Name="E_fromExternalId"
+            Uuid="4ba73adb-09a5-4c30-9934-053380dfd2d4"
+            Alias="Definition"
+            Type="String"
+            MaxLength="256"
+            Mandatory="No"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"/>
+    <Simple Name="E_versionComment"
+            Uuid="dcc2164e-a4be-4666-868b-ae7631786d27"
+            Alias="Version Comment"
+            Type="String"
+            MaxLength="256"
+            Mandatory="No"
+            MultiValuated="No"
+            Protection="Free"
+            ResetOnNewVersion="Yes"
+            ResetOnCloning="Yes"
+            CAAExposition="L0"/>
+    <IdentifierSet Name="E_identifier"
+                   Uuid="4b85bef2-334b-462c-93fc-c18233ffef09"
+                   IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755"
+                   IdentifierNames="PLM_ExternalID V_version"/>
+
+    <CAAComment>
+			<ShortRole>PLM Customization of DELMIA Execution Interrupt Operation Reference for SMB</ShortRole>
+			<Role>PLM Customization of DELMIA Execution Interrupt Operation Reference for SMB</Role>
+		</CAAComment>
+	</Class>
+
+  <RelationClass Name="ENOSTExecInterruptOpInstCusto" Uuid="69165b78-700a-47f4-8a2e-2cdf2b83abc2" SuperName="DELLmiExecInterruptOperationInstance" SuperRef="bb1893ca-d362-47b1-bd1d-8bab9853c0f8"  >
+		<CAAComment>
+			<ShortRole>PLM Customization of DELMIA Execution Interrupt Operation Instance for SMB</ShortRole>
+			<Role>PLM Customization of DELMIA Execution Interrupt Operation Instance for SMB</Role>
+		</CAAComment>		
+            <!-- ********************************************************* -->
+            <!-- * Overload(s) of PLMCoreInstance attributes. -->
+            <!-- ********************************************************* -->
+    <SubClause Name="to"   TargetName="ENOSTExecInterruptOpRefCusto"/>
+	</RelationClass>
+
+</Package>

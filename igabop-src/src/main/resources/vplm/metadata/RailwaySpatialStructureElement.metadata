@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2012, All rights reserved -->
+
+<Package CustomerExposition = "Programmer" ModelerType = "Top" Name = "RailwaySpatialStructureElement" UseNames = "CivilEngineeringSpatialStructureElement" Uuid = "6168F536-B855-484B-97D4-EF3B72056083" xmlns = "PLMDictionaryUnified">
+  <Class Abbreviation = "rlw" CustomerExposition = "Programmer" Discipline = "Yes" Name = "Railway" SuperName = "RailwaySpatialStructureElement" Uuid = "D736EA40-AA45-450F-BC81-E56D5D1D8B88">
+    <Property Name = "IconName" Value = "I_Railway"/>
+    <Property Name = "3DIconName" Value = "I_Railway.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATEAECDelegateInstanciation"/>
+    <Property Name = "KweNew_ReturnedType" Value = "VPMInstance"/>
+    <Property Name = "Newable" Value = "All_Offline_CAA"/>
+    <Property Name = "InstantiationOwnerTypes" Value = "PPRContext;AecOtherSpatialStructureElement;AecSite;Building;BuildingStorey;Dam;GeoUndergroundMine;Railway;RailwayOtherSpatialStructureElement;Tunnel"/>
+    <Property Name = "3DPartAvailability" Value = "UserChoiceReferenceDefault"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "RailwayOtherSpatialStructureElement" Specializable = "Yes" SuperName = "RailwayPart" Uuid = "B5C5E7F1-39DA-42D9-A69E-825433AEDB4A">
+    <Property Name = "IconName" Value = "I_RailwayOtherSpatialStructureElement"/>
+    <Property Name = "3DIconName" Value = "I_RailwayOtherSpatialStructureElement.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATEAECDelegateInstanciation"/>
+    <Property Name = "KweNew_ReturnedType" Value = "VPMInstance"/>
+    <Property Name = "Newable" Value = "All_Offline_CAA"/>
+    <Property Name = "InstantiationOwnerTypes" Value = "PPRContext;AecOtherSpatialStructureElement;AecSite;Railway;RailwayOtherSpatialStructureElement;RailwayStretch;RailwaySwitch"/>
+    <Property Name = "3DPartAvailability" Value = "UserChoiceReferenceDefault"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "RailwayOtherSpatialStructureElementType" Specializable = "Yes" SuperName = "RailwayPartType" Uuid = "B9BA1675-CD06-4AD8-8688-3D51B878D949">
+    <Property Name = "IconName" Value = "I_RailwayOtherSpatialStructureElementType"/>
+    <Property Name = "3DIconName" Value = "I_RailwayOtherSpatialStructureElementType.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATCbaObjectTypeDelegateInstanciation"/>
+    <Property Name = "Newable" Value = "New_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "ReferenceOnly"/>
+  </Class>
+  <Class Abstract = "Yes" CustomerExposition = "Programmer" Discipline = "Yes" Name = "RailwayPart" SuperName = "RailwaySpatialStructureElement" Uuid = "9B6782F7-91CF-4DA3-A71C-ED2DC20A45F7"/>
+  <Class Abstract = "Yes" CustomerExposition = "Programmer" Discipline = "Yes" Name = "RailwayPartType" SuperName = "RailwaySpatialStructureElementType" Uuid = "3380E112-8AA2-4A09-815F-EF09B62C621E"/>
+  <Class Abstract = "Yes" CustomerExposition = "Programmer" Discipline = "Yes" Name = "RailwaySpatialStructureElement" SuperName = "CivilEngineeringSpatialStructureElement" Uuid = "7BF3C656-0054-44C8-AFFF-FD9CCBF34401">
+    <Property Name = "GroupingType" Value = "RailwaySpatialStructureElement"/>
+  </Class>
+  <Class Abstract = "Yes" CustomerExposition = "Programmer" Discipline = "Yes" Name = "RailwaySpatialStructureElementType" SuperName = "CivilEngineeringSpatialStructureElementType" Uuid = "1E5ECAE4-4E6D-4C81-B63F-1A4D2F3815D2">
+    <Property Name = "GroupingType" Value = "RailwaySpatialStructureElementType"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "RailwayStretch" SuperName = "RailwayPart" Uuid = "FE41A87E-7D25-4D8A-88AF-BDFD56791AF4">
+    <Property Name = "IconName" Value = "I_RailwayStretch"/>
+    <Property Name = "3DIconName" Value = "I_RailwayStretch.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATEAECDelegateInstanciation"/>
+    <Property Name = "KweNew_ReturnedType" Value = "VPMInstance"/>
+    <Property Name = "Newable" Value = "All_Offline_CAA"/>
+    <Property Name = "InstantiationOwnerTypes" Value = "PPRContext;AecOtherSpatialStructureElement;Railway;RailwayOtherSpatialStructureElement;RailwayStretch;RailwaySwitch"/>
+    <Property Name = "3DPartAvailability" Value = "UserChoiceReferenceDefault"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "RailwayStretchType" SuperName = "RailwayPartType" Uuid = "45FA5E3D-C834-4378-A15A-B2D3225869C4">
+    <Property Name = "IconName" Value = "I_RailwayStretchType"/>
+    <Property Name = "3DIconName" Value = "I_RailwayStretchType.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATCbaObjectTypeDelegateInstanciation"/>
+    <Property Name = "Newable" Value = "New_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "ReferenceOnly"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "RailwaySwitch" SuperName = "RailwayPart" Uuid = "D64DEDE2-DB86-42C9-9FA6-FE683A928D23">
+    <Property Name = "IconName" Value = "I_RailwaySwitch"/>
+    <Property Name = "3DIconName" Value = "I_RailwaySwitch.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATEAECDelegateInstanciation"/>
+    <Property Name = "KweNew_ReturnedType" Value = "VPMInstance"/>
+    <Property Name = "Newable" Value = "All_Offline_CAA"/>
+    <Property Name = "InstantiationOwnerTypes" Value = "PPRContext;AecOtherSpatialStructureElement;Railway;RailwayOtherSpatialStructureElement;RailwaySwitch"/>
+    <Property Name = "3DPartAvailability" Value = "UserChoiceReferenceDefault"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "RailwaySwitchType" SuperName = "RailwayPartType" Uuid = "87FF6935-8543-4179-B372-B02D7EA10B62">
+    <Property Name = "IconName" Value = "I_RailwaySwitchType"/>
+    <Property Name = "3DIconName" Value = "I_RailwaySwitchType.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATCbaObjectTypeDelegateInstanciation"/>
+    <Property Name = "Newable" Value = "New_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "ReferenceOnly"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "RailwayType" SuperName = "RailwaySpatialStructureElementType" Uuid = "BFBFFB57-686A-4F35-B74C-8277D114F686">
+    <Property Name = "IconName" Value = "I_RailwayType"/>
+    <Property Name = "3DIconName" Value = "I_RailwayType.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATCbaObjectTypeDelegateInstanciation"/>
+    <Property Name = "Newable" Value = "New_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "ReferenceOnly"/>
+  </Class>
+</Package>

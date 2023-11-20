@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<ProcedurePackage 
+	xmlns="PLMDictionaryProcedure"
+	Name="CFYpe_Procedures">
+			
+	<Procedure Name="Cfy_ExportFamily">
+		<Implementation Name="Cfy_ExportFamily" FileLocation="Cfy_ExportFamily.KProc" Language="EKL"/>
+		<Signature href="CFYpe_ProcedureSignatureExport"/>
+	</Procedure>
+
+	<Signature id="CFYpe_ProcedureSignatureExport">
+		<Parameter Name="InputIds" Lower="0" Upper="-1" MultiValuated="Yes" Direction="in" DataType="PLMId"/>
+		<Parameter Name="OutputIds" Lower="0" Upper="-1" MultiValuated="Yes" Direction="out" DataType="PLMId"/>
+	</Signature>
+	
+</ProcedurePackage>

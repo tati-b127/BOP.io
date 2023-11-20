@@ -1,0 +1,16 @@
+NAVIGATE
+
+	T0.physicalid , T0.logicalid ,T0.majorid, T0.type , T0.name ,
+   	T1.physicalid , T1.logicalid ,T1.majorid, T1.type ,
+        T2.physicalid , T2.logicalid ,T2.majorid, T2.type , T2.name 
+ 
+FROM
+	Class/DEL_BlendingTable T0,
+	RelationClass/DELBT_IsComposedOf T1,
+	Class/DEL_BlendingRule T2
+FROM_ROOTS [?1?]
+ON	
+	RELATION (FROM=Class/DEL_BlendingTable TO=RelationClass/DELBT_IsComposedOf THROUGH=POINTEDBY) WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY)
+	THEN RELATION (FROM=RelationClass/DELBT_IsComposedOf TO=Class/DEL_BlendingRule THROUGH=POINTSTO) WITH QUALITY_FILTER (CATEGORY=ISINSTANCEOF)
+
+ITER=1;

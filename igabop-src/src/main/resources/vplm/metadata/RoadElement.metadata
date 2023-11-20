@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2012, All rights reserved -->
+
+<Package CustomerExposition = "Programmer" ModelerType = "Top" Name = "RoadElement" UseNames = "CivilEngineeringElement" Uuid = "39870DD6-29EC-4D17-B45A-D4E9E5ABDC1A" xmlns = "PLMDictionaryUnified">
+  <Class Abstract = "Yes" CustomerExposition = "Programmer" Discipline = "Yes" Name = "RoadElement" SuperName = "CivilEngineeringElement" Uuid = "68C4E50C-9780-4310-91BC-7B388A3CC2B9">
+    <Property Name = "GroupingType" Value = "RoadElement"/>
+    <Property Name = "InstantiationOwnerTypes" Value = "PPRContext;RoadSpatialStructureElement;AecElementAssembly;RoadElement;BuildingSpace"/>
+  </Class>
+  <Class Abstract = "Yes" CustomerExposition = "Programmer" Discipline = "Yes" Name = "RoadElementType" SuperName = "CivilEngineeringElementType" Uuid = "6C446D63-EAC3-4634-83C8-3883880E7ADD">
+    <Property Name = "GroupingType" Value = "RoadElementType"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "RoadOtherElement" Specializable = "Yes" SuperName = "RoadElement" Uuid = "3B6649E1-5542-49D3-BF72-6FAEE768AEE9">
+    <Property Name = "IconName" Value = "I_RoadOtherElement"/>
+    <Property Name = "3DIconName" Value = "I_RoadOtherElement.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATEAECDelegateInstanciation"/>
+    <Property Name = "Newable" Value = "All_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "UserChoiceReferenceDefault"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "RoadOtherElementType" Specializable = "Yes" SuperName = "RoadElementType" Uuid = "EE4DBA41-7A0E-4BBA-82DF-D87EC0989151">
+    <Property Name = "IconName" Value = "I_RoadOtherElementType"/>
+    <Property Name = "3DIconName" Value = "I_RoadOtherElementType.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATCbaObjectTypeDelegateInstanciation"/>
+    <Property Name = "Newable" Value = "New_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "ReferenceOnly"/>
+  </Class>
+</Package>

@@ -1,0 +1,30 @@
+NAVIGATE     
+
+T0.PLMID, T1.logicalid, T1.physicalid, T1.majorid, T1.type 
+ 
+
+FROM      
+
+DELMfgResponsibility/DELMfgResponsibilityCnx T0,
+Class/Organization T1
+
+FROM_ROOTS[?1?]
+
+ON ( RELATION(     
+
+FROM=DELMfgResponsibility/DELMfgResponsibilityCnx     
+
+TO=Class/Organization 
+
+THROUGH=POINTSTO )
+
+WITH QUALITY_FILTER(ROLE=DELMfgResp_Target))
+
+
+
+
+
+
+;
+
+

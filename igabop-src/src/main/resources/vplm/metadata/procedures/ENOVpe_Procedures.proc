@@ -1,0 +1,92 @@
+<?xml version="1.0" ?>
+<ProcedurePackage 
+	xmlns="PLMDictionaryProcedure"
+	Name="ENOVpe_Procedures">
+			
+	<Procedure Name="VPMEditor_GetRepresentationsForReview">
+		<Implementation Name="VPMEditor_GetRepresentationsForReview" FileLocation="VPMEditor_GetRepresentationsForReview.KProc" Language="EKL"/>
+		<Signature href="ENOVpe_ProcedureSignatureExport"/>
+	</Procedure>
+
+  <Procedure Name="VPMEditor_GetForReviewWithoutRep">
+    <Implementation Name="VPMEditor_GetForReviewWithoutRep" FileLocation="VPMEditor_GetForReviewWithoutRep.KProc" Language="EKL"/>
+    <Signature href="ENOVpe_ProcedureSignatureExport"/>
+  </Procedure>
+
+  <Procedure Name="VPMEditor_GetOnly3DShapeRepresentationsForReview">
+    <Implementation Name="VPMEditor_GetOnly3DShapeRepresentationsForReview" FileLocation="VPMEditor_GetOnly3DShapeRepresentationsForReview.KProc" Language="EKL"/>
+    <Signature href="ENOVpe_ProcedureSignatureExport"/>
+  </Procedure>
+	
+	<Procedure Name="VPMEditor_GetAllRepresentations">
+		<Implementation Name="VPMEditor_GetAllRepresentations" FileLocation="VPMEditor_GetAllRepresentations.KProc" Language="EKL"/>
+		<Signature href="ENOVpe_ProcedureSignatureExport"/>
+	</Procedure>
+
+	<Procedure Name="VPMEditor_GetOnly3DShapeRepresentations">
+		<Implementation Name="VPMEditor_GetOnly3DShapeRepresentations" FileLocation="VPMEditor_GetOnly3DShapeRepresentations.KProc" Language="EKL"/>
+		<Signature href="ENOVpe_ProcedureSignatureExport"/>
+	</Procedure>
+
+	<Procedure Name="VPMEditor_GetAllWithoutRepresentations">
+		<Implementation Name="VPMEditor_GetAllWithoutRepresentations" FileLocation="VPMEditor_GetAllWithoutRepresentations.KProc" Language="EKL"/>
+		<Signature href="ENOVpe_ProcedureSignatureExport"/>
+	</Procedure>
+
+  <Procedure Name="VPMEditor_GetChannelCompletionOnReference">
+    <Implementation Name="VPMEditor_GetChannelCompletionOnReference" FileLocation="VPMEditor_GetChannelCompletionOnReference.KProc" Language="EKL"/>
+    <Signature href="ENOVpe_ProcedureSignatureExport"/>
+  </Procedure>
+
+  <Procedure Name="VPMEditor_GetChannelCompletionOnInstance">
+    <Implementation Name="VPMEditor_GetChannelCompletionOnInstance" FileLocation="VPMEditor_GetChannelCompletionOnInstance.KProc" Language="EKL"/>
+    <Signature href="ENOVpe_ProcedureSignatureExport"/>
+  </Procedure>
+
+  <Procedure Name="VPMEditor_OpenCompletionOnReference">
+    <Implementation Name="VPMEditor_OpenCompletionOnReference" FileLocation="VPMEditor_OpenCompletionOnReference.KProc" Language="EKL"/>
+    <Signature href="ENOVpe_ProcedureSignatureExport"/>
+  </Procedure>
+
+  <Procedure Name="VPMEditor_GetExchangeCompletionOnReference">
+    <Implementation Name="VPMEditor_GetExchangeCompletionOnReference" FileLocation="VPMEditor_GetExchangeCompletionOnReference.KProc" Language="EKL"/>
+    <Signature href="ENOVpe_ProcedureSignatureExport"/> 
+  </Procedure>
+
+  <Procedure Name="VPMEditor_XPDM2_VPMReferenceCompletion">
+    <Implementation Name="VPMEditor_XPDM2_VPMReferenceCompletion" FileLocation="VPMEditor_XPDM2_VPMReferenceCompletion.KProc" Language="EKL"/>
+    <Signature href="ENOVpe_ProcedureSignatureExport"/> 
+  </Procedure>
+
+  <Procedure Name="VPMEditor_GetRepresentationsForReview_V6">
+    <Implementation Name="VPMEditor_GetRepresentationsForReview_V6" FileLocation="VPMEditor_GetRepresentationsForReview_V6.KProc" Language="EKL"/>
+    <Signature href="ENOVpe_ProcedureSignatureExport"/>
+  </Procedure>
+
+  <Procedure Name="VPMEditor_Detach_VPMReferenceVPMRepReference">
+    <Implementation Name="VPMEditor_Detach_VPMReferenceVPMRepReference" FileLocation="VPMEditor_Detach_VPMReferenceVPMRepReference.KProc" Language="EKL"/>
+    <Signature href="ENOVpe_ProcedureSignatureExport"/>
+  </Procedure>
+  
+  <Procedure Name="VPMEditor_Detach_VPMInstance">
+    <Implementation Name="VPMEditor_Detach_VPMInstance" FileLocation="VPMEditor_Detach_VPMInstance.KProc" Language="EKL"/>
+    <Signature href="ENOVpe_ProcedureSignatureExport"/>
+  </Procedure>
+    
+  <Procedure Name="VPMEditor_TSO_VPMReferenceVPMRepReference">
+    <Implementation Name="VPMEditor_TSO_VPMReferenceVPMRepReference" FileLocation="VPMEditor_TSO_VPMReferenceVPMRepReference.KProc" Language="EKL"/>
+    <Signature href="ENOVpe_ProcedureSignatureExport"/>
+  </Procedure>
+
+  <Procedure Name="VPMEditor_TSO_VPMInstance">
+    <Implementation Name="VPMEditor_TSO_VPMInstance" FileLocation="VPMEditor_TSO_VPMInstance.KProc" Language="EKL"/>
+    <Signature href="ENOVpe_ProcedureSignatureExport"/>
+  </Procedure>
+  
+	<Signature id="ENOVpe_ProcedureSignatureExport">
+		<Parameter Name="InParameter" Lower="0" Upper="-1" MultiValuated="Yes" Direction="in" DataType="PLMId"/>
+		<Parameter Name="OutParameter" Lower="0" Upper="-1" MultiValuated="Yes" Direction="out" DataType="PLMId"/>
+	</Signature>
+	
+</ProcedurePackage>
+

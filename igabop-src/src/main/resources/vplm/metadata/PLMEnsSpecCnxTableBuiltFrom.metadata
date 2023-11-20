@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY for Ens Specifications Editor -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2011, all rights reserved -->
+
+<!-- 
+   =========
+    Package
+   =========        
+-->
+
+<Package xmlns="PLMDictionaryUnified"
+         CustomerExposition="Programmer"
+         ModelerType="Top"
+         Name="PLMEnsSpecCnxTableBuiltFrom"
+         Uuid="518DE25F-B722-4e40-9177-B7033DD1BB97"              
+         UseNames="PLMCORE">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>Ens Specifications table built from connection Package</ShortRole>
+    <Role>This package describes the table built from connection used in the Ens Specifications model.</Role>
+  </CAAComment>
+  <Comment>Initial creation: PA GLY Feb 2011</Comment>
+  <Comment>Review for V6R2012: JLN PGT PYR DRL JLM SLI ASG LBH GLY Dec 2010</Comment>
+  <Comment>Ens Specifications table built from connection</Comment>
+
+  <!-- 
+   ===============================================
+    Ens table built from connection (connection)    
+   ===============================================
+-->
+
+  <Class Name="EnsCnxTableBuiltFromTable"
+         Uuid="6AE7EDF7-9D28-44ed-A735-8C241F011661"
+         CustomerExposition="Programmer"
+         Abstract="No"
+         SuperName="PLMConnection"
+	       Specializable="No" OwnerTypes="EnsTechnologicalTable"
+         CustomerExtensible="No">
+    <!-- OwnerTypes="EnsTechnologicalTable"  Integrate this line if you want to declare the aggregation constraint -->
+    <!-- 
+              MODIF PA DEB 10022012
+        -->
+    <Property Name="Searchable"      Value="No"/>
+    <!-- 
+              MODIF PA FIN 10022012
+        -->
+
+    <Path Name="V_EnsSpec_TechnoTableToTechnoTable"
+       Uuid="E1EE0A8B-DC48-4b68-8CED-EAB61AABFDA3"
+       RoleName="EnsSpec_TechnoTableToTechnoTable"
+       Semantics="Reference"
+       MultiValuated="Yes"
+       Type="SemanticRelation" AdaptativeToMinor="No"
+		   SynchroSensitivity="None"
+		   RerouteOnEffectivityChange="No"
+       Lower="0"
+       Upper="-1" />
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+</Package>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

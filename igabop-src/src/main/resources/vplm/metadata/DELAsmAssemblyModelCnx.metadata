@@ -1,0 +1,186 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2007, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified"
+         ModelerType="Top"
+         Name="DELAsmAssemblyModelCnx"
+         Uuid="AF0CA99C-9F29-4ae1-87C8-FFAB777B71B6"
+         BelongsToModeler="DELAsmAssemblyModelCnx"
+         UseNames="PLMCORE"
+         CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>DELAsmAssemblyModelCnxModeler Package</ShortRole>
+    <Role>This package describes Primary Capable resouce Connection</Role>
+  </CAAComment>
+
+  <Comment>Primary capable resource Connection</Comment>
+
+  <Class Name="DELAsmProcessCanUseCnx"
+         Uuid="45127D5F-7580-4b72-BA3D-54532B01C10E"
+         SuperName="PLMConnection"
+         Abstract="No"
+         CustomerExposition="Programmer"
+         Specializable="No"
+         CustomerExtensible="Yes"
+        >
+
+    <Property Name="AggregatableTypes" Value="PARParameter"/>
+
+    <Simple Name="V_ResourcesQuantity"
+           Uuid="5040F998-C749-4c8a-9412-951261DAEF59"
+           Type="Double"
+           DefaultValue="1.0"
+           MultiValuated="No"
+           ResetOnCloning="No"
+           ResetOnNewVersion="No"
+           Protection="External"
+           CAAExposition="L0"/>
+
+    <Simple Name="V_Priority"
+        Uuid="631317FD-6BFE-4324-A84A-25A96F4C67F7"
+        Type="Integer"
+        MultiValuated="No"
+        Protection="Free"
+        ResetOnCloning="No"
+        ResetOnNewVersion="No"
+        DefaultValue="1">
+      <CAAComment>
+        <ShortRole>Defines the Primary Capable Resource Priority.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_ManuallyScheduled"
+           Uuid="D6E618AB-0883-4CDF-99F9-9A19A36C1473"
+           Type="Boolean"
+           MultiValuated="No"
+           Protection="Free"
+           ResetOnCloning="No"
+           ResetOnNewVersion="No"
+           DefaultValue="False">
+      <CAAComment>
+        <ShortRole>Defines if the Primary Capable Resource is manually scheduled.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_ToolChangeoverTime"
+        Uuid="7E54BDE5-63C8-4168-9ADA-A5088971BAE6"
+        Type="Double"
+        Magnitude="TIME"
+        MultiValuated="No"
+        Protection="Free"
+        ResetOnCloning="No"
+        ResetOnNewVersion="No"
+        DefaultValue="0.0">
+      <CAAComment>
+        <ShortRole>Tool change Overtime.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_IsPreferred"
+       Uuid="0C4B00FA-45B6-408D-94AA-29B2456D9763"
+       Type="Boolean"
+       MultiValuated="No"
+       Protection="External"
+       ResetOnCloning="No"
+       ResetOnNewVersion="No"
+       DefaultValue="False">
+      <CAAComment>
+        <ShortRole>Defines if the preferred Primary Capable Resource</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Path Name="DEL_PCU_Query_SR"
+        Uuid="B5528789-4809-45dc-9FDC-A15CAD74C0A9"
+        RoleName="DEL_PCU_Query"
+        MultiValuated="Yes"
+        Lower="0"
+        Upper="1"
+        Type="SemanticRelation" AdaptativeToMinor="No"
+        SynchroSensitivity="Last"
+        RerouteOnEffectivityChange="No"
+        Orientation="In"
+        Semantics="Reference4"/>
+
+    <Path Name="DEL_PCU_Owner_SR"
+        Uuid="03F5E04E-FDD7-4b74-8E6C-08966E601118"
+        RoleName="DEL_PCU_Owner"
+        MultiValuated="Yes"
+        Lower="1"
+        Upper="1"
+        Type="SemanticRelation" AdaptativeToMinor="No"
+        SynchroSensitivity="PathAndLast"
+        RerouteOnEffectivityChange="No"
+        Orientation="In"
+        Semantics="Reference3"/>
+
+    <Path Name="DEL_PCU_Result_SR"
+        Uuid="23BE76F0-5D5A-48f5-926D-D46E29806505"
+        RoleName="DEL_PCU_Result"
+        MultiValuated="Yes"
+        Lower="0"
+        Upper="-1"
+        Type="SemanticRelation" AdaptativeToMinor="No"
+        SynchroSensitivity="Last"
+        RerouteOnEffectivityChange="No"
+        Orientation="In"
+        Semantics="Reference4"/>
+
+    <Path Name="DELFmiLinkPCURToDoc"
+        Uuid="FA0E45A3-E7AE-4e3b-BD1D-DDC3C8693BA5"
+        RoleName="DEL_LinkToDocument"
+        MultiValuated="Yes"
+        Lower="0"
+        Upper="-1"
+        Type="SemanticRelation" AdaptativeToMinor="No"
+        SynchroSensitivity="None"
+        RerouteOnEffectivityChange="No"
+        Semantics="Reference"/>
+
+    <Path Name="DELFmiDEL_DependsOnCapableResource"
+      Uuid="98CF944E-26F9-4BC2-99EC-B800F563E3E2"
+      RoleName="DEL_DependsOnCapableResource"
+      MultiValuated="Yes"
+      Type="SemanticRelation" AdaptativeToMinor="No"
+      SynchroSensitivity="None"
+      RerouteOnEffectivityChange="No"
+      Orientation="Out"
+      Semantics="Reference"/>
+
+    <CAAComment>
+      <ShortRole>The DELAsmAssemblyModelCnx.class</ShortRole>
+      <Role>The DELAsmAssemblyModelCnx.class</Role>
+    </CAAComment>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+  </Class>
+
+
+  <!-- FUNCTIONS Declarations : here are declared PLMQL Functions -->
+
+  <Function Name="ENOPcs_Process_addPCURConnections">
+    <Implementation Name="ENOPcs_Process_addPCURConnections" FileLocation="ENOPcs_Process_addPCURConnections.plmql" Language="PLMQL"/>
+    <Signature href="ENOProcessPCURCnxSignature"/>
+  </Function>
+
+  <Function Name="DELAsmAssemblyModelCnx_addDocuments">
+    <Implementation Name="DELAsmAssemblyModelCnx_addDocuments" FileLocation="DELAsmAssemblyModelCnx_addDocuments.plmql" Language="PLMQL"/>
+    <Signature href="ENOProcessPCURCnxSignature"/>
+  </Function>
+
+  <Function Name="DELAsmAssemblyModelCnx_addAllDocuments">
+    <Implementation Name="DELAsmAssemblyModelCnx_addAllDocuments" FileLocation="DELAsmAssemblyModelCnx_addAllDocuments.plmql" Language="PLMQL"/>
+    <Signature href="ENOProcessPCURCnxSignature"/>
+  </Function>
+
+  <Signature id="ENOProcessPCURCnxSignature">
+    <Parameter Name="InputIds" Lower="0" Upper="-1" Direction="in" MultiValuated="Yes" DataType="PLMId"/>
+    <Parameter Name="OutputIds" Lower="0" Upper="-1" Direction="out" MultiValuated="No" DataType="PLMRouteSet"/>
+  </Signature>
+  <!-- ********************************************************* -->
+
+</Package>

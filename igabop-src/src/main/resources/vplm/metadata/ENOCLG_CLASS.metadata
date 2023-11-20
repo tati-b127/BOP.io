@@ -1,0 +1,276 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2006, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" Name="ENOCLG_CLASS"
+    Uuid="bf1bae58-05db-484e-a245-99a26191e3f9" UseNames="PLMCORE ENOFLD_ABSTRACT_REF"
+    CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+  <CAAComment>
+    <ShortRole>Class Package</ShortRole>
+    <Role>This package includes all the entities of Class Model</Role>
+  </CAAComment>
+
+  <Comment>last update 2006-12-08-00.00.00</Comment>
+
+  <!-- ************************************************************************************************************************************ -->
+  <!-- * ENOCLG_ChapterReference(PLMCoreReference): concrete Chapter, can be inserted in PLM New, searchable, CAA derivable, instanciable * -->
+  <!-- ************************************************************************************************************************************ -->
+  <Class Name="ENOCLG_ClassReference"
+    Uuid="1594157b-37a9-41f7-b01c-57a5784eeaa5"
+    Abstract="No"
+    SuperName="ENOFLD_AbstractReference"
+    Abbreviation="chap"
+    CustomerExposition="Programmer"
+    CreateInstName="ENOCLG_ClassInstance"
+    Specializable="Yes">
+    <CAAComment>
+      <ShortRole>Class Reference</ShortRole>
+      <Role>Class Reference</Role>
+    </CAAComment>
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="KnlgClassNewFactory"/>
+    <Property Name="Newable" Value="Insert"/>
+    <Property Name="IconName" Value="I_CatalogChapter"/>
+    <Property Name="3DIconName" Value="Catalog_3DNAVREP.cgr"/>
+    <Property Name="DeleteAvailability" Value="Yes"/>
+    <Property Name="Searchable" Value="Yes"/>
+
+    <!-- ********************************************************* -->
+    <!-- * Elementary Class attributes                           * -->
+    <!-- ********************************************************* -->
+    <Simple Name="V_IdLibraryOwner"
+          Uuid="fde00ea1-403c-4f01-b2b1-27b792636427"
+          Type="Binary" MaxLength="36" Protection="Internal"  MultiValuated="No"/>
+
+    <Simple Name="V_NbKeywords"
+          Uuid="d5c5208d-c736-4294-9748-5f60646096fc"
+          Type="Integer" Protection="Internal"  MultiValuated="No" DefaultValue="-1" />
+
+    <Simple Name="V_NbItems"
+          Uuid="33b63b84-2973-478f-b499-b3d56df83dfe"
+          Type="Integer" Protection="Internal"  MultiValuated="No" DefaultValue="-1" />
+
+    <Simple Name="V_HasDescriptions"
+          Uuid="34cfd35c-abd9-47ae-a8dc-1f40073d951c"
+          Type="Boolean" Protection="Internal"  MultiValuated="No" />
+
+    <Simple Name="V_InheritanceMode"
+          Uuid="56d71322-7846-4d27-9a67-5b54c4d4d834"
+          Type="Boolean" Protection="Internal"  MultiValuated="No"/>
+
+    <Simple Name="V_AuthoringProfile"
+          Uuid="3dbd0c17-1809-4bf4-8f8f-0a3806bb8041"
+          Type="Integer" Protection="External" MultiValuated="No" CAAExposition="L0"
+		  ResetOnCloning="Yes" DefaultValue="0" />
+
+    <Simple Name="V_LibraryDataVersion"
+          Uuid="eba7bc86-003a-4d76-8fc6-46cd620fec83"
+          Type="String" MaxLength="30" Protection="Internal"  MultiValuated="No"/>
+
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Design"/>
+        <UsedProcedure href="PLMCatalog_Procedures.proc#Clg_ExportChapter"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Channel"/>
+        <UsedProcedure href="PLMCatalog_Procedures.proc#Clg_ExportChapter"/>
+      </ProcedureForUsage>
+    </Method>
+  </Class>
+
+
+
+  <!-- ********************************************************************************** -->
+  <!-- * ENOCLG_ChapterInstance(PLMCoreInstance): instance of a chapter, CAA Derivable  * -->
+  <!-- ********************************************************************************** -->
+  <RelationClass Name="ENOCLG_ClassInstance"
+    Uuid="d9c24603-699a-47ce-b26a-186ade411e53"
+    Abstract="No"
+    SuperName="ENOFLD_AbstractInstance"
+    CustomerExposition="Programmer"
+    Specializable="Yes">
+    <CAAComment>
+      <ShortRole>Instance between a father Catalog/Chapter and another Chapter</ShortRole>
+      <Role>Instance between a father Catalog/Chapter and another Chapter</Role>
+    </CAAComment>
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <!-- Behavior patterns: default values -->
+    <Property Name="EditPropertiesAvailability" Value="No"/>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </RelationClass>
+
+  <!-- ****************************************************************************** -->
+  <!-- * ENOCLG_Description(PLMConnection) : item in the chapter, non CAA derivable * -->
+  <!-- ****************************************************************************** -->
+  <Class Name="ENOCLG_Item"
+    Uuid="95ca31ef-c96a-42cf-bcf7-b473c2382d9e"
+    Abstract="No"
+    SuperName="ENOFLD_AbstractConnection"
+    CustomerExposition="Programmer">
+    <Property Name="Searchable" Value="No"/>
+    <CAAComment>
+      <ShortRole>Description Connection Object</ShortRole>
+      <Role>Description Connection Object</Role>
+    </CAAComment>
+
+    <!-- Only PLMCoreReference can be pointed by a ENOFLD_AbstractConnection -->
+    <Path Name="CES_Supplier"
+        Uuid="c64876b5-7d40-4709-892b-d1880700bdb8"
+        RoleName="ENOCESSourcingSupplier"
+        MultiValuated="Yes"
+        Type="SemanticRelation" AdaptativeToMinor="No"
+		    SynchroSensitivity="None"
+		    RerouteOnEffectivityChange="No"  Protection="Internal"
+        Semantics="Reference2"/>
+
+    <!-- Only PLMCoreReference can be pointed by a ENOFLD_AbstractConnection -->
+    <Path Name="CES_Manufacturer"
+        Uuid="162fcc9c-6271-41e3-b271-3961179ec449"
+        RoleName="ENOCESSourcingManufacturer"
+        MultiValuated="Yes"
+        Type="SemanticRelation" AdaptativeToMinor="No"
+		    SynchroSensitivity="None"
+		    RerouteOnEffectivityChange="No" Protection="Internal"
+        Semantics="Reference2"/>
+
+    <Path Name="CES_Organization"
+       Uuid="7b24cc91-f2c2-44c2-896f-7969d9077d35"
+       RoleName="ENOCESSourcingOrganization"
+       MultiValuated="Yes"
+    	 Type="SemanticRelation" AdaptativeToMinor="No"
+		   SynchroSensitivity="None"
+		   RerouteOnEffectivityChange="No" Protection="Internal"
+       Semantics="Reference2"/>
+
+    <Path Name="CES_Alternate"
+       Uuid="12e67eb3-ffde-4d94-ad65-10bd185693a7"
+       RoleName="ENOCESSourcingAlternate"
+       MultiValuated="Yes"
+    	 Type="SemanticRelation" AdaptativeToMinor="No"
+		   SynchroSensitivity="None"
+		   RerouteOnEffectivityChange="No" Protection="Internal"
+       Semantics="Reference2"/>
+
+
+    <!-- ********************************************************* -->
+    <!-- * Elementary Description attributes                     * -->
+    <!-- ********************************************************* -->
+    <Simple Name="V_Id"
+          Uuid="0f6fa83d-e506-4ac8-b503-c350f269bdaf"
+          Type="Binary" MaxLength="36" Protection="Internal"  MultiValuated="No"/>
+
+    <Simple Name="V_ComponentType" Uuid="d023c1f2-62ce-4055-974e-d912991ca4cc" Type="Integer" Protection="External" CAAExposition="L0" DefaultValue="1">
+      <Property Name="RangeAsEnumName" Value="ComponentType"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="Unset;Others;Feature;Document;Library;Class;PartFamily;Reference;Representation;PersistentQuery;CESInternalItem;CESSupplierItem;CESManufacturerItem;CESOrganization;Reserved1;Reserved2"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+        <Equal>5</Equal>
+        <Equal>6</Equal>
+        <Equal>7</Equal>
+        <Equal>8</Equal>
+        <Equal>9</Equal>
+        <Equal>10</Equal>
+        <Equal>11</Equal>
+        <Equal>12</Equal>
+        <Equal>13</Equal>
+        <Equal>14</Equal>
+        <Equal>15</Equal>
+        <Equal>16</Equal>
+      </Range>
+    </Simple>
+
+    <Simple Name="V_IdClassOwner"
+          Uuid="5c0d2add-ed04-4a49-abdb-839d2c9366dd"
+          Type="Binary" MaxLength="36" Protection="Internal"  MultiValuated="No"/>
+
+    <Simple Name="V_IdLibraryOwner"
+          Uuid="41fd4ec5-0983-454d-945a-b5df01fd52fd"
+          Type="Binary" MaxLength="36" Protection="Internal"  MultiValuated="No"/>
+
+    <Simple Name="V_IdNamingSpace"
+          Uuid="f2098f8a-2305-484a-949f-b67f09e0f787"
+          Type="Binary" MaxLength="36" Protection="Internal"  MultiValuated="No"/>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+  <!-- ****************************************************************************************************************** -->
+  <!-- * Keyword value RepRef (PLMCoreRepReference) : concrete keyword, non CAA derivable, not searchable, instanciable * -->
+  <!-- ****************************************************************************************************************** -->
+  <Class Name="ENOCLG_KeywordValueRepresentation"
+    Uuid="91947999-9660-4655-ae0d-96f23bc627b4"
+    Abstract="No"
+    SuperName="PLMCoreRepReference"
+    CustomerExposition="Programmer"
+    CreateInstName="ENOCLG_KeywordValueRepInstance">
+    <Property Name="Searchable" Value="No"/>
+
+    <CAAComment>
+      <ShortRole>Keyword Value representation. Contains various information (keyword value, synchro) not to be PLM exposed</ShortRole>
+      <Role>Keyword Value representation. Contains various information (keyword value, synchro) not to be PLM exposed</Role>
+    </CAAComment>
+
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+
+  <!-- ********************************************************************************************* -->
+  <!-- * ENOCLG_KeywordRepInstance(PLMCoreRepInstance) : instance of a keyword, non CAA derivable  * -->
+  <!-- ********************************************************************************************* -->
+  <RelationClass Name="ENOCLG_KeywordValueRepInstance"
+    Uuid="f023069a-549c-44ce-a41d-726f76c6fc88"
+    Abstract="No"
+    SuperName="PLMCoreRepInstance"
+    CustomerExposition="Programmer">
+
+    <CAAComment>
+      <ShortRole>PLM Keyword value instance aggregated in a ENOCLG_CHAPTER</ShortRole>
+      <Role>PLM Keyword Value instance aggregated in a ENOCLG_CHAPTER</Role>
+    </CAAComment>
+
+    <SubClause Name="from"   TargetName="ENOCLG_ClassReference"/>
+    <SubClause Name="to"   TargetName="ENOCLG_KeywordValueRepresentation"/>
+    
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </RelationClass>
+
+
+  <!-- ******************************* -->
+  <!-- FUNCTIONS Declarations : PLMQL  -->
+  <Function Name="clg_expand_chapter">
+    <Implementation Name="clg_expand_chapter" FileLocation="clg_expand_chapter.plmql" Language="PLMQL"/>
+    <Signature href="ClgClsFuncSignature"/>
+  </Function>
+  <Function Name="clg_navigate_chapters_hierarchy">
+    <Implementation Name="clg_navigate_chapters_hierarchy" FileLocation="clg_navigate_chapters_hierarchy.plmql" Language="PLMQL"/>
+    <Signature href="ClgClsFuncSignature"/>
+  </Function>
+  <Function Name="clg_navigate_library_of_chapter">
+    <Implementation Name="clg_navigate_library_of_chapter" FileLocation="clg_navigate_library_of_chapter.plmql" Language="PLMQL"/>
+    <Signature href="ClgClsFuncSignature"/>
+  </Function>
+  <Function Name="clg_navigate_reference">
+    <Implementation Name="clg_navigate_reference" FileLocation="clg_navigate_reference.plmql" Language="PLMQL"/>
+    <Signature href="ClgClsFuncSignature"/>
+  </Function>
+
+  <Signature id="ClgClsFuncSignature">
+    <Parameter Name="InputIds" Lower="0" Upper="-1" Direction="in" MultiValuated="Yes" DataType="PLMId"/>
+    <Parameter Name="OutputIds" Lower="0" Upper="-1" Direction="out" MultiValuated="No" DataType="PLMRouteSet"/>
+  </Signature>
+  <!-- ******************************* -->
+</Package>

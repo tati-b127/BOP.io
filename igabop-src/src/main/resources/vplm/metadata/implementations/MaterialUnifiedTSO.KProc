@@ -1,0 +1,32 @@
+#Prog MaterialUnifiedTSO (iPLMIDSet :  #In PLMIDSet,oPLMIDSet :  #Out PLMIDSet) : VoidType
+  {
+let AllDomains(PLMIDSet)
+let AllCnxUnderRef(PLMIDSet)
+
+let DomainFromMCCComposed (PLMRouteSet)
+let DomainFromMCCUsing (PLMRouteSet) 
+let CnxFromMCC (PLMRouteSet)
+let DocsUnderMCC (PLMRouteSet)
+let DocsFromDomains (PLMRouteSet)
+
+/* -------------------------------------------------
+getting all domains from references
+----------------------------------------------------*/
+DomainFromMCCComposed = ExecutePLMFunction("MaterialUnifiedResources", "mcc_retrieveDomains", Restrict( iPLMIDSet, "Class/Internal Material" ))
+DomainFromMCCUsing = ExecutePLMFunction("MaterialUnifiedResources", "mcc_retrieveDomainsUsing", Restrict( iPLMIDSet, "Class/Internal Material" ))
+
+AllDomains = Ids(DomainFromMCCComposed) + Ids(DomainFromMCCUsing) 
+
+/* -------------------------------------------------
+getting cnx aggregated under references (Behavior/Default)
+----------------------------------------------------*/
+CnxFromMCC = ExecutePLMFunction("MaterialUnifiedResources", "mcc_retrieveCnx", Restrict( iPLMIDSet, "Class/Internal Material" ) )
+AllCnxUnderRef = Ids(CnxFromMCC)
+
+/* -------------------------------------------------
+getting docs pointed by domains (Rendering)
+----------------------------------------------------*/
+DocsFromDomains = ExecutePLMFunction("CATMaterialRef", "rdg_retrieveTexture",Restrict(AllDomains, "CATMaterialRef/MaterialDomain"))
+
+oPLMIDSet = iPLMIDSet + AllDomains + AllCnxUnderRef + Ids(DocsFromDomains)
+}

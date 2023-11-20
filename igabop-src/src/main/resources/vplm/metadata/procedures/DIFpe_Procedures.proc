@@ -1,0 +1,41 @@
+<?xml version="1.0" ?>
+<ProcedurePackage 
+	xmlns="PLMDictionaryProcedure"
+	Name="DIFpe_Procedures">
+			
+	<Procedure Name="DIFModeler_GetAttachedPresentations">
+		<Implementation Name="DIFModeler_GetAttachedPresentations" FileLocation="DIFModeler_GetAttachedPresentations.KProc" Language="EKL"/>
+		<Signature href="DIFpe_ProcedureSignatureExport"/>
+	</Procedure>
+
+    <Procedure Name="DIFSymbolLibrary_ExportSelf">
+		<Implementation Name="DIFSymbolLibrary_ExportSelf" FileLocation="DIFSymbolLibrary_ExportSelf.KProc" Language="EKL"/>
+		<Signature href="DIFpe_ProcedureSignatureExport"/>
+    </Procedure>
+  
+    <Procedure Name="DIFStandardRep_ExportSelf">
+		<Implementation Name="DIFStandardRep_ExportSelf" FileLocation="DIFStandardRep_ExportSelf.KProc" Language="EKL"/>
+		<Signature href="DIFpe_ProcedureSignatureExport"/>
+    </Procedure>
+
+    <Procedure Name="DIFModeler_ExportCompletion_Myself">
+      <Implementation Name="DIFModeler_ExportCompletion_Myself" FileLocation="DIFModeler_ExportCompletion_Myself.KProc" Language="EKL"/>
+      <Signature href="DIFpe_ProcedureSignatureExport"/>
+    </Procedure>
+
+    <Procedure Name="DIFModeler_ExportCompletion_DifAbstractSheet">
+      <Implementation Name="DIFModeler_ExportCompletion_DifAbstractSheet" FileLocation="DIFModeler_ExportCompletion_DifAbstractSheet.KProc" Language="EKL"/>
+      <Signature href="DIFpe_ProcedureSignatureExport"/>
+    </Procedure>
+
+    <Procedure Name="DIFModeler_ExportCompletion_DifAbstractView">
+      <Implementation Name="DIFModeler_ExportCompletion_DifAbstractView" FileLocation="DIFModeler_ExportCompletion_DifAbstractView.KProc" Language="EKL"/>
+      <Signature href="DIFpe_ProcedureSignatureExport"/>
+    </Procedure>
+
+	<Signature id="DIFpe_ProcedureSignatureExport">
+		<Parameter Name="InputIds" Lower="0" Upper="-1" MultiValuated="Yes" Direction="in" DataType="PLMId"/>
+		<Parameter Name="OutputIds" Lower="0" Upper="-1" MultiValuated="Yes" Direction="out" DataType="PLMId"/>
+	</Signature>
+	
+</ProcedurePackage>

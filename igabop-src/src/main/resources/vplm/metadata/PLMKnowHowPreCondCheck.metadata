@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2013, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" CustomerExposition="Programmer" BelongsToModeler="PLMKnowHowRule" ModelerType="Top" Name="PLMKnowHowPreCondCheck" Uuid="0EDD779D-7EB7-4FB8-A347-1067652E9166" UseNames="PLMKnowHowRuleBaseComponent" >
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+  <CAAComment>
+		<ShortRole>KnowHow Precond Check Package</ShortRole>
+		<Role>This package includes the object to manage the Precondition of KnowHow Check Model</Role>
+	</CAAComment>
+	<!-- ******************************* -->
+	<!-- * PLMPreCondCheck (PLMCoreReference) * -->
+	<!-- ******************************* -->
+  <Class Name="PLMPreCondCheck"  CustomerExposition="Programmer" Uuid="B83B60F4-090B-439E-AD0E-BB0E1DDD3B69" Abstract="No" SuperName="PLMRuleBaseComponent"  Specializable="No" CustomerExtensible="No" Abbreviation="kwp" >
+    <Property Name="IconName"        Value="I_PLMQccPrecondition"/>
+    <Property Name="Searchable"      Value="Yes"/>
+    <Property Name="Newable"         Value="All"/>
+    <Property Name="PQ_Attributes"   Value="PLM_ExternalID V_description V_user"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATKBEDelegateInstanciationRule"/>
+    <Property Name="KweNew_ReturnedType" Value="PLMPrecondCheckInstance"/>
+    <Property Name="DMCDerivable" Value="No"/>
+    <CAAComment>
+      <ShortRole>PLM Precondition</ShortRole>
+      <Role>PLM Precondition</Role>
+    </CAAComment>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+	<!-- ************************************** -->
+	<!-- * PLMPreConCheckInstance (PLMCoreInstance) * -->
+	<!-- ************************************** -->
+  <RelationClass Name="PLMPrecondCheckInstance"  CustomerExposition="Programmer" Uuid="9706BC36-5D8F-4365-90A2-AA7D502E0FA6" Abstract="No" SuperName="PLMRuleBaseComponentInstance"   >
+    <Property Name="KweNew_InstanciationMethod" Value="CATKBEDelegateInstanciationRule"/>
+    <Property Name="KweNew_ReturnedType" Value="PLMPrecondCheckInstance"/>
+    <Property Name="DMCDerivable" Value="No"/>
+    <CAAComment>
+			<ShortRole>PLMPreCondCheck instance aggregated in a PLM RuleSet</ShortRole>
+			<Role>PLM PreCondCheck instance aggregated in a PLM RuleSet</Role>
+		</CAAComment>
+    <SubClause Name="to"   TargetName="PLMPreCondCheck"/>
+    <Method ImplementationType="None">
+        <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      </Method>
+  </RelationClass>
+</Package>

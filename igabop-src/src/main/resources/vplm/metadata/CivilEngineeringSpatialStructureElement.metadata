@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2012, All rights reserved -->
+
+<Package CustomerExposition = "Programmer" ModelerType = "Top" Name = "CivilEngineeringSpatialStructureElement" UseNames = "AECKernel" Uuid = "58b3c15d-192e-4854-b9a8-4dbbd8f3abbf" xmlns = "PLMDictionaryUnified">
+  <Class Abstract = "Yes" CustomerExposition = "Programmer" Discipline = "Yes" Name = "CivilEngineeringSpatialStructureElement" SuperName = "AecSpatialStructureElement" Uuid = "b0ffe950-a188-4a1d-9fbf-fb03c42c6744"/>
+  <Class Abstract = "Yes" CustomerExposition = "Programmer" Discipline = "Yes" Name = "CivilEngineeringSpatialStructureElementType" SuperName = "AecObjectType" Uuid = "AF191D84-9549-4497-A6EC-697E305463D8"/>
+</Package>

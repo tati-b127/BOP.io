@@ -1,0 +1,20 @@
+#Prog Functional_ExportFlowRef_TSO( iPLMIDSet : #In PLMIDSet, oPLMIDSet : #Out PLMIDSet ) : VoidType
+{
+  let InputPLMIDSetRestrictedToRefs(PLMIDSet)
+  let SetOfPLMRoutesForStructuredFlow(PLMRouteSet)
+  let SetOfPLMRoutesForImplementLinks(PLMRouteSet)
+  let SetOfPLMRoutesForDocuments(PLMRouteSet)
+
+  InputPLMIDSetRestrictedToRefs = Restrict(iPLMIDSet,"RFLPLMFlow/RFLPLMFlowReference")
+ 
+  /* Get the 1st level of aggregated object (flow instances) (resp: F1T) */
+  SetOfPLMRoutesForStructuredFlow = ExecutePLMFunction("RFLPLMFlow","RFLPLMFlowReference_Aggregated1stLvlObjects",InputPLMIDSetRestrictedToRefs)
+   
+  /* Implement Link Connections associated to Functional Flows (resp: MAD) */
+  SetOfPLMRoutesForImplementLinks = ExecutePLMFunction("RFLPLMImplementConnection","RFLPLMImplementConnection_AddAllImplementCnx",InputPLMIDSetRestrictedToRefs)
+
+  /* Add PLMDocConnections WITHOUT documents pointed by these PLMDocConnections (resp: MUT)*/
+  SetOfPLMRoutesForDocuments = ExecutePLMFunction("PLMDocConnection","PLMDocConnection_retrieveAllConnections",InputPLMIDSetRestrictedToRefs)
+  
+  oPLMIDSet = iPLMIDSet + Ids(SetOfPLMRoutesForStructuredFlow) + Ids(SetOfPLMRoutesForImplementLinks) + Ids(SetOfPLMRoutesForDocuments)
+}

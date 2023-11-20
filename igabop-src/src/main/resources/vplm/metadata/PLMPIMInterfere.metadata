@@ -1,0 +1,242 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2005, All rights reserved -->
+
+<!--
+@FN7  13:07:19 Clean up to make the file more readable
+@FN7  13:07:24 Add Abbreviation on PLMPIMMetricReference class for ODCX compliance
+@FN7  14:04:08 Fix regression for object customization
+@SVN1 19:01:29 Allow change management referential
+@SVN1 19:05:21 Allow access rights management
+-->
+
+<Package  xmlns="PLMDictionaryUnified"
+          ModelerType="Top"
+          Name="PLMPIMInterfere"
+          Uuid="3e4402bc-6fe2-49ce-baf4-d9271e508a18"
+          UseNames="PLMCORE"
+          CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <!-- ________________________________________________________________________________ -->
+  <!--      Interference Metric class                                                   -->
+  <!-- ________________________________________________________________________________ -->
+  <Class  Name="PLMPIMMetricReference"
+          Uuid="5353c53e-fa06-4c86-b5d1-9c38cd254247"
+          SuperName="PLMCoreReference"
+          Abbreviation="itf" 
+          CustomerExposition="Programmer"
+          Abstract="No"
+          CustomerExtensible="Yes"
+          Specializable="No" 
+          DeleteAvailability="Yes" 
+          NewMajorRevisionAvailability="No">
+    
+    <Property Name="DMCDerivable"                 Value="Yes"/>
+    <Property Name="IconName"                     Value="I_Interference_Metric" />
+    <Property Name="3DIconName"                   Value="PLMPIM_PLMPIMInterfere_3DNAVREP.cgr" />
+    <Property Name="ChangeManagementReferential"  Value="Yes"/>
+    <Property Name="ManageAccessAvailability"     Value="Yes"/>
+
+    <!-- ________________________________________________________________________________ -->
+    <!--      V_Itf_Analysis - New R207                                                   -->
+    <!-- ________________________________________________________________________________ -->
+<Simple Name="V_Itf_Analysis" Uuid="9057C1D4-88EA-4e06-8DD2-0B2043B01CAF" Type="Integer" Protection="Free" CAAExposition="L0" DefaultValue="3" Faceted="Yes">
+<Property Name="RangeAsEnumName" Value="Itf_Analysis_Status"/>
+<Property Name="RangeAsEnumAuthorizedValues" Value="OK;KO;Not_Analysed;Unknown;To_Be_ReAnalysed"/>
+<Range>
+<Equal>1</Equal>
+<Equal>2</Equal>
+<Equal>3</Equal>
+<Equal>4</Equal>
+<Equal>5</Equal>
+</Range>
+</Simple>
+
+    <!-- ________________________________________________________________________________ -->
+    <!--      V_Itf_Previous_Analysis - New R208                                          -->
+    <!-- ________________________________________________________________________________ -->
+<Simple Name="V_Itf_Previous_Analysis" Uuid="ecd1c868-9275-4917-9266-5a1c6d58183e" Type="Integer" Protection="Free" CAAExposition="L0" DefaultValue="4" Faceted="Yes">
+<Property Name="RangeAsEnumName" Value="Itf_Analysis_Status"/>
+<Property Name="RangeAsEnumAuthorizedValues" Value="OK;KO;Not_Analysed;Unknown;To_Be_ReAnalysed"/>
+<Range>
+<Equal>1</Equal>
+<Equal>2</Equal>
+<Equal>3</Equal>
+<Equal>4</Equal>
+<Equal>5</Equal>
+</Range>
+</Simple>
+
+    <!-- ________________________________________________________________________________ -->
+    <!--      V_Itf_Engine_Name                                                           -->
+    <!-- ________________________________________________________________________________ -->
+    <Simple Name="V_Itf_Engine_Name"
+            Uuid="27c47105-484f-4634-bf30-1b220c05188b"
+            Protection="External"
+            Type="String"
+            CAAExposition="L0"
+            MaxLength="15">
+      <Comment>Name of the engine used for the computation</Comment>
+    </Simple>
+
+    <!-- ________________________________________________________________________________ -->
+    <!--      V_Itf_Solver_Name                                                           -->
+    <!-- ________________________________________________________________________________ -->
+    <Simple Name="V_Itf_Solver_Name"
+            Uuid="2e39418e-40da-4b45-b3cc-dc9965b43602"
+            Protection="External"
+            Type="String"
+            CAAExposition="L0"
+            MaxLength="15">
+      <Comment>Name of the engine used for the computation</Comment>
+    </Simple>
+
+    <!-- ________________________________________________________________________________ -->
+    <!--      V_Itf_Case_Of_Calc - New R208                                               -->
+    <!-- ________________________________________________________________________________ -->
+<Simple Name="V_Itf_Case_Of_Calc" Uuid="ca8c8761-03dd-4a66-8c75-2540c420cf89" Type="Integer" Protection="External" CAAExposition="L0" DefaultValue="2" Faceted="Yes">
+<Property Name="RangeAsEnumName" Value="Itf_Case_Of_Calc_Enum"/>
+<Property Name="RangeAsEnumAuthorizedValues" Value="Clash;Clash_Contact;Clash_Contact_Clearance;Clearance_Only;Clash_Rule;Clash_Simple;MCX_Ignore;MCX_Check_NoClash;MCX_Check_Contact;MCX_Check_Clearance"/>
+<Range>
+<Equal>1</Equal>
+<Equal>2</Equal>
+<Equal>3</Equal>
+<Equal>4</Equal>
+<Equal>5</Equal>
+<Equal>6</Equal>
+<Equal>7</Equal>
+<Equal>8</Equal>
+<Equal>9</Equal>
+<Equal>10</Equal>
+</Range>
+</Simple>
+
+    <!-- ________________________________________________________________________________ -->
+    <!--      V_Itf_Spec_Clearance_value -  New R208                                      -->
+    <!-- ________________________________________________________________________________ -->
+    <Simple Name="V_Itf_Spec_Clearance_value"
+            Uuid="5b3fc1dc-5b35-46e4-900f-5161fa29b4be"
+            Protection="External"
+            Type="Double"
+            CAAExposition="L0">
+      <Comment>Clearance value</Comment>
+    </Simple>
+
+    <!-- ________________________________________________________________________________ -->
+    <!--      V_Itf_Tolerance_Requested                                                   -->
+    <!-- ________________________________________________________________________________ -->
+    <Simple Name="V_Itf_Tolerance_Requested"
+            Uuid="7f82222b-23eb-4bdc-8f25-eab7c68d2b9f"
+            Protection="External"
+            Type="Double"
+            CAAExposition="L0">
+      <Comment>Requested tolerance for computation</Comment>
+    </Simple>
+
+    <!-- ________________________________________________________________________________ -->
+    <!--      V_Itf_Type                                                                  -->
+    <!-- ________________________________________________________________________________ -->
+<Simple Name="V_Itf_Type" Uuid="e9cb6a8c-86d6-419a-8d9a-8244160cfe05" Type="Integer" Protection="External" CAAExposition="L0" DefaultValue="6" Faceted="Yes">
+<Property Name="RangeAsEnumName" Value="Itf_Type_Enum"/>
+<Property Name="RangeAsEnumAuthorizedValues" Value="Clash;Potential_Clash;Clearance;Potential_Clearance;No_Interference;Undefined"/>
+<Range>
+<Equal>1</Equal>
+<Equal>2</Equal>
+<Equal>3</Equal>
+<Equal>4</Equal>
+<Equal>5</Equal>
+<Equal>6</Equal>
+</Range>
+</Simple>
+
+    <!-- ________________________________________________________________________________ -->
+    <!--      V_Itf_User_Type                                                             -->
+    <!-- ________________________________________________________________________________ -->
+<Simple Name="V_Itf_User_Type" Uuid="10730955-1b7d-4ea8-bed4-53ac0c16d1b2" Type="Integer" Protection="Free" CAAExposition="L0" DefaultValue="6" Faceted="Yes">
+<Property Name="RangeAsEnumName" Value="Itf_Type_Enum"/>
+<Property Name="RangeAsEnumAuthorizedValues" Value="Clash;Potential_Clash;Clearance;Potential_Clearance;No_Interference;Undefined"/>
+<Range>
+<Equal>1</Equal>
+<Equal>2</Equal>
+<Equal>3</Equal>
+<Equal>4</Equal>
+<Equal>5</Equal>
+<Equal>6</Equal>
+</Range>
+</Simple>
+
+    <!-- ________________________________________________________________________________ -->
+    <!--      V_Itf_Real_Tolerance_Used_For_First_Occurence                               -->
+    <!-- ________________________________________________________________________________ -->
+    <Simple Name="V_Itf_Real_Tolerance_Used_For_First_Occurence"
+            Uuid="3ca306e1-6f26-4fb8-9d30-3d55cee4c635"
+            Protection="External"
+            Type="Double"
+            CAAExposition="L0">
+      <Comment>Tolerance used for the first occurence</Comment>
+    </Simple>
+
+    <!-- ________________________________________________________________________________ -->
+    <!--      V_Itf_Real_Tolerance_Used_For_Second_Occurence                              -->
+    <!-- ________________________________________________________________________________ -->
+    <Simple Name="V_Itf_Real_Tolerance_Used_For_Second_Occurence"
+            Uuid="57ea654e-3392-44ec-837c-4bc18588125b"
+            Protection="External"
+            Type="Double"
+            CAAExposition="L0">
+      <Comment>Tolerance used for the second occurence</Comment>
+    </Simple>
+
+    <!-- ________________________________________________________________________________ -->
+    <!--      V_Itf_Real_Tolerance_Used_For_Computation                                   -->
+    <!-- ________________________________________________________________________________ -->
+    <Simple Name="V_Itf_Real_Tolerance_Used_For_Computation"
+            Uuid="d152ae0e-a264-4588-a661-c52216ab567e"
+            Protection="External"
+            Type="Double"
+            CAAExposition="L0">
+      <Comment>Total tolerance used for computation (V_Itf_Real_Tolerance_Used_For_First_Occurence + V_Itf_Real_Tolerance_Used_For_Second_Occurence)</Comment>
+    </Simple>
+
+    <!-- ________________________________________________________________________________ -->
+    <!--      V_Itf_Status                                                                -->
+    <!-- ________________________________________________________________________________ -->
+    <Simple Name="V_Itf_Status"
+            Uuid="fd79528f-aa47-4da3-bbcb-537a0e8058a8"
+            Protection="External"
+            Type="Integer"
+            CAAExposition="L0">
+      <Comment>Used to store errors generated by the solver</Comment>
+    </Simple>
+
+    <!-- ________________________________________________________________________________ -->
+    <!--      V_Itf_Version                                                               -->
+    <!-- ________________________________________________________________________________ -->
+    <Simple Name="V_Itf_Version"
+            Uuid="cf8d2ca3-51a7-4851-a5ac-1fcb3f5cbc83"
+            Protection="Internal"
+            Type="Integer">
+      <Comment>Version of interference</Comment>
+    </Simple>
+
+    <!-- ________________________________________________________________________________ -->
+    <!--      V_Factory_Visu_Clash - New R207                                             -->
+    <!-- ________________________________________________________________________________ -->
+    <Simple Name="V_Factory_Visu_Clash"
+            Uuid="9B680152-56D9-4825-8883-E76CB5F5C7A7"
+            Protection="Internal"
+            Type="String"
+            MaxLength="20"
+            DefaultValue="PLMPIMGRFact">
+      <Comment>Name of the factory used to create objects that will contain the visu of the clash</Comment>
+    </Simple>
+    
+    <!-- EXPORT : no export -->
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    
+  </Class>
+  
+</Package>

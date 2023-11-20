@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2011, All rights reserved -->
+
+<Package xmlns="PLMDictionaryCusto" 
+         ModelerType="Custo" 
+         Name="PLMGroupOfInstancesModelDS" 
+         Uuid="CB3C49D1-A473-4029-9AD2-6F09CD13A9FB" 
+         UseNames="PLMGroupOfInstancesModel" 
+         Alias="Package Group of instances Custo">
+	
+<Property Name="OptionalInstallation" Value="Yes" /> 
+	<CAAComment>
+		<ShortRole>Package to customize the group of instances </ShortRole>
+		<Role>Package to customize package PLMGroupOfInstancesModel for the Group of instances</Role>
+	</CAAComment>
+	
+	<Class Name="PLMGroupOfInstancesCustDS" 
+         Alias="Group of instances DS" 
+         Uuid="1F5EED56-E54B-416d-A454-A06C990082AA"
+         SuperName="PLMGroupOfInstances" 
+         SuperRef="F72F3615-48D3-41ef-8429-2E5267EAB43D">
+
+		<CAAComment>
+			<ShortRole>PLM Customization for the group of instances </ShortRole>
+			<Role>PLM Customization for group of instances "PLMGroupOfInstances"</Role>
+		</CAAComment>
+
+	</Class>
+</Package>
+
+

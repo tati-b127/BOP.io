@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2009, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" Name="DELLmiProductionExecInterruptOperationDS" Uuid="28a745cf-7e51-4529-97d4-4276e6953018" UseNames="DELLmiProductionExecInterruptOperation" >
+<Property Name="OptionalInstallation" Value="Yes" /> 
+	<CAAComment>
+		<ShortRole>Standard DELMIA Execution Interrupt Operation Package</ShortRole>
+		<Role>This package includes default customized DELMIA Execution Interrupt Operation</Role>
+	</CAAComment>
+	<Comment>last update 2009-05-27</Comment>
+
+	<Class Name="DELLmiExecInterruptOperationRefCusto" Uuid="87929858-dc1f-4c9a-823a-fcc99bc7407c" SuperName="DELLmiExecInterruptOperationReference"  >
+
+    <IdentifierSet Name="Identifier"
+        Uuid="cc16c097-cc3b-489d-a5b5-71357df38bb2"
+        IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755"
+        IdentifierNames="PLM_ExternalID V_version" />
+
+    <CAAComment>
+			<ShortRole>Standard DELMIA Execution Interrupt Operation Reference</ShortRole>
+			<Role>Default customized DELMIA Execution Interrupt Operation Reference</Role>
+		</CAAComment>
+	</Class>
+
+  <RelationClass Name="DELLmiExecInterruptOperationInstCusto" Uuid="a748e613-5e5a-4a34-8b29-cee6f33f6700" SuperName="DELLmiExecInterruptOperationInstance"   >
+		<CAAComment>
+			<ShortRole>Standard DELMIA Execution Interrupt Operation Instance</ShortRole>
+			<Role>Default customized DELMIA Execution Interrupt Operation Instance</Role>
+		</CAAComment>		
+            <!-- ********************************************************* -->
+            <!-- * Overload(s) of PLMCoreInstance attributes. -->
+            <!-- ********************************************************* -->
+    <SubClause Name="to"   TargetName="DELLmiExecInterruptOperationRefCusto"/>
+	</RelationClass>
+</Package>

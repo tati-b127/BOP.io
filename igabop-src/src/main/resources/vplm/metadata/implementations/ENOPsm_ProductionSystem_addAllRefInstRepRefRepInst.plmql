@@ -1,0 +1,18 @@
+EXPAND  
+  	T0.PLMID, T1.PLMID, T2.PLMID , T3.PLMID, T4.PLMID , T5.PLMID, T6.PLMID , T7.PLMID,
+	T8.PLMID, T9.PLMID, T10.PLMID , T11.PLMID
+	
+
+ FROM 
+	DELLmiProductionSystem/DELLmiProductionSystemReference T0, DELLmiProductionSystem/DELLmiProductionSystemInstance T1,
+	DELLmiProductionOperation/DELLmiOperationReference T2, DELLmiProductionOperation/DELLmiOperationInstance T3,
+	DELLmiProductionDocRep/DELLmiDocRepReference T4, DELLmiProductionDocRep/DELLmiDocRepInstance T5,
+	DELTimeAnalysisModel/DELTimeAnalysisRepReference T6, DELTimeAnalysisModel/DELTimeAnalysisRepInstance T7,
+	DELLmiProductionPlug/DELLmiProductionPlugReference T8, DELLmiProductionPlug/DELLmiProductionPlugInstance T9,
+	DELLmiProductionShiftModel/DELLmiProductionShiftModelReference T10, DELLmiProductionShiftModel/DELLmiProductionShiftModelInstance T11
+	
+	
+
+FROM_ROOTS  [?1?]
+
+;    

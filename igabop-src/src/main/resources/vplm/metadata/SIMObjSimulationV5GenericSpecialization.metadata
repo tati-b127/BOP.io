@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2007 (http://www.altova.com) by DASSAULT SYSTEMES (DASSAULT SYSTEMES) -->
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" BelongsToModeler="SIMObjSimulation" ModelerType="Top" Name="SIMObjSimulationV5GenericSpecialization" Uuid="65ED4DBB-F41C-4421-B780-F0076FAB68EF" UseNames="SIMObjSimulationV5Generic" CustomerExposition="Programmer">
+	<CAAComment>
+		<ShortRole>This package includes the Disciplines of V5 simulation Representations.</ShortRole>
+		<Role>This package includes the Disciplines of V5 simulation Representations.</Role>
+	</CAAComment>
+	<Class Name="dsc_Model_Rep" Uuid="c74ce6c4-dc4e-4cc5-9b13-957d5c2a6584" Abstract="No" SuperName="SIMObjSimulationV5RepReferenceGeneric" CustomerExposition="Programmer" Discipline="Yes" Specializable="No" Abbreviation="rep" CustomerExtensible="No">
+    <Property Name="KweNew_InstanciationMethod" Value="CATESIMObjModelRep"/>
+    <Property Name="Searchable" Value="No"/>
+		<Property Name="Configurable" Value="No"/>
+		<Property Name="Filtrable" Value="No"/>
+		<Property Name="IconName" Value="I_SimulationRep"/>
+		<Property Name="3DIconName" Value="PSM_REPGEN_3DNAVREP.cgr"/>
+		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+	</Class>
+	<Class Name="dsc_Scenario_Rep" Uuid="52e9bd21-3af7-4946-b5c7-a17907b9d0bd" Abstract="No" SuperName="SIMObjSimulationV5RepReferenceGeneric" CustomerExposition="Programmer" Discipline="Yes" Specializable="No" Abbreviation="rep" CustomerExtensible="No">
+    <Property Name="KweNew_InstanciationMethod" Value="CATESIMObjScenarioRep"/>
+    <Property Name="Searchable" Value="No"/>
+		<Property Name="Configurable" Value="No"/>
+		<Property Name="Filtrable" Value="No"/>
+		<Property Name="IconName" Value="I_SimulationRep"/>
+		<Property Name="3DIconName" Value="PSM_REPGEN_3DNAVREP.cgr"/>
+		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+	</Class>
+	<Class Name="dsc_Scenario_CLASH_Rep" Uuid="ef7ffc44-3ded-42a6-9c8e-ebaba6310695" Abstract="No" SuperName="SIMObjSimulationV5RepReferenceGeneric" CustomerExposition="Programmer" Discipline="Yes" Specializable="No" Abbreviation="rep" CustomerExtensible="No">
+    <Property Name="KweNew_InstanciationMethod" Value="CATESIMObjScenarioClashRep"/>
+    <Property Name="Searchable" Value="No"/>
+		<Property Name="Configurable" Value="No"/>
+		<Property Name="Filtrable" Value="No"/>
+		<Property Name="IconName" Value="I_SimulationRep"/>
+		<Property Name="3DIconName" Value="PSM_REPGEN_3DNAVREP.cgr"/>
+		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+	</Class>
+	<Class Name="dsc_Result_Rep" Uuid="50979d15-b0b4-4a82-a4a1-a89f54c4ca06" Abstract="No" SuperName="SIMObjSimulationV5RepReferenceGeneric" CustomerExposition="Programmer" Discipline="Yes" Specializable="No" Abbreviation="rep" CustomerExtensible="No">
+    <Property Name="KweNew_InstanciationMethod" Value="CATESIMObjResultRep"/>
+    <Property Name="Searchable" Value="No"/>
+		<Property Name="Configurable" Value="No"/>
+		<Property Name="Filtrable" Value="No"/>
+		<Property Name="IconName" Value="I_SimulationRep"/>
+		<Property Name="3DIconName" Value="PSM_REPGEN_3DNAVREP.cgr"/>
+		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+	</Class>
+	<!-- <Class Name="dsc_Simulation" Uuid="cd63fbe6-3171-4b45-a36d-620ddf89d20d" Abstract="No" SuperName="SIMObjSimulationV5RepReferenceGeneric" CustomerExposition="Programmer" Discipline="Yes" Specializable="No" CustomerExtensible="No" >
+    <Property Name="Searchable" Value="No"/>
+    <Property Name ="Configurable" Value="No" />
+    <Property Name ="Filtrable" Value="No" />
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class> -->
+</Package>

@@ -1,0 +1,25 @@
+NAVIGATE
+   T0.PLMID, T1.PLMID, T2.PLMID, T3.PLMID, T4.PLMID, T5.PLMID, T6.PLMID, T7.PLMID, T8.PLMID, T9.PLMID,
+   T0.PLM_ExternalID, T1.PLM_ExternalID, T2.PLM_ExternalID, T3.PLM_ExternalID, T4.PLM_ExternalID, T5.PLM_ExternalID, T6.PLM_ExternalID, T7.PLM_ExternalID, T8.PLM_ExternalID, T9.PLM_ExternalID
+FROM
+   RFLVPMLogical/RFLVPMLogicalInstance T0,
+   RFLVPMLogicalCommunication/RFLVPMLogicalCommunicationInstance T1,
+   RFLVPMLogical/RFLVPMLogicalRepInstance T2,
+   RFLVPMLogical/RFLVPMLogicalConnection T3,
+   RFLVPMLogical/RFLVPMLogicalPort T4,
+   RFLVPMLogical3DRep/RFLVPMLogical3DRepInstance T5,
+   RFLVPMSystemTypeExposition/RFLVPMSystemTypeExpositionInstance T6,
+   RFLVPMSystemType/RFLVPMSystemTypeInstance T7,
+   RFLVPMLogicalServices/RFLVPMServicesExpositionInstance T8,
+   RFLVPMLogicalPublication/RFLVPMLogicalPublication T9
+FROM_ROOTS [?1?]
+ON
+RELATION (FROM=RFLVPMLogical/RFLVPMLogicalReference TO=RFLVPMLogical/RFLVPMLogicalInstance,
+   RFLVPMLogicalCommunication/RFLVPMLogicalCommunicationInstance, RFLVPMLogical/RFLVPMLogicalRepInstance,
+   RFLVPMLogical/RFLVPMLogicalConnection, RFLVPMLogical/RFLVPMLogicalPort,
+   RFLVPMLogical3DRep/RFLVPMLogical3DRepInstance, 
+   RFLVPMSystemTypeExposition/RFLVPMSystemTypeExpositionInstance, RFLVPMSystemType/RFLVPMSystemTypeInstance,
+   RFLVPMLogicalServices/RFLVPMServicesExpositionInstance, RFLVPMLogicalPublication/RFLVPMLogicalPublication
+   THROUGH=POINTEDBY)
+WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY)
+ITER=1;

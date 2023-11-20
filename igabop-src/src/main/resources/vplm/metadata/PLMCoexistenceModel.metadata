@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2012, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" Name="PLMCoexistenceModel" UseNames="PRODUCTCFG" CustomerExposition="Programmer" Uuid="FDC660DF-5D94-4280-8FCC-F051300880FD">
+		
+  <Extension Name="PLMTEFilteredDataExt"
+             Uuid="FDC660DF-5D94-4280-8FCC-F051300880FC"
+    Abstract="No"
+    Specializable="Yes"
+    ScopeNames="VPMReference VPMRepReference VPMInstance VPMRepInstance"
+    CustomerExposition="Programmer">
+    <!-- CEStampChanged is the boolean which results from the comparison of the current object to transfer CEStamp and of previous transfered object CEStamp, stored in Mapping Table-->
+    <Simple Name="CEStampChanged" Uuid="15DC11E5-B6D9-4876-92E7-FA544F03B209" Type="Boolean" Protection="Free" CAAExposition="L0"/>
+    <!-- Ownership is the value retrieved from the mapping table of current object to transfer. It is null if it is unset in Mapping Table -->
+    <Simple Name="Ownership" Uuid="FF1CD325-1DCF-4C4B-BF2D-6F1171077BD6" Type="String" Protection="Free" MaxLength="128" CAAExposition="L0"/>
+    <!-- FilteringReason is the result of Transition Engine Filtering (Not Source Master, CESTamp unchnged ...)  -->
+    <Simple Name="FilteringReason" Uuid="962FAE89-827D-4d4d-A4FA-A03A2460822C" Type="String" Protection="Free" MaxLength="128" CAAExposition="L0"/>
+  </Extension>
+</Package>

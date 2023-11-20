@@ -1,0 +1,129 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY for E/E Editor -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2012, all rights reserved -->
+
+<Package Name="SoftwareArchitecture3"
+	Uuid="68191042-E622-4c66-817B-3E1FB498B9A9"
+	xmlns="PLMDictionaryUnified"
+	ModelerType="Top"
+	BelongsToModeler="SoftwareArchitecture"
+	CustomerExposition="Programmer"
+	UseNames="RFLVPMLogical RFLVPMLogicalServices RFLVPMLogicalInterfaceRep">
+	
+	<CAAComment>
+        <ShortRole>Software Architecture Package</ShortRole>
+        <Role>This package describes the PLM Software Architecture package on top of RFLVPMLogical Modeler.</Role>
+	</CAAComment>
+	<Comment>Initial creation: A58 Feb 2012</Comment>
+	<Property Name="OptionalInstallation" Value="Yes" /> 
+	
+<!-- ************************** -->
+<!-- EEClientServerInterface : RFLVPMServicesReference  -->
+<!-- ************************** -->
+	<Class 
+		Name="EEClientServerInterface"
+		Uuid="ACFAFE2D-FD81-4fc7-957C-AF2013AF63CF"
+		Abstract="No"
+		Specializable="Yes"
+		CustomerExposition="Programmer"
+		CustomerExtensible="Yes"
+		Discipline="Yes"
+		SuperName="RFLVPMServicesReference"
+		CreateInstName="EEClientServerPortPrototype"
+		Abbreviation="eecsi">
+		<Property Name="IconName" Value="EEClientServerInterface"/>
+		<Property Name="Newable" Value="All"/>
+		<Property Name="Searchable" Value="Yes"/>
+		<Property Name="Configurable" Value="Yes"/>
+		<Property Name="KweNew_InstanciationMethod" Value="CATELogDelegateInstanciation"/>
+		<Property Name="KweNew_ReturnedType" Value="EEClientServerPortPrototype"/>
+		<Simple Name="queueLength"
+			Uuid="3937F12E-4479-4ef7-B948-81944CCACCF9"
+			Type="Integer"
+			DefaultValue="0"
+			MultiValuated="No"
+			Protection="ExternalIN">
+		</Simple>
+		<Simple Name="isSynchronous"
+			Uuid="18B6D23C-C7A9-4813-8784-04D652737D83"
+			Type="Boolean"
+			DefaultValue="true"
+			MultiValuated="No"
+			Protection="ExternalIN">
+		</Simple>
+	</Class>
+<!-- **************************************************** -->
+<!-- *  EEClientServerInterfaceRep :  RFLVPMLogicalInterfaceRepReference  * -->
+<!-- **************************************************** -->
+	<Class Name="EEClientServerInterfaceRep" 
+		Uuid="266A5591-76C0-4305-A246-DED8EDB6F9B8" 
+		SuperName="RFLVPMLogicalInterfaceRepReference" 
+		CreateInstName="RFLVPMLogicalInterfaceRepInstance"
+		CustomerExposition="Programmer"
+		Specializable="Yes"
+		InstantiationOwnerTypes="EEClientServerInterface"
+		Discipline="Yes">
+		<CAAComment>
+			<ShortRole>ClientServer Rep Reference Object</ShortRole>
+			<Role>ClientServer Rep Reference Object</Role>
+		</CAAComment>
+		<Property Name="KweNew_InstanciationMethod" Value="CATELogDelegateInstanciation"/>
+	   	<Property Name="KweNew_ReturnedType" Value="RFLVPMLogicalInterfaceRepInstance"/>
+	</Class>
+  <!-- **************************************************** -->
+  <!-- *  EEClientServerPortPrototype :  RFLVPMServicesExpositionInstance  * -->
+  <!-- **************************************************** -->
+  <RelationClass
+		Name="EEClientServerPortPrototype"
+		Uuid="3A6011F2-0868-459c-90FF-0F5C6983EED7"
+		SuperName="RFLVPMServicesExpositionInstance"
+		Abstract="No"
+		Specializable="Yes"
+		CustomerExposition="Programmer"
+		CustomerExtensible="Yes"
+		Discipline="Yes">
+    <Property Name="IconName" Value="EEClientServerPortPrototype"/>
+    <Property Name="Newable" Value="Insert"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="Filtrable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATELogDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="EEClientServerPortPrototype"/>
+  </RelationClass>
+<!-- ************************** -->
+<!-- EEExecutableEntity : RFLVPMLogicalReference -->
+<!-- ************************** -->
+	<Class 
+		Name="EEExecutableEntity"
+		Uuid="0C5E17ED-143E-4bfc-8224-B92C37210603"
+		Abstract="No"
+		Specializable="Yes"
+		CustomerExposition="Programmer"
+		CustomerExtensible="Yes"
+		Discipline="Yes"
+		SuperName="RFLVPMLogicalReference"
+		InstantiationOwnerTypes="EEAtomicComponentType"
+		CreateInstName="RFLVPMLogicalInstance"
+		Abbreviation="eexen">
+		<Property Name="IconName" Value="EEExecutableEntity"/>
+		<Property Name="Newable" Value="All"/>
+		<Property Name="Searchable" Value="Yes"/>
+		<Property Name="Configurable" Value="Yes"/>
+		<Property Name="KweNew_InstanciationMethod" Value="CATELogDelegateInstanciation"/>
+	   	<Property Name="KweNew_ReturnedType" Value="RFLVPMLogicalInstance"/>
+		<Simple Name="WCET"
+			Uuid="645EE5EC-0616-45fc-9221-7B9831502A3C"
+			Type="Double"
+			DefaultValue="0"
+			MultiValuated="No"
+			Protection="ExternalIN">
+		</Simple>
+		<Simple Name="minimalIntervalStart"
+			Uuid="9DF73443-5155-4cfa-94AB-B890132B2415"
+			Type="Double"
+			DefaultValue="0"
+			MultiValuated="No"
+			Protection="ExternalIN">
+		</Simple>
+	</Class>
+</Package>

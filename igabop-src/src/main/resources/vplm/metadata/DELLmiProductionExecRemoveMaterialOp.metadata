@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR DELMIA Production System Application -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2009, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified"
+         ModelerType="Top"
+         Name="DELLmiProductionExecRemoveMaterialOp"
+	       Uuid="9f856410-4025-4eb4-99a4-4a12f000754f"
+         BelongsToModeler="DELLmiProductionPlan"
+	       UseNames="DELLmiProductionOperationUPR"
+         CustomerExposition="Programmer" >
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>Execution Remove Material Operation. OBSOLETE. Not used in current applications </ShortRole>
+    <Role>This package describes the Execution Remove Material Operation model on top of DELLmiProductionOperationUPR</Role>
+  </CAAComment>
+
+  <Comment>last update 2008-05-25</Comment>
+  <Comment>last update 2013-06-21</Comment>
+
+  <Class Name="DELLmiExecRemoveMaterialOpReference"
+		     Uuid="1b3f9b0c-664e-46d4-9fb9-ed28b35cf6f0"
+		     Abstract="No"
+         SuperName="DELLmiOperationUPRReference"
+         CustomerExposition="Programmer"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         CreateInstName="DELLmiExecRemoveMaterialOpInstance"
+         Abbreviation="wrmop"
+         InstantiationOwnerTypes="DELLmiExecGeneralSystemReference;DELLmiExecTransfoSystemReference;DELLmiExecGeneralOperationReference;DELLmiExecInterruptOperationReference;DELLmiWorkOrderReference"
+         >
+    <!-- we want only support InstantiationOwnerTypes="DELLmiWorkOrderReference"-->
+    <!-- we keep all for historical reasons"-->
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELLmiExecOpDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELLmiExecRemoveMaterialOpInstance"/>
+    <Property Name="IconName" Value="I_PPRSeqExecRemovingMaterial"/>
+    <Property Name="3DIconName" Value="I_PPRSeqExecRemovingMaterial.cgr"/>
+    <Property Name="Newable" Value="Insert_CAA"/>
+    <Property Name="Searchable" Value="Yes"/>
+
+    <CAAComment>
+      <ShortRole>Execution Remove Material Operation Reference.</ShortRole>
+      <Role>Execution Remove Material Operation Reference. Specialization is not supported yet.</Role>
+    </CAAComment>
+
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+
+
+</Class>
+
+  <RelationClass Name="DELLmiExecRemoveMaterialOpInstance"
+		     Uuid="9ec0a473-0b6f-4845-b91e-4a4ca8b44707"
+		     Abstract="No"
+         SuperName="DELLmiOperationUPRInstance"
+         CustomerExposition="Programmer"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         >
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELLmiExecOpDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELLmiExecRemoveMaterialOpInstance"/>
+
+    <CAAComment>
+      <ShortRole>Execution Remove Material Operation Instance.</ShortRole>
+      <Role>Execution Remove Material Operation Instance. Specialization is not supported yet.</Role>
+    </CAAComment>
+
+    <Volatile Name="Reference" 
+              Uuid="75DFAB18-A8B5-4cf0-8508-3A89F0AC3CE2" 
+              Accessor="PLMModelerReferenceKweAttribute"
+              TypeName="DELLmiExecRemoveMaterialOpReference" 
+              AccessMode="ReadOnly" />
+
+    <SubClause Name="to"   TargetName="DELLmiExecRemoveMaterialOpReference"/>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+<Method ImplementationType="None">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+
+
+  </RelationClass>
+
+</Package>

@@ -1,0 +1,7 @@
+EXPAND 
+T0.PLMID, T1.PLMID,
+T0.PLM_ExternalID, T1.PLM_ExternalID  
+FROM 
+PLMHVACLogicalGroupCnx/HVAC_Logical_Group_Connection T0,
+PLMHVACLogicalPortSizeCnx/HVAC_Logical_Port_Size_Connection T1
+FROM_ROOTS [?1?] DEPTH=1;

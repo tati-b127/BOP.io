@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR DELMIA Production System Application -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified"
+         ModelerType="Top"
+         Name="DELWkiWorkInstructionPPR"
+         BelongsToModeler="DELLmiProductionSystem"
+	       Uuid="3B7D202D-34E2-4ec5-BC2C-8BCE59F3260B"
+	       UseNames="DELLmiProductionAbstractOperationPPR"
+         CustomerExposition="Programmer">
+
+  <CAAComment>
+    <ShortRole>PLM DELMIA Abstract Operation </ShortRole>
+    <Role>This package describes the PLM DELMIA Abstract PPR Work Instruction model on top of DELLmiProductionOperation</Role>
+  </CAAComment>
+
+  <Comment>last update 2012-01-20</Comment>
+
+  <Class Name="DELWkiPPRReference"
+        Uuid="F8B2EA7F-BF11-4511-9B1E-AF1EE5B6C923"
+        Abstract="Yes"
+        SuperName="DELLmiPPROperationReference"
+        CustomerExposition="Programmer"
+        Specializable="No"
+        CustomerExtensible="No"
+        CreateInstName="DELWkiPPRInstance"
+         >
+
+    <CAAComment>
+      <ShortRole>PLM DELMIA Abstract PPR Work Instruction Reference</ShortRole>
+      <Role>PLM DELMIA Abstract PPR Work Instruction Reference</Role>
+    </CAAComment>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+
+  </Class>
+
+
+
+  <RelationClass Name="DELWkiPPRInstance"
+		     Uuid="2264EF7C-8183-4640-8AA8-BFFC6ED22408"
+		     Abstract="Yes"
+         SuperName="DELLmiPPROperationInstance"
+         Specializable="No"
+         CustomerExtensible="No"
+         CustomerExposition="Programmer">
+
+    <CAAComment>
+      <ShortRole>PLM DELMIA Abstract PPR Work Instruction Instance</ShortRole>
+      <Role>PLM DELMIA Abstract PPR Work Instruction Instance</Role>
+    </CAAComment>
+
+    <SubClause Name="to"   TargetName="DELWkiPPRReference"/>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+
+  </RelationClass>
+
+
+</Package>

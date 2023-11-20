@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2006, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified"
+         ModelerType="Top"
+         Name="DELRmiResourceModelCnx"
+         Uuid="CBFD457D-7ADB-449b-BE4B-3F314AB27E31"
+         UseNames="PLMCORE DELRmiResourceModel"
+         CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>DELRmiResourceModelCnx Modeler Package</ShortRole>
+    <Role>This package describes Resource Connection to Process. Obsolete</Role>
+  </CAAComment>
+
+  <Class Name="PLMDELCnx"
+         CustomerExposition="Programmer"
+         Uuid="D365F9B2-7460-4db7-A861-D10FCF624516"
+         SuperName="PLMConnection"
+         Abstract="No"
+         Specializable="No" OwnerTypes="VPMReference"
+         CustomerExtensible="No">
+    <!-- OwnerTypes="VPMReference"  Integrate this line if you want to declare the aggregation constraint -->
+
+    <Simple Name="V_Type" Uuid="6D305870-D833-4D92-BA1F5C51C6D1DB22" Type="Integer" Protection="External" CAAExposition="L0" DefaultValue="1">
+      <Property Name="RangeAsEnumName" Value="DELRmiResourceModel.V_Type_PortEnum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="Integer;Boolean;Float;Double;Pure;String;Struct;Unknown"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+        <Equal>5</Equal>
+        <Equal>6</Equal>
+        <Equal>7</Equal>
+        <Equal>8</Equal>
+      </Range>
+    </Simple>
+
+    <Path Name="DELControlSignal"
+        Uuid="8F56C856-2231-4786-B2B2-112F7E03752B"
+        MultiValuated="Yes"
+        Lower="2"
+        Upper="2"
+        RoleName="DEL_ControlSignal"
+        Type="SemanticRelation" AdaptativeToMinor="No"
+        SynchroSensitivity="PathAndLast"
+        RerouteOnEffectivityChange="No"
+                      Orientation="InOut"
+        Semantics="Reference6"/>
+
+    <CAAComment>
+      <ShortRole>The PLMDELCnx.class</ShortRole>
+      <Role>The PLMDELCnx.class</Role>
+    </CAAComment>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+  </Class>
+
+</Package>

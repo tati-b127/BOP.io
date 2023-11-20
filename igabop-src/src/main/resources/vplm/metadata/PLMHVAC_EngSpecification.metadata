@@ -1,0 +1,388 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY for Ens Specifications Editor -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2013, all rights reserved -->
+<!-- MODIF PA DEB 27/08/2014 : BelongsToModeler="PLMHVAC_EngSpecification" added to package : MODIF PA FIN 27/08/2014 -->
+
+<!-- 
+   =========
+    Package
+   =========
+ -->
+<!-- MODIF PA DEB 05/01/2015 -->
+<Package xmlns="PLMDictionaryUnified" CustomerExposition="Programmer" ModelerType="Top" BelongsToModeler="PLMHVAC_EngSpecification"
+         Name="PLMHVAC_EngSpecification" Uuid="8e2042a8-0e11-4e57-a6f0-14794dd0f2fd" UseNames="PLMEnsEngSpecification;PLMEnsSpecCnxLogicalToSpecBase;PLMEnsSpecSpecification" >
+<!-- MODIF PA FIN 05/01/2015 -->
+
+  <CAAComment>
+    <ShortRole>HVAC Engineering Specification Package</ShortRole>
+    <Role>This package describes the Engineering Specification objects for HVAC Application.</Role>
+  </CAAComment>
+  <Comment>Initial creation: ADZ GLY Jan 2013</Comment>
+  <Comment>[V6R2014] 2013-02-11 ADZ Add missing HvaCompatibilityRuleTable class</Comment>
+  <Comment>[V6R2015x] 2014-05-27 ADZ Add HvaDirectionalLengthTable, HvaAutomatedOffsetTable classes</Comment>
+  <Comment>[V6R2015x] 2014-07-02 ADZ Add Property Name="ProposedInDataSetup"</Comment>
+  <Comment>[V6R2016x] 2015-07-07 ADZ Add missing HvaReducerRuleTable class</Comment>
+
+  <!--
+   ==================================================================================================
+   Reference Tables
+   ==================================================================================================
+-->
+  <Class Name="HvaEquivalentDiameterTable" Uuid="bfbaa600-5e8f-4be3-9437-a27d4ace188e" Abbreviation="hvaedt" CustomerExposition="Programmer" Abstract="No"
+       SuperName="Ens_TechnoTable2" Discipline="Yes" CustomerExtensible="Yes" CreateInstName="EnsTechnologicalTableInstance">
+    <Property Name="IconName"                    Value="I_HVACEngSpec_Table"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsTechnologicalTableInstance"/>
+    <Property Name="ProposedInDataSetup"         Value="Yes"/>
+    <CAAComment>
+      <ShortRole>HVAC Equivalent Diameter Table</ShortRole>
+      <Role>HVAC Equivalent Diameter Table</Role>
+    </CAAComment>
+  </Class>
+
+  <Class Name="HvaHeightTable" Uuid="1ca1b5ee-04fb-4f7b-8eab-9eec5d95aaf0" Abbreviation="hvaht" CustomerExposition="Programmer" Abstract="No"
+     SuperName="Ens_TechnoTable2" Discipline="Yes" CustomerExtensible="Yes" CreateInstName="EnsTechnologicalTableInstance">
+    <Property Name="IconName"                    Value="I_HVACEngSpec_Table"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsTechnologicalTableInstance"/>
+    <CAAComment>
+      <ShortRole>HVAC Height Table</ShortRole>
+      <Role>HVAC Height Table</Role>
+    </CAAComment>
+  </Class>
+
+  <Class Name="HvaWidthTable" Uuid="ffb39b7a-9948-4394-ae57-c157c835dc1e" Abbreviation="hvawt" CustomerExposition="Programmer" Abstract="No"
+   SuperName="Ens_TechnoTable2" Discipline="Yes" CustomerExtensible="Yes" CreateInstName="EnsTechnologicalTableInstance">
+    <Property Name="IconName"                    Value="I_HVACEngSpec_Table"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsTechnologicalTableInstance"/>
+    <CAAComment>
+      <ShortRole>HVAC Width Table</ShortRole>
+      <Role>HVAC Width Table</Role>
+    </CAAComment>
+  </Class>
+
+  <Class Name="HvaDuctReferenceDimensionTable" Uuid="157f0128-fa0f-4175-978e-b4b813679639" Abbreviation="hvadrdt" CustomerExposition="Programmer" Abstract="No"
+ SuperName="Ens_TechnoTable2" Discipline="Yes" CustomerExtensible="Yes" CreateInstName="EnsTechnologicalTableInstance">
+    <Property Name="IconName"                    Value="I_HVACEngSpec_Table"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsTechnologicalTableInstance"/>
+    <Property Name="ProposedInDataSetup"         Value="Yes"/>
+    <CAAComment>
+      <ShortRole>HVAC Duct Reference Dimension Table</ShortRole>
+      <Role>HVAC Duct Reference Dimension Table</Role>
+    </CAAComment>
+  </Class>
+
+  <Class Name="HvaNominalBendRadiusTable" Uuid="a4ccdbbb-20ab-4ffb-ac6e-45d5979e23ca" Abbreviation="hvanbrt" CustomerExposition="Programmer" Abstract="No"
+ SuperName="Ens_TechnoTable2" Discipline="Yes" CustomerExtensible="Yes" CreateInstName="EnsTechnologicalTableInstance">
+    <Property Name="IconName"                    Value="I_HVACEngSpec_Table"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsTechnologicalTableInstance"/>
+    <CAAComment>
+      <ShortRole>HVAC Nominal Bend Radius Table</ShortRole>
+      <Role>HVAC Nominal Bend Radius Table</Role>
+    </CAAComment>
+  </Class>
+
+  <Class Name="HvaBendDiameterTable" Uuid="1840aa84-ff64-4b21-b3e3-e9fbeeec8952" Abbreviation="hvabdt" CustomerExposition="Programmer" Abstract="No"
+ SuperName="Ens_TechnoTable2" Discipline="Yes" CustomerExtensible="Yes" CreateInstName="EnsTechnologicalTableInstance">
+    <Property Name="IconName"                    Value="I_HVACEngSpec_Table"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsTechnologicalTableInstance"/>
+    <CAAComment>
+      <ShortRole>HVAC Bend Diameter Table</ShortRole>
+      <Role>HVAC Bend Diameter Table</Role>
+    </CAAComment>
+  </Class>
+
+  <Class Name="HvaAvailableBendAngleDuctTable" Uuid="29df0d71-bb2f-4011-beb9-f39b41e6b605" Abbreviation="hvaabadt" CustomerExposition="Programmer" Abstract="No"
+ SuperName="Ens_TechnoTable2" Discipline="Yes" CustomerExtensible="Yes" CreateInstName="EnsTechnologicalTableInstance">
+    <Property Name="IconName"                    Value="I_HVACEngSpec_Table"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsTechnologicalTableInstance"/>
+    <CAAComment>
+      <ShortRole>HVAC Available Bend Angle Duct Table</ShortRole>
+      <Role>HVAC Available Bend Angle Duct Table</Role>
+    </CAAComment>
+  </Class>
+
+  <Class Name="HvaSpoolRuleTable" Uuid="f44ff947-9748-4134-94c1-d2e9d646999d" Abbreviation="hvasrt" CustomerExposition="Programmer" Abstract="No"
+ SuperName="Ens_TechnoTable2" Discipline="Yes" CustomerExtensible="Yes" CreateInstName="EnsTechnologicalTableInstance">
+    <Property Name="IconName"                    Value="I_HVACEngSpec_Table"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsTechnologicalTableInstance"/>
+    <CAAComment>
+      <ShortRole>HVAC Spool Rule Table</ShortRole>
+      <Role>HVAC Spool Rule Table</Role>
+    </CAAComment>
+  </Class>
+
+  <Class Name="HvaInsulationDimensionTable" Uuid="4cacbc4b-a991-4168-a7cf-c4d9e318b8a0" Abbreviation="hvaidt" CustomerExposition="Programmer" Abstract="No"
+     SuperName="Ens_TechnoTable3" Discipline="Yes" CustomerExtensible="Yes" CreateInstName="EnsTechnologicalTableInstance">
+    <Property Name="IconName"                    Value="I_HVACEngSpec_Table"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsTechnologicalTableInstance"/>
+    <Property Name="ProposedInDataSetup"         Value="Yes"/>
+    <CAAComment>
+      <ShortRole>HVAC Insulation Dimension Table</ShortRole>
+      <Role>HVAC Insulation Dimension Table</Role>
+    </CAAComment>
+  </Class>
+  
+  <Class Name="HvaMinimumStraightLengthTable" Uuid="d0cced93-7bf0-4f7a-899f-36cc80c7ecf0" Abbreviation="hvamslt" CustomerExposition="Programmer" Abstract="No"
+ SuperName="Ens_TechnoTable4" Discipline="Yes" CustomerExtensible="Yes" CreateInstName="EnsTechnologicalTableInstance">
+    <Property Name="IconName"                    Value="I_HVACEngSpec_Table"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsTechnologicalTableInstance"/>
+    <CAAComment>
+      <ShortRole>HVAC Minimum Straight Length Table</ShortRole>
+      <Role>HVAC Minimum Straight Length Table</Role>
+    </CAAComment>
+  </Class>
+
+  <Class Name="HvaTurnRuleTable" Uuid="fbec8287-5e2d-4659-b056-723cd9cfcdb0" Abbreviation="hvatrt" CustomerExposition="Programmer" Abstract="No"
+ SuperName="Ens_TechnoTable4" Discipline="Yes" CustomerExtensible="Yes" CreateInstName="EnsTechnologicalTableInstance">
+    <Property Name="IconName"                    Value="I_HVACEngSpec_Table"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsTechnologicalTableInstance"/>
+    <CAAComment>
+      <ShortRole>HVAC Turn Rule Table</ShortRole>
+      <Role>HVAC Turn Rule Table</Role>
+    </CAAComment>
+  </Class>
+
+  <Class Name="HvaAutomaticPartRuleTable" Uuid="d92bca5b-8b0c-4f69-a123-1e7e9fc43c6a" Abbreviation="hvaaprt" CustomerExposition="Programmer" Abstract="No"
+ SuperName="Ens_TechnoTable4" Discipline="Yes" CustomerExtensible="Yes" CreateInstName="EnsTechnologicalTableInstance">
+    <Property Name="IconName"                    Value="I_HVACEngSpec_Table"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsTechnologicalTableInstance"/>
+    <CAAComment>
+      <ShortRole>HVAC Automatic Part Rule Table</ShortRole>
+      <Role>HVAC Automatic Part Rule Table</Role>
+    </CAAComment>
+  </Class>
+
+  <Class Name="HvaBranchingRuleTable" Uuid="faf3bca1-e599-4548-b97e-54091564c7c3" Abbreviation="hvabrart" CustomerExposition="Programmer" Abstract="No"
+ SuperName="Ens_TechnoTable4" Discipline="Yes" CustomerExtensible="Yes" CreateInstName="EnsTechnologicalTableInstance">
+    <Property Name="IconName"                    Value="I_HVACEngSpec_Table"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsTechnologicalTableInstance"/>
+    <CAAComment>
+      <ShortRole>HVAC Branching Rule Table</ShortRole>
+      <Role>HVAC Branching Rule Table</Role>
+    </CAAComment>
+  </Class>
+
+  <Class Name="HvaCompatibilityRuleTable" Uuid="00aa0793-99d8-4d62-ac9f-2beb667f08a4" Abbreviation="hvacrt" CustomerExposition="Programmer" Abstract="No"
+ SuperName="Ens_TechnoTable4" Discipline="Yes" CustomerExtensible="Yes" CreateInstName="EnsTechnologicalTableInstance">
+    <Property Name="IconName"                    Value="I_HVACEngSpec_Table"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsTechnologicalTableInstance"/>
+    <CAAComment>
+      <ShortRole>HVAC Compatibility Rule Table</ShortRole>
+      <Role>HVAC Compatibility Rule Table</Role>
+    </CAAComment>
+  </Class>
+
+  <Class Name="HvaRigidDuctFabEndStyleTable" Uuid="c161e4db-bda4-4721-b8c8-c5f49a3af055" Abbreviation="hvardfest" CustomerExposition="Programmer" Abstract="No"
+ SuperName="Ens_TechnoTable4" Discipline="Yes" CustomerExtensible="Yes" CreateInstName="EnsTechnologicalTableInstance">
+    <Property Name="IconName"                    Value="I_HVACEngSpec_Table"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsTechnologicalTableInstance"/>
+    <CAAComment>
+      <ShortRole>HVAC Rigid Duct Fabrication End Style Table</ShortRole>
+      <Role>HVAC Rigid Duct Fabrication End Style Table</Role>
+    </CAAComment>
+  </Class>
+
+  <Class Name="HvaFlexDuctFabEndStyleTable" Uuid="140849e8-b912-4de8-80b7-606c73ef2c79" Abbreviation="hvafdfest" CustomerExposition="Programmer" Abstract="No"
+ SuperName="Ens_TechnoTable4" Discipline="Yes" CustomerExtensible="Yes" CreateInstName="EnsTechnologicalTableInstance">
+    <Property Name="IconName"                    Value="I_HVACEngSpec_Table"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsTechnologicalTableInstance"/>
+    <CAAComment>
+      <ShortRole>HVAC Flexible Duct Fabrication End Style Table</ShortRole>
+      <Role>HVAC Flexible Duct Fabrication End Style Table</Role>
+    </CAAComment>
+  </Class>
+
+  <Class Name="HvaReducerRuleTable" Uuid="8f7563d8-d3d7-4fb7-82e4-3faaafe92f87" Abbreviation="hvarrt" CustomerExposition="Programmer" Abstract="No"
+ SuperName="Ens_TechnoTable4" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes" CreateInstName="EnsTechnologicalTableInstance">
+    <Property Name="IconName"                    Value="I_HVACEngSpec_Table"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsTechnologicalTableInstance"/>
+  </Class>
+  
+  <Class Name="HvaCustomerAdvancedTable" Uuid="897adf45-7e49-4695-bd33-6b20401484ba" Abbreviation="hvacat" CustomerExposition="Programmer" Abstract="No"
+ SuperName="Ens_TechnoTable4" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes" CreateInstName="EnsTechnologicalTableInstance">
+    <Property Name="IconName"                    Value="I_HVACEngSpec_Table"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsTechnologicalTableInstance"/>
+    <CAAComment>
+      <ShortRole>HVAC Customer Advanced Table</ShortRole>
+      <Role>HVAC Customer Advanced Table</Role>
+    </CAAComment>
+  </Class>
+
+  <Class Name="HvaDirectionalLengthTable" Uuid="d1c6c9e3-a114-493e-861f-115771c1b00a" Abbreviation="hvadlt" CustomerExposition="Programmer" Abstract="No"
+ SuperName="Ens_TechnoTable4" Discipline="Yes" CustomerExtensible="Yes" CreateInstName="EnsTechnologicalTableInstance">
+    <Property Name="IconName"                    Value="I_HVACEngSpec_Table"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsTechnologicalTableInstance"/>
+  </Class>
+
+  <Class Name="HvaAutomatedOffsetTable" Uuid="d6f40cc0-ecd4-4e20-9a23-66ae60432814" Abbreviation="hvaaot" CustomerExposition="Programmer" Abstract="No"
+ SuperName="Ens_TechnoTable4" Discipline="Yes" CustomerExtensible="Yes" CreateInstName="EnsTechnologicalTableInstance">
+    <Property Name="IconName"                    Value="I_HVACEngSpec_Table"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsTechnologicalTableInstance"/>
+  </Class>
+  
+  <!--
+     ===================================================
+     Reference Filters
+     ===================================================
+     -->
+  <Class Name="HvaRigidDuctFilter" Uuid="00623b10-58f2-4a24-9adc-f663acd45670" Abbreviation="hvardf" CustomerExposition="Programmer" Abstract="No"
+         SuperName="Ens_AbstractFilter" Discipline="Yes" CustomerExtensible="Yes" CreateInstName="EnsFilterInstance">
+    <Property Name="IconName"                    Value="I_HVACEngSpec_Filter"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsFilterInstance"/>
+    <CAAComment>
+      <ShortRole>HVAC Rigid Duct Filter</ShortRole>
+      <Role>HVAC Rigid Duct Filter</Role>
+    </CAAComment>
+  </Class>
+
+  <Class Name="HvaFlexibleDuctFilter" Uuid="e4a3b14e-639d-4249-9058-5ca1671ca83b" Abbreviation="hvafdf" CustomerExposition="Programmer" Abstract="No"
+       SuperName="Ens_AbstractFilter" Discipline="Yes" CustomerExtensible="Yes" CreateInstName="EnsFilterInstance">
+    <Property Name="IconName"                    Value="I_HVACEngSpec_Filter"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsFilterInstance"/>
+    <CAAComment>
+      <ShortRole>HVAC Flexible Duct Filter</ShortRole>
+      <Role>HVAC Flexible Duct Filter</Role>
+    </CAAComment>
+  </Class>
+
+  <Class Name="HvaPartFilter" Uuid="ecd6b053-6a6c-47a1-860a-ecbf90f9e56b" Abbreviation="hvapf" CustomerExposition="Programmer" Abstract="No"
+     SuperName="Ens_AbstractFilter" Discipline="Yes" CustomerExtensible="Yes" CreateInstName="EnsFilterInstance">
+    <Property Name="IconName"                    Value="I_HVACEngSpec_Filter"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsFilterInstance"/>
+    <CAAComment>
+      <ShortRole>HVAC Part Filter</ShortRole>
+      <Role>HVAC Part Filter</Role>
+    </CAAComment>
+  </Class>
+
+  <Class Name="HvaInsulationFilter" Uuid="5882fe3c-44d6-4008-9b58-1884fd97420e" Abbreviation="hvaif" CustomerExposition="Programmer" Abstract="No"
+   SuperName="Ens_AbstractFilter" Discipline="Yes" CustomerExtensible="Yes" CreateInstName="EnsFilterInstance">
+    <Property Name="IconName"                    Value="I_HVACEngSpec_Filter"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="All"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="KweNew_ReturnedType"         Value="EnsFilterInstance"/>
+    <CAAComment>
+      <ShortRole>HVAC Insulation Filter</ShortRole>
+      <Role>HVAC Insulation Filter</Role>
+    </CAAComment>
+  </Class>
+
+  <!--
+     ===================================================
+     Reference Specifications
+     ===================================================
+     -->
+  <Class Name="HvaSpecification" Uuid="0df4a73a-303c-4769-8ff1-799487edd1f5" Abbreviation="hvas" CustomerExposition="Programmer" Abstract="No"
+         SuperName="Ens_AbstractSpec" Discipline="Yes" CustomerExtensible="Yes">
+    <Property Name="IconName"                    Value="I_HVACEngSpec_Spec"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="New"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="ProposedInDataSetup"         Value="Yes"/>
+    <CAAComment>
+      <ShortRole>HVAC Specification</ShortRole>
+      <Role>HVAC Specification</Role>
+    </CAAComment>
+  </Class>
+
+  <!-- MODIF PA DEB 05/01/2015 -->
+  <Class Name="HvaCustomerAdditionalSpec" Uuid="133BC421-6E11-40B0-BF5A-BCBA88ACFEDC" Abbreviation="hvacas" CustomerExposition="Programmer" Abstract="No"
+         SuperName="CustomerAdditionalSpec" Discipline="Yes" Specializable="Yes" CustomerExtensible="Yes">
+    <Property Name="IconName"                    Value="I_HVACEngSpec_CustomerAdditionalSpec"/>
+    <Property Name="Searchable"                  Value="Yes"/>
+    <Property Name="Newable"                     Value="New"/>
+    <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation"/>
+    <Property Name="ProposedInDataSetup"         Value="Yes"/>
+    <CAAComment>
+      <ShortRole>HVAC Customer Additional Spec</ShortRole>
+      <Role>HVAC Customer Additional Spec</Role>
+    </CAAComment>
+  </Class>
+  <!-- MODIF PA FIN 05/01/2015 -->
+
+  <!--
+     ===================================================
+     Connection Spec Logical Line
+     ===================================================
+     -->
+  <Class Name="HvaCntnLogToSpec" Uuid="a9ceb635-f6b8-4861-84e5-10b6704ef991" Abstract="No" SuperName="EnsSpecCnxLogicalToSpecBase" CustomerExposition="Programmer">
+    <CAAComment>
+      <ShortRole>HVAC Logical Line to Spec connection</ShortRole>
+      <Role>HVAC Logical Line to Spec connection</Role>
+    </CAAComment>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+  
+</Package>

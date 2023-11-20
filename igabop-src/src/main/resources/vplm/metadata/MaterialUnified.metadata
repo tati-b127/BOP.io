@@ -1,0 +1,763 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package
+  Name="MaterialUnified"
+  UseNames="ERCoreModeler CATMaterialRef"
+  ModelerType="Top"
+  xmlns="PLMDictionaryUnified"
+  CustomerExposition="Programmer"
+>
+  <Class
+    Name="Material"
+    SuperName="BusinessType"
+    Abstract="No"
+    CustomerExposition="Programmer"
+    Specializable="No"
+  >
+    <Simple
+      Name="IMDS IDs Status"
+      Type="String"
+      DefaultValue="Unset"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Range>
+        <Equal>Unset</Equal>
+        <Equal>Module</Equal>
+        <Equal>Nested</Equal>
+        <Equal>Collapsed</Equal>
+        <Equal>Invalidated</Equal>
+        <Equal>Reference</Equal>
+      </Range>
+    </Simple>
+    <Simple
+      Name="IMDS Material Module ID"
+      Type="String"
+      Protection="External"
+      PLMImpacting="No"
+    >
+    </Simple>
+    <Simple
+      Name="Calculated Substances"
+      Type="String"
+      Protection="External"
+      PLMImpacting="No"
+    >
+    </Simple>
+    <Simple
+      Name="Import Date"
+      Type="Date"
+      Protection="External"
+      PLMImpacting="No"
+    >
+    </Simple>
+    <Simple
+      Name="Import File"
+      Type="String"
+      Protection="External"
+      PLMImpacting="No"
+    >
+    </Simple>
+    <Simple
+      Name="Last Rollup Timestamp"
+      Type="Date"
+      Protection="External"
+      PLMImpacting="No"
+    >
+    </Simple>
+    <Simple
+      Name="Manufacturer"
+      Type="String"
+      Protection="Free"
+      PLMImpacting="No"
+    >
+    </Simple>
+    <Simple
+      Name="Material Number"
+      Type="String"
+      Protection="Free"
+      PLMImpacting="No"
+    >
+    </Simple>
+    <Simple
+      Name="Modified Timestamp"
+      Type="Date"
+      Protection="External"
+      PLMImpacting="No"
+    >
+    </Simple>
+    <Simple
+      Name="Percent Measured Contained Recyclate"
+      Type="Double"
+      Protection="External"
+      PLMImpacting="No"
+    >
+    </Simple>
+    <Simple
+      Name="Percent Post Consumer Recyclate"
+      Type="Double"
+      Protection="External"
+      PLMImpacting="No"
+    >
+    </Simple>
+    <Simple
+      Name="Percent Post Industrial Recyclate"
+      Type="Double"
+      Protection="External"
+      PLMImpacting="No"
+    >
+    </Simple>
+    <Simple
+      Name="Percent Released Contained Recyclate"
+      Type="Double"
+      Protection="External"
+      PLMImpacting="No"
+    >
+    </Simple>
+    <Simple
+      Name="Reserved"
+      Type="String"
+      DefaultValue="No"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Range>
+        <Equal>Yes</Equal>
+        <Equal>No</Equal>
+      </Range>
+    </Simple>
+    <Simple
+      Name="Specific Gravity"
+      Type="Double"
+      Protection="Free"
+      PLMImpacting="No"
+    >
+    </Simple>
+    <Simple
+      Name="JAMP Use"
+      Type="String"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Range>
+        <Equal>base material</Equal>
+        <Equal>chemical conversion treatment</Equal>
+        <Equal>clad</Equal>
+        <Equal>flame spray coating</Equal>
+        <Equal>inner preparations</Equal>
+        <Equal>CVD(Chemical Vapor Deposition)</Equal>
+        <Equal>marking</Equal>
+        <Equal>painting</Equal>
+        <Equal>plating</Equal>
+        <Equal>PVD(Physical Vapor Deposition)</Equal>
+        <Equal>solder joint</Equal>
+        <Equal>attached agent</Equal>
+      </Range>
+    </Simple>
+    <Simple
+      Name="Marketing Name"
+      Type="String"
+      Protection="Free"
+      PLMImpacting="No"
+    >
+    </Simple>
+    <Simple
+      Name="IMDS Material Node ID"
+      Type="String"
+      Protection="External"
+      PLMImpacting="No"
+    >
+    </Simple>
+    <Simple
+      Name="Originator"
+      Type="String"
+      Protection="Free"
+      PLMImpacting="No"
+    >
+    </Simple>
+    <Simple
+      Name="External Revision Level"
+      Type="String"
+      Protection="External"
+      PLMImpacting="No"
+    >
+    </Simple>
+    <Simple
+      Name="External Revision Date"
+      Type="Date"
+      Protection="External"
+      PLMImpacting="No"
+    >
+    </Simple>
+    <Simple
+      Name="IMDS Status"
+      Type="String"
+      DefaultValue="Unassigned"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Range>
+        <Equal>Edit</Equal>
+        <Equal>Internal</Equal>
+        <Equal>Send</Equal>
+        <Equal>Publish</Equal>
+        <Equal>Propose</Equal>
+        <Equal>Unassigned</Equal>
+      </Range>
+    </Simple>
+    <Simple
+      Name="IMDS Material Version"
+      Type="String"
+      Protection="External"
+      PLMImpacting="No"
+    >
+    </Simple>
+    <Simple
+      Name="Standard Material Number"
+      Type="String"
+      Protection="Free"
+      PLMImpacting="No"
+    >
+    </Simple>
+    <Simple
+      Name="Material Symbol"
+      Type="String"
+      Protection="External"
+      PLMImpacting="No"
+    >
+    </Simple>
+    <Simple
+      Name="Material RRR Classification"
+      Type="String"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Range>
+        <Equal>Metals</Equal>
+        <Equal>Non Metallic Residues Energy Recoverable</Equal>
+        <Equal>Non Metallic Residues Recyclable</Equal>
+        <Equal>Pretreatment Batteries</Equal>
+        <Equal>Pretreatment Catalytic Converters</Equal>
+        <Equal>Pretreatment CNG Tanks</Equal>
+        <Equal>Pretreatment Fluids</Equal>
+        <Equal>Pretreatment LPG Tanks</Equal>
+        <Equal>Pretreatment Oil Filters</Equal>
+        <Equal>Pretreatment Tyres</Equal>
+      </Range>
+    </Simple>
+    <Simple
+      Name="IMDS IDs Saved State"
+      Type="String"
+      Protection="External"
+      PLMImpacting="No"
+    >
+    </Simple>
+    <Simple
+      Name="Calculated Material Classifications"
+      Type="String"
+      Protection="External"
+      PLMImpacting="No"
+    >
+    </Simple>
+    <Simple
+      Name="IMDS Miscellaneous Substance Remark"
+      Type="String"
+      Protection="External"
+      PLMImpacting="No"
+    >
+    </Simple>
+    <Simple
+      Name="Standard Material"
+      Type="String"
+      DefaultValue="No"
+      Protection="Free"
+      PLMImpacting="No"
+    >
+      <Range>
+        <Equal>Yes</Equal>
+        <Equal>No</Equal>
+      </Range>
+    </Simple>
+    <Simple
+      Name="Calculated Violations"
+      Type="String"
+      Protection="External"
+      PLMImpacting="No"
+    >
+    </Simple>
+    <Simple
+      Name="Calculated Substance Classifications"
+      Type="String"
+      Protection="External"
+      PLMImpacting="No"
+    >
+    </Simple>
+    <Simple
+      Name="Calculated Compliances"
+      Type="String"
+      Protection="External"
+      PLMImpacting="No"
+    >
+    </Simple>
+    <Simple
+      Name="Calculated Exemptions"
+      Type="String"
+      Protection="External"
+      PLMImpacting="No"
+    >
+    </Simple>
+    <Property Name="Newable" Value="No"/>
+    <Property Name="ObjectNature" Value="Independent"/>
+    <Property Name="Searchable" Value="No"/>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+  <Class
+    Name="Internal Material"
+    SuperName="Material"
+    Abstract="No"
+    CustomerExposition="Programmer"
+    Specializable="Yes"
+    Abbreviation="imat"
+  >
+    <Simple
+      Name="Implicit Hash Opt"
+      Type="String"
+      Protection="Internal"
+      PLMImpacting="No"
+    >
+    </Simple>
+    <Simple
+      Name="Material Group"
+      Type="String"
+      Protection="Free"
+      PLMImpacting="No"
+    >
+    </Simple>
+    <Simple
+      Name="Branch To"
+      Type="String"
+      DefaultValue="None"
+      Protection="External"
+      PLMImpacting="No"
+    >
+    </Simple>
+    <Property Name="IconName" Value="I_Material_Nav_Entity_core"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATMRCReferenceDelegateInstanciation"/>
+    <Property Name="Newable" Value="No"/>
+    <Property Name="ObjectNature" Value="Independent"/>
+    <Property Name="PQ_attributes" Value="name"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage  FileLocation="MaterialUnifiedDesignCompletion.KProc" Language="EKL">
+        <Usage href="ExportScope.meth#Design"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage  FileLocation="MaterialUnifiedReviewCompletion.KProc" Language="EKL">
+        <Usage href="ExportScope.meth#Review"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage  FileLocation="MaterialUnifiedDesignCompletion.KProc" Language="EKL">
+        <Usage href="ExportScope.meth#Channel"/>
+      </ProcedureForUsage>
+    </Method>
+  </Class>
+  <Class
+    Name="Internal Core Material"
+    SuperName="Internal Material"
+    Abstract="No"
+    CustomerExposition="Programmer"
+    Specializable="Yes"
+    Abbreviation="imatcr"
+  >
+    <Simple
+      Name="Volume Density"
+      Type="Double"
+      Protection="Free"
+      PLMImpacting="No"
+    >
+    </Simple>
+    <Property Name="3DIconName" Value="InternalCoreMaterialRep.cgr"/>
+    <Property Name="IconName" Value="I_Material_Entity_Nav_core"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATMRCReferenceDelegateInstanciation"/>
+    <Property Name="Newable" Value="New_Offline"/>
+    <Property Name="ObjectNature" Value="Independent"/>
+    <Property Name="PQ_attributes" Value="name"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage  FileLocation="MaterialUnifiedDesignCompletion.KProc" Language="EKL">
+        <Usage href="ExportScope.meth#Design"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage  FileLocation="MaterialUnifiedReviewCompletion.KProc" Language="EKL">
+        <Usage href="ExportScope.meth#Review"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage  FileLocation="MaterialUnifiedDesignCompletion.KProc" Language="EKL">
+        <Usage href="ExportScope.meth#Channel"/>
+      </ProcedureForUsage>
+    </Method>
+  </Class>
+  <Class
+    Name="Internal Covering Material"
+    SuperName="Internal Material"
+    Abstract="No"
+    CustomerExposition="Programmer"
+    Specializable="Yes"
+    Abbreviation="imatcv"
+  >
+    <Simple
+      Name="Area Density"
+      Type="Double"
+      Protection="Free"
+      PLMImpacting="No"
+    >
+    </Simple>
+    <Property Name="3DIconName" Value="InternalCoveringMaterialRep.cgr"/>
+    <Property Name="IconName" Value="I_Material_Entity_Nav_covering"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATMRCReferenceDelegateInstanciation"/>
+    <Property Name="Newable" Value="New_Offline"/>
+    <Property Name="ObjectNature" Value="Independent"/>
+    <Property Name="PQ_attributes" Value="name"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage  FileLocation="MaterialUnifiedDesignCompletion.KProc" Language="EKL">
+        <Usage href="ExportScope.meth#Design"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage  FileLocation="MaterialUnifiedReviewCompletion.KProc" Language="EKL">
+        <Usage href="ExportScope.meth#Review"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage  FileLocation="MaterialUnifiedDesignCompletion.KProc" Language="EKL">
+        <Usage href="ExportScope.meth#Channel"/>
+      </ProcedureForUsage>
+    </Method>
+  </Class>
+  <Extension
+    Name="Material Definition"
+    Abstract="No"
+    ScopeNames="Material;"
+    CustomerExposition="Programmer"
+  >
+    <Simple
+      Name="IMDS IDs Status"
+      Type="String"
+      DefaultValue="Unset"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Range>
+        <Equal>Unset</Equal>
+        <Equal>Module</Equal>
+        <Equal>Nested</Equal>
+        <Equal>Collapsed</Equal>
+        <Equal>Invalidated</Equal>
+        <Equal>Reference</Equal>
+      </Range>
+    </Simple>
+    <Simple
+      Name="IMDS Material Module ID"
+      Type="String"
+      Protection="External"
+      PLMImpacting="No"
+    >
+    </Simple>
+    <Simple
+      Name="Import Date"
+      Type="Date"
+      Protection="External"
+      PLMImpacting="No"
+    >
+    </Simple>
+    <Simple
+      Name="Import File"
+      Type="String"
+      Protection="External"
+      PLMImpacting="No"
+    >
+    </Simple>
+    <Simple
+      Name="Last Rollup Timestamp"
+      Type="Date"
+      Protection="External"
+      PLMImpacting="No"
+    >
+    </Simple>
+    <Simple
+      Name="Modified Timestamp"
+      Type="Date"
+      Protection="External"
+      PLMImpacting="No"
+    >
+    </Simple>
+    <Simple
+      Name="Percent Measured Contained Recyclate"
+      Type="Double"
+      Protection="External"
+      PLMImpacting="No"
+    >
+    </Simple>
+    <Simple
+      Name="Percent Post Consumer Recyclate"
+      Type="Double"
+      Protection="External"
+      PLMImpacting="No"
+    >
+    </Simple>
+    <Simple
+      Name="Percent Post Industrial Recyclate"
+      Type="Double"
+      Protection="External"
+      PLMImpacting="No"
+    >
+    </Simple>
+    <Simple
+      Name="Percent Released Contained Recyclate"
+      Type="Double"
+      Protection="External"
+      PLMImpacting="No"
+    >
+    </Simple>
+    <Simple
+      Name="IMDS Material Node ID"
+      Type="String"
+      Protection="External"
+      PLMImpacting="No"
+    >
+    </Simple>
+    <Simple
+      Name="IMDS Material Version"
+      Type="String"
+      Protection="External"
+      PLMImpacting="No"
+    >
+    </Simple>
+    <Simple
+      Name="IMDS Status"
+      Type="String"
+      DefaultValue="Unassigned"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Range>
+        <Equal>Edit</Equal>
+        <Equal>Internal</Equal>
+        <Equal>Send</Equal>
+        <Equal>Publish</Equal>
+        <Equal>Propose</Equal>
+        <Equal>Unassigned</Equal>
+      </Range>
+    </Simple>
+    <Simple
+      Name="Material Symbol"
+      Type="String"
+      Protection="External"
+      PLMImpacting="No"
+    >
+    </Simple>
+    <Simple
+      Name="IMDS IDs Saved State"
+      Type="String"
+      Protection="External"
+      PLMImpacting="No"
+    >
+    </Simple>
+    <Simple
+      Name="IMDS Miscellaneous Substance Remark"
+      Type="String"
+      Protection="External"
+      PLMImpacting="No"
+    >
+    </Simple>
+    <Simple
+      Name="Material RRR Classification"
+      Type="String"
+      Protection="External"
+      PLMImpacting="No"
+    >
+      <Range>
+        <Equal>Metals</Equal>
+        <Equal>Non Metallic Residues Energy Recoverable</Equal>
+        <Equal>Non Metallic Residues Recyclable</Equal>
+        <Equal>Pretreatment Batteries</Equal>
+        <Equal>Pretreatment Catalytic Converters</Equal>
+        <Equal>Pretreatment CNG Tanks</Equal>
+        <Equal>Pretreatment Fluids</Equal>
+        <Equal>Pretreatment LPG Tanks</Equal>
+        <Equal>Pretreatment Oil Filters</Equal>
+        <Equal>Pretreatment Tyres</Equal>
+      </Range>
+    </Simple>
+    <Simple
+      Name="Calculated Violations"
+      Type="String"
+      Protection="External"
+      PLMImpacting="No"
+    >
+    </Simple>
+    <Simple
+      Name="Calculated Material Classifications"
+      Type="String"
+      Protection="External"
+      PLMImpacting="No"
+    >
+    </Simple>
+    <Simple
+      Name="Calculated Compliances"
+      Type="String"
+      Protection="External"
+      PLMImpacting="No"
+    >
+    </Simple>
+    <Simple
+      Name="Standard Material"
+      Type="String"
+      DefaultValue="No"
+      Protection="Free"
+      PLMImpacting="No"
+    >
+      <Range>
+        <Equal>Yes</Equal>
+        <Equal>No</Equal>
+      </Range>
+    </Simple>
+    <Simple
+      Name="Calculated Substance Classifications"
+      Type="String"
+      Protection="External"
+      PLMImpacting="No"
+    >
+    </Simple>
+    <Simple
+      Name="Calculated Exemptions"
+      Type="String"
+      Protection="External"
+      PLMImpacting="No"
+    >
+    </Simple>
+    <Simple
+      Name="Calculated Substances"
+      Type="String"
+      Protection="External"
+      PLMImpacting="No"
+    >
+    </Simple>
+  </Extension>
+  <Extension
+    Name="Internal Material Definition"
+    Abstract="No"
+    ScopeNames="Internal Material;"
+    CustomerExposition="Programmer"
+  >
+    <Simple
+      Name="Branch To"
+      Type="String"
+      DefaultValue="None"
+      Protection="External"
+      PLMImpacting="No"
+    >
+    </Simple>
+  </Extension>
+  <RelationClass
+    Name="AbstractUsingDomains"
+    SuperName="RelationType"
+    Abstract="Yes"
+    CustomerExposition="Programmer"
+  >
+    <Property Name="KweNew_InstanciationMethod" Value="CATMRCReferenceDelegateInstanciation"/>
+    <Property Name="Newable" Value="None"/>
+    <Property Name="RelationNature" Value="Structure"/>
+    <SubClause Name="from" TargetName="Material"/>
+    <SubClause Name="to" TargetName="MaterialDomain"/>
+  </RelationClass>
+  <RelationClass
+    Name="UsingDomains"
+    SuperName="AbstractUsingDomains"
+    Abstract="No"
+    CustomerExposition="Programmer"
+  >
+    <Simple
+      Name="MatDomIsDefault"
+      Type="Boolean"
+      DefaultValue="FALSE"
+      Protection="External"
+      PLMImpacting="No"
+    >
+    </Simple>
+    <Property Name="KweNew_InstanciationMethod" Value="CATMRCReferenceDelegateInstanciation"/>
+    <Property Name="Newable" Value="None"/>
+    <Property Name="RelationNature" Value="Structure"/>
+    <SubClause Name="from" TargetName="Material"/>
+    <SubClause Name="to" TargetName="MaterialDomain"/>
+  </RelationClass>
+  <RelationClass
+    Name="UsingDomainDrafting"
+    SuperName="AbstractUsingDomains"
+    Abstract="No"
+    CustomerExposition="Programmer"
+  >
+    <Property Name="KweNew_InstanciationMethod" Value="CATMRCReferenceDelegateInstanciation"/>
+    <Property Name="Newable" Value="None"/>
+    <Property Name="RelationNature" Value="Structure"/>
+    <SubClause Name="from" TargetName="Material"/>
+    <SubClause Name="to" TargetName="MaterialDomain"/>
+  </RelationClass>
+  <RelationClass
+    Name="UsingDomainSimulation"
+    SuperName="AbstractUsingDomains"
+    Abstract="No"
+    CustomerExposition="Programmer"
+  >
+    <Property Name="KweNew_InstanciationMethod" Value="CATMRCReferenceDelegateInstanciation"/>
+    <Property Name="Newable" Value="None"/>
+    <Property Name="RelationNature" Value="Structure"/>
+    <SubClause Name="from" TargetName="Material"/>
+    <SubClause Name="to" TargetName="MaterialDomain"/>
+  </RelationClass>
+  <RelationClass
+  Name="UsingDomainLE"
+  SuperName="AbstractUsingDomains"
+  Abstract="No"
+  CustomerExposition="Programmer"
+  >
+    <Property Name="KweNew_InstanciationMethod" Value="CATMRCReferenceDelegateInstanciation"/>
+    <Property Name="Newable" Value="None"/>
+    <Property Name="RelationNature" Value="Structure"/>
+    <SubClause Name="from" TargetName="Material"/>
+    <SubClause Name="to" TargetName="MaterialDomain"/>
+  </RelationClass>
+  <RelationClass
+    Name="UsingDomainComposites"
+    SuperName="AbstractUsingDomains"
+    Abstract="No"
+    CustomerExposition="Programmer"
+  >
+    <Property Name="KweNew_InstanciationMethod" Value="CATMRCReferenceDelegateInstanciation"/>
+    <Property Name="Newable" Value="None"/>
+    <Property Name="RelationNature" Value="Structure"/>
+    <SubClause Name="from" TargetName="Material"/>
+    <SubClause Name="to" TargetName="MaterialDomain"/>
+  </RelationClass>
+  <RelationClass
+    Name="UsingDomainRendering"
+    SuperName="AbstractUsingDomains"
+    Abstract="No"
+    CustomerExposition="Programmer"
+  >
+    <Property Name="KweNew_InstanciationMethod" Value="CATMRCReferenceDelegateInstanciation"/>
+    <Property Name="Newable" Value="None"/>
+    <Property Name="RelationNature" Value="Structure"/>
+    <SubClause Name="from" TargetName="Material"/>
+    <SubClause Name="to" TargetName="MaterialDomain"/>
+  </RelationClass>
+  <RelationClass
+    Name="ComposedOfDomains"
+    SuperName="RelationType"
+    Abstract="No"
+    CustomerExposition="Programmer"
+  >
+    <Property Name="KweNew_InstanciationMethod" Value="CATMRCReferenceDelegateInstanciation"/>
+    <Property Name="Newable" Value="None"/>
+    <Property Name="RelationNature" Value="Aggregation"/>
+    <SubClause Name="from" TargetName="Material"/>
+    <SubClause Name="to" TargetName="MaterialDomain"/>
+  </RelationClass>
+</Package>

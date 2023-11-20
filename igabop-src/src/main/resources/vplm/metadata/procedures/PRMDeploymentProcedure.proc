@@ -1,0 +1,59 @@
+<?xml version="1.0" ?>
+<ProcedurePackage
+	xmlns="PLMDictionaryProcedure"
+	Name="PRMDeploymentProcedure">
+
+  <Procedure Name="PRMDeploymentSynchronize">
+    <Implementation Name="invoke" FileLocation="com.dassault_systemes.Knowledge_Procs.PRMDeploymentSynchronize" Language="JAVA"/>
+    <Signature href="PRMDeploymentSynchronize_sign"/>
+  </Procedure>
+
+  <Signature id="PRMDeploymentSynchronize_sign">
+    <Parameter Name="Version"            Direction="in" Order="1"  DataType="Integer" MultiValuated="No"/>
+    <Parameter Name="Action"             Direction="in" Order="2"  DataType="String"  MultiValuated="No"/>
+    <Parameter Name="ResourceSetPLMIds"  Direction="in" Order="3"  DataType="PLMId"   MultiValuated="Yes" />
+    <Parameter Name="BusinessRulePLMIds" Direction="in" Order="4"  DataType="PLMId"   MultiValuated="Yes"/>
+    <Parameter Name="ResourceSetStreams" Direction="in" Order="5"  DataType="String"  MultiValuated="Yes"/>
+    <Parameter Name="HR"                 Direction="out" Order="1" DataType="String"  MultiValuated="No"/>
+    <Parameter Name="Message"            Direction="out" Order="2" DataType="String"  MultiValuated="Yes"/>
+  </Signature>
+
+  <Procedure Name="PRMDeploymentTest">
+    <Implementation Name="invoke" FileLocation="com.dassault_systemes.Knowledge_Procs.PRMDeploymentTest" Language="JAVA"/>
+    <Signature href="PRMDeploymentTest_sign"/>
+  </Procedure>
+
+  <Signature id="PRMDeploymentTest_sign">
+    <Parameter Name="Version"        Direction="in"  Order="1" DataType="Integer" MultiValuated="No"/>
+    <Parameter Name="Action"         Direction="in"  Order="2" DataType="String"  MultiValuated="No"/>
+    <Parameter Name="OpeningId"      Direction="in"  Order="3" DataType="String"  MultiValuated="No"/>
+    <Parameter Name="FactType"       Direction="in"  Order="4" DataType="String"  MultiValuated="No"/>
+    <Parameter Name="HR"             Direction="out" Order="1" DataType="String"  MultiValuated="No"/>
+    <Parameter Name="Message"        Direction="out" Order="2" DataType="String"  MultiValuated="Yes"/>
+    <Parameter Name="BusinessRuleId" Direction="out" Order="3" DataType="PLMId"   MultiValuated="No"/>
+  </Signature>
+
+  <Procedure Name="PRMGetKweDictionaryServer">
+    <Implementation Name="invoke" FileLocation="com.dassault_systemes.Knowledge_Procs.PRMGetKweDictionaryServer" Language="JAVA"/>
+    <Signature href="PRMGetKweDictionaryServer_sign"/>
+  </Procedure>
+
+  <Signature id="PRMGetKweDictionaryServer_sign">
+    <Parameter Name="Options"        Direction="in"  Order="1" DataType="String"  MultiValuated="No"/>
+    <Parameter Name="HR"             Direction="out" Order="1" DataType="String"  MultiValuated="No"/>
+    <Parameter Name="XMLDico"        Direction="out" Order="2" DataType="String"  MultiValuated="No"/>
+  </Signature>
+
+  <Procedure Name="PRMCompileEKLServer">
+    <Implementation Name="invoke" FileLocation="com.dassault_systemes.Knowledge_Procs.PRMCompileEKLServer" Language="JAVA"/>
+    <Signature href="PRMCompileEKLServer_sign"/>
+  </Procedure>
+
+  <Signature id="PRMCompileEKLServer_sign">
+    <Parameter Name="Options"        Direction="in"  Order="1" DataType="String"  MultiValuated="No"/>
+    <Parameter Name="CompleteBody"   Direction="in"  Order="2" DataType="String"  MultiValuated="No"/>
+    <Parameter Name="HR"             Direction="out" Order="1" DataType="String"  MultiValuated="No"/>
+    <Parameter Name="ErrorMessage"   Direction="out" Order="2" DataType="String"  MultiValuated="No"/>
+  </Signature>
+
+</ProcedurePackage>

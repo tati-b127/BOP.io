@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR RFL System Type -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2014, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" Name="PLMCORERelations" 
+	Uuid="0daaed74-9687-4279-ad27-5e5da9042426" 
+	UseNames="ERCoreModeler" 
+  CustomerExposition="Programmer"         
+>
+	<!-- *********************************************************** -->
+	<!-- *  Composition used by VPLM for all ports                 * -->
+	<!-- *********************************************************** -->
+<!--  <RelationClass Name="VPLMrel/PLMPort/V_Owner"  CustomerExposition="Programmer" RelationNature="Aggregation"  Uuid="409714A3-BDD8-4640-81462A3475E69575" SuperName="RelationType">
+    <SubClause Name="from" TargetName="PLMReference" />
+    <SubClause Name="to" TargetName="PLMPort" />
+  </RelationClass>
+-->
+  <!-- *********************************************************** -->
+  <!-- *  Composition used by VPLM for all connexions            * -->
+  <!-- *********************************************************** -->
+<!--  <RelationClass Name="VPLMrel/PLMConnection/V_Owner"  CustomerExposition="Programmer" RelationNature="Aggregation"  Uuid="80A337F5-008A-4A3D-99BADF21469A9BD7" SuperName="RelationType">
+    <SubClause Name="from" TargetName="PLMReference" />
+    <SubClause Name="to" TargetName="PLMConnection" />
+  </RelationClass>-->
+
+  <RelationClass Name="StandardAggregation"  CustomerExposition="Programmer" RelationNature="Aggregation"  Uuid="20136a7c-a886-4304-94c8-1a94d3043476" SuperName="RelationType">
+    <SubClause Name="from" TargetName="BusinessType" />
+    <SubClause Name="to" TargetName="StandardComposed" />
+  </RelationClass>
+
+	<Class
+		Name="StandardComposed"
+		Uuid="5CAD3555-FEC2-4C1C-9C79-9E863C420458"
+		SuperName="BusinessType"
+		Abstract="Yes"
+		CustomerExposition="None"
+		Specializable="No"
+		ObjectNature="Aggregated">
+	<CAAComment>
+		<ShortRole>Ancestor to all Composed Classes</ShortRole>
+	</CAAComment>
+		<Method ImplementationType="None">
+	  <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+	</Method>
+	</Class>
+
+</Package>

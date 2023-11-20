@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2009, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" Name="DELLmiProductionExecPickingOperationDS" Uuid="FA455561-0C7B-44c8-B933-4DDCBF84188D" UseNames="DELLmiProductionExecPickingOperation" >
+<Property Name="OptionalInstallation" Value="Yes" /> 
+	<CAAComment>
+		<ShortRole>Standard DELMIA Execution Picking Operation Package</ShortRole>
+		<Role>This package includes default customized DELMIA Execution Picking Operation</Role>
+	</CAAComment>
+	<Comment>last update 2018-01-23</Comment>
+
+	<Class Name="DELLmiExecPickingOperationRefCusto" Uuid="BB0138E6-5C5F-4af9-8C13-6EB5BDA24B36" SuperName="DELLmiExecPickingOperationReference"   >
+
+    <IdentifierSet Name="Identifier"
+        Uuid="8F71E42E-9484-4bd9-9C63-E1A4585605AE"
+        IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755"
+        IdentifierNames="PLM_ExternalID V_version" />
+
+    <CAAComment>
+			<ShortRole>Standard DELMIA Execution Picking Operation Reference</ShortRole>
+			<Role>Default customized DELMIA Execution Picking Operation Reference</Role>
+		</CAAComment>
+	</Class>
+
+  <RelationClass Name="DELLmiExecPickingOperationInstCusto" Uuid="0CE0EE84-F8EF-47a3-99E1-4DB5C5818F49" SuperName="DELLmiExecPickingOperationInstance"  >
+		<CAAComment>
+			<ShortRole>Standard DELMIA Execution Picking Operation Instance</ShortRole>
+			<Role>Default customized DELMIA Execution Picking Operation Instance</Role>
+		</CAAComment>		
+            <!-- ********************************************************* -->
+            <!-- * Overload(s) of PLMCoreInstance attributes. -->
+            <!-- ********************************************************* -->
+    <SubClause Name="to"   TargetName="DELLmiExecPickingOperationRefCusto"/>
+  </RelationClass>
+</Package>

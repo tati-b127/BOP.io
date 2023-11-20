@@ -1,0 +1,242 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2005, All rights reserved -->
+
+<!--
+@FN7  13:07:19 Clean up to make the file more readable
+@SVN1 18:08:09 Added clash and contact volume attributs
+-->
+
+<Package  xmlns="PLMDictionaryUnified"
+          ModelerType="Top"
+          Name="PLMPIMInterfereExt"
+          Uuid="cfa242e0-55bd-429e-a961-6d19808131dc" 
+          UseNames="PLMPIMInterfere"
+          CustomerExposition="Programmer">
+  
+  <!-- _______________________________________________________________________________________ -->
+  <!--      PLMPIMMetricReferenceClashContact (extension of PLMPIMMetricReference)  - Clash    -->
+  <!-- _______________________________________________________________________________________ -->
+  <Extension Name="PLMPIMMetricReferenceClashContact" 
+    Uuid="8a2c7ea0-1a6d-481c-995a-4689bf5e0646" 
+    ScopeNames="PLMPIMMetricReference" 
+    Abstract="No" 
+    CustomerExposition="Programmer">
+
+    <!-- ________________________________________________________________________________ -->
+    <!--      V_Itf_Penetration_Value                                                     -->
+    <!-- ________________________________________________________________________________ -->
+    <Simple Name="V_Itf_Penetration_Value" 
+            Uuid="b24eb03f-5ec9-458b-8c7a-0d01f06d522e"
+            Protection="External"
+            Type="Double"
+            CAAExposition="L0"
+            MultiValuated="No"
+            Faceted="Yes">
+      <Comment>Penetration value found for the clash</Comment>
+    </Simple>
+
+    <!-- ________________________________________________________________________________ -->
+    <!--      V_Itf_BoundingBox - new R217                                                -->
+    <!-- ________________________________________________________________________________ -->
+    <Simple Name="V_Itf_BoundingBox"
+            Uuid="0d6a1684-210a-41f8-b509-baf8cb23522f"
+            Protection="External"
+            Type="Double"
+            CAAExposition="L0"
+            MultiValuated="Yes"
+            CollectionType="List">
+      <Comment>Bounding box of the clash</Comment>
+    </Simple>
+
+    <!-- ________________________________________________________________________________ -->
+    <!--      V_Itf_FirstPointFoundClash                                                  -->
+    <!-- ________________________________________________________________________________ -->
+    <Simple Name="V_Itf_FirstPointFoundClash"
+            Uuid="4351f9b7-52c9-4052-a45f-e43cdcd23b56"
+            Protection="External"
+            Type="Double"
+            CAAExposition="L0"
+            MultiValuated="Yes"
+            CollectionType="List">
+      <Comment>First point in clash detected by the algorithm</Comment>
+    </Simple>
+
+    <!-- ________________________________________________________________________________ -->
+    <!--      V_Itf_SecondPointFoundClash - new R207                                      -->
+    <!-- ________________________________________________________________________________ -->
+    <Simple Name="V_Itf_SecondPointFoundClash"
+            Uuid="F1E5B565-74D4-4cdc-B15A-8827B5D7A8D6"
+            Protection="Internal"
+            Type="Double"
+            MultiValuated="Yes"
+            CollectionType="List">
+      <Comment>Second point in clash detected by the algorithm</Comment>
+    </Simple>
+
+    <!-- ________________________________________________________________________________ -->
+    <!--      V_Itf_Clash_Volume - new R421                                               -->
+    <!-- ________________________________________________________________________________ -->
+    <Simple Name="V_Itf_Clash_Volume"
+            Uuid="4503C964-8AE7-4E05-B5D4-C3610EC214FA"
+            Protection="Internal"
+            Type="Double"
+            MultiValuated="No"
+            Magnitude ="VOLUME"
+            DefaultValue ="-1">
+      <Comment>Clash volume detected by the algorithm</Comment>
+    </Simple>
+    
+  </Extension>
+  
+  <!-- _______________________________________________________________________________________ -->
+  <!--      PLMPIMMetricReferenceContact (extension of PLMPIMMetricReference)  - Contact       -->
+  <!-- _______________________________________________________________________________________ -->
+  <Extension  Name="PLMPIMMetricReferenceContact"
+              Uuid="C9A00D38-94BF-4aba-966B-CDE772A681DE"
+              ScopeNames="PLMPIMMetricReference"
+              Abstract="No" 
+              CustomerExposition="Programmer">
+
+    <!-- ________________________________________________________________________________ -->
+    <!--      V_Itf_BoundingBox                                                           -->
+    <!-- ________________________________________________________________________________ -->
+    <Simple Name="V_Itf_BoundingBox"
+            Uuid="a43d902b-8a23-42b9-b394-9f3557c45f8b"
+            Protection="External"
+            Type="Double"
+            CAAExposition="L0"
+            MultiValuated="Yes"
+            CollectionType="List">
+      <Comment>Bounding box of a contact</Comment>
+    </Simple>
+
+    <!-- ________________________________________________________________________________ -->
+    <!--      V_Itf_FirstPointFoundContact                                                -->
+    <!-- ________________________________________________________________________________ -->
+    <Simple Name="V_Itf_FirstPointFoundContact"
+            Uuid="B874C59F-B16E-4967-BB92-28CA5DF7C1B0"
+            Protection="Internal"
+            Type="Double"
+            MultiValuated="Yes"
+            CollectionType="List">
+      <Comment>First point in Contact detected by the algorithm</Comment>
+    </Simple>
+
+    <!-- ________________________________________________________________________________ -->
+    <!--      V_Itf_SecondPointFoundContact                                               -->
+    <!-- ________________________________________________________________________________ -->
+    <Simple Name="V_Itf_SecondPointFoundContact"
+            Uuid="8C0D4688-18E0-4bf6-9B1B-53F5A65D6C1C"
+            Protection="Internal"
+            Type="Double"
+            MultiValuated="Yes"
+            CollectionType="List">
+      <Comment>Second point in Contact detected by the algorithm</Comment>
+    </Simple>
+
+    <!-- ________________________________________________________________________________ -->
+    <!--      V_Itf_Contact_Volume - new R421                                               -->
+    <!-- ________________________________________________________________________________ -->
+    <Simple Name="V_Itf_Contact_Volume"
+            Uuid="A7C20BC4-1764-4715-89D5-B4F71DF1521A"
+            Protection="Internal"
+            Type="Double"
+            MultiValuated="No"
+            Magnitude ="VOLUME"
+            DefaultValue ="-1">
+      <Comment>Contact volume detected by the algorithm</Comment>
+    </Simple>
+    
+  </Extension>
+  
+  <!-- _______________________________________________________________________________________ -->
+  <!--      PLMPIMMetricReferenceClearance (extension of PLMPIMMetricReference)  - Clearance   -->
+  <!-- _______________________________________________________________________________________ -->
+  <Extension  Name="PLMPIMMetricReferenceClearance" 
+              Uuid="cbe0749c-7ef1-4750-a5b8-0a4e00cbea29"
+              ScopeNames="PLMPIMMetricReference"
+              Abstract="No" 
+              CustomerExposition="Programmer">
+
+    <!-- ________________________________________________________________________________ -->
+    <!--      V_Itf_Distance_Min                                                          -->
+    <!-- ________________________________________________________________________________ -->
+    <Simple Name="V_Itf_Distance_Min" 
+            Uuid="3eb53a95-df9c-40df-815d-12414db29dd7" 
+            Protection="External"
+            Type="Double" 
+            CAAExposition="L0" 
+            MultiValuated="No"
+            Faceted="Yes">
+      <Comment>Minimum Distance between the 2 occurences</Comment>
+    </Simple>
+
+    <!-- ________________________________________________________________________________ -->
+    <!--      V_Itf_Distance_Min_Point1                                                   -->
+    <!-- ________________________________________________________________________________ -->
+    <Simple Name="V_Itf_Distance_Min_Point1"
+            Uuid="a525c5ae-72a5-44de-bcf0-6c56d34822f2"
+            Protection="External"
+            Type="Double"
+            CAAExposition="L0"
+            MultiValuated="Yes"
+            CollectionType="List">
+      <Comment>Point of the first occurence that realises the minimum distance</Comment>
+    </Simple>
+
+    <!-- ________________________________________________________________________________ -->
+    <!--      V_Itf_Distance_Min_Point2                                                   -->
+    <!-- ________________________________________________________________________________ -->
+    <Simple Name="V_Itf_Distance_Min_Point2"
+            Uuid="c5d60bb4-7130-4024-9a7a-33a93d5efca0"
+            Protection="External"
+            Type="Double"
+            CAAExposition="L0"
+            MultiValuated="Yes"
+            CollectionType="List">
+      <Comment>Point of the second occurence that realises the minimum distance</Comment>
+    </Simple>
+
+    <!-- ________________________________________________________________________________ -->
+    <!--      V_Itf_BoundingBox                                                           -->
+    <!-- ________________________________________________________________________________ -->
+    <Simple Name="V_Itf_BoundingBox"
+            Uuid="76007c58-6783-4bf1-a1ab-ffd7bad83375"
+            Protection="External"
+            Type="Double"
+            CAAExposition="L0"
+            MultiValuated="Yes"
+            CollectionType="List">
+      <Comment>Bounding box of the clearance</Comment>
+    </Simple>
+
+    <!-- ________________________________________________________________________________ -->
+    <!--      V_Itf_FirstPointFoundClearance                                              -->
+    <!-- ________________________________________________________________________________ -->
+    <Simple Name="V_Itf_FirstPointFoundClearance"
+            Uuid="ef3e85fb-c634-44fd-b19a-1c49f305d74c"
+            Protection="External"
+            Type="Double"
+            CAAExposition="L0"
+            MultiValuated="Yes"
+            CollectionType="List">
+      <Comment>First point in clash detected by the algorithm</Comment>
+    </Simple>
+
+    <!-- ________________________________________________________________________________ -->
+    <!--      V_Itf_SecondPointFoundClearance                                              -->
+    <!-- ________________________________________________________________________________ -->
+    <Simple Name="V_Itf_SecondPointFoundClearance"
+            Uuid="90674ed7-7b24-47b4-9250-733bfd5f562b"
+            Protection="External"
+            Type="Double"
+            CAAExposition="L0"
+            MultiValuated="Yes"
+            CollectionType="List">
+      <Comment>Second point in clash detected by the algorithm</Comment>
+    </Simple>
+    
+  </Extension>
+  
+</Package>

@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR DELMIA Work Instruction Application -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2010, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" 
+         ModelerType="Top" 
+         Name="DELWkiExecInstruction"
+	       Uuid="850f9dcd-5683-4e7f-8faf0e62d4f20a2f"
+         BelongsToModeler="DELWkiUPR"         
+	       UseNames="DELWkiUPR"
+	       CustomerExposition="Programmer" >
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>DELMIA Work Instruction Execution Text </ShortRole>
+    <Role>This package describes the DELMIA Work Instruction Execution Text model.</Role>
+  </CAAComment>
+
+  <Comment>last update 2010-09-30</Comment>
+  <Comment>last update 2013-09-24</Comment>
+
+  <Class Name="DELWkiExecInstructionReference"
+		     Uuid="d648b8c4-fb91-4328-9fe35361164af01e"
+		     Abstract="No"
+    		 SuperName="DELWkiUPRReference"
+         Specializable="No"
+         CustomerExtensible="Yes"
+         CreateInstName="DELWkiExecInstructionInstance"
+		     CustomerExposition="Programmer"
+         Abbreviation="xit">
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="IconName" Value="I_WI_Text"/>
+    <Property Name="3DIconName" Value="I_WI_Text.cgr"/>
+    <Property Name="Newable" Value="No"/>
+    <Property Name="Searchable" Value="Yes"/>
+
+    <CAAComment>
+      <ShortRole>DELMIA Work Instruction Execution Text Reference</ShortRole>
+      <Role>DELMIA Work Instruction Execution Text Reference</Role>
+    </CAAComment>
+
+    <Simple Name="V_WIInstruction_Text"
+            Uuid="d0bd0d1c-14ae-4909-b59aa425c4f7cadf"
+            Type="String"
+            MultiValuated="No"
+            MaxLength="10000"
+            Protection="Free"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>The Instruction message to tell the Shop Floor worker what task needs to be performed and how to perform it.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+
+  </Class>
+
+  <RelationClass Name="DELWkiExecInstructionInstance"
+		     Uuid="2d0f52cc-20ae-4b8a-81e03f98f2cf997d"
+		     Abstract="No"
+   		   SuperName="DELWkiUPRInstance"
+         Specializable="No"
+         CustomerExtensible="No"
+		     CustomerExposition="Programmer">
+
+      <Property Name="DMCDerivable" Value="Yes"/>
+    
+    <CAAComment>
+      <ShortRole>DELMIA Work Instruction Execution Text Instance</ShortRole>
+      <Role>DELMIA Work Instruction Execution Text Instance</Role>
+    </CAAComment>
+
+    <Volatile Name="Reference" Uuid="65690ce0-8d9d-4aa1-83582208281cbab7" Accessor="PLMModelerReferenceKweAttribute" TypeName="DELWkiExecInstructionReference" AccessMode="ReadOnly" />
+
+    <SubClause Name="to"   TargetName="DELWkiExecInstructionReference"/>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+
+  </RelationClass>
+
+</Package>

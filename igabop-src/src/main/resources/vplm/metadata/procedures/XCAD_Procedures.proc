@@ -1,0 +1,46 @@
+<?xml version="1.0" ?>
+<ProcedurePackage 
+  xmlns="PLMDictionaryProcedure"
+  Name="XCAD_Procedures">
+
+  <Procedure Name="XCAD_ExportNonPSRep">
+    <Implementation Name="XCAD_ExportNonPSRep" FileLocation="XCAD_ExportNonPSRep.KProc" Language="EKL"/>
+    <Signature href="XCAD_ExportNonPSRep_Signature"/>
+  </Procedure>  
+
+  <Procedure Name="XCAD_CompleteNonPS">
+    <Implementation Name="XCAD_CompleteNonPS" FileLocation="XCAD_CompleteNonPS.KProc" Language="EKL"/>
+    <Signature href="XCAD_CompleteNonPS_Signature"/>
+  </Procedure>  
+
+  <Procedure Name="XCAD_CompleteItems">
+    <Implementation Name="XCAD_CompleteItems" FileLocation="XCAD_CompleteItems.KProc" Language="EKL"/>
+    <Signature href="XCAD_CompleteItems_Signature"/>
+  </Procedure>  
+
+  <Procedure Name="XCAD_CompleteItemsForTSO">
+    <Implementation Name="XCAD_CompleteItemsForTSO" FileLocation="XCAD_CompleteItemsForTSO.KProc" Language="EKL"/>
+    <Signature href="XCAD_CompleteItemsForTSO_Signature"/>
+  </Procedure>  
+
+  <Signature id="XCAD_ExportNonPSRep_Signature">
+    <Parameter Name="InputIds" Lower="0" Upper="-1" MultiValuated="Yes" Direction="in" DataType="PLMId" Order="1"/>
+    <Parameter Name="OutputIds" Lower="0" Upper="-1" MultiValuated="Yes" Direction="out" DataType="PLMId" Order="2"/>
+  </Signature>
+
+  <Signature id="XCAD_CompleteNonPS_Signature">
+    <Parameter Name="InputIds" Lower="0" Upper="-1" MultiValuated="Yes" Direction="in" DataType="PLMId" Order="1"/>
+    <Parameter Name="OutputIds" Lower="0" Upper="-1" MultiValuated="Yes" Direction="out" DataType="PLMId" Order="2"/>
+  </Signature>
+
+  <Signature id="XCAD_CompleteItems_Signature">
+    <Parameter Name="InputIds" Lower="0" Upper="-1" MultiValuated="Yes" Direction="in" DataType="PLMId" Order="1"/>
+    <Parameter Name="OutputIds" Lower="0" Upper="-1" MultiValuated="Yes" Direction="out" DataType="PLMId" Order="2"/>
+  </Signature>
+
+  <Signature id="XCAD_CompleteItemsForTSO_Signature">
+    <Parameter Name="InputIds" Lower="0" Upper="-1" MultiValuated="Yes" Direction="in" DataType="PLMId" Order="1"/>
+    <Parameter Name="OutputIds" Lower="0" Upper="-1" MultiValuated="Yes" Direction="out" DataType="PLMId" Order="2"/>
+  </Signature>
+
+</ProcedurePackage>

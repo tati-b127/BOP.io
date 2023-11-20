@@ -1,0 +1,10 @@
+EXPAND
+
+T0.PLMID, T1.PLMID 
+
+FROM
+
+DELRmiResourceModelProdSysImplCnx/PLMDELProdSysImplCnx T0,
+DELRmiResourceModelImplCnx/PLMDELImplCnx T1
+
+FROM_ROOTS [?1?];

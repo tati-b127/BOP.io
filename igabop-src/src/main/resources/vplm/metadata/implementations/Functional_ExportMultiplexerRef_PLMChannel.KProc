@@ -1,0 +1,24 @@
+#Prog Functional_ExportMultiplexerRef_PLMChannel( iPLMIDSet : #In PLMIDSet, oPLMIDSet : #Out PLMIDSet ) : VoidType
+{
+  let InputPLMIDSetRestrictedToRefs(PLMIDSet)
+  let SetOfPLMRoutesMuxObjects(PLMRouteSet)
+  let SetOfMuxObjectsPLMIDs(PLMIDSet)
+  let SetOfFlowRefsPLMIDsToExpand(PLMIDSet)
+  let SetOfFlowsPLMIDs(PLMIDSet)
+  let SetOfConfigObjectsPLMIDs(PLMIDset)
+
+  InputPLMIDSetRestrictedToRefs = Restrict(iPLMIDSet,"RFLPLMFunctionalCommunication/RFLPLMFunctionalCommunicationReference")
+ 
+  /* Get ports, flow instances under the functional communication reference (resp: LRG) */
+  SetOfPLMRoutesMuxObjects = ExecutePLMFunction("RFLPLMFunctional","RFLPLMFunctional_Get1stLevelObjects",InputPLMIDSetRestrictedToRefs)
+
+  /*Completes with complete expand of Flow definitions (resp : LRG) */
+  SetOfMuxObjectsPLMIDs = Ids(SetOfPLMRoutesMuxObjects)
+  SetOfFlowRefsPLMIDsToExpand = Restrict(SetOfMuxObjectsPLMIDs,"RFLPLMFlow/RFLPLMFlowReference")
+  SetOfFlowsPLMIDs = ExecutePLMProcedure("Functional_ExportFlow_PLMChannel",SetOfFlowRefsPLMIDsToExpand)
+  
+  /*Completes with configuration */
+  SetOfConfigObjectsPLMIDs = ExecutePLMProcedure("Config_GetStructConfig",InputPLMIDSetRestrictedToRefs)
+  
+  oPLMIDSet = iPLMIDSet + SetOfMuxObjectsPLMIDs + SetOfFlowsPLMIDs + SetOfConfigObjectsPLMIDs
+}

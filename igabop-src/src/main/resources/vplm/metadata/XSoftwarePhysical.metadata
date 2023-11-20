@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2018, All rights reserved -->
+<!-- This defines the data model for IRPC types extended for -->
+<!-- XSoftwarePhysical system -->
+<Package xmlns="PLMDictionaryUnified" Name="XSoftwarePhysical"
+    ModelerType="Top" Uuid="e4ee625c-73c6-4d62-8c7d-ce5ad1777a9a"
+    CustomerExposition="Programmer" UseNames="PRODUCTCFG"
+    Architecture="All" BelongsToModeler="XSoftwarePhysical">
+
+    <Extension Name="Software" Discipline="Yes" Uuid="95a0137d-43cb-4309-9fff-fe2ec71de07d" 
+        CustomerExposition="Programmer"  ScopeNames="VPMReference">
+
+        <Simple Name="V_IsSoftware" Uuid="1e88dddd-3398-4fb6-9136-d59c7001db62"
+            Type="Boolean" Protection="Free"/>
+        <Property Name="Searchable" Value="Yes"/>
+    </Extension>
+
+    <Extension Name="SoftwareInst"  Uuid="194efbef-e25d-417c-8831-6f5f768c3606"
+        CustomerExposition="Programmer" ScopeNames="VPMInstance" >
+
+        <Simple Name="relPath" Uuid="6a29d628-49ff-4844-9842-736d6e6b68c3"
+            Type="String" MaxLength="255" 
+            MultiValuated="No" Protection="Free"/>
+        <Property Name="Searchable" Value="Yes"/>
+    </Extension>
+
+</Package>

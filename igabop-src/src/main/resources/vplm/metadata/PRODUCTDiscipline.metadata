@@ -1,0 +1,159 @@
+<?xml version="1.0" ?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2004, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" 
+    ModelerType="Top" 
+    BelongsToModeler="PRODUCT" 
+    Name="PRODUCTDiscipline"
+    Uuid="E3568D20-9FB6-4850-8F90-B0E619CC6285"
+    UseNames="PRODUCTCFG"
+	  CustomerExposition="Programmer">
+
+  <CAAComment>
+    <ShortRole>ProductStructure disciplines Package</ShortRole>
+    <Role>This package includes all the disciplines of ProductStructure Model</Role>
+  </CAAComment>
+
+  <!-- VPMReference DISCIPLINES DECLARATIONS -->
+
+  <!-- VPMInstance DISCIPLINES DECLARATIONS -->
+  
+  <RelationClass Name="DEC_VPMHybridInstance"
+      Uuid="e6e969c7-67bd-4fb1-8e94-9a6de54b344d"
+      Discipline="Yes"
+      SuperName="VPMInstance"
+      CustomerExposition="Programmer">
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </RelationClass>
+  
+  <!-- VPMRepReference DISCIPLINES DECLARATIONS -->  
+
+  <Class Name="3DShape"
+      Uuid="e5c38391-c8e7-46d3-9678-c32ea40fee5b"
+      Discipline="Yes"
+      SuperName ="VPMRepReference"
+      CustomerExposition="Programmer"
+      Abbreviation="3sh"     
+      CAAExposition="L1" 
+      Specializable="Yes"
+			CustomerExtensible="Yes">
+
+    <Property Name="KweDisciplineAttributeValue" Value="Design"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATKBE3DShapeDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="VPMRepInstance"/> <!-- PLMNew/Inheritance:Yes/undef. on RepRef/No default -->
+    <Property Name="XPGExchangeMode" Value="Bidirectional"/>
+    <Property Name="Newable" Value="All_Offline_CAA"/>  <!-- PLMNew/Inheritance:No/Default:No -->
+    <!-- Icons : keep consistent with Icons_PRODUCT.CATRsc -->
+    <Property Name="IconName" Value="I_Part"/> 
+    <Property Name="3DIconName" Value="CAT3DNav_BSMRepInstance.cgr"/>
+    
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+  
+	<!-- Geometry On Reference RepRef : the Hidden 3D Shape of the Product Modeler -->
+	<Class 
+		Name="GeometryOnReference" 
+		Uuid="bd2b1560-9969-11e3-a5e2-0800200c9a66"
+		Discipline="Yes" 
+		SuperName="3DShape" 
+		CustomerExposition="ProgrammerOnly"
+		Abbreviation="GoR" 
+		CAAExposition="L1"
+		Specializable="No"
+		ObjectNature="SubComponent"
+		CreateInstName="GoRRepInstance"		
+		Searchable="No" >
+		
+		<!-- At most, one GeometryOnReference under a VPMReference -->
+		<Property Name="AttributeValuation" Value="MonoValued"/>
+		<!-- Representation is not shown in UI (ProgrammerOnly), but the content is visible in the Spec Tree-->
+		<Property Name="ShowContent" Value="Show" />
+ 
+		<Property Name="IconName" Value="I_Part" />
+		<Property Name="3DIconName" Value="CAT3DNav_BSMRepInstance.cgr" />
+	</Class>
+	
+	<!-- Geometry On Reference RepInst : Rep Instance of the Hidden 3D Shape -->
+  <RelationClass
+		Name="GoRRepInstance"
+		Uuid="d9990cb0-ceb7-11e3-9c1a-0800200c9a66"
+		Discipline="Yes"
+		SuperName="VPMRepInstance"
+		CustomerExposition="ProgrammerOnly"
+		Abbreviation="GoRInst"
+		CAAExposition="L1"
+		Specializable="No"	>
+		
+		<!-- Representation Instance is not shown in UI (ProgrammerOnly), but the content is visible in the Spec Tree-->
+		<Property Name="ShowContent" Value="Show" />
+	</RelationClass>
+
+  <Class Name="Non_DS"
+      Uuid="e5c38391-c8e7-46d3-9678-c32ea40fee5a"
+      Discipline="Yes"
+      CustomerExposition="Programmer"
+      SuperName="VPMRepReference">
+    
+    
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Design"/>
+        <UsedProcedure href="ENOVpe_Procedures.proc#VPMEditor_GetAllRepresentations"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Channel"/>
+        <UsedProcedure href="ENOVpe_Procedures.proc#VPMEditor_GetChannelCompletionOnReference"/>
+      </ProcedureForUsage>
+    </Method>
+  </Class>
+  
+  <Class Name="CAATechnologicalRepresentation"
+      Uuid="b829aaf2-6ebe-4863-b592-ccad5ab49430"
+      Discipline="Yes"
+      SuperName="VPMRepReference"
+	    CustomerExposition="Programmer"
+      Abbreviation="ctr"     
+      CAAExposition="L1">
+      
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>  
+
+  <!-- VPMPort DISCIPLINES DECLARATIONS -->  
+
+  <Class Name="ProductStructure"
+      Uuid="9b0faf81-d8cb-4dbb-b69e-16171742bb11"
+      Discipline="Yes"
+      SuperName ="VPMPort"
+      CustomerExposition="None">
+      
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+  
+  <!--
+  <Discipline Name="Knowledgeware"
+    Uuid="bbab30f0-72b6-4ad3-9b67-7eb6d4657493"
+    CreationMode="Yes"
+    TypeNames="VPMRepReference">
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Discipline>
+  -->
+
+  <!-- ********************************************************* -->
+
+
+</Package>
+

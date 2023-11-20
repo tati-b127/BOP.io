@@ -1,0 +1,157 @@
+<?xml version="1.0" ?>
+<ProcedurePackage 
+	xmlns="PLMDictionaryProcedure"
+	Name="ENOFct_Procedures">
+			
+  <Procedure Name="Functional_ExportReference_Design">
+    <Implementation Name="Functional_ExportReference_Design" FileLocation="Functional_ExportReference_Design.KProc" Language="EKL"/>
+    <Signature href="ENOFct_ProcedureSignatureExport"/>
+  </Procedure>
+
+  <Procedure Name="Functional_ExportReference_Decoration">
+    <Implementation Name="Functional_ExportReference_Decoration" FileLocation="Functional_ExportReference_Decoration.KProc" Language="EKL"/>
+    <Signature href="ENOFct_ProcedureSignatureExport"/>
+  </Procedure>
+	
+  <Procedure Name="Functional_ExportSystemReference_PLMChannel">
+    <Implementation Name="Functional_ExportSystemReference_PLMChannel" FileLocation="Functional_ExportSystemReference_PLMChannel.KProc" Language="EKL"/>
+    <Signature href="ENOFct_ProcedureSignatureExport"/>
+  </Procedure>
+
+  <Procedure Name="Functional_ExportSystemInstance_PLMChannel">
+    <Implementation Name="Functional_ExportSystemInstance_PLMChannel" FileLocation="Functional_ExportSystemInstance_PLMChannel.KProc" Language="EKL"/>
+    <Signature href="ENOFct_ProcedureSignatureExport"/>
+  </Procedure>
+
+  <Procedure Name="Functional_ExportFlow_Design">
+    <Implementation Name="Functional_ExportFlow_Design" FileLocation="Functional_ExportFlow_Design.KProc" Language="EKL"/>
+    <Signature href="ENOFct_ProcedureSignatureExport"/>
+  </Procedure>
+
+  <Procedure Name="Functional_ExportFlow_PLMChannel">
+    <Implementation Name="Functional_ExportFlow_PLMChannel" FileLocation="Functional_ExportFlow_PLMChannel.KProc" Language="EKL"/>
+    <Signature href="ENOFct_ProcedureSignatureExport"/>
+  </Procedure>
+
+  <Procedure Name="Functional_ExportMultiplexerRef_Design">
+    <Implementation Name="Functional_ExportMultiplexerRef_Design" FileLocation="Functional_ExportMultiplexerRef_Design.KProc" Language="EKL"/>
+    <Signature href="ENOFct_ProcedureSignatureExport"/>
+  </Procedure>
+
+  <Procedure Name="Functional_ExportMultiplexerRef_PLMChannel">
+    <Implementation Name="Functional_ExportMultiplexerRef_PLMChannel" FileLocation="Functional_ExportMultiplexerRef_PLMChannel.KProc" Language="EKL"/>
+    <Signature href="ENOFct_ProcedureSignatureExport"/>
+  </Procedure>
+
+  <Procedure Name="Functional_ExportMultiplexerInst_PLMChannel">
+    <Implementation Name="Functional_ExportMultiplexerInst_PLMChannel" FileLocation="Functional_ExportMultiplexerInst_PLMChannel.KProc" Language="EKL"/>
+    <Signature href="ENOFct_ProcedureSignatureExport"/>
+  </Procedure>
+
+  <Procedure Name="Functional_GetExchangeCompletionOnReference">
+    <Implementation Name="Functional_GetExchangeCompletionOnReference" FileLocation="Functional_GetExchangeCompletionOnReference.KProc" Language="EKL"/>
+    <Signature href="ENOFct_ProcedureSignatureExport"/>
+  </Procedure>
+
+  <Procedure Name="Functional_ExportFlowExpoInstance_PLMChannel">
+    <Implementation Name="Functional_ExportFlowExpoInstance_PLMChannel" FileLocation="Functional_ExportFlowExpoInstance_PLMChannel.KProc" Language="EKL"/>
+    <Signature href="ENOFct_ProcedureSignatureExport"/>
+  </Procedure>
+  
+  <Procedure Name="Functional_ExportContract_Remove">
+    <Implementation Name="Functional_ExportContract_Remove" FileLocation="Functional_ExportContract_Remove.KProc" Language="EKL"/>
+    <Signature href="ENOFct_ProcedureSignatureExport"/>
+  </Procedure>
+  
+  <Procedure Name="Functional_ExportContract_TSO">
+    <Implementation Name="Functional_ExportContract_TSO" FileLocation="Functional_ExportContract_TSO.KProc" Language="EKL"/>
+    <Signature href="ENOFct_ProcedureSignatureExport"/>
+  </Procedure>
+  
+  <Procedure Name="Functional_ExportFlowExpoInst_Remove">
+    <Implementation Name="Functional_ExportFlowExpoInst_Remove" FileLocation="Functional_ExportFlowExpoInst_Remove.KProc" Language="EKL"/>
+    <Signature href="ENOFct_ProcedureSignatureExport"/>
+  </Procedure>
+  
+  <Procedure Name="Functional_ExportFlowExpoInst_TSO">
+    <Implementation Name="Functional_ExportFlowExpoInst_TSO" FileLocation="Functional_ExportFlowExpoInst_TSO.KProc" Language="EKL"/>
+    <Signature href="ENOFct_ProcedureSignatureExport"/>
+  </Procedure>
+  
+  <Procedure Name="Functional_ExportFlowInst_Remove">
+    <Implementation Name="Functional_ExportFlowInst_Remove" FileLocation="Functional_ExportFlowInst_Remove.KProc" Language="EKL"/>
+    <Signature href="ENOFct_ProcedureSignatureExport"/>
+  </Procedure>
+  
+  <Procedure Name="Functional_ExportFlowInst_TSO">
+    <Implementation Name="Functional_ExportFlowInst_TSO" FileLocation="Functional_ExportFlowInst_TSO.KProc" Language="EKL"/>
+    <Signature href="ENOFct_ProcedureSignatureExport"/>
+  </Procedure>
+  
+  <Procedure Name="Functional_ExportFlowRef_Remove">
+    <Implementation Name="Functional_ExportFlowRef_Remove" FileLocation="Functional_ExportFlowRef_Remove.KProc" Language="EKL"/>
+    <Signature href="ENOFct_ProcedureSignatureExport"/>
+  </Procedure>
+  
+  <Procedure Name="Functional_ExportFlowRef_TSO">
+    <Implementation Name="Functional_ExportFlowRef_TSO" FileLocation="Functional_ExportFlowRef_TSO.KProc" Language="EKL"/>
+    <Signature href="ENOFct_ProcedureSignatureExport"/>
+  </Procedure>
+  
+  <Procedure Name="Functional_ExportInstance_Remove">
+    <Implementation Name="Functional_ExportInstance_Remove" FileLocation="Functional_ExportInstance_Remove.KProc" Language="EKL"/>
+    <Signature href="ENOFct_ProcedureSignatureExport"/>
+  </Procedure>
+  
+  <Procedure Name="Functional_ExportInstance_TSO">
+    <Implementation Name="Functional_ExportInstance_TSO" FileLocation="Functional_ExportInstance_TSO.KProc" Language="EKL"/>
+    <Signature href="ENOFct_ProcedureSignatureExport"/>
+  </Procedure>
+  
+  <Procedure Name="Functional_ExportMultiplexerInst_Remove">
+    <Implementation Name="Functional_ExportMultiplexerInst_Remove" FileLocation="Functional_ExportMultiplexerInst_Remove.KProc" Language="EKL"/>
+    <Signature href="ENOFct_ProcedureSignatureExport"/>
+  </Procedure>
+  
+  <Procedure Name="Functional_ExportMultiplexerInst_TSO">
+    <Implementation Name="Functional_ExportMultiplexerInst_TSO" FileLocation="Functional_ExportMultiplexerInst_TSO.KProc" Language="EKL"/>
+    <Signature href="ENOFct_ProcedureSignatureExport"/>
+  </Procedure>
+  
+  <Procedure Name="Functional_ExportMultiplexerRef_Remove">
+    <Implementation Name="Functional_ExportMultiplexerRef_Remove" FileLocation="Functional_ExportMultiplexerRef_Remove.KProc" Language="EKL"/>
+    <Signature href="ENOFct_ProcedureSignatureExport"/>
+  </Procedure>
+  
+  <Procedure Name="Functional_ExportMultiplexerRef_TSO">
+    <Implementation Name="Functional_ExportMultiplexerRef_TSO" FileLocation="Functional_ExportMultiplexerRef_TSO.KProc" Language="EKL"/>
+    <Signature href="ENOFct_ProcedureSignatureExport"/>
+  </Procedure>
+  
+  <Procedure Name="Functional_ExportRepRef_Remove">
+    <Implementation Name="Functional_ExportRepRef_Remove" FileLocation="Functional_ExportRepRef_Remove.KProc" Language="EKL"/>
+    <Signature href="ENOFct_ProcedureSignatureExport"/>
+  </Procedure>
+  
+  <Procedure Name="Functional_ExportRepRef_TSO">
+    <Implementation Name="Functional_ExportRepRef_TSO" FileLocation="Functional_ExportRepRef_TSO.KProc" Language="EKL"/>
+    <Signature href="ENOFct_ProcedureSignatureExport"/>
+  </Procedure>
+  
+  <Procedure Name="Functional_ExportSystemReference_Remove">
+    <Implementation Name="Functional_ExportSystemReference_Remove" FileLocation="Functional_ExportSystemReference_Remove.KProc" Language="EKL"/>
+    <Signature href="ENOFct_ProcedureSignatureExport"/>
+  </Procedure>
+  
+  <Procedure Name="Functional_ExportSystemReference_TSO">
+    <Implementation Name="Functional_ExportSystemReference_TSO" FileLocation="Functional_ExportSystemReference_TSO.KProc" Language="EKL"/>
+    <Signature href="ENOFct_ProcedureSignatureExport"/>
+  </Procedure>
+  
+
+  <Signature id="ENOFct_ProcedureSignatureExport">
+		<Parameter Name="InputIds" Lower="0" Upper="-1" MultiValuated="Yes" Direction="in" DataType="PLMId"/>
+		<Parameter Name="OutputIds" Lower="0" Upper="-1" MultiValuated="Yes" Direction="out" DataType="PLMId"/>
+	</Signature>
+	
+</ProcedurePackage>

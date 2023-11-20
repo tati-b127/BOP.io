@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<ProcedurePackage 
+	xmlns="PLMDictionaryProcedure"
+	Name="Geolocation_Procedures">
+			
+	<Procedure Name="GeolocationExport">
+		<Implementation Name="GeolocationExport" FileLocation="GeolocationExport.KProc" Language="EKL"/>
+		<Signature href="GeolocationExport_Sig"/>
+	</Procedure>
+
+	<Signature id="GeolocationExport_Sig">
+		<Parameter Name="InputIds" Lower="0" Upper="-1" MultiValuated="Yes" Direction="in" DataType="PLMId"/>
+		<Parameter Name="OutputIds" Lower="0" Upper="-1" MultiValuated="Yes" Direction="out" DataType="PLMId"/>
+	</Signature>
+	
+</ProcedurePackage>

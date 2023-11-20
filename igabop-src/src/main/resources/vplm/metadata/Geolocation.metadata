@@ -1,0 +1,430 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2013, All rights reserved -->
+<Package
+  CustomerExposition="Programmer"
+  ModelerType="Top"
+  Name="Geolocation"
+  UseNames="PLMCORE PRODUCTCFG"
+  Uuid="b24a9e3e-2df1-40a1-9d0f-c7a7884eec4a" xmlns="PLMDictionaryUnified">
+  <Extension
+    CustomerExposition="Programmer"
+    Name="GeolocationCartesian1D"
+    SuperName="GeolocationCoordinate"
+    Uuid="49290602-3242-4bf5-afaa-09c4fdd5ff3e">
+    <CAAComment>
+      <Role>A 1-dimensional coordinate tuple.</Role>
+    </CAAComment>
+    <Simple
+      CAAExposition="L0"
+      DefaultValue="0.0"
+      Magnitude="LENGTH"
+      Name="V_GL_FirstAxisCoordinate"
+      Protection="Free"
+      Type="Double"
+      Uuid="adad0033-a3dc-423b-8b02-c79682a9e3bc">
+      <CAAComment>
+        <Role>Position along first axis</Role>
+      </CAAComment>
+    </Simple>
+    <Simple
+      CAAExposition="L0"
+      DefaultValue="0.0"
+      Magnitude="LENGTH"
+      Name="V_GL_FirstAxisOriginShift"
+      Protection="Free"
+      Type="Double"
+      Uuid="b8dc4454-8fb7-4be8-ab40-d991e3d0eb55">
+      <CAAComment>
+        <Role>Origin shift along first axis</Role>
+      </CAAComment>
+    </Simple>
+  </Extension>
+  <Extension
+    CustomerExposition="Programmer"
+    Name="GeolocationCartesian2D"
+    SuperName="GeolocationCartesian1D"
+    Uuid="76b1efa5-eabf-4a3e-9225-2cffd6273f75">
+    <CAAComment>
+      <Role>A 2-dimensional coordinate tuple.</Role>
+    </CAAComment>
+    <Simple
+      CAAExposition="L0"
+      DefaultValue="0.0"
+      Magnitude="LENGTH"
+      Name="V_GL_SecondAxisCoordinate"
+      Protection="Free"
+      Type="Double"
+      Uuid="a46662ae-e98e-4bed-b4b7-eb3f43b4e3bd">
+      <CAAComment>
+        <Role>Position along second axis</Role>
+      </CAAComment>
+    </Simple>
+    <Simple
+      CAAExposition="L0"
+      DefaultValue="0.0"
+      Magnitude="LENGTH"
+      Name="V_GL_SecondAxisOriginShift"
+      Protection="Free"
+      Type="Double"
+      Uuid="6e258ef8-1cf3-4469-b9ba-d9d5ebaed5e8">
+      <CAAComment>
+        <Role>Origin shift along second axis</Role>
+      </CAAComment>
+    </Simple>
+  </Extension>
+  <Extension
+    CustomerExposition="Programmer"
+    Name="GeolocationCartesian3D"
+    SuperName="GeolocationCartesian2D"
+    Uuid="1d96b426-0853-407e-96b9-3989a882dfc1">
+    <CAAComment>
+      <Role>A 3-dimensional coordinate tuple.</Role>
+    </CAAComment>
+    <Simple
+      CAAExposition="L0"
+      DefaultValue="0.0"
+      Magnitude="LENGTH"
+      Name="V_GL_ThirdAxisCoordinate"
+      Protection="Free"
+      Type="Double"
+      Uuid="2111c60d-6e59-48a9-93fc-d1412b2eb0cb">
+      <CAAComment>
+        <Role>Position along third axis</Role>
+      </CAAComment>
+    </Simple>
+    <Simple
+      CAAExposition="L0"
+      DefaultValue="0.0"
+      Magnitude="LENGTH"
+      Name="V_GL_ThirdAxisOriginShift"
+      Protection="Free"
+      Type="Double"
+      Uuid="84e97c76-f222-4b10-9d8a-02b22385a364">
+      <CAAComment>
+        <Role>Origin shift along third axis</Role>
+      </CAAComment>
+    </Simple>
+  </Extension>
+  <Extension
+    Abstract="Yes"
+    CustomerExposition="Programmer"
+    Name="GeolocationCoordinate"
+    ScopeNames="VPMReference"
+    Uuid="3ab6f7fa-6b4e-45a3-adc7-64bf1ea1f8a3">
+    <CAAComment>
+      <Role>A geolocation coordinate is one of the sequence of n numbers designating the position of a point in a n-dimensional space.</Role>
+    </CAAComment>
+    <Simple
+      CAAExposition="L0"
+      DefaultValue="True"
+      Name="V_GL_ActiveGeolocation"
+      Protection="Free"
+      Type="Boolean"
+      Uuid="4cc1ebb8-a278-4750-a4a9-4fc52fc328eb">
+      <CAAComment>
+        <Role>Activate or deactivate the geolocation</Role>
+      </CAAComment>
+    </Simple>
+    <Simple
+      CAAExposition="L0"
+      MaxLength="80"
+      Name="V_GL_ReferencedCRSIdentifier"
+      Protection="External"
+      Type="String"
+      Uuid="7d5e00bb-e841-47de-9be7-97dcf98c6510">
+      <CAAComment>
+        <Role>EPSG Dataset identifier of the referenced coordinate reference system. It is a partial URN that shall have the form: 
+
+authority:version:code</Role>
+      </CAAComment>
+    </Simple>
+    <Simple
+      CAAExposition="L0"
+      DefaultValue="0.0"
+      Magnitude="ANGLE"
+      Name="V_GL_Azimuth"
+      Protection="Free"
+      Type="Double"
+      Uuid="9b2dcd98-e9d1-491a-b5bf-1fc55fb90fcc">
+      <CAAComment>
+        <Role>
+Angle in the horizontal plane between the Y direction of an object and the geographic north. Here, Azimuth refers to True north-based azimuth. In 3DExperience, azimuth is measured clockwise. North is 0deg, East 90deg, South 180deg, West 270deg.</Role>
+      </CAAComment>
+    </Simple>
+    <Simple
+      CAAExposition="L0"
+      MaxLength="255"
+      Name="V_GL_InternalLocation"
+      Protection="Free"
+      Type="String"
+      Uuid="710a5f61-7996-4ac8-be34-370f2e3136d3">
+      <CAAComment>
+        <Role>An organization defined address for internal mail delivery.</Role>
+      </CAAComment>
+    </Simple>
+    <Simple
+      CAAExposition="L0"
+      CollectionType="List"
+      MaxLength="255"
+      MultiValuated="Yes"
+      Name="V_GL_AddressLines"
+      Protection="Free"
+      Type="String"
+      Uuid="8945d80e-e017-4f28-b5d8-b146db0eb621">
+      <CAAComment>
+        <Role>The postal address.
+NOTE A postal address may occupy several lines (or elements) when recorded. It is expected that normal usage will incorporate relevant elements of the following address concepts: A location within a building (e.g. 3rd Floor) Building name (e.g. Interoperability House) Street number (e.g. 6400) Street name (e.g. Alliance Boulevard). Typical content of address lines may vary in different countries.</Role>
+      </CAAComment>
+    </Simple>
+    <Simple
+      CAAExposition="L0"
+      MaxLength="255"
+      Name="V_GL_PostalBox"
+      Protection="Free"
+      Type="String"
+      Uuid="5ea2aee3-3aaa-43c0-b668-a3895ec8f442">
+      <CAAComment>
+        <Role>An address that is implied by an identifiable mail drop.</Role>
+      </CAAComment>
+    </Simple>
+    <Simple
+      CAAExposition="L0"
+      Faceted="Yes"
+      MaxLength="255"
+      Name="V_GL_Town"
+      Protection="Free"
+      Type="String"
+      Uuid="a8261d40-9701-4e82-8f01-31d7d588cc9f">
+      <CAAComment>
+        <Role>The name of a town.</Role>
+      </CAAComment>
+      <Property
+        Name="Quadrant"
+        Value="Where" />
+      <Property
+        Name="SIXW"
+        Value="ds6w:city" />
+    </Simple>
+    <Simple
+      CAAExposition="L0"
+      Faceted="Yes"
+      MaxLength="255"
+      Name="V_GL_Region"
+      Protection="Free"
+      Type="String"
+      Uuid="60ad055c-b835-4a9b-abe6-ca1d6862ff5c">
+      <CAAComment>
+        <Role>The name of a region.
+NOTE The counties of the United Kingdom and the states of North America are examples of regions.</Role>
+      </CAAComment>
+      <Property
+        Name="Quadrant"
+        Value="Where" />
+      <Property
+        Name="SIXW"
+        Value="ds6w:state" />
+    </Simple>
+    <Simple
+      Faceted="Yes"
+      MaxLength="255"
+      Name="V_GL_PostalCode"
+      Protection="Free"
+      Type="String"
+      Uuid="aa2418a8-07af-4402-835b-03df80692b7d">
+      <CAAComment>
+        <Role>The code that is used by the country's postal service.</Role>
+      </CAAComment>
+      <Property
+        Name="Quadrant"
+        Value="Where" />
+      <Property
+        Name="SIXW"
+        Value="ds6w:postalCode" />
+    </Simple>
+    <Simple
+      CAAExposition="L0"
+      Faceted="Yes"
+      MaxLength="255"
+      Name="V_GL_Country"
+      Protection="Free"
+      Type="String"
+      Uuid="7c79043f-3c19-4da3-9c48-81ea693254a8">
+      <CAAComment>
+        <Role>The name of a country.</Role>
+      </CAAComment>
+      <Property
+        Name="Quadrant"
+        Value="Where" />
+      <Property
+        Name="SIXW"
+        Value="ds6w:country" />
+    </Simple>
+  </Extension>
+  <Class
+    Abbreviation="crs"
+    CustomerExposition="Programmer"
+    Name="GeolocationCoordinateReferenceSystem"
+    SuperName="PLMCoreRepReference"
+    Uuid="ec4da6a4-ce00-424f-9a5f-0ee2c5192b70" 
+    DeleteAvailability="Yes">
+    <Property
+      Name="IconName"
+      Value="I_GeolocationCoordinateReferenceSystem" />
+    <Property
+      Name="3DIconName"
+      Value="I_GeolocationCoordinateReferenceSystem.cgr" />
+    <Property
+      Name="KweNew_InstanciationMethod"
+      Value="CATGLCRSDelegateInstanciation" />
+    <Property
+      Name="Newable"
+      Value="New_Offline_CAA" />
+    <Property
+      Name="CustomerExtensible"
+      Value="No" />
+    <CAAComment>
+      <Role>A coordinate reference system ensures that coordinates describe position unambiguously.</Role>
+    </CAAComment>
+    <Method
+      ImplementationType="Self">
+      <RealizeMethodType
+        href="ExportScope.meth#ExportScope" />
+      <ProcedureForUsage>
+        <Usage
+          href="ExportScope.meth#Design" />
+        <UsedProcedure
+          href="Geolocation_Procedures.proc#GeolocationExport" />
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage
+          href="ExportScope.meth#Channel" />
+        <UsedProcedure
+          href="Geolocation_Procedures.proc#GeolocationExport" />
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage
+          href="ExportScope.meth#TransferSiteOwnership" />
+        <UsedProcedure
+          href="Geolocation_Procedures.proc#GeolocationExport" />
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage
+          href="ExportScope.meth#Remove" />
+        <UsedProcedure
+          href="Geolocation_Procedures.proc#GeolocationExport" />
+      </ProcedureForUsage>
+    </Method>
+    <Simple
+      CAAExposition="L0"
+      MaxLength="80"
+      Name="V_GL_Name"
+      Protection="External"
+      Type="String"
+      Uuid="ad8e353c-7045-4580-b190-921b370c03ca" />
+    <Simple
+      CAAExposition="L0"
+      MaxLength="40"
+      Name="V_GL_Authority"
+      Protection="External"
+      Type="String"
+      Uuid="7f5da726-f74c-4c51-abb3-0b9966ae44a4" />
+    <Simple
+      CAAExposition="L0"
+      MaxLength="40"
+      Name="V_GL_Version"
+      Protection="External"
+      Type="String"
+      Uuid="0e38d498-5139-433f-8d1a-15084b9eb06c" />
+    <Simple
+      CAAExposition="L0"
+      MaxLength="40"
+      Name="V_GL_Code"
+      Protection="External"
+      Type="String"
+      Uuid="a0088c72-f3cf-462c-8fef-e7d44e374266" />
+<Simple Name="V_GL_Type" Uuid="ae178450-3fea-42cc-930c-16027587376e" Type="Integer" Protection="External" CAAExposition="L0" DefaultValue="5">
+<Property Name="RangeAsEnumName" Value="GeolocationCoordinateReferenceSystemTypeEnum"/>
+<Property Name="RangeAsEnumAuthorizedValues" Value="Vertical;Geographic2D;Geographic3D;Geocentric;Projected;Compound"/>
+<Range>
+<Equal>1</Equal>
+<Equal>2</Equal>
+<Equal>3</Equal>
+<Equal>4</Equal>
+<Equal>5</Equal>
+<Equal>6</Equal>
+</Range>
+</Simple>
+    <Simple
+      CAAExposition="L0"
+      Name="V_GL_AreaDescription"
+      Protection="External"
+      Type="String"
+      Uuid="c1336941-783f-4e2d-a523-8d442d053abc" />
+    <Simple
+      CAAExposition="L0"
+      Name="V_GL_Remarks"
+      Protection="External"
+      Type="String"
+      Uuid="a219393a-ddc7-4a0b-a3f9-fba231d2e9e0" />
+  </Class>
+
+  <UniqueKey
+    AttributeNames="V_GL_Authority V_GL_Code majorrevision"
+    ClassName="GeolocationCoordinateReferenceSystem"
+    Name="UK_GeolocationCoordinateReferenceSystem"
+    Uuid="bc4135ca-c1c9-43c8-ad94-7ac2412f457c" />
+  <Extension
+    CustomerExposition="Programmer"
+    Name="GeolocationEllipsoidal2D"
+    SuperName="GeolocationCoordinate"
+    Uuid="fb34ed8f-f314-4b73-b2e7-1bcc15f0693f">
+    <CAAComment>
+      <Role>A 2-dimensional coordinate tuple made up of geodetic latitude and geodetic longitude.</Role>
+    </CAAComment>
+    <Simple
+      CAAExposition="L0"
+      DefaultValue="0.0"
+      Magnitude="ANGLE"
+      Name="V_GL_EllipsoidFirstAxisCoordinate"
+      Protection="Free"
+      Type="Double"
+      Uuid="1a4016b4-7453-4f75-93b7-989c2ad16b9c">
+      <CAAComment>
+        <Role>Geodetic latitude or geodetic longitude</Role>
+      </CAAComment>
+    </Simple>
+    <Simple
+      CAAExposition="L0"
+      DefaultValue="0.0"
+      Magnitude="ANGLE"
+      Name="V_GL_EllipsoidSecondAxisCoordinate"
+      Protection="Free"
+      Type="Double"
+      Uuid="b12aca56-a955-48ca-abfc-74345e50d070">
+      <CAAComment>
+        <Role>Geodetic longitude or geodetic latitude</Role>
+      </CAAComment>
+    </Simple>
+  </Extension>
+  <Extension
+    CustomerExposition="Programmer"
+    Name="GeolocationEllipsoidal3D"
+    SuperName="GeolocationEllipsoidal2D"
+    Uuid="c0c9560d-c300-41b5-9097-707953980ed8">
+    <CAAComment>
+      <Role>A 3-dimensional coordinate tuple made up of geodetic latitude, geodetic longitude and ellipsoidal height or depth.</Role>
+    </CAAComment>
+    <Simple
+      CAAExposition="L0"
+      DefaultValue="0.0"
+      Magnitude="LENGTH"
+      Name="V_GL_EllipsoidThirdAxisCoordinate"
+      Protection="Free"
+      Type="Double"
+      Uuid="ecfa4347-2999-4420-8822-3083ef1a5c13">
+      <CAAComment>
+        <Role>Ellipsoidal height or depth</Role>
+      </CAAComment>
+    </Simple>
+  </Extension>
+</Package>

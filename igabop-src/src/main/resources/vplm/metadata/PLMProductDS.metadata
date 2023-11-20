@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2004, All rights reserved -->
+
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" DataRDB_OID="ENODR_PLMPRDDS" Name="PLMProductDS" 
+    Uuid="41ea24ce-8db0-4f4c-b45c-2ab77518eb39"
+    Alias="Product Structure Default Customization" 
+    UseNames="PRODUCTCFG">
+    
+<Property Name="OptionalInstallation" Value="Yes" /> 
+	<Comment>last update 2005-12-08-12.00.00</Comment>
+	
+	<Class Name="PLMProductDS" 
+	    Uuid="8e1c2a92-cb1d-444e-b25b-9c32d3682f3d" 
+	     
+	     
+	    SuperName="VPMReference" 
+	    SuperRef="6FBC0B4F-5F11-432F-A56B8EFC7001CA9B" 
+	     
+	    
+        >
+	    
+		<Simple Name="V_IndustryCode"
+			Uuid="48c569a9-1523-49e9-b766-6e382ccd6f4c" 
+			Type="String" 
+			MaxLength="32" 
+			Mandatory="No" 
+			 
+			 
+			MultiValuated="No" 
+			 
+			Protection="User">
+			<CAAComment>
+				<ShortRole>Industry Code</ShortRole>
+			</CAAComment>
+		</Simple>
+		
+		<Simple Name="V_StdNumber" 
+		    Uuid="c6fc9b46-ea98-4383-a001-c3ae97a9fa5f" 
+		    Type="String" 
+		    MaxLength="7" 
+		    Mandatory="No" 
+		     
+		     
+		    MultiValuated="No" 
+		     
+		    Protection="User">
+			<CAAComment>
+				<ShortRole>Cage Code</ShortRole>
+			</CAAComment>
+		</Simple>
+		
+		<Simple Name="V_BOM" 
+		    Uuid="7a6d79fe-29b1-4717-be83-4b031987dd42" 
+		    Type="String" 
+		    MaxLength="3" 
+		    Mandatory="No" 
+		     
+		     
+		    MultiValuated="No" 
+		     
+		    Protection="User">
+			<CAAComment>
+				<ShortRole>Tells whether a part belongs to the BOM. Used to filter the tree.	   </ShortRole>
+			</CAAComment>
+		</Simple>
+		
+		<Simple Name="V_Supplier" 
+		    Uuid="159b6f33-6c73-445f-8fb3-e52318cc1604" 
+		    Type="Boolean" 
+		    Mandatory="No" 
+		     
+		     
+		    MultiValuated="No" 
+		     
+		    Protection="User">
+			<CAAComment>
+				<ShortRole>Allow users to know whether the part is sub contracted or not</ShortRole>
+			</CAAComment>
+		</Simple>
+		
+		<Simple Name="V_SupplierName" 
+		    Uuid="f62a42b9-5b6d-4b31-b35d-52b1cba9025b" 
+		    Type="String" 
+		    MaxLength="32" 
+		    Mandatory="No" 
+		     
+		     
+		    MultiValuated="No" 
+		     
+		    Protection="User">
+			<CAAComment>
+				<ShortRole>Supplier Name</ShortRole>
+			</CAAComment>
+		</Simple>
+		
+		<IdentifierSet Name="Identifier" 
+		    Uuid="bbdc2e3f-858b-0000-0280030d7b000000" 
+		    IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755" 
+		    IdentifierNames="PLM_ExternalID                      V_version"/>
+
+	</Class>
+
+	<Class Name="PLMRepresentationDS" 
+	    Uuid="e0edc485-d122-4685-8c44-8f7ceaebbd93" 
+	     
+	     
+	    SuperName="VPMRepReference" 
+	    SuperRef="37776C3D-FDBE-492A-942EF11C983D20BF" 
+	     
+	    
+        >
+
+		<Simple Name="V_RepKind" 
+		    Uuid="7ada6514-1d96-4a75-b472-babcb1a46cd4" 
+		    Type="String" 
+		    MaxLength="20" 
+		    Mandatory="No" 
+		     
+		     
+		    MultiValuated="No" 
+		     
+		    Protection="User">
+			<CAAComment>
+				<ShortRole>Kind of Representation (master, simplified, ...)</ShortRole>
+			</CAAComment>
+		</Simple>
+
+		<IdentifierSet Name="Identifier" 
+		    Uuid="bbdc3088-1533-0000-0280030d7b000000" 
+		    IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755" 
+		    IdentifierNames="PLM_ExternalID                      V_version"/>
+
+	</Class>
+
+	<Class Name="PLMProductInstanceDS" 
+	    Uuid="feaba62d-27af-4ed4-9ce6-61e6fe863f06" 
+	     
+	     
+	    SuperName="VPMInstance" 
+	    SuperRef="5461A455-452A-451E-BB41AB43227613E7" 
+	     
+	    
+        >
+    </Class>
+
+	<Class Name="PLMRepresentationInstanceDS" 
+	    Uuid="4ba87c18-80c3-4095-9681-a4a2e87bd85e" 
+	     
+	     
+	    SuperName="VPMRepInstance" 
+	    SuperRef="159B5B75-2D79-4B38-9235E23CE451CA62" 
+	     
+	    
+        >
+    </Class>
+
+	<Class Name="PLMConnectionDS" 
+	    Uuid="38d79641-6425-4ca6-8074-d43682d65512" 
+	     
+	     
+	    SuperName="VPMConnection" 
+	    SuperRef="A3EEFC65-FE2E-41D7-A68BB09BD9729DE9" 
+	     
+	    
+        >
+    </Class>
+
+	<Class Name="PLMPortDS" 
+	    Uuid="ddd68053-d453-4046-8ea3-7848451890a8" 
+	     
+	     
+	    SuperName="VPMPort" 
+	    SuperRef="F15B80BD-1859-4A91-9E9A0B096C409A7B" 
+	     
+	    
+        >
+    </Class>
+
+</Package>

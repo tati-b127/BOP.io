@@ -1,0 +1,125 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR RFL System Type -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2006, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" BelongsToModeler="RFLVPMLogical" Name="RFLVPMSystemType" 
+	Uuid="24b55880-c4e2-48b4-93ff-ba8b035d4c22" 
+	UseNames="LPABSTRACT RFLVPMSystemTypeAbstract RFLVPMSystemTypeExposition"
+  UseProcedures="ENOLog_Procedures"
+  CustomerExposition="Programmer"
+>
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <Comment>last update 2011-10-11</Comment>
+	
+	<!-- ***************************************************************** -->
+	<!-- *  RFLVPMSystemTypeReference (LPAbstractReference)              * -->
+	<!-- ***************************************************************** -->
+
+  <Class Name="RFLVPMSystemTypeReference" 
+    Uuid="ff8fb607-a2ec-4caf-a9d9-b534fe559b0f" 
+    CustomerExposition="Programmer"
+    CustomerExtensible="Yes"
+    Specializable="Yes"
+    Abstract="No" 
+    SuperName="LPAbstractReference" 
+    CreateInstName="RFLVPMSystemTypeInstance;RFLVPMSystemTypeExpositionInstance"
+	Abbreviation="typ" 
+    DeleteAvailability="Yes">
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="AggregatableTypes" Value="RFLVPMSystemTypeReference;RFLVPMLogicalInterfaceRepReference"/>
+    <Property Name="InstantiationOwnerTypes" Value="RFLVPMLogicalReference;RFLVPMSystemTypeReference;RFLVPMLogicalCommunicationReference"/>
+
+    <Property Name="KweNew_InstanciationMethod" Value="CATELogDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="RFLVPMSystemTypeInstance"/>
+    <Property Name="Newable" Value="Insert_CAA" />
+
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="ChangeManagementSupport" Value="Yes"/>
+
+    <Property Name="IconName" Value="I_RFLPLMSystemType"/>
+    <Property Name="3DIconName" Value="CAT3DNav_LogType.cgr"/>
+	<Property Name="ShareBetweenProjectsAvailability" Value="Yes"/> <!-- Collaborative Space Applicability -->
+
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+         <Usage href="ExportScope.meth#Design"/>
+         <UsedProcedure href="ENOLog_Procedures.proc#Logical_ExportType_Design"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Channel"/>
+        <UsedProcedure href="ENOLog_Procedures.proc#Logical_ExportType_PLMChannel"/>
+      </ProcedureForUsage>
+	  <ProcedureForUsage>
+	    <Usage href="ExportScope.meth#Remove"/>
+        <UsedProcedure href="ENOLog_Procedures.proc#Logical_ExportTypeRef_Remove"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#TransferSiteOwnership"/>
+        <UsedProcedure href="ENOLog_Procedures.proc#Logical_ExportTypeRef_TSO"/>
+      </ProcedureForUsage>
+    </Method>
+  </Class>
+
+	<!-- ************************************************* -->
+	<!-- * RFLVPMSystemTypeInstance (LogicalAbstractSystemTypeInstance) * -->
+	<!-- ************************************************* -->
+	
+  <RelationClass Name="RFLVPMSystemTypeInstance" 
+		Uuid="aa6657c3-9fc2-4990-86a7-22bdd6931f38" 
+    CustomerExposition="Programmer"
+    CustomerExtensible="Yes"
+    Specializable="Yes"
+    Abstract="No"
+		SuperName="LogicalAbstractSystemTypeInstance">
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATELogDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="RFLVPMSystemTypeInstance"/>
+    <Property Name="Searchable" Value="No"/>
+
+    <SubClause Name="from"   TargetName="LPAbstractReference"/>
+    <SubClause Name="to"   TargetName="RFLVPMSystemTypeReference"/>
+
+    <Volatile Name="Reference" Uuid="c698c889-9d73-46bf-aa18-cdd50a3a51a0" Accessor="PLMModelerReferenceKweAttribute" TypeName="RFLVPMSystemTypeReference" AccessMode="ReadOnly" >
+		  <Property Name="ServerAccessor" Value="com.dassault_systemes.vplm.modelerBaseNav.services.PLMInstance_Reference_Accessor"/>
+		</Volatile>
+
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+	  <ProcedureForUsage>
+	    <Usage href="ExportScope.meth#Remove"/>
+        <UsedProcedure href="ENOLog_Procedures.proc#Logical_ExportTypeInst_Remove"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#TransferSiteOwnership"/>
+        <UsedProcedure href="ENOLog_Procedures.proc#Logical_ExportTypeInst_TSO"/>
+      </ProcedureForUsage>
+    </Method>
+
+	</RelationClass>
+
+  <!-- **************************************************** -->
+  <!-- * Declaration of functions                           -->
+  <!-- **************************************************** -->
+
+  <Function Name="RFLVPMSystemType_Expand">
+    <Implementation Name="RFLVPMSystemType_Expand" FileLocation="RFLVPMSystemType_Expand.plmql" Language="PLMQL"/>
+    <Signature href="ENOLogTypeSignature"/>
+  </Function>
+
+  <Function Name="RFLVPMSystemTypeReference_Aggregated1stLvlObjects">
+    <Implementation Name="RFLVPMSystemTypeReference_Aggregated1stLvlObjects" FileLocation="RFLVPMSystemTypeReference_Aggregated1stLvlObjects.plmql" Language="PLMQL"/>
+    <Signature href="ENOLogTypeSignature"/>
+  </Function>
+
+  <Signature id="ENOLogTypeSignature">
+    <Parameter Name="InputIds" Lower="0" Upper="-1" Direction="in" MultiValuated="Yes" DataType="PLMId"/>
+    <Parameter Name="OutputIds" Lower="0" Upper="-1" Direction="out" MultiValuated="No" DataType="PLMRouteSet"/>
+  </Signature>
+
+  <!-- ********************************************************* -->  
+  
+</Package>

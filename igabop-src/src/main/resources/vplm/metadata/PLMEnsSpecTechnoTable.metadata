@@ -1,0 +1,167 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY for Ens Specifications Editor  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2011, all rights reserved -->
+<!-- MODIF PA DEB 27/08/2014 : BelongsToModeler="Engineering Specifications" ==> BelongsToModeler="PLMEnsSpecSpecification" : MODIF PA FIN 27/08/2014 -->
+
+<!-- 
+   =========
+    Package
+   =========    
+-->
+<!-- MODIF PA DEB 27/08/2014 -->
+    <Package xmlns="PLMDictionaryUnified"
+             CustomerExposition="Programmer"
+             ModelerType="Top"
+             BelongsToModeler="PLMEnsSpecSpecification"
+             Name="PLMEnsSpecTechnoTable"
+             Uuid="12A11F2D-8119-4aa1-B24A-98B04A887B75"           
+             UseNames="PLMCORE">
+<!-- MODIF PA FIN 27/08/2014 -->
+      
+      <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+      <CAAComment>
+         <ShortRole>Ens Specifications Techno Table Package</ShortRole>
+         <Role>This package describes the technological table used in Ens Specifications model.</Role>
+      </CAAComment>
+      <Comment>Initial creation: PA GLY Feb 2011</Comment>
+      <Comment>Review for V6R2012: JLN PGT PYR DRL JLM SLI ASG LBH GLY Dec 2010</Comment>
+      <Comment>Ens technological tables</Comment>
+     
+<!-- 
+   =======================================
+    EnsTechnologicalTable (PLM Reference) 
+    MODIF PA DEB 12/12/2012 Abstract="No" following the use of Discipline="Yes" for specialized entities MODIF PA FIN 12/12/2012
+   =======================================
+-->      
+     <Class Name="EnsTechnologicalTable"
+            Uuid="80FE3BDD-626B-493f-AC33-CA7B7D896AFB"
+            Abbreviation="ett"
+            CustomerExposition="Programmer"
+            Abstract="No"
+            SuperName="PLMCoreReference"
+            Specializable="Yes"
+            CustomerExtensible="No"
+            CreateInstName="EnsTechnologicalTableInstance" 
+            DeleteAvailability="Yes">
+            <Property Name="IconName"                    Value="I_TreeEngTable"/>
+            <!-- MODIF PA DEB 18/12/2013 -->
+            <Property Name="3DIconName"                  Value="I3D_EngSpec_TechnoTable.cgr"/>
+            <!-- MODIF PA FIN 18/12/2013 -->
+            <Property Name="Searchable"                  Value="Yes"/>
+            <Property Name="PQ_Attributes"               Value="PLM_ExternalID V_description V_user"/>
+            <!-- MODIF PA DEB 30/03/2016 -->
+            <Property Name="KweNew_InstanciationMethod"  Value="CATEnsCompanyStdsInstanciation_NotSupported"/>
+            <!-- MODIF PA FIN 30/03/2016 -->
+            <CAAComment>
+               <ShortRole>Ens technological table</ShortRole>
+               <Role>This object representing an Ens technological table.</Role>
+            </CAAComment>
+
+            <Simple Name="V_SpecDescription" Uuid="AD3A6E51-F2F9-4d74-8B96-664F8C7AB5A9" Type="String" MultiValuated="No" MaxLength="100"  Protection="Free" CAAExposition="L0"/>           
+            <CAAComment>
+             <ShortRole>Specification description</ShortRole>
+             <Role>Specification description</Role>
+            </CAAComment>
+
+            <!-- MODIF PA DEB 30/03/2016 -->
+            <Method ImplementationType="Self">
+              <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+              <ProcedureForUsage>
+                <UsedProcedure href="PLMEnsTechnoTable_Procedures.proc#ESE_TechnoTableExport"/>
+                <Usage href="ExportScope.meth#Design"/>
+              </ProcedureForUsage>
+              <ProcedureForUsage>
+                <UsedProcedure href="PLMEnsTechnoTable_Procedures.proc#ESE_TechnoTableExport"/>
+                <Usage href="ExportScope.meth#Review"/>
+              </ProcedureForUsage>
+              <ProcedureForUsage>
+                <UsedProcedure href="PLMEnsTechnoTable_Procedures.proc#ESE_TechnoTableExport"/>
+                <Usage href="ExportScope.meth#Channel"/>
+              </ProcedureForUsage>
+              <ProcedureForUsage>                
+                <UsedProcedure href="PLMEnsTechnoTable_Procedures.proc#ESE_TechnoTableRemove"/>
+                <Usage href="ExportScope.meth#Remove"/>
+              </ProcedureForUsage>
+              <ProcedureForUsage>
+                <UsedProcedure href="PLMEnsTechnoTable_Procedures.proc#ESE_TechnoTableRemove"/>
+                <Usage href="ExportScope.meth#TransferSiteOwnership"/>
+              </ProcedureForUsage>
+            </Method>
+            <!-- MODIF PA FIN 30/03/2016 -->
+      </Class>
+      
+<!-- 
+   =============================================
+    EnsTechnologicalTableInstance (PLM Instance)
+   =============================================
+-->
+      <RelationClass Name="EnsTechnologicalTableInstance"
+             Uuid="7998B82F-B3CD-4dc0-BB32-63368F780227"
+             CustomerExposition="Programmer"
+             Abstract="No"
+             SuperName="PLMCoreInstance">
+        <CAAComment>
+          <ShortRole>Ens technological table instance object</ShortRole>
+          <Role>This object representing an instance of Ens technological table under an Ens specification</Role>
+        </CAAComment>
+        <SubClause Name="from"   TargetName="EnsSpecification"/>
+        <SubClause Name="to"   TargetName="EnsTechnologicalTable"/>
+        <Method ImplementationType="None">
+          <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+        </Method>
+      </RelationClass>
+
+ <!-- 
+   ======================================================
+    EnsTechnologicalTableRepReference (PLM RepReference)
+   ======================================================
+-->
+      
+      <Class Name="EnsTechnologicalTableRepReference"
+             Uuid="5B695189-F901-4183-95B2-7B0A2D40B555"
+             Abbreviation="ettrep"
+             CustomerExposition="Programmer"
+             Abstract="No"
+             SuperName="PLMCoreRepReference"
+             Specializable="No"
+             CustomerExtensible="No"
+             CreateInstName="EnsTechnologicalTableRepInstance">
+        
+        <Property Name="Searchable"      Value="No"/>
+        
+        <CAAComment>
+          <ShortRole>Ens technological table rep reference Object</ShortRole>
+          <Role>This Ens technological table rep reference object carries the definition of the technological table as an xml</Role>
+        </CAAComment>
+        <Method ImplementationType="None">
+          <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+        </Method>        
+      </Class>
+      
+ <!-- 
+   ====================================================
+    EnsTechnologicalTableRepInstance (PLM RepInstance)
+   ====================================================
+-->
+
+      <RelationClass Name="EnsTechnologicalTableRepInstance"
+             Uuid="3C0CF5D9-6D43-4870-9F7A-4821745DD403"
+             CustomerExposition="Programmer"
+             Abstract="No"
+             SuperName="PLMCoreRepInstance">
+        <CAAComment>
+          <ShortRole>Ens technological table rep instance Object</ShortRole>
+          <Role>Ens technological table rep instance Object</Role>
+        </CAAComment>
+        <SubClause Name="from"   TargetName="EnsTechnologicalTable"/>
+        <SubClause Name="to"   TargetName="EnsTechnologicalTableRepReference"/>
+        <Method ImplementationType="None">
+          <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+        </Method>
+      </RelationClass> 
+    </Package>
+
+
+

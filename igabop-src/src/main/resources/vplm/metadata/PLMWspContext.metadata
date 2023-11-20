@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2005, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" Name="PLMWspContext" BelongsToModeler="PLMWspContext" Uuid="23786cdb-dd85-4c36-98d62406dec470ae" UseNames="PLMCORE" CustomerExposition="Programmer">
+  <CAAComment>
+    <ShortRole>Context Core Package</ShortRole>
+    <Role>This package includes all the core entities of Context Model</Role>
+  </CAAComment>
+  <Comment>last update 2007-03-29-12.00.00</Comment>
+  <!-- ***************************************** -->
+  <!-- *    PLMWspReference (PLMCoreReference) * -->
+  <!-- ***************************************** -->
+  <Class Name="PLMWspReference" Uuid="934e9630-695e-4587-85f02400d17cc988" Abstract="Yes" SuperName="PLMCoreReference" CustomerExposition="None" NewMajorRevisionAvailability="No">
+    <CAAComment>
+      <ShortRole>Reference object</ShortRole>
+      <Role>Base root object of the Context model</Role>
+    </CAAComment>
+    <!--
+             *********************************************************
+             * Specific attributes.                                  *
+             ********************************************************* -->
+    <Simple Name="V_short_desc" Uuid="4ef9a395-6477-4d54-a1a0cc5997e0a1f5" Type="String" MaxLength="30" MultiValuated="No" Protection="Free" CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Short description of the object</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope" />
+    </Method>
+  </Class>
+
+  <!-- **************************************** -->
+  <!-- * PLMWspSpecConnection (PLMConnection) * -->
+  <!-- **************************************** -->
+  <Class Name="PLMWspSpecConnection" Uuid="5955591e-19f4-4a6f-a749b5339e94f38f" Structured="Yes"  CarryStreams="Yes" Abstract="Yes" SuperName="PLMConnection" CustomerExposition="None">
+    <CAAComment>
+      <ShortRole>Specification object</ShortRole>
+      <Role>Specification object of the Context model</Role>
+    </CAAComment>
+    <!--
+             *********************************************************
+             * Specific attributes.                                  *
+             ********************************************************* -->
+    <Simple Name="V_short_desc" Uuid="aaac61a3-8a3c-4aaa-ad4a8001b98048fe" Type="String" MaxLength="30" MultiValuated="No" Protection="Free" CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Short description of the object</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_CTS" Uuid="71a84bbd-6922-4f9a-8d4c36abd6fcbb44" Type="Integer" MultiValuated="No" Protection="Internal">
+      <CAAComment>
+        <ShortRole>Cumulated time stamp corresponding to the last replay of the object</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_type" Uuid="c6e57852-6f31-43b8-8228bd4d65ffb8d1" Type="Integer" Protection="External" CAAExposition="L0" DefaultValue="1">
+      <Property Name="RangeAsEnumName" Value="V_typeEnum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="Filter;Query"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+      </Range>
+      <CAAComment>
+        <ShortRole>Type of the object: query or filter</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope" />
+    </Method>
+
+    <!-- ***************************************** -->
+    <!-- *    SUBRELATIONSHIPS DECLARATIONS      * -->
+    <!-- ***************************************** -->
+    <Path  Name="V_RootSpec"
+         Uuid="5760f408-5ee7-4d8f-a281840477d414b0"
+         MultiValuated="No"
+         RoleName="WSPPvsRoot"		Type="SemanticRelation" AdaptativeToMinor="No"
+		SynchroSensitivity="None"
+		RerouteOnEffectivityChange="No"
+         Semantics="Reference"  />
+
+    <Path  Name="V_EntitySpec"
+       Uuid="17ceeed8-02ce-46a3-857f7a86045755e4"
+       MultiValuated="Yes"
+       RoleName="WSPPvsToPLMEntitySpec"		Type="SemanticRelation" AdaptativeToMinor="No"
+		SynchroSensitivity="None"
+		RerouteOnEffectivityChange="No"
+        Protection="Internal"
+       Semantics="Reference2"  />
+
+    <Path  Name="V_AggregatingReference"
+       Uuid="ffd70fe3-ba6f-4970-a965390e7550edf3"
+       MultiValuated="No"
+       RoleName="WSPPvsConnectionToReference"
+                      Type="SemanticRelation" AdaptativeToMinor="No"
+		SynchroSensitivity="None"
+		RerouteOnEffectivityChange="No"
+       Semantics="Reference"  />
+
+  </Class>
+
+</Package>

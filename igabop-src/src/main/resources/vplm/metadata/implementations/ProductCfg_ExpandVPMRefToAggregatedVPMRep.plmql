@@ -1,0 +1,14 @@
+EXPAND 
+  T0.PLMID, T1.PLMID
+
+FROM 
+  PRODUCTCFG/VPMRepReference T0,
+  PRODUCTCFG/VPMRepInstance T1
+
+FROM_ROOTS [?1?]
+
+WITH ATTRIBUTE_FILTER((T0.V_discipline!='NavRep') AND (T0.V_isOnceInstantiable = 'TRUE') )
+
+DEPTH=1
+;
+

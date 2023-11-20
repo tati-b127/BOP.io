@@ -1,0 +1,2537 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2005, All rights reserved -->
+<!-- Modeler V2+  -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" Name="PLMToolingDesignDictionary" Uuid="c96ed6c0-efaf-49ef-8a25-80e5bf4714c9"
+  CustomerExposition="Programmer" UseNames="PRODUCTCFG PRODUCTDiscipline">
+  <Comment>2012-05-24 : Lip Refine Faceted</Comment>
+  <Comment>2012-05-31 : V_TlgDuplicateInst: default value</Comment>
+  <Comment>2014-02-24 : Add CATTlgHook, CATTlgAnchor </Comment>
+  <Comment>2014-02-25 : Add new PLMAtts </Comment>
+  <Comment>2014-04-01 : Add Magniture </Comment>
+  <Comment>2014-04-09 : ExternalRO ->  or Free </Comment>
+  <Comment>2014-06-14 : All_Offline_CAA  </Comment>
+  <Comment>2014-07-02 : Changement predicat 6W dans metadata  </Comment>
+  <Comment>2014-10-31 : Edit value of PLMAtt V_TlgDuplicateInst (see \\base\phd\Tooling V6 indicators\DataModel+Metadata) </Comment>
+  <Comment>2014-12-04 : USe GroupingType </Comment>
+  <Comment>2015-02-05 : USe Deprecated on TlgFuncTypes TlgStandardTypes </Comment>
+  <Comment>2015-07-28 : New_Offline_CAA  </Comment>
+  <Comment>2015-09-03 : Add Tags Dimension  </Comment>
+  <Comment>2016-02-24 : Add TlgStopPin  </Comment>
+  <Comment>2016-02-24 : Add V_TlgSymmetryCreatedWith  </Comment>
+  <Comment>2016-02-29 : Corrections Range + KweNew_InstanciationMethod </Comment>
+  <Comment>2016-03-15 : default value V_TlgSymmetryCreatedWith  </Comment>
+  <Comment>2016-12-16 : Remove Icon for deprecated TlgFuncTypes TlgStandardTypes </Comment>
+  <Comment>2017-11-22 : Change Abstract PLMType to Concrete </Comment>
+  <Comment>2017-12-04 : Manage New Family </Comment>
+  <Comment>2017-12-04 : Manage predicat 6W dans metadata for V_TlgDuplicateInst, V_TlgImpactable  </Comment>
+  <Comment>2017-12-04 : ToolingComponent become specializable </Comment>
+  <Comment>2017-04-05 : ToolingComponent TlgInjection, TlgMiscellaneous, TlgUndercut keep Abstract </Comment>
+  <Comment>2017-04-12 : ToolingComponent ToolingMobileUnit Specializable </Comment>
+  
+  <!-- ************************ -->
+  <!-- * VPMPort Ext          * -->
+  <!-- ************************ -->
+  <!-- SI Extension -->
+  <Extension  Name="CATTlgHook"
+              Uuid="481DA0C8-436E-471A-8CB9-D887BE77E02E"
+              ScopeNames="VPMPort"
+              CustomerExposition="Programmer">
+  </Extension>
+
+  <Extension Name="CATTlgAnchor"
+             Uuid="1737CA51-1C82-4DD1-81DC-2786196A2CDA"
+             ScopeNames="VPMPort"
+             CustomerExposition="Programmer">
+    <Simple Name="V_TlgInternalType" Type="String" Protection="External" Uuid="F2E4E330-D203-49C7-8DDA-2A20926AFC04" />
+    <Simple Name="V_TlgExpectedType" Type="String" Protection="External" MultiValuated="Yes" CollectionType="Set" Uuid="C4A3D5EC-43C4-4879-8643-4E5D0E924CB3" />
+    <Simple Name="V_TlgUserDetails" Type="String" Protection="External" Uuid="C7D2C05F-F6A6-4ADC-88AF-42EE148D7A56" />
+    <Simple Name="V_TlgUseCondition" Type="String" Protection="External" Uuid="3E30E563-BB69-4B42-AFE1-028E506C9974" />
+    <Simple Name="V_TlgDiameterMin" Type="Double" Protection="External" Magnitude="LENGTH" Uuid="8DBB4A1D-7446-4F5A-8F3C-2C9719B9AF5B" />
+    <Simple Name="V_TlgDiameterMax" Type="Double" Protection="External" Magnitude="LENGTH" Uuid="51E2DEFD-1DD0-4924-B25B-AA6AF77F4FD7" />
+    <Simple Name="V_TlgHeightMin" Type="Double" Protection="External" Magnitude="LENGTH" Uuid="582BB56C-8D96-49F2-BC14-F33D486D6DC0" />
+    <Simple Name="V_TlgHeightMax" Type="Double" Protection="External" Magnitude="LENGTH" Uuid="0C95E803-DB90-4D28-B6CC-C2F95CC307BF" />
+    <Simple Name="V_TlgLengthMin" Type="Double" Protection="External" Magnitude="LENGTH"  Uuid="767743E8-AB77-4558-980A-C6D0A2887C8F" />
+    <Simple Name="V_TlgLengthMax" Type="Double" Protection="External" Magnitude="LENGTH" Uuid="F77F6452-D5D1-4D2B-8C3C-7189D1713DE6" />
+    <Simple Name="V_TlgWidthMin" Type="Double" Protection="External" Magnitude="LENGTH" Uuid="2DC62017-361E-45C6-B82E-1336C1C19C55" />
+    <Simple Name="V_TlgWidthMax" Type="Double" Protection="External" Magnitude="LENGTH"  Uuid="B198F37B-1E8A-4BA9-9704-A6EEB19EC086" />
+    <Simple Name="V_TlgThicknessMin" Type="Double" Protection="External" Magnitude="LENGTH"  Uuid="442987F6-970D-4C21-85A7-443AA4AC6DA1" />
+    <Simple Name="V_TlgThicknessMax" Type="Double" Protection="External" Magnitude="LENGTH" Uuid="CE2FF2FE-6BEF-4B7B-BB92-E63FB3561D16" />
+  </Extension>
+
+  <!-- *************************************** -->
+  <!-- * PLMMldToolingComponentRep Extension * -->
+  <!-- *************************************** -->
+  <Extension  Name="PLMMldToolingComponentRep"
+              Uuid="7ae5e518-3e21-4389-ac7b-85b5fc305097"
+              ScopeNames="VPMRepReference"
+              CustomerExposition="Programmer">
+
+    <Simple  Name="V_Type"
+             Uuid="d65f80b3-6b32-4d13-9736-228d5d7a326b"
+             Type="String"
+             MaxLength="40"
+             MultiValuated="No"
+             Protection="External" CAAExposition="L0"/>
+
+  </Extension>
+
+  <!-- *************************************** -->
+  <!-- * PLMMldSolidOUT Extension obsolete   * -->
+  <!-- *************************************** -->
+  <Extension  Name="PLMMldSolidOUT"
+              Uuid="7732799d-5486-4f8a-85d7-dca0f776c646"
+              ScopeNames="VPMPort"
+              CustomerExposition="Programmer">
+
+    <Simple  Name="V_Type"
+             Uuid="5be9e9bc-1b3c-493c-b82b-238a1ec3a0e7"
+             Type="String"
+             MaxLength="40"
+             MultiValuated="No"
+             Protection="External" CAAExposition="L0"/>
+
+  </Extension>
+
+  <!-- *************************************** -->
+  <!-- * PLMMldSurfaceOUT Extension obsolete   * -->
+  <!-- *************************************** -->
+  <Extension  Name="PLMMldSurfaceOUT"
+              Uuid="82d3a2d2-8329-4c83-8ddf-8ed3ec367570"
+              ScopeNames="VPMPort"
+              CustomerExposition="Programmer">
+
+    <Simple  Name="V_Type"
+             Uuid="309759a9-069d-4d99-937e-d8a361ced310"
+             Type="String"
+             MaxLength="40"
+             MultiValuated="No"
+             Protection="External" CAAExposition="L0"/>
+
+  </Extension>
+
+  <!-- *************************************** -->
+  <!-- * PLMMldPositionIN Extension obsolete * -->
+  <!-- *************************************** -->
+  <Extension  Name="PLMMldPositionIN"
+              Uuid="cd248bd7-aa54-40ae-b1e6-451c8d582488"
+              ScopeNames="VPMPort"
+              CustomerExposition="Programmer">
+
+    <Simple  Name="V_Type"
+             Uuid="c9509a92-93a4-4f7c-8b48-9b4faa9802e3"
+             Type="String"
+             MaxLength="40"
+             MultiValuated="No"
+             Protection="External" CAAExposition="L0"/>
+
+  </Extension>
+
+  <!-- *************************************** -->
+  <!-- * PLMMldPositionOUT Extension obsolete * -->
+  <!-- *************************************** -->
+  <Extension  Name="PLMMldPositionOUT"
+              Uuid="cdb35cbd-e60d-4328-913c-eed9025999e7"
+              ScopeNames="VPMPort"
+              CustomerExposition="Programmer">
+
+    <Simple  Name="V_Type"
+             Uuid="71d62f41-462a-4b0f-9a47-8f50d4e6d5ec"
+             Type="String"
+             MaxLength="40"
+             MultiValuated="No"
+             Protection="External" CAAExposition="L0"/>
+
+    <Simple  Name="V_ComponentType"
+             Uuid="59e36855-9d0d-4874-b980-b73232446951"
+             Type="String"
+             MaxLength="40"
+             MultiValuated="No"
+             Protection="External" CAAExposition="L0"/>
+  </Extension>
+
+  <!-- *************************************** -->
+  <!-- * PLMMldToolingComponent Extension)   * -->
+  <!-- *************************************** -->
+  <Extension  Name="PLMMldToolingComponent"
+              Uuid="84f21efe-f2b8-41c7-96e2-82bd48df5a71"
+              ScopeNames="VPMReference"
+              CustomerExposition="Programmer">
+
+    <Simple  Name="V_Type"
+             Uuid="50b93e31-cd39-4a50-a03e-8e85e37c17cb"
+             Type="String"
+             MaxLength="40"
+             MultiValuated="No"
+             Protection="External" CAAExposition="L0"
+             Faceted="Yes">
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+
+    <Simple  Name="V_Splittable"
+            Uuid="0cdff5b4-fc36-4b35-910d-6f436627cc39"
+            Type="Boolean"
+            MultiValuated="No"
+            Protection="External" CAAExposition="L0"/>
+
+    <Simple  Name="V_GuidedDialog"
+             Uuid="822734fc-7df8-4b39-818e-0e2c2fa9c22d"
+             Type="Boolean"
+             MultiValuated="No"
+             Protection="External" CAAExposition="L0"/>
+  </Extension>
+
+  <!-- ******************* -->
+  <!-- * 3DShape         * -->
+  <!-- ******************* -->
+  <!-- P2: DISCIPLINES DECLARATIONS AT CREATION : ToolingRepReference-->
+  <!-- P2 : ca marche mais pas en V1 et on n'a pas les icones car 3Dshape est une discipline -->
+  <Class Name="ToolingRepReference"
+         Uuid="0B83F432-9DF5-4B84-8912-F26D053105E4"
+         Abstract="Yes"
+         CustomerExposition="Programmer" SuperName="3DShape" Discipline="Yes" Specializable="No">
+    <Property Name="IconName" Value="I_MldToolingReference"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="TypeForDisciplineValuation" Value="3DShape"/>
+    <Property Name="GroupingType" Value="ToolingRepReference"/>
+  </Class>
+
+  <Class Name="ToolingRepSkeleton"
+         Uuid="B9BE60A2-E892-4C1B-A55A-528242C8EEA7"
+         Abstract="Yes"
+         CustomerExposition="Programmer" SuperName="ToolingRepReference" Discipline="Yes" Specializable="No">
+    <Property Name="IconName" Value="I_MldToolingSkeleton"/>
+    <Property Name="Searchable" Value="Yes"/>
+  </Class>
+
+  <Class Name="TlgRepInterfaceSkeleton"
+        Uuid="DEA94861-209F-43D8-9EDA-61C52AB7BF65"
+        Abstract="No"
+        CustomerExposition="Programmer"
+         SuperName="ToolingRepSkeleton" Discipline="Yes" Specializable="No" Abbreviation="3sh">
+    <Property Name="IconName" Value="I_MldToolingInterfaceSkeleton"/>
+    <!--<Property Name="KweNew_ReturnedType" Value="VPMRepInstance"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+    <Property Name="Newable" Value="Insert"/>-->
+    <Property Name="Searchable" Value="Yes"/>
+  </Class>
+
+  <Class Name="TlgRepSkeleton"
+         Uuid="ED4A93EE-2125-40D3-8C42-F8C9FEA4A8E6"
+         Abstract="No"
+         CustomerExposition="Programmer"
+         SuperName="ToolingRepSkeleton" Discipline="Yes" Specializable="No" Abbreviation="3sh">
+    <Property Name="IconName" Value="I_MldSimpleSkeleton"/>
+    <Property Name="KweNew_ReturnedType" Value="VPMRepInstance"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+    <Property Name="Newable" Value="Insert"/>
+    <Property Name="Searchable" Value="Yes"/>
+  </Class>
+
+  <!-- **************** -->
+  <!-- * VPMReference * -->
+  <!-- **************** -->
+  <!-- DISCIPLINES DECLARATIONS -->
+
+  <!-- DISCIPLINES DECLARATIONS AT CREATION : ToolingReference-->
+  <Class Name="ToolingReference"
+         Uuid="b04be1d3-ccd1-4015-a1b5-b21db7cd6e82"
+         CustomerExposition="Programmer"
+         Abstract="Yes"
+         SuperName="VPMReference"
+         Discipline="Yes"
+         Specializable="No">
+    <Simple Name="V_TlgRelease" Type="String" Protection="Free" Uuid="C0C339B4-77CC-4013-952F-240C353EAEFB" />
+    <Simple Name="V_TlgSupplierRef" Type="String" Protection="Free" Uuid="8F493032-578E-4192-88C2-9792B1E0C27E" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Simple Name="V_TlgSupplier" Type="String" Protection="Free" Uuid="9C85C601-6E37-47ea-A33D-F1C7EDC090AE" Faceted="Yes" >
+      <Property Name="Quadrant" Value="Who"/>
+      <Property Name="SIXW" Value="ds6w:supplier"/>
+    </Simple>
+    <Simple Name="V_TlgUseCondition" Type="String" Protection="Free" Uuid="257550DB-DC7B-450e-AD61-837D7911E5E6" />
+    <Simple Name="V_TlgDuplicateInst" Type="Boolean" Protection="Free" DefaultValue="True" Uuid="C880CF69-A4F4-4065-9B86-0D17A40B64E7" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Simple Name="V_TlgNumber" Type="Integer" Protection="Free" Uuid="2A83855B-6893-4d70-AD95-F2D178CBF26B" />
+    <Simple Name="V_TlgBOMRef" Type="String" Protection="Free" Uuid="F8E7998B-2E4A-4f31-BDC6-643FE644DEE8" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Simple Name="V_TlgImpactable" Type="Boolean" Protection="Free" DefaultValue="False" Uuid="06ACE491-175F-4323-8B77-D06B89F7B32F" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Simple Name="V_TlgUserDetails" Type="String" Protection="Free" Uuid="9BE5222B-817B-4892-93CC-44404CDE9BE9" />
+    <Property Name="IconName" Value="I_MldToolingReference"/>
+    <Property Name="MergedExtensionType" Value="PLMMldToolingComponent"/>
+    <Property Name="Searchable" Value="Yes"/>
+  </Class>
+
+  
+  <!-- DISCIPLINES DECLARATIONS AT CREATION : ToolingSkeleton-->
+  <Class Name="ToolingSkeleton"
+         Uuid="babde806-4808-425a-b64e-dcc25e5fd28b"
+         Abstract="Yes"
+         CustomerExposition="Programmer" SuperName="ToolingReference" Discipline="Yes" Specializable="No">
+    <Simple Name="V_TlgBOMVisibility" Type="Boolean" Protection="Free" DefaultValue="False" Uuid="A8B648A6-D2AC-4e72-81B9-98E981BFB848" />
+    <Simple Name="V_TlgSymmetryCreatedWith" Type="String" Protection="Free" DefaultValue="NoSymmetry" Uuid="14B9971A-B962-4313-BF13-50EB7F605964" >
+      <Range>
+        <Equal>NewRef</Equal>
+        <Equal>SameRef</Equal>
+        <Equal>NoSymmetry</Equal>
+      </Range>
+    </Simple>
+    <Property Name="IconName" Value="I_MldToolingSkeleton"/>
+    <Property Name="TypeForDisciplineValuation" Value="ToolingSkeleton"/>
+    <Property Name="GroupingType"               Value="ToolingSkeleton"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="3DPartAvailability" Value="UserChoice3DPartDefault"/>
+  </Class>
+
+  <Class Name="TlgToolingInterfaceSkeleton"
+         Uuid="624DAE9D-D455-4205-B435-987D81190D94"
+         Abstract="No"
+         CustomerExposition="Programmer"
+         SuperName="ToolingSkeleton" Discipline="Yes" Specializable="No" Abbreviation="tls">
+    <Property Name="IconName" Value="I_MldToolingInterfaceSkeleton"/>
+    <Property Name="Newable" Value="No"/>
+    <Property Name="Searchable" Value="Yes"/>
+  </Class>
+
+  <Class Name="TlgSimpleSkeleton"
+         Uuid="FFDC3D00-BAAF-4e9b-A80E-C643768A99C6"
+         Abstract="No"
+         CustomerExposition="Programmer"
+         SuperName="ToolingSkeleton" Discipline="Yes" Specializable="No" Abbreviation="tls">
+    <Property Name="IconName" Value="I_MldSimpleSkeleton"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+    <Property Name="Newable" Value="Insert"/>
+    <Property Name="Searchable" Value="Yes"/>
+  </Class>
+
+  <Class Name="TlgFormSkeleton"
+         Uuid="A5802D53-ACCE-4950-AF34-6D37EDC6900E"
+         Abstract="No"
+         CustomerExposition="Programmer"
+         SuperName="ToolingSkeleton" Discipline="Yes" Specializable="No" Abbreviation="tls">
+    <Property Name="IconName" Value="I_MldFormSkeleton"/>
+    <Property Name="Newable" Value="No"/>
+    <Property Name="Searchable" Value="Yes"/>
+  </Class>
+
+  <Class Name="TlgConceptMoldSkeleton"
+         Uuid="077FFC0C-1E3B-4809-A4A0-FD907370E13B"
+         Abstract="No"
+         CustomerExposition="Programmer"
+         SuperName="ToolingSkeleton" Discipline="Yes" Specializable="No" Abbreviation="tls">
+    <Property Name="IconName" Value="I_MldConceptMoldSkeleton"/>
+    <Property Name="Newable" Value="No"/>
+    <Property Name="Searchable" Value="Yes"/>
+  </Class>
+
+  <!-- DISCIPLINES DECLARATIONS AT CREATION : ToolingMobileUnit-->
+  <Class Name="ToolingMobileUnit"
+         Uuid="9b5d8464-7d2b-4f64-ab61-fe0563a6a7e6"
+         Abstract="No"
+         CustomerExposition="Programmer" SuperName="ToolingReference" Discipline="Yes" Specializable="Yes">
+    <Simple Name="V_TlgSymmetryCreatedWith" Type="String" Protection="Free" DefaultValue="NewRef" Uuid="617B704D-7F8E-4454-87D5-00F97C3A0B28" >
+      <Range>
+        <Equal>NewRef</Equal>
+        <Equal>SameRef</Equal>
+        <Equal>NoSymmetry</Equal>
+      </Range>
+    </Simple>
+    <Simple Name="V_TlgBOMVisibility" Type="Boolean" Protection="Free" DefaultValue="False" Uuid="72E9624E-3A94-410c-865F-2A86896E128B" />
+    <Simple Name="V_TlgDiameter" Type="Double" Protection="Free" Magnitude="LENGTH" Uuid="F6F24D59-1B3F-41F4-BC4D-E726C2EAC4F4" />
+    <Simple Name="V_TlgLength" Type="Double" Protection="Free" Magnitude="LENGTH" Uuid="1BAC7775-7D20-431E-8C3B-C7304EC36FD1" />
+    <Simple Name="V_TlgWidth" Type="Double" Protection="Free" Magnitude="LENGTH" Uuid="1561BC74-63FB-4DA8-ABCA-5E1E743D998C" />
+    <Property Name="IconName" Value="I_MldToolingMobileUnit"/>
+    <Property Name="TypeForDisciplineValuation" Value="ToolingMobileUnit"/>
+    <Property Name="GroupingType"               Value="ToolingMobileUnit"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="3DPartAvailability" Value="ReferenceOnly"/>
+  </Class>
+
+  <Class Name="TlgEjectionSide"
+         Uuid="E8BD577E-D8D5-4a01-8242-22AEC8D7F681"
+         Abstract="No"
+         CustomerExposition="Programmer"
+         SuperName="ToolingMobileUnit" Discipline="Yes" Specializable="Yes" Abbreviation="tlu">
+    <Property Name="IconName" Value="I_MldEjectionSide"/>
+    <Property Name="TypeForDisciplineValuation" Value="ToolingMobileUnit"/>
+    <Property Name="GroupingType"               Value="ToolingMobileUnit"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+    <Property Name="Newable" Value="All_Offline_CAA"/>
+    <Property Name="Searchable" Value="Yes"/>
+  </Class>
+
+  <Class Name="TlgEjectorSystem"
+         Uuid="DD02A0FF-C953-4697-B4CC-3E4D68699341"
+         Abstract="No"
+         CustomerExposition="Programmer"
+         SuperName="ToolingMobileUnit" Discipline="Yes" Specializable="Yes" Abbreviation="tlu">
+    <Property Name="IconName" Value="I_MldEjectorSystem"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+    <Property Name="Newable" Value="All_Offline_CAA"/>
+    <Property Name="Searchable" Value="Yes"/>
+  </Class>
+
+  <Class Name="TlgInjectionSide"
+         Uuid="9DD3085A-C26E-4cec-9101-D833486D3CAD"
+         Abstract="No"
+         CustomerExposition="Programmer"
+         SuperName="ToolingMobileUnit" Discipline="Yes" Specializable="Yes" Abbreviation="tlu">
+    <Property Name="IconName" Value="I_MldInjectionSide"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+    <Property Name="Newable" Value="All_Offline_CAA"/>
+    <Property Name="Searchable" Value="Yes"/>
+  </Class>
+
+  <Class Name="TlgLowerDie"
+         Uuid="5872A7FD-98F5-4429-912F-146F740AD1D1"
+         Abstract="No"
+         CustomerExposition="Programmer"
+         SuperName="ToolingMobileUnit" Discipline="Yes" Specializable="Yes" Abbreviation="tlu">
+    <Property Name="IconName" Value="I_MldLowerDie"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+    <Property Name="Newable" Value="All_Offline_CAA"/>
+    <Property Name="Searchable" Value="Yes"/>
+  </Class>
+
+  <Class Name="TlgUpperDie"
+         Uuid="0EC663CB-4D94-4adf-8EF1-F5B01FE43604"
+         Abstract="No"
+         CustomerExposition="Programmer"
+         SuperName="ToolingMobileUnit" Discipline="Yes" Specializable="Yes" Abbreviation="tlu">
+    <Property Name="IconName" Value="I_MldUpperDie"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+    <Property Name="Newable" Value="All_Offline_CAA"/>
+    <Property Name="Searchable" Value="Yes"/>
+  </Class>
+
+  <Class Name="TlgUserMobileUnit"
+         Uuid="5B12FF9D-03DB-461a-88CC-AE6BDAFA1B4E"
+         Abstract="No"
+         CustomerExposition="Programmer"
+         SuperName="ToolingMobileUnit" Discipline="Yes" Specializable="Yes" Abbreviation="tlu">
+    <Property Name="IconName" Value="I_MldUserMobileUnit"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+    <Property Name="Newable" Value="All_Offline_CAA"/>
+    <Property Name="Searchable" Value="Yes"/>
+  </Class>
+
+  <Class Name="TlgRunnerSystem"
+         Uuid="3B6BC240-5AC4-4a4b-B4B4-BC1190B72C42"
+         Abstract="No"
+         CustomerExposition="Programmer"
+         SuperName="ToolingMobileUnit" Discipline="Yes" Specializable="Yes" Abbreviation="tlu">
+    <Property Name="IconName" Value="I_MldRunnerSystem"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+    <Property Name="Newable" Value="All_Offline_CAA"/>
+    <Property Name="Searchable" Value="Yes"/>
+  </Class>
+
+  <Class Name="TlgCoolantSystem"
+         Uuid="ABB33018-ED46-4e0d-8F04-227913E0CE28"
+         Abstract="No"
+         CustomerExposition="Programmer"
+         SuperName="ToolingMobileUnit" Discipline="Yes" Specializable="Yes" Abbreviation="tlu">
+    <Property Name="IconName" Value="I_MldCoolantSystem"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+    <Property Name="Newable" Value="All_Offline_CAA"/>
+    <Property Name="Searchable" Value="Yes"/>
+  </Class>
+
+  <!-- DISCIPLINES DECLARATIONS AT CREATION : ToolingTool-->
+  <Class Name="ToolingTool"
+         Uuid="91C35F91-79E7-48a8-90EA-F0FF8AA27DD1"
+         Abstract="Yes"
+         CustomerExposition="Programmer" SuperName="ToolingReference" Discipline="Yes" Specializable="No">
+    <Simple Name="V_TlgSymmetryCreatedWith" Type="String" Protection="Free" DefaultValue="NewRef" Uuid="A1CED906-0FC6-4A71-907A-74CDAC41307E" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+      <Range>
+        <Equal>NewRef</Equal>
+        <Equal>SameRef</Equal>
+        <Equal>NoSymmetry</Equal>
+      </Range>
+    </Simple>
+    <Simple Name="V_TlgBOMVisibility" Type="Boolean" Protection="Free" DefaultValue="True" Uuid="5AE47A0E-5131-4b44-98B7-8E6D5070640D" />
+    <Simple Name="V_TlgDiameter" Type="Double" Protection="Free" Magnitude="LENGTH" Uuid="E8A24BB0-A857-40F1-91A4-678389BDAE61" />
+    <Simple Name="V_TlgLength" Type="Double" Protection="Free" Magnitude="LENGTH" Uuid="CFE245C7-04FF-4EC3-B531-EAA0BC8DAC90" />
+    <Simple Name="V_TlgWidth" Type="Double" Protection="Free" Magnitude="LENGTH" Uuid="5A4E99C4-F113-4DCC-AB0B-24CB115669B0" />
+    <Simple Name="V_TlgOveralL" Type="Double" Protection="Free" Magnitude="LENGTH" Uuid="B6C1CE02-7C33-4BB3-98E7-4A3E98BA9961" />
+    <Simple Name="V_TlgOveralW" Type="Double" Protection="Free" Magnitude="LENGTH" Uuid="CBD3DE46-865D-40A4-8347-829D3EEEA502" />
+    <Property Name="IconName" Value="I_MldToolingTool"/>
+    <Property Name="TypeForDisciplineValuation" Value="ToolingTool"/>
+    <Property Name="GroupingType"               Value="ToolingTool"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="3DPartAvailability" Value="ReferenceOnly"/>
+  </Class>
+
+  <Class Name="TlgMoldBase"
+         Uuid="2F2C4405-42E6-42ec-851F-EBDDC348C160"
+         Abstract="No"
+         CustomerExposition="Programmer"
+         SuperName="ToolingTool" Discipline="Yes" Specializable="Yes" Abbreviation="tlt">
+    <Property Name="IconName" Value="I_MldMoldBase"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+    <Property Name="Newable" Value="All_Offline_CAA"/>
+    <Property Name="Searchable" Value="Yes"/>
+  </Class>
+
+  <!-- DISCIPLINES DECLARATIONS AT CREATION : ToolingLayout-->
+  <Class Name="ToolingLayout"
+         Uuid="D56B6518-8267-488b-8455-12F6C325D63C"
+         Abstract="Yes"
+         CustomerExposition="Programmer" SuperName="ToolingReference" Discipline="Yes" Specializable="No">
+    <Simple Name="V_TlgSymmetryCreatedWith" Type="String" Protection="Free" DefaultValue="NewRef" Uuid="90A01872-DBD6-4B0F-88D5-F90D4A5DC108" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+      <Range>
+        <Equal>NewRef</Equal>
+        <Equal>SameRef</Equal>
+        <Equal>NoSymmetry</Equal>
+      </Range>
+    </Simple>
+    <Simple Name="V_TlgBOMVisibility" Type="Boolean" Protection="Free" DefaultValue="False" Uuid="EFB70D8B-01DB-49bd-ABA9-C8BC2E01D5BC" />
+    <Property Name="IconName" Value="I_MldToolingLayout"/>
+    <Property Name="TypeForDisciplineValuation" Value="ToolingLayout"/>
+    <Property Name="GroupingType"               Value="ToolingLayout"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="3DPartAvailability" Value="ReferenceOnly"/>
+  </Class>
+
+  <Class Name="TlgDesignInput"
+          Uuid="B225A383-CDCD-4d0d-ACB2-CA2FA8045365"
+          Abstract="No"
+          CustomerExposition="Programmer"
+         SuperName="ToolingLayout" Discipline="Yes" Specializable="No" Abbreviation="tld">
+    <Property Name="IconName" Value="I_MldDesignInput"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+    <Property Name="Newable" Value="All_Offline_CAA"/>
+    <Property Name="Searchable" Value="Yes"/>
+  </Class>
+
+  <Class Name="TlgInsertUnit"
+         Uuid="D83D0704-A809-4358-9ED1-787A13265524"
+         Abstract="No"
+         CustomerExposition="Programmer"
+         SuperName="ToolingLayout" Discipline="Yes" Specializable="No" Abbreviation="tll">
+    <Property Name="IconName" Value="I_MldInsertUnit"/>
+    <Property Name="Newable" Value="No"/>
+    <Property Name="Searchable" Value="Yes"/>
+  </Class>
+
+  <Class Name="TlgLayoutUnit"
+         Uuid="344FD6A5-DCC9-4426-BC3D-E1E32A15D1F8"
+         Abstract="No"
+         CustomerExposition="Programmer"
+         SuperName="ToolingLayout" Discipline="Yes" Specializable="No" Abbreviation="tll">
+    <Property Name="IconName" Value="I_MldLayoutUnit"/>
+    <Property Name="Newable" Value="No"/>
+    <Property Name="Searchable" Value="Yes"/>
+  </Class>
+
+  <Class Name="TlgProjectUnit"
+         Uuid="384655BB-32B2-4fc0-ADD4-45FA5322892B"
+         Abstract="No"
+         CustomerExposition="Programmer"
+         SuperName="ToolingLayout" Discipline="Yes" Specializable="No" Abbreviation="tlp">
+    <Property Name="IconName" Value="I_MldProjectUnit"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+    <Property Name="Newable" Value="New_Offline_CAA"/>
+    <Property Name="Searchable" Value="Yes"/>
+  </Class>
+
+  <!-- DISCIPLINES DECLARATIONS AT CREATION : ToolingFlow-->
+  <Class Name="ToolingFlow"
+         Uuid="0AD7B8D5-C447-42ad-B01C-233AA97960C5"
+         Abstract="Yes"
+         CustomerExposition="Programmer" SuperName="ToolingReference" Discipline="Yes" Specializable="No">
+    <Simple Name="V_TlgSymmetryCreatedWith" Type="String" Protection="Free" DefaultValue="NewRef" Uuid="F2F5FFA9-D495-45A9-BD75-A8E677CB22CC" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+      <Range>
+        <Equal>NewRef</Equal>
+        <Equal>SameRef</Equal>
+        <Equal>NoSymmetry</Equal>
+      </Range>
+    </Simple>
+    <Simple Name="V_TlgBOMVisibility" Type="Boolean" Protection="Free" DefaultValue="False" Uuid="F57F1E37-9F2F-48bc-B383-9E875B818476" />
+    <Property Name="IconName" Value="I_MldToolingFlow"/>
+    <Property Name="TypeForDisciplineValuation" Value="ToolingFlow"/>
+    <Property Name="GroupingType"               Value="ToolingFlow"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="3DPartAvailability" Value="UserChoice3DPartDefault"/>
+  </Class>
+
+  <Class Name="TlgCoolant"
+         Uuid="5025BF8B-1FD3-419b-8803-2E1AA6282281"
+         Abstract="No"
+         CustomerExposition="Programmer"
+         SuperName="ToolingFlow" Discipline="Yes" Specializable="Yes" Abbreviation="tlo">
+    <Property Name="IconName" Value="I_MldCoolant"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+    <Property Name="Newable" Value="All_Offline_CAA"/>
+    <Property Name="Searchable" Value="Yes"/>
+  </Class>
+
+  <Class Name="TlgRunner"
+         Uuid="3CB48465-A6DB-4ce3-97B1-30422EF5A615"
+         Abstract="No"
+         CustomerExposition="Programmer"
+         SuperName="ToolingFlow" Discipline="Yes" Specializable="Yes" Abbreviation="tlr">
+    <Property Name="IconName" Value="I_MldRunner"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+    <Property Name="Newable" Value="All_Offline_CAA"/>
+    <Property Name="Searchable" Value="Yes"/>
+  </Class>
+
+  <!-- DISCIPLINES DECLARATIONS AT POSTERIORI  -->
+
+  <!-- DISCIPLINES DECLARATIONS AT POSTERIORI : ToolingExtension-->
+  <Extension Name="ToolingExtension"
+         Uuid="1699101B-4411-4fde-9257-1D6A15DC8046"
+         Abstract="Yes"
+         CustomerExposition="Programmer" ScopeNames="VPMReference" Discipline="Yes" Specializable="No">
+    <Simple Name="V_TlgRelease" Type="String" Protection="Free" Uuid="2A1B0BA6-F41E-4b09-B1C9-ADEDAE31F034" />
+    <Simple Name="V_TlgSupplierRef" Type="String" Protection="Free" Uuid="8A799521-8AA2-4a34-A562-A01E03D40492" Faceted="Yes" >
+      <Property Name="Quadrant" Value="Who"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Simple Name="V_TlgSupplier" Type="String" Protection="Free" Uuid="7182B526-9CA3-482c-97AC-7106010AE675" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:supplier"/>
+    </Simple>
+    <Simple Name="V_TlgUseCondition" Type="String" Protection="Free" Uuid="4A9FB14A-BEEE-4aec-84CB-8B9DC0FC3F45" />
+    <Simple Name="V_TlgNumber" Type="Integer" Protection="Free" Uuid="3F58EA01-6ACF-46b7-9CAD-07345A426BBC" />
+    <Simple Name="V_TlgBOMRef" Type="String" Protection="Free" Uuid="DA564A18-0A89-40d1-B089-B4E318A0EC6B" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Simple Name="V_TlgUserDetails" Type="String" Protection="Free" Uuid="129D0E13-5757-4190-B931-BB824CB6F28D" />
+    <Property Name="IconName" Value="I_MldToolingComponent"/>
+    <Property Name="TypeForDisciplineValuation" Value="ToolingExtension"/>
+    <Property Name="GroupingType"               Value="ToolingExtension"/>
+    <Property Name="MergedExtensionType" Value="PLMMldToolingComponent"/>
+  </Extension>
+
+  <!-- DISCIPLINES DECLARATIONS AT POSTERIORI : ToolingPart-->
+  <Extension Name="ToolingPart"
+         Uuid="025C4E72-6D3F-4eba-95E0-52FE97EE1747"
+         Abstract="Yes"
+         CustomerExposition="Programmer" SuperName="ToolingExtension" Discipline="Yes" Specializable="No">
+    <Simple Name="V_TlgBOMVisibility" Type="Boolean" Protection="Free" DefaultValue="False" Uuid="C21A4E74-CCCA-4af4-931D-EBDEC915EF8B" />
+    <Simple Name="V_TlgDuplicateInst" Type="Boolean" Protection="Free" DefaultValue="False" Uuid="050B0EE4-34F1-46c8-8147-7154F535B559" />
+    <Simple Name="V_TlgImpactable" Type="Boolean" Protection="Free" DefaultValue="False" Uuid="E14E1832-2E63-46b2-8FAB-1739C323F2D9" />
+    <Simple Name="V_TlgSymmetryCreatedWith" Type="String" Protection="Free" DefaultValue="NewRef" Uuid="2A52DF73-BF73-4684-B4EC-8915870D99F1" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+      <Range>
+        <Equal>NewRef</Equal>
+        <Equal>SameRef</Equal>
+        <Equal>NoSymmetry</Equal>
+      </Range>
+    </Simple>
+    <Property Name="IconName" Value="I_MldToolingPart"/>
+    <Property Name="TypeForDisciplineValuation" Value="ToolingPart"/>
+    <Property Name="GroupingType"               Value="ToolingPart"/>
+    <Property Name="MergedExtensionType" Value="PLMMldToolingComponent"/>
+  </Extension>
+
+  <Extension Name="TlgMoldedPart"
+         Uuid="5C8F9B57-0057-4259-BBE1-1707DEBBAECC"
+         Abstract="No"
+         CustomerExposition="Programmer" SuperName="ToolingPart" Discipline="Yes" Specializable="No">
+    <Property Name="IconName" Value="I_MldMoldedPart"/>
+  </Extension>
+
+  <!-- DISCIPLINES DECLARATIONS AT POSTERIORI : ToolingComponent-->
+  <Extension Name="ToolingComponent"
+         Uuid="A8FA3F9D-B129-46ab-AB12-877CF062DDB9"
+         Abstract="Yes"
+         CustomerExposition="Programmer" SuperName="ToolingExtension" Discipline="Yes" Specializable="Yes">
+    <Simple Name="V_TlgBOMVisibility" Type="Boolean" Protection="Free" DefaultValue="True" Uuid="2EB536FF-1765-437e-A790-19E81B761562" />
+    <Simple Name="V_TlgDiameter" Type="Double" Protection="Free" Magnitude="LENGTH" Uuid="80269D31-179C-41EB-91B0-12D3CD5FF6AD" Faceted="Yes">
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:Diameter"/>
+    </Simple>
+    <Simple Name="V_TlgHeight" Type="Double" Protection="Free" Magnitude="LENGTH" Uuid="25ED43C1-189A-4371-B551-AF434271B1BE" Faceted="Yes">
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:Height"/>
+    </Simple>
+    <Simple Name="V_TlgLength" Type="Double" Protection="Free" Magnitude="LENGTH" Uuid="40204919-5929-40E2-8134-B90A4C99C66B" Faceted="Yes">
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:Length"/>
+    </Simple>
+    <Simple Name="V_TlgWidth" Type="Double" Protection="Free" Magnitude="LENGTH" Uuid="EE0793BC-CCC6-4F5E-ADD6-CD672E156FCF" Faceted="Yes">
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:Width"/>
+    </Simple>
+    <Simple Name="V_TlgThickness" Type="Double" Protection="Free" Magnitude="LENGTH" Uuid="999E50EF-686E-43FD-887A-0DFEEB616381" />
+    <Property Name="IconName" Value="I_MldToolingComponent"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+    <Property Name="TypeForDisciplineValuation" Value="ToolingComponent"/>
+    <Property Name="GroupingType"               Value="ToolingComponent"/>
+    <Property Name="MergedExtensionType" Value="PLMMldToolingComponent"/>
+    <Property Name="Searchable" Value="Yes"/>
+  </Extension>
+
+  <Extension Name="TlgBearing"
+         Uuid="0C2AC3A5-820E-4BF0-9BC1-B379A90C45B1"
+         Abstract="No"
+         CustomerExposition="Programmer" SuperName="ToolingComponent" Discipline="Yes" Specializable="Yes">
+    <Simple Name="V_TlgSymmetryCreatedWith" Type="String" Protection="Free" DefaultValue="SameRef" Uuid="2EFB1C55-E042-45BB-BABB-5CFA65AFA9CB" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+      <Range>
+        <Equal>NewRef</Equal>
+        <Equal>SameRef</Equal>
+        <Equal>NoSymmetry</Equal>
+      </Range>
+    </Simple>
+    <Simple Name="V_TlgDuplicateInst" Type="Boolean" Protection="Free" DefaultValue="False" Uuid="7875AEA7-1FB0-41AA-8CA1-5B3733EEED56" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Simple Name="V_TlgImpactable" Type="Boolean" Protection="Free" DefaultValue="False" Uuid="C9B9C7C3-2A88-4D2D-B44C-097A74098C4A" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Property Name="IconName" Value="I_MldTlgBearing"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgCooling"
+         Uuid="BEF1DD4B-5C4E-495b-A200-57C39744727A"
+         Abstract="No"
+         CustomerExposition="Programmer" SuperName="ToolingComponent" Discipline="Yes" Specializable="Yes">
+    <Simple Name="V_TlgSymmetryCreatedWith" Type="String" Protection="Free" DefaultValue="SameRef" Uuid="6000F595-D11F-4626-BA56-A1A6B3432280" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+      <Range>
+        <Equal>NewRef</Equal>
+        <Equal>SameRef</Equal>
+        <Equal>NoSymmetry</Equal>
+      </Range>
+    </Simple>
+    <Simple Name="V_TlgDuplicateInst" Type="Boolean" Protection="Free" DefaultValue="False" Uuid="12A2A873-10B3-41a0-9978-B944E1B724E9" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Simple Name="V_TlgImpactable" Type="Boolean" Protection="Free" DefaultValue="False" Uuid="64203085-18C4-47b4-B072-75929524D01D" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Property Name="IconName" Value="I_MldTlgCooling"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgBaffle"
+         Uuid="9FDEB722-F7A6-4710-9529-1DAEABFB8EFC"
+         CustomerExposition="Programmer" SuperName="TlgCooling" Discipline="Yes" Specializable="Yes">
+    <Property Name="IconName" Value="I_MldBaffle"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgBaffleBoard"
+         Uuid="4AAC2A57-A3B5-4f62-AF58-FC41D7FA130A"
+         CustomerExposition="Programmer" SuperName="TlgCooling" Discipline="Yes" Specializable="Yes">
+    <Property Name="IconName" Value="I_MldBaffleBoard"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgClipRing"
+         Uuid="DB16E4B2-FCE2-4e56-97FB-FBFD30A5E8C4"
+         CustomerExposition="Programmer" SuperName="TlgCooling" Discipline="Yes" Specializable="Yes">
+    <Property Name="IconName" Value="I_MldClipRing"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgConnectorPlug"
+         Uuid="21C173DA-B93F-472f-A5CF-0E255C027563"
+         CustomerExposition="Programmer" SuperName="TlgCooling" Discipline="Yes" Specializable="Yes">
+    <Property Name="IconName" Value="I_MldConnectorPlug"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgConnectorPlugClamp"
+         Uuid="CBDAE959-633C-47ce-83EC-337016F06F28"
+         CustomerExposition="Programmer" SuperName="TlgCooling" Discipline="Yes" Specializable="Yes">
+    <Property Name="IconName" Value="I_MldConnectorPlugClamp"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgORing"
+         Uuid="90D0703C-2881-4bf7-A241-B45EFF4EA5CC"
+         CustomerExposition="Programmer" SuperName="TlgCooling" Discipline="Yes" Specializable="Yes">
+    <Property Name="IconName" Value="I_MldORing"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgPlugBaffle"
+         Uuid="ADCF1BC7-1D3F-42e8-801C-BF95264E4760"
+         CustomerExposition="Programmer" SuperName="TlgCooling" Discipline="Yes" Specializable="Yes">
+    <Property Name="IconName" Value="I_MldPlugBaffle"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgSpiralBaffle"
+         Uuid="3A138672-2C5F-4bd7-8AAE-BD5B8B23FB97"
+         CustomerExposition="Programmer" SuperName="TlgCooling" Discipline="Yes" Specializable="Yes">
+    <Property Name="IconName" Value="I_MldSpiralBaffle"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgWasher"
+         Uuid="2EA0A35B-4761-46ad-8D3F-81EAE0818639"
+         CustomerExposition="Programmer" SuperName="TlgCooling" Discipline="Yes" Specializable="Yes">
+    <Property Name="IconName" Value="I_MldWasher"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgCotter"
+         Uuid="716D7252-C204-4BA5-B93F-594E85AE26D8"
+         Abstract="No"
+         CustomerExposition="Programmer" SuperName="ToolingComponent" Discipline="Yes" Specializable="Yes">
+    <Simple Name="V_TlgSymmetryCreatedWith" Type="String" Protection="Free" DefaultValue="SameRef" Uuid="80575174-9C5F-4068-9564-4873A3B610AB" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+      <Range>
+        <Equal>NewRef</Equal>
+        <Equal>SameRef</Equal>
+        <Equal>NoSymmetry</Equal>
+      </Range>
+    </Simple>
+    <Simple Name="V_TlgDuplicateInst" Type="Boolean" Protection="Free" DefaultValue="False" Uuid="FA132796-1F6F-41F0-862A-60C951682DBC" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Simple Name="V_TlgImpactable" Type="Boolean" Protection="Free" DefaultValue="False" Uuid="E1EC5ED5-1D44-4D4F-9674-3D1EC6D9E3AB" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Property Name="IconName" Value="I_MldTlgCotter"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgCuttingTool"
+         Uuid="A98512BC-1003-42B4-92A0-0B2FF542DA42"
+         Abstract="No"
+         CustomerExposition="Programmer" SuperName="ToolingComponent" Discipline="Yes" Specializable="Yes">
+    <Simple Name="V_TlgSymmetryCreatedWith" Type="String" Protection="Free" DefaultValue="SameRef" Uuid="D8D8388D-9AC1-4016-8373-2395E4428368" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+      <Range>
+        <Equal>NewRef</Equal>
+        <Equal>SameRef</Equal>
+        <Equal>NoSymmetry</Equal>
+      </Range>
+    </Simple>
+    <Simple Name="V_TlgDuplicateInst" Type="Boolean" Protection="Free" DefaultValue="False" Uuid="89517593-EF01-41C0-9548-E8CE98E81EF3" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Simple Name="V_TlgImpactable" Type="Boolean" Protection="Free" DefaultValue="False" Uuid="4AD3A8EC-222D-4C8A-B7F3-4C2588AC0AC5" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Property Name="IconName" Value="I_MldTlgCuttingTool"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgEjection"
+         Uuid="FDCB005F-ACCE-4346-9424-D77CB842BE21"
+         Abstract="No"
+         CustomerExposition="Programmer" SuperName="ToolingComponent" Discipline="Yes" Specializable="Yes">
+    <Simple Name="V_TlgSymmetryCreatedWith" Type="String" Protection="Free" DefaultValue="SameRef" Uuid="24FB8E83-5795-46C4-BA99-4DFB79A9AB2D" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+      <Range>
+        <Equal>NewRef</Equal>
+        <Equal>SameRef</Equal>
+        <Equal>NoSymmetry</Equal>
+      </Range>
+    </Simple>
+    <Simple Name="V_TlgDuplicateInst" Type="Boolean" Protection="Free" DefaultValue="False" Uuid="DCCF5FA3-67E4-4e4e-A7F0-36CD3A449EFE" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Simple Name="V_TlgImpactable" Type="Boolean" Protection="Free" DefaultValue="False" Uuid="75139889-B4DF-484d-AA99-8AAEF0754009" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Property Name="IconName" Value="I_MldTlgEjection"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgEjectionUnit"
+         Uuid="1E65D5EF-A733-4dac-8A68-9F40126161CF"
+         CustomerExposition="Programmer" SuperName="TlgEjection" Discipline="Yes" Specializable="Yes">
+    <Property Name="IconName" Value="I_MldEjectionUnit"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgKnockOut"
+         Uuid="0DDDFF8F-AAB4-40b6-B87D-470B55BB9A5F"
+         CustomerExposition="Programmer" SuperName="TlgEjection" Discipline="Yes" Specializable="Yes">
+    <Property Name="IconName" Value="I_MldKnockOut"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgReturnPin"
+         Uuid="1CE077A8-D27D-47b0-A87C-FC1CDE59D5F9"
+         CustomerExposition="Programmer" SuperName="TlgEjection" Discipline="Yes" Specializable="Yes">
+    <Property Name="IconName" Value="I_MldReturnPin"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgStopPin"
+         Uuid="9612EAF6-39AC-4ae5-BC22-1B015FB20B40"
+         CustomerExposition="Programmer" SuperName="TlgEjection" Discipline="Yes" Specializable="Yes">
+    <Property Name="IconName" Value="I_MldStopPin"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgFixing"
+         Uuid="CBF84B53-F34C-4b4d-9063-2FF8E4EA6440"
+         Abstract="No"
+         CustomerExposition="Programmer" SuperName="ToolingComponent" Discipline="Yes" Specializable="Yes">
+    <Simple Name="V_TlgSymmetryCreatedWith" Type="String" Protection="Free" DefaultValue="SameRef" Uuid="82F81678-7221-44D0-9133-89074CBDAA39" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+      <Range>
+        <Equal>NewRef</Equal>
+        <Equal>SameRef</Equal>
+        <Equal>NoSymmetry</Equal>
+      </Range>
+    </Simple>
+    <Simple Name="V_TlgDuplicateInst" Type="Boolean" Protection="Free" DefaultValue="False" Uuid="5F441FB3-6EFE-427d-BA90-F69D907F0F05" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Simple Name="V_TlgImpactable" Type="Boolean" Protection="Free" DefaultValue="False" Uuid="9A7C2239-F1C3-4e28-8366-3227769FA79E" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Property Name="IconName" Value="I_MldTlgFixing"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgCapScrew"
+         Uuid="651BADB2-3A32-48ba-A641-4EC6AD8FFFA0"
+         CustomerExposition="Programmer" SuperName="TlgFixing" Discipline="Yes" Specializable="Yes">
+     <Property Name="IconName" Value="I_MldCapScrew"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgCirClip"
+         Uuid="7ED3ECEB-214E-4A22-B6FF-0C1A7B6943C2"
+         CustomerExposition="Programmer" SuperName="TlgFixing" Discipline="Yes" Specializable="Yes">
+    <Property Name="IconName" Value="I_MldTlgCirClip"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgCountersunkScrew"
+         Uuid="F029E5AA-706B-46c2-B977-502B9192DF75"
+         CustomerExposition="Programmer" SuperName="TlgFixing" Discipline="Yes" Specializable="Yes">
+    <Property Name="IconName" Value="I_MldCountersunkScrew"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgDowelPin"
+         Uuid="4BA84AA1-7DB1-4de7-A832-4A8BC053D37B"
+         CustomerExposition="Programmer" SuperName="TlgFixing" Discipline="Yes" Specializable="Yes">
+    <Property Name="IconName" Value="I_MldDowelPin"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgLockingScrew"
+         Uuid="1E196AE9-43D2-4725-B85D-0523DF358D9D"
+         CustomerExposition="Programmer" SuperName="TlgFixing" Discipline="Yes" Specializable="Yes">
+    <Property Name="IconName" Value="I_MldLockingScrew"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgNutBolt"
+         Uuid="E2EBB7AE-167E-4260-B90F-50B61D406013"
+         CustomerExposition="Programmer" SuperName="TlgFixing" Discipline="Yes" Specializable="Yes">
+    <Property Name="IconName" Value="I_MldTlgNutBolt"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgPin"
+         Uuid="C0AF9900-4C63-4D8A-B5D2-2609F6D64CEA"
+         CustomerExposition="Programmer" SuperName="TlgFixing" Discipline="Yes" Specializable="Yes">
+    <Property Name="IconName" Value="I_MldTlgPin"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgSpringScrew"
+         Uuid="D76315B6-D1AB-4249-AEE5-9CEF505DE324"
+         CustomerExposition="Programmer" SuperName="TlgFixing" Discipline="Yes" Specializable="Yes">
+    <Property Name="IconName" Value="I_MldSpringScrew"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgStud"
+         Uuid="0A54CAC6-AF4F-4957-92AB-470260ABB0B9"
+         CustomerExposition="Programmer" SuperName="TlgFixing" Discipline="Yes" Specializable="Yes">
+    <Property Name="IconName" Value="I_MldTlgStud"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgWasherScrew"
+         Uuid="631278C7-8F24-4202-897C-235038955013"
+         CustomerExposition="Programmer" SuperName="TlgFixing" Discipline="Yes" Specializable="Yes">
+    <Property Name="IconName" Value="I_MldTlgWasherScrew"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgFoldingTool"
+         Uuid="017BD7D1-21F0-442F-8926-4C9BB5587125"
+         Abstract="No"
+         CustomerExposition="Programmer" SuperName="ToolingComponent" Discipline="Yes" Specializable="Yes">
+    <Simple Name="V_TlgSymmetryCreatedWith" Type="String" Protection="Free" DefaultValue="SameRef" Uuid="33453578-4B4A-4342-845F-380224FE9A99" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+      <Range>
+        <Equal>NewRef</Equal>
+        <Equal>SameRef</Equal>
+        <Equal>NoSymmetry</Equal>
+      </Range>
+    </Simple>
+    <Simple Name="V_TlgDuplicateInst" Type="Boolean" Protection="Free" DefaultValue="False" Uuid="A814F0AB-4FB1-442B-BF7C-FDCCC03A978C" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Simple Name="V_TlgImpactable" Type="Boolean" Protection="Free" DefaultValue="False" Uuid="C39E5407-70A1-4FFA-A3A4-C7AF372545AD" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Property Name="IconName" Value="I_MldTlgFoldingTool"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgFormedEjection"
+         Uuid="5B9CFA61-4572-4b3e-8E23-B347C04F4D10"
+         Abstract="No"
+         CustomerExposition="Programmer" SuperName="ToolingComponent" Discipline="Yes" Specializable="Yes">
+    <Simple Name="V_TlgSymmetryCreatedWith" Type="String" Protection="Free" DefaultValue="NewRef" Uuid="0B58541E-6941-43E1-B501-23726183B37E" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+      <Range>
+        <Equal>NewRef</Equal>
+        <Equal>SameRef</Equal>
+        <Equal>NoSymmetry</Equal>
+      </Range>
+    </Simple>
+    <Simple Name="V_TlgDuplicateInst" Type="Boolean" Protection="Free" DefaultValue="True" Uuid="158E8860-BE0D-427d-B8F4-F5B68DB6669D" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Simple Name="V_TlgImpactable" Type="Boolean" Protection="Free" DefaultValue="True" Uuid="391BBDEA-9497-4de9-8F8F-59667D3EDD77" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Property Name="IconName" Value="I_MldTlgFormedEjection"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgCorePin"
+         Uuid="E9432485-8088-491e-ABCC-A3FBD80B3982"
+         CustomerExposition="Programmer" SuperName="TlgFormedEjection" Discipline="Yes" Specializable="Yes">
+    <Property Name="IconName" Value="I_MldCorePin"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgEjector"
+         Uuid="FE5DF33A-B10D-474f-AA5B-09E7372B7737"
+         CustomerExposition="Programmer" SuperName="TlgFormedEjection" Discipline="Yes" Specializable="Yes">
+    <Property Name="IconName" Value="I_MldEjector"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgEjectorPin"
+         Uuid="516E693B-7D7C-40a8-A865-2315CBCF0A82"
+         CustomerExposition="Programmer" SuperName="TlgFormedEjection" Discipline="Yes" Specializable="Yes">
+    <Property Name="IconName" Value="I_MldEjectorPin"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgEjectorSleeve"
+         Uuid="A7808B3B-105A-46d1-AADE-D3C0FA01F4C1"
+         CustomerExposition="Programmer" SuperName="TlgFormedEjection" Discipline="Yes" Specializable="Yes">
+    <Property Name="IconName" Value="I_MldEjectorSleeve"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgFlatEjector"
+         Uuid="80E7181C-0AE8-48a0-9ABE-34E1798C1962"
+         CustomerExposition="Programmer" SuperName="TlgFormedEjection" Discipline="Yes" Specializable="Yes">
+    <Property Name="IconName" Value="I_MldFlatEjector"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgSpruePuller"
+         Uuid="18C2E822-A226-4212-B2DB-46A801E5EA01"
+         CustomerExposition="Programmer" SuperName="TlgFormedEjection" Discipline="Yes" Specializable="Yes">
+    <Property Name="IconName" Value="I_MldSpruePuller"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgGear"
+         Uuid="1090E8FF-08DB-4A4E-B5F6-F7B5257C4C8D"
+         Abstract="No"
+         CustomerExposition="Programmer" SuperName="ToolingComponent" Discipline="Yes" Specializable="Yes">
+    <Simple Name="V_TlgSymmetryCreatedWith" Type="String" Protection="Free" DefaultValue="SameRef" Uuid="EE53D544-2F5B-4F48-A59C-BC34AAB856DF" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+      <Range>
+        <Equal>NewRef</Equal>
+        <Equal>SameRef</Equal>
+        <Equal>NoSymmetry</Equal>
+      </Range>
+    </Simple>
+    <Simple Name="V_TlgDuplicateInst" Type="Boolean" Protection="Free" DefaultValue="False" Uuid="BA043314-96D3-4003-8BF7-73C17A58034A" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Simple Name="V_TlgImpactable" Type="Boolean" Protection="Free" DefaultValue="False" Uuid="3E3731D5-5613-4049-AEF1-316898A658DE" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Property Name="IconName" Value="I_MldTlgGear"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgGuiding"
+         Uuid="8608F8F1-F035-45fb-9005-AA92005FCB89"
+         Abstract="No"
+         CustomerExposition="Programmer" SuperName="ToolingComponent" Discipline="Yes" Specializable="Yes">
+    <Simple Name="V_TlgSymmetryCreatedWith" Type="String" Protection="Free" DefaultValue="SameRef" Uuid="2BE40980-CE72-4BA3-9760-5913A33DD14F" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+      <Range>
+        <Equal>NewRef</Equal>
+        <Equal>SameRef</Equal>
+        <Equal>NoSymmetry</Equal>
+      </Range>
+    </Simple>
+    <Simple Name="V_TlgDuplicateInst" Type="Boolean" Protection="Free" DefaultValue="False" Uuid="97F708CE-1833-40df-BA89-3D5EE4DD11AC" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Simple Name="V_TlgImpactable" Type="Boolean" Protection="Free" DefaultValue="False" Uuid="5A64D1E0-DA55-4c64-849C-D5847D9D1A4F" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Property Name="IconName" Value="I_MldTlgGuiding"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgBushing"
+         Uuid="2EF2E23E-5CF2-4920-968C-EF0283BC514E"
+         CustomerExposition="Programmer" SuperName="TlgGuiding" Discipline="Yes" Specializable="Yes">
+    <Property Name="IconName" Value="I_MldBushing"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgLeaderPin"
+         Uuid="2398D45E-FE87-4d0d-AAF3-EAC694D4FFFF"
+         CustomerExposition="Programmer" SuperName="TlgGuiding" Discipline="Yes" Specializable="Yes">
+    <Property Name="IconName" Value="I_MldLeaderPin"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgSleeve"
+         Uuid="9534FAA5-0C4E-4fa2-98FA-939AED1DC9FC"
+         CustomerExposition="Programmer" SuperName="TlgGuiding" Discipline="Yes" Specializable="Yes">
+    <Property Name="IconName" Value="I_MldSleeve"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgSphereBushing"
+         Uuid="EC22E1B5-1899-4549-A3E8-77B47A02223C"
+         CustomerExposition="Programmer" SuperName="TlgGuiding" Discipline="Yes" Specializable="Yes">
+    <Property Name="IconName" Value="I_MldSphereBushing"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgInjection"
+         Uuid="2075AFCC-1C80-40ab-8C29-D9A0C9F6652B"
+         Abstract="Yes"
+         CustomerExposition="Programmer" SuperName="ToolingComponent" Discipline="Yes" Specializable="Yes">
+    <Simple Name="V_TlgSymmetryCreatedWith" Type="String" Protection="Free" DefaultValue="SameRef" Uuid="ABA57CC1-6CF5-49DD-88A2-4C4ACFCEACBF" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+      <Range>
+        <Equal>NewRef</Equal>
+        <Equal>SameRef</Equal>
+        <Equal>NoSymmetry</Equal>
+      </Range>
+    </Simple>
+    <Property Name="IconName" Value="I_MldTlgInjection"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgComponentOfRunner"
+         Uuid="FBC2637B-52D4-48c9-9C58-7EFD9994829A"
+         CustomerExposition="Programmer" SuperName="TlgInjection" Discipline="Yes" Specializable="Yes">
+    <Simple Name="V_TlgDuplicateInst" Type="Boolean" Protection="Free" DefaultValue="False" Uuid="3AA426D7-3D10-4515-A9F6-7DB1EC107BAA" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Simple Name="V_TlgImpactable" Type="Boolean" Protection="Free" DefaultValue="False" Uuid="91632781-0F04-4f37-836F-EF7149A18564" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Property Name="IconName" Value="I_MldComponentOfRunner"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgHeatingItem"
+         Uuid="BD8A0FB2-2122-45ad-8A71-1199DA6C2E12"
+         CustomerExposition="Programmer" SuperName="TlgInjection" Discipline="Yes" Specializable="Yes">
+    <Simple Name="V_TlgDuplicateInst" Type="Boolean" Protection="Free" DefaultValue="False" Uuid="0663A5F6-D642-4ee9-9A2B-7279F34D1758" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Simple Name="V_TlgImpactable" Type="Boolean" Protection="Free" DefaultValue="False" Uuid="B5880B0D-F8F0-4d86-BD64-270FBD4489FD" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Property Name="IconName" Value="I_MldHeatingItem"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgHotRunnerBlock"
+         Uuid="4708B166-E586-437e-8505-7C5DC952DD88"
+         CustomerExposition="Programmer" SuperName="TlgInjection" Discipline="Yes" Specializable="Yes">
+    <Simple Name="V_TlgDuplicateInst" Type="Boolean" Protection="Free" DefaultValue="False" Uuid="D36B1288-78B4-4bb3-8262-EDE240F3625E" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Simple Name="V_TlgImpactable" Type="Boolean" Protection="Free" DefaultValue="True" Uuid="C8B1F87B-D68B-4aff-94F7-8559863D407E" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Property Name="IconName" Value="I_MldHotRunnerBlock"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgLocatingRing"
+         Uuid="0C6B4839-5CE9-43a6-9EB3-754A50AD6EBA"
+         CustomerExposition="Programmer" SuperName="TlgInjection" Discipline="Yes" Specializable="Yes">
+    <Simple Name="V_TlgDuplicateInst" Type="Boolean" Protection="Free" DefaultValue="False" Uuid="652803BF-6F87-4d8a-96DB-E468343297BD" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Simple Name="V_TlgImpactable" Type="Boolean" Protection="Free" DefaultValue="True" Uuid="0E0EE024-8A70-4513-A475-2CFDBED17831" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Property Name="IconName" Value="I_MldLocatingRing"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgPinPointGateBushing"
+         Uuid="82C36FA2-E188-471e-B9DE-68175D392F16"
+         CustomerExposition="Programmer" SuperName="TlgInjection" Discipline="Yes" Specializable="Yes">
+    <Simple Name="V_TlgDuplicateInst" Type="Boolean" Protection="Free" DefaultValue="False" Uuid="D54E40AA-4120-44b9-B41A-9345E6F3E2FA" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Simple Name="V_TlgImpactable" Type="Boolean" Protection="Free" DefaultValue="False" Uuid="F7FB7CB9-AA3C-4d46-A919-4C51F940F909" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Property Name="IconName" Value="I_MldPinPointGateBushing"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgSprueBushing"
+         Uuid="CE2E74BB-16B9-4956-B4A5-0C37C0B956B4"
+         CustomerExposition="Programmer" SuperName="TlgInjection" Discipline="Yes" Specializable="Yes">
+    <Simple Name="V_TlgDuplicateInst" Type="Boolean" Protection="Free" DefaultValue="False" Uuid="CF76E29B-2334-48bb-B0D8-7FCD243FA96F" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Simple Name="V_TlgImpactable" Type="Boolean" Protection="Free" DefaultValue="True" Uuid="8C1E3349-8369-426b-B534-C16426E76414" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Property Name="IconName" Value="I_MldSprueBushing"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgMiscellaneous"
+         Uuid="70779A19-84A3-4282-8695-91E9F4393EE2"
+         Abstract="Yes"
+         CustomerExposition="Programmer" SuperName="ToolingComponent" Discipline="Yes" Specializable="Yes">
+    <Property Name="IconName" Value="I_MldTlgMiscellaneous"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgBlock"
+        Uuid="B8FC8D8F-BAE7-42bf-9193-0E2A813966A1"
+        CustomerExposition="Programmer" SuperName="TlgMiscellaneous" Discipline="Yes" Specializable="Yes">
+    <Simple Name="V_TlgSymmetryCreatedWith" Type="String" Protection="Free" DefaultValue="NewRef" Uuid="E1BE7163-B35B-451B-B308-88786DAC47B5" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+      <Range>
+        <Equal>NewRef</Equal>
+        <Equal>SameRef</Equal>
+        <Equal>NoSymmetry</Equal>
+      </Range>
+    </Simple>
+    <Simple Name="V_TlgDuplicateInst" Type="Boolean" Protection="Free" DefaultValue="True" Uuid="A132C3AF-CD77-4138-8FC0-A645705D0E67" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Simple Name="V_TlgImpactable" Type="Boolean" Protection="Free" DefaultValue="True" Uuid="70894077-276D-459a-91E4-28B85040950A" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Property Name="IconName" Value="I_MldBlock"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgDateStamp"
+         Uuid="EEC046DD-65B1-42d5-801E-207A02A77A5E"
+         CustomerExposition="Programmer" SuperName="TlgMiscellaneous" Discipline="Yes" Specializable="Yes">
+    <Simple Name="V_TlgSymmetryCreatedWith" Type="String" Protection="Free" DefaultValue="SameRef" Uuid="07F2B4B2-2509-40DD-8B0D-8DE960481550" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+      <Range>
+        <Equal>NewRef</Equal>
+        <Equal>SameRef</Equal>
+        <Equal>NoSymmetry</Equal>
+      </Range>
+    </Simple>
+    <Simple Name="V_TlgDuplicateInst" Type="Boolean" Protection="Free" DefaultValue="False" Uuid="C2856D06-EA60-4f59-902A-078813E9C833" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Simple Name="V_TlgImpactable" Type="Boolean" Protection="Free" DefaultValue="False" Uuid="A40DFE4F-5258-4f62-8BCC-7DC4FE280CC3" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Property Name="IconName" Value="I_MldDateStamp"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgEyeBolt"
+         Uuid="6EA88DE4-1092-4469-A439-BE1434702CC9"
+         CustomerExposition="Programmer" SuperName="TlgMiscellaneous" Discipline="Yes" Specializable="Yes">
+    <Simple Name="V_TlgSymmetryCreatedWith" Type="String" Protection="Free" DefaultValue="SameRef" Uuid="75074F08-F206-4E52-80F2-32AB8FCF60EA" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+      <Range>
+        <Equal>NewRef</Equal>
+        <Equal>SameRef</Equal>
+        <Equal>NoSymmetry</Equal>
+      </Range>
+    </Simple>
+    <Simple Name="V_TlgDuplicateInst" Type="Boolean" Protection="Free" DefaultValue="False" Uuid="4C7E99C8-39BE-49af-8D0C-FDA66C043445" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Simple Name="V_TlgImpactable" Type="Boolean" Protection="Free" DefaultValue="False" Uuid="95FE4BE7-1FA3-4398-8A0C-0C4D2BA2835B" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Property Name="IconName" Value="I_MldEyeBolt"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgMoldOpeningController"
+         Uuid="A2DCA04F-C9C2-49f6-9D5A-EA71788DAF80"
+         CustomerExposition="Programmer" SuperName="TlgMiscellaneous" Discipline="Yes" Specializable="Yes">
+    <Simple Name="V_TlgSymmetryCreatedWith" Type="String" Protection="Free" DefaultValue="SameRef" Uuid="1778E7F5-3AFA-4B6C-BD62-272C9ADF906D" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+      <Range>
+        <Equal>NewRef</Equal>
+        <Equal>SameRef</Equal>
+        <Equal>NoSymmetry</Equal>
+      </Range>
+    </Simple>
+    <Simple Name="V_TlgDuplicateInst" Type="Boolean" Protection="Free" DefaultValue="False" Uuid="7F0F7330-4E9E-474b-B314-699032C9D9E7" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Simple Name="V_TlgImpactable" Type="Boolean" Protection="Free" DefaultValue="False" Uuid="349FA2EB-6F6A-482e-91FC-F31D6047AB3A" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Property Name="IconName" Value="I_MldMoldOpeningController"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgProtection"
+         Uuid="F1B3658A-ADCF-4760-9AC1-609C8D38902E"
+         CustomerExposition="Programmer" SuperName="TlgMiscellaneous" Discipline="Yes" Specializable="Yes">
+    <Simple Name="V_TlgSymmetryCreatedWith" Type="String" Protection="Free" DefaultValue="SameRef" Uuid="F57027B7-311F-4DA5-8523-F4886449E74D" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+      <Range>
+        <Equal>NewRef</Equal>
+        <Equal>SameRef</Equal>
+        <Equal>NoSymmetry</Equal>
+      </Range>
+    </Simple>
+    <Simple Name="V_TlgDuplicateInst" Type="Boolean" Protection="Free" DefaultValue="False" Uuid="CF2F2DFD-3933-4d1b-8328-7C512E5951E1" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Simple Name="V_TlgImpactable" Type="Boolean" Protection="Free" DefaultValue="False" Uuid="66CB6703-ED74-4d59-ABEB-E48853C68D19" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Property Name="IconName" Value="I_MldProtection"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgSlottedKey"
+         Uuid="2F3CB12F-D26A-418e-9C33-ED4C574B823B"
+         CustomerExposition="Programmer" SuperName="TlgMiscellaneous" Discipline="Yes" Specializable="Yes">
+    <Simple Name="V_TlgSymmetryCreatedWith" Type="String" Protection="Free" DefaultValue="SameRef" Uuid="142CF176-5D0F-465D-9776-8DA80D8A4F56" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+      <Range>
+        <Equal>NewRef</Equal>
+        <Equal>SameRef</Equal>
+        <Equal>NoSymmetry</Equal>
+      </Range>
+    </Simple>
+    <Simple Name="V_TlgDuplicateInst" Type="Boolean" Protection="Free" DefaultValue="False" Uuid="45C13177-FC82-488f-A81C-4E45842CFE89" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Simple Name="V_TlgImpactable" Type="Boolean" Protection="Free" DefaultValue="False" Uuid="C695E6DC-8699-4d5d-B193-1610F829C1B2" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Property Name="IconName" Value="I_MldSlottedKey"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgSpring"
+         Uuid="C26AA3F8-395A-4af9-AF4D-0048C2F84A30"
+         CustomerExposition="Programmer" SuperName="TlgMiscellaneous" Discipline="Yes" Specializable="Yes">
+    <Simple Name="V_TlgSymmetryCreatedWith" Type="String" Protection="Free" DefaultValue="SameRef" Uuid="A863DE00-6AEC-480F-8301-AF265792F4E1" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+      <Range>
+        <Equal>NewRef</Equal>
+        <Equal>SameRef</Equal>
+        <Equal>NoSymmetry</Equal>
+      </Range>
+    </Simple>
+    <Simple Name="V_TlgDuplicateInst" Type="Boolean" Protection="Free" DefaultValue="False" Uuid="2ABE1220-15FA-41a1-A197-C11BEFB47A06" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Simple Name="V_TlgImpactable" Type="Boolean" Protection="Free" DefaultValue="False" Uuid="8B151626-ECA1-4d57-885A-9E878C2F8E2F" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Property Name="IconName" Value="I_MldSpring"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgSupportPillar"
+         Uuid="751E7066-64F2-41ea-BC75-9AC563A62135"
+         CustomerExposition="Programmer" SuperName="TlgMiscellaneous" Discipline="Yes" Specializable="Yes">
+    <Simple Name="V_TlgSymmetryCreatedWith" Type="String" Protection="Free" DefaultValue="SameRef" Uuid="461FE595-F2C3-47ED-AD44-9CDB82911D1E" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+      <Range>
+        <Equal>NewRef</Equal>
+        <Equal>SameRef</Equal>
+        <Equal>NoSymmetry</Equal>
+      </Range>
+    </Simple>
+    <Simple Name="V_TlgDuplicateInst" Type="Boolean" Protection="Free" DefaultValue="False" Uuid="B1623D3E-539A-44be-9B1E-61F0DB0BE5BF" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Simple Name="V_TlgImpactable" Type="Boolean" Protection="Free" DefaultValue="False" Uuid="61B1F830-F72E-4215-8855-8C75D976C98D" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Property Name="IconName" Value="I_MldSupportPillar"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgSwitch"
+         Uuid="3E117B91-5C1C-4fe3-902C-E3396C5313E1"
+         CustomerExposition="Programmer" SuperName="TlgMiscellaneous" Discipline="Yes" Specializable="Yes">
+    <Simple Name="V_TlgSymmetryCreatedWith" Type="String" Protection="Free" DefaultValue="SameRef" Uuid="C0CCE043-EE9C-40BD-990D-2576F548B275" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+      <Range>
+        <Equal>NewRef</Equal>
+        <Equal>SameRef</Equal>
+        <Equal>NoSymmetry</Equal>
+      </Range>
+    </Simple>
+    <Simple Name="V_TlgDuplicateInst" Type="Boolean" Protection="Free" DefaultValue="False" Uuid="CF976C72-D490-48a7-BB4B-02EE57A34624" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Simple Name="V_TlgImpactable" Type="Boolean" Protection="Free" DefaultValue="False" Uuid="864D4FF5-E1F6-4c81-857F-9F8167E77815" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Property Name="IconName" Value="I_MldSwitch"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgUserComponent"
+         Uuid="559BFDD1-367A-488c-89BA-9BF3F0889AE6"
+         CustomerExposition="Programmer" SuperName="TlgMiscellaneous" Discipline="Yes" Specializable="Yes">
+    <Simple Name="V_TlgSymmetryCreatedWith" Type="String" Protection="Free" DefaultValue="NewRef" Uuid="5D6E254F-355F-46D2-939E-3B19DA9A0388" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+      <Range>
+        <Equal>NewRef</Equal>
+        <Equal>SameRef</Equal>
+        <Equal>NoSymmetry</Equal>
+      </Range>
+    </Simple>
+    <Simple Name="V_TlgDuplicateInst" Type="Boolean" Protection="Free" DefaultValue="False" Uuid="04859090-B78D-458b-91BE-730C20191DCF" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Simple Name="V_TlgImpactable" Type="Boolean" Protection="Free" DefaultValue="True" Uuid="27A3A451-CAAE-4c92-9401-88908229428B" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Property Name="IconName" Value="I_MldUserComponent"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgWearPlate"
+         Uuid="5AC2B0A3-F1AE-4ec8-910E-A675F21F0499"
+         CustomerExposition="Programmer" SuperName="TlgMiscellaneous" Discipline="Yes" Specializable="Yes">
+    <Simple Name="V_TlgSymmetryCreatedWith" Type="String" Protection="Free" DefaultValue="NewRef" Uuid="42CAFF46-D979-4134-AF15-A2750439AAD0" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+      <Range>
+        <Equal>NewRef</Equal>
+        <Equal>SameRef</Equal>
+        <Equal>NoSymmetry</Equal>
+      </Range>
+    </Simple>
+    <Simple Name="V_TlgDuplicateInst" Type="Boolean" Protection="Free" DefaultValue="True" Uuid="3ABAB959-BDA3-47f2-97D2-5EF83CBBF9AC" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Simple Name="V_TlgImpactable" Type="Boolean" Protection="Free" DefaultValue="True" Uuid="BBE619FB-4D2B-4b87-993B-B87A226E408F" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Property Name="IconName" Value="I_MldWearPlate"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgFuncTypes"
+         Uuid="6E69F44B-D6CF-4286-B75A-F01C5FD2079B"
+         Deprecated ="Yes"
+         Abstract="Yes"
+         CustomerExposition="ProgrammerOnly" SuperName="TlgMiscellaneous" Discipline="Yes" Specializable="Yes">
+    <Simple Name="V_TlgDuplicateInst" Type="Boolean" Protection="Free" DefaultValue="False" Uuid="B241F21A-DA09-429d-B14E-DC5332605E38" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Simple Name="V_TlgImpactable" Type="Boolean" Protection="Free" DefaultValue="True" Uuid="0C2967DC-346B-437c-8121-8420C9BB5571" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+  </Extension>
+
+  <Extension Name="TlgFuncType1"
+         Uuid="97A7337B-636E-492d-A6EA-332A0B3E9A79"
+         Deprecated ="Yes" CustomerExposition="ProgrammerOnly" SuperName="TlgFuncTypes" Discipline="Yes" Specializable="Yes">
+  </Extension>
+
+  <Extension Name="TlgFuncType2"
+         Uuid="49A67A96-5659-4377-80F5-480CC5034AC0"
+         Deprecated ="Yes" CustomerExposition="ProgrammerOnly" SuperName="TlgFuncTypes" Discipline="Yes" Specializable="Yes">
+  </Extension>
+
+  <Extension Name="TlgFuncType3"
+         Uuid="565F49D4-80CD-4578-BF8A-CCEB6368A893"
+         Deprecated ="Yes" CustomerExposition="ProgrammerOnly" SuperName="TlgFuncTypes" Discipline="Yes" Specializable="Yes">
+  </Extension>
+
+  <Extension Name="TlgFuncType4"
+         Uuid="4E7FC39E-F729-4557-9E0E-40908B779C2E"
+         Deprecated ="Yes" CustomerExposition="ProgrammerOnly" SuperName="TlgFuncTypes" Discipline="Yes" Specializable="Yes">
+  </Extension>
+
+  <Extension Name="TlgFuncType5"
+         Uuid="D37DEFBB-FC6C-4b56-86CB-E3DD2C28E289"
+         Deprecated ="Yes" CustomerExposition="ProgrammerOnly" SuperName="TlgFuncTypes" Discipline="Yes" Specializable="Yes">
+  </Extension>
+
+  <Extension Name="TlgFuncType6"
+         Uuid="3055FBC5-CB21-4a79-89DC-D3AFD7AE47D6"
+         Deprecated ="Yes" CustomerExposition="ProgrammerOnly" SuperName="TlgFuncTypes" Discipline="Yes" Specializable="Yes">
+  </Extension>
+
+  <Extension Name="TlgFuncType7"
+         Uuid="38ACD4D8-C5F3-4c04-8E20-2C1911C6053C"
+         Deprecated ="Yes" CustomerExposition="ProgrammerOnly" SuperName="TlgFuncTypes" Discipline="Yes" Specializable="Yes">
+  </Extension>
+
+  <Extension Name="TlgFuncType8"
+         Uuid="66A7FA48-FE93-4831-A5EF-3D2525F51FF1"
+         Deprecated ="Yes" CustomerExposition="ProgrammerOnly" SuperName="TlgFuncTypes" Discipline="Yes" Specializable="Yes">
+  </Extension>
+
+  <Extension Name="TlgFuncType9"
+         Uuid="10C768B3-5561-491c-8ED6-16642D4AE22C"
+         Deprecated ="Yes" CustomerExposition="ProgrammerOnly" SuperName="TlgFuncTypes" Discipline="Yes" Specializable="Yes">
+  </Extension>
+
+  <Extension Name="TlgFuncType10"
+         Uuid="B6D46B60-1767-4350-8BFB-B103EA413CD9"
+         Deprecated ="Yes" CustomerExposition="ProgrammerOnly" SuperName="TlgFuncTypes" Discipline="Yes" Specializable="Yes">
+  </Extension>
+
+  <Extension Name="TlgFuncType11"
+         Uuid="FBAF123B-49B4-4557-AE4A-0E178C4BD1B2"
+         Deprecated ="Yes" CustomerExposition="ProgrammerOnly" SuperName="TlgFuncTypes" Discipline="Yes" Specializable="Yes">
+  </Extension>
+
+  <Extension Name="TlgFuncType12"
+         Uuid="8905919B-590D-4e57-9C4E-7DC1403D8F63"
+         Deprecated ="Yes" CustomerExposition="ProgrammerOnly" SuperName="TlgFuncTypes" Discipline="Yes" Specializable="Yes">
+  </Extension>
+
+  <Extension Name="TlgFuncType13"
+         Uuid="19CBE0B5-95E4-4bd3-A638-86DA14FFF522"
+         Deprecated ="Yes" CustomerExposition="ProgrammerOnly" SuperName="TlgFuncTypes" Discipline="Yes" Specializable="Yes">
+  </Extension>
+
+  <Extension Name="TlgFuncType14"
+         Uuid="A102F4F0-5564-4e26-AC79-15869FE81C93"
+         Deprecated ="Yes" CustomerExposition="ProgrammerOnly" SuperName="TlgFuncTypes" Discipline="Yes" Specializable="Yes">
+  </Extension>
+
+  <Extension Name="TlgFuncType15"
+         Uuid="CBA8CA6E-FED4-4a91-A348-A973CC655B4E"
+         Deprecated ="Yes" CustomerExposition="ProgrammerOnly" SuperName="TlgFuncTypes" Discipline="Yes" Specializable="Yes">
+  </Extension>
+
+  <Extension Name="TlgFuncType16"
+         Uuid="BF8AF102-0F1A-460d-9AF5-64AA6F9401E0"
+         Deprecated ="Yes" CustomerExposition="ProgrammerOnly" SuperName="TlgFuncTypes" Discipline="Yes" Specializable="Yes">
+  </Extension>
+
+  <Extension Name="TlgFuncType17"
+         Uuid="A8B48F77-E5E9-49a5-A000-FA8A256D64A5"
+         Deprecated ="Yes" CustomerExposition="ProgrammerOnly" SuperName="TlgFuncTypes" Discipline="Yes" Specializable="Yes">
+  </Extension>
+
+  <Extension Name="TlgFuncType18"
+         Uuid="03F5C4A0-9D8F-408a-B484-5A88032E54AC"
+         Deprecated ="Yes" CustomerExposition="ProgrammerOnly" SuperName="TlgFuncTypes" Discipline="Yes" Specializable="Yes">
+  </Extension>
+
+  <Extension Name="TlgFuncType19"
+         Uuid="650B098E-04FF-4c84-B615-F528AE33DAC5"
+         Deprecated ="Yes" CustomerExposition="ProgrammerOnly" SuperName="TlgFuncTypes" Discipline="Yes" Specializable="Yes">
+  </Extension>
+
+  <Extension Name="TlgFuncType20"
+         Uuid="07916DF1-C78E-46a0-88E1-DE3B07A00E96"
+         Deprecated ="Yes" CustomerExposition="ProgrammerOnly" SuperName="TlgFuncTypes" Discipline="Yes" Specializable="Yes">
+  </Extension>
+
+  <Extension Name="TlgStandardTypes"
+         Uuid="7B65C796-2EA9-416c-8EF2-4FB99D5E6DE8"
+         Abstract="Yes"
+         Deprecated ="Yes" CustomerExposition="ProgrammerOnly" SuperName="TlgMiscellaneous" Discipline="Yes" Specializable="Yes">
+    <Simple Name="V_TlgDuplicateInst" Type="Boolean" Protection="Free" DefaultValue="False" Uuid="A00E6039-02E6-4aa8-999A-9B414655D9C4" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Simple Name="V_TlgImpactable" Type="Boolean" Protection="Free" DefaultValue="True" Uuid="1F04C2E4-4D74-403a-B713-8D62CF75B59A" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+  </Extension>
+
+  <Extension Name="TlgStandardType1"
+         Uuid="22690475-0FAA-47cd-A4B5-F720EE99A331"
+         Deprecated ="Yes" CustomerExposition="ProgrammerOnly" SuperName="TlgStandardTypes" Discipline="Yes" Specializable="Yes">
+  </Extension>
+
+  <Extension Name="TlgStandardType2"
+         Uuid="AAD171D6-524A-46f3-BDAF-A9036CA6495D"
+         Deprecated ="Yes" CustomerExposition="ProgrammerOnly" SuperName="TlgStandardTypes" Discipline="Yes" Specializable="Yes">
+  </Extension>
+
+  <Extension Name="TlgStandardType3"
+         Uuid="A3028CEE-81A7-4bc0-A05B-CF2CA66A1A99"
+         Deprecated ="Yes" CustomerExposition="ProgrammerOnly" SuperName="TlgStandardTypes" Discipline="Yes" Specializable="Yes">
+  </Extension>
+
+  <Extension Name="TlgStandardType4"
+         Uuid="64C4A9E0-EA08-4a41-AA25-738E72145098"
+         Deprecated ="Yes" CustomerExposition="ProgrammerOnly" SuperName="TlgStandardTypes" Discipline="Yes" Specializable="Yes">
+  </Extension>
+
+  <Extension Name="TlgStandardType5"
+         Uuid="32F68DAE-1E04-48e8-A648-D173D24E6DD8"
+         Deprecated ="Yes" CustomerExposition="ProgrammerOnly" SuperName="TlgStandardTypes" Discipline="Yes" Specializable="Yes">
+  </Extension>
+
+  <Extension Name="TlgStandardType6"
+         Uuid="E21F86F6-0A3B-4296-9E29-8FC1452C42FB"
+         Deprecated ="Yes" CustomerExposition="ProgrammerOnly" SuperName="TlgStandardTypes" Discipline="Yes" Specializable="Yes">
+  </Extension>
+
+  <Extension Name="TlgStandardType7"
+         Uuid="2AA025E6-CA49-495a-8FEA-AAD094BDAE78"
+         Deprecated ="Yes" CustomerExposition="ProgrammerOnly" SuperName="TlgStandardTypes" Discipline="Yes" Specializable="Yes">
+  </Extension>
+
+  <Extension Name="TlgStandardType8"
+         Uuid="36F52E23-9B9F-4955-ABB5-B0068B28A541"
+         Deprecated ="Yes" CustomerExposition="ProgrammerOnly" SuperName="TlgStandardTypes" Discipline="Yes" Specializable="Yes">
+  </Extension>
+
+  <Extension Name="TlgStandardType9"
+         Uuid="42E724D5-323F-4efa-A5AA-54CF498FC411"
+         Deprecated ="Yes" CustomerExposition="ProgrammerOnly" SuperName="TlgStandardTypes" Discipline="Yes" Specializable="Yes">
+  </Extension>
+
+  <Extension Name="TlgStandardType10"
+         Uuid="BAB44547-5147-4d12-8E77-DAAE5F4E2D6F"
+         Deprecated ="Yes" CustomerExposition="ProgrammerOnly" SuperName="TlgStandardTypes" Discipline="Yes" Specializable="Yes">
+  </Extension>
+
+  <Extension Name="TlgStandardType11"
+         Uuid="3CC93382-A0D6-48cc-A292-996AC7FA8297"
+         Deprecated ="Yes" CustomerExposition="ProgrammerOnly" SuperName="TlgStandardTypes" Discipline="Yes" Specializable="Yes">
+  </Extension>
+
+  <Extension Name="TlgStandardType12"
+         Uuid="3C353BE9-70D0-48e2-842C-E1FE822C3010"
+         Deprecated ="Yes" CustomerExposition="ProgrammerOnly" SuperName="TlgStandardTypes" Discipline="Yes" Specializable="Yes">
+  </Extension>
+
+  <Extension Name="TlgStandardType13"
+         Uuid="7A4E08D0-E749-47e2-AC72-3D23955EADCC"
+         Deprecated ="Yes" CustomerExposition="ProgrammerOnly" SuperName="TlgStandardTypes" Discipline="Yes" Specializable="Yes">
+  </Extension>
+
+  <Extension Name="TlgStandardType14"
+         Uuid="D2C91505-E23A-4b14-B0D7-5C993EDE92B7"
+         Deprecated ="Yes" CustomerExposition="ProgrammerOnly" SuperName="TlgStandardTypes" Discipline="Yes" Specializable="Yes">
+  </Extension>
+
+  <Extension Name="TlgStandardType15"
+         Uuid="2F83A9DD-406E-4e79-9AD8-1A971B032868"
+         Deprecated ="Yes" CustomerExposition="ProgrammerOnly" SuperName="TlgStandardTypes" Discipline="Yes" Specializable="Yes">
+  </Extension>
+
+  <Extension Name="TlgStandardType16"
+         Uuid="673B13B4-51FA-4842-8A25-0BB34FD047A8"
+         Deprecated ="Yes" CustomerExposition="ProgrammerOnly" SuperName="TlgStandardTypes" Discipline="Yes" Specializable="Yes">
+  </Extension>
+
+  <Extension Name="TlgStandardType17"
+         Uuid="34E9E348-C82F-44ff-BA96-E83649966401"
+         Deprecated ="Yes" CustomerExposition="ProgrammerOnly" SuperName="TlgStandardTypes" Discipline="Yes" Specializable="Yes">
+  </Extension>
+
+  <Extension Name="TlgStandardType18"
+         Uuid="6EF9D5F0-3C4B-4d93-8C90-95728DED6E78"
+         Deprecated ="Yes" CustomerExposition="ProgrammerOnly" SuperName="TlgStandardTypes" Discipline="Yes" Specializable="Yes">
+  </Extension>
+
+  <Extension Name="TlgStandardType19"
+         Uuid="9C979637-3A7E-47a7-9F92-D368989E26DE"
+         Deprecated ="Yes" CustomerExposition="ProgrammerOnly" SuperName="TlgStandardTypes" Discipline="Yes" Specializable="Yes">
+  </Extension>
+
+  <Extension Name="TlgStandardType20"
+         Uuid="E9C48486-F66D-4535-BDD8-F03353903E48"
+         Deprecated ="Yes" CustomerExposition="ProgrammerOnly" SuperName="TlgStandardTypes" Discipline="Yes" Specializable="Yes">
+  </Extension>
+
+  <Extension Name="TlgSeal"
+         Uuid="05A38BA9-DB80-49CF-B874-F1EC36369121"
+         Abstract="No"
+         CustomerExposition="Programmer" SuperName="ToolingComponent" Discipline="Yes" Specializable="Yes">
+    <Simple Name="V_TlgSymmetryCreatedWith" Type="String" Protection="Free" DefaultValue="SameRef" Uuid="7E85D8C7-EEC1-43D3-A0C6-758D6791C63B" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+      <Range>
+        <Equal>NewRef</Equal>
+        <Equal>SameRef</Equal>
+        <Equal>NoSymmetry</Equal>
+      </Range>
+    </Simple>
+    <Simple Name="V_TlgDuplicateInst" Type="Boolean" Protection="Free" DefaultValue="False" Uuid="4E4143E9-8A15-4A45-BCA3-8BF70F99F090" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Simple Name="V_TlgImpactable" Type="Boolean" Protection="Free" DefaultValue="False" Uuid="7AF97A52-A46F-457F-9A34-3AF8941AAE42" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Property Name="IconName" Value="I_MldTlgSeal"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgUndercut"
+         Uuid="FDC7ACB2-639C-44fe-B9EA-E981F0C00D64"
+         Abstract="Yes"
+         CustomerExposition="Programmer" SuperName="ToolingComponent" Discipline="Yes" Specializable="Yes">
+    <Simple Name="V_TlgSymmetryCreatedWith" Type="String" Protection="Free" DefaultValue="NewRef" Uuid="718DCE38-375E-474B-9E7C-714E1D648354" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+      <Range>
+        <Equal>NewRef</Equal>
+        <Equal>SameRef</Equal>
+        <Equal>NoSymmetry</Equal>
+      </Range>
+    </Simple>
+    <Property Name="IconName" Value="I_MldTlgUndercut"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgAnglePin"
+          Uuid="AFFF7627-A3D4-49b7-A086-0EB08FB80963"
+          CustomerExposition="Programmer" SuperName="TlgUndercut" Discipline="Yes" Specializable="Yes">
+    <Simple Name="V_TlgDuplicateInst" Type="Boolean" Protection="Free" DefaultValue="True" Uuid="86C15D8B-CFCC-4b8a-B908-3B4C1D805E9E" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Simple Name="V_TlgImpactable" Type="Boolean" Protection="Free" DefaultValue="True" Uuid="44E7A3FE-DFF4-4e0c-823F-26C82C51CF74" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Property Name="IconName" Value="I_MldAnglePin"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgAngularCam"
+         Uuid="50AE89BB-977D-4137-A50C-9580B4AA76E7"
+         CustomerExposition="Programmer" SuperName="TlgUndercut" Discipline="Yes" Specializable="Yes">
+    <Simple Name="V_TlgDuplicateInst" Type="Boolean" Protection="Free" DefaultValue="False" Uuid="DF3D983F-BA38-43eb-8091-8E22BE019003" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Simple Name="V_TlgImpactable" Type="Boolean" Protection="Free" DefaultValue="False" Uuid="B1946B49-E289-4b80-B201-7C324CA35F51" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Property Name="IconName" Value="I_MldAngularCam"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgGuideCenterRail"
+         Uuid="469050E6-5ABA-4aac-A6F8-5070216E0F54"
+         CustomerExposition="Programmer" SuperName="TlgUndercut" Discipline="Yes" Specializable="Yes">
+    <Simple Name="V_TlgDuplicateInst" Type="Boolean" Protection="Free" DefaultValue="True" Uuid="4FD17F22-1C15-4944-B83A-FC33D23BD443" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Simple Name="V_TlgImpactable" Type="Boolean" Protection="Free" DefaultValue="True" Uuid="A75717B3-226A-4d34-9471-6A980CDF3786" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Property Name="IconName" Value="I_MldGuideCenterRail"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgInclinedPin"
+         Uuid="D4C385E2-EAEA-4c3d-A33E-849E1BFF0071"
+         CustomerExposition="Programmer" SuperName="TlgUndercut" Discipline="Yes" Specializable="Yes">
+    <Simple Name="V_TlgDuplicateInst" Type="Boolean" Protection="Free" DefaultValue="True" Uuid="20D2AEC2-E1B1-46c0-B273-7CF1098C1153" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Simple Name="V_TlgImpactable" Type="Boolean" Protection="Free" DefaultValue="True" Uuid="53759600-23C2-48f9-A119-28ACBB2EA060" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Property Name="IconName" Value="I_MldInclinedPin"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgLockingBlock"
+         Uuid="04F2016A-903A-4435-9E45-D1140A375487"
+         CustomerExposition="Programmer" SuperName="TlgUndercut" Discipline="Yes" Specializable="Yes">
+    <Simple Name="V_TlgDuplicateInst" Type="Boolean" Protection="Free" DefaultValue="False" Uuid="59CEB155-097D-44c4-94CF-C75565FC6B87" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Simple Name="V_TlgImpactable" Type="Boolean" Protection="Free" DefaultValue="False" Uuid="82777D62-0F89-4a0c-989C-2216A9224FE5" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Property Name="IconName" Value="I_MldLockingBlock"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgRetainer"
+         Uuid="BE13CAD9-C4CB-4991-A574-88EEA34EDE2F"
+         CustomerExposition="Programmer" SuperName="TlgUndercut" Discipline="Yes" Specializable="Yes">
+    <Simple Name="V_TlgDuplicateInst" Type="Boolean" Protection="Free" DefaultValue="True" Uuid="A47468DC-32A4-4068-9677-9D3214ECF959" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Simple Name="V_TlgImpactable" Type="Boolean" Protection="Free" DefaultValue="True" Uuid="ED3ECB96-F1F4-454e-90E9-E43AD1888B13" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Property Name="IconName" Value="I_MldRetainer"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgSlideGuide"
+         Uuid="67F6932B-C3F4-4c6a-BB25-210FA12B8C9B"
+         CustomerExposition="Programmer" SuperName="TlgUndercut" Discipline="Yes" Specializable="Yes">
+    <Simple Name="V_TlgDuplicateInst" Type="Boolean" Protection="Free" DefaultValue="True" Uuid="F15EE565-E4AB-4693-8930-98338F58DCAB" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Simple Name="V_TlgImpactable" Type="Boolean" Protection="Free" DefaultValue="True" Uuid="F21CB840-D8EC-4002-AA14-AC1B8A829CCB" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Property Name="IconName" Value="I_MldSlideGuide"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgStraightPin"
+         Uuid="5BD70801-90E4-431f-AA5C-A14487179A2D"
+         CustomerExposition="Programmer" SuperName="TlgUndercut" Discipline="Yes" Specializable="Yes">
+    <Simple Name="V_TlgDuplicateInst" Type="Boolean" Protection="Free" DefaultValue="True" Uuid="A7A1393D-9D27-4d6f-B29F-B737120A1FDF" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Simple Name="V_TlgImpactable" Type="Boolean" Protection="Free" DefaultValue="True" Uuid="73EB7DB8-E849-4a49-AFB3-A03C3762DEA8" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Property Name="IconName" Value="I_MldStraightPin"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgToolStructure"
+         Uuid="FAFC0219-4EA6-4173-9ABC-0D0123657FF7"
+         Abstract="No"
+         CustomerExposition="Programmer" SuperName="ToolingComponent" Discipline="Yes" Specializable="No">
+    <Simple Name="V_TlgSymmetryCreatedWith" Type="String" Protection="Free" DefaultValue="NewRef" Uuid="5AF4BB0D-3635-476D-BF05-EB8E25A3BFB2" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+      <Range>
+        <Equal>NewRef</Equal>
+        <Equal>SameRef</Equal>
+        <Equal>NoSymmetry</Equal>
+      </Range>
+    </Simple>
+    <Simple Name="V_TlgDuplicateInst" Type="Boolean" Protection="Free" DefaultValue="True" Uuid="23B978EF-1C10-4712-ACA0-8314C781EC3E" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Simple Name="V_TlgImpactable" Type="Boolean" Protection="Free" DefaultValue="True" Uuid="762D0875-92B8-4e8e-92D6-C9C9E24936DA" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Property Name="IconName" Value="I_MldTlgToolStructure"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgInsert"
+         Uuid="A77F8FB5-4E2C-45d1-B03C-EE930A8A093E"
+         CustomerExposition="Programmer" SuperName="TlgToolStructure" Discipline="Yes" Specializable="Yes">
+    <Property Name="IconName" Value="I_MldInsert"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgInsertCavity"
+         Uuid="3CFA0F6D-93BD-413e-80F2-F05836A866C0"
+         CustomerExposition="Programmer" SuperName="TlgToolStructure" Discipline="Yes" Specializable="Yes">
+    <Property Name="IconName" Value="I_MldInsertCavity"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgInsertCore"
+         Uuid="A84A9887-9568-4799-A2B8-71F5BC151789"
+         CustomerExposition="Programmer" SuperName="TlgToolStructure" Discipline="Yes" Specializable="Yes">
+    <Property Name="IconName" Value="I_MldInsertCore"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgCast"
+         Uuid="18EA0129-CA98-4995-8A9B-540FF88620BB"
+         CustomerExposition="Programmer" SuperName="TlgToolStructure" Discipline="Yes" Specializable="Yes">
+    <Property Name="IconName" Value="I_MldCast"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgCavityPlate"
+         Uuid="E0027CBB-F0E1-4014-BC13-7627456B7109"
+         CustomerExposition="Programmer" SuperName="TlgToolStructure" Discipline="Yes" Specializable="Yes">
+    <Property Name="IconName" Value="I_MldCavityPlate"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgCavitySupportPlate"
+         Uuid="409A61BA-BA67-452a-904C-80C000921C8D"
+         CustomerExposition="Programmer" SuperName="TlgToolStructure" Discipline="Yes" Specializable="Yes">
+    <Property Name="IconName" Value="I_MldCavitySupportPlate"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgClampingPlate"
+        Uuid="BBC5B86C-F81E-46eb-AD57-2A6EB31D0BE6"
+        CustomerExposition="Programmer" SuperName="TlgToolStructure" Discipline="Yes" Specializable="Yes">
+    <Property Name="IconName" Value="I_MldClampingPlate"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgCorePlate"
+         Uuid="7A02CF88-4164-4a9d-BA34-86934F745482"
+         CustomerExposition="Programmer" SuperName="TlgToolStructure" Discipline="Yes" Specializable="Yes">
+    <Property Name="IconName" Value="I_MldCorePlate"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgCoreSupportPlate"
+         Uuid="776BFBF8-C070-4b28-A0FD-94DCF345ECBA"
+         CustomerExposition="Programmer" SuperName="TlgToolStructure" Discipline="Yes" Specializable="Yes">
+    <Property Name="IconName" Value="I_MldCoreSupportPlate"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgEjectorPlateA"
+         Uuid="7DDD8D0A-E7D1-418f-899D-5C7F9E775AF6"
+         CustomerExposition="Programmer" SuperName="TlgToolStructure" Discipline="Yes" Specializable="Yes">
+    <Property Name="IconName" Value="I_MldEjectorPlateA"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgEjectorPlateB"
+         Uuid="D4D10589-8C55-456c-BEB6-C79E0887F679"
+         CustomerExposition="Programmer" SuperName="TlgToolStructure" Discipline="Yes" Specializable="Yes">
+    <Property Name="IconName" Value="I_MldEjectorPlateB"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgRiserBar"
+         Uuid="473B7BE6-36F7-4979-BA08-ED0DC4B51FC1"
+         CustomerExposition="Programmer" SuperName="TlgToolStructure" Discipline="Yes" Specializable="Yes">
+    <Property Name="IconName" Value="I_MldRiserBar"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgSettingPlate"
+         Uuid="387D83B7-E728-4981-A6E8-945511D09564"
+         CustomerExposition="Programmer" SuperName="TlgToolStructure" Discipline="Yes" Specializable="Yes">
+    <Property Name="IconName" Value="I_MldSettingPlate"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgStopPlate"
+         Uuid="F420F715-2AE4-4E02-B527-5567B997DA99"
+         CustomerExposition="Programmer" SuperName="TlgToolStructure" Discipline="Yes" Specializable="Yes">
+    <Property Name="IconName" Value="I_MldStopPlate"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgStripperPlate"
+         Uuid="D1064D35-80D6-47cc-B018-9874BC34CE0F"
+         CustomerExposition="Programmer" SuperName="TlgToolStructure" Discipline="Yes" Specializable="Yes">
+    <Property Name="IconName" Value="I_MldStripperPlate"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgUpperBar"
+         Uuid="7FC3559D-05C4-459c-93FF-82639B373E4A"
+         CustomerExposition="Programmer" SuperName="TlgToolStructure" Discipline="Yes" Specializable="Yes">
+    <Property Name="IconName" Value="I_MldUpperBar"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgUserPlate"
+         Uuid="FCDAD862-15FF-4f9b-AEC0-24B29D87DCE3"
+         CustomerExposition="Programmer" SuperName="TlgToolStructure" Discipline="Yes" Specializable="Yes">
+    <Property Name="IconName" Value="I_MldUserPlate"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgToolUnitElement"
+         Uuid="6A404A93-C49E-4391-818B-B668D9EB37E4"
+         Abstract="No"
+         CustomerExposition="Programmer" SuperName="ToolingComponent" Discipline="Yes" Specializable="No">
+    <Simple Name="V_TlgSymmetryCreatedWith" Type="String" Protection="Free" DefaultValue="NewRef" Uuid="341560AF-B097-45AA-99C0-D0FBCBE3115E" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+      <Range>
+        <Equal>NewRef</Equal>
+        <Equal>SameRef</Equal>
+        <Equal>NoSymmetry</Equal>
+      </Range>
+    </Simple>
+    <Simple Name="V_TlgDuplicateInst" Type="Boolean" Protection="Free" DefaultValue="False" Uuid="C24CB158-0E1C-44bc-BD13-9EFA4D39403B" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Simple Name="V_TlgImpactable" Type="Boolean" Protection="Free" DefaultValue="False" Uuid="BD9DE17F-3121-4829-B6A8-C640506679E0" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Property Name="IconName" Value="I_MldTlgToolUnitElement"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+
+  </Extension>
+
+  <Extension Name="TlgLayoutEjector"
+         Uuid="BF1D906B-7CCC-46f9-B001-97504CEA6655"
+         CustomerExposition="Programmer" SuperName="TlgToolUnitElement" Discipline="Yes" Specializable="No">
+    <Property Name="IconName" Value="I_MldLayoutEjector"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+
+  </Extension>
+
+  <Extension Name="TlgLayoutInsertCavity"
+         Uuid="C11FE2CC-5C0C-4ec9-BF50-97476D59AF2D"
+         CustomerExposition="Programmer" SuperName="TlgToolUnitElement" Discipline="Yes" Specializable="No">
+    <Property Name="IconName" Value="I_MldLayoutInsertCavity"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+
+  </Extension>
+
+  <Extension Name="TlgLayoutInsertCore"
+         Uuid="E7777A63-B094-4f98-A9A4-93F402C1BC9D"
+         CustomerExposition="Programmer" SuperName="TlgToolUnitElement" Discipline="Yes" Specializable="No">
+    <Property Name="IconName" Value="I_MldLayoutInsertCore"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+
+  </Extension>
+
+  <Extension Name="TlgPrintEjector"
+         Uuid="6B68F36D-9B40-449d-898A-AB06E35AC606"
+         CustomerExposition="Programmer" SuperName="TlgToolUnitElement" Discipline="Yes" Specializable="No">
+    <Property Name="IconName" Value="I_MldPrintEjector"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+
+  </Extension>
+
+  <Extension Name="TlgPrintCavity"
+         Uuid="289542F1-53A4-4a11-8972-00CFD0AD2217"
+         CustomerExposition="Programmer" SuperName="TlgToolUnitElement" Discipline="Yes" Specializable="No">
+    <Property Name="IconName" Value="I_MldPrintCavity"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+
+  </Extension>
+
+  <Extension Name="TlgPrintCore"
+         Uuid="0D90F853-8C90-487f-99CD-52770C904E2D"
+         CustomerExposition="Programmer" SuperName="TlgToolUnitElement" Discipline="Yes" Specializable="No">
+    <Property Name="IconName" Value="I_MldPrintCore"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+
+  </Extension>
+
+  <Extension Name="TlgPrintRunner"
+         Uuid="1C6F4AC5-B84A-44b0-8523-E739FBC0CBAE"
+         CustomerExposition="Programmer" SuperName="TlgToolUnitElement" Discipline="Yes" Specializable="No">
+    <Property Name="IconName" Value="I_MldPrintRunner"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+
+  </Extension>
+
+  <Extension Name="TlgLayoutRunner"
+         Uuid="5F768D03-2394-469c-A325-0FF7A064D116"
+         CustomerExposition="Programmer" SuperName="TlgToolUnitElement" Discipline="Yes" Specializable="No">
+    <Property Name="IconName" Value="I_MldLayoutRunner"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+
+  </Extension>
+
+  <Extension Name="TlgElectrodes"
+         Uuid="F43E5E18-47DE-4fbe-87B6-7E4401AD0EC0"
+         Abstract="No"
+         CustomerExposition="Programmer" SuperName="ToolingComponent" Discipline="Yes" Specializable="Yes">
+    <Simple Name="V_TlgDuplicateInst" Type="Boolean" Protection="Free" DefaultValue="False" Uuid="582CD3C7-F587-47fd-A5B4-7021778D6EC9" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Simple Name="V_TlgImpactable" Type="Boolean" Protection="Free" DefaultValue="True" Uuid="049F30C5-612F-4103-88A2-0CECAA5B0DDB" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Simple Name="V_TlgSymmetryCreatedWith" Type="String" Protection="Free" DefaultValue="NewRef" Uuid="1A3EB70E-0867-451E-8C6E-292B886ACA9B" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+      <Range>
+        <Equal>NewRef</Equal>
+        <Equal>SameRef</Equal>
+        <Equal>NoSymmetry</Equal>
+      </Range>
+    </Simple>
+    <Property Name="IconName" Value="I_MldTlgElectrodes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgElectrode"
+         Uuid="3592C747-2E1F-4585-8D29-8146B967CC4A"
+         CustomerExposition="Programmer" SuperName="TlgElectrodes" Discipline="Yes" Specializable="Yes">
+    <Property Name="IconName" Value="I_MldElectrode"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgElectrodeCore"
+         Uuid="B5E02042-8635-45ed-92A3-EF14630CB585"
+         CustomerExposition="Programmer" SuperName="TlgElectrodes" Discipline="Yes" Specializable="Yes">
+    <Property Name="IconName" Value="I_MldElectrodeCore"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgHolder"
+         Uuid="7F8CF151-40A9-4909-9322-8281FDCE3306"
+         CustomerExposition="Programmer" SuperName="TlgElectrodes" Discipline="Yes" Specializable="Yes">
+    <Property Name="IconName" Value="I_MldHolder"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgHolderPlate"
+         Uuid="80D40E0F-1933-440c-985E-3AC4FB602271"
+         CustomerExposition="Programmer" SuperName="TlgElectrodes" Discipline="Yes" Specializable="Yes">
+    <Property Name="IconName" Value="I_MldHolderPlate"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgHolderBlock"
+         Uuid="45B3923F-FB1D-42cc-94C0-291FDCA864FF"
+         CustomerExposition="Programmer" SuperName="TlgElectrodes" Discipline="Yes" Specializable="Yes">
+    <Property Name="IconName" Value="I_MldHolderBlock"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgGates"
+         Uuid="1EDFDC04-6D13-4830-8EAC-460716048B0D"
+         Abstract="No"
+         CustomerExposition="Programmer" SuperName="ToolingComponent" Discipline="Yes" Specializable="Yes">
+    <Simple Name="V_TlgSymmetryCreatedWith" Type="String" Protection="Free" DefaultValue="SameRef" Uuid="C2275794-D651-4D83-A096-4B2B62983511" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+      <Range>
+        <Equal>NewRef</Equal>
+        <Equal>SameRef</Equal>
+        <Equal>NoSymmetry</Equal>
+      </Range>
+    </Simple>
+    <Simple Name="V_TlgDuplicateInst" Type="Boolean" Protection="Free" DefaultValue="False" Uuid="B7F357C3-4FDD-4bc4-8A51-3EE4310A0C3E" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Simple Name="V_TlgImpactable" Type="Boolean" Protection="Free" DefaultValue="True" Uuid="7948732E-3D0A-4fc2-8722-59FD957B625C" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Property Name="IconName" Value="I_MldTlgGates"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgGate"
+         Uuid="45709480-EA7B-41df-B431-69738403CBDC"
+         CustomerExposition="Programmer" SuperName="TlgGates" Discipline="Yes" Specializable="Yes">
+    <Property Name="IconName" Value="I_MldGate"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgTunnelGate"
+         Uuid="535B7A2D-1AFC-42de-8A2B-861531A6A441"
+         CustomerExposition="Programmer" SuperName="TlgGates" Discipline="Yes" Specializable="Yes">
+    <Property Name="IconName" Value="I_MldTunnelGate"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgToolingSystem"
+         Uuid="E0D3F584-B739-4e10-AD6F-805911A3EA3B"
+         Abstract="No"
+         CustomerExposition="Programmer" SuperName="ToolingComponent" Discipline="Yes" Specializable="Yes">
+    <Simple Name="V_TlgSymmetryCreatedWith" Type="String" Protection="Free" DefaultValue="NewRef" Uuid="B5D07654-2A50-4541-9779-2CD1E36AE86D" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+      <Range>
+        <Equal>NewRef</Equal>
+        <Equal>SameRef</Equal>
+        <Equal>NoSymmetry</Equal>
+      </Range>
+    </Simple>
+    <Simple Name="V_TlgDuplicateInst" Type="Boolean" Protection="Free" DefaultValue="True" Uuid="9D5EC57D-C852-4b54-A4DA-5A1268219848" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Simple Name="V_TlgImpactable" Type="Boolean" Protection="Free" DefaultValue="True" Uuid="D4170FC1-FE4A-41c3-BA55-94FC3B39ACC1" Faceted="Yes" >
+      <Property Name="Quadrant" Value="What"/>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+    </Simple>
+    <Property Name="IconName" Value="I_MldTlgToolingSystem"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgMechanism"
+         Uuid="B3CF27BE-0F33-430a-91CF-CE6AB6135D00"
+         CustomerExposition="Programmer" SuperName="TlgToolingSystem" Discipline="Yes" Specializable="Yes">
+    <Property Name="IconName" Value="I_MldMechanism"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgLifter"
+         Uuid="9720A4EC-023E-403f-A161-5A0347E4DEC7"
+         CustomerExposition="Programmer" SuperName="TlgToolingSystem" Discipline="Yes" Specializable="Yes">
+    <Property Name="IconName" Value="I_MldLifter"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgSlider"
+         Uuid="1A583E55-1578-444e-8B6A-6099AD4CAD2B"
+         CustomerExposition="Programmer" SuperName="TlgToolingSystem" Discipline="Yes" Specializable="Yes">
+    <Property Name="IconName" Value="I_MldSlider"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+  <Extension Name="TlgInterlock"
+         Uuid="830ED066-12D6-450e-9A24-1A763C618E53"
+         CustomerExposition="Programmer" SuperName="TlgToolingSystem" Discipline="Yes" Specializable="Yes">
+    <Property Name="IconName" Value="I_MldInterlock"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEMldDelegationInstance"/>
+  </Extension>
+
+</Package>
+<!-- Modeler V2-  -->
+
+<!-- Modeler V1   -->
+<!--<Package xmlns="PLMDictionaryTop" ModelerType="Top" DataRDB_OID="ENODR_TODESDIC" Name="PLMToolingDesignDictionary" Uuid="c96ed6c0-efaf-49ef-8a25-80e5bf4714c9" UseScopes="PRODUCTCFG"
+  BelongsToModeler="Tooling"
+  >
+	<Comment>last update the 2006-08-22 at 11:43:17</Comment>
+
+     <Extension  Name="PLMMldToolingComponent"  
+                 Alias="MldToolingComponent"  
+                 Uuid="84f21efe-f2b8-41c7-96e2-82bd48df5a71"  
+                 Visibility="Public"  
+                 ScopeNames="VPMReference"  
+                 >  
+
+          <Simple  Name="V_Type"  
+                   Alias="Type"  
+                   Uuid="50b93e31-cd39-4a50-a03e-8e85e37c17cb"  
+                   Visibility="Public"  
+                   AccessMode="ReadWrite"  
+                   Type="String"  
+                   MaxLength="40"  
+                   Mandatory="Yes"  
+                   MultiValuated="No"  
+                   Protection="External" CAAExposition="L0"/> 
+
+	  <Simple  Name="V_Splittable"  
+                   Alias="Splittable"  
+                   Uuid="0cdff5b4-fc36-4b35-910d-6f436627cc39"  
+                   Visibility="Public"  
+                   AccessMode="ReadWrite"  
+                   Type="Boolean"    
+                   Mandatory="Yes"  
+                   MultiValuated="No"  
+                   Protection="External" CAAExposition="L0"/> 
+                   
+	  <Simple  Name="V_GuidedDialog"  
+                   Alias="GuidedDialog"  
+                   Uuid="822734fc-7df8-4b39-818e-0e2c2fa9c22d"  
+                   Visibility="Public"  
+                   AccessMode="ReadWrite"  
+                   Type="Boolean"    
+                   Mandatory="Yes"  
+                   MultiValuated="No"  
+                   Protection="External" CAAExposition="L0"/> 
+
+     </Extension>  
+     
+     <Extension  Name="PLMMldToolingComponentRep"  
+                 Alias="MldToolingComponentRep"  
+                 Uuid="7ae5e518-3e21-4389-ac7b-85b5fc305097"  
+                 Visibility="Public"  
+                 ScopeNames="VPMRepReference"  
+                 >  
+
+          <Simple  Name="V_Type"  
+                   Alias="Type"  
+                   Uuid="d65f80b3-6b32-4d13-9736-228d5d7a326b"  
+                   Visibility="Public"  
+                   AccessMode="ReadWrite"  
+                   Type="String"  
+                   MaxLength="40"  
+                   Mandatory="Yes"  
+                   MultiValuated="No"  
+                   Protection="External" CAAExposition="L0"/> 
+
+     </Extension>  
+
+     <Extension  Name="PLMMldSolidOUT"  
+                 Alias="MldSolidOUT"  
+                 Uuid="7732799d-5486-4f8a-85d7-dca0f776c646"  
+                 Visibility="Public"  
+                 ScopeNames="VPMPort"  
+                 >  
+
+          <Simple  Name="V_Type"  
+                   Alias="Type"  
+                   Uuid="5be9e9bc-1b3c-493c-b82b-238a1ec3a0e7"  
+                   Visibility="Public"  
+                   AccessMode="ReadWrite"  
+                   Type="String"  
+                   MaxLength="40"  
+                   Mandatory="Yes"  
+                   MultiValuated="No"  
+                   Protection="External" CAAExposition="L0"/>  
+
+     </Extension> 
+
+     <Extension  Name="PLMMldSurfaceOUT"  
+                 Alias="MldSurfaceOUT"  
+                 Uuid="82d3a2d2-8329-4c83-8ddf-8ed3ec367570"  
+                 Visibility="Public"  
+                 ScopeNames="VPMPort"  
+                 >  
+
+          <Simple  Name="V_Type"  
+                   Alias="Type"  
+                   Uuid="309759a9-069d-4d99-937e-d8a361ced310"  
+                   Visibility="Public"  
+                   AccessMode="ReadWrite"  
+                   Type="String"  
+                   MaxLength="40"  
+                   Mandatory="Yes"  
+                   MultiValuated="No"  
+                   Protection="External" CAAExposition="L0"/>  
+
+     </Extension>
+
+     <Extension  Name="PLMMldPositionIN"  
+                 Alias="MldPositionIN"  
+                 Uuid="cd248bd7-aa54-40ae-b1e6-451c8d582488"  
+                 Visibility="Public"   
+                 ScopeNames="VPMPort"  
+                 >  
+
+          <Simple  Name="V_Type"  
+                   Alias="Type"  
+                   Uuid="c9509a92-93a4-4f7c-8b48-9b4faa9802e3"  
+                   Visibility="Public"  
+                   AccessMode="ReadWrite"  
+                   Type="String"  
+                   MaxLength="40"  
+                   Mandatory="Yes"  
+                   MultiValuated="No"  
+                   Protection="External" CAAExposition="L0"/>  
+
+     </Extension> 
+     
+     <Extension  Name="PLMMldPositionOUT"  
+                 Alias="MldPositionOUT"  
+                 Uuid="cdb35cbd-e60d-4328-913c-eed9025999e7"  
+                 Visibility="Public"  
+                 ScopeNames="VPMPort"  
+                 >  
+
+          <Simple  Name="V_Type"  
+                   Alias="Type"  
+                   Uuid="71d62f41-462a-4b0f-9a47-8f50d4e6d5ec"  
+                   Visibility="Public"  
+                   AccessMode="ReadWrite"  
+                   Type="String"  
+                   MaxLength="40"  
+                   Mandatory="Yes"  
+                   MultiValuated="No"  
+                   Protection="External" CAAExposition="L0"/>  
+                   
+          <Simple  Name="V_ComponentType"  
+                   Alias="ComponentType"  
+                   Uuid="59e36855-9d0d-4874-b980-b73232446951"  
+                   Visibility="Public"  
+                   AccessMode="ReadWrite"  
+                   Type="String"  
+                   MaxLength="40"  
+                   Mandatory="Yes"  
+                   MultiValuated="No"  
+                   Protection="External" CAAExposition="L0"/>  
+
+     </Extension>
+
+  -->
+<!-- Tooling Discipline on extension of VPMReference -->
+<!--
+  -->
+<!-- After R210 -->
+<!--
+  <Discipline Name="ToolingComponent" Uuid="d83b50ca-e216-4f40-aabf-e757faa7697d" CreationMode="No" TypeNames="VPMReference" CustomerExposition="Programmer" >
+    <Property Name="Newable" Value="No"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Discipline>
+  <Discipline Name="ToolingMobileUnit" Uuid="9b5d8464-7d2b-4f64-ab61-fe0563a6a7e6" CreationMode="No" TypeNames="VPMReference" CustomerExposition="Programmer" >
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Discipline>
+  <Discipline Name="ToolingSkeleton" Uuid="babde806-4808-425a-b64e-dcc25e5fd28b" CreationMode="No" TypeNames="VPMReference" CustomerExposition="Programmer" >
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Discipline>
+  -->
+<!-- New R210 -->
+<!--
+  <Discipline Name="ToolingTool" Uuid="91C35F91-79E7-48a8-90EA-F0FF8AA27DD1" CreationMode="No" TypeNames="VPMReference" CustomerExposition="Programmer" >
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Discipline>
+  <Discipline Name="ToolingDistributedComponent" Uuid="7C5BC8F0-E6BD-48aa-8638-7310FCAF71F1" CreationMode="No" TypeNames="VPMReference" CustomerExposition="Programmer" >
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Discipline>
+  <Discipline Name="ToolingLayout" Uuid="ACE2EB5E-B075-4be7-AB96-84845E72FF3F" CreationMode="No" TypeNames="VPMReference" CustomerExposition="Programmer" >
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Discipline>
+  <Discipline Name="ToolingFlow" Uuid="0AD7B8D5-C447-42ad-B01C-233AA97960C5" CreationMode="No" TypeNames="VPMReference" CustomerExposition="Programmer" >
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Discipline>
+  <Discipline Name="ToolingPart" Uuid="025C4E72-6D3F-4eba-95E0-52FE97EE1747" CreationMode="No" TypeNames="VPMReference" CustomerExposition="Programmer" >
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Discipline>
+</Package>-->
+<!-- Modeler V1-  -->
+
+

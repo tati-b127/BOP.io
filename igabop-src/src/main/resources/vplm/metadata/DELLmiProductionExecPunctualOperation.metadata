@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR DELMIA Production System Application -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2009, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" 
+         ModelerType="Top" 
+         Name="DELLmiProductionExecPunctualOperation"
+	       Uuid="7d4f277f-039b-47a7-8973-ad365b92460c"
+         BelongsToModeler="DELLmiProductionPlan"
+	       UseNames="DELLmiProductionOperationUPR" 
+         CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>Execution Point Fastening Operation. OBSOLETE. Not used in current applications </ShortRole>
+    <Role>This package describes the Execution Point Fastening Operation model on top of DELLmiProductionOperationUPR</Role>
+  </CAAComment>
+
+  <Comment>last update 2009-05-25</Comment>
+
+  <Class Name="DELLmiExecPunctualOperationReference"
+		     Uuid="019576cb-63aa-4db1-9cc6-b2cbd162b031"
+ 		     Abstract="No"
+         SuperName="DELLmiOperationUPRReference"
+         CustomerExposition="Programmer"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         CreateInstName="DELLmiExecPunctualOperationInstance"
+         Abbreviation="wpop"
+         InstantiationOwnerTypes="DELLmiExecGeneralSystemReference;DELLmiExecTransfoSystemReference;DELLmiExecGeneralOperationReference;DELLmiExecInterruptOperationReference;DELLmiWorkOrderReference"
+         >
+    <!-- we want only support InstantiationOwnerTypes="DELLmiWorkOrderReference"-->
+    <!-- we keep all for historical reasons"-->
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELLmiExecOpDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELLmiExecPunctualOperationInstance"/>
+    <Property Name="IconName" Value="I_PPRSeqExecPointFastening"/>
+    <Property Name="3DIconName" Value="I_PPRSeqExecPointFastening.cgr"/>
+    <Property Name="Newable" Value="Insert_CAA"/>
+    <Property Name="Searchable" Value="Yes"/>
+
+    <CAAComment>
+      <ShortRole>Execution Point Fastening Operation Reference</ShortRole>
+      <Role>Execution Point Fastening Operation Reference. Specialization is not supported yet.</Role>
+    </CAAComment>
+
+	  <Simple Name="V_TimePerFastening" 
+            Uuid="07705798-b9f2-4e70-9b52-cd0eaa212536" 
+            Type="Double"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0">
+    </Simple>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+
+
+  </Class>
+
+  <RelationClass Name="DELLmiExecPunctualOperationInstance"
+		     Uuid="f1c2b6f9-f6b9-45f3-83ac-7f66c31c1141"
+		     Abstract="No"
+         SuperName="DELLmiOperationUPRInstance"
+         CustomerExposition="Programmer"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         >
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELLmiExecOpDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELLmiExecPunctualOperationInstance"/>
+    
+    <CAAComment>
+      <ShortRole>Execution Point Fastening Operation Instance.</ShortRole>
+      <Role>Execution Point Fastening Operation Instance. Specialization is not supported yet.</Role>
+    </CAAComment>
+
+    <Volatile Name="Reference" 
+              Uuid="EED886FC-3B7E-4f4f-A970-3B974CCF7925"
+              Accessor="PLMModelerReferenceKweAttribute" 
+              TypeName="DELLmiExecPunctualOperationReference" 
+              AccessMode="ReadOnly" />
+
+    <SubClause Name="to"   TargetName="DELLmiExecPunctualOperationReference"/>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+
+
+  </RelationClass>
+
+</Package>

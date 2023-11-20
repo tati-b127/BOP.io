@@ -1,0 +1,32 @@
+<?xml version="1.0" ?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2004, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" 
+         ModelerType="Top" 
+         Name="SIMObjGenerativeStressMigrationExtension"
+         Uuid="C254CFBB-006D-422B-A50F-5FD4C22B4B7E"
+         UseNames="SIMObjSimulationGeneric" 
+         CustomerExposition="Programmer">
+
+         <CAAComment>
+            <ShortRole>Extension dedicated to Elfini to Abaqus migration</ShortRole>
+         </CAAComment>
+	
+	      <Extension Name="GenerativeStressMigrationExt"
+              Uuid="9F806865-861A-498C-A530-E706ACC9A50A"
+              ScopeNames="SIMObjSimulationObjectGeneric"
+		          CAAExposition="L1"
+              Abstract="No"
+              CustomerExposition="Programmer">
+    
+              <Simple Name="PhysicsSOMigrated" 
+                      Uuid="20F122A0-4599-461D-94E0-DF156D9BC8E1" 
+                      Type="String" 
+                      MultiValuated="No"
+                      CAAExposition="L1"
+                      Protection="External"/>
+
+	      </Extension>
+</Package>

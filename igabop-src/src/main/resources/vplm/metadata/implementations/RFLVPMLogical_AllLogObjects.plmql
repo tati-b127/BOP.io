@@ -1,0 +1,24 @@
+EXPAND
+T0.PLMID, T1.PLMID, T2.PLMID, T3.PLMID, T4.PLMID, T5.PLMID, T6.PLMID, T7.PLMID, T8.PLMID, T9.PLMID, T10.PLMID, T11.PLMID, T12.PLMID, T13.PLMID, T14.PLMID, T15.PLMID, T16.PLMID, T17.PLMID,
+T0.PLM_ExternalID, T1.PLM_ExternalID, T2.PLM_ExternalID, T3.PLM_ExternalID, T4.PLM_ExternalID, T5.PLM_ExternalID, T6.PLM_ExternalID, T7.PLM_ExternalID, T8.PLM_ExternalID, T9.PLM_ExternalID, T10.PLM_ExternalID, T11.PLM_ExternalID, T12.PLM_ExternalID, T13.PLM_ExternalID, T14.PLM_ExternalID, T15.PLM_ExternalID, T16.PLM_ExternalID, T17.PLM_ExternalID
+FROM
+RFLVPMLogical/RFLVPMLogicalReference T0,
+RFLVPMLogical/RFLVPMLogicalInstance T1,
+RFLVPMLogical/RFLVPMLogicalPort T2,
+RFLVPMLogical/RFLVPMLogicalConnection T3,
+RFLVPMLogical/RFLVPMLogicalRepReference T4,
+RFLVPMLogical/RFLVPMLogicalRepInstance T5,
+RFLVPMLogicalCommunication/RFLVPMLogicalCommunicationReference T6,
+RFLVPMLogicalCommunication/RFLVPMLogicalCommunicationInstance T7,
+RFLVPMLogical3DRep/RFLVPMLogical3DRepReference T8,
+RFLVPMLogical3DRep/RFLVPMLogical3DRepInstance T9,
+RFLVPMLogicalPublication/RFLVPMLogicalPublication T10,
+RFLVPMSystemType/RFLVPMSystemTypeReference T11,
+RFLVPMSystemType/RFLVPMSystemTypeInstance T12,
+RFLVPMSystemTypeExposition/RFLVPMSystemTypeExpositionInstance T13,
+RFLVPMLogicalServices/RFLVPMServicesReference T14,
+RFLVPMLogicalServices/RFLVPMServicesExpositionInstance T15,
+RFLVPMLogicalInterfaceRep/RFLVPMLogicalInterfaceRepReference T16,
+RFLVPMLogicalInterfaceRep/RFLVPMLogicalInterfaceRepInstance T17
+
+FROM_ROOTS [?1?];

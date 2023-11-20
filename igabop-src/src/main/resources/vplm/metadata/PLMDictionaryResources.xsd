@@ -1,0 +1,584 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xs:schema
+        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        xmlns:tns="PLMDictionaryResources"
+        targetNamespace="PLMDictionaryResources"
+        elementFormDefault="qualified"
+        attributeFormDefault="unqualified">
+
+    <xs:complexType name="Package">
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="tns:Comment"/>
+            <xs:element ref="tns:CAAComment"/>
+            <xs:element ref="tns:Discipline"/>
+            <xs:element ref="tns:Enum"/>
+            <xs:element minOccurs="0" ref="tns:Interface"/>
+            <xs:element ref="tns:Operation"/>
+            <xs:element ref="tns:SemanticRelation"/>
+            <xs:element ref="tns:ClassRule"/>
+            <xs:element ref="tns:Function"/>
+            <xs:element name="Signature" type="tns:FuncSignature"/>
+            <xs:element name="Property" minOccurs="0" maxOccurs="unbounded" type="tns:Property"/>
+        </xs:choice>
+        <xs:attribute name="Name" type="xs:string" use="required"/>
+        <xs:attribute name="Uuid" type="xs:string"/>
+        <xs:attribute name="ModelerType">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="Resources"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="UseScopes" type="xs:string"/>
+        <xs:attribute name="UseProcedures" type="xs:string"/>
+        <xs:attribute name="ModelerName" type="xs:string"/>
+        <xs:attribute name="CustomerExposition">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="None"/>
+                    <xs:enumeration value="Programmer"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="Alias" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>This attribute is obsolete, and should not be used any more. Should you have any NLS
+                    need, please please use CATNls files!
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <!--Indicates in which architecture the schema will be used: by default, it will be web if not defined-->
+        <xs:attribute name="Architecture">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="Web"/>
+                    <xs:enumeration value="Native"/>
+                    <xs:enumeration value="All"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:complexType>
+    <xs:element name="Package" type="tns:Package"/>
+
+
+    <xs:complexType name="Enum">
+        <xs:choice>
+            <xs:element name="Property" minOccurs="0" maxOccurs="unbounded" type="tns:Property"/>
+            <xs:element minOccurs="0" ref="tns:Comment"/>
+            <xs:element maxOccurs="unbounded" ref="tns:Enumerator"/>
+        </xs:choice>
+        <xs:attribute name="Name" type="xs:string" use="required"/>
+        <xs:attribute name="Uuid" type="xs:string"/>
+        <xs:attribute name="Alias" type="xs:string"/>
+        <xs:attribute name="Type" use="optional">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="Boolean"/>
+                    <xs:enumeration value="Integer"/>
+                    <xs:enumeration value="Double"/>
+                    <xs:enumeration value="Logical"/>
+                    <xs:enumeration value="String"/>
+                    <xs:enumeration value="Date"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:complexType>
+    <xs:element name="Enum" type="tns:Enum"/>
+
+
+    <xs:complexType name="Enumerator">
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="Property" minOccurs="0" maxOccurs="unbounded" type="tns:Property"/>
+            <xs:element ref="tns:Comment"/>
+        </xs:choice>
+        <xs:attribute name="Name" type="xs:string" use="required"/>
+        <xs:attribute name="Uuid" type="xs:string"/>
+        <xs:attribute name="Value" type="xs:string" use="required"/>
+    </xs:complexType>
+    <xs:element name="Enumerator" type="tns:Enumerator"/>
+
+
+    <xs:complexType name="Interface">
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="Property" minOccurs="0" maxOccurs="unbounded" type="tns:Property"/>
+            <xs:element minOccurs="0" maxOccurs="1" ref="tns:Comment"/>
+            <xs:element minOccurs="0" maxOccurs="unbounded" ref="tns:Service"/>
+        </xs:choice>
+        <xs:attribute name="Name" type="xs:string" use="required"/>
+        <xs:attribute name="Uuid" type="xs:string"/>
+        <xs:attribute name="Alias" type="xs:string"/>
+        <xs:attribute name="SuperRef" type="xs:string"/>
+        <xs:attribute name="SuperName" type="xs:string"/>
+    </xs:complexType>
+    <xs:element name="Interface" type="tns:Interface"/>
+
+
+    <xs:complexType name="Service">
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="Property" minOccurs="0" maxOccurs="unbounded" type="tns:Property"/>
+            <xs:element minOccurs="0" ref="tns:Comment"/>
+        </xs:choice>
+        <xs:attribute name="Name" type="xs:string" use="required"/>
+        <xs:attribute name="Uuid" type="xs:string"/>
+        <xs:attribute name="Alias" type="xs:string"/>
+        <xs:attribute name="SecurityPattern">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="Modify"/>
+                    <xs:enumeration value="Create"/>
+                    <xs:enumeration value="Browse"/>
+                    <xs:enumeration value="Delete"/>
+                    <xs:enumeration value="Query"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="LicenceOption">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="Yes"/>
+                    <xs:enumeration value="No"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="WriteAccess">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="Yes"/>
+                    <xs:enumeration value="No"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:complexType>
+    <xs:element name="Service" type="tns:Service"/>
+
+
+    <xs:element name="Comment" type="xs:string"/>
+
+
+    <xs:complexType name="Discipline">
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="Property" minOccurs="0" maxOccurs="unbounded" type="tns:Property"/>
+            <xs:element ref="tns:Method"/>
+        </xs:choice>
+        <xs:attribute name="Name" type="xs:string" use="required"/>
+        <xs:attribute name="Uuid" type="xs:string"/>
+        <xs:attribute name="CreationMode" use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="Yes"/>
+                    <xs:enumeration value="No"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="CustomerExposition">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="None"/>
+                    <xs:enumeration value="Programmer"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="TypeNames" type="xs:string" use="required"/>
+        <xs:attribute name="CAAExposition">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="L0"/>
+                    <xs:enumeration value="L1"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:complexType>
+    <xs:element name="Discipline" type="tns:Discipline"/>
+
+
+    <xs:complexType name="Operation">
+        <xs:sequence>
+            <xs:element minOccurs="0" ref="tns:Comment"/>
+            <xs:element minOccurs="0" maxOccurs="unbounded" ref="tns:ClassOperation"/>
+        </xs:sequence>
+        <xs:attribute name="Uuid" type="xs:string" use="optional"/>
+        <xs:attribute name="Name" type="xs:string" use="required"/>
+    </xs:complexType>
+    <xs:element name="Operation" type="tns:Operation"/>
+    <xs:complexType name="ClassOperation">
+        <xs:sequence>
+            <xs:element minOccurs="0" ref="tns:Comment"/>
+            <xs:element minOccurs="0" maxOccurs="unbounded" ref="tns:AttributeOperation"/>
+        </xs:sequence>
+        <xs:attribute name="Uuid" type="xs:string" use="optional"/>
+        <xs:attribute name="Name" type="xs:string" use="optional"/>
+        <xs:attribute name="TargetName" type="xs:string"/>
+        <xs:attribute name="TargetRef" type="xs:string" use="required"/>
+    </xs:complexType>
+    <xs:element name="ClassOperation" type="tns:ClassOperation"/>
+    <xs:complexType name="AttributeOperation">
+        <xs:sequence>
+            <xs:element minOccurs="0" ref="tns:Comment"/>
+        </xs:sequence>
+        <xs:attribute name="Uuid" type="xs:string" use="optional"/>
+        <xs:attribute name="Name" type="xs:string" use="optional"/>
+        <xs:attribute name="TargetName" type="xs:string"/>
+        <xs:attribute name="TargetRef" type="xs:string" use="required"/>
+        <xs:attribute name="Download">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="Yes"/>
+                    <xs:enumeration value="No"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:complexType>
+    <xs:element name="AttributeOperation" type="tns:AttributeOperation"/>
+    <xs:complexType name="DicElement">
+        <xs:attribute name="Name" type="xs:string" use="required"/>
+        <xs:attribute name="Uuid" type="tns:UuidString"/>
+    </xs:complexType>
+    <xs:simpleType name="UuidString">
+        <xs:restriction base="xs:string">
+            <xs:pattern
+                    value="((([0-9]|[a-f])|[A-F]){8,8}\-(([0-9]|[a-f])|[A-F]){4,4}\-(([0-9]|[a-f])|[A-F]){4,4}\-(([0-9]|[a-f])|[A-F]){16,16})|((([0-9]|[a-f])|[A-F]){8,8}\-(([0-9]|[a-f])|[A-F]){4,4}\-(([0-9]|[a-f])|[A-F]){4,4}\-(([0-9]|[a-f])|[A-F]){4,4}\-(([0-9]|[a-f])|[A-F]){12,12})"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="SemanticRelation">
+        <xs:complexContent mixed="false">
+            <xs:extension base="tns:DicElement">
+                <xs:choice maxOccurs="unbounded">
+                    <xs:element minOccurs="0" maxOccurs="unbounded" ref="tns:SRContextConstraint"/>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" ref="tns:SRPatternConstraint"/>
+                </xs:choice>
+                <xs:attribute name="AllowedTargetPath" use="optional">
+                    <xs:annotation>
+                        <xs:documentation>Valid values are {Simple,Path,Path[nb],Path[nb1&amp;lt;=size&amp;lt;nb2]}
+                            If AllowedTargetPath="Simple", then no SRContextConstraint can be in the current
+                            SemanticRelation
+                        </xs:documentation>
+                    </xs:annotation>
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string"/>
+                    </xs:simpleType>
+                </xs:attribute>
+                <xs:attribute name="MinorSensitive">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:NMTOKEN">
+                            <xs:enumeration value="Yes"/>
+                            <xs:enumeration value="No"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:attribute>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:element name="SemanticRelation" type="tns:SemanticRelation"/>
+    <xs:complexType name="ClassRule">
+        <xs:complexContent mixed="false">
+            <xs:extension base="tns:DicElement">
+                <xs:choice maxOccurs="unbounded">
+                    <xs:element minOccurs="0" maxOccurs="unbounded" ref="tns:ClassPatternConstraint"/>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" ref="tns:SemanticRelation"/>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" ref="tns:SRPatternConstraint"/>
+                </xs:choice>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:element name="ClassRule" type="tns:ClassRule"/>
+
+    <xs:complexType name="SRContextConstraint">
+        <xs:annotation>
+            <xs:documentation>Only possible if SemanticRelation:AllowedTargetPath is not equal to "Simple"
+            </xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="Name" type="xs:string" use="required">
+            <xs:annotation>
+                <xs:documentation>the Name of the ContextConstraint is unique in the SemanticRelation (or the
+                    SubRelationship) in which it is aggregated
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="ContextDefinition" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>Path expresision starting from RelationOwner to the pointed object. Required only if
+                    ContextType="Explicit"; otherwise it is useless
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="ContextType" use="required">
+            <xs:annotation>
+                <xs:documentation>Implicit: the owner of the relation is aggregated by the same reference than the first
+                    instance in the path of instances of the relation
+                    Explicit: then a path must define the context, from the owner of the relation: see ContextDefinition
+                    attribute
+                </xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="Implicit"/>
+                    <xs:enumeration value="Explicit"/>
+                    <xs:enumeration value="UserDefined"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="ValidityCheck" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>a rule expression to be evaluated at runtime, in order to check whether the context is
+                    accessible or not
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+    <xs:element name="SRContextConstraint" type="tns:SRContextConstraint"/>
+    <xs:complexType name="SRPatternConstraint">
+        <xs:choice minOccurs="0" maxOccurs="1">
+            <xs:element ref="tns:PathOfInstances"/>
+        </xs:choice>
+        <xs:attribute name="Name" type="xs:string" use="required">
+            <xs:annotation>
+                <xs:documentation>the Name of the PatternConstraint is unique in the SemanticRelation (or the
+                    SubRelationship) in which it is aggregated
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="IdCode" type="xs:string" use="required">
+            <xs:annotation>
+                <xs:documentation>IdCode is used for report generation
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="ValidityCheck" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>a rule expression to be evaluated at runtime, in order to check whether the pattern is
+                    accessible or not
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="LastAuthorizedTypeExpr" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>An expression to define the list of authorized (last) pointed component.
+                    Valid only if SemanticRelation:AllowedTargetType is either equal to "Simple" or "Path"
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+    <xs:element name="SRPatternConstraint" type="tns:SRPatternConstraint"/>
+    <xs:complexType name="ClassPatternConstraint">
+        <xs:attribute name="Name" type="xs:string" use="required">
+            <xs:annotation>
+                <xs:documentation>the Name of the ClassPatternConstraint is unique in the SemanticRelation (or the
+                    SubRelationship) in which it is aggregated
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="IdCode" type="xs:string" use="required">
+            <xs:annotation>
+                <xs:documentation>
+                    IdCode is used for report generation
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="ValidityCheck" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>a rule expression to be evaluated at runtime, in order to check whether the pattern is
+                    accessible or not
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="RelationsPattern" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>
+                    An expression to define pattern constraints between relations, to be valuated at runtime.
+                </xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+    <xs:element name="ClassPatternConstraint" type="tns:ClassPatternConstraint"/>
+    <xs:complexType name="PathOfInstances">
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element minOccurs="0" maxOccurs="1" ref="tns:AllInstancesPath"/>
+            <xs:element minOccurs="0" maxOccurs="unbounded" ref="tns:InstancePath"/>
+            <xs:element minOccurs="0" maxOccurs="1" ref="tns:BeginWithPath"/>
+        </xs:choice>
+        <xs:attribute name="MinDepth" type="xs:integer">
+            <xs:annotation>
+                <xs:documentation>Minimal depth of the instance path</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="MaxDepth" type="xs:integer">
+            <xs:annotation>
+                <xs:documentation>Maximal depth of the instance path</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute default="false" name="EndsWithAMovable" type="xs:boolean"/>
+    </xs:complexType>
+    <xs:element name="PathOfInstances" type="tns:PathOfInstances"/>
+    <xs:complexType name="AllInstancesPath">
+        <xs:annotation>
+            <xs:documentation>Defines constraints for every instance of the path.
+                Valid only if SemanticRelation:AllowedPathTarget is not equal to "Simple".
+            </xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="AuthorizedTypeExpr" type="xs:string" use="required"/>
+    </xs:complexType>
+    <xs:element name="AllInstancesPath" type="tns:AllInstancesPath"/>
+    <xs:complexType name="InstancePath">
+        <xs:annotation>
+            <xs:documentation>Defines constraints for an instance at a given position of the path.
+                Valid only if SemanticRelation:AllowedPathTarget is not equal to "Simple".
+            </xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="AuthorizedTypeExpr" type="xs:string" use="required"/>
+        <xs:attribute name="PositionInPath" use="required">
+            <xs:annotation>
+                <xs:documentation>Instance position in the path</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+                <xs:restriction base="xs:integer">
+                    <xs:minInclusive value="0"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:complexType>
+    <xs:element name="InstancePath" type="tns:InstancePath"/>
+    <xs:complexType name="BeginWithPath">
+        <xs:annotation>
+            <xs:documentation>Declares that the path of a relation must begin with the same instances as those found in
+                the path of another relation of the same owner.
+                Valid only if SemanticRelation:AllowedPathTarget is not equal to "Simple".
+            </xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="RelationDefinition" type="xs:string" use="required"/>
+        <xs:attribute name="RemainingAuthorizedTypeExpr" type="xs:string"/>
+    </xs:complexType>
+    <xs:element name="BeginWithPath" type="tns:BeginWithPath"/>
+    <!-- FOR BEHAVIORAL DICTIONARY -->
+    <xs:complexType name="Method">
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="tns:ProcedureForUsage"/>
+            <xs:element minOccurs="1" maxOccurs="1" name="RealizeMethodType" type="tns:MethodTypeHref"/>
+        </xs:choice>
+        <xs:attribute name="ImplementationType" use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="Self"/>
+                    <xs:enumeration value="AsFather"/>
+                    <xs:enumeration value="None"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:complexType>
+    <xs:element name="Method" type="tns:Method"/>
+    <xs:complexType name="MethodTypeHref">
+        <xs:attribute name="href" type="xs:string"/>
+    </xs:complexType>
+    <xs:complexType name="ProcedureForUsage">
+        <xs:choice minOccurs="1" maxOccurs="2">
+            <xs:element minOccurs="1" maxOccurs="1" name="UsedProcedure" type="tns:ProcedureHref"/>
+            <xs:element minOccurs="1" maxOccurs="1" name="Usage" type="tns:UsageHref"/>
+        </xs:choice>
+    </xs:complexType>
+    <xs:element name="ProcedureForUsage" type="tns:ProcedureForUsage"/>
+    <xs:complexType name="ProcedureHref">
+        <xs:attribute name="href" type="xs:string"/>
+    </xs:complexType>
+    <xs:complexType name="UsageHref">
+        <xs:attribute name="href" type="xs:string"/>
+    </xs:complexType>
+
+    <xs:complexType name="Function">
+        <xs:choice minOccurs="1" maxOccurs="unbounded">
+            <xs:element ref="tns:Implementation" minOccurs="1"/>
+            <xs:element name="Signature" type="tns:SignatureHref" minOccurs="1" maxOccurs="1"/>
+        </xs:choice>
+        <xs:attribute name="Name" type="xs:string" use="required"/>
+    </xs:complexType>
+    <xs:element name="Function" type="tns:Function"/>
+
+    <xs:complexType name="SignatureHref">
+        <xs:attribute name="href" type="xs:string"/>
+    </xs:complexType>
+
+    <xs:complexType name="Implementation">
+        <xs:attribute name="Name" type="xs:string" use="required"/>
+        <xs:attribute name="FileLocation" type="xs:string" use="required"/>
+        <xs:attribute name="Language" use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="EKL"/>
+                    <xs:enumeration value="PLMQL"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:complexType>
+    <xs:element name="Implementation" type="tns:Implementation"/>
+
+    <xs:complexType name="FuncSignature">
+        <xs:choice minOccurs="1" maxOccurs="unbounded">
+            <xs:element name="Parameter" type="tns:FuncParameter"/>
+        </xs:choice>
+        <xs:attribute name="id" type="xs:string"/>
+    </xs:complexType>
+
+    <xs:complexType name="FuncParameter">
+        <xs:attribute name="Name" type="xs:string" use="required"/>
+        <xs:attribute name="Lower" type="xs:integer"/>
+        <xs:attribute name="Upper" type="xs:integer"/>
+        <xs:attribute name="Direction" use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="in"/>
+                    <xs:enumeration value="out"/>
+                    <xs:enumeration value="inout"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="MultiValuated" use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="Yes"/>
+                    <xs:enumeration value="No"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="DataType" use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="Boolean"/>
+                    <xs:enumeration value="Integer"/>
+                    <xs:enumeration value="Double"/>
+                    <xs:enumeration value="String"/>
+                    <xs:enumeration value="Date"/>
+                    <xs:enumeration value="PLMId"/>
+                    <xs:enumeration value="PLMRouteSet"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:complexType>
+
+    <xs:complexType name="CAAComment">
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="tns:ShortRole"/>
+            <xs:element ref="tns:Role"/>
+        </xs:choice>
+    </xs:complexType>
+    <xs:element name="CAAComment" type="tns:CAAComment"/>
+    <xs:complexType name="ShortRole" mixed="true">
+        <xs:choice minOccurs="0" maxOccurs="unbounded"/>
+    </xs:complexType>
+    <xs:element name="ShortRole" type="tns:ShortRole"/>
+    <xs:complexType name="Role" mixed="true">
+        <xs:choice minOccurs="0" maxOccurs="unbounded"/>
+    </xs:complexType>
+    <xs:element name="Role" type="tns:Role"/>
+
+    <!-- PROPERTIES -->
+
+    <xs:complexType name="Property">
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="tns:Comment"/>
+        </xs:choice>
+        <xs:attribute name="Name" type="xs:string" use="required"/>
+        <xs:attribute name="Value" type="xs:string" use="required"/>
+    </xs:complexType>
+    <xs:element name="Property" type="tns:Property"/>
+
+
+</xs:schema>
+

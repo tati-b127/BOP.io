@@ -1,0 +1,23 @@
+NAVIGATE
+
+	T0.PLMID, T1.PLMID
+
+FROM
+	DELLmiProductionSystem/DELLmiProductionSystemReference T0,
+	DELFmiFunctionalModel/DELFmiFunctionReference T1
+
+FROM_ROOTS [?1?]
+
+ON ( RELATION(
+	FROM=DELPPRContextModelProcessCnx/PLMDELPPRProcessCnx
+	TO=DELFmiFunctionalModel/DELFmiFunctionReference
+	THROUGH=POINTSTO) WITH QUALITY_FILTER (ROLE=PLM_PPRContextLink_Process))
+OR
+	( RELATION(
+	FROM=DELPPRContextModelSystemCnx/PLMDELPPRSystemCnx
+	TO=DELLmiProductionSystem/DELLmiProductionSystemReference
+	THROUGH=POINTSTO) WITH QUALITY_FILTER (ROLE=PLM_PPRContextLink_System))
+
+ITER = 1
+;
+

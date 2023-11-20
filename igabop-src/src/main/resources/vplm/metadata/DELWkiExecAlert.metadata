@@ -1,0 +1,119 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR DELMIA Work Instruction Application -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2010, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified"
+         ModelerType="Top"
+         Name="DELWkiExecAlert"
+	       Uuid="b651cf37-4e1d-4663-841887455523d796"
+         BelongsToModeler="DELWkiUPR"
+	       UseNames="DELLmiProductionOperation DELWkiUPR"
+	       CustomerExposition="Programmer"  >
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>DELMIA Work Instruction Execution Alert </ShortRole>
+    <Role>This package describes the DELMIA Work Instruction Execution Alert model.</Role>
+  </CAAComment>
+
+  <Comment>last update 2012-07-06</Comment>
+  <Comment>last update 2013-09-23</Comment>
+
+  <Class Name="DELWkiExecAlertReference"
+         Uuid="d1045a04-8e26-4517-9f89f18945481355"
+		     Abstract="No"
+    		 SuperName="DELWkiUPRReference"
+         Specializable="No"
+         CustomerExtensible="Yes"
+         CreateInstName="DELWkiExecAlertInstance"
+		     CustomerExposition="Programmer"
+         Abbreviation="xia">
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="IconName" Value="I_WI_Alert"/>
+    <Property Name="3DIconName" Value="I_WI_Alert.cgr"/>
+    <Property Name="Newable" Value="No"/>
+    <Property Name="Searchable" Value="Yes"/>
+
+
+    <CAAComment>
+      <ShortRole>DELMIA Work Instruction Execution Alert Reference</ShortRole>
+      <Role>DELMIA Work Instruction Execution Alert Reference</Role>
+    </CAAComment>
+
+    <Simple Name="V_WIAlert_Message"
+            Uuid="7add56f4-a459-43fb-99c09749b802e210"
+            Type="String"
+            MultiValuated="No"
+            MaxLength="8000"
+            Protection="Free"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>The Instruction message to inform the Shop Floor worker about safety warning or a change in an established process.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_WIAlert_ShowMode" Uuid="79fb31cc-d797-45e8-bbcd7326db1c9438" Type="Integer" Protection="Free" CAAExposition="L0" DefaultValue="1">
+      <Property Name="RangeAsEnumName" Value="DELLmiProductionOperation.DELWkiAlert_ShowMode_Enum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="ShowOnce;ShowAlways"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+      </Range>
+      <CAAComment>
+        <ShortRole>This is used to specify whether the Alert needs to be shown to the worker always or only once.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+
+    <Simple Name="V_WIAlert_TrackConfirmation"
+            Uuid="d571aedd-0bbe-4fa2-b228fc34c19182d0"
+            Type="Boolean"
+            DefaultValue="true"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>This is used to specify whether the Worker’s acknowledgement of the Alert is to be tracked.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+
+  </Class>
+
+
+  <RelationClass Name="DELWkiExecAlertInstance"
+         Uuid="1fc8aa81-cc28-42de-ad20cc6c13f90007"
+		     Abstract="No"
+   		   SuperName="DELWkiUPRInstance"
+         Specializable="No"
+         CustomerExtensible="No"
+		     CustomerExposition="Programmer">
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+
+    <CAAComment>
+      <ShortRole>DELMIA Work Instruction Execution Alert Instance</ShortRole>
+      <Role>DELMIA Work Instruction Execution Alert Instance</Role>
+    </CAAComment>
+
+    <Volatile Name="Reference" Uuid="770d6dc0-1697-4599-b50d310f5844921a" Accessor="PLMModelerReferenceKweAttribute" TypeName="DELWkiExecAlertReference" AccessMode="ReadOnly" />
+
+    <SubClause Name="to"   TargetName="DELWkiExecAlertReference"/>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+
+  </RelationClass>
+
+</Package>

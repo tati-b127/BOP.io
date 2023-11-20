@@ -1,0 +1,64 @@
+<?xml version="1.0" ?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2011, All rights reserved -->
+
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" Name="ENOSTCATSnapshot"
+    Uuid="8599F7C0-EFDC-44a7-B592-D316D618CD28"
+    UseNames="CATSnapshot">
+  <Property Name="OptionalInstallation" Value="No" />
+  <CAAComment>
+    <ShortRole>CATIA System Snapshot DS standard customization Package</ShortRole>
+    <Role>This package includes DS default customization of the CATIA System Snapshot model</Role>
+  </CAAComment>
+
+  <Class Name="ENOSTSnapshotReference"
+      Uuid="BA522E3A-FB3D-4f85-B383-D4BC645E00A8"
+      SuperName="SnapshotReference"
+      SuperRef="7D953BDF-D66C-4d94-A11E-C3CAF7379650"
+      CAAExposition="L0">
+
+    <!-- R206: contains identifier of object from which it is made from  -->
+    <!-- not exhanged between sites -->
+	<Simple Name="E_fromExternalId"
+    Uuid="87599300-78D1-464f-933F-620ECF376036"
+    Alias="Definition"
+    Type="String"
+    MaxLength="256"
+    Mandatory="No"
+    MultiValuated="No"
+    Protection="Free"
+    CAAExposition="L0"
+    />
+
+    <!-- R206: contains Name comments  -->
+    <!-- not exhanged between sites -->
+    <Simple Name="E_versionComment"
+    Uuid="2FC5378F-F64B-4399-A8BD-5AAC46874324"
+    Alias="Version Comment"
+    Type="String"
+    MaxLength="256"
+    Mandatory="No"
+    MultiValuated="No"
+    Protection="Free"
+    CAAExposition="L0"
+    ResetOnNewVersion="Yes"
+    ResetOnCloning="Yes"
+     />
+	  
+    <IdentifierSet Name="Identifier"
+            Uuid="71FC7D15-C2E8-476d-9620-2D71B61DCC7A"
+            IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755"
+            IdentifierNames="PLM_ExternalID V_version" />
+	</Class>
+
+  <!-- ********************************************************* -->
+  <!-- FUNCTIONS Declarations : here are delcared PLMQL Functions -->
+
+  <!-- ********************************************************* -->
+
+  <!-- DISCIPLINES DECLARATIONS -->
+
+  <!-- ********************************************************* -->
+</Package>
+

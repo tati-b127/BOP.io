@@ -1,0 +1,10 @@
+EXPAND
+     T0.PLM_ExternalID, T1.PLM_ExternalID, 
+     T0.PLMID, T1.PLMID 
+FROM
+      PLMEnsSpecPartsFilter/EnsFilterRepInstance T0,
+      PLMEnsSpecPartsFilter/EnsFilterRepReference T1
+
+FROM_ROOTS[?1?]
+DEPTH=1;
+

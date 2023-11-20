@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR RFL Requirement Application -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2006, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" Name="RFLPLMRequirementAbstract"
+	Uuid="6a3c0ef0-3834-4195-85e7db971bee7a3b"
+	UseNames="PLMCORE"
+  CustomerExposition="None"
+>
+
+  <CAAComment>
+    <ShortRole>PLM RFL Requirement Abstract Package</ShortRole>
+    <Role>This package describes the PLM Requirement Abstract model on top of PLM Core</Role>
+  </CAAComment>
+
+  <Comment>last update 2007-04-10</Comment>
+
+  <!-- ****************************************************** -->
+  <!-- *  RFLPLMRequirementAbstractReference (PLMCoreReference) * -->
+  <!-- ****************************************************** -->
+
+  <Class Name="RFLPLMRequirementAbstractReference"
+		Uuid="665fb7ec-2d4c-4b52-b4ba52c7d495d037"
+		Abstract="Yes"
+		SuperName="PLMCoreReference"
+    CustomerExposition="None" 
+    NewMajorRevisionAvailability="No"
+>
+    <CAAComment>
+      <ShortRole>PLM Requirement Abstract Reference Object</ShortRole>
+      <Role>PLM Requirement Abstract Reference Object</Role>
+    </CAAComment>
+
+    <Simple Name="V_Title"
+    Uuid="3E1AFE8C-A3BD-426c-B6185E58A274A1FC"
+    Type="String"
+    MaxLength="96"
+    MultiValuated="No"
+    Protection="Free"
+    CAAExposition="L0"/>
+
+    <Simple Name="V_M1ReqId"
+    Uuid="C55D7A50-342C-4C8D-8C406E17EA2CEF54"
+    Type="String"
+    MaxLength="50"
+    MultiValuated="No"
+    Protection="Internal">
+      <CAAComment>
+        <ShortRole>M1 Requirement id corresponding to this Reference</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+</Package>

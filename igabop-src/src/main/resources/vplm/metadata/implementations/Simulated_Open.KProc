@@ -1,0 +1,63 @@
+#Prog Simulated_Open (iPLMIDSet :  #In PLMIDSet,oPLMIDSet :  #Out PLMIDSet) : VoidType
+  {
+let IdsCategoriesAndSo(PLMIDSet)
+let IdsExtCnx(PLMIDSet)
+let IdsSimuRep(PLMIDSet)
+let IdsSimuPointedTable(PLMIDSet)
+let IdsExtDocFromSimuRep(PLMIDSet)
+let IdsPublishResult(PLMIDSet)
+let IdsSetModel (PLMIDSet) 
+let IdsPortParam (PLMIDSet)
+
+
+let RouteSetCategoriesAndSo (PLMRouteSet)
+let RouteSetModel (PLMRouteSet)
+let RouteSetExtCnx (PLMRouteSet)
+let RouteSimuRep (PLMRouteSet)
+let RouteSimuPointedTable (PLMRouteSet)
+let RouteExtDocFromSimuRep (PLMRouteSet)
+let RoutePublishResult (PLMRouteSet)
+let RoutePortParam(PLMRouteSet)
+ 
+
+
+
+/* getting categories + so */
+RouteSetCategoriesAndSo = ExecutePLMFunction("SIMObjSimulationGeneric", "sim_retrieveCategories", iPLMIDSet)
+IdsCategoriesAndSo = Ids( RouteSetCategoriesAndSo)
+
+/* getting External Connections wihout External Documents from SO or\and from Categories */
+ RouteSetExtCnx = ExecutePLMFunction("PLMDocConnection", "PLMDocConnection_retrieveAllConnections", IdsCategoriesAndSo)
+IdsExtCnx = Ids(RouteSetExtCnx)
+
+/* getting Ports from SO  */
+ RoutePortParam = ExecutePLMFunction("PLMParameter", "PAR_nav_paramports", IdsCategoriesAndSo)
+IdsPortParam = Ids(RoutePortParam)
+
+/* getting system connection */
+RouteSetModel = ExecutePLMFunction("SIMObjSimulationGeneric", "sim_addSystemCnx", Restrict(IdsCategoriesAndSo, "SIMObjSimulationCategoryAndProdCnx/SIMObjSimulationCategoryReference"))
+IdsSetModel =   Ids(RouteSetModel)
+
+
+
+
+/* getting simu rep under category Scenario*/
+RouteSimuRep = ExecutePLMFunction("SIMObjSimulationGeneric", "sim_retrieveSimuRep", Restrict(IdsCategoriesAndSo, "SIMObjSimulationCategoryAndProdCnx/SIMObjSimulationCategoryReference"))
+IdsSimuRep = Ids(RouteSimuRep)
+
+/*Completes with PointedDesignTable for Scenario Rep */
+RouteSimuPointedTable = ExecutePLMFunction("SIMObjSimulationGeneric", "sim_AddPointedDesignTable",  Restrict(IdsSimuRep,  "SIMObjSimulationV5Generic/SIMObjSimulationV5RepReferenceGeneric"))
+IdsSimuPointedTable = Ids(RouteSimuPointedTable)
+
+/* getting external doc from simu rep */
+RouteExtDocFromSimuRep = ExecutePLMFunction("SIMObjSimulationGeneric", "sim_retrieveExternalDocumentfromSimuRep", Restrict(IdsSimuRep, "SIMObjSimulationV5Generic/SIMObjSimulationV5RepReferenceGeneric"))
+IdsExtDocFromSimuRep = Ids(RouteExtDocFromSimuRep)
+
+/* getting publish result connection wihout target */
+ RoutePublishResult  = ExecutePLMFunction("SIMObjSimulationGeneric", "sim_addPublishResultCnxForOpen", Restrict(IdsCategoriesAndSo, "SIMObjSimulationCategoryAndProdCnx/SIMObjSimulationCategoryReference"))
+ IdsPublishResult = Ids(RoutePublishResult)
+ 
+ 
+oPLMIDSet = IdsCategoriesAndSo + IdsSetModel + IdsPortParam + IdsExtCnx + IdsSimuRep + IdsSimuPointedTable + IdsExtDocFromSimuRep + IdsPublishResult 
+
+}

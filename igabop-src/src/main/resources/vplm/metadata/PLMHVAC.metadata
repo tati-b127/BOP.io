@@ -1,0 +1,1012 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2012, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified"             ModelerType="Top" CustomerExposition="Programmer"
+         Name="PLMHVAC"    Uuid="61c84f10-9632-479f-ada9-d800f91a7cc8"
+         UseNames="PRODUCTCFG" >
+  <Property Name="IconName" Value="I_PLMHVAC"/>
+  <CAAComment>
+    <ShortRole>HVAC Physical Design Package</ShortRole>
+    <Role>This package describes HVAC physical design data on top of physical modeler.</Role>
+  </CAAComment>
+
+  <Comment>[V6R2013x] ADZ HVAC</Comment>
+  <Comment>[V6R2013x] 2012-06-05 ADZ KweNew_InstanciationMethod property added on HVAC_PartV2</Comment>
+  <Comment>[V6R2013x] 2012-08-01 ADZ Add HVAC_PartV1 (any type)</Comment>
+  <Comment>[V6R2013x] 2012-08-30 ADZ Add V_Shape_Enum</Comment>
+  <Comment>[V6R2013x] 2012-10-18 ADZ Add missing V_Height, V_Width, V_CornerRadius on Duct</Comment>
+  <Comment>[V6R2013x] 2012-10-23 ADZ Add Property Name="Newable" Value="All" on HVAC_PartV2</Comment>
+  <Comment>[V6R2014] 2012-11-19 ADZ Add V_PortType on HVACDuctXPort and HVACPartPort and Remove useless 'ExportScope' with ImplementationType 'AsFather'</Comment>
+  <Comment>[V6R2014] 2012-11-21 ADZ Remove V_Shape enum property on HVAC_Entity class and HVACPart extension</Comment>
+  <Comment>[V6R2014] 2012-11-26 ADZ Add OccurrenceType property on HVAC_Part and HVAC_Duct classes</Comment>
+  <Comment>[V6R2014] 2012-12-03 ADZ Add OccurrenceType property on HVAC_Spool class</Comment>
+  <Comment>[V6R2014] 2012-12-06 ADZ Add volatile attributes on HVAC_Rigid_Duct class and HVACRigidDuct extension</Comment>
+  <Comment>[V6R2014] 2012-12-17 ADZ Add HVAC_Silencer and HVAC_Union classes and Add V_LinearWeight on HVAC_Duct class and HVACRigidDuct and HVACFlexibleDuct extensions</Comment>
+  <Comment>[V6R2014] 2012-12-20 ADZ Fix BelongsToModeler as per PGT request</Comment>
+  <Comment>[V6R2014] 2012-12-20 ADZ Modify Property Name="Newable" Value="All" on HVAC_Rigid_Duct and HVAC_Flexible_Duct</Comment>
+  <Comment>[V6R2014] 2013-04-30 ADZ Add Property Name="Controller" Value="CATHvaAttributeController" on attributes</Comment>
+  <Comment>[V6R2014] 2013-05-15 ADZ Protection="Free" for "V_EquivalentDiameter" of "HVAC_Entity" class</Comment>
+  <Comment>[V6R2014] 2013-05-15 ADZ Protection="Free" for "V_WallThickness", "V_Height", "V_Width", "V_CornerRadius" and "V_LinearWeight" of "HVACRigidDuct" and "HVACFlexibleDuct" extensions</Comment>
+  <Comment>[V6R2014] 2013-06-05 ADZ Add Property Name="Controller" Value="CATHvaAttributeController" on "V_Shape" and "V_EquivalenDiameter" attributes</Comment>
+  <Comment>[V6R2014x] 2013-09-24 ADZ Add Property Name="3DPartAvailability" Value="3DPartOnly" on HVAC_Entity class</Comment>
+  <Comment>[V6R2014x] 2013-11-07 ADZ Add Property Name="3DPartAvailability" Value="ReferenceOnly" on HVAC_Spool class</Comment>
+  <Comment>[V6R2015x] 2014-03-24 ADZ Add Property Name="Allow_V_Direction_Change" Value="Yes" on HVAC_Port class</Comment>
+  <Comment>[V6R2015x] 2014-03-24 ADZ on PLMDictionaryCheck.sh request. 'ScopeRefs' is a deprecated tag. It MUST now be removed</Comment>
+  <Comment>[V6R2015x] 2014-04-07 ADZ Change V_SubPartType attribute protection to Free on HVAC_PartV2 class</Comment>
+  <Comment>[V6R2015x] 2014-04-07 ADZ Add Property Name="Controller" Value="CATHvaAttributeController" on HVAC_PartV2 V_SubPartType attribute</Comment>
+  <Comment>[V6R2015x] 2014-05-21 ADZ Add HVAC_*_Inst classes</Comment>
+  <Comment>[V6R2015x] 2014-05-21 ADZ Replace VPMInstance to HVAC_*_Inst in CreateInstName and KweNew_ReturnedType properties of HVAC_* (VPMReference) classes</Comment>
+  <Comment>[V6R2015x] 2014-05-26 ADZ Add V_InstanciationRule attribute on HVAC_Entity class</Comment>
+  <Comment>[V6R2015x] 2014-05-26 ADZ Add V_ReferenceMode attribute on HVAC_Entity_Inst class</Comment>
+  <Comment>[V6R2015x] 2014-05-26 ADZ Add V_BendAngle, V_ReferenceBendAngle, V_BendRadius V_Guidance attributes on HVAC_Elbow class</Comment>
+  <Comment>[V6R2015x] 2014-06-10 ADZ Add V_BendAngle (ExternalIN), V_ReferenceBendAngle (Free) Property Name="Controller" Value="CATHvaAttributeController"</Comment>
+  <Comment>[V6R2015x] 2014-06-11 ADZ Add V_ReferenceBendAngle (Free) Property Name="Controller" Value="CATHvaAttributeController" on HVAC_Tee and HVAC_Saddle</Comment>
+  <Comment>[V6R2015x] 2014-07-02 ADZ Remove CreateInstName on all instance classes</Comment>
+  <Comment>[V6R2015x] 2014-11-10 ADZ V_BendAngle and V_ReferenceBendAngle DefaultValue to 0"</Comment>
+  <Comment>[V6R2016x] 2015-02-03 CHD Enum->Reange migration</Comment>
+  <Comment>[V6R2016x] 2015-02-27 ADZ Move 3DPartAvailability Property from 3DPartOnly to UserChoice3DPartDefault for HVAC_Entity class</Comment>
+  <Comment>[V6R2016x] 2015-03-19 ADZ New Loss Coefficient Attribute on HVAC_Part class</Comment>
+  <Comment>[V6R2016x] 2015-03-19 ADZ New HVAC_Instrument and HVAC_Instrument_Inst classes</Comment>
+  <Comment>[V6R2017x] 2016-03-17 ADZ New HVAC_Cross, HVAC_Diffuser, HVAC_Cross_Inst and HVAC_Diffuser_Inst classes</Comment>
+  <Comment>[V6R2017x] 2016-03-25 ADZ Add V_ReferenceBendRadius on HVAC_Flexible_Duct class</Comment>
+  <Comment>[V6R2017x] 2016-03-31 ADZ Add HVAC_OutOfSpec extension on HVAC_Entity_Inst</Comment>
+  <Comment>[V6R2017x] 2016-04-28 ADZ New attribute V_NominalSize on HVAC_Entity and HVAC_PartPort classes</Comment>
+  <Comment>[V6R2017x] 2016-06-06 ADZ Dedicated .cgr for classes</Comment>
+  <Comment>[V6R2017x] 2016-08-16 ADZ Modify HVAC_PartV2 class. Change Abstract="Yes" to "No" and add Property Name="NewableForSubTypesOnly" Value="Yes"</Comment>
+
+  <Class Name="HVAC_Entity"
+         Uuid="b82a2ef2-a406-41c0-8626-4fe2335a0f62"
+         Abbreviation="hvaent"
+         Abstract="Yes"
+         CustomerExposition="Programmer"
+         SuperName="VPMReference"
+         Discipline="Yes">
+
+    <Property Name="Configurable"            Value="Yes"/>
+    <Property Name="ChangeManagementSupport" Value="Yes"/>
+    <!--<Property Name="3DPartAvailability"      Value="3DPartOnly"/>-->
+    <Property Name="3DPartAvailability"      Value="UserChoice3DPartDefault" />
+
+    <Simple Name="V_PartType"           Type="String" Uuid="378c7f56-94b8-472a-87e9-fc7f57b39a22" MaxLength="40"  Protection="External"   CAAExposition="L0" MultiValuated="No"/>
+    <Simple Name="V_Standard"           Type="String" Uuid="2c35379f-38a6-4535-9b1b-4f39dd559999" MaxLength="80"  Protection="Free"       CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" Value="CATHvaAttributeController"/>
+    </Simple>
+    <Simple Name="V_EndStyle"           Type="String" Uuid="83f7312f-2e2a-4f0f-8cb6-6bbe948287e6" MaxLength="180" Protection="Free"       CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" Value="CATHvaAttributeController"/>
+    </Simple>
+    <Simple Name="V_MaterialName"       Type="String" Uuid="c919f457-9c96-4dfd-8883-ea24cdde91f4" MaxLength="100" Protection="Free"       CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" Value="CATHvaAttributeController"/>
+    </Simple>
+    <Simple Name="V_Shape"              Type="String" Uuid="606fc1a2-89ef-4cdf-b984-1db449d24ed2" MaxLength="180" Protection="Free"       CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" Value="CATHvaAttributeController"/>
+    </Simple>
+    <Simple Name="V_EquivalentDiameter" Type="String" Uuid="2059b5f1-0c01-4b2a-9c01-bb29a0860b09" MaxLength="180" Protection="Free"       CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" Value="CATHvaAttributeController"/>
+    </Simple>
+    <Simple Name="V_InstanciationRule" Uuid="906826ac-7d7a-4c7f-917f-e8eea69bfd4e" Type="Integer" Protection="ExternalIN" CAAExposition="L0" DefaultValue="1">
+      <Property Name="RangeAsEnumName" Value="HVAC_InstanciationRule_Enum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="ReuseReference;NewReference;ReuseOrNewReference"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+      </Range>
+    </Simple>
+    <Simple Name="V_NominalSize"  Type="String" Uuid="0a08a08b-05f4-4438-8f9e-56717d5ef820" MaxLength="80"  Protection="Free" CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" Value="CATHvaAttributeController"/>
+    </Simple>
+  </Class>
+
+  <Class Name="HVAC_Part"
+         Uuid="78e4c3a3-0626-4346-84fb-14ccd31cf0ff"
+         Abbreviation="hvaprt"
+         Abstract="Yes"
+         CustomerExposition="Programmer"
+         SuperName="HVAC_Entity"
+         Discipline="Yes"
+         CreateInstName="HVAC_Part_Inst">
+
+    <Property Name="MergedExtensionType"        Value="HVACPart"/>
+    <Property Name="TypeForDisciplineValuation" Value="HVAC_Part"/>
+    <Property Name="GroupingType"               Value="HVAC_Part"/>
+    <Property Name="KweNew_ReturnedType"        Value="HVAC_Part_Inst"/>
+    <Property Name="Newable"                    Value="All"/>
+    <Property Name="IconName"                   Value="I_PLMHVAC_Part"/>
+    <Property Name="3DIconName"                 Value="V_PLMHVAC_Part.cgr"/>
+    <Property Name="OccurrenceType"             Value="HVAC_Part_Occurrence"/>
+
+    <Simple Name="V_LossCoefficientK" Type="Double" Uuid="f8d16895-97a5-42e3-b407-5b78c928d328" Protection="Free" CAAExposition="L0" MultiValuated="No"></Simple>
+    
+  </Class>
+
+  <Class Name="HVAC_PartV1"
+         Uuid="407d42d0-d2ff-44c5-b872-eb87068729da"
+         Abbreviation="hvamisc"
+         CustomerExposition="Programmer"
+         SuperName="HVAC_Part"
+         Discipline="Yes"
+         CustomerExtensible="Yes"
+         CreateInstName="HVAC_PartV1_Inst">
+
+    <Property Name="KweNew_InstanciationMethod" Value="CATEHvaDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="HVAC_PartV1_Inst"/>
+    <Property Name="Newable"                    Value="All"/>
+    <Property Name="IconName"                   Value="I_PLMHVAC_Part"/>
+    <Property Name="3DIconName"                 Value="V_PLMHVAC_PartV1.cgr"/>
+
+    <Simple Name="V_SubPartType" Type="String" Uuid="c4749f8d-0fa9-4291-8aef-b0b7f0c6c617" MaxLength="100" Protection="Free" CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" Value="CATHvaAttributeController"/>
+    </Simple>
+
+  </Class>
+
+  <Class Name="HVAC_PartV2"
+         Uuid="4dbb38f5-5363-4263-9574-a5e831f38095"
+         Abstract="No"
+         CustomerExposition="Programmer"
+         SuperName="HVAC_Part"
+         Discipline="Yes"
+         Specializable="Yes"
+         CreateInstName="HVAC_PartV2_Inst">
+
+    <Property Name="KweNew_InstanciationMethod" Value="CATEHvaDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="HVAC_PartV2_Inst"/>
+    <Property Name="Newable"                    Value="All"/>
+    <Property Name="NewableForSubTypesOnly"     Value="Yes"/>
+
+    <Simple Name="V_SubPartType" Type="String" Uuid="d266c998-9d00-4e3d-8ac0-aadf425d6e14" MaxLength="100" Protection="Free" CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" Value="CATHvaAttributeController"/>
+    </Simple>
+
+  </Class>
+  
+  <Class Name="HVAC_AccessCover"
+         Uuid="2c665473-a66b-4ea7-8563-6f9361840ef8"
+         Abbreviation="hvaacc"
+         CustomerExposition="Programmer"
+         SuperName="HVAC_PartV2"
+         Discipline="Yes"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         CreateInstName="HVAC_AccessCover_Inst">
+
+    <Property Name="KweNew_InstanciationMethod" Value="CATEHvaDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="HVAC_AccessCover_Inst"/>
+    <Property Name="IconName"                   Value="I_PLMHVAC_AccessCover"/>
+    <Property Name="3DIconName"                 Value="V_PLMHVAC_AccessCover.cgr"/>
+    <Property Name="Newable"                    Value="All"/>
+
+  </Class>
+
+  <Class Name="HVAC_Cap"
+         Uuid="aa29a8ff-2969-40f5-bef3-e0473b93767a"
+         Abbreviation="hvacap"
+         CustomerExposition="Programmer"
+         SuperName="HVAC_PartV2"
+         Discipline="Yes"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         CreateInstName="HVAC_Cap_Inst">
+
+    <Property Name="KweNew_InstanciationMethod" Value="CATEHvaDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="HVAC_Cap_Inst"/>
+    <Property Name="IconName"                   Value="I_PLMHVAC_Cap"/>
+    <Property Name="3DIconName"                 Value="V_PLMHVAC_Cap.cgr"/>
+    <Property Name="Newable"                    Value="All"/>
+
+  </Class>
+
+  <Class Name="HVAC_Cross"
+       Uuid="d15d1bcb-2c9d-483f-84fa-33af53c3ad78"
+       Abbreviation="hvacro"
+       CustomerExposition="Programmer"
+       SuperName="HVAC_PartV2"
+       Discipline="Yes"
+       Specializable="Yes"
+       CustomerExtensible="Yes"
+       CreateInstName="HVAC_Cross_Inst">
+
+    <Property Name="KweNew_InstanciationMethod" Value="CATEHvaDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="HVAC_Cross_Inst"/>
+    <Property Name="IconName"                   Value="I_PLMHVAC_Cross"/>
+    <Property Name="3DIconName"                 Value="V_PLMHVAC_Cross.cgr"/>
+    <Property Name="Newable"                    Value="All"/>
+
+  </Class>
+  
+  <Class Name="HVAC_Damper"
+         Uuid="6b49bda5-daec-41de-bc9f-1a5b8576997e"
+         Abbreviation="hvadmp"
+         CustomerExposition="Programmer"
+         SuperName="HVAC_PartV2"
+         Discipline="Yes"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         CreateInstName="HVAC_Damper_Inst">
+
+    <Property Name="KweNew_InstanciationMethod" Value="CATEHvaDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="HVAC_Damper_Inst"/>
+    <Property Name="IconName"                   Value="I_PLMHVAC_Damper"/>
+    <Property Name="3DIconName"                 Value="V_PLMHVAC_Damper.cgr"/>
+    <Property Name="Newable"                    Value="All"/>
+
+  </Class>
+
+  <Class Name="HVAC_Diffuser"
+       Uuid="0b1c22cc-8089-4f82-88d6-edf4a7afa8d3"
+       Abbreviation="hvadif"
+       CustomerExposition="Programmer"
+       SuperName="HVAC_PartV2"
+       Discipline="Yes"
+       Specializable="Yes"
+       CustomerExtensible="Yes"
+       CreateInstName="HVAC_Diffuser_Inst">
+
+    <Property Name="KweNew_InstanciationMethod" Value="CATEHvaDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="HVAC_Diffuser_Inst"/>
+    <Property Name="IconName"                   Value="I_PLMHVAC_Diffuser"/>
+    <Property Name="3DIconName"                 Value="V_PLMHVAC_Diffuser.cgr"/>
+    <Property Name="Newable"                    Value="All"/>
+
+  </Class>
+  
+  <Class Name="HVAC_Elbow"
+         Uuid="e918aed4-89de-41f8-ba29-85142d5df1c9"
+         Abbreviation="hvaelb"
+         CustomerExposition="Programmer"
+         SuperName="HVAC_PartV2"
+         Discipline="Yes"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         CreateInstName="HVAC_Elbow_Inst">
+
+    <Property Name="KweNew_InstanciationMethod" Value="CATEHvaDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="HVAC_Elbow_Inst"/>
+    <Property Name="IconName"                   Value="I_PLMHVAC_Elbow"/>
+    <Property Name="3DIconName"                 Value="V_PLMHVAC_Elbow.cgr"/>
+    <Property Name="Newable"                    Value="All"/>
+
+    <Simple Name="V_BendAngle"          Type="Double" Uuid="a87d2a2d-2383-4db6-9297-9912e0581dca" Magnitude="ANGLE"  Protection="ExternalIN" CAAExposition="L0" MultiValuated="No" DefaultValue="0">
+      <Property Name="Controller" Value="CATHvaAttributeController"/>
+    </Simple>
+    <Simple Name="V_ReferenceBendAngle" Type="Double" Uuid="8ee4321b-7f4a-4791-9d33-59923231cd61" Magnitude="ANGLE"  Protection="Free"       CAAExposition="L0" MultiValuated="No" DefaultValue="0">
+      <Property Name="Controller" Value="CATHvaAttributeController"/>
+    </Simple>
+    <Simple Name="V_BendRadius"         Type="Double" Uuid="412ee0b4-8c82-4c1b-9ec2-1c622c28a847" Magnitude="LENGTH" Protection="Free"       CAAExposition="L0" MultiValuated="No"/>
+    <Simple Name="V_Guidance" Uuid="b0d02f2d-087a-4f6f-9163-8a3996e208a6" Type="Integer" Protection="Free" CAAExposition="L0" DefaultValue="1">
+      <Property Name="RangeAsEnumName" Value="HVAC_Guidance_Enum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="Horizontal;Vertical;None"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+      </Range>
+    </Simple>
+
+  </Class>
+
+  <Class Name="HVAC_Flange"
+         Uuid="bbbf9d99-f6e3-4858-a371-a36db80feff2"
+         Abbreviation="hvaflg"
+         CustomerExposition="Programmer"
+         SuperName="HVAC_PartV2"
+         Discipline="Yes"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         CreateInstName="HVAC_Flange_Inst">
+
+    <Property Name="KweNew_InstanciationMethod" Value="CATEHvaDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="HVAC_Flange_Inst"/>
+    <Property Name="IconName"                   Value="I_PLMHVAC_Flange"/>
+    <Property Name="3DIconName"                 Value="V_PLMHVAC_Flange.cgr"/>
+    <Property Name="Newable"                    Value="All"/>
+
+  </Class>
+
+  <Class Name="HVAC_Gasket"
+         Uuid="c902ff2e-ba7f-4d6b-9652-75ad100fef61"
+         Abbreviation="hvagsk"
+         CustomerExposition="Programmer"
+         SuperName="HVAC_PartV2"
+         Discipline="Yes"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         CreateInstName="HVAC_Gasket_Inst">
+
+    <Property Name="KweNew_InstanciationMethod" Value="CATEHvaDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="HVAC_Gasket_Inst"/>
+    <Property Name="IconName"                   Value="I_PLMHVAC_Gasket"/>
+    <Property Name="3DIconName"                 Value="V_PLMHVAC_Gasket.cgr"/>
+    <Property Name="Newable"                    Value="All"/>
+
+  </Class>
+
+  <Class Name="HVAC_Instrument"
+       Uuid="5f981a78-5122-4acd-b13a-8642bf375cde"
+       Abbreviation="hvainstr"
+       CustomerExposition="Programmer"
+       SuperName="HVAC_PartV2"
+       Discipline="Yes"
+       Specializable="Yes"
+       CustomerExtensible="Yes"
+       CreateInstName="HVAC_Instrument_Inst">
+
+    <Property Name="KweNew_InstanciationMethod" Value="CATEHvaDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="HVAC_Instrument_Inst"/>
+    <Property Name="Newable"                    Value="All"/>
+    <Property Name="IconName"                   Value="I_PLMHVAC_Instrument"/>
+    <Property Name="3DIconName"                 Value="V_PLMHVAC_Instrument.cgr"/>
+
+  </Class>
+  
+  <Class Name="HVAC_Reducer"
+         Uuid="7f922717-6cd5-4f5f-b883-0eafc5e672fa"
+         Abbreviation="hvared"
+         CustomerExposition="Programmer"
+         SuperName="HVAC_PartV2"
+         Discipline="Yes"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         CreateInstName="HVAC_Reducer_Inst">
+
+    <Property Name="KweNew_InstanciationMethod" Value="CATEHvaDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="HVAC_Reducer_Inst"/>
+    <Property Name="IconName"                   Value="I_PLMHVAC_Reducer"/>
+    <Property Name="3DIconName"                 Value="V_PLMHVAC_Reducer.cgr"/>
+    <Property Name="Newable"                    Value="All"/>
+
+  </Class>
+
+  <Class Name="HVAC_Saddle"
+         Uuid="b32d1f27-b8bb-4a17-b62a-5e0f1283c135"
+         Abbreviation="hvasad"
+         CustomerExposition="Programmer"
+         SuperName="HVAC_PartV2"
+         Discipline="Yes"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         CreateInstName="HVAC_Saddle_Inst">
+
+    <Property Name="KweNew_InstanciationMethod" Value="CATEHvaDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="HVAC_Saddle_Inst"/>
+    <Property Name="IconName"                   Value="I_PLMHVAC_Saddle"/>
+    <Property Name="3DIconName"                 Value="V_PLMHVAC_Saddle.cgr"/>
+    <Property Name="Newable"                    Value="All"/>
+
+    <Simple Name="V_ReferenceBendAngle" Type="Double" Uuid="4c24c81c-cfbe-4a6f-a1fb-84bc545a3a0a" Magnitude="ANGLE"  Protection="Free"       CAAExposition="L0" MultiValuated="No" DefaultValue="0">
+      <Property Name="Controller" Value="CATHvaAttributeController"/>
+    </Simple>
+
+  </Class>
+
+  <Class Name="HVAC_Silencer"
+         Uuid="d0f97679-578e-494e-91c7-6cfef4e5d16c"
+         Abbreviation="hvasil"
+         CustomerExposition="Programmer"
+         SuperName="HVAC_PartV2"
+         Discipline="Yes"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         CreateInstName="HVAC_Silencer_Inst">
+
+    <Property Name="KweNew_InstanciationMethod" Value="CATEHvaDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="HVAC_Silencer_Inst"/>
+    <Property Name="IconName"                   Value="I_PLMHVAC_Silencer"/>
+    <Property Name="3DIconName"                 Value="V_PLMHVAC_Silencer.cgr"/>
+    <Property Name="Newable"                    Value="All"/>
+
+  </Class>
+
+  <Class Name="HVAC_Tee"
+         Uuid="9c2aafb8-9943-49a2-8701-289ce92072fd"
+         Abbreviation="hvatee"
+         CustomerExposition="Programmer"
+         SuperName="HVAC_PartV2"
+         Discipline="Yes"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         CreateInstName="HVAC_Tee_Inst">
+
+    <Property Name="KweNew_InstanciationMethod" Value="CATEHvaDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="HVAC_Tee_Inst"/>
+    <Property Name="IconName"                   Value="I_PLMHVAC_Tee"/>
+    <Property Name="3DIconName"                 Value="V_PLMHVAC_Tee.cgr"/>
+    <Property Name="Newable"                    Value="All"/>
+
+    <Simple Name="V_ReferenceBendAngle" Type="Double" Uuid="a5399d4b-77ae-4251-8031-adb875673f1b" Magnitude="ANGLE"  Protection="Free"       CAAExposition="L0" MultiValuated="No" DefaultValue="0">
+      <Property Name="Controller" Value="CATHvaAttributeController"/>
+    </Simple>
+
+  </Class>
+
+  <Class Name="HVAC_Transition"
+         Uuid="b4a88995-51b2-426b-b6a1-6d0e6a532369"
+         Abbreviation="hvatran"
+         CustomerExposition="Programmer"
+         SuperName="HVAC_PartV2"
+         Discipline="Yes"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         CreateInstName="HVAC_Transition_Inst">
+
+    <Property Name="KweNew_InstanciationMethod" Value="CATEHvaDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="HVAC_Transition_Inst"/>
+    <Property Name="IconName"                   Value="I_PLMHVAC_Transition"/>
+    <Property Name="3DIconName"                 Value="V_PLMHVAC_Transition.cgr"/>
+    <Property Name="Newable"                    Value="All"/>
+
+  </Class>
+
+  <Class Name="HVAC_Union"
+         Uuid="ce06d998-b1af-4cf2-81b6-ecc55aa05546"
+         Abbreviation="hvauni"
+         CustomerExposition="Programmer"
+         SuperName="HVAC_PartV2"
+         Discipline="Yes"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         CreateInstName="HVAC_Union_Inst">
+
+    <Property Name="KweNew_InstanciationMethod" Value="CATEHvaDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="HVAC_Union_Inst"/>
+    <Property Name="IconName"                   Value="I_PLMHVAC_Union"/>
+    <Property Name="3DIconName"                 Value="V_PLMHVAC_Union.cgr"/>
+    <Property Name="Newable"                    Value="All"/>
+
+  </Class>
+
+  <Class Name="HVAC_Duct"
+          Uuid="7b516ef9-6e16-4d47-a206-e17c75e49637"
+          Abstract="Yes"
+          CustomerExposition="Programmer"
+          SuperName="HVAC_Entity"
+          Discipline="Yes">
+
+    <Property Name="OccurrenceType"             Value="HVAC_Duct_Occurrence"/>
+
+    <Simple Name="V_Length"         Type="Double" Uuid="01afc3ce-b37f-417f-bdae-ddd9ac186ff9" Magnitude="LENGTH"    Protection="External" CAAExposition="L0" MultiValuated="No"/>
+    <Simple Name="V_WallThickness"  Type="Double" Uuid="c9bac0c3-5801-4d21-96af-b59a3fc8ea87" Magnitude="LENGTH"    Protection="Free"     CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" Value="CATHvaAttributeController"/>
+    </Simple>
+    <Simple Name="V_Height"         Type="Double" Uuid="70055b28-2a55-4a1a-b7ea-56409d83087c" Magnitude="LENGTH"    Protection="Free"     CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" Value="CATHvaAttributeController"/>
+    </Simple>
+    <Simple Name="V_Width"          Type="Double" Uuid="9013b58a-2e84-42ab-8d9a-f6ef562526df" Magnitude="LENGTH"    Protection="Free"     CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" Value="CATHvaAttributeController"/>
+    </Simple>
+    <Simple Name="V_CornerRadius"   Type="Double" Uuid="85c44e63-cfff-4b9d-93aa-2317f154391b" Magnitude="LENGTH"    Protection="Free"     CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" Value="CATHvaAttributeController"/>
+    </Simple>
+    <Simple Name="V_LinearWeight"   Type="Double" Uuid="c2b060d5-86aa-47da-9ef6-74e0b86536c5" Magnitude="LINEMASS"  Protection="Free"     CAAExposition="L0" MultiValuated="No"/>
+
+  </Class>
+
+  <Class Name="HVAC_Rigid_Duct"
+         Uuid="55009ea0-6551-430a-aa7c-46a59db462b2"
+         Abbreviation="hvaduct"
+         CustomerExposition="Programmer"
+         SuperName="HVAC_Duct"
+         Discipline="Yes"
+         CustomerExtensible="Yes"
+         CreateInstName="HVAC_Rigid_Duct_Inst">
+
+    <Property Name="MergedExtensionType"        Value="HVACPart;HVACRigidDuct"/>
+    <Property Name="TypeForDisciplineValuation" Value="HVAC_Rigid_Duct"/>
+    <Property Name="GroupingType"               Value="HVAC_Rigid_Duct"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEHvaDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="HVAC_Rigid_Duct_Inst"/>
+    <Property Name="IconName"                   Value="I_PLMHVAC_Rigid_Duct"/>
+    <Property Name="3DIconName"                 Value="V_PLMHVAC_Rigid_Duct.cgr"/>
+    <Property Name="Newable"                    Value="All"/>
+
+    <Volatile Name="V_NodePositions"          Uuid="c2779f83-b5f6-4515-bb85-bf3d8af4f09a" Accessor="CATHvaKweAttrAccess" TypeName="List" AccessMode="ReadOnly"/>
+    <Volatile Name="V_NodeBendRadii"          Uuid="d81f3061-6a32-4409-bc26-d6498d203fe7" Accessor="CATHvaKweAttrAccess" TypeName="List" AccessMode="ReadOnly"/>
+    <Volatile Name="V_NodeBendAngles"         Uuid="2fe29549-565d-494a-92b0-d04cb9960976" Accessor="CATHvaKweAttrAccess" TypeName="List" AccessMode="ReadOnly"/>
+    <Volatile Name="V_SegmentStraightLengths" Uuid="c50190c6-2614-44e4-bb1e-31744716d46e" Accessor="CATHvaKweAttrAccess" TypeName="List" AccessMode="ReadOnly"/>
+
+  </Class>
+
+  <Class Name="HVAC_Flexible_Duct"
+         Uuid="fbb474b6-d389-457b-abbd-cbae7a8a6372"
+         Abbreviation="hvaflex"
+         CustomerExposition="Programmer"
+         SuperName="HVAC_Duct"
+         Discipline="Yes"
+         CustomerExtensible="Yes"
+         CreateInstName="HVAC_Flexible_Duct_Inst">
+
+    <Property Name="MergedExtensionType"        Value="HVACPart;HVACFlexibleDuct"/>
+    <Property Name="TypeForDisciplineValuation" Value="HVAC_Flexible_Duct"/>
+    <Property Name="GroupingType"               Value="HVAC_Flexible_Duct"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEHvaDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="HVAC_Flexible_Duct_Inst"/>
+    <Property Name="IconName"                   Value="I_PLMHVAC_Flexible_Duct"/>
+    <Property Name="3DIconName"                 Value="V_PLMHVAC_Flexible_Duct.cgr"/>
+    <Property Name="Newable"                    Value="All"/>
+
+    <Simple Name="V_ReferenceBendRadius"  Type="Double" Uuid="4d95c529-afe8-4771-9fce-c582fc2402d2" Magnitude="LENGTH" Protection="External" CAAExposition="L0" MultiValuated="No"/>
+    
+  </Class>
+
+  <Class Name="HVAC_Spool"
+     Uuid="8aed6db2-45e7-41e4-9323-eef9b8255bef"
+     Abbreviation="hvaspo"
+     CustomerExposition="Programmer"
+     SuperName="VPMReference"
+     Discipline="Yes"
+     CustomerExtensible="Yes"
+     CreateInstName="HVAC_Spool_Inst">
+
+    <Property Name="TypeForDisciplineValuation" Value="HVAC_Spool"/>
+    <Property Name="GroupingType"               Value="HVAC_Spool"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEHvaDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="HVAC_Spool_Inst"/>
+    <Property Name="IconName"                   Value="I_PLMHVAC_Spool"/>
+    <Property Name="3DIconName"                 Value="V_PLMHVAC_Spool.cgr"/>
+    <Property Name="Newable"                    Value="Insert"/>
+    <Property Name="Configurable"               Value="Yes"/>
+    <Property Name="ChangeManagementSupport"    Value="Yes"/>
+    <Property Name="3DPartAvailability"         Value="ReferenceOnly"/>
+    <Property Name="OccurrenceType"             Value="HVAC_Spool_Occurrence"/>
+
+  </Class>
+
+  <RelationClass Name="HVAC_Entity_Inst"
+       Uuid="7f8a6804-15fa-4742-8335-e54745dacec1"
+       Abstract="Yes"
+       CustomerExposition="Programmer"
+       SuperName="VPMInstance"
+       Discipline="Yes">
+
+    <Simple Name="V_ReferenceMode" Uuid="1693828e-5492-4cd4-9da7-a729f264e04f" Type="Integer" Protection="External" CAAExposition="L0" DefaultValue="1">
+      <Property Name="RangeAsEnumName" Value="HVAC_ReferenceMode_Enum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="Reuse;NewFrom"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+      </Range>
+    </Simple>
+
+  </RelationClass>
+
+  <Extension Name="HVAC_OutOfSpec" Uuid="cd360be7-a57a-4d65-840e-d3f551143a83" ScopeNames="HVAC_Entity_Inst"
+           CustomerExposition="Programmer" CAAExposition="L0">
+    <Simple Name="V_HVAC_Spec" Uuid="bb592b7f-0abe-4d33-b133-837ed9cb76ff"
+            Type="String" MaxLength="40" Protection="External"
+            CAAExposition="L0" MultiValuated="No"/>
+    <Simple Name="V_Additional_Spec" Uuid="11b3f4a3-dffd-409b-be66-1bb47700101c"
+            Type="String" MaxLength="40" Protection="External"
+            CAAExposition="L0" MultiValuated="Yes"/>
+  </Extension>
+  
+  <RelationClass Name="HVAC_Part_Inst"
+         Uuid="2cfff754-0683-408a-8790-13497c83cae2"
+         Abstract="Yes"
+         CustomerExposition="Programmer"
+         SuperName="HVAC_Entity_Inst"
+         Discipline="Yes">
+  </RelationClass>
+
+  <RelationClass Name="HVAC_PartV1_Inst"
+         Uuid="b3fff6ee-d5c2-43f0-9204-9cf01e13bdf3"
+         CustomerExposition="Programmer"
+         SuperName="HVAC_Part_Inst"
+         Discipline="Yes"
+         CustomerExtensible="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATEHvaDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="HVAC_PartV1_Inst"/>
+    <Property Name="IconName"                   Value="I_PLMHVAC_Part"/>
+  </RelationClass>
+
+  <RelationClass Name="HVAC_PartV2_Inst"
+         Uuid="31ab433e-bc49-4826-8a6b-8e5b3100288a"
+         Abstract="No"
+         CustomerExposition="Programmer"
+         SuperName="HVAC_Part_Inst"
+         Discipline="Yes"
+         Specializable="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATEHvaDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="HVAC_PartV2_Inst"/>
+    <Property Name="IconName"                   Value="I_PLMHVAC_Part"/>
+  </RelationClass>
+
+  <RelationClass Name="HVAC_AccessCover_Inst"
+         Uuid="168eeaf0-7684-4fe5-8c59-5783d0fcb742"
+         CustomerExposition="Programmer"
+         SuperName="HVAC_PartV2_Inst"
+         Discipline="Yes"
+         Specializable="Yes"
+         CustomerExtensible="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATEHvaDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="HVAC_AccessCover_Inst"/>
+    <Property Name="IconName"                   Value="I_PLMHVAC_AccessCover"/>
+  </RelationClass>
+
+  <RelationClass Name="HVAC_Cap_Inst"
+         Uuid="d2596143-87d6-4b52-b158-87aa238f225e"
+         CustomerExposition="Programmer"
+         SuperName="HVAC_PartV2_Inst"
+         Discipline="Yes"
+         Specializable="Yes"
+         CustomerExtensible="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATEHvaDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="HVAC_Cap_Inst"/>
+    <Property Name="IconName"                   Value="I_PLMHVAC_Cap"/>
+  </RelationClass>
+
+  <RelationClass Name="HVAC_Cross_Inst"
+       Uuid="3a362730-91b8-4045-be09-7941d5744e6e"
+       CustomerExposition="Programmer"
+       SuperName="HVAC_PartV2_Inst"
+       Discipline="Yes"
+       Specializable="Yes"
+       CustomerExtensible="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATEHvaDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="HVAC_Cross_Inst"/>
+    <Property Name="IconName"                   Value="I_PLMHVAC_Cross"/>
+  </RelationClass>
+
+  <RelationClass Name="HVAC_Damper_Inst"
+         Uuid="3c75005d-dc94-499e-9f0d-0231ba018221"
+         CustomerExposition="Programmer"
+         SuperName="HVAC_PartV2_Inst"
+         Discipline="Yes"
+         Specializable="Yes"
+         CustomerExtensible="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATEHvaDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="HVAC_Damper_Inst"/>
+    <Property Name="IconName"                   Value="I_PLMHVAC_Damper"/>
+  </RelationClass>
+
+  <RelationClass Name="HVAC_Diffuser_Inst"
+       Uuid="8cf4be5a-bbdb-4ee8-9328-0b4c1768d037"
+       CustomerExposition="Programmer"
+       SuperName="HVAC_PartV2_Inst"
+       Discipline="Yes"
+       Specializable="Yes"
+       CustomerExtensible="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATEHvaDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="HVAC_Diffuser_Inst"/>
+    <Property Name="IconName"                   Value="I_PLMHVAC_Diffuser"/>
+  </RelationClass>
+  
+  <RelationClass Name="HVAC_Elbow_Inst"
+         Uuid="8b139af0-6c99-44b7-91bc-03bc49e4fb92"
+         CustomerExposition="Programmer"
+         SuperName="HVAC_PartV2_Inst"
+         Discipline="Yes"
+         Specializable="Yes"
+         CustomerExtensible="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATEHvaDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="HVAC_Elbow_Inst"/>
+    <Property Name="IconName"                   Value="I_PLMHVAC_Elbow"/>
+  </RelationClass>
+
+  <RelationClass Name="HVAC_Flange_Inst"
+         Uuid="59fc3b1f-8ab6-4c2b-ba05-ef7c53c341e7"
+         CustomerExposition="Programmer"
+         SuperName="HVAC_PartV2_Inst"
+         Discipline="Yes"
+         Specializable="Yes"
+         CustomerExtensible="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATEHvaDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="HVAC_Flange_Inst"/>
+    <Property Name="IconName"                   Value="I_PLMHVAC_Flange"/>
+  </RelationClass>
+
+  <RelationClass Name="HVAC_Gasket_Inst"
+         Uuid="90ef274f-7c8d-473d-a158-84e36d084a82"
+         CustomerExposition="Programmer"
+         SuperName="HVAC_PartV2_Inst"
+         Discipline="Yes"
+         Specializable="Yes"
+         CustomerExtensible="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATEHvaDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="HVAC_Gasket_Inst"/>
+    <Property Name="IconName"                   Value="I_PLMHVAC_Gasket"/>
+  </RelationClass>
+  <RelationClass Name="HVAC_Instrument_Inst"
+       Uuid="347ebbb1-6097-453c-bac5-5d8662bdf4a6"
+       CustomerExposition="Programmer"
+       SuperName="HVAC_PartV2_Inst"
+       Discipline="Yes"
+       Specializable="Yes"
+       CustomerExtensible="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATEHvaDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="HVAC_Instrument_Inst"/>
+    <Property Name="IconName"                   Value="I_PLMHVAC_Instrument"/>
+  </RelationClass>
+  
+  <RelationClass Name="HVAC_Reducer_Inst"
+         Uuid="03e93f48-435c-408e-bed7-b4cc49bc5513"
+         CustomerExposition="Programmer"
+         SuperName="HVAC_PartV2_Inst"
+         Discipline="Yes"
+         Specializable="Yes"
+         CustomerExtensible="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATEHvaDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="HVAC_Reducer_Inst"/>
+    <Property Name="IconName"                   Value="I_PLMHVAC_Reducer"/>
+  </RelationClass>
+
+  <RelationClass Name="HVAC_Saddle_Inst"
+         Uuid="3b859559-d932-47eb-b902-6e2aa5dcbc30"
+         CustomerExposition="Programmer"
+         SuperName="HVAC_PartV2_Inst"
+         Discipline="Yes"
+         Specializable="Yes"
+         CustomerExtensible="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATEHvaDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="HVAC_Saddle_Inst"/>
+    <Property Name="IconName"                   Value="I_PLMHVAC_Saddle"/>
+  </RelationClass>
+
+  <RelationClass Name="HVAC_Silencer_Inst"
+         Uuid="cfafa054-8e42-4be6-b5c4-25fae029feff"
+         CustomerExposition="Programmer"
+         SuperName="HVAC_PartV2_Inst"
+         Discipline="Yes"
+         Specializable="Yes"
+         CustomerExtensible="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATEHvaDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="HVAC_Silencer_Inst"/>
+    <Property Name="IconName"                   Value="I_PLMHVAC_Silencer"/>
+  </RelationClass>
+
+  <RelationClass Name="HVAC_Tee_Inst"
+         Uuid="10cbb79f-dc71-47d2-8a3c-475d73753b42"
+         CustomerExposition="Programmer"
+         SuperName="HVAC_PartV2_Inst"
+         Discipline="Yes"
+         Specializable="Yes"
+         CustomerExtensible="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATEHvaDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="HVAC_Tee_Inst"/>
+    <Property Name="IconName"                   Value="I_PLMHVAC_Tee"/>
+  </RelationClass>
+
+  <RelationClass Name="HVAC_Transition_Inst"
+         Uuid="19327c03-b270-42ee-a352-89e15157fb65"
+         CustomerExposition="Programmer"
+         SuperName="HVAC_PartV2_Inst"
+         Discipline="Yes"
+         Specializable="Yes"
+         CustomerExtensible="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATEHvaDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="HVAC_Transition_Inst"/>
+    <Property Name="IconName"                   Value="I_PLMHVAC_Transition"/>
+  </RelationClass>
+
+  <RelationClass Name="HVAC_Union_Inst"
+         Uuid="76428bd1-3c9a-42a3-9566-56e201f1bd23"
+         CustomerExposition="Programmer"
+         SuperName="HVAC_PartV2_Inst"
+         Discipline="Yes"
+         Specializable="Yes"
+         CustomerExtensible="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATEHvaDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="HVAC_Union_Inst"/>
+    <Property Name="IconName"                   Value="I_PLMHVAC_Union"/>
+  </RelationClass>
+
+  <RelationClass Name="HVAC_Duct_Inst"
+          Uuid="47715f30-00f9-4942-aadd-d62ed3109e3a"
+          Abstract="Yes"
+          CustomerExposition="Programmer"
+          SuperName="HVAC_Entity_Inst"
+          Discipline="Yes">
+  </RelationClass>
+
+  <RelationClass Name="HVAC_Rigid_Duct_Inst"
+         Uuid="7826a694-bd27-4d2e-b242-b95d2e873811"
+         CustomerExposition="Programmer"
+         SuperName="HVAC_Duct_Inst"
+         Discipline="Yes"
+         CustomerExtensible="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATEHvaDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="HVAC_Rigid_Duct_Inst"/>
+    <Property Name="IconName"                   Value="I_PLMHVAC_Rigid_Duct"/>
+  </RelationClass>
+
+  <RelationClass Name="HVAC_Flexible_Duct_Inst"
+         Uuid="14c3cc4e-371b-4bd9-b1c8-f576936deb86"
+         CustomerExposition="Programmer"
+         SuperName="HVAC_Duct_Inst"
+         Discipline="Yes"
+         CustomerExtensible="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATEHvaDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="HVAC_Flexible_Duct_Inst"/>
+    <Property Name="IconName"                   Value="I_PLMHVAC_Flexible_Duct"/>
+  </RelationClass>
+
+  <RelationClass Name="HVAC_Spool_Inst"
+     Uuid="f819cd8d-c08d-404c-8fd1-baff6a197ca4"
+     CustomerExposition="Programmer"
+     SuperName="VPMInstance"
+     Discipline="Yes"
+     CustomerExtensible="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATEHvaDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="HVAC_Spool_Inst"/>
+    <Property Name="IconName"                   Value="I_PLMHVAC_Spool"/>
+  </RelationClass>
+
+  <Class Name="HVAC_Port"
+         Uuid="3c3b5b53-ea6a-489d-a437-bab3e3492c2f"
+         Abstract="Yes"
+         CustomerExposition="Programmer"
+         SuperName="VPMPort"
+         Discipline="Yes">
+
+    <Property Name="TypeForDisciplineValuation" Value="HVAC_Port"/>
+    <Property Name="IconName"                   Value="I_PLMHVAC_Port"/>
+    <Property Name="3DIconName"                 Value="V_PLMHVAC_Port.cgr"/>
+    <Property Name="Allow_V_Direction_Change"   Value="Yes"/>
+
+    <Simple Name="V_EndStyle" Type="String" Uuid="0226db79-9189-4d72-84ea-5c7a8fbd6ae9" MaxLength="40" Protection="External" CAAExposition="L0" MultiValuated="No"/>
+
+  </Class>
+
+  <Class Name="HVAC_PartPort"
+         Uuid="9395fca9-c139-43b4-a831-543d6d12a429"
+         CustomerExposition="Programmer"
+         SuperName="HVAC_Port"
+         Discipline="Yes">
+
+    <Property Name="MergedExtensionType" Value="HVACPartPort"/>
+
+    <Simple Name="V_Standard"           Type="String" Uuid="2d0e8b0a-1e5e-44ab-8ceb-83dbc8384afb" MaxLength="40"      Protection="External" CAAExposition="L0" MultiValuated="No"/>
+    <Simple Name="V_WallThickness"      Type="Double" Uuid="837da133-bd5d-473e-ad66-1d262fac6d28" Magnitude="LENGTH"  Protection="External" CAAExposition="L0" MultiValuated="No"/>
+    <Simple Name="V_Shape" Uuid="0d533e10-5aa1-4c19-8c3e-62e4bcaee3c1" Type="Integer" Protection="External" CAAExposition="L0" DefaultValue="2">
+      <Property Name="RangeAsEnumName" Value="V_Shape_Enum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="Circle;Rectangle;FlatOval;Ellipse"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+      </Range>
+    </Simple>
+    <Simple Name="V_EquivalentDiameter" Type="String" Uuid="2c75a091-0fc1-4798-a630-4aba2be4a0a2" MaxLength="40"      Protection="External" CAAExposition="L0" MultiValuated="No"/>
+    <Simple Name="V_Height"             Type="Double" Uuid="ad0909bc-49a8-48ab-bbfa-fd8214ff0875" Magnitude="LENGTH"  Protection="External" CAAExposition="L0" MultiValuated="No"/>
+    <Simple Name="V_Width"              Type="Double" Uuid="3ed6f91e-d6d5-4469-a1da-34fd174a3e14" Magnitude="LENGTH"  Protection="External" CAAExposition="L0" MultiValuated="No"/>
+    <Simple Name="V_CornerRadius"       Type="Double" Uuid="a91dc17c-771a-4fc6-9f75-65aab05c2105" Magnitude="LENGTH"  Protection="External" CAAExposition="L0" MultiValuated="No"/>
+    <Simple Name="V_NominalSize"        Type="String" Uuid="43c630d5-85c2-4fea-99d6-64f2b36ebf62" MaxLength="40"      Protection="External" CAAExposition="L0" MultiValuated="No"/>
+    
+  </Class>
+
+  <!--<Class Name="HVAC_BoltedPort" Uuid="270d6252-d599-40f9-94c4-585cfacc878c" CustomerExposition="Programmer" SuperName="HVAC_PartPort" Discipline="Yes">
+
+    <Simple Name="V_Hole_Number"       Uuid="e4836d59-5e9d-4889-b031-88175fa307c4" Type="Integer" Protection="Free" CAAExposition="L0" DefaultValue="0" MultiValuated="No"/>
+    <Simple Name="V_Hole_Diameter"     Uuid="15c41982-878e-4566-ad9a-828761e1782c" Type="Double"  Protection="Free" CAAExposition="L0" DefaultValue="0" MultiValuated="No" Magnitude="LENGTH"/>
+    <Simple Name="V_FaceToFace_Length" Uuid="0826ef6d-43be-4e3b-b1e9-27183ea46271" Type="Double"  Protection="Free" CAAExposition="L0" DefaultValue="0" MultiValuated="No" Magnitude="LENGTH"/>
+
+  </Class>-->
+  
+  <Class Name="HVAC_DuctXPort"
+         Uuid="8e54e866-5747-4a9e-955d-a1debafadae3"
+         CustomerExposition="Programmer"
+         SuperName="HVAC_Port"
+         Discipline="Yes">
+
+    <Property Name="MergedExtensionType" Value="HVACDuctXPort"/>
+
+  </Class>
+
+  <Extension Name="HVACPart"
+             Uuid="53d03c42-1a63-44f8-a8e1-148efcbc8c9a"
+             CustomerExposition="Programmer"
+             CAAExposition="L0"
+             ScopeNames="VPMReference">
+
+    <Simple Name="V_PartType"           Type="String" Uuid="1d4792b3-9bf7-4160-a800-66d06f790baf" MaxLength="40"  Protection="External" CAAExposition="L0" MultiValuated="No"/>
+    <Simple Name="V_SubPartType"        Type="String" Uuid="a1abff16-1d28-4814-9e74-599ee6f811e1" MaxLength="100" Protection="Free"     CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" Value="CATHvaAttributeController"/>
+    </Simple>
+    <Simple Name="V_Standard"           Type="String" Uuid="f6a9a4ef-df26-4523-997d-67ecbf295de5" MaxLength="80"  Protection="Free"     CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" Value="CATHvaAttributeController"/>
+    </Simple>
+    <Simple Name="V_EndStyle"           Type="String" Uuid="36f99045-ea10-4d92-9205-91658906c71a" MaxLength="180" Protection="Free"     CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" Value="CATHvaAttributeController"/>
+    </Simple>
+    <Simple Name="V_MaterialName"       Type="String" Uuid="2b6b49c8-26f1-45e3-a56a-c7f5db3936ea" MaxLength="100" Protection="Free"     CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" Value="CATHvaAttributeController"/>
+    </Simple>
+    <Simple Name="V_Shape"              Type="String" Uuid="d18c4e6c-16aa-4d6b-a7ed-4d264bb1f0b1" MaxLength="180" Protection="Free"     CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" Value="CATHvaAttributeController"/>
+    </Simple>
+    <Simple Name="V_EquivalentDiameter" Type="String" Uuid="59d0d43b-bdcd-4fea-b50e-a4bc6610158c" MaxLength="180" Protection="Free"     CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" Value="CATHvaAttributeController"/>
+    </Simple>
+
+  </Extension>
+
+  <Extension Name="HVACRigidDuct"
+             Uuid="47a9d717-4081-4a37-9d49-e18318377d8f"
+             CustomerExposition="Programmer"
+             CAAExposition="L0"
+             ScopeNames="VPMReference">
+
+    <Simple Name="V_Length"         Type="Double" Uuid="66b5a24f-5283-4f58-b97e-50d7d1bdd364" Magnitude="LENGTH"    Protection="External" CAAExposition="L0" MultiValuated="No"/>
+    <Simple Name="V_WallThickness"  Type="Double" Uuid="9045c8ec-92f6-49e7-8196-c94e46611c5b" Magnitude="LENGTH"    Protection="Free"     CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" Value="CATHvaAttributeController"/>
+    </Simple>
+    <Simple Name="V_Height"         Type="Double" Uuid="e8b21886-4ff3-4050-8812-403d8aa8c626" Magnitude="LENGTH"    Protection="Free"     CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" Value="CATHvaAttributeController"/>
+    </Simple>
+    <Simple Name="V_Width"          Type="Double" Uuid="24db4b32-34df-4b02-af22-7900d46aa65e" Magnitude="LENGTH"    Protection="Free"     CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" Value="CATHvaAttributeController"/>
+    </Simple>
+    <Simple Name="V_CornerRadius"   Type="Double" Uuid="d951ab82-1223-4618-a701-d0a3e13d5890" Magnitude="LENGTH"    Protection="Free"     CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" Value="CATHvaAttributeController"/>
+    </Simple>
+    <Simple Name="V_LinearWeight"   Type="Double" Uuid="4a8522c2-7825-4651-99e0-19ed3e5a2402" Magnitude="LINEMASS"  Protection="Free"     CAAExposition="L0" MultiValuated="No"/>
+
+    <Volatile Name="V_NodePositions"          Uuid="af971778-aa64-485c-ba40-60ce732ca0b9" Accessor="CATHvaKweAttrAccess" TypeName="List" AccessMode="ReadOnly"/>
+    <Volatile Name="V_NodeBendRadii"          Uuid="dc1fe331-44a9-4d3f-9ea6-d859cd40ce84" Accessor="CATHvaKweAttrAccess" TypeName="List" AccessMode="ReadOnly"/>
+    <Volatile Name="V_NodeBendAngles"         Uuid="93e89296-a156-4df2-a4a5-61bb6d2bdc08" Accessor="CATHvaKweAttrAccess" TypeName="List" AccessMode="ReadOnly"/>
+    <Volatile Name="V_SegmentStraightLengths" Uuid="5bf5dbf0-9092-4edb-b27d-2372dc03a8c7" Accessor="CATHvaKweAttrAccess" TypeName="List" AccessMode="ReadOnly"/>
+
+  </Extension>
+
+  <Extension Name="HVACFlexibleDuct"
+             Uuid="63ebf309-f7eb-4abe-8839-1644d65171e5"
+             CustomerExposition="Programmer"
+             CAAExposition="L0"
+             ScopeNames="VPMReference">
+
+    <Simple Name="V_Length"         Type="Double" Uuid="4e5e924e-7f27-4969-ba3b-bd08290ff470" Magnitude="LENGTH"    Protection="External" CAAExposition="L0" MultiValuated="No"/>
+    <Simple Name="V_WallThickness"  Type="Double" Uuid="040e1df2-680a-49b6-9cc5-7734ce50527f" Magnitude="LENGTH"    Protection="Free"     CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" Value="CATHvaAttributeController"/>
+    </Simple>
+    <Simple Name="V_Height"         Type="Double" Uuid="ff5e27f8-63f5-4bd4-a10d-05d28de39406" Magnitude="LENGTH"    Protection="Free"     CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" Value="CATHvaAttributeController"/>
+    </Simple>
+    <Simple Name="V_Width"          Type="Double" Uuid="95a953da-68e0-497f-b7a6-9b9f30159b4c" Magnitude="LENGTH"    Protection="Free"     CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" Value="CATHvaAttributeController"/>
+    </Simple>
+    <Simple Name="V_CornerRadius"   Type="Double" Uuid="f4b095b4-8995-4cd9-aa0e-670db114af72" Magnitude="LENGTH"    Protection="Free"     CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" Value="CATHvaAttributeController"/>
+    </Simple>
+    <Simple Name="V_LinearWeight"   Type="Double" Uuid="b0f19977-8ea4-47fc-a840-03daf646ae96" Magnitude="LINEMASS"  Protection="Free"     CAAExposition="L0" MultiValuated="No"/>
+
+  </Extension>
+
+  <Extension Name="HVACPartPort"
+             Uuid="1808974b-9fa9-46bc-9fee-e17d5c4d6ac2"
+             CustomerExposition="Programmer"
+             CAAExposition="L0"
+             ScopeNames="VPMPort">
+
+    <Simple Name="V_EndStyle"           Type="String" Uuid="b55a8081-87e4-4a3e-9f41-da98dfe8c6ea" MaxLength="40"      Protection="External" CAAExposition="L0" MultiValuated="No"/>
+    <Simple Name="V_Standard"           Type="String" Uuid="8152f7bd-c950-44ba-8ab1-efb2e7fde003" MaxLength="40"      Protection="External" CAAExposition="L0" MultiValuated="No"/>
+    <Simple Name="V_WallThickness"      Type="Double" Uuid="822ca8f2-7885-4d61-bf43-6ee3fdfe73ba" Magnitude="LENGTH"  Protection="External" CAAExposition="L0" MultiValuated="No"/>
+    <Simple Name="V_Shape" Uuid="187c1c2e-a15c-461b-8508-88eb7fe97d00" Type="Integer" Protection="External" CAAExposition="L0" DefaultValue="2">
+      <Property Name="RangeAsEnumName" Value="V_Shape_Enum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="Circle;Rectangle;FlatOval;Ellipse"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+      </Range>
+    </Simple>
+    <Simple Name="V_EquivalentDiameter" Type="String" Uuid="45fea527-2a9c-471e-87e4-78234154275f" MaxLength="40"      Protection="External" CAAExposition="L0" MultiValuated="No"/>
+    <Simple Name="V_Height"             Type="Double" Uuid="d8d05a8b-de51-4113-8900-7ed8b7f4f1f4" Magnitude="LENGTH"  Protection="External" CAAExposition="L0" MultiValuated="No"/>
+    <Simple Name="V_Width"              Type="Double" Uuid="03eac355-4943-4a40-bc3e-d4c8733814d1" Magnitude="LENGTH"  Protection="External" CAAExposition="L0" MultiValuated="No"/>
+    <Simple Name="V_CornerRadius"       Type="Double" Uuid="e9aaf800-58c0-45b0-879e-c3105bce5e93" Magnitude="LENGTH"  Protection="External" CAAExposition="L0" MultiValuated="No"/>
+    <Simple Name="V_PortType"           Type="String" Uuid="d988de3e-7a78-4a90-8d10-7cecd26478e1" MaxLength="40"      Protection="External" CAAExposition="L0" MultiValuated="No"/>
+
+  </Extension>
+
+  <Extension Name="HVACDuctXPort"
+             Uuid="34a31cf2-5a92-4981-ae0b-4885e895b3bc"
+             CustomerExposition="Programmer"
+             CAAExposition="L0"
+             ScopeNames="VPMPort">
+
+    <Simple Name="V_EndStyle" Type="String" Uuid="a3ef525f-cc0b-4abe-9ab3-1d7ddb72fc78" MaxLength="40" Protection="External" CAAExposition="L0" MultiValuated="No"/>
+    <Simple Name="V_PortType" Type="String" Uuid="532cc4e6-d744-4761-b400-be272ea052c4" MaxLength="40" Protection="External" CAAExposition="L0" MultiValuated="No"/>
+
+  </Extension>
+
+</Package>

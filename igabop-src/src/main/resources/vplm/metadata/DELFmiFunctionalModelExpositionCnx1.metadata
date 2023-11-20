@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2006, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" 
+         ModelerType="Top" 
+         BelongsToModeler="DELFmiFunctionalModel"
+         Name="DELFmiFunctionalModelExpositionCnx1"
+         Uuid="99F9C484-7371-400B-9B85-C152E50CF3E7"
+         UseNames="PLMCORE"
+         CustomerExposition="Programmer"
+         >
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>Functional Process Modeler</ShortRole>
+    <Role>"DELFmiFunctionalModelExpositionCnx1" package describes customizable Functional Process Exposition Connection</Role>
+  </CAAComment>
+
+  <Class Name="DELFmiProcessExpositionCnxCust"
+      CustomerExposition="Programmer"
+      CustomerExtensible="No"
+      Specializable="No"
+      Abstract="No"
+      Uuid="749F1172-9EBD-41A7-8450-1411CD6CA7F8"
+      SuperName="PLMConnection"
+      OwnerTypes="DELFmiFunctionReference"
+        >
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+
+    <CAAComment>
+      <ShortRole>Defines Functional Process Exposition Connection</ShortRole>
+    </CAAComment>
+
+
+    <Path Name="PMX_Exposition_TargetCust"
+        Uuid="2D77D903-659D-4C44-B450-80AE7B4F8BE5"
+        MultiValuated="No"
+        RoleName="DELFmi_ExpositionCnx_Target"		
+        Type="SemanticRelation" AdaptativeToMinor="No"
+		    SynchroSensitivity="PathAndLast"
+		    RerouteOnEffectivityChange="Yes" Orientation="In"
+        Semantics="Reference3"/>
+
+    <!-- OwnerTypes="DELFmiFunctionReference"  Integrate this line if you want to declare the aggregation constraint-->
+
+    <Path Name="PMX_Exposition_SourceCust"
+        Uuid="AFC2174F-FBD6-40F0-9A4A-C5C6AFBC411D"
+        MultiValuated="No"
+        RoleName="DELFmi_ExpositionCnx_Source"		
+        Type="SemanticRelation" AdaptativeToMinor="Yes"
+		    SynchroSensitivity="Last"
+		    RerouteOnEffectivityChange="No" Orientation="Out"
+        Semantics="Reference5"/>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+  </Class>
+</Package>

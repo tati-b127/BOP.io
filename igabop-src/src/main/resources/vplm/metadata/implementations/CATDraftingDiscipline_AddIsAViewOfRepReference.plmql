@@ -1,0 +1,16 @@
+NAVIGATE 
+
+T0.PLM_ExternalID , T0.PLMID
+
+FROM PRODUCTCFG/VPMRepReference T0
+
+FROM_ROOTS [?1?] ON (
+
+RELATION (
+         FROM=PRODUCTCFG/VPMRepReference
+         TO=PRODUCTCFG/VPMRepReference
+         THROUGH=POINTSTO) 
+
+WITH QUALITY_FILTER(ROLE=DFT_ViewDefinition))
+
+ITER=1;

@@ -1,0 +1,692 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2004, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified"
+         BelongsToModeler="DELFmiFunctionalModel"
+         ModelerType="Top"
+         Name="DELAsmAssemblyModel"
+         Uuid="cfd995ba-dadc-430e-8070-b8a19062c339"
+         UseNames="DELFmiFunctionalModel DELFmiFunctionalModelExpositionCnx1 DELFmiFunctionalModelPrerequisiteCnx1 DELFmiFunctionalModelPrereqMatCnx"
+         CustomerExposition="Programmer">
+  <Comment>DELMIA Assembly Modeler Message Catalog</Comment>
+
+  <Extension Name="DELAsmProvideFunctionRef"
+             Uuid="141010e8-64dc-45e3-8edd-19403144fbfa"
+             ScopeNames="DELFmiFunctionReference"
+             CAAExposition="L1"
+             CustomerExposition="Programmer">
+    <CAAComment>
+      <ShortRole>Deprecated: Provide Function Extension</ShortRole>
+      <Role>Deprecated: Provide Functions are used to implement parts</Role>
+    </CAAComment>
+  </Extension>
+
+  <Extension Name="DELAsmProduceFunctionRef"
+             Uuid="8e35805c-972d-49a8-9389-1635168aab50"
+             ScopeNames="DELFmiFunctionReference"
+             CustomerExposition="None">
+    <Simple Name="V_MAName"
+            Uuid="8E3b1661-9d73-439a-adb6-dd6e57dcf56a"
+            Type="String"
+            MaxLength="128"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"/>
+    <Simple Name="V_MANumber"
+            Uuid="7f59ee95-8e7e-4a21-9cae-d72257f783e6"
+            Type="String"
+            MaxLength="64"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"/>
+    <Simple Name="V_Outsourced" Uuid="E1D1E45A-2C25-4426-A4CE-61A55F7F92B0" Type="Integer" Protection="Free" CAAExposition="L0" DefaultValue="1">
+      <CAAComment>
+        <ShortRole>Describes whether the assembly described by this function is outsourced or not. Default is "No"(0)</ShortRole>
+      </CAAComment>
+      <Property Name="RangeAsEnumName" Value="V_Outsourced_Enum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="No;Yes"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+      </Range>
+    </Simple>
+    <Simple Name="V_PersistMfgAssembly"
+            Uuid="A35BD1A9-DA77-4ef2-9067-E849FD24037F"
+            Type="Boolean"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Describes whether the output of this function has to be stored as Output. Default should be False.</ShortRole>
+      </CAAComment>
+    </Simple>
+    <CAAComment>
+      <ShortRole>Produce Function Extension</ShortRole>
+      <Role>Produce Functions represent Manufacturing Assemblies</Role>
+    </CAAComment>
+  </Extension>
+
+  <Extension Name="DELAsmJoinFunctionRef"
+             Uuid="9f31e828-1005-4e52-98e0-c68bc2da726e"
+             ScopeNames="DELFmiFunctionReference"
+             CustomerExposition="None">
+    <CAAComment>
+      <ShortRole>Join Function Extension</ShortRole>
+      <Role>Join Functions are used to join two and more parts. They implement Fastener Sets or Assembly Constraints</Role>
+    </CAAComment>
+  </Extension>
+
+  <Extension Name="DELAsmGenericFunctionRef"
+             Uuid="fe353e28-af49-4121-a820-2a55f1880147"
+             ScopeNames="DELFmiFunctionReference"
+             CAAExposition="L1"
+             CustomerExposition="None">
+    <CAAComment>
+      <ShortRole>Generic Function Extension</ShortRole>
+      <Role>Generic functions are used to structure process plans and can correspond to certain "important" nodes in the product sructure (EBOM) </Role>
+    </CAAComment>
+    <Simple Name="V_ImplSemiFinishedPart"
+            Uuid="D415DE92-E934-413b-9856-BB98893E713B"
+            Type="Boolean"
+            MultiValuated="No"
+            Protection="External"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Describes whether this function implements a semi-finished (primary) part. Default should be False.</ShortRole>
+      </CAAComment>
+    </Simple>
+  </Extension>
+
+  <Extension Name="DELAsmDisassembleFunctionRef"
+             Uuid="601f45a2-5661-4f8b-bf7d-c5674cf94e82"
+             ScopeNames="DELFmiFunctionReference"
+             CustomerExposition="Programmer">
+    <CAAComment>
+      <ShortRole>Disassemble Function Extension</ShortRole>
+      <Role>They describe disassembling of several parts</Role>
+    </CAAComment>
+  </Extension>
+
+  <Extension Name="DELAsmUnfastenFunctionRef"
+             Uuid="BA3E23A3-6BEC-4af1-B300-67C21AB0E5E7"
+             ScopeNames="DELFmiFunctionReference"
+             CustomerExposition="Programmer">
+    <CAAComment>
+      <ShortRole>Unfasten Function Extension</ShortRole>
+      <Role>They describe unfastening of several parts</Role>
+    </CAAComment>
+  </Extension>
+
+  <Extension Name="DELAsmRemoveFunctionRef"
+             Uuid="c80758a5-520a-4e9d-9948-53fcec7c725f"
+             ScopeNames="DELFmiFunctionReference"
+             CustomerExposition="None">
+    <CAAComment>
+      <ShortRole>Remove Function Extension</ShortRole>
+      <Role>Describes parts being removed from the product</Role>
+    </CAAComment>
+  </Extension>
+
+  <Extension Name="DELAsmPointFastenFunctionRef"
+             Uuid="fde3210a-a463-42a0-9a76-9b3a8abfb1d9"
+             ScopeNames="DELFmiFunctionReference"
+             CustomerExposition="None">
+    <CAAComment>
+      <ShortRole>Point Fasten Function Extension</ShortRole>
+      <Role>Implements ONE point fastener. Generally only necessary for respot fastening. Is instantiated as child of a join process.</Role>
+    </CAAComment>
+  </Extension>
+
+  <Extension Name="DELAsmCurveFastenFunctionRef"
+             Uuid="f672f9a3-5d67-4f57-b75d-ac21ce7f375d"
+             ScopeNames="DELFmiFunctionReference"
+             CustomerExposition="None">
+    <CAAComment>
+      <ShortRole>Curve Fasten Function Extension</ShortRole>
+      <Role>Implements ONE curve fastener. Generally only necessary for respot fastening. Is instantiated as child of a join process.</Role>
+    </CAAComment>
+  </Extension>
+
+  <Extension Name="DELAsmRemoveMaterialFunctionRef"
+             Uuid="c134d90e-6d87-4225-9534-0a7a9dcd62fa"
+             ScopeNames="DELFmiFunctionReference"
+             CustomerExposition="Programmer">
+    <CAAComment>
+      <ShortRole>Deprecated: Remove Material Function Typing</ShortRole>
+      <Role>Deprecated: This extension provides functions to prepare parts for fastening. By means of its Sub Type attribute one can define kind of preparing action</Role>
+    </CAAComment>
+    <Simple Name="V_RemoveMaterialSubType" Uuid="2E8ACAE1-B620-4643-9775-EC7CD49369D9" Type="Integer" Protection="Free" CAAExposition="L0" DefaultValue="1" PLMImpacting="Yes" Faceted="Yes">
+      <CAAComment>
+        <ShortRole>Attribute of a remove material function, describing its sub type from a given list</ShortRole>
+      </CAAComment>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+      <Property Name="RangeAsEnumName" Value="V_RemoveMaterialSubType_Enum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="PreDrill;Drill;Reserved;Cutting;Grinding;Beveling"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+        <Equal>5</Equal>
+        <Equal>6</Equal>
+      </Range>
+    </Simple>
+    <Simple Name="V_DiameterOfFeature"
+            Uuid="0563B5CA-B450-4832-A9BA-CCB480CA631C"
+            Type="Double"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"
+            Magnitude="LENGTH"
+            PLMImpacting="Yes">
+      <CAAComment>
+        <ShortRole>Diameter of the Feature that is supposed to be deduced from the process description.</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_DepthOfFeature"
+            Uuid="EACDEEE8-F2F5-4b0d-9A56-1118809D9D96"
+            Type="Double"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"
+            Magnitude="LENGTH"
+            PLMImpacting="Yes">
+      <CAAComment>
+        <ShortRole>Depth of the Feature that is supposed to be deduced from the process description.</ShortRole>
+      </CAAComment>
+    </Simple>
+  </Extension>
+
+  <Extension Name="DELAsmAuxiliaryFunctionRef"
+             Uuid="AB45EC0F-3387-46a7-AC16-9BFEAF750944"
+             ScopeNames="DELFmiFunctionReference"
+             CustomerExposition="Programmer">
+    <CAAComment>
+      <ShortRole>Deprecated: Transform Function Extension</ShortRole>
+      <Role>Deprecated: Transform functions are used for every kind of process function that does not change the part itself, but describes something around part processing (cleaning, preparing, ...)</Role>
+    </CAAComment>
+  </Extension>
+
+
+  <Extension Name="DELAsmElementaryEndItemFunctionRef"
+             Uuid="71FC1738-968C-45e0-B253-C2F6151C1BA0"
+             ScopeNames="DELFmiFunctionReference"
+             CustomerExposition="Programmer">
+    <CAAComment>
+      <ShortRole>Deprecated: Elementary End Item Function Extension</ShortRole>
+      <Role>Deprecated: This extension provides a function to manage elementary end items (also called Primary Parts).</Role>
+    </CAAComment>
+    <Simple Name="V_Manufacturing_Decision" Uuid="9D4E4A5A-B3AC-4cb8-9AA5-82C5E87F1ECF" Type="Integer" Protection="Free" CAAExposition="L0" DefaultValue="1">
+      <CAAComment>
+        <ShortRole>Describes whether the product resulting of the process is make or buy</ShortRole>
+      </CAAComment>
+      <Property Name="RangeAsEnumName" Value="V_Manufacturing_Decision_Enum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="UNDEF;TO_BE_DETAILED;NOT_TO_BE_DETAILED"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+      </Range>
+    </Simple>
+    <Simple Name="V_SerialNumberReq"
+            Uuid="468bdb79-c7ca-4049-b719-a4b98d6ce8f5"
+            Type="Boolean"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Obsolete attribute</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_LotNumberReq"
+            Uuid="d9075e56-f290-4615-b087-d03e403859e6"
+            Type="Boolean"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Obsolete attribute</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_NeedDedicatedSystem" Uuid="4E2800DA-D4FD-47d1-8CE0-89728D0CC702" Type="Integer" Protection="Free" CAAExposition="L0" DefaultValue="2" Faceted="Yes">
+      <Property Name="RangeAsEnumName" Value="V_NeedDedicatedSystem_Enum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="No;Yes"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+      </Range>
+    </Simple>
+  </Extension>
+
+  <Extension Name="DELAsmCreateAssemblyFunctionRef"
+             Uuid="A720A019-7013-4377-8FB8-02B7DC5CDA47"
+             ScopeNames="DELFmiFunctionReference"
+             CustomerExposition="Programmer">
+    <Simple Name="V_MAName"
+            Uuid="DE39CE22-1BB4-4659-B9F5-FD8140AF51CC"
+            Type="String"
+            MaxLength="128"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"/>
+    <Simple Name="V_MANumber"
+            Uuid="E469EDF9-8C38-4f17-ABCF-64DE7822AEBA"
+            Type="String"
+            MaxLength="64"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"/>
+    <Simple Name="V_Outsourced" Uuid="D964EA3C-B835-47d8-8541-4A5953F14F31" Type="Integer" Protection="Free" CAAExposition="L0" DefaultValue="1">
+      <CAAComment>
+        <ShortRole>Describes whether the assembly described by this function is outsourced or not. Default is "No"(0)</ShortRole>
+      </CAAComment>
+      <Property Name="RangeAsEnumName" Value="V_Outsourced_Enum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="No;Yes"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+      </Range>
+    </Simple>
+    <Simple Name="V_PersistMfgAssembly"
+            Uuid="8463AFFA-6BD9-472e-B826-8B7EA91E2A6B"
+            Type="Boolean"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Describes whether the output of this function has to be stored as Output. Default should be False.</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_Manufacturing_Decision" Uuid="4F4E9E34-CD38-4861-89AB-DFBCEE2A7C9C" Type="Integer" Protection="Free" CAAExposition="L0" DefaultValue="1">
+      <CAAComment>
+        <ShortRole>Describes whether the product resulting of the process is make or buy</ShortRole>
+      </CAAComment>
+      <Property Name="RangeAsEnumName" Value="V_Manufacturing_Decision_Enum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="UNDEF;TO_BE_DETAILED;NOT_TO_BE_DETAILED"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+      </Range>
+    </Simple>
+    <Simple Name="V_AssemblyComposition" Uuid="81ea89fc-255d-4170-9e37-885a3187c8e3" Type="Integer" Protection="External" CAAExposition="L0" DefaultValue="1">
+      <CAAComment>
+        <ShortRole>Describes whether the assembly composition is independent or contextual</ShortRole>
+      </CAAComment>
+      <Property Name="RangeAsEnumName" Value="V_AssemblyComposition_Enum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="Independent;Contextual"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+      </Range>
+    </Simple>
+    <Simple Name="V_SerialNumberReq"
+            Uuid="2eb72ee2-3c41-4e26-8973-4076a7b9f2c8"
+            Type="Boolean"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Obsolete attribute</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_LotNumberReq"
+            Uuid="726832e9-3327-40ff-be5b-c1301dfb9486"
+            Type="Boolean"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>Obsolete attribute</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_NeedDedicatedSystem" Uuid="4F296B8E-0F46-4596-B5F7-C74FA0F3C951" Type="Integer" Protection="Free" CAAExposition="L0" DefaultValue="2" Faceted="Yes">
+      <CAAComment>
+        <ShortRole>Deprecated: Create Assembly Function Extension</ShortRole>
+        <Role>Deprecated: Create Assembly Function represents Manufacturing Assemblies</Role>
+      </CAAComment>
+      <Property Name="RangeAsEnumName" Value="V_NeedDedicatedSystem_Enum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="No;Yes"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+      </Range>
+    </Simple>
+
+  </Extension>
+
+  <Extension Name="DELAsmFastenFunctionRef"
+             Uuid="4CFCB8A2-2D14-43c2-B6AA-CA97ED8EA5BE"
+             ScopeNames="DELFmiFunctionReference"
+             CustomerExposition="Programmer">
+    <Simple Name="V_IsMovable"
+            Uuid="321A4373-67A3-4669-B899-419EC2E85295"
+            Type="Boolean"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"
+            DefaultValue="false"/>
+    <CAAComment>
+      <ShortRole>Deprecated: Fasten Function Extension</ShortRole>
+      <Role>Deprecated: Implements one fastener.</Role>
+    </CAAComment>
+  </Extension>
+
+  <Extension Name="DELAsmMBOMFunctionRef"
+             Uuid="5321fdf7-97ad-47ed-a1a2-3306aaac1924"
+             ScopeNames="DELFmiFunctionReference"
+             CAAExposition="L0"
+             CustomerExposition="Programmer">
+    <CAAComment>
+      <ShortRole>MBOM Function Reference Extension</ShortRole>
+      <Role>Identifies MBOM Reference and manages relative attributes.</Role>
+    </CAAComment>
+    <Simple Name="V_MakeOrBuy" Uuid="13aa993f-8fa8-4cb6-bb69-3c414e72f1d4" Type="Integer" Protection="Free" CAAExposition="L0" DefaultValue="1">
+      <CAAComment>
+        <ShortRole>Describes if a manufacturing item is bought or made. Default should be unassigned.</ShortRole>
+      </CAAComment>
+      <Property Name="RangeAsEnumName" Value="V_MakeOrBuy_Enum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="Unassigned;Buy;Make"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+      </Range>
+    </Simple>
+  </Extension>
+
+  <Extension Name="DELAsmSplitFunctionRef"
+             Uuid="EAE9FC52-04DC-4f19-8792-8294AB1ACA4F"
+             ScopeNames="DELFmiFunctionReference"
+             CAAExposition="L0"
+             CustomerExposition="Programmer">
+    <Simple Name="V_NumberOfPieces"
+            Uuid="10EEB8F0-3290-497a-ACD2-8F7EBCFEF358"
+            Type="Integer"
+            DefaultValue="1"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"/>
+    <Simple Name="V_XSplitDirection"
+            Uuid="DA6B36C5-6990-49b3-AFC0-50E81D6A91B3"
+            Type="Double"
+            Magnitude="LENGTH"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"/>
+    <Simple Name="V_YSplitDirection"
+            Uuid="5A24D23B-55C6-4499-B618-1173CB1D2EC5"
+            Type="Double"
+            Magnitude="LENGTH"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"/>
+    <Simple Name="V_ZSplitDirection"
+            Uuid="0FCE9B50-7ACF-454d-BDC4-CD9F53A4407F"
+            Type="Double"
+            Magnitude="LENGTH"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"/>
+    <Simple Name="V_CustoSplitDirection"
+            Uuid="25AFD21E-CA65-4d28-8037-396A7F7B6A6A"
+            Type="Double"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"
+            Magnitude="LENGTH"/>
+    <Simple Name="V_NameCustoSplitDir"
+            Uuid="899E55F8-BC69-43f8-8F5F-E3E1772A59FF"
+            Type="String"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"/>
+    <CAAComment>
+      <ShortRole>Deprecated: Split Function Extension</ShortRole>
+      <Role>Deprecated: Used to split raw stock.</Role>
+    </CAAComment>
+  </Extension>
+
+  <Extension Name="DELAsmMarkingFunctionRef"
+             Uuid="0A466477-A304-4441-A83F-B9E76DA89FC4"
+             ScopeNames="DELFmiFunctionReference"
+             CAAExposition="L0"
+             CustomerExposition="Programmer">
+    <Simple Name="V_MarkingSubType" Uuid="570EB42C-62B1-4340-AC4D-CCFD69C0C1EC" Type="Integer" Protection="Free" CAAExposition="L0" DefaultValue="1" Faceted="Yes">
+      <CAAComment>
+        <ShortRole>Attribute of a marking function, describing its sub type from a given list</ShortRole>
+      </CAAComment>
+      <Property Name="SIXW" Value="ds6w:kind"/>
+      <Property Name="RangeAsEnumName" Value="V_MarkingSubType_Enum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="Annotation"/>
+      <Range>
+        <Equal>1</Equal>
+      </Range>
+    </Simple>
+    <CAAComment>
+      <ShortRole>Deprecated: Marking Function Extension</ShortRole>
+    </CAAComment>
+  </Extension>
+
+  <Extension Name="DELAsmCreateMaterialFunctionRef"
+             Uuid="0F05D218-36A7-4a3b-9FE8-CFE8E093683F"
+             ScopeNames="DELFmiFunctionReference"
+             CAAExposition="L0"
+             CustomerExposition="Programmer">
+    <Simple Name="V_NeedDedicatedSystem" Uuid="E30308B7-9EDB-45f5-B42F-0EDBC790F0B6" Type="Integer" Protection="Free" CAAExposition="L0" DefaultValue="2" Faceted="Yes">
+      <CAAComment>
+        <ShortRole>Deprecated: Marking Function Extension</ShortRole>
+      </CAAComment>
+      <Property Name="RangeAsEnumName" Value="V_NeedDedicatedSystem_Enum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="No;Yes"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+      </Range>
+    </Simple>
+  </Extension>
+
+  <Extension Name="DELAsmCreateKitFunctionRef"
+             Uuid="11CD123A-D554-4fc9-9ED9-34A1C832C085"
+             ScopeNames="DELFmiFunctionReference"
+             CAAExposition="L0"
+             CustomerExposition="Programmer">
+    <CAAComment>
+      <ShortRole>Deprecated: Create Kit Function Extension</ShortRole>
+    </CAAComment>
+  </Extension>
+
+  <Extension Name="DELAsmDataRequirementExt"
+             Uuid="6FC8AAFC-D659-447a-A724-0E1B609F8416"
+             ScopeNames="DELFmiProcessPrerequisiteCnxCust DELFmiProcessExpositionCnxCust"
+             CAAExposition="L0"
+             CustomerExposition="Programmer">
+    <Simple Name="V_DataQuantity"
+            Uuid="60A38E74-EB98-476f-90C6-1724A6DA4D9C"
+            Type="Integer"
+            MultiValuated="No"
+            Protection="External"
+            CAAExposition="L0"
+            DefaultValue="1">
+
+      <CAAComment>
+        <ShortRole>Data Requirement extension</ShortRole>
+      </CAAComment>
+    </Simple>
+  </Extension>
+
+  <Extension Name="DELAsmQuantity_Length"
+             Uuid="A77263D1-1A12-471a-995F-5BBCEF2E9D08"
+             ScopeNames="DELFmiFunctionReference"
+             CAAExposition="L0"
+             CustomerExposition="None">
+    <Simple Name="V_PartQuantity"
+            Uuid="5E57EF79-0BFD-44f1-9CE2-EDDFEA79BAEF"
+            Type="Double"
+            Magnitude="LENGTH"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"
+            DefaultValue="1.0">
+
+      <CAAComment>
+        <ShortRole>Quantity Consumed extension</ShortRole>
+      </CAAComment>
+    </Simple>
+  </Extension>
+
+  <Extension Name="DELAsmQuantity_Surface"
+             Uuid="E1C081EF-FCB4-4942-805A-3037EB6B1CA9"
+             ScopeNames="DELFmiFunctionReference"
+             CAAExposition="L0"
+             CustomerExposition="None">
+    <Simple Name="V_PartQuantity"
+            Uuid="A662D4F8-A8CE-4ba7-A65D-78E30D4CC78D"
+            Type="Double"
+            Magnitude="AREA"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"
+            DefaultValue="1.0">
+
+      <CAAComment>
+        <ShortRole>Quantity Consumed extension</ShortRole>
+      </CAAComment>
+    </Simple>
+  </Extension>
+
+  <Extension Name="DELAsmQuantity_Volume"
+             Uuid="CFF35E9E-3A2B-4d38-A177-D0001623AA53"
+             ScopeNames="DELFmiFunctionReference"
+             CAAExposition="L0"
+             CustomerExposition="None">
+    <Simple Name="V_PartQuantity"
+            Uuid="8A61C144-9F53-4886-9E64-C3BA69A58187"
+            Type="Double"
+            Magnitude="VOLUME"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"
+            DefaultValue="1.0">
+
+      <CAAComment>
+        <ShortRole>Quantity Consumed extension</ShortRole>
+      </CAAComment>
+    </Simple>
+  </Extension>
+
+  <Extension Name="DELAsmQuantity_Weight"
+             Uuid="ACC6A678-082F-443f-AFB2-BE7163B60338"
+             ScopeNames="DELFmiFunctionReference"
+             CAAExposition="L0"
+             CustomerExposition="None">
+    <Simple Name="V_PartQuantity"
+            Uuid="4A8C6EF1-F970-4b83-92DB-2A4CB4FB16AF"
+            Type="Double"
+            Magnitude="MASS"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"
+            DefaultValue="1.0">
+
+      <CAAComment>
+        <ShortRole>Quantity Consumed extension</ShortRole>
+      </CAAComment>
+    </Simple>
+  </Extension>
+
+  <Extension Name="DELAsmQuantity_Each"
+             Uuid="CD2D1BF2-6F6B-4e54-A78A-D66D09C9AB14"
+             ScopeNames="DELFmiFunctionReference"
+             CAAExposition="L0"
+             CustomerExposition="None">
+    <Simple Name="V_PartQuantity"
+            Uuid="29C73824-C41B-4f17-ADD8-9A7339780DCF"
+            Type="Integer"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"
+            DefaultValue="1">
+
+      <CAAComment>
+        <ShortRole>Quantity Consumed extension</ShortRole>
+      </CAAComment>
+    </Simple>
+  </Extension>
+
+
+  <Extension Name="DELAsmMoveStructureRestrictionExt"
+             Uuid="AC5CBB9E-345F-4870-95D9-4AD3F7E954DC"
+             ScopeNames="DELFmiFunctionInstance"
+             CustomerExposition="Programmer">
+    <Simple Name="V_AutoDownMoveLocked"
+            Uuid="A323DB74-5EFE-40a0-8375-F5C86181EC63"
+            Type="Boolean"
+            MultiValuated="No"
+            Protection="Free"
+            DefaultValue="true"
+            CAAExposition="L0"
+            Faceted="Yes">
+    </Simple>
+
+    <CAAComment>
+      <ShortRole> Move Structure Restruction Extension</ShortRole>
+      <Role>Manages attributes relative to Move Structure Possibilities.</Role>
+    </CAAComment>
+  </Extension>
+
+  <Extension Name="DELAsmProcessOutputStatusExt"
+         Uuid="A61642F4-2992-4bc9-BAB4-FE16BC9C5D63"
+         ScopeNames="DELFmiProcessPrereqMaterializationCnx"
+         CustomerExposition="Programmer">
+    <Simple Name="V_GeneratedFlag"
+            Uuid="36CB6321-7822-4c22-A648-04BD43611840"
+            Type="Boolean"
+            MultiValuated="No"
+            Protection="Internal"
+            DefaultValue="true"
+            ResetOnCloning="No"
+            ResetOnNewVersion="No"/>
+    <Simple Name="V_ListUpdateStamp_1"
+            Uuid="84500D39-11E4-4b19-AEBF-C3D78F534237"
+            Type="Integer"
+            MultiValuated="Yes"
+            CollectionType="Set"
+            Protection="Internal"
+            ResetOnCloning="No"
+            ResetOnNewVersion="No"/>
+    <Simple Name="V_ListUpdateStamp_2"
+            Uuid="00F5A046-56A9-4a02-AD09-60118A3A453A"
+            Type="Integer"
+            MultiValuated="Yes"
+            CollectionType="Set"
+            Protection="Internal"
+            ResetOnCloning="No"
+            ResetOnNewVersion="No"/>
+    <CAAComment>
+      <ShortRole>Process Output Status Extension</ShortRole>
+      <Role>Manage update status of the Process Output.</Role>
+    </CAAComment>
+  </Extension>
+
+  <Extension Name="DELAsmInstallationFunctionRef"
+             Uuid="5C9258CC-AEC5-4861-BD12-F75750FABDAA"
+             ScopeNames="DELFmiFunctionReference"
+             CAAExposition="L0"
+             CustomerExposition="Programmer">
+    <Simple Name="V_NeedDedicatedSystem" Uuid="7E9F4C6B-9693-459e-A71B-C5A8711298AB" Type="Integer" Protection="Free" CAAExposition="L0" DefaultValue="2" Faceted="Yes">
+      <CAAComment>
+        <ShortRole>Deprecated: Installation Function Extension</ShortRole>
+        <Role>Deprecated: Installation Function represents Manufacturing Assemblies in context.</Role>
+      </CAAComment>
+      <Property Name="RangeAsEnumName" Value="V_NeedDedicatedSystem_Enum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="No;Yes"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+      </Range>
+    </Simple>
+  </Extension>
+
+
+</Package>

@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<ProcedurePackage xmlns="PLMDictionaryProcedure" Name="PLMEnsTechnoTable_Procedures">
+<Procedure Name="ESE_TechnoTableExport">
+	<Implementation Name="ESE_TechnoTableExport" FileLocation="ESE_TechnoTableExport.KProc" Language="EKL"/>
+	<Signature href="ESE_TechnoTableExportSignature"/>
+</Procedure>
+<Signature id="ESE_TechnoTableExportSignature">
+  <Parameter Name="InputIds" Lower="0" Upper="-1" MultiValuated="Yes" Direction="in" DataType="PLMId" Order="1"/>
+  <Parameter Name="OutputIds" Lower="0" Upper="-1" MultiValuated="Yes" Direction="out" DataType="PLMId" Order="2"/>
+</Signature>
+<Procedure Name="ESE_TechnoTableRemove">
+  <Implementation Name="ESE_TechnoTableRemove" FileLocation="ESE_TechnoTableRemove.KProc" Language="EKL"/>
+  <Signature href="ESE_TechnoTableRemoveSignature"/>
+</Procedure>
+<Signature id="ESE_TechnoTableRemoveSignature">
+  <Parameter Name="InputIds" Lower="0" Upper="-1" MultiValuated="Yes" Direction="in" DataType="PLMId" Order="1"/>
+  <Parameter Name="OutputIds" Lower="0" Upper="-1" MultiValuated="Yes" Direction="out" DataType="PLMId" Order="2"/>
+</Signature>
+</ProcedurePackage>

@@ -1,0 +1,84 @@
+#Prog VPMEditor_GetAllWithoutRepresentations (iPLMIDSet :  #In PLMIDSet,oPLMIDSet :  #Out PLMIDSet) : VoidType
+  {
+let PLMRouteSet1(PLMRouteSet)
+let PLMRouteSet2(PLMRouteSet)
+let PLMRouteSet4(PLMRouteSet)
+let PLMRouteSet5(PLMRouteSet)
+let PLMRouteSet7(PLMRouteSet)
+let PLMRouteSet10(PLMRouteSet) 
+let PLMRouteSet11(PLMRouteSet)
+let PLMRouteSet12(PLMRouteSet)
+let PLMRouteSet13(PLMRouteSet)
+let PLMRouteSet14(PLMRouteSet)
+let rsXCADRepRepInst(PLMRouteSet)
+
+let PLMIDSet5(PLMIDSet )
+let PLMIDSet7(PLMIDSet )
+let PLMIDSet8(PLMIDSet )
+let PLMIDSet9(PLMIDSet )
+let PLMIDSet_Mat (PLMIDSet)
+let PLMIDSetRestrictedRefAndRep(PLMIDSet)
+let PLMIDSetRestricted(PLMIDSet)
+let idsConfig(PLMIDSet)
+
+
+PLMIDSetRestricted = Restrict(iPLMIDSet, "PRODUCTCFG/VPMReference")
+
+
+/*Completes with  LPPrivateRep*/
+PLMRouteSet1 = ExecutePLMFunction("PRODUCTCFG", "ProductCfg_AddLPPrivateRep", PLMIDSetRestricted)
+
+
+/* Completes with XCADRepRepInsts */
+rsXCADRepRepInst = ExecutePLMFunction("XCADAssembly", "XcadAssembly_ExpandVPMRefToXCADRepRepInst", PLMIDSetRestricted)
+
+
+/*Completes with  3DPart Representations*/
+PLMRouteSet5 = ExecutePLMFunction("PRODUCTCFG", "ProductCfg_Add3DPartRepresentation", PLMIDSetRestricted)
+
+/* Restrict for Port on Rep */
+PLMIDSet5 = Ids(PLMRouteSet5)
+PLMIDSetRestrictedRefAndRep = Restrict(PLMIDSet5, "PRODUCTCFG/VPMRepReference") + PLMIDSetRestricted
+
+
+/*Completes with Ports and VPMConnections*/
+PLMRouteSet2 = ExecutePLMFunction("PRODUCTCFG", "ProductCfg_AddVPMPortsAndConnections", PLMIDSetRestrictedRefAndRep)
+
+
+/*Completes with Implement Link connections */
+PLMRouteSet4 = ExecutePLMFunction("RFLPLMImplementConnection", "RFLPLMImplementConnection_AddAllImplementCnx", PLMIDSetRestricted  )
+
+
+/*Completes with Material procedure */
+PLMIDSet_Mat = ExecutePLMProcedure("MatAppliedExportDesign", PLMIDSetRestricted )
+
+/*Completes with Engineering Connections */
+PLMRouteSet10 = ExecutePLMFunction("CATMCXAssembly", "CATMCXAssembly_AddAllAggregatedMCX", PLMIDSetRestricted )
+
+/*Completes with Documents Connections */
+PLMRouteSet11 = ExecutePLMFunction("PLMDocConnection", "PLMDocConnection_retrieveAllDocuments", PLMIDSetRestricted )
+
+/*Completes with PVS Connections */
+PLMRouteSet12 = ExecutePLMFunction("PLMWspSpecFilter", "PLMWspSpecFilter_AddAllAggregatedSpecPVS", PLMIDSetRestricted)
+
+/*Completes with Piping Connections */
+PLMRouteSet7 = ExecutePLMFunction("PLMEnsGrouping", "PLMEnsGrouping_AddGrouping", PLMIDSetRestricted)
+
+/*Completes with Logical/Physical Connection */
+PLMRouteSet13 = ExecutePLMFunction("PLMLSRRouteConnection", "PLMLSRRouteConnection_AddLsrCnx", PLMIDSetRestricted)
+
+/* Completes with SPPConnection for Space Allocation/Space Usage Apps (resp: USV/TL9) */
+PLMRouteSet14 = ExecutePLMFunction("PLMSpacePlanning", "SPPConnection_addAllSPPConnection", PLMIDSetRestricted)
+
+/*        */
+/* Config */ 
+/*        */
+
+/* Complete with configuration */
+idsConfig = ExecutePLMProcedure("Config_GetStructConfig", iPLMIDSet)
+
+oPLMIDSet = iPLMIDSet + Ids(PLMRouteSet1) + Ids(rsXCADRepRepInst) + Ids(PLMRouteSet2) + Ids(PLMRouteSet4) +Ids(PLMRouteSet5) +
+Ids(PLMRouteSet10)+ Ids(PLMRouteSet11)+ Ids(PLMRouteSet12)+ Ids(PLMRouteSet7) + PLMIDSet_Mat +
+Ids(PLMRouteSet13) + Ids(PLMRouteSet14) + idsConfig
+
+}

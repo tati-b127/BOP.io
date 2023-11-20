@@ -1,0 +1,389 @@
+<?xml version="1.0" ?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2007, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" Name="LPABSTRACT" Uuid="69844b63-51f1-4183-94dec5574c6fa49a"
+    UseNames="PLMCORE"
+    CustomerExposition="Programmer"
+   >
+  <CAAComment>
+    <ShortRole>Common package for Logical and Physical Models</ShortRole>
+    <Role>This package includes all the common entities for Logical and Physical Models</Role>
+  </CAAComment>
+
+
+  <!-- ############################# -->
+  <!-- CLASS : LPAbstractReference   -->
+  <!-- ############################# -->
+
+  <Class Name="LPAbstractReference" Uuid="22314c77-2776-4b5d-831731d0e37cd296"
+		Abstract="Yes"
+		SuperName="PLMCoreReference"
+    CustomerExposition="None"
+		>
+
+    <Simple Name="V_hasPGPRep" Uuid="55b9404b-c3fc-4e5d-a07f-719cdd930e4f"
+			        Protection="Internal"
+          		Type="Boolean"
+          		MultiValuated="No"
+          		DefaultValue="false"
+			>
+      <CAAComment>
+        <ShortRole>Does this Reference has a PGP Rep ?</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_hasInstanciationDefinition" Uuid="7b8b554b-6f1b-49fa-b51d-1e64f39aad5c"
+          Protection="Internal"
+          Type="Boolean"
+          MultiValuated="No"
+          DefaultValue="false"
+			>
+      <CAAComment>
+        <ShortRole>Does this Reference has an Instanciation Defintion Rep ?</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_Scale" Uuid="ca49b142-11d4-4c18-a0c0-2eb8f34a85f3" Type="Integer" Protection="ExternalIN" CAAExposition="L1" DefaultValue="1" Faceted="Yes" SetOnlyOnce="AtCreation" PLMImpacting="No">
+      <CAAComment>
+        <ShortRole>Scale of the Product ()</ShortRole>
+      </CAAComment>
+      <Property Name="RangeAsEnumName" Value="V_ScaleEnum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="NormalScale;LargeScale;ExtraLargeScale;SmallScale;ExtraSmallScale;NanometricScale"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+        <Equal>5</Equal>
+        <Equal>6</Equal>
+      </Range>
+    </Simple>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+  <!-- ############################# -->
+  <!-- CLASS : LPAbstractRepReference-->
+  <!-- ############################# -->
+
+
+
+  <Class Name="LPAbstractRepReference" Uuid="e7c21251-cb10-4439-8f5009cddb7f009d"
+      	  Abstract="Yes"
+        	SuperName="PLMCoreRepReference"
+          CustomerExposition="None"
+       	>
+
+    <Simple Name="V_isMandatory" Uuid="c7ee0be5-76d8-4a11-bc31-b592d71682c3"
+          Protection="Internal"
+          Type="Boolean"
+          MultiValuated="No"
+          DefaultValue="false"
+			>
+    </Simple>
+
+    <Simple Name="V_Scale" Uuid="f5f3c608-3033-4eea-b506-48a2db06f802" Type="Integer" Protection="ExternalIN" CAAExposition="L1" DefaultValue="1" Faceted="Yes" SetOnlyOnce="AtCreation" PLMImpacting="No">
+      <CAAComment>
+        <ShortRole>Scale of the Product ()</ShortRole>
+      </CAAComment>
+      <Property Name="RangeAsEnumName" Value="V_ScaleEnum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="NormalScale;LargeScale;ExtraLargeScale;SmallScale;ExtraSmallScale;NanometricScale"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+        <Equal>5</Equal>
+        <Equal>6</Equal>
+      </Range>
+    </Simple>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+
+  <!-- ############################# -->
+  <!-- CLASS : LPAbstractInstance    -->
+  <!-- ############################# -->
+
+  <RelationClass Name="LPAbstractInstance" Uuid="7a255e58-03bb-49fb-992b47965e227b7f"
+        Abstract="Yes"
+        SuperName="PLMCoreInstance"
+        CustomerExposition="None"
+       	>
+
+    <Property Name="Expansible" Value="Yes"/>
+
+    <Simple Name="V_matrix_1" Uuid="E76267E2-FC15-4251-A204DFBA90EF7038"
+            Protection="Internal"
+            Type="Double"
+            MultiValuated="No"
+            PLMImpacting="Yes"
+      DefaultValue="1.0"
+			>
+      <CAAComment>
+        <ShortRole>Relative pos matrix of Instance</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_matrix_2" Uuid="FF6230A5-60EE-41B5-81D9A8D1BC79B22D"
+        Protection="Internal"
+        Type="Double"
+        MultiValuated="No"
+        PLMImpacting="Yes"
+			>
+      <CAAComment>
+        <ShortRole>Relative pos matrix of Instance</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_matrix_3" Uuid="52BCC81A-E305-474E-AFD026E03AA07D16"
+        Protection="Internal"
+        Type="Double"
+        MultiValuated="No"
+        PLMImpacting="Yes"
+			>
+      <CAAComment>
+        <ShortRole>Relative pos matrix of Instance</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_matrix_4" Uuid="A9EF5A47-0D5E-4DD1-B35ADB19D888AC01"
+        Protection="Internal"
+        Type="Double"
+        MultiValuated="No"
+        PLMImpacting="Yes"
+			>
+      <CAAComment>
+        <ShortRole>Relative pos matrix of Instance</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_matrix_5" Uuid="3DA2B778-DCAF-48C3-8AFDCC87D642EA06"
+        Protection="Internal"
+        Type="Double"
+        MultiValuated="No"
+        PLMImpacting="Yes"
+  DefaultValue="1.0"
+			>
+      <CAAComment>
+        <ShortRole>Relative pos matrix of Instance</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_matrix_6" Uuid="F91113E3-0341-496A-BCF3CB68C34B1B47"
+        Protection="Internal"
+        Type="Double"
+        MultiValuated="No"
+        PLMImpacting="Yes"
+			>
+      <CAAComment>
+        <ShortRole>Relative pos matrix of Instance</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_matrix_7" Uuid="96C8BA48-2762-4BBF-9A8379677E3C71E5"
+        Protection="Internal"
+        Type="Double"
+        MultiValuated="No"
+        PLMImpacting="Yes"
+            	>
+      <CAAComment>
+        <ShortRole>Relative pos matrix of Instance</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_matrix_8" Uuid="232DE640-909A-4514-97B894006B7B5C3D"
+        Protection="Internal"
+        Type="Double"
+        MultiValuated="No"
+        PLMImpacting="Yes"
+            	>
+      <CAAComment>
+        <ShortRole>Relative pos matrix of Instance</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_matrix_9" Uuid="618721DB-6E76-4856-AC9187E624F350FE"
+        Protection="Internal"
+        Type="Double"
+        MultiValuated="No"
+        PLMImpacting="Yes"
+  DefaultValue="1.0"
+            	>
+      <CAAComment>
+        <ShortRole>Relative pos matrix of Instance</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_matrix_10" Uuid="16822DBE-2417-45DC-BE34CFE5C3E57017"
+        Protection="Internal"
+        Type="Double"
+        MultiValuated="No"
+        PLMImpacting="Yes"
+            	>
+      <CAAComment>
+        <ShortRole>Relative pos matrix of Instance</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_matrix_11" Uuid="DE3986A8-5CC5-4406-B9CDDFDB21ABDEE4"
+        Protection="Internal"
+        Type="Double"
+        MultiValuated="No"
+        PLMImpacting="Yes"
+            	>
+      <CAAComment>
+        <ShortRole>Relative pos matrix of Instance</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_matrix_12" Uuid="B3DBD2D0-3875-4E87-AF5D55840B1595F6"
+        Protection="Internal"
+        Type="Double"
+        MultiValuated="No"
+        PLMImpacting="Yes"
+            	>
+      <CAAComment>
+        <ShortRole>Relative pos matrix of Instance</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_hasPGPRep" Uuid="5553f438-6be4-454e-9e4d-6cd20ccd813d"
+          Protection="Internal"
+          Type="Boolean"
+          MultiValuated="No"
+  DefaultValue="false"
+			>
+      <CAAComment>
+        <ShortRole>Does this Instance has PGP Rep ?</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_hasInstanciationValue" Uuid="de046d60-0c80-4dd3-ac9d-91b9cc482d1c"
+          Protection="Internal"
+  Type="Boolean"
+          MultiValuated="No"
+          DefaultValue="false"
+			>
+      <CAAComment>
+        <ShortRole>Does this Instance has Instanciation Value Rep ?</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_IsFixedInstance"
+      Uuid="8c1510df-4ae1-48f7-9e4e-6fbccf1d723c"
+      Type="Boolean"
+      MultiValuated="No"
+      DefaultValue="false"
+      Protection="ExternalIN"
+      CAAExposition="L0"
+      ResetOnCloning="No"
+      ResetOnNewVersion="No"
+      PLMImpacting="No"
+          >
+      <CAAComment>
+        <ShortRole>Expose to users if instance position is fixed or not</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Volatile Name="Positioned3DObject" Uuid="303ba374-7b8e-4400-8f86-6c27c1a0826f"
+    AccessMode="ReadOnly"
+    Accessor="CATPrd_KweAttrAccess_Positioned3DObject"
+    TypeName="Positioned3DObject"/>
+
+    <Volatile Name="PositionMatrix"  Uuid="1514D784-B0F1-460B-9E91-1F26F59AAFF6"
+AccessMode="ReadWrite"
+Accessor="PLMModelerPositionMatrixKweAttribute"
+TypeName="Matrix"  />
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </RelationClass>
+
+  <!-- ############################# -->
+  <!-- CLASS : LPAbstractRepInstance -->
+  <!-- ############################# -->
+
+  <RelationClass Name="LPAbstractRepInstance" Uuid="15aa4535-2463-49e9-98c8ec2972d52163"
+		      Abstract="Yes"
+        	SuperName="PLMCoreRepInstance"
+          CustomerExposition="None"
+       	>
+
+    <Property Name="Expansible" Value="Yes"/>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </RelationClass>
+
+
+  <!-- ############################# -->
+  <!-- CLASS : LPAbstractPort        -->
+  <!-- ############################# -->
+
+  <Class Name="LPAbstractPort" Uuid="7798cf19-2ee0-4d34-bf35305fc50897cb"
+    		  Abstract="Yes"
+        	SuperName="PLMPort"
+          CustomerExposition="None"
+       	>
+
+    <Simple Name="V_Direction" Uuid="386fc982-0eb4-401c-a3895ce6b13693e1" Type="Integer" Protection="ExternalIN" CAAExposition="L1" DefaultValue="2" PLMImpacting="Yes" Faceted="Yes">
+      <CAAComment>
+        <ShortRole>Direction of the Port (In, Out, InOut or NoDirection)</ShortRole>
+      </CAAComment>
+      <Property Name="Allow_V_Direction_Change" Value="No"/>
+      <Property Name="SIXW" Value="ds6w:technology"/>
+      <Property Name="RangeAsEnumName" Value="V_LPPortDirectionEnum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="In;Out;InOut;NoDirection"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+      </Range>
+    </Simple>
+
+    <Simple Name="V_FunctionalName" Uuid="49bcf022-478c-425e-939445cf51590d02"
+            	Protection="ExternalIN"
+              SetOnlyOnce="AtCreation"
+            	Type="String"
+            	MaxLength="100"
+            	MultiValuated="No"
+            	PLMImpacting="No"
+            	CAAExposition="L1"
+			>
+      <CAAComment>
+        <ShortRole>Functional name of the Port.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+
+  <!-- ############################# -->
+  <!-- CLASS : LPAbstractConnection  -->
+  <!-- ############################# -->
+
+  <Class Name="LPAbstractConnection" Uuid="4da88a41-5b05-4f59-82d098909ca8a582"
+		Abstract="Yes"
+        	SuperName="PLMConnection"
+          CustomerExposition="None"
+       	>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+</Package>
+

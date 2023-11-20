@@ -1,0 +1,33 @@
+NAVIGATE
+ T0.physicalid, T0.logicalid, T0.majorid, T0.type, T1.PLMID, T2.PLMID, T3.physicalid , T3.logicalid , T3.majorid, T3.type
+
+FROM
+  RelationClass/SPPRelation T0, LPABSTRACT/LPAbstractReference T1, LPABSTRACT/LPAbstractInstance T2, Class/Requirement T3
+
+FROM_ROOTS [?1?]
+
+ON RELATION(FROM=PLMSpacePlanning/SPP_SpaceRef TO=RelationClass/SPPRelation THROUGH=POINTEDBY) WITH QUALITY_FILTER (CATEGORY=ISINSTANCEOF)
+THEN
+(
+  (
+    RELATION(FROM=RelationClass/SPPRelation TO=LPABSTRACT/LPAbstractReference THROUGH=POINTSTO) WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY)
+  )
+  OR
+  (
+    RELATION(FROM=RelationClass/SPPRelation TO=Class/Requirement THROUGH=POINTSTO) WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY)
+  )
+  OR
+  (
+    RELATION( FROM=RelationClass/SPPRelation TO=LPAbstract/LPAbstractInstance THROUGH=POINTSTO) WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY)
+    THEN
+    (
+      (
+        RELATION(FROM=LPAbstract/LPAbstractInstance TO=LPABSTRACT/LPAbstractReference THROUGH=POINTSTO) WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY)
+      )
+      OR
+      (
+        RELATION( FROM=LPAbstract/LPAbstractInstance TO=LPABSTRACT/LPAbstractReference THROUGH=POINTSTO) WITH QUALITY_FILTER (CATEGORY=ISINSTANCEOF)
+      )
+    )
+  )
+);

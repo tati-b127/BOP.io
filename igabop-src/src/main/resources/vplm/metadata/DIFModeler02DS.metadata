@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY FOR DIFModeler01 - Custo sample     -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2010, All rights reserved -->
+
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" Name="DIFModeler02DS"
+    Uuid="B74121A6-4E00-4b4b-B20A-6268FA32EBA7"
+    UseNames="DIFModeler02">
+
+<Property Name="OptionalInstallation" Value="Yes" /> 
+  <CAAComment>
+    <ShortRole>DIF model 02 - Sheet - Custo Sample Package</ShortRole>
+    <Role>This package describes a sample customization of Dif Model 02 - Sheet</Role>
+  </CAAComment>
+
+  <!-- ************************************************ -->
+  <!-- *  Sample custo of DIFLayout (PLMCoreReference)* -->
+  <!-- ************************************************ -->
+
+  <Class Name="DIFSheetDS"
+      Uuid="C038C005-6C2E-4ac5-85C1-7A46BA5A904E"
+      SuperName="DIFSheet"
+      SuperRef="296B8224-D67F-472B-A244-7D0A9AC4F9AC"
+      CAAExposition="L0">
+    
+    <CAAComment>
+      <ShortRole>Layout Reference</ShortRole>
+      <Role>Layout</Role>
+    </CAAComment>
+
+
+    <IdentifierSet Name="Identifier" 
+                   Uuid="7F111D16-B241-4433-9E10-97D41BF0839C" 
+                   IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755" 
+                   IdentifierNames="PLM_ExternalID V_version"/> 
+  </Class>
+
+	<!-- ************************************************************* -->
+	<!-- * DIFSheetInstanceDS(DIFSheetInstance) * -->
+	<!-- ************************************************************* -->
+
+  <Class Name="DIFSheetInstanceDS" 
+		Uuid="861F0CA8-0A6F-4c76-BA8A-E4FB28AB8AFA" 
+
+		SuperName="DIFSheetInstance" 
+		SuperRef="FE253DD8-71E3-4DD6-AE5D-9FE85C74CE45" 		 
+		>
+
+		<CAAComment>
+			<ShortRole>Customized Sheet Instance Object</ShortRole>
+			<Role>Customized Sheet Instance Object</Role>
+		</CAAComment>
+
+  </Class>
+
+
+  <!-- ********************************************************* -->
+  <!-- FUNCTIONS Declarations : here are delcared PLMQL Functions -->
+
+  <!-- ********************************************************* -->
+
+  <!-- DISCIPLINES DECLARATIONS -->
+
+  <!-- ********************************************************* -->
+</Package>

@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY FOR DIFModeler03 - Custo sample     -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2010, All rights reserved -->
+
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" Name="ENOSTDIFModeler03DS"
+    Uuid="AFFE76CB-40C4-4f36-97B4-DFADCD2486D7"
+    UseNames="DIFModeler03">
+  <Property Name="OptionalInstallation" Value="No" />
+
+  <CAAComment>
+    <ShortRole>DIF model 03 - View- Custo OOTB Package</ShortRole>
+    <Role>This package describes a OOTB customization of Dif Model 03 - View</Role>
+  </CAAComment>
+
+  <!-- ************************************************ -->
+  <!-- *  Sample custo of DIFView(PLMCoreReference)* -->
+  <!-- ************************************************ -->
+
+  <Class Name="ENOSTDIFViewDS"
+      Uuid="A109E877-F765-48f3-A25D-CB7B8340C2C2"
+      SuperName="DIFView"
+      SuperRef="55C74FDB-55A8-43B5-A0EB-664A5115E872"
+      CAAExposition="L0">
+
+    <CAAComment>
+      <ShortRole>View Reference</ShortRole>
+      <Role>View</Role>
+    </CAAComment>
+
+  <!-- R206: contains identifier of object from which it is made from  -->
+  <!-- not exhanged between sites -->
+  <Simple Name="E_fromExternalId"
+  Uuid="36E57003-24B1-4987-8FA5-DF8296F93114"
+  Alias="Definition"
+  Type="String"
+  MaxLength="255"
+  Mandatory="No"
+  MultiValuated="No"
+  CAAExposition="L0"
+  Protection="Free"
+  />
+
+  <!-- R206: contains Name comments  -->
+  <!-- not exhanged between sites -->
+  <Simple Name="E_versionComment"
+  Uuid="1F4EE287-D048-47ca-889C-68207F019E1E"
+  Alias="Version Comment"
+  Type="String"
+  MaxLength="255"
+  Mandatory="No"
+  MultiValuated="No"
+  CAAExposition="L0"
+  Protection="Free"
+  ResetOnNewVersion="Yes"
+  ResetOnCloning="Yes"
+  />
+
+    <IdentifierSet Name="Identifier" 
+                   Uuid="EE60B266-CE69-4831-81D5-141E9568266C" 
+                   IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755" 
+                   IdentifierNames="PLM_ExternalID V_version"/> 
+  </Class>
+
+	<!-- ************************************************************* -->
+	<!-- * ENOSTDIFViewInstanceDS(DifViewInstance) * -->
+	<!-- ************************************************************* -->
+
+  <Class Name="ENOSTDIFViewInstanceDS" 
+		Uuid="2548BC6C-1883-4ecb-A48C-9CB47664179A" 
+
+		SuperName="DIFViewInstance" 
+		SuperRef="C1CE958D-2ACE-431C-A734-F15BCED42443" 		 
+		>
+
+		<CAAComment>
+			<ShortRole>Customized View Instance Object</ShortRole>
+			<Role>Customized View Instance Object</Role>
+		</CAAComment>
+
+  </Class>
+
+  <!-- ********************************************************* -->
+  <!-- FUNCTIONS Declarations : here are delcared PLMQL Functions -->
+
+  <!-- ********************************************************* -->
+
+  <!-- DISCIPLINES DECLARATIONS -->
+
+  <!-- ********************************************************* -->
+</Package>

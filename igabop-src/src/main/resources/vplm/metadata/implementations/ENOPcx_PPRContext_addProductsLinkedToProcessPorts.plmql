@@ -1,0 +1,12 @@
+NAVIGATE
+	T0.PLMID, T1.PLMID
+FROM
+	DELFmiFunctionalModelPrereqMatCnx/DELFmiProcessPrereqMaterializationCnx T0,
+	PRODUCTCFG/VPMReference T1
+FROM_ROOTS [?1?]
+ON ( RELATION(
+	FROM=DELFmiFunctionalModelPrereqMatCnx/DELFmiProcessPrereqMaterializationCnx
+	TO=PRODUCTCFG/VPMReference
+	THROUGH=POINTSTO) WITH QUALITY_FILTER (ROLE=DELFmi_PrereqMaterialization_Target))
+;
+

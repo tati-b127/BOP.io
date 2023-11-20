@@ -1,0 +1,11 @@
+#Prog DIFModeler_ExportCompletion_DifAbstractSheet (iPLMIDSet :  #In PLMIDSet, oPLMIDSet :  #Out PLMIDSet) : VoidType
+{
+  let PLMDifBackgroundViewSet(PLMRouteSet)
+  let PLMDifBackgroundViewIDSet(PLMIDSet)
+
+  /* Retrieve the DIFBackgoundViewRep from the sheet */
+  PLMDifBackgroundViewSet = ExecutePLMFunction("DIFModeler01", "DifModeler_AddBackgroundViewRepReference", Restrict(iPLMIDSet, "DIFModelerAbstractSheet/DIFAbstractSheet"))
+  PLMDifBackgroundViewIDSet = Ids(PLMDifBackgroundViewSet)
+
+  oPLMIDSet = iPLMIDSet + PLMDifBackgroundViewIDSet
+}

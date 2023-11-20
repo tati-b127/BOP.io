@@ -1,0 +1,359 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2012, All rights reserved -->
+<Package
+  CustomerExposition="Programmer"
+  ModelerType="Top"
+  Name="CATComponentBasedDesign"
+  UseNames="PHYSICALABSTRACT PLMCORE PRODUCTCFG PRODUCTDiscipline"
+  UseProcedures="Cba_Procedures"
+  Uuid="F36D372A-36DD-4DED-B7C8-6238E76A29F3" xmlns="PLMDictionaryUnified">
+  <Class
+    Abbreviation="kot"
+    CustomerExposition="Programmer"
+    Discipline="Yes"
+    Name="KnowledgewareObjectType"
+    SuperName="ObjectTypeRepReference"
+    Uuid="f686ca62-da17-4d66-8c5a-3f900c201ef3">
+    <Property
+      Name="Newable"
+      Value="No" />
+    <CAAComment>
+      <Role>Knowledgeware representation that can be instantiated under an AecObjectType only.</Role>
+    </CAAComment>
+    <Method
+      ImplementationType="Self">
+      <RealizeMethodType
+        href="ExportScope.meth#ExportScope" />
+    </Method>
+  </Class>
+  <Extension
+    CustomerExposition="Programmer"
+    Name="ObjectTypeExtension"
+    ScopeNames="VPMReference"
+    Uuid="70B8E077-54AB-454E-A38A-7D020514E00E">
+    <Property
+      Name="KweNew_InstanciationMethod"
+      Value="CATCbaDelegateExtension" />
+    <CAAComment>
+      <Role>Extension applied on VPMReference to specify which ObjectType is used.</Role>
+    </CAAComment>
+    <Simple
+      CAAExposition="L0"
+      Faceted="Yes"
+      MaxLength="100"
+      Name="ObjectTypeExtension_V_ObjectTypeTitle"
+      Protection="External"
+      Type="String"
+      Uuid="0541E53E-9902-42E5-B3B0-870F4EC08220">
+      <Property
+        Name="Quadrant"
+        Value="What" />
+      <Property
+        Name="SIXW"
+        Value="ds6w:definedBy" />
+    </Simple>
+    <Simple
+      CAAExposition="L0"
+      MaxLength="40"
+      Name="ObjectTypeExtension_V_ObjectTypeVersion"
+      Protection="External"
+      Type="String"
+      Uuid="A5E8FA5C-3C42-4211-BE5F-E1263C37DBCA" />
+    <Simple
+      CAAExposition="L0"
+      Faceted="Yes"
+      MaxLength="255"
+      Name="ObjectTypeExtension_V_ObjectTypeConfiguration"
+      Protection="External"
+      Type="String"
+      Uuid="7C0D91E1-A528-4303-9521-088ABC6AFE80">
+      <Property
+        Name="Quadrant"
+        Value="What" />
+      <Property
+        Name="SIXW"
+        Value="ds6w:definedBy" />
+    </Simple>
+    <Simple
+      CollectionType="Set"
+      MaxLength="255"
+      MultiValuated="Yes"
+      Name="ObjectTypeExtension_V_ObjectTypeListOverloadedAttr"
+      Protection="Internal"
+      Type="String"
+      Uuid="0EE040C5-CD54-492A-ABC7-B96181C36123" />
+  </Extension>
+  <Class
+    Abstract="Yes"
+    CustomerExposition="Programmer"
+    CustomerExtensible="Yes"
+    Name="ObjectTypeReference"
+    SuperName="PHYSICALAbstractReference"
+    Uuid="061450BD-5702-41AF-99D3-0E957C15728F">
+    <Property
+      Name="AggregatableTypes"
+      Value="KnowledgewareObjectType" />
+    <CAAComment>
+      <Role>
+        ObjectTypeReference definitions are the generalization of the specific information being common to a set of business objects of the same type. ObjectTypeReference is connected to a product via a specific extension (ObjectTypeExtension) added on VPMReference entities. This entity cannot be decomposed.
+      </Role>
+    </CAAComment>
+    <Simple
+      CAAExposition="L0"
+      DefaultValue="1"
+      Faceted="Yes"
+      Name="V_InstantiationMethod"
+      Protection="ExternalIN"
+      SetOnlyOnce="AtCreation"
+      Type="Integer"
+      Uuid="970C2244-967D-4F84-B0E3-AF58E99081FC">
+      <Property
+        Name="RangeAsEnumName"
+        Value="ObjectTypeInstantiationMethodEnum" />
+      <Property
+        Name="RangeAsEnumAuthorizedValues"
+        Value="UNDEFINED;REFERENCE;FAMILY;ADAPTIVE;DISTRIBUTION" />
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+        <Equal>5</Equal>
+      </Range>
+      <Property
+        Name="Quadrant"
+        Value="How" />
+      <Property
+        Name="SIXW"
+        Value="ds6w:instantiationMethod" />
+    </Simple>
+    <Simple
+      CAAExposition="L0"
+      DefaultValue="1"
+      Faceted="Yes"
+      Name="V_FeatureInstantiationMethod"
+      Protection="ExternalIN"
+      Type="Integer"
+      Uuid="57685964-DD46-4D4F-9BFF-B1DF1E2BA7F4">
+      <Property
+        Name="RangeAsEnumName"
+        Value="ObjectTypeFeatureInstantiationMethodEnum" />
+      <Property
+        Name="RangeAsEnumAuthorizedValues"
+        Value="UNDEFINED;REFERENCE;ADAPTIVE;FIXED_PROFILE_TEMPLATE;FIXED_EXPLICIT_WIRE;ADAPTIVE_ON_EXISTING_BARS_STRAP;ADAPTIVE_ON_EXISTING_BARS_MESH;ADAPTIVE_FOLLOW_SURFACES;ADAPTIVE_LIMITING_PLANES" />
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+        <Equal>5</Equal>
+        <Equal>6</Equal>
+        <Equal>7</Equal>
+        <Equal>8</Equal>
+		<Equal>9</Equal>
+      </Range>
+      <Property
+        Name="Quadrant"
+        Value="How" />
+      <Property
+        Name="SIXW"
+        Value="ds6w:featureInstantiationMethod" />
+    </Simple>
+    <Simple
+      CAAExposition="L0"
+      DefaultValue="1"
+      Name="V_ObjectTypeDesignRange"
+      Protection="ExternalIN"
+      Type="Integer"
+      Uuid="6B334755-4C03-4BE9-913E-B5864A90E02B">
+      <Property
+        Name="RangeAsEnumName"
+        Value="ObjectTypeDesignRangeEnum" />
+      <Property
+        Name="RangeAsEnumAuthorizedValues"
+        Value="NormalScale;LargeScale;ExtraLargeScale;SmallScale;ExtraSmallScale;NanometricScale" />
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>4</Equal>
+        <Equal>5</Equal>
+        <Equal>6</Equal>
+      </Range>
+    </Simple>
+    <Method
+      ImplementationType="Self">
+      <RealizeMethodType
+        href="ExportScope.meth#ExportScope" />
+      <ProcedureForUsage>
+        <Usage
+          href="ExportScope.meth#Design" />
+        <UsedProcedure
+          href="Cba_Procedures.proc#ObjectTypeReferenceExport" />
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage
+          href="ExportScope.meth#Channel" />
+        <UsedProcedure
+          href="Cba_Procedures.proc#ObjectTypeReferenceExport_Remove" />
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage
+          href="ExportScope.meth#TransferSiteOwnership" />
+        <UsedProcedure
+          href="Cba_Procedures.proc#ObjectTypeReferenceExport_Remove" />
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage
+          href="ExportScope.meth#Remove" />
+        <UsedProcedure
+          href="Cba_Procedures.proc#ObjectTypeReferenceExport_Remove" />
+      </ProcedureForUsage>
+    </Method>
+  </Class>
+  <UniqueKey
+    AttributeNames="V_Name"
+    ClassName="ObjectTypeReference"
+    Name="UK_ObjectTypeReference"
+    Uuid="4ECE6AF0-6F4B-41AB-8C73-2CEC7F2DD0A3" />
+  <Extension
+    CustomerExposition="None"
+    Name="ObjectTypeThumbnail"
+    ScopeNames="ObjectTypeReference"
+    Uuid="22EC0D9D-727B-4956-9E91-9B99B3B4C772">
+    <Property
+      Name="KweNew_InstanciationMethod"
+      Value="CATCbaDelegateExtension" />
+    <Simple
+      Name="ThumbnailId"
+      Protection="Internal"
+      Type="String"
+      Uuid="2FC47AB4-6BCD-489D-879D-138E87345483" />
+  </Extension>
+  <Class
+    CreateInstName="ObjectTypeRepInstance"
+    CustomerExposition="Programmer"
+    Name="ObjectTypeRepReference"
+    SuperName="PLMCoreRepReference"
+    Uuid="5a455574-0fa3-4249-be64-78d923eb6c1a">
+    <Property
+      Name="Newable"
+      Value="No" />
+    <CAAComment>
+      <Role>Basic representation reference instantiable under an AecObjectType. This object, even though concrete, should never be created as is. It exists to be inherited by KnowledgewareObjectType.</Role>
+    </CAAComment>
+    <Method
+      ImplementationType="Self">
+      <RealizeMethodType
+        href="ExportScope.meth#ExportScope" />
+      <ProcedureForUsage>
+        <Usage
+          href="ExportScope.meth#Design" />
+        <UsedProcedure
+          href="Cba_Procedures.proc#ObjectTypeRepReferenceExport" />
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage
+          href="ExportScope.meth#Channel" />
+        <UsedProcedure
+          href="Cba_Procedures.proc#ObjectTypeRepReferenceExport_Remove" />
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage
+          href="ExportScope.meth#TransferSiteOwnership" />
+        <UsedProcedure
+          href="Cba_Procedures.proc#ObjectTypeRepReferenceExport_Remove" />
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage
+          href="ExportScope.meth#Remove" />
+        <UsedProcedure
+          href="Cba_Procedures.proc#ObjectTypeRepReferenceExport_Remove" />
+      </ProcedureForUsage>
+    </Method>
+  </Class>
+  <RelationClass
+    Name="ObjectTypeRepInstance"
+    Uuid="E832AEBB-F22D-4889-8035-9AB69E5E5081"
+    CustomerExposition="Programmer"
+    Abstract="No"
+    SuperName="PLMCoreRepInstance">
+    <SubClause
+      Name="from"
+      TargetName="ObjectTypeReference" />
+    <SubClause
+      Name="to"
+      TargetName="ObjectTypeRepReference" />
+    <Method
+      ImplementationType="None">
+      <RealizeMethodType
+        href="ExportScope.meth#ExportScope" />
+    </Method>
+  </RelationClass>
+  <Class
+    Abbreviation="ske"
+    Name="CbaRepSkeleton"
+    Uuid="79BA8622-8D6A-44A6-97AE-16A9D10C4812"
+    Discipline="Yes"
+    CustomerExposition="Programmer"
+    Abstract="No"
+    SuperName="3DShape"
+    Specializable="No">
+    <Property
+      Name="IconName"
+      Value="I_CbaRepSkeleton" />
+    <Property
+      Name="3DIconName"
+      Value="I_CbaRepSkeleton.cgr" />
+    <Property
+      Name="KweNew_InstanciationMethod"
+      Value="CATCbaRepSkeletonDelegateInstanciation" />
+    <Property
+      Name="KweNew_ReturnedType"
+      Value="VPMRepInstance" />
+    <Property
+      Name="Newable"
+      Value="Insert_Offline_CAA" />
+    <Property
+      Name="InstantiationOwnerTypes"
+      Value="VPMReference" />
+  </Class>
+  <!-- ********************************************************** -->
+  <!-- FUNCTIONS Declarations : here are declared PLMQL Functions -->
+  <!-- ********************************************************** -->
+  <Function
+    Name="CbaKernel_ExpandRefToRepRef">
+    <Implementation
+      Name="CATComponentBasedDesign_ExpandRefToRepRef"
+      FileLocation="CATComponentBasedDesign_ExpandRefToRepRef.plmql"
+      Language="PLMQL" />
+    <Signature
+      href="ENOProductSignature" />
+  </Function>
+  <Function
+    Name="CATComponentBasedDesign_NavigateKnowledgeRepRefToResourceTableRepRef">
+    <Implementation
+      Name="CATComponentBasedDesign_NavigateKnowledgeRepRefToResourceTableRepRef"
+      FileLocation="AecKernel_NavigateKnowledgeRepRefToResourceTableRepRef.plmql"
+      Language="PLMQL" />
+    <Signature
+      href="ENOProductSignature" />
+  </Function>
+  <Signature
+    id="ENOProductSignature">
+    <Parameter
+      Name="InputIds"
+      Lower="0"
+      Upper="-1"
+      Direction="in"
+      MultiValuated="Yes"
+      DataType="PLMId" />
+    <Parameter
+      Name="OutputIds"
+      Lower="0"
+      Upper="-1"
+      Direction="out"
+      MultiValuated="No"
+      DataType="PLMRouteSet" />
+  </Signature>
+</Package>

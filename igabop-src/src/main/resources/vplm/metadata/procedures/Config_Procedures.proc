@@ -1,0 +1,31 @@
+<?xml version="1.0" ?>
+<ProcedurePackage 
+	xmlns="PLMDictionaryProcedure"
+	Name="Config_Procedures">
+			
+	<Procedure Name="Config_GetStructConfigAndModelsContent">
+		<Implementation Name="Config_GetStructConfigAndModelsContent" FileLocation="Config_GetStructConfigAndModelsContent.KProc" Language="EKL"/>
+		<Signature href="Config_ProcedureSignatureExport"/>
+	</Procedure>
+
+	<Procedure Name="Config_GetStructConfig">
+		<Implementation Name="Config_GetStructConfig" FileLocation="Config_GetStructConfig.KProc" Language="EKL"/>
+		<Signature href="Config_ProcedureSignatureExport"/>
+	</Procedure>
+	
+	<Procedure Name="Config_GetConfiguredReferences">
+		<Implementation Name="Config_GetConfiguredReferences" FileLocation="Config_GetConfiguredReferences.KProc" Language="EKL"/>
+		<Signature href="Config_ProcedureSignatureExport"/>
+	</Procedure>
+	
+	<Procedure Name="Config_GetConfigContextAndModelsOnReference">
+		<Implementation Name="Config_GetConfigContextAndModelsOnReference" FileLocation="Config_GetConfigContextAndModelsOnReference.KProc" Language="EKL"/>
+		<Signature href="Config_ProcedureSignatureExport"/>
+	</Procedure>
+
+	<Signature id="Config_ProcedureSignatureExport">
+		<Parameter Name="InputIds" Lower="0" Upper="-1" MultiValuated="Yes" Direction="in" DataType="PLMId"/>
+		<Parameter Name="OutputIds" Lower="0" Upper="-1" MultiValuated="Yes" Direction="out" DataType="PLMId"/>
+	</Signature>
+	
+</ProcedurePackage>

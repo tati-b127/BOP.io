@@ -1,0 +1,40 @@
+NAVIGATE
+	T0.physicalid,
+	T0.logicalid,
+	T0.type,
+	T1.physicalid,
+	T1.logicalid,
+	T1.type,
+	T2.physicalid,
+	T2.logicalid,
+	T2.type,
+	T3.physicalid,
+	T3.logicalid,
+	T3.type,
+	T4.physicalid,
+	T4.logicalid,
+	T4.type,
+	T5.physicalid,
+	T5.logicalid,
+	T5.type,
+	T6.physicalid,
+	T6.logicalid,
+	T6.type
+FROM
+	"Class/Change Action" T0, 
+	"Class/Proposed Activity" T1, 
+	"Class/Realized Activity" T2, 
+	"Class/Impact Analysis" T3, 
+	"RelationClass/Proposed Activities" T4, 
+	"RelationClass/Realized Activities" T5, 
+	"RelationClass/Relation.Impact Analysis" T6 
+FROM_ROOTS [?1?]
+ON ( (RELATION(FROM="Class/Change Action" TO="RelationClass/Proposed Activities" THROUGH=POINTEDBY) WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY)
+     THEN RELATION(FROM="RelationClass/Proposed Activities" TO="Class/Proposed Activity" THROUGH=POINTSTO) WITH QUALITY_FILTER (CATEGORY=ISINSTANCEOF)
+	 THEN RELATION(FROM="Class/Proposed Activity" TO="RelationClass/Proposed Activities" THROUGH=POINTEDBY) WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY)
+	 THEN RELATION(FROM="RelationClass/Proposed Activities" TO="Class/Proposed Activity" THROUGH=POINTSTO) WITH QUALITY_FILTER (CATEGORY=ISINSTANCEOF))
+	 OR(RELATION(FROM="Class/Change Action" TO="RelationClass/Realized Activities" THROUGH=POINTEDBY) WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY)
+        THEN RELATION(FROM="RelationClass/Realized Activities" TO="Class/Realized Activity" THROUGH=POINTSTO) WITH QUALITY_FILTER (CATEGORY=ISINSTANCEOF))
+	 OR(RELATION(FROM="Class/Change Action" TO="RelationClass/Relation.Impact Analysis" THROUGH=POINTEDBY) WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY)
+        THEN RELATION(FROM="RelationClass/Relation.Impact Analysis" TO="Class/Impact Analysis" THROUGH=POINTSTO) WITH QUALITY_FILTER (CATEGORY=ISINSTANCEOF)))
+;

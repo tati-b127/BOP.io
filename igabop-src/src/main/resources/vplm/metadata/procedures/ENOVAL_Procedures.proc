@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+
+<ProcedurePackage  xmlns="PLMDictionaryProcedure" Name="ENOVAL_Procedures">
+	<Procedure Name="Validation_Complete">
+		<Implementation Name="Validation_Complete" FileLocation="Validation_Complete.KProc" Language="EKL"/>
+		<Signature href="ENOVAL_ProcedureSignatureExport"/>
+	</Procedure>
+	<Procedure Name="Validation_PLMChannel">
+		<Implementation Name="Validation_PLMChannel" FileLocation="Validation_PLMChannel.KProc" Language="EKL"/>
+		<Signature href="ENOVAL_ProcedureSignatureExport"/>
+	</Procedure>
+  <Procedure Name="Markup_Complete">
+    <Implementation Name="Markup_Complete" FileLocation="Markup_Complete.KProc" Language="EKL"/>
+    <Signature href="ENOVAL_ProcedureSignatureExport"/>
+  </Procedure>
+  <Procedure Name="ProductMarkup_Complete">
+    <Implementation Name="ProductMarkup_Complete" FileLocation="ProductMarkup_Complete.KProc" Language="EKL"/>
+    <Signature href="ENOVAL_ProcedureSignatureExport"/>
+  </Procedure>
+	<Signature id="ENOVAL_ProcedureSignatureExport">
+		<Parameter Name="InputIds" Lower="0" Upper="-1" MultiValuated="Yes" Direction="in" DataType="PLMId"/>
+		<Parameter Name="OutputIds" Lower="0" Upper="-1" MultiValuated="Yes" Direction="out" DataType="PLMId"/>
+	</Signature>
+</ProcedurePackage>

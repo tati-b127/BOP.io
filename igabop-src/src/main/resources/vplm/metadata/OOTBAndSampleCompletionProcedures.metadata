@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+
+<!-- COPYRIGHT DASSAULT SYSTEMES 2018, All rights reserved -->
+
+<Package xmlns="PLMDictionaryTop"
+	ModelerType="Top"
+    Name="OOTBAndSampleCompletionProcedures"
+    CustomerExposition="Programmer"
+    Uuid="0820f7c1-10e3-41cb-85fe-b0c77d1ced90"
+    UseProcedures="OOTBCompletionProcedures SAMPLECompletionProcedures"
+ >
+ </Package>

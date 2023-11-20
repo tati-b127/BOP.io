@@ -1,0 +1,193 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2007, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified"
+         ModelerType="Top"
+         BelongsToModeler="DELLmiProductionSystem"
+         Name="DELTimeAnalysisModel"
+         Uuid="9F0C70AF-9CBB-4a69-AADD-B2A015367FB6"
+         UseNames="PLMCORE"
+         CustomerExposition="Programmer"
+         UseProcedures="ENOPsm_Procedures;PPR_Procedures">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>DELMIA Time Analysis Model</ShortRole>
+    <Role>This package includes all the entities in DELMIA Time Analysis Model</Role>
+  </CAAComment>
+
+  <Comment>last update 2012-01-20</Comment>
+
+  <Class Name="DELTimeAnalysisRepReference"
+         Uuid="00DEC632-1F44-425a-B418-F16F0AD11913"
+         Abstract="No"
+         SuperName="PLMCoreRepReference"
+         CustomerExposition="Programmer"
+         Specializable="No"
+         CustomerExtensible="No"
+         CreateInstName="DELTimeAnalysisRepInstance"
+         Abbreviation="tam"
+         InstantiationOwnerTypes="DELLmiOperationReference" 
+         DeleteAvailability="Yes"        
+         >
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELTimeAnalysisDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELTimeAnalysisRepInstance"/>
+    <Property Name="IconName" Value="I_DELSTTStopWatch"/>
+    <Property Name="Searchable" Value="Yes"/>
+    <Property Name="Newable" Value="New"/>
+    <Property Name="IterationAvailability" Value="Yes"/>
+
+    <CAAComment>
+      <ShortRole>DELMIA Time Analysis Representation Reference Object</ShortRole>
+      <Role>DELMIA Time Analysis Representation Reference Object</Role>
+    </CAAComment>
+
+	<Simple Name="V_Subsystem" Uuid="BD966963-DD89-407f-A790-5C6DD22A03AD" Type="Integer" Protection="Free" CAAExposition="L0" DefaultValue="1" Faceted="Yes">
+<Property Name="SIXW" Value="ds6w:kind"/>
+<Property Name="RangeAsEnumName" Value="V_Subsystem_Enum"/>
+<Property Name="RangeAsEnumAuthorizedValues" Value="STD;UAS;MEK;GTE;MTM1;MTM2;RWF;SAM;MOST;MODAPTS"/>
+<Range>
+  <Equal>1</Equal>
+  <Equal>2</Equal>
+  <Equal>3</Equal>
+  <Equal>4</Equal>
+  <Equal>5</Equal>
+  <Equal>6</Equal>
+  <Equal>7</Equal>
+  <Equal>8</Equal>
+  <Equal>9</Equal>
+  <Equal>10</Equal>
+</Range>
+</Simple>
+
+    <Simple Name="V_LongDescription"
+            Uuid="8FF59A50-67FC-47ee-AA4D-D5764622C432"
+            Type="String" MaxLength="40"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0">
+    </Simple>
+
+    <Simple Name="V_HumanTime"
+            Uuid="B5908280-4F68-4353-9A20-33914E71EAB5"
+            Type="Double"
+            Magnitude="TIME"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0">
+    </Simple>
+
+    <Simple Name="V_MachineTime"
+            Uuid="54EEB9A0-FEB5-466c-AF56-26FF8A5CC022"
+            Type="Double"
+            Magnitude="TIME"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0">
+    </Simple>
+
+    <Simple Name="V_WaitingTime"
+            Uuid="744E7ACB-4D0D-44dd-918E-20B8AD5A5B32"
+            Type="Double"
+            Magnitude="TIME"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0">
+    </Simple>
+
+    <Simple Name="V_SetupTime"
+            Uuid="408DD6FA-32C6-4e90-8C88-E9D406A3A59A"
+            Type="Double"
+            Magnitude="TIME"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0">
+    </Simple>
+
+    <Simple Name="V_TotalTime"
+            Uuid="C81B40EE-F0FF-4ebb-A557-6F39E1B58D20"
+            Type="Double"
+            Magnitude="TIME"
+            MultiValuated="No"
+            Protection="Free"
+            Faceted="Yes"
+            CAAExposition="L0">
+      <Property Name="SIXW" Value="ds6w:estimatedDuration"/>
+    </Simple>
+
+    <Simple Name="V_ValueAdded"
+            Uuid="9235658E-A08E-4cbb-BF12-8F24D4ACF07B"
+            Type="String"
+            MaxLength="40"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0">
+    </Simple>
+
+<Simple Name="V_TimeType" Uuid="A3B1BA1A-465A-4908-AB9B-42F48F3F5477" Type="Integer" Protection="Free" CAAExposition="L0" DefaultValue="1">
+<Property Name="RangeAsEnumName" Value="V_TimeType_Enum"/>
+<Property Name="RangeAsEnumAuthorizedValues" Value="TA;TTB;TTU;TW;TRG"/>
+<Range>
+<Equal>1</Equal>
+<Equal>2</Equal>
+<Equal>3</Equal>
+<Equal>4</Equal>
+<Equal>5</Equal>
+</Range>
+</Simple>
+
+    <Simple Name="V_AnalysisType"
+            Uuid="BF3E01EA-1B55-441c-AF26-CB54025AC371"
+            Type="Integer"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0">
+    </Simple>
+
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Design"/>
+        <UsedProcedure href="ENOPsm_Procedures.proc#TimeAnalysis_ExportAsDesign"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#TransferSiteOwnership"/>
+        <UsedProcedure href="PPR_Procedures.proc#PPR_TSO_StandAlone"/>
+      </ProcedureForUsage>
+    </Method>
+
+  </Class>
+
+  <RelationClass Name="DELTimeAnalysisRepInstance"
+		     Uuid="c9181f3d-4ea4-4dce-b19b6a78808d25e7"
+         SuperName="PLMCoreRepInstance"
+         Abstract="No"
+         CustomerExposition="Programmer"
+         Specializable="No"
+         CustomerExtensible="No"
+         >
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+
+    <CAAComment>
+      <ShortRole>DELMIA Time Analysis Representation Instance Object</ShortRole>
+      <Role>DELMIA Time Analysis Representation Instance Object</Role>
+    </CAAComment>
+
+    <SubClause Name="from" TargetName="DELLmiOperationReference"/>
+    <SubClause Name="to"   TargetName="DELTimeAnalysisRepReference"/>
+
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#TransferSiteOwnership"/>
+        <UsedProcedure href="PPR_Procedures.proc#PPR_TSO_StandAlone"/>
+      </ProcedureForUsage>
+    </Method>
+
+  </RelationClass>
+
+
+</Package>

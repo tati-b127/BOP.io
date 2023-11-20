@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2012, All rights reserved -->
+
+<Package CustomerExposition = "Programmer" ModelerType = "Top" Name = "TunnelElementIfc" UseNames = "TunnelElement" Uuid = "047B6648-6FA9-47F3-B85F-A7920F261291" xmlns = "PLMDictionaryUnified">
+  <Extension CustomerExposition = "Programmer" Name = "IfcTunnelElement" ScopeNames = "TunnelElement" Uuid = "2B120C10-311F-4E44-BCD0-2E666B233562">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcTunnelElement_ObjectType" Protection = "Free" Type = "String" Uuid = "2B120C10-311F-4E44-BCD0-1ad52eb2ea5e"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcTunnelElement_Tag" Protection = "Free" Type = "String" Uuid = "2B120C10-311F-4E44-BCD0-ed12431a92f4"/>
+    <Simple CAAExposition = "L0" DefaultValue = "99" Name = "IfcTunnelElement_PredefinedType" Protection = "Free" Type = "Integer" Uuid = "85643EEC-4F54-4F5E-928D-FFC057DC47BC">
+      <Property Name = "RangeAsEnumName" Value = "IfcTunnelElementTypeEnum"/>
+      <Property Name = "RangeAsEnumAuthorizedValues" Value = "USERDEFINED;NOTDEFINED"/>
+      <Range>
+        <Equal>98</Equal>
+        <Equal>99</Equal>
+      </Range>
+    </Simple>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcTunnelElementType" ScopeNames = "TunnelElementType" Uuid = "22A69DEE-9ACA-4A6C-9023-2F45E8BD576B">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcTunnelElementType_Tag" Protection = "Free" Type = "String" Uuid = "22A69DEE-9ACA-4A6C-9023-cc2a36316812"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcTunnelElementType_ElementType" Protection = "Free" Type = "String" Uuid = "22A69DEE-9ACA-4A6C-9023-4fccfb51960c"/>
+    <Simple CAAExposition = "L0" DefaultValue = "99" Name = "IfcTunnelElementType_PredefinedType" Protection = "Free" Type = "Integer" Uuid = "0AC2A7F7-C1DA-404E-99BB-FC0B28334E61">
+      <Property Name = "RangeAsEnumName" Value = "IfcTunnelElementTypeEnum"/>
+      <Property Name = "RangeAsEnumAuthorizedValues" Value = "USERDEFINED;NOTDEFINED"/>
+      <Range>
+        <Equal>98</Equal>
+        <Equal>99</Equal>
+      </Range>
+    </Simple>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcQto_DS_TunnelOtherElementBaseQuantities" ScopeNames = "TunnelOtherElement TunnelOtherElementType" Uuid = "EAFD0321-EBC1-4136-AE5E-FBD1C865DA1F">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcQto_DS_TunnelOtherElementBaseQuantities_MethodOfMeasurement" Protection = "Free" Type = "String" Uuid = "EAFD0321-EBC1-4136-AE5E-14b1550b5f09"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcQto_DS_TunnelOtherElementBaseQuantities_Height" Protection = "Free" Type = "Double" Uuid = "02F2B848-DE23-4179-B149-A8160059A99B"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcQto_DS_TunnelOtherElementBaseQuantities_Width" Protection = "Free" Type = "Double" Uuid = "1B4A6653-D86B-4AC9-AA66-65BEDC73E6F9"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcQto_DS_TunnelOtherElementBaseQuantities_Length" Protection = "Free" Type = "Double" Uuid = "0E83AEF3-636B-4AAF-8D9A-7156788442F9"/>
+    <Simple CAAExposition = "L0" Magnitude = "AREA" Name = "IfcQto_DS_TunnelOtherElementBaseQuantities_CrossSectionArea" Protection = "Free" Type = "Double" Uuid = "153522D3-5373-40F7-B80C-E2A5F20135EE"/>
+    <Simple CAAExposition = "L0" Magnitude = "AREA" Name = "IfcQto_DS_TunnelOtherElementBaseQuantities_OuterSurfaceArea" Protection = "Free" Type = "Double" Uuid = "0A7DAFD5-BF91-499D-888A-F7A360034FE7"/>
+    <Simple CAAExposition = "L0" Magnitude = "AREA" Name = "IfcQto_DS_TunnelOtherElementBaseQuantities_GrossSurfaceArea" Protection = "Free" Type = "Double" Uuid = "F79C8CA9-5CFB-44B4-98A9-076B1B855AD1"/>
+    <Simple CAAExposition = "L0" Magnitude = "AREA" Name = "IfcQto_DS_TunnelOtherElementBaseQuantities_NetSurfaceArea" Protection = "Free" Type = "Double" Uuid = "576E23CE-850B-468E-A86B-C04F39D439EE"/>
+    <Simple CAAExposition = "L0" Magnitude = "VOLUME" Name = "IfcQto_DS_TunnelOtherElementBaseQuantities_GrossVolume" Protection = "Free" Type = "Double" Uuid = "445A60B1-7DD6-4D20-A1BC-D3F3870B7FD3"/>
+    <Simple CAAExposition = "L0" Magnitude = "VOLUME" Name = "IfcQto_DS_TunnelOtherElementBaseQuantities_NetVolume" Protection = "Free" Type = "Double" Uuid = "FA64744B-F33F-4D78-A1D7-2192D5D3CEBE"/>
+    <Simple CAAExposition = "L0" Magnitude = "MASS" Name = "IfcQto_DS_TunnelOtherElementBaseQuantities_GrossWeight" Protection = "Free" Type = "Double" Uuid = "2DADD294-6645-42DF-916A-EDFFD090FDC9"/>
+    <Simple CAAExposition = "L0" Magnitude = "MASS" Name = "IfcQto_DS_TunnelOtherElementBaseQuantities_NetWeight" Protection = "Free" Type = "Double" Uuid = "C1E091E6-F9F7-40F0-9068-801EA5BABB36"/>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcQto_DS_TunnelRingSegmentBaseQuantities" ScopeNames = "TunnelRingSegment TunnelRingSegmentType" Uuid = "7BC42ABB-378B-4364-A56C-F8E7F88D7B21">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcQto_DS_TunnelRingSegmentBaseQuantities_MethodOfMeasurement" Protection = "Free" Type = "String" Uuid = "7BC42ABB-378B-4364-A56C-14b1550b5f09"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcQto_DS_TunnelRingSegmentBaseQuantities_Height" Protection = "Free" Type = "Double" Uuid = "75D02F92-EE7D-4B63-AF29-CE1D56AAD016"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcQto_DS_TunnelRingSegmentBaseQuantities_Width" Protection = "Free" Type = "Double" Uuid = "06D0C3C3-AFB1-49E6-A6C1-1A3D246905CD"/>
+    <Simple CAAExposition = "L0" Magnitude = "LENGTH" Name = "IfcQto_DS_TunnelRingSegmentBaseQuantities_Length" Protection = "Free" Type = "Double" Uuid = "F00D0F06-48EB-4AFF-A259-C7E0029E117F"/>
+    <Simple CAAExposition = "L0" Magnitude = "AREA" Name = "IfcQto_DS_TunnelRingSegmentBaseQuantities_CrossSectionArea" Protection = "Free" Type = "Double" Uuid = "A458E8D7-EF5D-47F5-8F99-90CB81106119"/>
+    <Simple CAAExposition = "L0" Magnitude = "AREA" Name = "IfcQto_DS_TunnelRingSegmentBaseQuantities_OuterSectionArea" Protection = "Free" Type = "Double" Uuid = "1466EDFC-9A51-41BD-B06E-21EA80A6D683"/>
+    <Simple CAAExposition = "L0" Magnitude = "AREA" Name = "IfcQto_DS_TunnelRingSegmentBaseQuantities_GrossSurfaceArea" Protection = "Free" Type = "Double" Uuid = "1E33567F-28E9-4E53-AD0F-5D63DD4315A2"/>
+    <Simple CAAExposition = "L0" Magnitude = "AREA" Name = "IfcQto_DS_TunnelRingSegmentBaseQuantities_NetSurfaceArea" Protection = "Free" Type = "Double" Uuid = "0ED1B943-C935-4A96-8265-30F1007EC3C1"/>
+    <Simple CAAExposition = "L0" Magnitude = "VOLUME" Name = "IfcQto_DS_TunnelRingSegmentBaseQuantities_GrossVolume" Protection = "Free" Type = "Double" Uuid = "D3E322BC-2EDD-42AE-B947-9349D4096145"/>
+    <Simple CAAExposition = "L0" Magnitude = "VOLUME" Name = "IfcQto_DS_TunnelRingSegmentBaseQuantities_NetVolume" Protection = "Free" Type = "Double" Uuid = "30FBF2DE-1F86-4CCB-8ACD-CCFFC45BEAF8"/>
+    <Simple CAAExposition = "L0" Magnitude = "MASS" Name = "IfcQto_DS_TunnelRingSegmentBaseQuantities_GrossWeight" Protection = "Free" Type = "Double" Uuid = "B239697B-BAFC-4B7A-8FE5-5F6449918683"/>
+    <Simple CAAExposition = "L0" Magnitude = "MASS" Name = "IfcQto_DS_TunnelRingSegmentBaseQuantities_NetWeight" Protection = "Free" Type = "Double" Uuid = "2C7D7466-BF66-4D26-AED8-8EFDBDF53D9E"/>
+  </Extension>
+</Package>

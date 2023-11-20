@@ -1,0 +1,146 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified"
+         ModelerType="Top"
+         Name="DELRmiShiftRelationsModel"
+         Uuid="8be10f2a-22e3-11e8-b467-0ed5f89f718b"
+         BelongsToModeler="DELRmiResourceModel"
+         UseNames="ERCoreModeler"
+         CustomerExposition="Programmer"
+         Architecture="All">
+	<CAAComment>
+		<ShortRole/>
+		<Role/>
+	</CAAComment>
+
+	<RelationClass 
+		Name="DELRmiCycleRelationAbstract"
+		Abstract="Yes"
+		CustomerExposition="Programmer"
+		Uuid="f7a6f0bc-1c8f-11e8-accf-0ed5f89f718b"
+		Discipline="No"
+		Specializable="No"
+		CustomerExtensible="No"
+        SuperName="RelationType">
+
+		<Property Name="Newable" Value="No"/>
+		<Property Name="Searchable" Value="No"/>
+		
+		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+		<Simple Name="V_Description"
+			Uuid="bcef95b0-38a9-11e8-b467-0ed5f89f718b"
+			Type="String"
+			Protection="Free"
+			MultiValuated="No">
+		</Simple>
+		<Simple Name="V_StartDate"
+            Uuid="aaca2822-1bd1-11e8-accf-0ed5f89f718b"
+            Type="Date"
+            MultiValuated="No"
+            Protection="External"
+            CAAExposition="L0">
+      <Property Name="CreateAsDateTime" Value="Yes"/>
+		</Simple>
+		<Simple Name="V_EndDate"
+            Uuid="c4ae6604-1bd1-11e8-accf-0ed5f89f718b"
+            Type="Date"
+            MultiValuated="No"
+            Protection="External"
+            CAAExposition="L0">
+      <Property Name="CreateAsDateTime" Value="Yes"/>
+		</Simple>
+	</RelationClass>
+	
+	<RelationClass 
+		Name="DELRmiShiftRelation"
+		Abstract="No"
+		CustomerExposition="Programmer"
+		Uuid="2eccc248-1bd1-11e8-accf-0ed5f89f718b"
+		Discipline="No"
+		Specializable="No"
+		CustomerExtensible="No"
+        SuperName="DELRmiCycleRelationAbstract">
+		
+		<Property Name="Newable" Value="No"/>
+		<Property Name="Searchable" Value="No"/>
+		
+		<SubClause Name="from" TargetName="VPMReference"/>
+		<SubClause Name="to" TargetName="DELRmiShiftReference"/>
+		
+		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+		
+		<Simple Name="V_Priority"
+            Uuid="92992026-51f2-11e8-9c2d-fa7ae01bbebc"
+            Type="String"
+            MultiValuated="No"
+            Protection="Free"
+			DefaultValue="0"
+            CAAExposition="L0">
+		</Simple>
+		
+	</RelationClass>
+	
+	<RelationClass 
+		Name="DELRmiCycleRelation"
+		Abstract="No"
+		CustomerExposition="Programmer"
+		Uuid="33b26024-51f5-11e8-9c2d-fa7ae01bbebc"
+		Discipline="No"
+		Specializable="No"
+		CustomerExtensible="No"
+        SuperName="DELRmiCycleRelationAbstract">
+		
+		<Property Name="Newable" Value="No"/>
+		<Property Name="Searchable" Value="No"/>
+		
+		<SubClause Name="from" TargetName="VPMReference"/>
+		<SubClause Name="to" TargetName="DELRmiCycleReference"/>
+		
+		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+		
+		<Simple Name="V_Priority"
+            Uuid="92992328-51f2-11e8-9c2d-fa7ae01bbebc"
+            Type="String"
+            MultiValuated="No"
+            Protection="Free"
+			DefaultValue="0"
+            CAAExposition="L0">
+		</Simple>
+		
+	</RelationClass>
+
+	<RelationClass 
+		Name="DELRmiCycleExceptionRelation"
+		Abstract="No"
+		CustomerExposition="Programmer"
+		Uuid="fa21d8f6-1bd2-11e8-accf-0ed5f89f718b"
+		Discipline="No"
+		Specializable="No"
+		CustomerExtensible="No"
+        SuperName="DELRmiCycleRelationAbstract">
+		
+		<Property Name="Newable" Value="No"/>
+		<Property Name="Searchable" Value="No"/>	
+		
+		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+		
+		<SubClause Name="from" TargetName="VPMReference"/>
+		<SubClause Name="to" TargetName="VPMReference"/>
+		
+		<Simple Name="V_ExceptionData"
+            Uuid="03320d5c-51f3-11e8-9c2d-fa7ae01bbebc"
+            Type="Clob"
+            MultiValuated="No"
+            Protection="Internal">
+		</Simple>
+	</RelationClass>
+</Package>

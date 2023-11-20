@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2012, All rights reserved -->
+
+<Package CustomerExposition = "Programmer" ModelerType = "Top" Name = "DamSpatialStructureElement" UseNames = "CivilEngineeringSpatialStructureElement" Uuid = "8D4BB1F3-D200-4D88-A7B8-D63988B2CEBB" xmlns = "PLMDictionaryUnified">
+  <Class Abbreviation = "dam" CustomerExposition = "Programmer" Discipline = "Yes" Name = "Dam" SuperName = "DamSpatialStructureElement" Uuid = "2627F954-E0A8-4BB8-B908-7E5FB0050844">
+    <Property Name = "IconName" Value = "I_Dam"/>
+    <Property Name = "3DIconName" Value = "I_Dam.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATEAECDelegateInstanciation"/>
+    <Property Name = "KweNew_ReturnedType" Value = "VPMInstance"/>
+    <Property Name = "Newable" Value = "All_Offline_CAA"/>
+    <Property Name = "InstantiationOwnerTypes" Value = "PPRContext;AecOtherSpatialStructureElement;AecSite;Dam;DamOtherSpatialStructureElement"/>
+    <Property Name = "3DPartAvailability" Value = "UserChoiceReferenceDefault"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "DamOtherSpatialStructureElement" Specializable = "Yes" SuperName = "DamPart" Uuid = "19A1C36A-C100-4EBE-B394-E8A20CD5F132">
+    <Property Name = "IconName" Value = "I_DamOtherSpatialStructureElement"/>
+    <Property Name = "3DIconName" Value = "I_DamOtherSpatialStructureElement.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATEAECDelegateInstanciation"/>
+    <Property Name = "KweNew_ReturnedType" Value = "VPMInstance"/>
+    <Property Name = "Newable" Value = "All_Offline_CAA"/>
+    <Property Name = "InstantiationOwnerTypes" Value = "PPRContext;AecOtherSpatialStructureElement;AecSite;Dam;DamOtherSpatialStructureElement"/>
+    <Property Name = "3DPartAvailability" Value = "UserChoiceReferenceDefault"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "DamOtherSpatialStructureElementType" Specializable = "Yes" SuperName = "DamPartType" Uuid = "A0DF76F0-EA1F-4B57-9A3F-E9BF16D37459">
+    <Property Name = "IconName" Value = "I_DamOtherSpatialStructureElementType"/>
+    <Property Name = "3DIconName" Value = "I_DamOtherSpatialStructureElementType.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATCbaObjectTypeDelegateInstanciation"/>
+    <Property Name = "Newable" Value = "New_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "ReferenceOnly"/>
+  </Class>
+  <Class Abstract = "Yes" CustomerExposition = "Programmer" Discipline = "Yes" Name = "DamPart" SuperName = "DamSpatialStructureElement" Uuid = "AF361384-0124-4DDF-9982-202147522F4C"/>
+  <Class Abstract = "Yes" CustomerExposition = "Programmer" Discipline = "Yes" Name = "DamPartType" SuperName = "DamSpatialStructureElementType" Uuid = "91F8E94A-6F8E-4915-8B96-F469000DF6F3"/>
+  <Class Abstract = "Yes" CustomerExposition = "Programmer" Discipline = "Yes" Name = "DamSpatialStructureElement" SuperName = "CivilEngineeringSpatialStructureElement" Uuid = "14E59557-6CF9-4D38-A397-E3AC2C931CAC">
+    <Property Name = "GroupingType" Value = "DamSpatialStructureElement"/>
+  </Class>
+  <Class Abstract = "Yes" CustomerExposition = "Programmer" Discipline = "Yes" Name = "DamSpatialStructureElementType" SuperName = "CivilEngineeringSpatialStructureElementType" Uuid = "35240712-3789-44D6-9E67-8CA788903E29">
+    <Property Name = "GroupingType" Value = "DamSpatialStructureElementType"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "DamType" SuperName = "DamSpatialStructureElementType" Uuid = "05CFB88F-E1C9-4470-B0C5-EA9072387CDF">
+    <Property Name = "IconName" Value = "I_DamType"/>
+    <Property Name = "3DIconName" Value = "I_DamType.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATCbaObjectTypeDelegateInstanciation"/>
+    <Property Name = "Newable" Value = "New_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "ReferenceOnly"/>
+  </Class>
+</Package>

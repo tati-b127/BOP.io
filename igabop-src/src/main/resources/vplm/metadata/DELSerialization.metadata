@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR DELMIA Production System Application -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified"
+         ModelerType="Top"
+         Name="DELSerialization"
+	       Uuid="18E33515-8E10-4b7a-9FB3-FDD550DA75EB"
+         BelongsToModeler="DELLmiProductionOperationUPR"
+	       UseNames="ERCoreModeler"
+         CustomerExposition="Programmer"
+         Architecture="All">
+
+  <CAAComment>
+    <ShortRole>Serialization model </ShortRole>
+    <Role>This package describes the Serialization model</Role>
+  </CAAComment>
+
+ 
+  <RelationClass Name="DELIsSerializedFrom"
+		     Uuid="F2AC979F-6737-4b02-944F-E166A5359272"
+		     Abstract="No"
+    		 SuperName="RelationType"
+         CustomerExposition="ProgrammerOnly"
+         Specializable="No"
+		     CustomerExtensible="No"
+         DeleteAvailability="No">
+
+    <Property Name="LockUnlockAvailability"    Value="No"/>
+    <Property Name="TransferOwnerShipAvailability"    Value="No"/>
+    <Property Name="EditPropertiesAvailability"    Value="No"/>
+    <Property Name="SaveAsNewAvailability"    Value="No"/>
+    <Property Name="ChangeManagementSupport"    Value="No"/>
+    <Property Name="ChangeManagementReferential"    Value="No"/>
+    <Property Name="ChangeManagementContext"    Value="No"/>
+    <Property Name="Configurable"    Value="No"/>
+    <Property Name="NewMinorRevisionAvailability"    Value="No"/>
+    <Property Name="NewMajorRevisionAvailability"    Value="No"/>
+    <Property Name="EvolutionAvailability"    Value="No"/>
+    <Property Name="IterationAvailability"    Value="No"/>
+    <Property Name="ManageAccessAvailability"    Value="No"/>
+    <Property Name="ShareBetweenProjectsAvailability"    Value="No"/>
+    <Property Name="DupplicateAvailability"    Value="Yes"/>
+    <Property Name="ChangeMaturityAvailability"    Value="No"/>
+
+    <SubClause Name="from"   TargetName="DELLmiUPROperationReference"/>
+    <SubClause Name="from"   TargetName="DELLmiUPRSystemReference"/>
+    <SubClause Name="from"   TargetName="DELFmiFunctionReference"/>
+    <SubClause Name="to"   TargetName="DELLmiPPROperationReference"/>
+    <SubClause Name="to"   TargetName="DELLmiPPRSystemReference"/>
+    <SubClause Name="to"   TargetName="DELFmiFunctionReference"/>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+
+  </RelationClass>
+
+</Package>

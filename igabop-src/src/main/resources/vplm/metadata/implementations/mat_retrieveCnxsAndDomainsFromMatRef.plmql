@@ -1,0 +1,16 @@
+EXPAND
+T0.PLM_ExternalID, T0.PLMID,
+T1.PLM_ExternalID, T1.PLMID,
+T2.PLM_ExternalID, T2.PLMID,
+T3.PLM_ExternalID, T3.PLMID,
+T4.PLM_ExternalID, T4.PLMID
+
+FROM
+CATMaterialRef/CATMatReference T0,
+CATMaterialRef/MaterialDomainInstance T1,
+CATMaterialRef/MaterialDomain T2,
+CATMaterialRef/CATMatRefConnection T3 ,
+CATMaterialRefElement/CATMatRefElemConnection T4
+
+FROM_ROOTS[?1?]
+DEPTH=1;

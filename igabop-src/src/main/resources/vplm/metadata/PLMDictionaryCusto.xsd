@@ -1,0 +1,660 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- [CHD:26.01.2015] ajout de Range (pour permettre la migration R418 de Enum) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="PLMDictionaryCusto"
+           targetNamespace="PLMDictionaryCusto" elementFormDefault="unqualified" attributeFormDefault="unqualified">
+    <xs:complexType name="CAAComment">
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="tns:ShortRole"/>
+            <xs:element ref="tns:Role"/>
+        </xs:choice>
+    </xs:complexType>
+    <xs:element name="CAAComment" type="tns:CAAComment"/>
+
+    <xs:element name="Comment" type="xs:string"/>
+
+
+    <xs:complexType name="Class">
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element minOccurs="0" ref="tns:Comment"/>
+            <xs:element minOccurs="0" ref="tns:Property"/>
+            <xs:element minOccurs="0" ref="tns:CAAComment"/>
+            <xs:element minOccurs="0" maxOccurs="unbounded" ref="tns:Simple"/>
+            <xs:element ref="tns:Relationship"/>
+            <xs:element minOccurs="0" ref="tns:IdentifierSet"/>
+            <xs:element ref="tns:ApplicationServiceReference"/>
+        </xs:choice>
+        <xs:attribute name="Name" type="xs:string" use="required"/>
+        <xs:attribute name="Uuid" type="xs:string"/>
+        <xs:attribute name="Alias" type="xs:string"/>
+        <xs:attribute name="CAAExposition">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="L0"/>
+                    <xs:enumeration value="L1"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="SuperName" type="xs:string"/>
+        <xs:attribute name="SuperRef" type="xs:string"/>
+    </xs:complexType>
+    <xs:element name="Class" type="tns:Class"/>
+
+    <!-- Description of a Range: a range is a constraing for the values of an attribute  -->
+    <xs:complexType name="Range">
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="tns:Property"/>
+            <xs:element ref="tns:Comment"/>
+            <xs:element ref="tns:Equal"/>
+            <xs:element ref="tns:NotEqual"/>
+            <xs:element ref="tns:LessThan"/>
+            <xs:element ref="tns:LessThanEqual"/>
+            <xs:element ref="tns:GreaterThan"/>
+            <xs:element ref="tns:GreaterThanEqual"/>
+            <xs:element ref="tns:Between"/>
+            <xs:element ref="tns:Program"/>
+        </xs:choice>
+    </xs:complexType>
+    <xs:element name="Range" type="tns:Range"/>
+    <!-- Constraint of equality: contains the value   -->
+    <xs:element name="Equal" type="xs:string"/>
+    <!-- Constraint of inequality: contains the value   -->
+    <xs:element name="NotEqual" type="xs:string"/>
+    <!-- Constraint of less than a value: contains the value   -->
+    <xs:element name="LessThan" type="xs:string"/>
+    <!-- Constraint of less than or equal to a value: contains the value   -->
+    <xs:element name="LessThanEqual" type="xs:string"/>
+    <!-- Constraint of greater than a value: contains the value   -->
+    <xs:element name="GreaterThan" type="xs:string"/>
+    <!-- Constraint of greater than or equal a value: contains the value   -->
+    <xs:element name="GreaterThanEqual" type="xs:string"/>
+    <!-- Constraint of between two values   -->
+    <xs:complexType name="Between">
+        <xs:choice>
+            <xs:element maxOccurs="1" name="Min" type="xs:string"/>
+            <xs:element maxOccurs="1" name="MinEqual" type="xs:string"/>
+            <xs:element maxOccurs="1" name="Max" type="xs:string"/>
+            <xs:element maxOccurs="1" name="MaxEqual" type="xs:string"/>
+        </xs:choice>
+    </xs:complexType>
+    <xs:element name="Between" type="tns:Between"/>
+    <!-- Constraint modeled by a program that is executed   -->
+    <xs:complexType name="Program">
+        <!-- name of the program that is executed   -->
+        <xs:attribute name="Name" type="xs:string" use="required"/>
+    </xs:complexType>
+    <xs:element name="Program" type="tns:Program"/>
+
+    <xs:complexType name="Enum">
+        <xs:choice>
+            <xs:element minOccurs="0" ref="tns:Comment"/>
+            <xs:element minOccurs="0" ref="tns:Property"/>
+            <xs:element maxOccurs="unbounded" ref="tns:Enumerator"/>
+        </xs:choice>
+        <xs:attribute name="Name" type="xs:string" use="required"/>
+        <xs:attribute name="Uuid" type="xs:string"/>
+        <xs:attribute name="Type" use="optional">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="Boolean"/>
+                    <xs:enumeration value="Integer"/>
+                    <xs:enumeration value="Double"/>
+                    <xs:enumeration value="Logical"/>
+                    <xs:enumeration value="String"/>
+                    <xs:enumeration value="Date"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="Alias" type="xs:string"/>
+        <xs:attribute name="CustomerExposition" default="Programmer">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="None"/>
+                    <xs:enumeration value="Programmer"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:complexType>
+    <xs:element name="Enum" type="tns:Enum"/>
+
+
+    <xs:complexType name="Enumerator">
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="tns:CAAComment"/>
+            <xs:element ref="tns:Property"/>
+            <xs:element ref="tns:Comment"/>
+            <xs:element ref="tns:ApplicationServiceReference"/>
+        </xs:choice>
+        <xs:attribute name="Name" type="xs:string" use="required"/>
+        <xs:attribute name="Uuid" type="xs:string"/>
+        <xs:attribute name="Value" type="xs:string" use="required"/>
+    </xs:complexType>
+    <xs:element name="Enumerator" type="tns:Enumerator"/>
+
+
+    <xs:complexType name="IdentifierSet">
+        <xs:sequence>
+            <xs:element minOccurs="0" ref="tns:Comment"/>
+        </xs:sequence>
+        <xs:attribute name="Name" type="xs:string" use="required"/>
+        <xs:attribute name="Uuid" type="xs:string"/>
+        <xs:attribute name="IdentifierNames" type="xs:string"/>
+        <xs:attribute name="IdentifierUuids" type="xs:string"/>
+    </xs:complexType>
+    <xs:element name="IdentifierSet" type="tns:IdentifierSet"/>
+
+
+    <xs:complexType name="Package">
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="tns:CAAComment"/>
+            <xs:element ref="tns:Property"/>
+            <xs:element ref="tns:Class"/>
+            <xs:element ref="tns:RelationClass"/>
+            <xs:element ref="tns:Discipline"/>
+            <xs:element ref="tns:Comment"/>
+            <xs:element ref="tns:Enum"/>
+            <xs:element ref="tns:ApplicationService"/>
+            <xs:element ref="tns:ApplicationServiceReference"/>
+        </xs:choice>
+        <xs:attribute name="Name" type="xs:string" use="required"/>
+        <xs:attribute name="Uuid" type="xs:string"/>
+        <xs:attribute name="Alias" type="xs:string"/>
+        <xs:attribute name="DataRDB_OID" type="xs:string"/>
+        <xs:attribute name="ModelerType" use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="Custo"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="UseNames" type="xs:string"/>
+        <xs:attribute name="UseScopes" type="xs:string"/>
+        <!--Indicates in which architecture the schema will be used: by default, it will be Native on former typing packages -->
+        <xs:attribute name="Architecture" default="Native">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="Web"/>
+                    <xs:enumeration value="Native"/>
+                    <xs:enumeration value="All"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:complexType>
+    <xs:element name="Package" type="tns:Package"/>
+    <xs:complexType name="Relationship">
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="tns:CAAComment"/>
+            <xs:element ref="tns:Comment"/>
+            <xs:element ref="tns:ApplicationServiceReference"/>
+        </xs:choice>
+        <xs:attribute name="Name" use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="V_Owner"/>
+                    <xs:enumeration value="V_InstanceOf"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="Uuid" type="xs:string"/>
+        <xs:attribute name="TargetName" type="xs:string"/>
+        <xs:attribute name="TargetRef" use="required"/>
+    </xs:complexType>
+    <xs:element name="Relationship" type="tns:Relationship"/>
+    <xs:complexType name="Role" mixed="true">
+        <xs:choice minOccurs="0" maxOccurs="unbounded"/>
+    </xs:complexType>
+    <xs:element name="Role" type="tns:Role"/>
+    <xs:complexType name="Simple">
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="tns:CAAComment"/>
+            <xs:element ref="tns:Property"/>
+            <xs:element ref="tns:Comment"/>
+            <xs:element ref="tns:Range"/>
+            <xs:element ref="tns:ApplicationServiceReference"/>
+        </xs:choice>
+        <xs:attribute name="Name" type="xs:string" use="required"/>
+        <xs:attribute name="Uuid" type="xs:string"/>
+        <xs:attribute name="Alias" type="xs:string"/>
+        <xs:attribute name="CAAExposition">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="L0"/>
+                    <xs:enumeration value="L1"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="CollectionType">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="Set"/>
+                    <xs:enumeration value="List"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="DefaultValue" type="xs:string"/>
+        <xs:attribute name="DefaultValueName" type="xs:string"/>
+        <xs:attribute name="DefaultValueRef" type="xs:string"/>
+        <xs:attribute name="Lower" type="xs:string"/>
+        <xs:attribute name="Magnitude" type="xs:string"/>
+        <xs:attribute name="Mandatory">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="Yes"/>
+                    <xs:enumeration value="No"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="MaxLength" type="xs:string"/>
+        <xs:attribute name="MultiValuated">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="Yes"/>
+                    <xs:enumeration value="No"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="Protection" use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="User"/>
+                    <xs:enumeration value="Free"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="ResetOnCloning">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="Yes"/>
+                    <xs:enumeration value="No"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="ResetOnNewVersion">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="Yes"/>
+                    <xs:enumeration value="No"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="TargetName" type="xs:string"/>
+        <xs:attribute name="TargetRef" type="xs:string"/>
+        <xs:attribute name="Type" use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="Boolean"/>
+                    <xs:enumeration value="Integer"/>
+                    <xs:enumeration value="Double"/>
+                    <xs:enumeration value="Logical"/>
+                    <xs:enumeration value="String"/>
+                    <xs:enumeration value="Binary"/>
+                    <xs:enumeration value="Date"/>
+                    <xs:enumeration value="Enumeration"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="Upper" type="xs:string"/>
+    </xs:complexType>
+    <xs:element name="Simple" type="tns:Simple"/>
+    <xs:complexType name="ShortRole" mixed="true">
+        <xs:choice minOccurs="0" maxOccurs="unbounded"/>
+    </xs:complexType>
+    <xs:element name="ShortRole" type="tns:ShortRole"/>
+    <xs:complexType name="ApplicationServiceReference">
+        <xs:attribute name="ApplicationServiceRef" type="xs:string" use="required"/>
+        <xs:attribute name="Creation" use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="Yes"/>
+                    <xs:enumeration value="No"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:complexType>
+    <xs:element name="ApplicationServiceReference" type="tns:ApplicationServiceReference"/>
+    <xs:complexType name="ApplicationService">
+        <xs:complexContent>
+            <xs:extension base="tns:DicElement">
+                <xs:attribute name="ReleaseLevel" type="xs:string" use="required"/>
+                <xs:attribute name="Comment" type="xs:string" use="optional"/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:element name="ApplicationService" type="tns:ApplicationService"/>
+    <xs:complexType name="DicElement">
+        <xs:attribute name="Name" type="xs:string" use="required"/>
+        <xs:attribute name="Uuid" type="tns:UuidString"/>
+    </xs:complexType>
+    <xs:simpleType name="UuidString">
+        <xs:restriction base="xs:string">
+            <xs:pattern
+                    value="((([0-9]|[a-f])|[A-F]){8,8}\-(([0-9]|[a-f])|[A-F]){4,4}\-(([0-9]|[a-f])|[A-F]){4,4}\-(([0-9]|[a-f])|[A-F]){16,16})|((([0-9]|[a-f])|[A-F]){8,8}\-(([0-9]|[a-f])|[A-F]){4,4}\-(([0-9]|[a-f])|[A-F]){4,4}\-(([0-9]|[a-f])|[A-F]){4,4}\-(([0-9]|[a-f])|[A-F]){12,12})"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+
+    <xs:complexType name="Discipline">
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="Property" type="tns:Property"/>
+        </xs:choice>
+        <xs:attribute name="Name" type="xs:string" use="required"/>
+        <xs:attribute name="Uuid" type="xs:string"/>
+        <xs:attribute name="CreationMode" use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="Yes"/>
+                    <xs:enumeration value="No"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="CustomerExposition">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="None"/>
+                    <xs:enumeration value="Programmer"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="TypeNames" type="xs:string" use="required"/>
+        <xs:attribute name="CAAExposition">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="L0"/>
+                    <xs:enumeration value="L1"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="IsCusto">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="Yes"/>
+                    <xs:enumeration value="No"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:complexType>
+    <xs:element name="Discipline" type="tns:Discipline"/>
+
+    <!-- PROPERTIES -->
+
+    <xs:complexType name="Property">
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="tns:Comment"/>
+        </xs:choice>
+        <xs:attribute name="Name" type="xs:string" use="required"/>
+        <xs:attribute name="Value" type="xs:string" use="required"/>
+    </xs:complexType>
+    <xs:element name="Property" type="tns:Property"/>
+
+    <!-- SubClause of a RelationClass: defines the possible types for the "to" and the "from" -->
+    <xs:complexType name="SubClause">
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="tns:Comment"/>
+        </xs:choice>
+        <!-- Name must be equal to "to" or "from"-->
+        <xs:attribute name="Name" type="xs:string" use="required"/>
+        <!-- Name of the types that can be used for such a sub clause, separated by ; -->
+        <xs:attribute name="TargetName" type="xs:string" use="required"/>
+        <!-- Cardinality: expresses how many relations of the same type can be put on the to side or from side of an object. By default it is many-->
+        <xs:attribute name="cardinality">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="Many"/>
+                    <xs:enumeration value="One"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <!-- meaning is a free string that was used to describe the meaning of the to or the from. Is may be seen as a redundancy with SIXW-->
+        <xs:attribute name="meaning" type="xs:string"/>
+        <!-- expresses how the relationship will behave when the object referenced is revised. The relation may be duplicated, or it may float to the new revision, or it may stay as is. The default is stay as is (none)-->
+        <xs:attribute name="minorrevision">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="none"/>
+                    <xs:enumeration value="float"/>
+                    <xs:enumeration value="replicate"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <!-- expresses how the relationship will behave when the object referenced is cloned. The relation may be duplicated, or it may float to the duplicate object revision, or it may stay as is. The default is stay as is (none)-->
+        <xs:attribute name="clone">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="none"/>
+                    <xs:enumeration value="float"/>
+                    <xs:enumeration value="replicate"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <!-- expresses if the modification of the relation will propagate its modification stamp to the pointed. The default being no-->
+        <xs:attribute name="propagatemodify">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="No"/>
+                    <xs:enumeration value="Yes"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <!-- expresses if the addition of such a relation (or the removal) will update the modification stamp of the pointed element. Default being No-->
+        <xs:attribute name="propagateconnection">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="No"/>
+                    <xs:enumeration value="Yes"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:complexType>
+    <xs:element name="SubClause" type="tns:SubClause"/>
+
+    <!-- Description of a relation class: it is a type that leads to the creation of objects, that models a relation between 2 objects -->
+    <xs:complexType name="RelationClass">
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element ref="tns:Comment"/>
+            <xs:element ref="tns:CAAComment"/>
+            <xs:element ref="tns:Simple"/>
+            <xs:element ref="tns:Property"/>
+            <xs:element ref="tns:SubClause"/>
+        </xs:choice>
+        <!--Name of the relation class: must be unique-->
+        <xs:attribute name="Name" type="xs:string" default="No"/>
+        <!--Used by MQL generator to identify a type uniquely-->
+        <xs:attribute name="Uuid" type="xs:string" use="required"/>
+        <!-- Abbreviation of a class used in OOTB naming computation -->
+        <xs:attribute name="Abbreviation" type="xs:string"/>
+        <!--Indicates if the relation class can be used to create objects (Abstract=No) -->
+        <xs:attribute name="Abstract" default="No">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="Yes"/>
+                    <xs:enumeration value="No"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <!--Indicates if this relation class is public (known by customer through UI or customization tools) or is a pure private one-->
+        <!--Modification 2015x: adding ProgrammerOnly to indicate a public type but not shown in UI-->
+        <xs:attribute name="CustomerExposition">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="None"/>
+                    <xs:enumeration value="Programmer"/>
+                    <xs:enumeration value="ProgrammerOnly"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <!-- Defines the relation class, this relation class inherits from-->
+        <xs:attribute name="SuperName" type="xs:string" use="required"/>
+        <!-- Indicates if a relation class supports delete-->
+        <xs:attribute name="DeleteAvailability">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="Yes"/>
+                    <xs:enumeration value="No"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <!-- Indicates if a relation class supports lock/unlock-->
+        <xs:attribute name="LockUnlockAvailability">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="Yes"/>
+                    <xs:enumeration value="No"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <!-- Indicates if a relation class supports transfer ownership-->
+        <xs:attribute name="TransferOwnershipAvailability">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="Yes"/>
+                    <xs:enumeration value="No"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <!-- Indicates if a relation class supports edit properties-->
+        <xs:attribute name="EditPropertiesAvailability">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="Yes"/>
+                    <xs:enumeration value="No"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <!-- Indicates if a relation class supports manage access (can drive the access rights of objects aggregated under it like design workspace)-->
+        <xs:attribute name="ManageAccessAvailability">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="Yes"/>
+                    <xs:enumeration value="No"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <!-- Indicates if a relation class supports manage to be shared between projects-->
+        <xs:attribute name="ShareBetweenProjectsAvailability">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="Yes"/>
+                    <xs:enumeration value="No"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <!-- Indicates if a relation class carries pointers-->
+        <xs:attribute name="CarryPointers">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="Yes"/>
+                    <xs:enumeration value="No"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <!-- Indicates if a class carries streams: used when importing data (for instance from XPDM) to decide what to do with streams-->
+        <xs:attribute name="CarryStreams">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <!-- Supports streams but there is no precision on the number of streams. Corresponds to 0 to many streams -->
+                    <xs:enumeration value="Yes"/>
+                    <!-- Does not support streams -->
+                    <xs:enumeration value="No"/>
+                    <!-- Requires one stream and only one -->
+                    <xs:enumeration value="One"/>
+                    <!-- Requires one stream at least -->
+                    <xs:enumeration value="One_At_Least"/>
+                    <!-- Maximum is one -->
+                    <xs:enumeration value="One_Or_Zero"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <!-- Indicates if a relation class aggregates components-->
+        <xs:attribute name="AggregatesComponents">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="Yes"/>
+                    <xs:enumeration value="No"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <!-- Indicates if a relation class supports update stamp-->
+        <xs:attribute name="IsSynchronizable">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="Yes"/>
+                    <xs:enumeration value="No"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <!-- Indicates if a relation class has a nature of Aggregation, Instanciation, Pointer or Association -->
+        <xs:attribute name="RelationNature">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="Aggregation"/>
+                    <xs:enumeration value="Instanciation"/>
+                    <xs:enumeration value="Pointer"/>
+                    <xs:enumeration value="Association"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <!-- Indicates if a relation class is filtrable (through configuration effectivities)-->
+        <xs:attribute name="Filtrable">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="Yes"/>
+                    <xs:enumeration value="No"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <!-- Still used but not strategic: defines the exposition of the class to 3DXML 4.3 -->
+        <xs:attribute name="CAAExposition">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="L0"/>
+                    <xs:enumeration value="L1"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <!-- Indicates if an extension is deprecated (should not be seen anymore)-->
+        <xs:attribute name="Deprecated">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="Yes"/>
+                    <xs:enumeration value="No"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <!--Indicates if the relation class can be specialized by customer: used by KWD (data model specialization tool)-->
+        <xs:attribute name="Specializable">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="Yes"/>
+                    <xs:enumeration value="No"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <!--Indicates if this relation class can be extended by customer extensions: used by KWD (data model specialization tool)-->
+        <xs:attribute name="CustomerExtensible">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="Yes"/>
+                    <xs:enumeration value="No"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <!--Defines the level of relation class (modeler versus application (Discipline=Yes)): application cannot override life cycle operations behavioral patterns -->
+        <xs:attribute name="Discipline" default="No">
+            <xs:simpleType>
+                <xs:restriction base="xs:NMTOKEN">
+                    <xs:enumeration value="Yes"/>
+                    <xs:enumeration value="No"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <!-- RDFClass: how the Relation class will be mapped to a RDF Class in the navigation model / Indexer  -->
+        <xs:attribute name="RDFClass" type="xs:string"/>
+        <!-- SIXW predicate: how the Relation class, used as a pointer, will be mapped in 6W tagger / Indexer  -->
+        <xs:attribute name="SIXW" type="xs:string"/>
+        <!-- SIXW predicate: how the to pointer of the relation class will be mapped in 6W tagger / Indexer  -->
+        <xs:attribute name="SIXW_to" type="xs:string"/>
+        <!-- SIXW predicate: how the from pointer of the relation class will be mapped in 6W tagger / Indexer  -->
+        <xs:attribute name="SIXW_from" type="xs:string"/>
+    </xs:complexType>
+    <xs:element name="RelationClass" type="tns:RelationClass"/>
+
+</xs:schema>

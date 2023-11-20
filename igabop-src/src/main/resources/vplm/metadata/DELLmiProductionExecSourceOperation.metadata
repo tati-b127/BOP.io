@@ -1,0 +1,126 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR DELMIA Production System Application -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2009, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" 
+         ModelerType="Top" 
+         Name="DELLmiProductionExecSourceOperation"
+	       Uuid="70fcfa55-f4c7-4db0-8ba9-1b8272249d98"
+	       UseNames="DELLmiProductionOperationUPR" 
+         CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>Execution Source Operation. OBSOLETE. Not used in current applications </ShortRole>
+    <Role>This package describes the Execution Source Operation model on top of DELLmiProductionOperationUPR</Role>
+  </CAAComment>
+
+  <Comment>last update 2009-05-25</Comment>
+  <Comment>last update 2013-06-21</Comment>
+
+  <Class Name="DELLmiExecSourceOperationReference"
+		     Uuid="70259a17-947d-4534-aac2-4bcd5bce9d6c"
+		     Abstract="No"
+         SuperName="DELLmiOperationUPRReference"
+         CustomerExposition="Programmer"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         CreateInstName="DELLmiExecSourceOperationInstance"
+         Abbreviation="wsop"
+         InstantiationOwnerTypes="ExecSourceSystem"
+        >
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELLmiExecOpDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELLmiExecSourceOperationInstance"/>
+    <Property Name="IconName" Value="I_PPRSeqExecSource"/>
+    <Property Name="3DIconName" Value="I_PPRSeqExecSource.cgr"/>
+    <Property Name="Newable" Value="No"/>
+    <Property Name="Searchable" Value="Yes"/>
+
+    <CAAComment>
+      <ShortRole>Execution Source Operation Reference.</ShortRole>
+      <Role>Execution Source Operation Reference. Specialization is not supported yet.</Role>
+    </CAAComment>
+
+    <Simple Name="V_InitialStock"
+            Uuid="db1a1a12-1695-4af5-b94d-355a8f3acf74" 
+            Type="Integer"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"
+            DefaultValue="0">
+      <CAAComment>
+        <ShortRole>This defines the numbers of parts that are already present in the system when the Simulation begins. The default is zero.</ShortRole>
+      </CAAComment>
+    </Simple>
+    
+    <Simple Name="V_Proportion" 
+            Uuid="df3e83b2-1040-4aff-9aaa-3420ec29442f" 
+            Type="Double"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>This defines the proportions of each product that the source will create.</ShortRole>
+      </CAAComment>
+    </Simple>
+    
+    <Simple Name="V_Lot" 
+            Uuid="27656a0b-7a1d-4e6a-8cfe-840e28ddf5a8" 
+            Type="Integer"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>It is number of products arriving at a time.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+
+
+  </Class>
+
+  <RelationClass Name="DELLmiExecSourceOperationInstance"
+		     Uuid="a3369ee0-35e6-4fa8-8398-db9640f3aef2"
+    		 Abstract="No"
+         SuperName="DELLmiOperationUPRInstance"
+         CustomerExposition="Programmer"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         >
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELMPProdSystemAdvDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELLmiExecSourceOperationInstance"/>
+    
+    <CAAComment>
+      <ShortRole>Execution Source Operation Instance.</ShortRole>
+      <Role>Execution SourceOperation Instance. Specialization is not supported yet.</Role>
+    </CAAComment>
+
+    <Volatile Name="Reference" 
+              Uuid="A8179A0C-5B16-4779-9862-C658520F15FB" 
+              Accessor="PLMModelerReferenceKweAttribute" 
+              TypeName="DELLmiExecSourceOperationReference" 
+              AccessMode="ReadOnly" />
+
+    <SubClause Name="to"   TargetName="DELLmiExecSourceOperationReference"/>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+<Method ImplementationType="None">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+
+
+  </RelationClass>
+
+</Package>

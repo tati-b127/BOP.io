@@ -1,0 +1,145 @@
+﻿<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2006, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" 
+         ModelerType="Top" 
+         BelongsToModeler="DELFmiFunctionalModel" 
+         Name="DELFmiFunctionalModelQuantity" 
+         CustomerExposition="Programmer" 
+         Uuid="7111923E-7F9A-4e86-8D6E-89372F9B9946" 
+         UseNames="DELFmiFunctionalModel"
+>
+
+  <!-- ***************************************************** -->
+  <!-- **************  ProcessInstanceSet ****************** -->
+  <!-- ***************************************************** -->
+
+  <RelationClass Name="ProcessInstanceSet"
+              Abstract="No"
+              CustomerExposition="Programmer"
+              CustomerExtensible="Yes"
+              Uuid="6C443933-ADB3-4bb3-8FEB-AA2F90EC93E9"
+              Discipline="Yes"
+              SuperName="DELFmiFunctionInstance"
+              Specializable="No">
+
+    <Property Name="MergedExtensionType" Value="ProcessInstanceSet_Ext"/>
+
+    <Simple Name="V_DiscreteQuantity"
+        Uuid="A226E41C-9010-44ca-8C59-C0DAF612ED0B"
+        Type="Integer"
+        MultiValuated="No"
+        Protection="External"
+        CAAExposition="L1"
+        DefaultValue="1"
+            >
+      <CAAComment>
+        <ShortRole>Defines unidentified discrete quantity</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+  </RelationClass>
+
+  <RelationClass Name="DELFmiFunctionIdentifiedInstance"
+            Abstract="No"
+            CustomerExposition="Programmer"
+            CustomerExtensible="Yes"
+            Uuid="3FF17B15-6C96-4c94-89B1-FF164B0D6C6D"
+            Discipline="Yes"
+            SuperName="ProcessInstanceSet"
+            Specializable="No">
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+  </RelationClass>
+
+  <!-- ***************************************************** -->
+  <!-- ************  ProcessInstanceContinuous ************* -->
+  <!-- ***************************************************** -->
+
+  <RelationClass Name="ProcessInstanceContinuous"
+              Abstract="No"
+              CustomerExposition="Programmer"
+              CustomerExtensible="Yes"
+              Uuid="0D9D593C-0729-4f77-A86B-59B248807D6F"
+              Discipline="Yes"
+              SuperName="DELFmiFunctionInstance"
+              Specializable="No">
+
+    <Property Name="MergedExtensionType" Value="ProcessInstanceContinuous_Ext"/>
+
+    <Simple Name="V_UsageContCoeff"
+        Uuid="8EC915EE-B13B-4780-B217-EFA356D3181F"
+        Type="Double"
+        MultiValuated="No"
+        Protection="External"
+        CAAExposition="L1"
+        DefaultValue="1.0"
+            >
+      <CAAComment>
+        <ShortRole>Defines usage continuous coefficient</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+  </RelationClass>
+
+  <Class Name="DELFmiDiscreteFunctionReference"
+         Uuid="CD55B48F-7D64-464c-8D65-04C45615E757"
+         CustomerExposition="Programmer"
+         CustomerExtensible="No"
+         Specializable="Yes"
+         Abstract="No"
+         SuperName="DELFmiFunctionReference"
+         Discipline="Yes"
+         CreateInstName="ProcessInstanceSet"
+		     >
+
+    <CAAComment>
+      <ShortRole>Defines Continuous quantity reference</ShortRole>
+    </CAAComment>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+  </Class>
+
+  <Class Name="DELFmiContinuousFunctionReference"
+         Uuid="BC563D3B-A7D0-4cfb-A36F-3F3EFC4CF5C3"
+         CustomerExposition="Programmer"
+         CustomerExtensible="No"
+         Specializable="Yes"
+         Abstract="No"
+         SuperName="DELFmiFunctionReference"
+         Discipline="Yes"
+         CreateInstName="ProcessInstanceContinuous"
+		     >
+
+    <CAAComment>
+      <ShortRole>Defines Continuous quantity reference</ShortRole>
+    </CAAComment>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+  </Class>
+
+
+</Package>

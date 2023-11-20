@@ -1,0 +1,7 @@
+#Prog ChangeManagement_XPDMExchangeECA_Completion( iPLMIDSet : #In PLMIDSet, oPLMIDSet : #Out PLMIDSet ) : VoidType
+{
+
+/* Fill output ID set: we only have the object itself */
+oPLMIDSet = iPLMIDSet 
+
+}

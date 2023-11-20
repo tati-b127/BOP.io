@@ -1,0 +1,4 @@
+#Prog Functional_ExportMultiplexerRef_Remove ( iPLMIDSet : #In PLMIDSet, oPLMIDSet : #Out PLMIDSet ) : VoidType
+{
+  oPLMIDSet = iPLMIDSet
+}

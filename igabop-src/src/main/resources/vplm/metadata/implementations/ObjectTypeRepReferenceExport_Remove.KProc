@@ -1,0 +1,4 @@
+#Prog ObjectTypeRepReferenceExport_Remove( iPLMIDSet : #In PLMIDSet, oPLMIDSet : #Out PLMIDSet ) : VoidType
+{
+  oPLMIDSet = iPLMIDSet
+}

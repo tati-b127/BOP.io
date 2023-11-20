@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR DELMIA Production System Application -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2010, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified"
+         ModelerType="Top"
+         Name="DELLmiProductionShiftModel"
+	       Uuid="A9721B47-457E-4dff-88AB-A7E4006DC950"
+         BelongsToModeler="DELLmiProductionSystem"
+	       UseNames="PLMCORE DELLmiProductionSystemAbstract"
+         CustomerExposition="Programmer"
+         UseProcedures="PPR_Procedures">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>PLM DELMIA ShiftModel Model </ShortRole>
+    <Role>This package describes the PLM DELMIA ShiftModel model on top of DELLmiProductionSystemAbstract</Role>
+  </CAAComment>
+
+  <Comment>last update 2010-10-15</Comment>
+
+  <Class Name="DELLmiProductionShiftModelReference"
+		     Uuid="342E1001-D3E6-472d-98AE-807F250D1788"
+		     Abstract="No"
+    		 SuperName="DELLmiAbstractProductionEntity"
+         CustomerExposition="Programmer"
+         Specializable="No"
+         CustomerExtensible="Yes"
+         CreateInstName="DELLmiProductionShiftModelInstance"
+         Abbreviation="shm"
+         InstantiationOwnerTypes="DELLmiGeneralSystemReference;DELLmiTransformationSystemReference;DELLmiTransferSystemReference;DELLmiStorageSystemReference"
+         >
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="Newable" Value="No"/>
+    <Property Name="Searchable" Value="No"/>
+
+    <CAAComment>
+      <ShortRole>PLM DELMIA ShiftModel Reference</ShortRole>
+      <Role>PLM DELMIA ShiftModel Reference</Role>
+    </CAAComment>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+  </Class>
+
+
+  <RelationClass Name="DELLmiProductionShiftModelInstance"
+		     Uuid="DF421F3D-89D0-4ac6-9485-8E479CE55BB3"
+		     Abstract="No"
+    		 SuperName="PLMCoreInstance"
+         CustomerExposition="Programmer"
+         Specializable="No"
+         CustomerExtensible="Yes"
+         >
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+
+    <CAAComment>
+      <ShortRole>PLM DELMIA ShiftModel Instance</ShortRole>
+      <Role>PLM DELMIA ShiftModel Instance</Role>
+    </CAAComment>
+
+    <Volatile Name="Reference"
+              Uuid="9E251336-3A46-4522-8DD4-142ED12A965F"
+              Accessor="PLMModelerReferenceKweAttribute"
+              TypeName="DELLmiProductionShiftModelReference"
+              AccessMode="ReadOnly" />
+
+    <SubClause Name="from" TargetName="DELLmiProductionSystemReference"/>
+    <SubClause Name="to"   TargetName="DELLmiProductionShiftModelReference"/>
+
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#TransferSiteOwnership"/>
+        <UsedProcedure href="PPR_Procedures.proc#PPR_TSO_StandAlone"/>
+      </ProcedureForUsage>
+    </Method>
+
+  </RelationClass>
+
+</Package>
+
+
+
+
+

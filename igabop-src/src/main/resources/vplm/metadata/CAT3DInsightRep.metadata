@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2012, All rights reserved -->
+<!--UseNames="PLMCORE PRODUCTCFG DMUValidationAbstract" -->
+<Package xmlns="PLMDictionaryUnified" 
+	       Name="CAT3DInsightRep"
+	       UseNames="LPABSTRACT"
+	       Uuid="2f2f96d7-41ea-460a-90b3-da2a9f867383" 
+	       CustomerExposition="Programmer" 
+	       ModelerType="Top"
+           >
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <!-- =================================================================== -->
+  <!-- 3DInsightRep :             -->
+  <!-- =================================================================== -->
+  <Class Name="3DInsightRepReference"
+         Uuid="e0424f02-a1f9-4368-a1f1-1505ef2bb2fb"
+         Abstract="No"
+         CustomerExposition="Programmer"
+         SuperName="LPAbstractRepReference"
+         CreateInstName="3DInsightRepInstance"
+         Specializable="No"
+         CustomerExtensible="No"
+         Abbreviation="3di">
+
+    <Property Name="Newable" Value="No"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CAT3DIInstanciate"/>
+    <Property Name="KweNew_ReturnedType" Value="3DInsightRepInstance"/>
+    <Property Name="IconName" Value="I_VALNav3DInsight"/>
+    <Property Name="3DIconName" Value="I_VALNav3DInsight"/>
+    <Property Name="Searchable" Value="No"/>
+    <!-- XPDM exchange -->
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+  
+  <RelationClass Name="3DInsightRepInstance"
+         Uuid="aee7a774-c746-4c1f-b3df-5b011d9d343e"
+         Abstract="No"
+         SuperName="LPAbstractRepInstance"
+         CustomerExposition="Programmer">
+    <Property Name="IconName" Value="I_VAL3DInsightInstance"/>
+    <Property Name="3DIconName" Value="I_VAL3DInsightInstance"/>
+    <Property Name="Searchable" Value="No"/>
+    
+    <SubClause Name="from" TargetName="DMUValidationValidationAbstract"/>
+    <SubClause Name="to"   TargetName="3DInsightRepReference"/>
+
+    <!-- XPDM exchange -->
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </RelationClass>
+</Package>

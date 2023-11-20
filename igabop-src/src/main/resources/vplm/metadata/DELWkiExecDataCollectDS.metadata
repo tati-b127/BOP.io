@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2010, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" Name="DELWkiExecDataCollectDS" Uuid="87011d90-465d-473b-a95e0569dab27710" UseNames="DELWkiExecDataCollect" >
+<Property Name="OptionalInstallation" Value="Yes" /> 
+	<CAAComment>
+		<ShortRole>Standard DELMIA Work Instruction Execution Data Collect Package</ShortRole>
+		<Role>This package includes default customized DELMIA Work Instruction Execution Data Collect</Role>
+	</CAAComment>
+	<Comment>last update 2010-09-30</Comment>
+
+	<Class Name="DELWkiExecDataCollectReferenceCusto" Uuid="db138b86-48ca-4357-abd7a93f0144a89e" SuperName="DELWkiExecDataCollectReference"   >
+
+    <IdentifierSet Name="Identifier"
+        Uuid="30a297e1-f047-45d4-ba795ccf97075b35"
+        IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755"
+        IdentifierNames="PLM_ExternalID V_version" />
+    
+    <CAAComment>
+			<ShortRole>Standard DELMIA Work Instruction Execution Data Collect Reference</ShortRole>
+			<Role>Default customized DELMIA Work Instruction Execution Data Collect Reference</Role>
+		</CAAComment>
+	</Class>
+
+  <RelationClass Name="DELWkiExecDataCollectInstanceCusto" Uuid="49ba17d0-d089-4c43-804e29a7cbb821ec" SuperName="DELWkiExecDataCollectInstance"  >
+    <CAAComment>
+      <ShortRole>Standard DELMIA Work Instruction Execution DataCollect Instance</ShortRole>
+      <Role>Default customized DELMIA Work Instruction Execution DataCollect Instance</Role>
+    </CAAComment>
+    <!-- ********************************************************* -->
+    <!-- * Overload(s) of PLMCoreInstance attributes. -->
+    <!-- ********************************************************* -->
+    <SubClause Name="to"   TargetName="DELWkiExecDataCollectReferenceCusto"/>
+  </RelationClass>
+
+
+</Package>

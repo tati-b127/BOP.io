@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2011, All rights reserved -->
+
+<!-- History
+		V6R2012x Created
+-->
+
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" Name="VPMCfgApplicabilityDisciplines" 
+		Uuid="E5DC70E0-15A3-4878-AF28AEADF4F20947" 
+		UseNames="VPMCfgApplicability" 
+		BelongsToModeler="Configuration"
+		CustomerExposition="Programmer">
+		
+		<CAAComment>
+		<ShortRole>The Configuration Applicability Disciplines Metadata.</ShortRole>
+		<Role>This package includes the entities VPMCfgApplicability Disciplines for change management support.</Role>
+		</CAAComment>
+
+
+
+		<!-- ************************ -->
+		<!-- Disciplines declarations -->
+		<!-- ************************ -->
+
+		<!-- Applicability for Change managing configuration -->		
+		<Class Name="CfgApplicability_ChangeWithConfig"
+				Uuid="F6EF7CD3-8F89-48fb-BC9294162147978C"
+				Discipline="Yes"
+				CustomerExposition="Programmer"
+        SuperName="VPMCfgApplicability">
+
+				<!-- ********************** -->
+				<!-- Procedures declaration -->      
+				<!-- ********************** -->
+
+				<Method ImplementationType="None">
+						<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+				</Method>
+		
+		</Class>
+
+		<!-- Applicability for Change without configuration management -->		
+		<Class Name="CfgApplicability_ChangeWithoutConfig"
+				Uuid="177EC59D-5D46-44c4-B3136ED55FAB867C"
+				Discipline="Yes"
+				CustomerExposition="Programmer"
+        SuperName="VPMCfgApplicability">
+
+				<!-- ********************** -->
+				<!-- Procedures declaration -->      
+				<!-- ********************** -->
+
+				<Method ImplementationType="None">
+						<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+				</Method>
+		
+		</Class>
+
+		<!-- Applicability for Design Workspace -->
+	  <Class Name="CfgApplicability_Workspace"
+				Uuid="F437CF36-C715-41c3-A59B70E4DDF65AE7"
+				Discipline="Yes"
+				CustomerExposition="Programmer"
+        SuperName="VPMCfgApplicability">
+
+				<!-- ********************** -->
+				<!-- Procedures declaration -->      
+				<!-- ********************** -->
+
+				<Method ImplementationType="None">
+						<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+				</Method>
+		
+		</Class>
+
+</Package>

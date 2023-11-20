@@ -1,0 +1,21 @@
+NAVIGATE
+T0.PLMID, T1.PLMID, T2.PLMID
+FROM
+DELFmiFunctionalModelPrerequisiteCnx/DELFmiProcessPrerequisiteCnx T0,
+DELFmiFunctionalModelPrerequisiteCnx1/DELFmiProcessPrerequisiteCnxCust T1,
+DELFmiFunctionalModelPrereqMatCnx/DELFmiProcessPrereqMaterializationCnx T2
+
+FROM_ROOTS [?1?]
+ON
+((
+RELATION(FROM= DELFmiFunctionalModelPrerequisitePort/DELFmiProcessPrerequisitePort TO= DELFmiFunctionalModelPrerequisiteCnx/DELFmiProcessPrerequisiteCnx THROUGH=POINTEDBY) WITH QUALITY_FILTER (ROLE=DELFmi_PrerequisiteCst_Source)
+)
+OR
+(
+RELATION(FROM= DELFmiFunctionalModelPrerequisitePort/DELFmiProcessPrerequisitePort TO= DELFmiFunctionalModelPrerequisiteCnx1/DELFmiProcessPrerequisiteCnxCust THROUGH=POINTEDBY) WITH QUALITY_FILTER (ROLE=DELFmi_PrerequisiteCst_Source)
+)
+OR
+(
+RELATION(FROM= DELFmiFunctionalModelPrerequisitePort/DELFmiProcessPrerequisitePort TO= DELFmiFunctionalModelPrereqMatCnx/DELFmiProcessPrereqMaterializationCnx THROUGH=POINTEDBY) WITH QUALITY_FILTER (ROLE=DELFmi_PrereqMaterialization_Source)
+))
+ITER=1;

@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY FOR ENOWSP_WORKSPACE Application Custo DS-->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2005, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" DataRDB_OID="ENODR_WSPDS" Name="ENOWSP_WORKSPACE_DS" 
+    Uuid="a932459b-7656-408b-ba6d-25e7c2f4aa37"
+    UseNames="ENOWSP_WORKSPACE"
+    Alias="Workspace Sample Customization"
+    >
+
+    <CAAComment>
+        <ShortRole>Workspace customization Package</ShortRole>
+        <Role>This package includes Workspace Model</Role>
+    </CAAComment>
+
+    <Comment>last update 2009-10-11-00.00.00</Comment>
+ 
+    <!-- *************************************************** -->
+    <!-- * ENOWSP_DS_WorkspaceRef(PLMCoreReference)     * -->
+    <!-- *************************************************** -->
+
+    <Class Name="ENOWSP_DS_WorkspaceRef"
+        Uuid="b6e61b5f-910c-4c3d-a062-22e1b6faf320"
+        SuperName="ENOWSP_WorkspaceRef" SuperRef="c7951f98-4c6b-4c02-aed6-fe4d9979ee2d"
+        >
+        <IdentifierSet Name="Identifier"
+            Uuid="ab33fabb-b3a7-44f3-ab15-2b716d914b0f"
+            IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 75142b3b-9cdd-48f4-b1e7-33d7945c4d53"
+            IdentifierNames="PLM_ExternalID V_IdNamingSpace" />
+
+	  <CAAComment>
+	    <ShortRole>Reference Workspace customization</ShortRole>
+	    <Role>Reference Workspace customization</Role>
+	  </CAAComment>
+  </Class>
+    <Class Name="ENOWSP_DS_WorkspaceInst"
+        Uuid="49561e2d-1b7b-4361-a718-faf2b8a06414"
+        
+        
+        SuperName="ENOWSP_WorkspaceInst" SuperRef="d43ee9ec-ebce-49d8-a459-ca177a95c869"
+        >
+        
+	  <CAAComment>
+	    <ShortRole>Instance Workspace customization</ShortRole>
+	    <Role>Instance Workspace customization</Role>
+	  </CAAComment>
+
+    </Class>
+</Package>

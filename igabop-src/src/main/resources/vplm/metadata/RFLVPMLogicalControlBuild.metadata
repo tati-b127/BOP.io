@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2011, All rights reserved -->
+<Package xmlns="PLMDictionaryTop" ModelerType="Top" Name="RFLVPMLogicalControlBuild" Uuid="56D0EB3A-0E9D-4401-A66B-171FB4B6B239" CustomerExposition="Programmer" UseNames="RFLVPMLogical">
+
+      <CAAComment>
+         <ShortRole>Control Build Logical Package: OBSOLETE / CAN BE DELETED </ShortRole>
+         <Role>This package describes the PLM Control Build Logical model on top of RFLVPMLogical Modeler.</Role>
+      </CAAComment>
+      <Comment>Initial creation: Jul 2011</Comment>
+
+  <!-- Discipline identifying a 'Control Build Composite Component -->
+  <Discipline Name="CB_Assembly"
+    Uuid="86C78723-AF29-44b2-A161-C48A8520EF85"
+    CreationMode="Yes"
+    CustomerExposition="None"
+    TypeNames="RFLVPMLogicalReference">
+          <Method ImplementationType="AsFather">
+            <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+          </Method>
+  </Discipline>
+
+  <!-- Discipline identifying a 'Control Build Terminal Component -->
+  <Discipline Name="CB_Terminal"
+    Uuid="9A28CAFE-809C-4042-898B-A49B655DFDC4"
+    CreationMode="Yes"
+    CustomerExposition="None"
+    TypeNames="RFLVPMLogicalReference">
+          <Method ImplementationType="AsFather">
+            <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+          </Method>
+  </Discipline>
+
+  <!-- Discipline identifying a 'Control Build Instance of Component (Composite or Terminal) -->
+  <Discipline Name="CB_Instance"
+    Uuid="C4FEF90F-362A-4c76-94B0-31F9E55A6DD8"
+    CreationMode="Yes"
+    CustomerExposition="None"
+    TypeNames="RFLVPMLogicalInstance">
+          <Method ImplementationType="AsFather">
+            <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+          </Method>
+  </Discipline>
+
+  <!-- Discipline identifying a 'Facet' (a mono-instantiable Representation) associated a Control Build Component -->
+  <Discipline Name="CB_Facet"
+    Uuid="A42BBF8C-D3DF-4c37-9175-DF2804D32F9A"
+    CreationMode="Yes"
+    CustomerExposition="None"
+    TypeNames="RFLVPMLogicalRepReference">
+          <Method ImplementationType="AsFather">
+            <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+          </Method>
+  </Discipline>
+
+  <!-- Discipline identifying the 'Control Build' stream (actually a mono-instantiable Representation) associated a Control Build Component -->
+  <Discipline Name="CB_Internal"
+    Uuid="2D04E7FC-7442-49f7-A0D6-ADBFBC21104E"
+    CreationMode="Yes"
+    CustomerExposition="None"
+    TypeNames="RFLVPMLogicalRepReference">
+          <Method ImplementationType="AsFather">
+            <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+          </Method>
+  </Discipline>
+
+  <!-- Discipline identifying an 'Control Build' Instance of Logical Representation  -->
+  <Discipline Name="CB_RepInstance"
+    Uuid="9CE5E2D9-E6F9-4d53-B30D-44A4E6977F44"
+    CreationMode="Yes"
+    CustomerExposition="None"
+    TypeNames="RFLVPMLogicalRepInstance">
+          <Method ImplementationType="AsFather">
+            <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+          </Method>
+  </Discipline>
+
+  <!-- Extension related to a 'Control Build Component' -->
+  <Extension Name="CB_TerminalExtension"
+    Uuid="4943CAA1-646B-4cb8-9A70-B97D4CA88F65"
+    ScopeNames="RFLVPMLogicalReference"
+    CustomerExposition="Programmer"
+    CAAExposition="L0" >
+         
+    <Simple Name="V_CBReferenceNature"
+      Uuid="8BCD352A-337C-4bef-96A7-8BE12162CA3E"
+      Type="String"
+      MaxLength="40"
+      MultiValuated="No"
+      Protection="ExternalIN"
+      CAAExposition="L0" />
+      
+		<CAAComment>
+			<ShortRole>PLM Control Build Logical Reference Extension</ShortRole>
+			<Role>Carries attributes dedicated to PLM Control Build Logical Reference</Role>
+		</CAAComment>
+  </Extension>
+
+  <!-- Extension related to a 'Control Build Facet of a Control Build Component' -->
+  <Extension Name="CB_FacetExtension"
+    Uuid="6CD5743F-8F5E-4799-9507-3980671617E8"
+    ScopeNames="RFLVPMLogicalRepReference"
+    CustomerExposition="Programmer"
+    CAAExposition="L0" >
+         
+    <Simple Name="V_CBRepresentationNature"
+      Uuid="B93E06C7-8C58-483a-B2B6-EF32AF33B33A"
+      Type="String"
+      MaxLength="40"
+      MultiValuated="No"
+      Protection="ExternalIN"
+      CAAExposition="L0" />
+      
+		<CAAComment>
+			<ShortRole>PLM Control Build Logical Representation Reference Extension</ShortRole>
+			<Role>Carries attributes dedicated to PLM Control Build Logical Representation Reference</Role>
+		</CAAComment>
+  </Extension>
+  
+</Package>

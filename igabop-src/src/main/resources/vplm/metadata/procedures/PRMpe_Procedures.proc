@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<ProcedurePackage 
+	xmlns="PLMDictionaryProcedure"
+	Name="PRMpe_Procedures">
+			
+	<Procedure Name="Prm_ExportResources">
+		<Implementation Name="Prm_ExportResources" FileLocation="Prm_ExportResources.KProc" Language="EKL"/>
+		<Signature href="PRMpe_ProcedureSignatureExport"/>
+	</Procedure>
+
+	<Signature id="PRMpe_ProcedureSignatureExport">
+		<Parameter Name="InputIds" Lower="0" Upper="-1" MultiValuated="Yes" Direction="in" DataType="PLMId"/>
+		<Parameter Name="OutputIds" Lower="0" Upper="-1" MultiValuated="Yes" Direction="out" DataType="PLMId"/>
+	</Signature>
+	
+</ProcedurePackage>

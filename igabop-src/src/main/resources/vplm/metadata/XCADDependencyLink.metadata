@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2017, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified"
+	ModelerType="Top"
+	Name="XCADDependencyLink"
+	Uuid="8ddc439f-2638-48bf-8b44-8515bedd916f"
+	UseNames="ERCoreModeler"
+	CustomerExposition="Programmer" 
+	Architecture="All"
+	BelongsToModeler="XCADModeler"
+>
+
+	<CAAComment>
+		<ShortRole>XCAD Non PS Modeler Package</ShortRole>
+		<Role>This package includes all the relations involved in the XCAD Non PS modeler.</Role>
+	</CAAComment>
+
+	<Comment>last update 2017-06-22</Comment>
+	
+	<RelationClass Name="XCADBaseDependency" 
+		Uuid="ebcfaff1-bc28-410c-b137-6d159bfd0fc2" 
+		Abstract="No" 
+		CustomerExposition="Programmer"
+		SuperName="RelationType"
+		Specializable="No"
+		CustomerExtensible="No"
+		>
+
+		<SubClause Name="from"
+			TargetName="PLMCoreReference"
+			clone="replicate" minorrevision="replicate" propagateconnection="No"
+		/>
+		<SubClause Name="from"
+			TargetName="PLMCoreRepReference"
+			clone="replicate" minorrevision="replicate" propagateconnection="No"
+		/>
+		<SubClause Name="to"
+			TargetName="PLMCoreReference" propagateconnection="No"
+		/>
+		<SubClause Name="to"
+			TargetName="PLMCoreRepReference" propagateconnection="No"
+		/>
+
+		<!-- Used to defined XCAD Link Type -->
+		<Simple Name="V_CADLinkType"
+			Uuid="cb1e784c-0cad-4357-80be-5bd70874a614"
+			Type="String"
+			ResetOnCloning="No"
+			ResetOnNewVersion="No"
+			Protection="External"
+			UIAccess="ReadOnly" >
+		</Simple>
+		
+		<!-- Used to defined XCAD Origin -->
+		<Simple Name="V_CADOrigin"
+			Uuid="8d4fd3b4-e84c-484e-8eb4-a8d077af9005"
+			Type="String"
+			ResetOnCloning="No"
+			ResetOnNewVersion="No"
+			Protection="External"
+			UIAccess="ReadOnly" >
+		</Simple>
+
+		<!-- Used to defined XCADMapping including Relationship UUID from CAD tool link. Defined to complete the mapping data -->
+		<Simple Name="V_CADMapping"
+			Uuid="757e05ad-a43b-4503-baa2-2c43a6b0eb3d"
+				Type="Clob"
+				ResetOnCloning="No"
+				ResetOnNewVersion="No"
+				Protection="Internal" >
+		</Simple>
+		
+		<!-- PROCEDURES Declaration  -->
+		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+	</RelationClass>
+
+</Package>

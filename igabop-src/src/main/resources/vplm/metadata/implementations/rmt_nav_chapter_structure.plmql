@@ -1,0 +1,34 @@
+NAVIGATE
+
+   	T1.physicalid ,	T1.logicalid , T1.type , T1.name ,
+   	T2.physicalid ,	T2.logicalid , T2.type , T2.from.name ,	T2.to.name
+
+FROM
+
+	Class/Chapter T1,
+
+	"RelationClass/Specification Structure" T2
+
+FROM_ROOTS
+
+	[?1?]
+
+ON
+
+	(RELATION 
+		(FROM=Class/Chapter
+		 TO="RelationClass/Specification Structure"
+		 THROUGH=POINTEDBY
+		 )
+		 WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY)
+	)
+OR
+	(RELATION 
+		(FROM="RelationClass/Specification Structure"
+		 TO=Class/Chapter
+		 THROUGH=POINTSTO
+		 )
+		 WITH QUALITY_FILTER (CATEGORY=ISINSTANCEOF)
+	)
+
+ITER = 20 ;

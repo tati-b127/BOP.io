@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2011, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified"
+         ModelerType="Top"
+         Name="PLMGroupOfInstancesModel"
+         Uuid="F9D0BF89-05AF-40fc-9B90-DAB96ABD5863"
+         BelongsToModeler="PLMGroupOfInstancesModel"
+         UseNames="PLMCORE"
+         CustomerExposition="Programmer">
+  <Comment>PLM Group of instances Modeler</Comment>
+
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+  <Class Name="PLMGroupOfInstances"
+         Uuid="F72F3615-48D3-41ef-8429-2E5267EAB43D"
+         SuperName="PLMConnection"
+         Abstract="No"
+         CustomerExposition="Programmer"
+         Specializable="No"
+         CustomerExtensible="No"
+         Abbreviation="grp"
+        >
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="Searchable" Value="No"/>
+    <Property Name="Newable" Value="No"/>
+    <!-- Behavior patterns: default values -->
+    <Property Name="LockUnlockAvailability" Value="No"/>
+    <Property Name="TransferOwnershipAvailability" Value="No"/>
+
+    <Path Name="MemberOf"
+          Uuid="455D9E7D-32FC-452b-BF5E-083B4E751F46"
+          RoleName="PLM_MemberOf"
+       		Type="SemanticRelation" AdaptativeToMinor="No"
+    	  	SynchroSensitivity="None"
+	    	  RerouteOnEffectivityChange="No"
+          MultiValuated="Yes"
+          Semantics="Reference" />
+
+    <Path Name="SubGroupOf"
+         Uuid="C2946158-21CD-41d2-A721-C6F33405E1C2"
+         RoleName="PLM_SubGroupOf"
+         MultiValuated="Yes"
+       	 Type="SemanticRelation" AdaptativeToMinor="No"
+      	 SynchroSensitivity="None"
+		     RerouteOnEffectivityChange="No"
+         Semantics="Reference" />
+
+    <CAAComment>
+      <ShortRole>The PLMGroupOfInstances.class</ShortRole>
+      <Role>The PLMGroupOfInstances.class is a connection that enables to classify a set a instances</Role>
+    </CAAComment>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+</Package>
+

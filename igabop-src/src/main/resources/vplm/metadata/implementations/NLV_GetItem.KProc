@@ -1,0 +1,5 @@
+#Prog NLV_GetItem( iPLMIDSet : #In PLMIDSet, oPLMIDSet : #Out PLMIDSet ) : VoidType
+{
+/* Completes with the Item and version graph */
+oPLMIDSet = ExecuteJavaProcedure("com.dassault_systemes.enovia.versioning.core.completion.NLVCompletion", iPLMIDSet)
+}

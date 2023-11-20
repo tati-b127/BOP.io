@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2006, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" 
+         ModelerType="Top" 
+         BelongsToModeler="DELFmiFunctionalModel"
+         Name="DELFmiFunctionalModelPrereqMatCnx"
+         Uuid="718D0B98-7A3B-450d-A1C9-7CD582F3A283"
+         UseNames="PLMCORE"
+         CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>Process Functional Modeler</ShortRole>
+    <Role>"DELFmiFunctionalModelPrereqMatCnx" package describes Process Function Prerequisite Materialization Connection</Role>
+  </CAAComment>
+  
+    <Class Name="DELFmiProcessPrereqMaterializationCnx"
+        Uuid="96DEC980-0C11-4d4b-8EE9-D429F9FF1C18"
+        SuperName="PLMConnection"
+        CustomerExposition="Programmer"
+        CustomerExtensible="No"
+        Specializable="No"
+        Abstract="No"
+        OwnerTypes="DELFmiFunctionReference"
+        >
+
+      <Property Name="IconName" Value="I_PLMFunctionPrereqMatConnection"/>
+
+      <CAAComment>
+        <ShortRole>Defines Process Function Prerequisite Materialization Connection</ShortRole>
+        <Role>Also called Data Requirement Materialization. Materializes data provided by Prerequisite Port IN or OUT.</Role>
+      </CAAComment>
+
+
+    <Path Name="DELFmi_PrereqMaterialization_Target_SR"
+        Uuid="E48D9CE9-B187-468d-9F95-36297B9EED8D"
+        MultiValuated="Yes"
+        RoleName="DELFmi_PrereqMaterialization_Target"
+     		Type="SemanticRelation" AdaptativeToMinor="Yes"
+    		SynchroSensitivity="PathAndLast"
+		    RerouteOnEffectivityChange="No" Orientation="In"
+        Semantics="Reference3"
+	/>
+      <!-- OwnerTypes="DELFmiFunctionReference"  Integrate this line if you want to declare the aggregation constraint-->
+
+      <Path Name="DELFmi_PrereqMaterialization_Source_SR"
+        Uuid="6163EB1E-4C7D-4705-923B-801460588D0E"
+        MultiValuated="No"
+        RoleName="DELFmi_PrereqMaterialization_Source"
+     		Type="SemanticRelation" AdaptativeToMinor="No"
+    		SynchroSensitivity="Last"
+	    	RerouteOnEffectivityChange="No" Orientation="Out"
+        Semantics="Reference5"
+	/>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+  </Class>
+</Package>

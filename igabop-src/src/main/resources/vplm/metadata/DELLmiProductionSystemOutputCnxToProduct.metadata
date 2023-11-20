@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2006, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" 
+         ModelerType="Top" 
+         Name="DELLmiProductionSystemOutputCnxToProduct"
+         BelongsToModeler="DELLmiProductionSystem"
+         Uuid="40F68BF8-8835-48D3-99D3-172604EEC937"
+         UseNames="DELLmiProductionSystemOutputCnxAbstract"
+         CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+		<ShortRole>DELLmiProductionSystemOutputCnxToProduct Modeler Package</ShortRole>
+		<Role>This package describes DELLmiProductionSystemOutputCnxToProduct connection.</Role>
+	</CAAComment>
+
+	<!-- IO Connection to Product -->
+	<Class  Name="DELLmiProductionSystemOutputCnxToProduct"
+		      Uuid="76E18D27-9F55-48E5-8D6B-EC2CE00ACDDE"
+		      Abstract="No"
+		      SuperName="DELLmiProductionSystemOutputCnxAbstract"
+		      Specializable="No"
+		      CustomerExtensible="No"
+		      CustomerExposition="Programmer">
+		   
+		  <Path Name="DELLinkToProduct"
+			    Uuid="DFABCB43-1224-489B-AA0A-C39552DDB56F"
+			    MultiValuated="No"
+			    RoleName="DEL_LinkToProduct"
+       		Type="SemanticRelation" AdaptativeToMinor="No"
+		      SynchroSensitivity="None"
+		      RerouteOnEffectivityChange="No"
+			    Semantics="Reference"/>	   
+			<!--RoleRef to be copied from RELATION_ENUMS-->
+			
+			<Simple Name="V_IsComputed" 
+          Uuid="7C4557D7-71B9-4830-8A8E-4ECF65ED5CFE" 
+          Type="Boolean" 
+          Protection="External" 
+			    MultiValuated="No"
+          CAAExposition="L0" 
+          DefaultValue="true"
+			    ResetOnCloning="No"
+			    ResetOnNewVersion="No"/>
+
+      <Method ImplementationType="None">
+        <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      </Method>
+	</Class>
+
+</Package>

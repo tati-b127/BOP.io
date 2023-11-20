@@ -1,0 +1,30 @@
+ /********************************************************************************************************************************/
+/* Export procedure                                                                                                              */
+/* --> Lev 0 : Propagation of data aggregated to the techno table.                                                               */
+/*********************************************************************************************************************************/
+#Prog ESE_TechnoTableRemove ( iPLMIDSet : #In PLMIDSet, oPLMIDSet : #Out PLMIDSet ) : VoidType
+{
+	let PLMRouteSetLev0TableBuiltFromCnxs (PLMRouteSet)	
+	let PLMRouteSetLev0RepETTs (PLMRouteSet)	
+				
+	let PLMIDSetLev0TableBuiltFromCnxs (PLMIDSet)	
+	let PLMIDSetLev0RepETTs (PLMIDSet)
+		
+	/********************            - Propagation Lev 0 -                     ***********************************/
+	/************************************************************************************************************/
+	/* Getting techno table BuiltFrom Cnxs from techno table references                                         */
+	/************************************************************************************************************/  	
+	PLMRouteSetLev0TableBuiltFromCnxs = ExecutePLMFunction("PLMEnsSpecSpecification", "ESE_AddTableBuiltFromConnectionForExport", Restrict(iPLMIDSet, "PLMEnsSpecTechnoTable/EnsTechnologicalTable"))
+	PLMIDSetLev0TableBuiltFromCnxs = Ids(PLMRouteSetLev0TableBuiltFromCnxs)
+	
+	/*************************************************************************************************************/
+	/* Getting techno table reps from techno table references                                                    */
+	/*************************************************************************************************************/  	
+	PLMRouteSetLev0RepETTs = ExecutePLMFunction("PLMEnsSpecSpecification", "ESE_SpecETTRep", Restrict(iPLMIDSet, "PLMEnsSpecTechnoTable/EnsTechnologicalTable"))
+	PLMIDSetLev0RepETTs = Ids(PLMRouteSetLev0RepETTs)	
+	
+	/**********************/
+	/* Returns all PLMIds */
+	/**********************/
+	oPLMIDSet = iPLMIDSet + PLMIDSetLev0TableBuiltFromCnxs  + PLMIDSetLev0RepETTs
+}

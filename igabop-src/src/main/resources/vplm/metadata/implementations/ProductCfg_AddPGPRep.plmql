@@ -1,0 +1,7 @@
+EXPAND
+T0.PLM_ExternalID, 
+T0.PLMID
+FROM  LPPRIVATEREP/LPPrivateRepReference  T0
+FROM_ROOTS [?1?]
+WITH ATTRIBUTE_FILTER ((T0.V_discipline='PGPRep') )
+DEPTH=1;

@@ -1,0 +1,101 @@
+﻿<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2013, All rights reserved -->
+<!-- Dictionary defining objects used by the replication-engine to track the exchange status of PLM components -->
+
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" Name="PLMReplicationDS" Uuid="c8b67c48-77df-45fe-95e4fea9ac95e3b8" UseNames="PLMCORE;PLMABSTRACT" CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+  <Property Name="WithoutLocationControl" Value="Yes"/>
+
+  <!-- ******************** -->
+	<!-- PLMExchangeStatusDS  -->
+	<!-- ******************** -->
+
+	<Class Name="PLMExchangeStatusDS" Uuid="b8f8aa13-3c17-4a43-b58735c9eb0c731f" SuperName="PLMCoreReference" CustomerExposition="Programmer">
+		<Property Name="Searchable" Value="No"/>
+		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+		<!-- Physical ID of the exchanged PLMComponent -->
+		<Simple Name="V_OID" Uuid="7fa3b77a-0ecd-4202-9ccf8df0a2bd35ef"   MultiValuated="No" Type="Binary" MaxLength="16" Protection="Internal"/>
+		<!-- Logical ID of the exchanged PLMComponent -->
+		<Simple Name="V_LOID"  Uuid="859ba02b-f338-4d5d-b66bf01f7517e012" MultiValuated="No" Type="Binary" MaxLength="16" Protection="Internal"/>
+		<!-- Major ID inside the PLMID of the exchange component -->		
+		<Simple Name="V_MAJID" Uuid="1344af9f-303f-4483-b1c42e8b13181766" MultiValuated="No" Type="Binary" MaxLength="16" Protection="Internal"/>
+		<!-- Core type of the exchanged PLMComponent -->
+		<Simple Name="V_CoreType" Uuid="55b44f37-0aa3-4deb-87ca7ef6de09ae13" MultiValuated="No" Type="String" MaxLength="60" Protection="Internal"/>
+		<!-- Modeller type of the exchanged PLMComponent -->
+		<Simple Name="V_ModelerType" Uuid="c2b0fa1e-0fab-4b83-aab45438b8fc2920" MultiValuated="No" Type="String" MaxLength="127" Protection="Internal"/>
+		<!-- Local customization of the exchanged PLMComponent -->
+		<Simple Name="V_Custo" Uuid="d94417b2-1512-44d7-afcd52c7dcba002b" MultiValuated="No" Type="String" MaxLength="127" Protection="Internal"/>
+		<!-- PhysicalID of the aggregating PLMComponent, for instances/ports/connections -->
+		<Simple Name="V_AggregatedBy" Uuid="0bf0e122-c41d-4d9e-8310a11c7da662a1" MultiValuated="No" Type="Binary" MaxLength="16" Protection="Internal"/>
+		<!-- Is the exchanged component missing in this repository (not attached) -->
+		<Simple Name="V_Missing" Uuid="a1c161bb-4fe0-4b89-96d75f7a1401572f" MultiValuated="No" Type="Boolean" Protection="Internal"/>
+		<!-- Exchange iteration of the EE section -->
+		<Simple Name="V_IterationEE" Uuid="5d31a0c3-47ff-4e3e-a5ce87088ef4944e" MultiValuated="No" Type="Integer" Protection="Internal"/>
+		<!-- Exchange iteration of the CD section -->
+		<Simple Name="V_IterationCD" Uuid="846c7670-516e-49f4-85f0c43bfe4b90a8" MultiValuated="No" Type="Integer" Protection="Internal"/>
+		<!-- Has the exchanged component been deleted ? -->
+		<Simple Name="V_Deleted" Uuid="ff675c22-a903-419b-babecce516d5e3bb" MultiValuated="No" Type="Boolean" Protection="Internal"/>
+		<!-- Repository privilege associated to the PLMComponent -->
+		<Simple Name="V_Privilege" Uuid="49a66b6c-6556-447f-930057dbd512f4d3" MultiValuated="No" Type="Integer" Protection="Internal"/>
+		<!-- marshalled value of the CEStamp of the PLMComponent when the iteration were last computed -->
+		<Simple Name="V_RefCEStamp" Uuid="0281101b-1ee5-4c70-86f1093ba4e3b371" MultiValuated="No" Type="String" MaxLength="80" Protection="Internal"/>
+		<!-- The status of the CD edition token -->
+		<Simple Name="V_EditionTokenStatusCD" Uuid="7eabdd9e-971c-401e-a07a-b752387b3498" MultiValuated="No" Type="String" MaxLength="60" Protection="Internal"/>
+		<!-- The status of the EE edition token -->
+		<Simple Name="V_EditionTokenStatusEE" Uuid="f6641d2c-aacc-4737-b757-263be661cc44" MultiValuated="No" Type="String" MaxLength="60" Protection="Internal"/>
+		<!-- The attribut IterationEE for migration of iterations to string -->
+		<Simple Name="V_IterationEEString" Uuid="fc097ec0-70af-4058-bb6b-1ab77ea93ecf" MultiValuated="No" Type="String" MaxLength="240" Protection="Internal"/>
+		<!-- The attribut IterationCD for migration of iterations to string -->
+		<Simple Name="V_IterationCDString" Uuid="6ceb6b7d-dc20-4f58-a197-b3435f17f383" MultiValuated="No" Type="String" MaxLength="240" Protection="Internal"/>
+		<!-- The attribut DelegationAuthorization identify delegation authorization used for modification  -->
+		<Simple Name="V_DelegationAuthorization" Uuid="6AEFB74C-3457-4049-837F-87DD0F38F413" MultiValuated="No" Type="Binary" MaxLength="16" Protection="Internal"/>
+    <!-- The attribute V_LastIteration conveys the last iteration before a waive operation  -->
+    <Simple Name="V_LastIteration" Uuid="F8B43AE1-FE71-42E3-9FC8-ED45EED9B8D3" MultiValuated="No" Type="String" MaxLength="240" Protection="Internal"/>
+    <!-- Global bit mask attribute  -->
+    <Simple Name="V_GlobalMask" Uuid="1174D4EE-BCB1-47A1-AC17-8835C7BEE963" MultiValuated="No" Type="Integer" Protection="Internal"/>
+	</Class>
+
+      <!-- Constraints -->
+  <UniqueKey Name="PLMExchangeStatusDS_UK" Uuid="F639144E-CCE0-4676-AC84-46AF29FB8350" ClassName="PLMExchangeStatusDS" AttributeNames="V_OID"/>
+  
+  <!-- **************************************************************** -->
+  <!-- * PLMExchangeEmittedDelegation (PLMExchangeStatusDS Extension) * -->
+  <!-- **************************************************************** -->
+
+	<Extension Name="PLMExchangeEmittedDelegation" Uuid="d98958ba-33C2-46fa-9a91-611a580be4fa" ScopeNames="PLMExchangeStatusDS"  CustomerExposition="Programmer">
+        <!-- The attribut EmittedDelegationAuthorizationID identifies of the Delegation Emitted -->
+        <Simple Name="V_EmittedDelegationAuthorizationID" Uuid="1437f2D6-7d7e-4f99-b9ec-c4e139c90f28" MultiValuated="No" Type="Binary" MaxLength="16" Protection="Internal"/>
+        <!-- The attribut EmittedDelegationAcquisitionID identifies first authorization acquisition id imported -->
+        <Simple Name="V_EmittedDelegationAcquisitionID" Uuid="7980a9E0-a87b-443b-87fd-47f6a30ac823" MultiValuated="No" Type="Binary" MaxLength="16" Protection="Internal"/>
+    </Extension>
+
+  <!-- ***************************************************************** -->
+  <!-- * PLMExchangeReceivedDelegation (PLMExchangeStatusDS Extension) * -->
+  <!-- ***************************************************************** -->
+
+	<Extension Name="PLMExchangeReceivedDelegation" Uuid="e998919d-0d35-4578-8304-d52003dc0a0f" ScopeNames="PLMExchangeStatusDS" CustomerExposition="Programmer">
+        <!-- The attribut ReceivedDelegationAuthorizationID identifies Delegation id received -->
+        <Simple Name="V_ReceivedDelegationAuthorizationID" Uuid="de5d085f-2dd2-4d5b-8379-e7ce2be1dd45" MultiValuated="No" Type="Binary" MaxLength="16" Protection="Internal"/>
+        <!-- The attribut ReceivedDelegationAcquisitionID identifies how modifications will known -->
+        <Simple Name="V_ReceivedDelegationAcquisitionID" Uuid="8114d150-5764-48a3-a9ae-4cb457dd3abf" MultiValuated="No" Type="Binary" MaxLength="16" Protection="Internal"/>
+        <!-- Bit mask for waive purposes -->
+        <Simple Name="V_WaiveMask" Uuid="E28B76B8-E08B-4DB0-AD61-A76A1C3C1940" MultiValuated="No" Type="Integer" Protection="Internal"/>
+    </Extension>
+
+  <!-- ***************************************************************** -->
+  <!-- * V6DataExchangeExtension (VPMRefence VPMRepReference Entity Extension) * -->
+  <!-- ***************************************************************** -->
+
+  <Extension Name="V6DataExchangeExtension" Uuid="FFEC2F35-FF1C-434A-820E-166DE234678B" ScopeNames="PLMEntity" CustomerExposition="Programmer" V6Exportable="No">
+    <!-- The attribut LastExchangeName identifies the last source name imported -->
+    <Simple Name="V_LastExchangeName" Uuid="E49244CF-E790-468A-B4F5-C19257371B1B" MultiValuated="No" Type="String" MaxLength="240" ResetOnCloning="Yes" ResetOnNewVersion="No" Protection="External"/>
+    <!-- The attribut LastExchangeTitle identifies the last source title imported -->
+    <Simple Name="V_LastExchangeTitle" Uuid="00C78CA1-F517-4B9C-8CAB-56D38519B077" MultiValuated="No" Type="String" MaxLength="240" ResetOnCloning="Yes" ResetOnNewVersion="No" Protection="External"/>
+    <!-- The attribut LastExchangeRevision identifies the last source revision imported -->
+    <Simple Name="V_LastExchangeRevision" Uuid="4515FB66-E839-46CE-A1B6-04E6F2522FF2" MultiValuated="No" Type="String" MaxLength="100" ResetOnCloning="Yes" ResetOnNewVersion="No" Protection="External"/>
+  </Extension>
+
+</Package>

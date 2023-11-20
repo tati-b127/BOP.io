@@ -1,0 +1,23 @@
+NAVIGATE
+	T0.PLMID, T1.PLMID, T2.PLMID
+FROM
+	DELFmiFunctionalModel/DELFmiFunctionReference T0,
+	PRODUCTCFG/VPMReference T1,
+	DELLmiProductionSystemIOPort/DELLmiProdSystemIOPort T2
+
+FROM_ROOTS [?1?]
+ON ( RELATION(
+	FROM=DELLmiProductionSystemOutputCnxAbstract/DELLmiProductionSystemOutputCnxAbstract 
+	TO=DELFmiFunctionalModel/DELFmiFunctionReference,PRODUCTCFG/VPMReference,DELLmiProductionSystemIOPort/DELLmiProdSystemIOPort 
+	THROUGH=POINTSTO)
+	WITH QUALITY_FILTER 
+		(ROLE=DEL_LinkToMBOM)
+		OR (ROLE=DEL_LinkToProduct)
+		OR (ROLE=DEL_LinkToSystemIOPort)
+)
+
+ITER = 1
+;
+
+
+

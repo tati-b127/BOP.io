@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2011, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified"
+         ModelerType="Top"
+         CustomerExposition="Programmer"
+         Name="PLMAECSemantic"
+         Uuid="0F695C2A-1366-4ef2-ABFA-574768321429"
+         UseNames="PRODUCTCFG" Deprecated="Yes"
+    >
+
+  <CAAComment>
+    <ShortRole>AEC Domain Semantic Package</ShortRole>
+    <Role>This package describes AEC Domain disciplines and extensions on top of physical modeler.</Role>
+  </CAAComment>
+
+  <Comment>Initial creation: 2011-01-07</Comment>
+  <Comment>Type v2 migration: 2013-01-04</Comment>
+
+  <Class
+    Name="AEC_Site"
+	  Uuid="85898015-AA9B-4d6b-9DD6-B056C88C5FE4"
+	  Abstract="No"
+    Specializable="No"
+    Discipline="Yes"
+    Deprecated="Yes"
+    CustomerExposition="ProgrammerOnly"
+	  SuperName="VPMReference"
+    CreateInstName="VPMInstance">
+    <Property Name="Newable" Value="No"/>
+    <Property Name="CustomerExtensible" Value="No"/>
+  </Class>
+
+  <Class
+    Name="AEC_Building"
+    Uuid="364AC621-88DE-455c-B580-364163B99D3D"
+    Abstract="No"
+    Specializable="No"
+    Discipline="Yes"
+    Deprecated="Yes"
+    CustomerExposition="ProgrammerOnly"
+	  SuperName="VPMReference"
+    CreateInstName="VPMInstance">
+    <Property Name="Newable" Value="No"/>
+    <Property Name="CustomerExtensible" Value="No"/>
+  </Class>
+
+  <Class
+    Name="AEC_BuildingSpace"
+	  Uuid="4ED95074-F8B9-48a9-AAF8-10CB7E3A8B82"
+	  Abstract="No"
+    Specializable="No"
+    Discipline="Yes"
+    Deprecated="Yes"
+    CustomerExposition="ProgrammerOnly"
+	  SuperName="VPMReference"
+    CreateInstName="VPMInstance">
+    <Property Name="Newable" Value="No"/>
+    <Property Name="CustomerExtensible" Value="No"/>
+  </Class>
+
+</Package>

@@ -1,0 +1,310 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR DELMIA Production System Application -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2018, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified"
+         ModelerType="Top"
+         Name="DELExecTimeConstraintModel"
+	       Uuid="2093A4AA-9964-4ccb-B907-89776C7CB4DD"
+         BelongsToModeler="DELLmiProductionOperationUPR"
+	       UseNames="ERCoreModeler"
+         CustomerExposition="Programmer"
+         Architecture="All">
+
+  <CAAComment>
+    <ShortRole>Execution Time Constarint model </ShortRole>
+    <Role>This package describes the Execution Time Constarint model</Role>
+  </CAAComment>
+
+ 
+  <RelationClass Name="DELLmiExecTimeConstraintRelation"
+		     Uuid="47532E55-9213-4546-9964-AA0E52A506D5"
+		     Abstract="No"
+    		 SuperName="RelationType"
+         CustomerExposition="Programmer"
+         Specializable="No"
+		     CustomerExtensible="Yes"
+         DeleteAvailability="No">
+
+    <Property Name="LockUnlockAvailability"    Value="No"/>
+    <Property Name="TransferOwnerShipAvailability"    Value="No"/>
+    <Property Name="EditPropertiesAvailability"    Value="No"/>
+    <Property Name="SaveAsNewAvailability"    Value="No"/>
+    <Property Name="ChangeManagementSupport"    Value="No"/>
+    <Property Name="ChangeManagementReferential"    Value="No"/>
+    <Property Name="ChangeManagementContext"    Value="No"/>
+    <Property Name="Configurable"    Value="No"/>
+    <Property Name="NewMinorRevisionAvailability"    Value="No"/>
+    <Property Name="NewMajorRevisionAvailability"    Value="No"/>
+    <Property Name="EvolutionAvailability"    Value="No"/>
+    <Property Name="IterationAvailability"    Value="No"/>
+    <Property Name="ManageAccessAvailability"    Value="No"/>
+    <Property Name="ShareBetweenProjectsAvailability"    Value="No"/>
+    <Property Name="DupplicateAvailability"    Value="Yes"/>
+    <Property Name="ChangeMaturityAvailability"    Value="No"/>
+
+    <SubClause Name="from"   TargetName="DELLmiUPROperationReference"/>
+    <SubClause Name="from"   TargetName="DELLmiUPRSystemReference"/>
+    <SubClause Name="to"   TargetName="DELLmiUPROperationReference"/>
+    <SubClause Name="to"   TargetName="DELLmiUPRSystemReference"/>
+
+    <Simple Name="V_Delay"
+        Uuid="E303E979-2EA5-43c2-BEC6-9874A1111E04"
+        Type="Double"
+        Magnitude="TIME"
+        MultiValuated="No"
+        Protection="Free"
+        CAAExposition="L0"
+        DefaultValue="0.0"
+        ResetOnCloning="No"
+        ResetOnNewVersion="No"/>
+    
+    <Simple Name="V_DelayMode" 
+        Uuid="FB48746C-9146-480e-B933-275DAC11356B" 
+        Type="String" 
+        Protection="Free" 
+        CAAExposition="L0" 
+        DefaultValue="MinDelay"       
+        ResetOnCloning="No"
+        ResetOnNewVersion="No">
+      <Range>
+        <Equal>MinDelay</Equal>
+        <Equal>MaxDelay</Equal>
+        <Equal>Synchro</Equal>
+      </Range>
+    </Simple>
+
+    <Simple Name="V_MaterialNeed"
+        Uuid="C13A94AA-4662-4d07-B9DD-462804930136"
+        Type="Boolean"
+        MultiValuated="No"
+        Protection="Free"
+        DefaultValue="false"
+        ResetOnCloning="No"
+        ResetOnNewVersion="No"
+        CAAExposition="L0"/>
+
+    <Simple Name="V_DependencyType" 
+        Uuid="8C23F278-92AE-428e-830D-3C6ADF2794DC" 
+        Type="String" 
+        Protection="Free" 
+        CAAExposition="L0" 
+        DefaultValue="FinishToStart">
+      <Range>
+        <Equal>FinishToStart</Equal>
+        <Equal>StartToStart</Equal>
+        <Equal>FinishToFinish</Equal>
+      </Range>
+    </Simple>
+    
+    <Simple Name="V_OptionalTimeConstraint"
+            Uuid="A3246D36-9E5E-48f6-B6D0-4E34F25A253C"
+            Type="Boolean"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"
+            DefaultValue="false"
+            ResetOnCloning="No"
+            ResetOnNewVersion="No"/>
+
+    <Simple Name="V_ResourceConstraint" 
+            Uuid="55A06D77-4A1D-4d70-9750-B1F79415873D" 
+            Type="String" 
+            Protection="Free" 
+            CAAExposition="L0" 
+            DefaultValue="None">
+      <Range>
+        <Equal>None</Equal>
+        <Equal>SameResources</Equal>
+        <Equal>SameResourcesWithReservation</Equal>
+        <Equal>DifferentResources</Equal>
+      </Range>
+    </Simple>
+
+    <Simple Name="V_IsActive"
+        Uuid="B813EDF7-0408-42be-BF89-B8596F561B72"
+        Type="Boolean"
+        MultiValuated="No"
+        Protection="Free"
+        CAAExposition="L0"
+        DefaultValue="true"
+        ResetOnCloning="No"
+        ResetOnNewVersion="No"/>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+
+  </RelationClass>
+
+  <Extension Name="DELLmiExecTimeConstraintCategoryAbstract"
+         Uuid="90731927-B0F8-49ae-A700-63C67BDF9B8A"
+         ScopeNames="DELLmiExecTimeConstraintRelation"
+         Abstract="Yes"
+         CAAExposition="L0"
+         CustomerExposition="Programmer"
+         Specializable="Yes">
+    <Simple Name="V_ExecutionReturnCode"
+            Uuid="BDFCD8D4-59B3-4c0e-B48B-4F7E3A75714F"
+            Type="String"
+            MultiValuated="No"
+            Protection="Free"
+            ResetOnCloning="No"
+            ResetOnNewVersion="No"
+            DefaultValue="1">
+    </Simple>
+    <Property Name="KweNew_InstanciationMethod" Value="DELLmiTimeCstExtDelegateInstanciation"/>
+  </Extension>
+
+  <Extension Name="DELLmiExecTimeConstraintFailed"
+           Uuid="02C119E9-536E-488c-BA8B-B5208AB2D031"
+           SuperName="DELLmiExecTimeConstraintCategoryAbstract"
+           CAAExposition="L0"
+           CustomerExposition="Programmer"
+           Specializable="Yes">
+    <Simple Name="V_MaximumRetries"
+            Uuid="4561C69E-F58F-4bbc-B05A-0BA7E0CC1EC8"
+            Type="Integer"
+            MultiValuated="No"
+            Protection="Free"
+            ResetOnCloning="No"
+            ResetOnNewVersion="No"
+            DefaultValue="1">
+    </Simple>
+    <Property Name="KweNew_InstanciationMethod" Value="DELLmiTimeCstExtDelegateInstanciation"/>
+  </Extension>
+
+  <Extension Name="DELLmiExecTimeConstraintAlternative"
+           Uuid="6D4D02B1-408C-4059-BF50-470729229095"
+           SuperName="DELLmiExecTimeConstraintCategoryAbstract"
+           CAAExposition="L0"
+           CustomerExposition="Programmer"
+           Specializable="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="DELLmiTimeCstExtDelegateInstanciation"/>
+  </Extension>
+
+  <Extension Name="DELLmiExecTimeConstraintScrapped"
+           Uuid="ECD7B368-0293-47c2-AAE9-5DA1B8157809"
+           SuperName="DELLmiExecTimeConstraintCategoryAbstract"
+           CAAExposition="L0"
+           CustomerExposition="Programmer"
+           Specializable="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="DELLmiTimeCstExtDelegateInstanciation"/>
+  </Extension>
+
+  <Extension Name="DELLmiExecTCOverlapQty_Abstract"
+               Uuid="B8457D83-CB61-4536-A0D7-8A4CE0FB92F1"
+               ScopeNames="DELLmiExecTimeConstraintRelation"
+               Abstract="Yes"
+               CAAExposition="L0"
+               CustomerExposition="Programmer"
+               Specializable="No">
+    <Simple Name="V_OverlapQuantityMode"
+            Uuid="6726CD21-2B72-4b4d-9AE6-F3A4F47E6D5A"
+            Type="String"
+            MultiValuated="No"
+            Protection="Free"
+            ResetOnCloning="No"
+            ResetOnNewVersion="No"
+            DefaultValue="MinQuantity">
+      <Range>
+        <Equal>MinQuantity</Equal>
+        <Equal>MaxQuantity</Equal>
+        <Equal>Synchro</Equal>
+      </Range>
+    </Simple>
+  </Extension>
+
+  <Extension Name="DELLmiExecTCOverlapQty_Each"
+           Uuid="203AA257-165D-4af8-B3DD-36A0D73C3CBF"
+           SuperName="DELLmiExecTCOverlapQty_Abstract"
+           CAAExposition="L0"
+           CustomerExposition="Programmer"
+           Specializable="No">
+    <Simple Name="V_OverlapQty"
+            Uuid="4A82BFBF-B488-4727-A639-B417DA9CF2F5"
+            Type="Integer"
+            MultiValuated="No"
+            Protection="External"
+            ResetOnCloning="No"
+            ResetOnNewVersion="No"
+            DefaultValue="1">
+    </Simple>
+  </Extension>
+
+  <Extension Name="DELLmiExecTCOverlapQty_Area"
+           Uuid="D1419567-CA5D-4878-B546-9F15FA63730F"
+           SuperName="DELLmiExecTCOverlapQty_Abstract"
+           CAAExposition="L0"
+           CustomerExposition="Programmer"
+           Specializable="No">
+    <Simple Name="V_OverlapQty"
+            Uuid="F9C690EF-90DE-45bf-98E5-03962DC67B30"
+            Type="Double"
+            Magnitude="AREA"
+            MultiValuated="No"
+            Protection="External"
+            ResetOnCloning="No"
+            ResetOnNewVersion="No"
+            DefaultValue="1.0">
+    </Simple>
+  </Extension>
+
+  <Extension Name="DELLmiExecTCOverlapQty_Length"
+           Uuid="0C5519F2-83F1-47bb-90DD-6B32D241EB99"
+           SuperName="DELLmiExecTCOverlapQty_Abstract"
+           CAAExposition="L0"
+           CustomerExposition="Programmer"
+           Specializable="No">
+    <Simple Name="V_OverlapQty"
+            Uuid="14845C70-E360-43ae-8F7C-24921A2C2564"
+            Type="Double"
+            Magnitude="LENGTH"
+            MultiValuated="No"
+            Protection="External"
+            ResetOnCloning="No"
+            ResetOnNewVersion="No"
+            DefaultValue="1.0">
+    </Simple>
+  </Extension>
+
+  <Extension Name="DELLmiExecTCOverlapQty_Weight"
+           Uuid="41C5833E-B079-4548-B0CC-5A9F0548717C"
+           SuperName="DELLmiExecTCOverlapQty_Abstract"
+           CAAExposition="L0"
+           CustomerExposition="Programmer"
+           Specializable="No">
+    <Simple Name="V_OverlapQty"
+            Uuid="C772ED24-88A1-4f93-82F4-2F7AD9999731"
+            Type="Double"
+            Magnitude="MASS"
+            MultiValuated="No"
+            Protection="External"
+            ResetOnCloning="No"
+            ResetOnNewVersion="No"
+            DefaultValue="1.0">
+    </Simple>
+  </Extension>
+
+  <Extension Name="DELLmiExecTCOverlapQty_Volume"
+           Uuid="D5BE9435-2324-4b80-83B0-F9B140DBC3FC"
+           SuperName="DELLmiExecTCOverlapQty_Abstract"
+           CAAExposition="L0"
+           CustomerExposition="Programmer"
+           Specializable="No">
+    <Simple Name="V_OverlapQty"
+            Uuid="21BC9870-6157-4043-856E-B48289B1D055"
+            Type="Double"
+            Magnitude="VOLUME"
+            MultiValuated="No"
+            Protection="External"
+            ResetOnCloning="No"
+            ResetOnNewVersion="No"
+            DefaultValue="1.0">
+    </Simple>
+  </Extension>
+  
+</Package>

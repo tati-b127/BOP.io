@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2006, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified"
+         ModelerType="Top"
+         BelongsToModeler="DELFmiFunctionalModel"
+         Name="DELFmiMfgSubstitute"
+         Uuid="5776E92C-3B2B-4c65-B4F7-A139C32B813F"
+         UseNames="PLMCORE"
+         CustomerExposition="Programmer"
+>
+
+  <CAAComment>
+    <ShortRole>Manufacturing Substitute Modeler</ShortRole>
+    <Role>"DELFmiMfgSubstitute" package describes Customizable Connection to Manufacturing Substitutes.</Role>
+  </CAAComment>
+
+  <Class Name="DELFmiMfgSubstituteCnx"
+      Uuid="69C172ED-0A51-4169-B86D-076D194C1A1D"
+      SuperName="PLMConnection"
+      CustomerExposition="Programmer"
+      CustomerExtensible="Yes"
+      Specializable="No"
+      Abstract="No"
+      >
+
+    <Property Name="Searchable" Value="No"/>
+    <Property Name="Newable" Value="No"/>
+    <Property Name="OwnerTypes" Value="DELFmiFunctionReference"/>
+
+    <CAAComment>
+      <ShortRole>Defines customizable Manufacturing Substitute Connection</ShortRole>
+      <Role>Connects Manufacturing Product Transformation Instance to a Manufacturing Manufacturing Transformation Reference that can be substitute for this instance.</Role>
+    </CAAComment>
+
+    <!-- ********************************************************* -->
+    <!-- * SubRelationship declaration -->
+    <!-- ********************************************************* -->
+
+    <Path Name="DELMfgSubstitute_Target_SR"
+          Uuid="B68CCE0B-F68D-432f-A806-F099E598E5AD"
+          TargetName="V_SRs"
+          MultiValuated="No"
+          Type="SemanticRelation"
+          RoleName="DELMfgSubstitute_Target"
+          AdaptativeToMinor="Yes"
+          SynchroSensitivity="Last"
+          RerouteOnEffectivityChange="No"
+          Orientation="In"
+          Semantics="Reference4"/>
+
+    <Path Name="DELMfgSubstitute_Source_SR"
+          Uuid="E5A386F6-89AC-4eb6-BC24-823A82F99664"
+          TargetName="V_SRs"
+          MultiValuated="No"
+          Type="SemanticRelation"
+          RoleName="DELMfgSubstitute_Source"
+          SynchroSensitivity="Last"
+          RerouteOnEffectivityChange="No"
+          Orientation="Out"
+          Semantics="Reference7"/>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+  </Class>
+</Package>

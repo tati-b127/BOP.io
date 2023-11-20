@@ -1,0 +1,38 @@
+NAVIGATE     
+
+T0.PLMID, T1.PLMID
+ 
+
+FROM        
+
+DELLmiProductionCandidateResCnx/DELLmiCandidateResourcesCnx T0,
+
+PRODUCTCFG/VPMInstance T1
+
+FROM_ROOTS[?1?]
+
+ON RELATION(     
+
+FROM=DELLmiProductionSystemAbstract/DELLmiAbstractProductionEntity
+
+TO=DELLmiProductionCandidateResCnx/DELLmiCandidateResourcesCnx
+
+THROUGH=POINTEDBY )
+
+WITH QUALITY_FILTER(CATEGORY=ISOWNEDBY)
+
+
+THEN RELATION(     
+
+FROM=DELLmiProductionCandidateResCnx/DELLmiCandidateResourcesCnx
+
+TO=PRODUCTCFG/VPMInstance
+
+THROUGH=POINTSTO)
+
+WITH ATTRIBUTE_FILTER T0.V_discipline LIKE 'CandidateResourceLink'
+
+;
+
+
+

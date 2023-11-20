@@ -1,0 +1,17 @@
+NAVIGATE
+T0.PLM_ExternalID, T1.PLM_ExternalID, T2.PLM_ExternalID,
+T0.PLMID, T1.PLMID, T2.PLMID
+
+FROM CATAsmSymGeo/CATAsmSymmetryGeo T0, CATAsmSymStruct/CATAsmSymStruct T1, PRODUCTCFG/VPMReference T2
+
+FROM_ROOTS[?1?]
+ON 	(
+ 	RELATION	(
+			FROM=PRODUCTCFG/VPMReference
+			TO=CATAsmSymGeo/CATAsmSymmetryGeo, CATAsmSymStruct/CATAsmSymStruct 
+ 			THROUGH=POINTEDBY
+			)
+ 	WITH QUALITY_FILTER	(CATEGORY=ISOWNEDBY) 	
+	)
+ ; 
+

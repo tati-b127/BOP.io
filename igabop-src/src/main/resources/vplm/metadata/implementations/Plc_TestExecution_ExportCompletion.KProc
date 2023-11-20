@@ -1,0 +1,25 @@
+#Prog Plc_TestExecution_ExportCompletion( iPLMIDSet : #In PLMIDSet, oPLMIDSet : #Out PLMIDSet ) : VoidType
+{
+let RsDocsTE              (PLMRouteSet)
+let IdsOnlyTEs              (PLMIDSet)
+let IdsDocs                 (PLMIDSet)
+let IdsOnlyDocs             (PLMIDSet)
+let IdsDocsAndScope         (PLMIDSet)
+
+
+/* Get the test executions */
+IdsOnlyTEs = Restrict( iPLMIDSet , "Class/Test Execution" )
+
+
+/* Get the reference documents of the all TEs */
+RsDocsTE = ExecutePLMFunction( "TestCase", "plc_nav_te_docs", IdsOnlyTEs )
+IdsDocs = Ids(RsDocsTE)
+IdsOnlyDocs = Restrict( IdsDocs, "Class/DOCUMENTS" )
+IdsDocsAndScope = ExecutePLMProcedure( "DocumentCompletion", IdsOnlyDocs )
+
+
+/* Provide back all that stuff */
+oPLMIDSet = iPLMIDSet
++ IdsDocs
++ IdsDocsAndScope
+}

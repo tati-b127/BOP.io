@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR DELMIA Work Instruction Application -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2014, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified"
+         ModelerType="Top"
+         Name="DELPPRCompiled3DWki"
+	       Uuid="6CD3DC1D-741F-4d37-99AD-502FDE5A0190"
+  	     BelongsToModeler="DELWkiWorkInstructionPPR"
+	       UseNames="DELWkiWorkInstructionPPR DELLmiProductionDocRep"
+	       CustomerExposition="Programmer"  >
+
+  <CAAComment>
+    <ShortRole>PPR Compiled 3D work instruction </ShortRole>
+    <Role>This package describes the PPR Compiled 3D work instruction model on top of DELWkiWorkInstructionPPR</Role>
+  </CAAComment>
+
+  <Comment>last update 2014-06-05</Comment>
+
+  <Class Name="DELPPRCompiled3DWkiReference"
+         Uuid="FF007699-CC1C-4da9-B3A2-266E735B4F3C"
+         Abstract="No"
+   		   SuperName="DELWkiPPRReference"
+         Specializable="No"
+         CustomerExtensible="No"
+         CreateInstName="DELPPRCompiled3DWkiInstance"
+		     CustomerExposition="Programmer"
+         Abbreviation="wi3"
+         InstantiationOwnerTypes="DELLmiGeneralOperationReference;DELLmiPunctualOperationReference;DELLmiCurveOperationReference;DELLmiInterruptOperationReference;DELLmiLoadingOperationReference;DELLmiUnloadingOperationReference;DELLmiRemoveMaterialOperationReference;DELLmiTransferOperationReference;DELLmiSinkOperationReference;DELLmiSourceOperationReference;DELLmiBufferOperationReference;DELLmiGeneralSystemReference;DELLmiWorkPlanSystemReference;DELLmiTransformationSystemReference;DELLmiStorageSystemReference;DELLmiTransferSystemReference;DELLmiHeaderOperationReference;DELLmiPickingOperationReference;DELLmiWorkOrderReference;DELLmiExecHeaderOperationReference;DELLmiExecGeneralOperationReference;DELLmiExecPunctualOperationReference;DELLmiExecCurveOperationReference;DELLmiExecLoadingOperationReference;DELLmiExecPickingOperationReference;DELLmiExecUnloadingOperationReference;DELLmiExecRemoveMaterialOpReference;DELLmiExecTransferOperationReference">
+
+    <Property Name="KweNew_InstanciationMethod" Value="DELWorkInstructionDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELPPRCompiled3DWkiInstance"/>
+    <Property Name="IconName" Value="I_WI_Compiled3D"/>
+    <Property Name="3DIconName" Value="I_WI_Compiled3D.cgr"/>
+    <Property Name="Newable" Value="No"/>
+    <Property Name="Searchable" Value="No"/>
+
+    <CAAComment>
+      <ShortRole>PPR Compiled 3D work instruction Reference</ShortRole>
+      <Role>PPR Compiled 3D work instruction Reference</Role>
+    </CAAComment>
+
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+
+  </Class>
+
+
+  <RelationClass Name="DELPPRCompiled3DWkiInstance"
+         Uuid="99714F7E-1BF4-4ffa-95CF-E2958EA758E6"
+		     Abstract="No"
+    		 SuperName="DELWkiPPRInstance"
+         Specializable="No"
+         CustomerExtensible="No"
+		     CustomerExposition="Programmer">
+
+    <Property Name="KweNew_InstanciationMethod" Value="DELWorkInstructionDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELPPRCompiled3DWkiInstance"/>
+    <Property Name="Filtrable" Value="Yes"/>
+
+    <CAAComment>
+      <ShortRole>PPR Compiled 3D work instruction Instance</ShortRole>
+      <Role>PPR Compiled 3D work instruction Instance</Role>
+    </CAAComment>
+
+    <Volatile Name="Reference"
+              Uuid="DCA67A6A-3200-49f8-A6FA-74CA8315585D"
+              Accessor="PLMModelerReferenceKweAttribute"
+              TypeName="DELPPRCompiled3DWkiReference"
+              AccessMode="ReadOnly"/>
+
+
+    <SubClause Name="to"   TargetName="DELPPRCompiled3DWkiReference"/>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+
+  </RelationClass>
+
+  <Class Name="DELPPRCompiled3DWkiRepresentationReference"
+       CustomerExposition="Programmer"
+       Uuid="3C48DF2A-1D33-49d6-B6AC-008D709BC602"
+       Abstract="No"
+       Discipline="Yes"
+       SuperName="DELLmiDocRepReference"
+       Specializable="No"
+       CustomerExtensible="No"
+       Abbreviation="wi3rep"
+         InstantiationOwnerTypes="DELPPRCompiled3DWkiReference">
+
+    <Property Name="KweDisciplineAttributeValue" Value="Compiled3DWkiRepresentation"/>
+    <Property Name="Newable" Value="No"/>
+    <Property Name="Searchable" Value="No"/>
+
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+</Package>

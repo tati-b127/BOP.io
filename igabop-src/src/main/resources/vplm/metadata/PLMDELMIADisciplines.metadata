@@ -1,0 +1,156 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+
+<Package xmlns="PLMDictionaryTop" 
+         Name="PLMDELMIADisciplines" 
+         UseScopes="DELFmiFunctionalModel" 
+         Uuid="FA179ED9-9B74-445a-B51C-C934BDCC57CC" 
+         ModelerType="Top">
+  
+
+  <!-- Process  -->
+ 
+  <Discipline Name="UnitRemoveMaterial"  
+	            Uuid="4d285ba1-28ea-45b1-b70c-3f82a4e62caa"
+	            CreationMode="Yes"
+	            TypeNames="DELFmiFunctionReference"
+              CustomerExposition="None">
+    <Property Name="XPGApplyDisciplineOnInstance" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELPLMFProcessAdvDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELFmiFunctionInstance"/>
+    <Property Name="IconName" Value="I_InsertUnitRemoveMaterialProcess"/>
+    <Property Name="3DIconName" Value="I_InsertRemoveMaterialProcess.cgr"/>
+    <Property Name="Searchable" Value="No"/>
+    <Property Name="Newable" Value="No"/>
+
+    <Method ImplementationType="None">
+	    <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+     </Method>
+  </Discipline>
+
+  <Discipline Name="UnitTransform"  
+	            Uuid="8e26af95-6bad-4bb4-bc20-c880c254dcaa"
+	            CreationMode="Yes"
+	            TypeNames="DELFmiFunctionReference"
+              CustomerExposition="None">
+    <Property Name="XPGApplyDisciplineOnInstance" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELPLMFProcessAdvDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELFmiFunctionInstance"/>
+    <Property Name="IconName" Value="I_InsertUnitTransformProcess"/>
+    <Property Name="3DIconName" Value="I_InsertTransformProcess.cgr"/>
+    <Property Name="Searchable" Value="No"/>
+    <Property Name="Newable" Value="No"/>
+
+    <Method ImplementationType="None">
+	    <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+  </Discipline>
+
+  <Discipline Name="UnitSplitProcess" 
+	            Uuid="BE6D578A-5EE6-4f35-9AF5-9524CCA586C0"
+	            CreationMode="Yes"
+	            TypeNames="DELFmiFunctionReference"
+              CustomerExposition="None">
+    <Property Name="XPGApplyDisciplineOnInstance" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELPLMFProcessAdvDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELFmiFunctionInstance"/>
+    <Property Name="IconName" Value="I_InsertUnitSplitProcess"/>
+    <Property Name="3DIconName" Value="I_InsertUnitSplitProcess.cgr"/>
+    <Property Name="Searchable" Value="No"/>
+    <Property Name="Newable" Value="No"/>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+  </Discipline>
+
+  <Discipline Name="UnitMarking"  
+	            Uuid="656EF2BF-A6A8-4829-92A0-07D66FF066A0"
+	            CreationMode="Yes"
+	            TypeNames="DELFmiFunctionReference"
+              CustomerExposition="None">
+    <Property Name="XPGApplyDisciplineOnInstance" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELPLMFProcessAdvDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELFmiFunctionInstance"/>
+    <Property Name="IconName" Value="I_InsertUnitMarkingProcess"/>
+    <Property Name="3DIconName" Value="I_InsertMarkingProcess.cgr"/>
+    <Property Name="Searchable" Value="No"/>
+    <Property Name="Newable" Value="No"/>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+     </Method>
+  </Discipline>
+
+  <Discipline Name="ProcessContinuousUnitProvide" 
+	            Uuid="542AFEAA-16AC-43ce-8CF5-FEE33709BAB5"
+	            CreationMode="Yes"
+	            TypeNames="DELFmiFunctionReference"
+              CustomerExposition="None">
+    <Property Name="XPGApplyDisciplineOnInstance" Value="Yes"/>
+    <Property Name="IconName" Value="I_InsertProvideProcessContinuous"/>
+    <Property Name="3DIconName" Value="I_InsertProvideProcessContinuous.cgr"/>
+    
+    <Property Name="KweNew_InstanciationMethod" Value="DELPLMFProcessAdvDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELFmiFunctionInstance"/>
+    <Property Name="Searchable" Value="No"/>
+    <Property Name="Newable" Value="No"/>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+  </Discipline>
+
+  <Discipline Name="ProcessContinuousUnitCreateMaterial" 
+	            Uuid="2A458F15-5808-40ee-818F-4C872E850AB1"
+	            CreationMode="Yes"
+	            TypeNames="DELFmiFunctionReference"
+              CustomerExposition="None">
+    <Property Name="XPGApplyDisciplineOnInstance" Value="Yes"/>
+    <Property Name="IconName" Value="I_InsertCreateMaterialProcessContinuous"/>
+    <Property Name="3DIconName" Value="I_InsertCreateMaterialProcessContinuous.cgr"/>
+    
+    <Property Name="KweNew_InstanciationMethod" Value="DELPLMFProcessAdvDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELFmiFunctionInstance"/>
+    <Property Name="Searchable" Value="No"/>
+    <Property Name="Newable" Value="No"/>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+  </Discipline>
+
+
+  <!-- FUNCTIONS Declarations : here are declared PLMQL Functions -->
+
+  <Function Name="DELPPRDisciplines_AddAnimationRep">
+    <Implementation Name="DELPPRDisciplines_AddAnimationRep" FileLocation="DELPPRDisciplines_AddAnimationRep.plmql" Language="PLMQL"/>
+    <Signature href="DELPPR_FunctionSignature"/>
+  </Function>
+  <Signature id="DELPPR_FunctionSignature">
+	<Parameter Name="InputIds" Lower="0" Upper="-1" Direction="in" MultiValuated="Yes" DataType="PLMId"/>
+	<Parameter Name="OutputIds" Lower="0" Upper="-1" Direction="out" MultiValuated="No" DataType="PLMRouteSet"/>
+  </Signature>
+
+
+</Package>
+

@@ -1,0 +1,114 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR DELMIA Production System Application -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified"
+         ModelerType="Top"
+         Name="DELLmiProductionSourceOperation"
+	       Uuid="0ba103ba-4918-4174-9ddc7764dbd9c970"
+         BelongsToModeler="DELLmiProductionSystem"
+       	 UseNames="DELLmiProductionOperationPPR"
+         CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>PLM DELMIA Source Operation </ShortRole>
+    <Role>This package describes the PLM DELMIA Source Operation model on top of DELLmiProductionOperationPPR</Role>
+  </CAAComment>
+
+  <Comment>last update 2008-10-21</Comment>
+
+  <Class Name="DELLmiSourceOperationReference"
+		     Uuid="c6b01912-a098-4db3-a8125b3b69ad26d3"
+		     Abstract="No"
+         SuperName="DELLmiOperationPPRReference"
+         CustomerExposition="Programmer"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         CreateInstName="DELLmiSourceOperationInstance"
+         Abbreviation="sco"
+         InstantiationOwnerTypes="SourceSystem"
+         >
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELMPProdSystemAdvDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELLmiSourceOperationInstance"/>
+    <Property Name="IconName" Value="I_PPRSeqSource"/>
+    <Property Name="3DIconName" Value="I_PPRSeqSource.cgr"/>
+    <Property Name="Newable" Value="Insert_CAA"/>
+    <Property Name="Searchable" Value="Yes"/>
+
+    <CAAComment>
+      <ShortRole>PLM DELMIA Source Operation Reference</ShortRole>
+      <Role>PLM DELMIA Source Operation Reference</Role>
+    </CAAComment>
+
+    <Simple Name="V_InitialStock"
+            Uuid="d15f3fc1-5c9c-4769-a37c1a5e176f683c"
+            Type="Integer"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0">
+    </Simple>
+
+    <Simple Name="V_Proportion"
+            Uuid="61c07d85-a29c-4fbf-ad510f3bdf5c96e7"
+            Type="Double"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0">
+    </Simple>
+
+    <Simple Name="V_Lot"
+            Uuid="407ef20c-f162-4485-8d1481a8232593da"
+            Type="Integer"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0">
+    </Simple>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+
+  </Class>
+
+  <RelationClass Name="DELLmiSourceOperationInstance"
+		     Uuid="c6c5dc6f-c4b6-447f-b6bc481c8b4981bb"
+    		 Abstract="No"
+         SuperName="DELLmiOperationPPRInstance"
+         CustomerExposition="Programmer"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         >
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELMPProdSystemAdvDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELLmiSourceOperationInstance"/>
+
+    <CAAComment>
+      <ShortRole>PLM DELMIA Source Operation Instance. Specialization is not supported yet.</ShortRole>
+      <Role>PLM DELMIA SourceOperation Instance</Role>
+    </CAAComment>
+
+    <Volatile Name="Reference"
+              Uuid="51690B7E-D059-4028-9B3B-BC46C4F545D0"
+              Accessor="PLMModelerReferenceKweAttribute"
+              TypeName="DELLmiSourceOperationReference"
+              AccessMode="ReadOnly" />
+
+    <SubClause Name="to"   TargetName="DELLmiSourceOperationReference"/>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+
+  </RelationClass>
+
+</Package>

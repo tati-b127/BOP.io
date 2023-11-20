@@ -1,0 +1,222 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY FOR MAPPING PACKAGE -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified"
+         ModelerType="Top" 
+         Name="CATMappingModeler" 
+         Uuid="BEC90FBC-CEA8-4D1D-BBF9-B27CF6DA6C97" 
+         UseNames="PLMCORE"
+         CustomerExposition="None"
+         >
+    <Property Name="FormerTypingLegacy" Value="Yes"/>
+    <Property Name="WithoutLocationControl" Value="Yes"/>
+
+    <CAAComment>
+        <ShortRole>Package for the mapping for coexistence V5 V6.</ShortRole>
+        <Role>This package includes all entities for Mapping model.</Role>
+    </CAAComment>
+  
+    <Comment>Creation 2008-03-19</Comment>
+  
+    <!-- ******************************************* -->
+    <!-- *  CATMappingModeler Reference (PLMCoreReference) * -->
+    <!-- ******************************************* -->
+  <Class Name="CATMpgReference"
+         Uuid="2F680033-25E8-40B5-A094-7177920EBDA1"
+         SuperName="PLMCoreReference"
+         CustomerExposition="None">
+    <CAAComment>
+      <ShortRole>Reference of the mapping modeler.</ShortRole>
+      <Role>The CATMpgReference is used to expose mapping data : one source for n targets.</Role>
+    </CAAComment>
+
+    <Simple Name="V_SourceIdentifier"
+      Uuid="8BF3927C-89C3-4B70-994F-58FC1361F4AA"
+      Type="Binary"
+      MaxLength="250"
+      MultiValuated="No"
+      Protection="Internal" >
+    </Simple>
+    <CAAComment>
+      <ShortRole>Identifier of the source.</ShortRole>
+      <Role>This identifer can be a file identifier, or a PLMID.</Role>
+    </CAAComment>
+
+    <Simple Name="V_SourceStamp"
+      Uuid="17D279D4-7BEB-435B-B0A6-2F5D81457D8E"
+      Type="Binary"
+      MaxLength="50"
+      MultiValuated="No"
+      Protection="Internal" >
+    </Simple>
+    <CAAComment>
+      <ShortRole>Stamp of the source.</ShortRole>
+      <Role>This stamp is the stamp of the source.</Role>
+    </CAAComment>
+
+    <Simple Name="V_SourceVersion"
+      Uuid="8BE6BAA2-A28F-427f-B236-C73FB325911B"
+      Type="Binary"
+      MaxLength="250"
+      MultiValuated="No"
+      Protection="Internal" >
+    </Simple>
+    <CAAComment>
+      <ShortRole>Identifier of the federator of the versions of the source.</ShortRole>
+      <Role>Identifier of the federator of the versions of the source.</Role>
+    </CAAComment>
+
+    <Simple Name="V_NonM1MajorID"
+     Uuid="C3B779EB-A48F-43B8-8669-3BAABAC50A2A"
+     Type="Binary"
+     MaxLength="127"
+     MultiValuated="No"
+     Protection="Internal" >
+    </Simple>
+    <CAAComment>
+      <ShortRole>Identifier of the federator of the minor versions of the non-M1 object.</ShortRole>
+      <Role>Identifier of the federator of the minor versions of the non-M1 object.</Role>
+    </CAAComment>
+    
+    <Simple Name="V_M1MajorID"
+      Uuid="D60DBE2D-3E59-4802-BC3D-A1C6518B097C"
+      Type="Binary"
+      MaxLength="16"
+      MultiValuated="No"
+      Protection="Internal" >
+    </Simple>
+    <CAAComment>
+      <ShortRole>Identifier of the federator of the minor versions of the M1 object.</ShortRole>
+      <Role>Identifier of the federator of the minor versions of the M1 object.</Role>
+    </CAAComment>
+
+    <Simple Name="V_TargetVersion"
+      Uuid="89725A2A-BEBE-41A9-BD99-913DCCB19858"
+      Type="Binary"
+      MaxLength="250"
+      MultiValuated="No"
+      Protection="Internal" >
+    </Simple>
+    <CAAComment>
+      <ShortRole>Identifier of the federator of the versions of the target.</ShortRole>
+      <Role>Identifier of the federator of the versions of the target.</Role>
+    </CAAComment>
+
+    <Simple Name="V_TargetIdentifier"
+      Uuid="36249C09-9DE4-4e5d-9435-EB90C5895D2E"
+      Type="Binary"
+      MaxLength="250"
+      MultiValuated="Yes"
+      CollectionType="List"
+      Protection="Internal" >
+    </Simple>
+    <CAAComment>
+      <ShortRole>Identifiers of the targets.</ShortRole>
+      <Role>These identifers can be a file identifier, or a PLMID.</Role>
+    </CAAComment>
+
+    <Simple Name="V_TargetStamp"
+      Uuid="7AE4AF05-CCEA-4a45-9052-1EE307CCE0E9"
+      Type="Binary"
+      MaxLength="50"
+      MultiValuated="Yes"
+      CollectionType="List"
+      Protection="Internal" >
+    </Simple>
+    <CAAComment>
+      <ShortRole>Stamps of the targets.</ShortRole>
+      <Role>These stamps are the stamps of the targets.</Role>
+    </CAAComment>
+
+    <Simple Name="V_ContextName"
+      Uuid="01FABD7B-592D-4EFD-A48e-4C430958CD0F"
+      Type="String"
+      MaxLength="100"
+      MultiValuated="No"
+      Protection="Internal" >
+    </Simple>
+    <CAAComment>
+      <ShortRole>Context of mapping use.</ShortRole>
+      <Role>This context will contain the identifier of the WIP used by the application client of the mapping.</Role>
+    </CAAComment>
+
+    <Simple Name="V_Context"
+      Uuid="EF34B398-153F-4B7F-A3A0-8B554555EEDC"
+      Type="Binary"
+      MaxLength="250"
+      MultiValuated="No"
+      Protection="Internal" >
+    </Simple>
+    <CAAComment>
+      <ShortRole>Context of mapping use.</ShortRole>
+      <Role>This context will contain the identifier of the WIP used by the application client of the mapping.</Role>
+    </CAAComment>
+
+    <Simple Name="V_SourceType"
+      Uuid="397FBCE9-0AC7-4406-85B6-52BFEEFF4BFB"
+      Type="String"
+      MaxLength="50"
+      MultiValuated="No"
+      Protection="Internal" >
+    </Simple>
+    <CAAComment>
+      <ShortRole>Type of the source.</ShortRole>
+      <Role>This attribute contains the type of the source data.</Role>
+    </CAAComment>
+
+    <Simple Name="V_Master"
+      Uuid="33745E63-F2F4-47BD-ACBD-6C39453CE05B"
+      Type="Integer"
+      MultiValuated="No"
+      Protection="Internal" >
+    </Simple>
+    <CAAComment>
+      <ShortRole>Master of the migration.</ShortRole>
+      <Role>This attribute contains the master of the migration.</Role>
+    </CAAComment>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+  <!-- Constraints -->
+  
+<!-- ***************************************** -->
+    <!-- * CATMappingModeler RepRef (PLMCoreRepReference) * -->
+    <!-- ***************************************** -->
+    <Class Name="CATMpgRepresentation" 
+           Uuid="7EC18E72-CDE5-4A99-923B-C06BB27F5D70" 
+           SuperName="PLMCoreRepReference"
+           CustomerExposition="None"
+           CreateInstName="CATMpgRepInstance" >
+           <CAAComment>
+             <ShortRole>Representation reference of the mapping modeler.</ShortRole>
+             <Role>The CATMpgRepresentation is used to store internal data as a non catia file.</Role>
+           </CAAComment>
+
+		   <Method ImplementationType="None">
+                  <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+           </Method>
+    </Class>
+
+
+  <!-- *************************************** -->
+    <!-- * CATMappingModeler RepInst (PLMCoreRepInstance) * -->
+    <!-- *************************************** -->
+    <RelationClass Name="CATMpgRepInstance" 
+           Uuid="99E3315C-54CF-407a-8AF3-3EACB657EF98" 
+           SuperName="PLMCoreRepInstance" 
+           CustomerExposition="None">
+           <CAAComment>
+             <ShortRole>Representation instance of the mapping modeler.</ShortRole>
+             <Role>The CATMpgRepInstance is an instance of a CATMpgRepresentation owned by a CATMpgReference.</Role>
+           </CAAComment>
+           <!-- Overloaded Attributes -->
+
+          <SubClause Name="from" TargetName="CATMpgReference"/>
+          <SubClause Name="to"   TargetName="CATMpgRepresentation"/>
+		   <Method ImplementationType="None">
+                  <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+           </Method>
+    </RelationClass>
+</Package>

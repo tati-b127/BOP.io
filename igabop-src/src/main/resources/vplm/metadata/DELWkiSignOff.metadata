@@ -1,0 +1,146 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR DELMIA Work Instruction Application -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2010, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified"
+         ModelerType="Top"
+         Name="DELWkiSignOff"
+	       Uuid="bcbe4d8f-7812-4f61-9da45d3fb5d6018a"
+  	     BelongsToModeler="DELWkiWorkInstructionPPR"
+	       UseNames="DELWkiWorkInstructionPPR"
+	       CustomerExposition="Programmer"  >
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>PLM DELMIA Work Instruction Sign Off</ShortRole>
+    <Role>This package describes the PLM DELMIA Work Instruction SignOff model on top of DELWkiWorkInstructionPPR</Role>
+  </CAAComment>
+
+  <Comment>last update 2014-03-21</Comment>
+
+  <Class Name="DELWkiSignOffReference"
+         Uuid="08dfcb3e-0874-4445-884b6ee6a0ff35fa"
+		     Abstract="No"
+    		 SuperName="DELWkiPPRReference"
+         Specializable="No"
+         CustomerExtensible="No"
+         CreateInstName="DELWkiSignOffInstance"
+		     CustomerExposition="Programmer"
+         Abbreviation="wis">
+
+    <Property Name="KweNew_InstanciationMethod" Value="DELWorkInstructionDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELWkiSignOffInstance"/>
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="IconName" Value="I_WI_SignOff"/>
+    <Property Name="3DIconName" Value="I_WI_SignOff.cgr"/>
+    <Property Name="Newable" Value="No"/>
+    <Property Name="Searchable" Value="Yes"/>
+
+    <CAAComment>
+      <ShortRole>PLM DELMIA Work Instruction SignOff Reference</ShortRole>
+      <Role>PLM DELMIA Work Instruction SignOff Reference</Role>
+    </CAAComment>
+
+    <Simple Name="V_WISignOff_Actors"
+            Uuid="a812cb65-fd0e-4454-a668a55865b26de1"
+            Type="String"
+            MultiValuated="Yes"
+            MaxLength="128"
+            CollectionType="List"
+            Protection="Free"
+            Faceted="Yes"
+            CAAExposition="L0">
+    <Property Name="SIXW" Value="ds6w:accountable"/>
+      <CAAComment>
+        <ShortRole>The person(s) that need to sign off on the task after it has been completed by the Shop Floor worker.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_WISignOff_Text"
+            Uuid="dea8aa30-f1d3-4c43-8e50158dbd54684a"
+            Type="String"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>The Instruction message to give the Shop Floor worker details on how to do the sign off.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_WISignOff_AllowPartial"
+            Uuid="4a3bd345-c83f-44b2-be7139378888f2fe"
+            Type="Boolean"
+            DefaultValue="false"
+            MultiValuated="No"
+            Protection="Free"
+            Faceted="Yes"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>
+          This is used to specify whether a Partial Sign Off can be performed on the Shop Floor.
+        </ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_WISignOff_NotMandatory"
+            Uuid="807ccb16-0254-47f9-997028bfbedab113"
+            Type="Boolean"
+            DefaultValue="false"
+            MultiValuated="No"
+            Protection="Free"
+            Faceted="Yes"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>
+          This is used to specify whether it is mandatory to perform the Sign Off.
+        </ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+
+  </Class>
+
+  <RelationClass Name="DELWkiSignOffInstance"
+         Uuid="3b7a4495-d35e-4e92-a21c1c56ad41712f"
+		     Abstract="No"
+    		 SuperName="DELWkiPPRInstance"
+         Specializable="No"
+         CustomerExtensible="No"
+		     CustomerExposition="Programmer">
+
+    <Property Name="KweNew_InstanciationMethod" Value="DELWorkInstructionDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELWkiSignOffInstance"/>
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="IconName" Value="I_WI_SignOff"/>
+    <Property Name="3DIconName" Value="I_WI_SignOff.cgr"/>
+    <Property Name="Filtrable" Value="Yes"/>
+
+    <CAAComment>
+      <ShortRole>PLM DELMIA Work Instruction SignOff Instance</ShortRole>
+      <Role>PLM DELMIA Work Instruction SignOff Instance</Role>
+    </CAAComment>
+
+    <Volatile Name="Reference"
+              Uuid="0AE6C389-4BD3-4771-9313-A6799A0DEF51"
+              Accessor="PLMModelerReferenceKweAttribute"
+              TypeName="DELWkiSignOffReference"
+              AccessMode="ReadOnly" />
+
+    <SubClause Name="to"   TargetName="DELWkiSignOffReference"/>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+
+  </RelationClass>
+
+</Package>

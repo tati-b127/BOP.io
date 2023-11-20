@@ -1,0 +1,29 @@
+NAVIGATE
+	T0.physicalid , T0.logicalid , T0.majorid, T0.type , T0.name , 
+   	T1.physicalid , T1.logicalid , T1.majorid, T1.type ,
+	T2.PLM_ExternalID, T2.PLMID,
+	T3.PLM_ExternalID, T3.PLMID 
+FROM
+	"Class/DEL_BlendingRule" T0,
+	"RelationClass/DELBR_IsCombinating" T1,
+	"DELLmiProductionPlug/DELLmiProductionPlugReference" T2,
+	"DELFmiFunctionalModel/DELFmiFunctionReference" T3
+
+FROM_ROOTS
+
+	[?1?]
+
+ON	
+(
+	(
+	RELATION (FROM="Class/DEL_BlendingRule" TO="RelationClass/DELBR_IsCombinating" THROUGH=POINTEDBY) WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY)
+	THEN RELATION (FROM="RelationClass/DELBR_IsCombinating" TO="DELLmiProductionPlug/DELLmiProductionPlugReference" THROUGH=POINTSTO) WITH QUALITY_FILTER (CATEGORY=ISINSTANCEOF)
+	)
+	OR 
+	(
+	RELATION (FROM="Class/DEL_BlendingRule" TO="RelationClass/DELBR_IsCombinating" THROUGH=POINTEDBY) WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY)
+	THEN RELATION (FROM="RelationClass/DELBR_IsCombinating" TO="DELFmiFunctionalModel/DELFmiFunctionReference" THROUGH=POINTSTO) WITH QUALITY_FILTER (CATEGORY=ISINSTANCEOF)
+	)
+)
+
+ITER = 1 ;

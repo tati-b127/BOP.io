@@ -1,0 +1,147 @@
+NAVIGATE     
+
+T0.PLMID, T1.PLMID, T2.PLMID, T3.PLMID, T4.PLMID, T5.PLMID, T6.PLMID, T7.PLMID, T8.PLMID
+ 
+
+FROM        
+
+DELLmiProductionSystem/DELLmiProductionSystemReference T0,
+DELLmiProductionSystem/DELLmiProductionSystemInstance T1,
+DELLmiProductionOperationPPR/DELLmiOperationPPRInstance T2,
+DELRmiResourceModelProdSysImplCnx/PLMDELProdSysImplCnx T3,
+PRODUCTCFG/VPMPort T4,
+PRODUCTCFG/VPMReference T5,
+PRODUCTCFG/VPMInstance T6,
+PRODUCTCFG/VPMRepInstance T7,
+PRODUCTCFG/VPMRepReference T8
+
+
+FROM_ROOTS[?1?]
+
+ON 
+(
+	(
+		(
+			RELATION(     
+			FROM=DELLmiProductionSystem/DELLmiProductionSystemReference
+			TO=DELRmiResourceModelProdSysImplCnx/PLMDELProdSysImplCnx
+			THROUGH=POINTEDBY )
+			WITH QUALITY_FILTER(ROLE=PLM_ImplementLink_Target)
+		)
+		THEN 
+		(
+			(
+				RELATION(     
+				FROM=DELRmiResourceModelProdSysImplCnx/PLMDELProdSysImplCnx
+				TO=PRODUCTCFG/VPMReference
+				THROUGH=POINTSTO) 
+				WITH QUALITY_FILTER(ROLE=PLM_ImplementLink_Source)
+			)
+			OR
+			(
+				RELATION(     
+				FROM=DELRmiResourceModelProdSysImplCnx/PLMDELProdSysImplCnx
+				TO=PRODUCTCFG/VPMInstance
+				THROUGH=POINTSTO) 
+				WITH QUALITY_FILTER(ROLE=PLM_ImplementLink_Source)
+			)
+			OR
+			(
+				(
+					RELATION(     
+					FROM=DELRmiResourceModelProdSysImplCnx/PLMDELProdSysImplCnx
+					TO=PRODUCTCFG/VPMPort
+					THROUGH=POINTSTO) 
+					WITH QUALITY_FILTER(ROLE=PLM_ImplementLink_Source)
+				)
+				THEN						
+				(
+					RELATION(     
+					FROM=PRODUCTCFG/VPMPort
+					TO=PRODUCTCFG/VPMRepReference
+					THROUGH=POINTSTO )
+				)
+				THEN 
+				(
+					RELATION(     
+					FROM=PRODUCTCFG/VPMRepReference
+					TO=PRODUCTCFG/VPMInstance
+					THROUGH=POINTSTO )
+					WITH QUALITY_FILTER(ROLE=DEL_RepToResourceInstance)
+				)
+			)
+		)
+	)
+	OR
+	(
+		(
+			(
+				RELATION(     
+				FROM=DELLmiProductionOperationPPR/DELLmiOperationPPRInstance
+				TO=DELRmiResourceModelProdSysImplCnx/PLMDELProdSysImplCnx
+				THROUGH=POINTEDBY )
+				WITH QUALITY_FILTER(ROLE=PLM_ImplementLink_Target)
+			)
+			OR
+			(
+				RELATION(     
+				FROM=DELLmiProductionSystemPPR/DELLmiPPRSystemInstance
+				TO=DELRmiResourceModelProdSysImplCnx/PLMDELProdSysImplCnx
+				THROUGH=POINTEDBY )
+				WITH QUALITY_FILTER(ROLE=PLM_ImplementLink_Target)
+			)
+		)
+		THEN 
+		(
+			(
+				RELATION(     
+				FROM=DELRmiResourceModelProdSysImplCnx/PLMDELProdSysImplCnx
+				TO=PRODUCTCFG/VPMInstance
+				THROUGH=POINTSTO) 
+				WITH QUALITY_FILTER(ROLE=DEL_LinkToWithObjects)
+			)
+			OR
+			(
+				RELATION(     
+				FROM=DELRmiResourceModelProdSysImplCnx/PLMDELProdSysImplCnx
+				TO=PRODUCTCFG/VPMInstance
+				THROUGH=POINTSTO) 
+				WITH QUALITY_FILTER(ROLE=DEL_LinkToWhereObject)
+			)
+			OR
+			(
+				RELATION(     
+				FROM=DELRmiResourceModelProdSysImplCnx/PLMDELProdSysImplCnx
+				TO=PRODUCTCFG/VPMInstance,PRODUCTCFG/VPMReference
+				THROUGH=POINTSTO) 
+				WITH QUALITY_FILTER(ROLE=DEL_LinkToRelativeObject)
+			)
+			OR
+			(
+				(
+					RELATION(     
+					FROM=DELRmiResourceModelProdSysImplCnx/PLMDELProdSysImplCnx
+					TO=PRODUCTCFG/VPMPort
+					THROUGH=POINTSTO) 
+					WITH QUALITY_FILTER(ROLE=PLM_ImplementLink_Source)
+				)
+				THEN						
+				(
+					RELATION(     
+					FROM=PRODUCTCFG/VPMPort
+					TO=PRODUCTCFG/VPMRepReference
+					THROUGH=POINTSTO )
+				)
+				THEN 
+				(
+					RELATION(     
+					FROM=PRODUCTCFG/VPMRepReference
+					TO=PRODUCTCFG/VPMInstance
+					THROUGH=POINTSTO )
+					WITH QUALITY_FILTER(ROLE=DEL_RepToResourceInstance)
+				)
+			)
+		)
+	)
+)
+ITER=1;

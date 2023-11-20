@@ -1,0 +1,158 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR DELMIA Production System Application -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2009, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified"
+         ModelerType="Top"
+         Name="DELLmiProductionExecInterruptOperation"
+	       Uuid="090b5e1f-9229-457d-b48c-04960dfa45fd"
+	       UseNames="DELLmiProductionOperationUPR DELLmiProductionOperation"
+         CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>Execution Interrupt Operation. OBSOLETE. Not used in current applications </ShortRole>
+    <Role>This package describes the Execution Interrupt Operation model on top of DELLmiProductionOperationUPR</Role>
+  </CAAComment>
+
+  <Comment>last update 2008-05-25</Comment>
+  <Comment>last update 2013-06-21</Comment>
+
+  <Class Name="DELLmiExecInterruptOperationReference"
+		     Uuid="6ca613b8-03ec-4853-b557-c50cb1ac632c"
+     		 Abstract="No"
+	     	 SuperName="DELLmiOperationUPRReference"
+         CustomerExposition="Programmer"
+         Specializable="No"
+         CustomerExtensible="No"
+         CreateInstName="DELLmiExecInterruptOperationInstance"
+         Abbreviation="wiop"
+         InstantiationOwnerTypes="DELLmiExecGeneralSystemReference;DELLmiExecTransfoSystemReference;DELLmiExecTransferSystemReference;ExecBufferSystem;DELLmiWorkOrderReference"
+        >
+    <!-- we want only support InstantiationOwnerTypes="DELLmiWorkOrderReference"-->
+    <!-- we keep all for historical reasons"-->
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELLmiExecOpDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELLmiExecInterruptOperationInstance"/>
+    <Property Name="IconName" Value="I_PPRSeqExecInterrupt"/>
+    <Property Name="3DIconName" Value="I_PPRSeqExecInterrupt.cgr"/>
+    <Property Name="Newable" Value="No"/>
+    <Property Name="Searchable" Value="Yes"/>
+
+    <CAAComment>
+      <ShortRole>Execution Interrupt Operation Reference</ShortRole>
+      <Role>Execution Interrupt Operation Reference. Specialization is not supported yet.</Role>
+    </CAAComment>
+
+
+    <Simple Name="V_OccurrenceTime"
+            Uuid="4a752d02-b07d-4887-9f48-823d31ead25f"
+            Type="Double"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>This determines the time taken for the repair to complete.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_OccurrenceTimeMode" Uuid="0ceb9c87-3f68-44ae-8ccc-83532415a919" Type="Integer" Protection="Free" CAAExposition="L0" DefaultValue="1">
+      <Property Name="RangeAsEnumName" Value="DELLmiProductionOperation.DELLmi_OccurrenceTimeMode"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="TOTAL_TIME;BUSY_TIME;NUMBER_OF_PRODUCTS"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+      </Range>
+      <CAAComment>
+        <ShortRole>The mode by which time between two occurrences of a failure is determined.</ShortRole>
+      </CAAComment>
+
+    </Simple>
+    <Simple Name="V_StopingOnGoingOp" Uuid="0e5b0df5-3312-4c55-8e55-42c86acc45bb" Type="Integer" Protection="Free" CAAExposition="L0" DefaultValue="1">
+      <Property Name="RangeAsEnumName" Value="DELLmiProductionOperation.DELLmi_StopingOnGoingOp"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="IMMEDIATE;WHEN_OPERATIONS_END"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+      </Range>
+      <CAAComment>
+        <ShortRole>This Determines the behaviour of the On-going operations (stopped or allowed to complete) before the Start of the Interrupt Operation.</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_InputResources" Uuid="969d436a-2cfe-4191-8a0b-981d6d0eaf8f" Type="Integer" Protection="Free" CAAExposition="L0" DefaultValue="1">
+      <Property Name="RangeAsEnumName" Value="DELLmiProductionOperation.DELLmi_InputResources"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="RETURN_BACK;KEEP_RESERVED;AVAILABLE_FOR_OTHERS"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+      </Range>
+      <CAAComment>
+        <ShortRole>This defines the behaviour-logic-next action of the Resources (ex.workers) used for the repair operation when the repair operation is completed.</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_Restart" Uuid="7dedd85f-ffd3-440f-ba6b-694b78a2f184" Type="Integer" Protection="Free" CAAExposition="L0" DefaultValue="1">
+      <Property Name="RangeAsEnumName" Value="DELLmiProductionOperation.DELLmi_Restart"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="CONTINUE;RESTART;SCRAP_INPUT_PRODUCTS"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+      </Range>
+      <CAAComment>
+        <ShortRole>This determines the behaviour of the Interrupted Operations (ex. general or loading operations) after the end of the Repair Operation.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+
+
+
+  </Class>
+
+  <RelationClass Name="DELLmiExecInterruptOperationInstance"
+		     Uuid="bb1893ca-d362-47b1-bd1d-8bab9853c0f8"
+		     Abstract="No"
+		     SuperName="DELLmiOperationUPRInstance"
+         CustomerExposition="Programmer"
+         Specializable="No"
+         CustomerExtensible="No">
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELMPProdSystemAdvDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELLmiExecInterruptOperationInstance"/>
+
+    <CAAComment>
+      <ShortRole>Execution Interrupt Operation Instance</ShortRole>
+      <Role>Execution Interrupt Operation Instance. Specialization is not supported yet.</Role>
+    </CAAComment>
+
+    <Volatile Name="Reference"
+              Uuid="7EF59791-3969-4ab2-8964-077B00609173"
+              Accessor="PLMModelerReferenceKweAttribute"
+              TypeName="DELLmiExecInterruptOperationReference"
+              AccessMode="ReadOnly" />
+
+    <SubClause Name="to"   TargetName="DELLmiExecInterruptOperationReference"/>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+
+
+  </RelationClass>
+
+
+</Package>

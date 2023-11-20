@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR Validation Application -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2006, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" Name="DMUValidationParticipants" Uuid="e263e31a-79c4-4345-a32f976d51dd447b" UseNames="PLMCORE" BelongsToModeler="DMUValidationAbstract" CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+  <CAAComment>
+		<ShortRole>Validation Collaboration Modeler Package</ShortRole>
+		<Role>This package describes the collaboration aspect of the Validation inside Validation modeler</Role>
+	</CAAComment>
+	<Comment>Creation 2006-03-14 LJE</Comment>
+	
+	<Class Name="DMUValidationParticipants" Uuid="c6c0de1f-d3d8-45df-809854ea0f84b71e" Abstract="No" SuperName="PLMConnection" CustomerExposition="Programmer" OwnerTypes="DMUValidationValidation">
+		<CAAComment>
+			<ShortRole>Participants Object</ShortRole>
+			<Role>Participants Object exposes the list of participants of the Validation</Role>
+		</CAAComment>
+    <Property Name="IconName" Value="I_VALParticipants"/>
+    <Property Name="3DIconName" Value="I_VALParticipants.cgr"/>
+    <Property Name="Searchable" Value="No"/>
+    <!-- OwnerTypes="DMUValidationValidationDS"  Integrate this line if you want to declare the aggregation constraint -->
+
+    <Path Name="V_Validation_Participants" Uuid="201a3e35-5d57-420a-ba84b1350469a487"  Lower="0" Upper="1" MultiValuated="Yes"  RoleName="DMU_Participants_List" Semantics="Reference" Type="SemanticRelation" AdaptativeToMinor="No" 		SynchroSensitivity="None"		RerouteOnEffectivityChange="No"/>
+		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+    <!-- Behavior patterns: default values -->
+    <Property Name="LockUnlockAvailability" Value="No"/>
+    <Property Name="TransferOwnershipAvailability" Value="No"/>
+  </Class>
+</Package>

@@ -1,0 +1,39 @@
+NAVIGATE
+
+   	T0.PLMID			, T1.PLMID			, T2.PLMID ,
+   	T0.PLM_ExternalID	, T1.PLM_ExternalID	, T2.PLM_ExternalID
+
+FROM
+
+	ENOCLG_CLASS/ENOCLG_Item T0 ,
+
+	CATComponentsFamilyItems/CATComponentsFamilyProxyToElement T1 ,
+
+	CATComponentsFamily/CATComponentsFamilyReference T2
+
+FROM_ROOTS
+
+	[?1?]
+
+ON
+
+	(RELATION
+		(FROM=ENOCLG_CLASS/ENOCLG_Item
+		 TO=CATComponentsFamilyItems/CATComponentsFamilyProxyToElement
+		   THROUGH=POINTSTO
+		)
+		 WITH QUALITY_FILTER
+		  (CATEGORY=Reference2 AND ROLE=ENOFLD_Folder)
+	)
+
+THEN
+
+	(RELATION
+		(FROM=CATComponentsFamilyItems/CATComponentsFamilyProxyToElement
+		 TO=CATComponentsFamily/CATComponentsFamilyReference
+		   THROUGH=POINTEDBY
+		)
+		 WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY)
+	)
+
+ITER = 1 ;

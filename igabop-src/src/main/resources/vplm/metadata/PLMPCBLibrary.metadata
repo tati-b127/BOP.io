@@ -1,0 +1,165 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2017, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top"
+	Name="PLMPCBLibrary"
+	Uuid="2FCA181B-B893-4E6B-A6960EAE59D5F63A"
+	UseNames="PLMCORE;PLMElectricalLogical;PLMEnsLogical;PRODUCTCFG;PRODUCTDiscipline"
+	CustomerExposition="Programmer"
+ >
+	<!--BelongsToModeler="Circuit and Flexible Board Design"-->
+	<Comment> PHB : last update on 2017-05-12</Comment>
+  
+	<Class Name="PLMPCBLogicalComponent"
+		Uuid="A22F65CC-0A3B-4249-9D22F28622D3E3BC"
+		Abstract="No"
+		CustomerExposition="Programmer"
+		SuperName="EnsLogicalEquipment"
+		Discipline="Yes"
+		Specializable="Yes"
+		CustomerExtensible="Yes"
+	>
+		<Property Name="Searchable" Value="Yes"/>
+		<Property Name="KweNew_InstanciationMethod" Value="CATPCBLogicalComponentInstanciation"/>
+		<Property Name="IconName" Value="I_PCBLogicalComponent"/>
+		<Property Name="Newable" Value="All"/>
+		<Simple Name="V_PreferPhysicalComponent" Uuid="43017E18-3089-4766-AE7F-3C7359775C14" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+		<Simple Name="V_PreferPackageFootprint" Uuid="5428E66B-4307-42EE-A663-3EFAEEF89B41" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+	</Class>
+
+	<Class Name="PLMPCBLogicalPin"
+		Uuid="361F2A2B-7E1C-4B3F-800B650FF7AF21F2"
+		Abstract="No"
+		CustomerExposition="Programmer"
+		SuperName="EleLogicalPin"
+		Discipline="Yes"
+		Specializable="Yes"
+		CustomerExtensible="Yes"
+	>
+		<Property Name="KweNew_InstanciationMethod" Value="CATPCBLogicalPinInstanciation"/>
+		<Property Name="Newable" Value="Insert"/>
+		<Property Name="IconName" Value="I_PCBLogicalPin"/>
+	</Class>
+
+	
+	<Extension Name="PLMPCBPhysicalComponent"
+		Uuid="C989FBF3-E48C-46C9-B8C4A4452FA3EECD"
+		CustomerExposition="Programmer"
+		ScopeNames="VPMReference"
+	>
+		<Property Name="Searchable" Value="Yes"/>
+		<Property Name="IconName" Value="I_PCBPhysicalComponent"/>
+		<Simple Name="V_Elec_SubType" Uuid="2C275637-3B22-4165-AB1D8EDB02FD58B3" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+		<Simple Name="V_MappingTable" Uuid="E3F3FD6D-D58E-4ECF-8DFBED53C0EC275C" Type="Clob" MultiValuated="No" Protection="Internal" UIAccess="None"/>
+	</Extension>
+	
+	<Extension Name="PLMPCB3DPackage"
+		Uuid="7A602005-AF63-4B87-A425090CAB3910C8"
+		CustomerExposition="Programmer"
+		ScopeNames="VPMReference"
+	>
+		<Property Name="Searchable" Value="Yes"/>
+		<Property Name="IconName" Value="I_PCB3DPackage"/>
+		<Simple Name="V_Elec_SubType" Uuid="6C8AD8D2-1147-4BD5-AC15883BFE31F2B9" Type="String" MaxLength="100" MultiValuated="No" Protection="Free" CAAExposition="L0"/>
+	</Extension>
+	
+	<Extension Name="PLMPCBPackageWrap"
+		Uuid="1B85FDB1-4C21-4D5E-8D9FDB2DFC9A2F6F"
+		CustomerExposition="Programmer"
+		ScopeNames="3DShape;VPMReference"
+	>
+		<Property Name="Searchable" Value="Yes"/>
+		<Property Name="IconName" Value="I_PCBPackageWrap"/>
+	</Extension>
+
+  
+  <Extension Name="PLMPCBPackageFootprint"
+		Uuid="DB2DB842-2231-4608-824C29AD3D4137D2"
+		CustomerExposition="Programmer"
+		ScopeNames="VPMRepReference;VPMReference"
+	>
+    <Property Name="Searchable" Value="Yes"/>
+	<Property Name="IconName" Value="I_PCBPackageFootprint"/>
+  </Extension>
+
+  <Class Name="PLMPCBPackageFootprintCnx"
+		Uuid="DCAF4965-0D75-4801-8E31995DA33719A5"
+		CustomerExposition="Programmer"
+		SuperName="PLMConnection"
+	>
+    <Property Name="Searchable" Value="No"/>
+	
+	<Path Name="PLMPCBPackageFootprintList"
+      Uuid="F6EA1C49-FA2B-4CFB-BC77-E5F7AEDF3ACF"
+      MultiValuated="Yes"
+      RoleName="PLMPCBPackageFootprintLink"
+      Semantics="Reference5"
+      Type="SemanticRelation"
+      AdaptativeToMinor="No"
+      SynchroSensitivity="Last"
+      RerouteOnEffectivityChange="No"
+      Protection="External"
+      Orientation="Out"/>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+  <Extension Name="PLMPCBPackageFootprintRepRef"
+		Uuid="0794BF8B-F04F-4C80-90466323DACB2772"
+		CustomerExposition="Programmer"
+		ScopeNames="VPMRepReference"
+	>
+    <Property Name="Searchable" Value="Yes"/>
+  </Extension>
+
+
+  <Extension Name="PLMPCBPhysicalComponentInst"
+		Uuid="8555FC9E-52FB-4240-AC853655B4676158"
+		CustomerExposition="Programmer"
+		ScopeNames="VPMInstance"
+	>
+	<Property Name="IconName" Value="I_PCBPhysicalComponentInst"/>
+	
+	<Simple Name="V_PlacementStatus"
+            Uuid="7F779728-2603-4052-9B01-EA777591E4D3"
+            Type="String"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"
+            DefaultValue="Placed">
+		<Range>
+			<Equal>Placed</Equal>
+			<Equal>Unplaced</Equal>
+			<Equal>MCAD</Equal>
+			<Equal>ECAD</Equal>
+		</Range>
+    </Simple>
+	
+	<Simple Name="V_BoardSide"
+            Uuid="07A32FC2-57B3-440A-B119-47D2FD4122D1"
+            Type="String"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"
+            DefaultValue="Top">
+		<Range>
+			<Equal>Top</Equal>
+			<Equal>Bottom</Equal>
+		</Range>
+    </Simple>
+	
+  </Extension>
+	
+  <Extension Name="PLMPCBPackageFootprint3DShape"
+		Uuid="4523A7C5-31CD-4E01-B705-A9F2E718E397"
+		CustomerExposition="Programmer"
+		ScopeNames="3DShape"
+	>
+    <Property Name="Searchable" Value="Yes"/>
+  </Extension>
+
+</Package>

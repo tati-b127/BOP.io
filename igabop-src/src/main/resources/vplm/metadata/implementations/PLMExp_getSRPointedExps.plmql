@@ -1,0 +1,1 @@
+NAVIGATE      T0.PLM_ExternalID,     T0.PLMIDFROM     PLMCORE/PLMCoreRepReference T0FROM_ROOTS [?1?] ON RELATION	(		FROM=PLMCORE/PLMCoreRepReference		TO=PLMCORE/PLMCoreRepReference		THROUGH=POINTSTO	) 	WITH QUALITY_FILTER (ROLE=PLMExp_toPrototype) OR (ROLE=PLMExp_toValue)ITER=999;  

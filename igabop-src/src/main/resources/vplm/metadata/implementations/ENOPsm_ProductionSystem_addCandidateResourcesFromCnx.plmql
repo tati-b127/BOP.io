@@ -1,0 +1,35 @@
+NAVIGATE     
+
+T0.PLMID, T1.PLMID
+ 
+
+FROM        
+
+PRODUCTCFG/VPMInstance T0,
+PRODUCTCFG/VPMReference T1
+
+FROM_ROOTS[?1?]
+
+ON ((RELATION(     
+
+FROM=DELLmiProductionCandidateResCnx/DELLmiCandidateResourcesCnx
+
+TO=PRODUCTCFG/VPMInstance
+
+THROUGH=POINTSTO) WITH QUALITY_FILTER(ROLE=DEL_LinkToResources))
+
+OR
+
+(RELATION(
+
+FROM=DELLmiProductionCandidateResCnx/DELLmiCandidateResourcesCnx
+
+TO=PRODUCTCFG/VPMReference
+
+THROUGH=POINTSTO) WITH QUALITY_FILTER(ROLE=DEL_LinkToResources)))
+
+
+ITER=1;
+
+
+

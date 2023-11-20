@@ -1,0 +1,66 @@
+<?xml version="1.0" ?>
+<ProcedurePackage 
+	xmlns="PLMDictionaryProcedure"
+	Name="Requirement_Procedures">
+
+  <Procedure Name="Rmt_UseCase_ExportCompletion">
+    <Implementation Name="Rmt_UseCase_ExportCompletion" FileLocation="Rmt_UseCase_ExportCompletion.KProc" Language="EKL"/>
+    <Signature href="Rmt_ProcedureSignatureExport"/>
+  </Procedure>
+
+  <Procedure Name="Rmt_ReqGroup_ExportCompletion">
+    <Implementation Name="Rmt_ReqGroup_ExportCompletion" FileLocation="Rmt_ReqGroup_ExportCompletion.KProc" Language="EKL"/>
+    <Signature href="Rmt_ProcedureSignatureExport"/>
+  </Procedure>
+
+  <Procedure Name="Rmt_ReqSpec_ExportCompletion">
+    <Implementation Name="Rmt_ReqSpec_ExportCompletion" FileLocation="Rmt_ReqSpec_ExportCompletion.KProc" Language="EKL"/>
+    <Signature href="Rmt_ProcedureSignatureExport"/>
+  </Procedure>
+
+  <Procedure Name="Rmt_Requirement_ExportCompletion">
+    <Implementation Name="Rmt_Requirement_ExportCompletion" FileLocation="Rmt_Requirement_ExportCompletion.KProc" Language="EKL"/>
+    <Signature href="Rmt_ProcedureSignatureExport"/>
+  </Procedure>
+
+  <Procedure Name="Rmt_Chapter_ExportCompletion">
+    <Implementation Name="Rmt_Chapter_ExportCompletion" FileLocation="Rmt_Chapter_ExportCompletion.KProc" Language="EKL"/>
+    <Signature href="Rmt_ProcedureSignatureExport"/>
+  </Procedure>
+
+  <Procedure Name="Rmt_Comment_ExportCompletion">
+    <Implementation Name="Rmt_Comment_ExportCompletion" FileLocation="Rmt_Comment_ExportCompletion.KProc" Language="EKL"/>
+    <Signature href="Rmt_ProcedureSignatureExport"/>
+  </Procedure>
+
+  <Procedure Name="Rmt_REL_Specification_Structure_ExportCompletion">
+    <Implementation Name="Rmt_REL_Specification_Structure_ExportCompletion" FileLocation="Rmt_REL_Specification_Structure_ExportCompletion.KProc" Language="EKL"/>
+    <Signature href="Rmt_ProcedureSignatureExport"/>
+  </Procedure>
+
+  <Procedure Name="Rmt_REL_Sub_Requirement_ExportCompletion">
+    <Implementation Name="Rmt_REL_Sub_Requirement_ExportCompletion" FileLocation="Rmt_REL_Sub_Requirement_ExportCompletion.KProc" Language="EKL"/>
+    <Signature href="Rmt_ProcedureSignatureExport"/>
+  </Procedure>
+
+  <Procedure Name="Rmt_REL_Requirement_Group_Content_ExportCompletion">
+    <Implementation Name="Rmt_REL_Requirement_Group_Content_ExportCompletion" FileLocation="Rmt_REL_Requirement_Group_Content_ExportCompletion.KProc" Language="EKL"/>
+    <Signature href="Rmt_ProcedureSignatureExport"/>
+  </Procedure>
+
+  <Procedure Name="Rmt_REL_Sub_Requirement_Group_ExportCompletion">
+    <Implementation Name="Rmt_REL_Sub_Requirement_Group_ExportCompletion" FileLocation="Rmt_REL_Sub_Requirement_Group_ExportCompletion.KProc" Language="EKL"/>
+    <Signature href="Rmt_ProcedureSignatureExport"/>
+  </Procedure>
+
+  <Procedure Name="Rmt_REL_Requirement_Validation_ExportCompletion">
+    <Implementation Name="Rmt_REL_Requirement_Validation_ExportCompletion" FileLocation="Rmt_REL_Requirement_Validation_ExportCompletion.KProc" Language="EKL"/>
+    <Signature href="Rmt_ProcedureSignatureExport"/>
+  </Procedure>
+
+  <Signature id="Rmt_ProcedureSignatureExport">
+		<Parameter Name="InputIds" Lower="0" Upper="-1" MultiValuated="Yes" Direction="in" DataType="PLMId"/>
+		<Parameter Name="OutputIds" Lower="0" Upper="-1" MultiValuated="Yes" Direction="out" DataType="PLMId"/>
+	</Signature>
+	
+</ProcedurePackage>

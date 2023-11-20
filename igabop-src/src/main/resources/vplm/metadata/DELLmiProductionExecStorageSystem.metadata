@@ -1,0 +1,141 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR DELMIA Production System Application -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2013, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified"
+         ModelerType="Top"
+         Name="DELLmiProductionExecStorageSystem"
+	       Uuid="20bbf3cd-3c6d-4660-97b6-61f25806adcb"
+	       UseNames="DELLmiProductionSystemUPR DELLmiProductionSystem"
+         UseProcedures="ENOEps_Procedures ENOPsm_Procedures"
+         CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>Execution Storage System Model</ShortRole>
+    <Role>This package describes the Execution Storage System model on top of DELLmiProductionSystem</Role>
+  </CAAComment>
+
+  <Comment>last update 2013-06-18</Comment>
+
+  <Class Name="DELLmiExecStorageSystemReference"
+		     Uuid="0d32255e-e0f6-4cd9-a0f2-e3a8ad8e7f63"
+		     Abstract="No"
+         SuperName="DELLmiUPRSystemReference"
+         CustomerExposition="Programmer"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         CreateInstName="DELLmiExecStorageSystemInstance"
+         Abbreviation="est">
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELMPProdSystemAdvDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELLmiExecStorageSystemInstance"/>
+    <Property Name="IconName" Value="I_UPRGeneralSystem"/>
+    <Property Name="3DIconName" Value="I_UPRGeneralSystem.cgr"/>
+    <Property Name="Newable" Value="No"/>
+    <Property Name="Searchable" Value="Yes"/>
+
+    <Simple Name="V_ArrivalMode" Uuid="c1a61e19-d689-41cb-98b4-01c214a11d20" Type="Integer" Protection="Free" CAAExposition="L0" DefaultValue="1">
+      <Property Name="RangeAsEnumName" Value="DELLmiProductionSystem.DELLmi_ArrivalMode_Enum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="Sequential;Any;AllTogether"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+      </Range>
+      <CAAComment>
+        <ShortRole>It determines type of products arriving at the Source system.  The available options are Any, Sequential and All together.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_ArrivalTimeMode" Uuid="edee2770-68ad-4151-9c4d-e8cff522481c" Type="Integer" Protection="Free" CAAExposition="L0" DefaultValue="1">
+      <Property Name="RangeAsEnumName" Value="DELLmiProductionSystem.DELLmi_ArrivalTimeMode_Enum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="Random;Schedule;OnSignal"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+      </Range>
+    </Simple>
+
+    <Simple Name="V_QueingMode" Uuid="a2f580c3-3e27-440e-a69f-11e4fda79368" Type="Integer" Protection="Free" CAAExposition="L0" DefaultValue="1">
+      <Property Name="RangeAsEnumName" Value="DELLmiProductionSystem.DELLmi_QueingMode_Enum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="FIFO;LIFO;Priority"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+      </Range>
+      <CAAComment>
+        <ShortRole>Queuing is the order in which products readied for routing out of the system. The two common types of queuing methods are First in First out (FIFO) and Last in First out (LIFO).</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <Simple Name="V_InitialDelay"
+            Uuid="240fae48-e9d9-4c61-bd5e-6f097c0327f9"
+            Type="Double"
+            Magnitude="TIME"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0">
+      <CAAComment>
+        <ShortRole>This allows you to set a time delay on commencement of the system’s behavior.</ShortRole>
+      </CAAComment>
+    </Simple>
+
+    <CAAComment>
+      <ShortRole>Execution Storage System Reference</ShortRole>
+      <Role>Execution Storage System Reference. Specialization is not supported yet.</Role>
+    </CAAComment>
+
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Design"/>
+        <UsedProcedure href="ENOEps_Procedures.proc#ProductionExecSystem_GetAllEntities"/>
+      </ProcedureForUsage>
+    </Method>
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExchangeScope.meth#XPDM"/>
+        <UsedProcedure href="ENOPsm_Procedures.proc#ProductionExecSystem_ExchangeXPDM_GetAllEntities"/>
+      </ProcedureForUsage>
+    </Method>
+  </Class>
+
+
+  <RelationClass Name="DELLmiExecStorageSystemInstance"
+		     Uuid="5186ac87-a552-40c6-a9e2-a99ff5b0333b"
+		     Abstract="No"
+         SuperName="DELLmiUPRSystemInstance"
+         CustomerExposition="Programmer"
+         Specializable="Yes"
+         CustomerExtensible="Yes">
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELMPProdSystemAdvDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELLmiExecStorageSystemInstance"/>
+
+    <CAAComment>
+      <ShortRole>Execution Storage System Instance</ShortRole>
+      <Role>Execution Storage System Instance. Specialization is not supported yet.</Role>
+    </CAAComment>
+
+    <Volatile Name="Reference" Uuid="CBFE56B6-FEED-48d0-9732-01C6752767B1" Accessor="PLMModelerReferenceKweAttribute" TypeName="DELLmiExecStorageSystemReference" AccessMode="ReadOnly" />
+
+    <SubClause Name="to"   TargetName="DELLmiExecStorageSystemReference"/>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+
+
+  </RelationClass>
+
+
+</Package>

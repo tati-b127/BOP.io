@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" Name="ENOSTWkiInstructionDS" Uuid="0cd8cf80-048f-4ed7-996b8cf9b2d1868d" UseNames="DELWkiInstruction" >
+	<CAAComment>
+		<ShortRole>PLM Customization of DELMIA Work Instruction Text for SMB</ShortRole>
+		<Role>PLM Customization of DELMIA Work Instruction Text for SMB</Role>
+	</CAAComment>
+	<Comment>last update 2010-07-01</Comment>
+
+	<Class Name="ENOSTWkiInstructionReferenceCusto" Uuid="2a3d48cf-39c4-4af1-b49bbd13f418f12f" SuperName="DELWkiInstructionReference" SuperRef="c6b00b25-9e1e-4a82-a32a03f2a8e97e95"  >
+
+    <Simple Name="E_fromExternalId"
+            Uuid="f4364786-cdf7-438a-9041a7d891d185a3"
+            Alias="Definition"
+            Type="String"
+            MaxLength="256"
+            Mandatory="No"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0"/>
+    <Simple Name="E_versionComment"
+            Uuid="6ce7187a-9b14-47aa-99806c6de619e8ef"
+            Alias="Version Comment"
+            Type="String"
+            MaxLength="256"
+            Mandatory="No"
+            MultiValuated="No"
+            Protection="Free"
+            ResetOnNewVersion="Yes"
+            ResetOnCloning="Yes"
+            CAAExposition="L0"/>
+    <IdentifierSet Name="E_identifier"
+                   Uuid="c4362a0b-9a33-4f28-bc12c3c8689df664"
+                   IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755"
+                   IdentifierNames="PLM_ExternalID V_version"/>
+
+    <CAAComment>
+			<ShortRole>PLM Customization of DELMIA DELMIA Work Instruction Text Reference for SMB</ShortRole>
+			<Role>PLM Customization of DELMIA DELMIA Work Instruction Text Reference for SMB</Role>
+		</CAAComment>
+	</Class>
+
+  <RelationClass Name="ENOSTWkiInstructionInstanceCusto" Uuid="020aa933-b24c-4d8e-b067241fe9ade341" SuperName="DELWkiInstructionInstance" SuperRef="7f990cc1-d08b-4b95-837d6fbbe43d7190"  >
+    <CAAComment>
+      <ShortRole>PLM Customization of DELMIA Work Instruction Text model Instance for SMB</ShortRole>
+      <Role>PLM Customization of DELMIA Work Instruction Text model Instance for SMB</Role>
+    </CAAComment>
+    <!-- ********************************************************* -->
+    <!-- * Overload(s) of PLMCoreInstance attributes. -->
+    <!-- ********************************************************* -->
+    <SubClause Name="to"   TargetName="ENOSTWkiInstructionReferenceCusto"/>
+  </RelationClass>
+
+  </Package>

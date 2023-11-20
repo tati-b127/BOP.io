@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2012, All rights reserved -->
+
+<Package CustomerExposition = "Programmer" ModelerType = "Top" Name = "BridgeArchitecturalElement" UseNames = "CivilEngineeringElement" Uuid = "d2ef45d5-e36c-4d79-be7e-7f01630cf54a" xmlns = "PLMDictionaryUnified">
+  <Class Abstract = "Yes" CustomerExposition = "Programmer" Discipline = "Yes" Name = "BridgeArchitecturalElement" SuperName = "CivilEngineeringElement" Uuid = "b2895147-11c1-4ae4-af32-865478ef994f">
+    <Property Name = "GroupingType" Value = "BridgeArchitecturalElement"/>
+    <Property Name = "InstantiationOwnerTypes" Value = "PPRContext;BridgeSpatialStructureElement;AecElementAssembly;BridgeArchitecturalElement;BuildingSpace"/>
+  </Class>
+  <Class Abstract = "Yes" CustomerExposition = "Programmer" Discipline = "Yes" Name = "BridgeArchitecturalElementType" SuperName = "CivilEngineeringElementType" Uuid = "DA8546CF-0914-427C-857C-7607B5666DC6">
+    <Property Name = "GroupingType" Value = "BridgeArchitecturalElementType"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "BridgeOtherArchitecturalElement" Specializable = "Yes" SuperName = "BridgeArchitecturalElement" Uuid = "1a485f4c-5eac-4496-a5f9-f694b1545fd6">
+    <Property Name = "IconName" Value = "I_BridgeOtherArchitecturalElement"/>
+    <Property Name = "3DIconName" Value = "I_BridgeOtherArchitecturalElement.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATEAECDelegateInstanciation"/>
+    <Property Name = "Newable" Value = "All_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "UserChoiceReferenceDefault"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "BridgeOtherArchitecturalElementType" Specializable = "Yes" SuperName = "BridgeArchitecturalElementType" Uuid = "23DAC5FF-A327-426A-8E8A-0AFDBCDE4A58">
+    <Property Name = "IconName" Value = "I_BridgeOtherArchitecturalElementType"/>
+    <Property Name = "3DIconName" Value = "I_BridgeOtherArchitecturalElementType.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATCbaObjectTypeDelegateInstanciation"/>
+    <Property Name = "Newable" Value = "New_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "ReferenceOnly"/>
+  </Class>
+</Package>

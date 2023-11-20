@@ -1,0 +1,127 @@
+#Prog Prm_ExportResources( iPLMIDSet : #In PLMIDSet, oPLMIDSet : #Out PLMIDSet ) : VoidType
+{
+let RsARMpointedCoreRef    (PLMRouteSet)
+let RsARMpointedCoreRepRef (PLMRouteSet)
+let RsARMpointedBO         (PLMRouteSet)
+let RsProductStructure     (PLMRouteSet)
+let IdsARMpointedCoreRef      (PLMIDSet)
+let IdsARMpointedCoreRepRef   (PLMIDSet)
+let IdsARMpointedBO           (PLMIDSet)
+let IdsCatalogs               (PLMIDSet)
+let IdsCatalogsContents       (PLMIDSet)
+let IdsChapters               (PLMIDSet)
+let IdsChaptersContents       (PLMIDSet)
+let IdsTemplates              (PLMIDSet)
+let IdsTemplatesStructure     (PLMIDSet)
+let IdsProductStructureInputs1 (PLMIDSet)
+let IdsProductStructureInputs2 (PLMIDSet)
+let IdsProductStructure1      (PLMIDSet)
+let IdsProductStructure2      (PLMIDSet)
+let IdsRulesets               (PLMIDSet)
+let IdsRulesetsContents       (PLMIDSet)
+let IdsKComps                 (PLMIDSet)
+let IdsKCompStructure         (PLMIDSet)
+let IdsLogicalPKT1             (PLMIDSet)
+let IdsLogicalPKT2             (PLMIDSet)
+let IdsEnsSpecs1               (PLMIDSet)
+let IdsEnsSpecs2               (PLMIDSet)
+let IdsEnsTechTables1          (PLMIDSet)
+let IdsEnsTechTables2          (PLMIDSet)
+let IdsEKLLibs                 (PLMIDSet)
+let IdsEKLLibsContents         (PLMIDSet)
+
+
+/* Get core reference(s) pointed thru ARM link(s) */
+RsARMpointedCoreRef = ExecutePLMFunction( "PLMResourceSetRep", "prm_navigate_ref", iPLMIDSet )
+IdsARMpointedCoreRef = Ids( RsARMpointedCoreRef )
+
+/* Get core representation(s) reference(s) pointed thru ARM link(s) */
+RsARMpointedCoreRepRef = ExecutePLMFunction( "PLMResourceSetRep", "prm_navigate_repref", iPLMIDSet )
+IdsARMpointedCoreRepRef = Ids( RsARMpointedCoreRepRef )
+
+/* Get new CBP model objects */
+RsARMpointedBO = ExecutePLMFunction( "PLMResourceSetRep", "prm_navigate_cbp", iPLMIDSet )
+IdsARMpointedBO = Ids( RsARMpointedBO )
+
+/* Isolate the catalogs */
+IdsCatalogs = Restrict( IdsARMpointedCoreRef , "ENOCLG_LIBRARY/ENOCLG_LibraryReference" )
+/* Get catalogs pointed contents from procedure */
+IdsCatalogsContents = ExecutePLMProcedure( "Clg_ExportCatalog", IdsCatalogs )
+
+
+/* Isolate the chapters */
+IdsChapters = Restrict( IdsARMpointedCoreRef , "ENOCLG_CLASS/ENOCLG_ClassReference" )
+/* Get chapters pointed contents from procedure */
+IdsChaptersContents = ExecutePLMProcedure( "Clg_ExportChapter", IdsChapters )
+
+
+/* Isolate the Templates */
+IdsTemplates = Restrict( IdsARMpointedCoreRepRef , "PLMKnowledgeTemplate/PLMTemplateRepReference" )
+/* Get the Templates structure from procedure */
+IdsTemplatesStructure = ExecutePLMProcedure( "Pkt_ExportTemplate", IdsTemplates )
+
+
+/* Get product structure from function */
+IdsProductStructureInputs1 = Restrict( IdsARMpointedCoreRef, "PRODUCTCFG/VPMReference" )
+RsProductStructure = ExecutePLMFunction( "PRODUCTCFG", "ProductCfg_AddChildrenProduct", IdsProductStructureInputs1 )
+IdsProductStructure1 = Ids( RsProductStructure )
+
+/* Get product structure with reps from procedure */
+IdsProductStructureInputs2 = Restrict( IdsProductStructure1, "PRODUCTCFG/VPMReference" )
+							+ Restrict( IdsProductStructure1, "PRODUCTCFG/VPMRepReference" )
+							+ Restrict( IdsARMpointedCoreRepRef, "PRODUCTCFG/VPMRepReference" )
+IdsProductStructure2 = ExecutePLMProcedure( "VPMEditor_GetAllRepresentations", IdsProductStructureInputs2 )
+
+
+/* Isolate the rulesets */
+IdsRulesets = Restrict( IdsARMpointedCoreRef, "PLMKnowHowRuleSet/PLMRuleSet" )
+/* Get rules entities */
+IdsRulesetsContents = ExecutePLMProcedure( "Kwe_ExportRuleSet", IdsRulesets )
+
+
+/* Isolate the Knowledge Components */
+IdsKComps = Restrict( IdsARMpointedCoreRepRef, "PLMKbaAppliComponent/PLMKbaAppliComponent" )
+/* Get the component(s) structure and dependencies */
+IdsKCompStructure = ExecutePLMProcedure( "Kba_ExportAppComp", IdsKComps )
+
+/* Get Logical references */
+IdsLogicalPKT1 = Restrict(IdsARMpointedCoreRef,"RFLVPMLogical/RFLVPMLogicalReference")
+/* Calling Logical completion */
+IdsLogicalPKT2 = ExecutePLMProcedure("Logical_ExportReference_Design", IdsLogicalPKT1)
+
+
+/* Isolate Ens specs */
+IdsEnsSpecs1 = Restrict(IdsARMpointedCoreRef,"PLMEnsSpecSpecification/EnsSpecification")
+/* Calling ens specs completion */
+IdsEnsSpecs2 = ExecutePLMProcedure("ESE_SpecExport", IdsEnsSpecs1)
+
+
+/* Isolate Ens techno tables */
+IdsEnsTechTables1 = Restrict(IdsARMpointedCoreRef,"PLMEnsSpecTechnoTable/EnsTechnologicalTable")
+/* Calling ens techno table completion */
+IdsEnsTechTables2 = ExecutePLMProcedure("ESE_TechnoTableExport", IdsEnsTechTables1)
+
+
+/* Isolate the EKL libraries */
+IdsEKLLibs = Restrict( IdsARMpointedCoreRef , "PLMKnowHowLibrary/PLMEKLLibrary" )
+/* Get what is pointed by the EKL libraries */
+IdsEKLLibsContents = ExecutePLMProcedure( "Kwe_ExportEKLLibrary", IdsEKLLibs )
+
+
+/* Provide back all that stuff */
+oPLMIDSet = iPLMIDSet
++ IdsARMpointedCoreRef
++ IdsARMpointedCoreRepRef
++ IdsARMpointedBO
++ IdsCatalogsContents
++ IdsChaptersContents
++ IdsTemplatesStructure
++ IdsProductStructure1
++ IdsProductStructure2
++ IdsRulesetsContents
++ IdsKCompStructure
++ IdsLogicalPKT2
++ IdsEnsSpecs2
++ IdsEnsTechTables2
++ IdsEKLLibsContents
+}

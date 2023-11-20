@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2011, All rights reserved -->
+
+<!-- History
+    V6R2012x Created
+-->
+
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" Name="VPMCfgContext"
+    Uuid="70527D4B-533E-494b-9617D005E7B8982E"
+    UseNames="PLMCORE" 
+	UseProcedures="Config_Procedures"
+    BelongsToModeler="Configuration" 
+    CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+        <ShortRole>The Configuration Context Metadata.</ShortRole>
+        <Role>This package includes the entity VPMCfgContext for dictionary context definition.</Role>
+    </CAAComment>
+
+    <!-- ******************* -->
+    <!-- Class VPMCfgContext -->
+    <!-- ******************* -->
+
+    <Class Name="VPMCfgContext"
+        Uuid="4F517D13-4470-4306-BE6658465A489C5E"
+        SuperName="PLMConnection"
+        Abstract="No"
+    		CustomerExposition="Programmer"
+		    Specializable="No"
+		    CustomerExtensible="No">
+		
+        <CAAComment>
+            <ShortRole>The VPMCfgContext.class</ShortRole>
+            <Role>The VPMCfgContext.class</Role>
+        </CAAComment>
+        
+
+		<Path Name="V_AttachedModels"
+			Uuid="3B9F57A2-894B-4a35-B843261F6D445818"
+    MultiValuated="Yes"
+  Type="SemanticRelation" AdaptativeToMinor="No"
+  SynchroSensitivity="None"
+  RerouteOnEffectivityChange="No"
+      Lower="0"
+      Upper="-1"
+			RoleName="CFG_AttachedModel"
+			Semantics="Reference"/> 
+
+        <!-- ********************** -->
+        <!-- Procedures declaration -->      
+        <!-- ********************** -->
+
+        <Method ImplementationType="Self">
+            <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+            <ProcedureForUsage>
+                <Usage href="ExportScope.meth#Design"/>
+                <UsedProcedure href="Config_Procedures.proc#Config_GetStructConfigAndModelsContent"/>
+            </ProcedureForUsage>
+            <ProcedureForUsage>
+                <Usage href="ExportScope.meth#Channel"/>
+                <UsedProcedure href="Config_Procedures.proc#Config_GetStructConfig"/> 
+            </ProcedureForUsage>
+        </Method>
+		
+		<!-- XPDM exchange -->
+		<Method ImplementationType="Self">
+			<RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+			<ProcedureForUsage>
+                <Usage href="ExchangeScope.meth#XPDM"/>
+                <UsedProcedure href="Config_Procedures.proc#Config_GetConfigContextAndModelsOnReference"/> 
+            </ProcedureForUsage>
+		</Method>
+		
+    </Class>
+	
+    <!-- ********************** -->
+    <!-- FUNCTIONS Declarations -->
+    <!-- ********************** -->
+
+    <Function Name="VPMCfgContext_AddContextFromReference">
+		<Implementation Name="VPMCfgContext_AddContextFromReference" FileLocation="VPMCfgContext_AddContextFromReference.plmql" Language="PLMQL"/>
+		<Signature href="VPMCfgContext_FuntionSignatureExport"/>
+    </Function>
+    <Function Name="VPMCfgContext_AddModelsFromContext">
+		<Implementation Name="VPMCfgContext_AddModelsFromContext" FileLocation="VPMCfgContext_AddModelsFromContext.plmql" Language="PLMQL"/>
+		<Signature href="VPMCfgContext_FuntionSignatureExport"/>
+    </Function>
+	
+    <Signature id="VPMCfgContext_FuntionSignatureExport">
+		<Parameter Name="InputIds" Lower="0" Upper="-1" Direction="in" MultiValuated="Yes" DataType="PLMId"/>
+		<Parameter Name="OutputIds" Lower="0" Upper="-1" Direction="out" MultiValuated="No" DataType="PLMRouteSet"/>
+    </Signature>
+	
+</Package>
+

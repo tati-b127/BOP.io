@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- COPYRIGHT DASSAULT SYSTEMES 2015, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" BelongsToModeler="PLM3DXEnvironment" Name="PLM3DXGlobeEnvironment" 
+  Uuid="5B90B1CA-9152-44AC-AE1B-1076608860C7" 
+  UseNames="PLM3DXEnvironment" 
+  CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <Class Name="GlobeEnvironment"
+					 Uuid="6D2A3699-9029-430C-8899-A199A0D24391"
+					 Abstract="No"
+					 SuperName="PLM3DXEnvironment"
+					 Abbreviation="planets"
+					 CustomerExposition="Programmer"
+					 Specializable="No"
+					 CustomerExtensible="No">
+
+    <Property Name="NewMajorRevisionAvailability"  Value="Yes"/>
+    <Property Name="ChangeMaturityAvailability"    Value="Yes"/>
+    <Property Name="DeleteAvailability"            Value="Yes"/>
+    <Property Name="LockUnlockAvailability"        Value="Yes"/>
+    <Property Name="TransferOwnershipAvailability" Value="Yes"/>
+    <Property Name="DuplicateAvailability"         Value="Yes"/>
+    <Property Name="EditPropertiesAvailability"    Value="Yes"/>
+    <Property Name="SaveAsNewAvailability"         Value="Yes"/>
+    <Property Name="EvolutionAvailability"         Value="No"/>
+    <Property Name="NewMinorRevisionAvailability"  Value="No"/>
+    <Property Name="Searchable"                    Value="Yes"/>
+    <Property Name="Newable"                       Value="New_Offline"/>
+    <Property Name="IconName"                      Value="I_GlobeEnvironment"/>
+    <Property Name="3DIconName"                    Value="CAT3DNav_GlobeEnvironment.cgr"/>
+    <Property Name="Configurable"                  Value="No" />
+    <Property Name="Filtrable"                     Value="No" />
+    <Property Name="KweNew_InstanciationMethod"    Value="CATEnvironmentDelegateInstanciation"/>
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+</Package>

@@ -1,0 +1,65 @@
+/*********************************************************************************************************************************/
+/* Export procedure for Ergonomic Simulation Object                                                                              */
+/*    Simulation Object is connected to a Design product                                                                         */
+/* --> Retrieves all agregated PLM objects (References, Ref Instances, Rep References, Rep Instances, Ports and Connections)     */
+/*********************************************************************************************************************************/
+#Prog SimulationOpen_ErgonomicsSimulation ( iPLMIDSet : #In PLMIDSet, oPLMIDSet : #Out PLMIDSet ) : VoidType
+{
+    let IdsCategoriesAndSo (PLMIDSet)
+	let IdsSetModel (PLMIDSet) 
+	let IdsProductStructure (PLMIDSet)	
+	let IdsExtDoc (PLMIDSet)		
+	let IdsSimuRep (PLMIDSet)
+	let IdsExtSimuRepDoc (PLMIDSet)	
+	let IdsPublishResult (PLMIDSet)		
+	let IdsProdAndChildren (PLMIDSet)		
+	
+	let RouteSetCategoriesAndSo (PLMRouteSet)
+	let RouteSetModel  (PLMRouteSet)
+	let RouteSetExtDoc (PLMRouteSet)	
+	let RouteSimuRep (PLMRouteSet)
+	let RouteSetExtSimuRepDoc (PLMRouteSet)
+	let RoutePublishResult (PLMRouteSet)	
+	let RouteSetProdAndChildren (PLMRouteSet)		
+	
+	/*************************************************************************************************************/
+	/* Retrieves PLMIDs of simulation objects                                                                    */
+	/*************************************************************************************************************/  	
+	/* getting categories */
+	RouteSetCategoriesAndSo = ExecutePLMFunction("SIMObjSimulationGeneric", "sim_retrieveCategories", iPLMIDSet)
+	IdsCategoriesAndSo = Ids(RouteSetCategoriesAndSo)
+	
+	/* getting design product */
+	RouteSetModel = ExecutePLMFunction("SIMObjSimulationGeneric", "sim_addSimulatedModel", Restrict(IdsCategoriesAndSo, "SIMObjSimulationCategoryAndProdCnx/SIMObjSimulationCategoryReference"))
+	IdsSetModel =   Ids(RouteSetModel)
+	
+	/* getting External documents */
+	RouteSetExtDoc = ExecutePLMFunction("PLMDocConnection", "PLMDocConnection_retrieveAllDocuments", IdsCategoriesAndSo)
+	IdsExtDoc = Ids(RouteSetExtDoc)
+	
+	/* getting simu rep under category */
+	RouteSimuRep = ExecutePLMFunction("SIMObjSimulationGeneric", "sim_retrieveSimuRep", Restrict(IdsCategoriesAndSo, "SIMObjSimulationCategoryAndProdCnx/SIMObjSimulationCategoryReference"))
+	IdsSimuRep = Ids(RouteSimuRep)
+
+	/* getting external doc from simu rep */
+	RouteSetExtSimuRepDoc = ExecutePLMFunction("SIMObjSimulationGeneric", "sim_retrieveExternalDocumentfromSimuRep", Restrict(IdsSimuRep, "SIMObjSimulationV5Generic/SIMObjSimulationV5RepReferenceGeneric"))
+	IdsExtSimuRepDoc = Ids(RouteSetExtSimuRepDoc)
+
+	/* getting publish result */
+	RoutePublishResult = ExecutePLMFunction("SIMObjSimulationGeneric", "sim_addPublishResultCnx", Restrict(IdsCategoriesAndSo, "SIMObjSimulationCategoryAndProdCnx/SIMObjSimulationCategoryReference"))
+	IdsPublishResult = Ids(RoutePublishResult)
+
+
+	/*getting Product and Children from Product*/
+    RouteSetProdAndChildren = ExecutePLMFunction("PRODUCTCFG", "ProductCfg_AddChildrenProduct",   Restrict(Ids(RouteSetModel, "last"), "PRODUCTCFG/VPMReference"))
+    IdsProdAndChildren = Ids(RouteSetProdAndChildren)
+	
+	/* calling Product Procedure*/
+     IdsProductStructure  =  ExecutePLMProcedure(  "VPMEditor_OpenCompletionOnReference",  IdsProdAndChildren ) 
+
+
+	/**********************/
+	/* Returns all PLMIds */
+	/**********************/
+	oPLMIDSet = IdsCategoriesAndSo + IdsSetModel + IdsExtDoc + IdsSimuRep + IdsSimuRep + IdsExtSimuRepDoc + IdsPublishResult + IdsProdAndChildren+IdsProductStructure
+}

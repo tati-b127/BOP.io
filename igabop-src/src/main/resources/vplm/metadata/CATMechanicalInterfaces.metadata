@@ -1,0 +1,297 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2012, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" 
+	       Name="CATMechanicalInterfaces"
+	       UseNames="LPABSTRACT PRODUCTCFG"
+	       Uuid="0beb2fa5-179a-4795-bb53-dd717417fb3c"
+         BelongsToModeler="CATMechanicalInterfaces"
+	       CustomerExposition="Programmer" 
+	       ModelerType="Top"
+         UseProcedures= "MechanicalITFTemplate_Procedures">         
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <!-- =================================================================== -->
+  <!-- MITemplateRepReference :             -->
+  <!-- =================================================================== -->
+  <!--  ============  -->
+  <Class Name="MechanicalInterfaceTemplate"
+         Uuid="7931e041-1938-4864-8bb1-bb9abf7445bd"
+         Abstract="No"
+         CustomerExposition="Programmer"
+         SuperName="LPAbstractRepReference"
+         Specializable="No"
+         CustomerExtensible="No"
+         Abbreviation="mit">
+
+    <Property Name="Newable" Value="New"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATMITemplRepInstanciate"/>
+    <Property Name="IconName" Value="I_MITemplateRep"/>
+    <Property Name="3DIconName" Value="I_MITemplateRep"/>
+    <Property Name="Searchable" Value="Yes"/>
+
+    <Property Name="ChangeMaturityAvailability" Value="Yes"/>
+    <Property Name="DeleteAvailability" Value="Yes"/>
+    <Property Name="DuplicateAvailability" Value="Yes"/>
+    <Property Name="EditPropertiesAvailability" Value="Yes"/>
+    <Property Name="EvolutionAvailability" Value="No"/>
+    <Property Name="LockUnlockAvailability" Value="Yes"/>
+    <Property Name="NewMajorRevisionAvailability" Value="No"/>
+    <Property Name="NewMinorRevisionAvailability" Value="No"/>
+    <Property Name="SaveAsNewAvailability" Value="No"/>
+    <Property Name="TransferOwnershipAvailability" Value="Yes"/>
+
+
+    <Simple Name="V_MIType"
+            Uuid="4588CFB6-A482-457C-80F3-12DDE1B21359"
+            Type="String"
+            MaxLength="72"
+            MultiValuated="No"
+            Protection="External">
+      <CAAComment>
+        <ShortRole>The Type of the MI Template</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_MINature"
+            Uuid="100BD413-13B4-4517-A032-484B64822507"
+            Type="String"
+            MaxLength="72"
+            MultiValuated="No"
+            Protection="External">
+      <CAAComment>
+        <ShortRole>The Kind of the MI Template</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_MIIdentifier"
+            Uuid="6F2A63B9-A804-4417-9672-C6B176C91F3A"
+            Type="String"
+            MaxLength="200"
+            MultiValuated="No"
+            Protection="External">
+      <CAAComment>
+        <ShortRole>The Kind of the MI Template</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_MIFor_Features"
+            Uuid="E8E3EA91-F8E5-4731-81E8-A5AF36F4AA59"
+            Type="String"
+            MaxLength="72"
+            MultiValuated="Yes"
+            Protection="External">
+      <CAAComment>
+        <ShortRole>The list of the supported Feature by the MI Template</ShortRole>
+      </CAAComment>
+    </Simple>
+    <Simple Name="V_KinType"
+            Uuid="26ACFA51-8645-40D9-8975-16252E9C5410"
+            Type="String"
+            MaxLength="72"
+            MultiValuated="No"
+            Protection="External">
+      <CAAComment>
+        <ShortRole>The KinType of the MI Template</ShortRole>
+      </CAAComment>
+    </Simple>
+    
+    <!-- XPDM exchange -->
+    <Method
+     ImplementationType="Self">
+      <RealizeMethodType
+        href="ExportScope.meth#ExportScope" />
+      <ProcedureForUsage>
+        <Usage
+          href="ExportScope.meth#Design" />
+        <UsedProcedure
+          href="MechanicalITFTemplate_Procedures.proc#MechITFTemplateExport" />
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage
+          href="ExportScope.meth#Channel" />
+        <UsedProcedure
+          href="MechanicalITFTemplate_Procedures.proc#MechITFTemplateExport" />
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage
+          href="ExportScope.meth#Remove" />
+        <UsedProcedure
+          href="MechanicalITFTemplate_Procedures.proc#MechITFTemplateExport" />
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage
+          href="ExportScope.meth#TransferSiteOwnership" />
+        <UsedProcedure
+          href="MechanicalITFTemplate_Procedures.proc#MechITFTemplateExport" />
+      </ProcedureForUsage>
+    </Method>    
+  </Class>
+
+
+  
+
+  <!-- =================================================================== -->
+  <!-- Port Extension:             -->
+  <!-- =================================================================== -->
+
+  <!-- MECA Extension -->
+  <Extension  Name="CATAsmMECA"
+              Uuid="1EB69239-8AC3-4DA8-9A67-4DB4B59BC113"
+              ScopeNames="VPMPort"
+              CustomerExposition="ProgrammerOnly">
+
+    <Simple Name="V_ITFType"
+            Uuid="46E1BAC9-2907-4E13-A817-3E8D36952E68"
+            Type="String"
+            MaxLength="72"
+            MultiValuated="No"
+            Protection="External" CAAExposition="L0"/>
+
+    <Simple Name="V_ITFNature"
+            Uuid="9BE5D815-CA28-4B0A-BD3C-B96E53187D7D"
+            Type="String"
+            MaxLength="72"
+            MultiValuated="No"
+            Protection="External" CAAExposition="L0"/>
+
+    <Simple Name="V_ITFComsum"
+           Uuid="C32F2E6B-05BC-4CA7-81FC-FD5A0D6CB86D"
+           Type="Integer"
+           MultiValuated="No"
+           Protection="External" CAAExposition="L0"/>
+
+    <Simple Name="V_ITFMaxComsum"
+           Uuid="39264B03-2F4F-45AE-B7C4-6558F4CF487D"
+           Type="Integer"
+           MultiValuated="No"
+           Protection="External" CAAExposition="L0"/>
+
+    <Simple Name="V_ITFValidity"
+           Uuid="2B7FFB0F-4B8A-4E8E-850B-1C7760225C6E"
+           Type="Integer"
+           MultiValuated="No"
+           Protection="External" CAAExposition="L0"/>
+
+    <Simple Name="V_ITFId"
+           Uuid="C5A30918-02BF-46CA-A5DF-BD2B091BF8F1"
+           Type="String"
+           MaxLength="200"
+           MultiValuated="No"
+           Protection="External" CAAExposition="L0"/>
+
+    <Simple Name="V_ITFTemplate"
+          Uuid="F4FFCE58-ADF6-4327-BD09-7A58D42D5086"
+          Type="Integer"
+          MultiValuated="No"
+          Protection="External" CAAExposition="L0"/>
+    
+    <Simple Name="V_MIUsages"
+          Uuid="A95B4DC9-9B4C-47AD-8B24-26409B439297"
+          Type="String"
+          MultiValuated="Yes"
+          Protection="External" CAAExposition="L0"/>
+
+    <Simple Name="V_Clearance"
+           Uuid="E5390FE2-F894-4A63-B085-1AF56E468FA7"
+           Type="Integer"
+           MultiValuated="Yes"
+           Protection="External" CAAExposition="L0"/>
+
+    <Simple Name="V_ITFVersion"
+          Uuid="F876BECE-31D7-4CDC-8955-6153CCFB5065"
+          Type="Integer"
+          MultiValuated="No"
+          Protection="External" CAAExposition="L0"/>
+
+
+  </Extension>
+
+  <!-- TTRS Extension -->
+  <Extension  Name="CATAsmTTRS"
+              Uuid="DAAEEA5A-1E25-4F66-BA67-17C0B9FC36B2"
+              ScopeNames="VPMPort"
+              CustomerExposition="ProgrammerOnly">
+
+    <Simple Name="V_NbTTRS"
+            Uuid="E9CC2EF8-711E-491A-8573-28F7F1EF74A1"
+            Type="Integer"
+            MultiValuated="No"
+            Protection="External" CAAExposition="L0"/>
+
+    <Simple Name="V_TTRSStruct"
+            Uuid="F32175AB-8E47-4818-8FB7-22032287BD4B"
+            Type="String"
+            MaxLength="32"
+            MultiValuated="Yes"
+            Protection="External" CAAExposition="L0"/>
+
+    <Simple Name="V_TTRSIdent"
+            Uuid="5C01903A-47E3-47F3-B58A-003FF47CA946"
+            Type="String"
+            MaxLength="32"
+            MultiValuated="Yes"
+            Protection="External" CAAExposition="L0"/>
+
+    <Simple Name="V_TTRSClass"
+            Uuid="EE610E9A-F445-41E5-BE83-DC726CDDBEE6"
+            Type="Integer"
+            MultiValuated="Yes"
+            Protection="External" CAAExposition="L0"/>
+
+    <Simple Name="V_TTRSType"
+            Uuid="E47F2761-2E3F-43AC-8C6E-3F59D1FAC639"
+            Type="Integer"
+            MultiValuated="Yes"
+            Protection="External" CAAExposition="L0"/>
+
+    <Simple Name="V_NBComp"
+            Uuid="24C4ABF9-8794-41ED-8831-C6C303944391"
+            Type="Integer"
+            MultiValuated="Yes"
+            Protection="External" CAAExposition="L0"/>
+
+    <Simple Name="V_AssocCase"
+            Uuid="2146847F-06EB-4DE1-B114-FE0D193199C3"
+            Type="Integer"
+            MultiValuated="Yes"
+            Protection="External" CAAExposition="L0"/>
+
+    <Simple Name="V_Canoncity"
+            Uuid="84697805-FAC2-448A-994C-028D942C3FDC"
+            Type="Integer"
+            MultiValuated="Yes"
+            Protection="External" CAAExposition="L0"/>
+
+    <Simple Name="V_MatSense"
+            Uuid="44D303D1-C7A2-4617-96CA-9D913ADBDE84"
+            Type="Integer"
+            MultiValuated="Yes"
+            Protection="External" CAAExposition="L0"/>
+
+    <Simple Name="V_GeomCar"
+            Uuid="58ADC6CD-5E85-4305-A67B-49DF0147EBD5"
+            Type="Double"
+            MultiValuated="Yes"
+            Protection="External" CAAExposition="L0"/>
+
+    <Simple Name="V_CanonSCar"
+            Uuid="C04B050E-BC7E-486A-987C-AFC6DAE26978"
+            Type="String"
+            MaxLength="32"
+            MultiValuated="Yes"
+            Protection="External" CAAExposition="L0"/>
+
+    <Simple Name="V_CanonICar"
+            Uuid="66EBBFD0-554C-4AC7-9FB2-AB3672B8DA41"
+            Type="Integer"
+            MultiValuated="Yes"
+            Protection="External" CAAExposition="L0"/>
+
+    <Simple Name="V_CanonVal"
+           Uuid="5466C3E5-DF59-4A6D-B422-940E40F34894"
+           Type="Double"
+           MultiValuated="Yes"
+           Protection="External" CAAExposition="L0"/>
+
+  </Extension>
+
+   
+</Package>

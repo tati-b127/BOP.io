@@ -1,0 +1,35 @@
+#Prog Rmt_UseCase_ExportCompletion( iPLMIDSet : #In PLMIDSet, oPLMIDSet : #Out PLMIDSet ) : VoidType
+{
+let RsSubUCs              (PLMRouteSet)
+let RsDocs                 (PLMRouteSet)
+let IdsUCs                 (PLMIDSet)
+let IdsAllUCsAndRels       (PLMIDSet)
+let IdsOnlyUCs             (PLMIDSet)
+let IdsDocs                 (PLMIDSet)
+let IdsOnlyDocs             (PLMIDSet)
+let IdsDocsAndScope         (PLMIDSet)
+
+
+/* Get the use cases, with their sub use cases */
+IdsUCs = Restrict( iPLMIDSet , "Class/Use Case" )
+RsSubUCs = ExecutePLMFunction( "Requirement", "rmt_nav_uc_subs", IdsUCs )
+
+
+/* Get the ids of all UCs (subUCs included) */
+IdsAllUCsAndRels = Ids(RsSubUCs)
+IdsOnlyUCs = Restrict( IdsAllUCsAndRels , "Class/Use Case" )
+
+
+/* Get the reference documents of all UCs (subUCs included) */
+RsDocs = ExecutePLMFunction( "Requirement", "rmt_nav_uc_docs", IdsOnlyUCs )
+IdsDocs = Ids(RsDocs)
+IdsOnlyDocs = Restrict( IdsDocs, "Class/DOCUMENTS" )
+IdsDocsAndScope = ExecutePLMProcedure( "DocumentCompletion", IdsOnlyDocs )
+
+
+/* Provide back all that stuff */
+oPLMIDSet = iPLMIDSet
++ IdsAllUCsAndRels
++ IdsDocs
++ IdsDocsAndScope
+}

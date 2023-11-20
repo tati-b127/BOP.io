@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2005, All rights reserved -->
+<Package
+    xmlns="PLMDictionaryTop"
+    ModelerType="Top"
+    Name="EXE_Procedures_Ressource"
+    Uuid="B5BECAF8-4729-4240-B6A4-3DC3B86B964D"
+    UseProcedures="EXE_Procedures"
+    >
+</Package>

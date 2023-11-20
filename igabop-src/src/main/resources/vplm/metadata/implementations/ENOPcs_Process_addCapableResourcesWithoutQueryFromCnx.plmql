@@ -1,0 +1,36 @@
+NAVIGATE     
+
+T0.physicalid, T0.logicalid, T0.majorid, T0.type, T0.name, T1.PLMID
+ 
+
+FROM      
+
+Class/DOCUMENTS T0,
+
+PRODUCTCFG/VPMReference T1
+
+FROM_ROOTS[?1?]
+
+ON  ((RELATION(
+
+FROM=DELAsmAssemblyModelCnx/DELAsmProcessCanUseCnx
+
+TO=Class/DOCUMENTS
+
+THROUGH=POINTSTO))
+
+
+OR
+
+(RELATION(
+
+FROM=DELAsmAssemblyModelCnx/DELAsmProcessCanUseCnx
+
+TO=PRODUCTCFG/VPMReference
+
+THROUGH=POINTSTO)))
+
+ITER=1
+;
+
+

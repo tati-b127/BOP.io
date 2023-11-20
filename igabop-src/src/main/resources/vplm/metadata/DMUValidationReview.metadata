@@ -1,0 +1,143 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR Validation Application -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2006, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified"
+         ModelerType="Top"
+         BelongsToModeler="DMUValidationAbstract"
+         Name="DMUValidationReview"
+         Uuid="c5bf350b-aa7e-479b-b0cabb6e0eef5f39"
+         UseNames="PLMCORE"
+         CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>Validation Presentation Modeler Package</ShortRole>
+    <Role>This package describes the Validation Presentation modeler</Role>
+  </CAAComment>
+
+  <Comment>Creation 2007-07-24 LJE</Comment>
+
+  <Class Name="DMUValidationReviewReference"
+         Uuid="7b2ef30e-4e0a-474d-ad304cea43f40693"
+         Abstract="No"
+         SuperName="PLMCoreReference"
+         CreateInstName="DMUValidationReviewInstance"
+         CustomerExposition="Programmer"
+         Specializable="Yes"
+         Abbreviation="mrk"
+         NewMajorRevisionAvailability="No">
+
+    <CAAComment>
+      <ShortRole>Presentation Reference Object</ShortRole>
+      <Role>Presentation Reference Object tides the Validation with the features generated during the review</Role>
+    </CAAComment>
+
+    <Property Name="IconName" Value="I_VALReview"/>
+    <Property Name="3DIconName" Value="I_VALReview.cgr"/>
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="Newable" Value="Insert_Offline"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATVALReviewNewFactory"/>
+    <Property Name="Searchable" Value="No"/>
+    <!-- Behavior patterns: default values -->
+    <Property Name="LockUnlockAvailability" Value="No"/>
+    <Property Name="TransferOwnershipAvailability" Value="No"/>
+
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Remove"/>
+        <UsedProcedure href="ENOVAL_Procedures.proc#Markup_Complete"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#TransferSiteOwnership"/>
+        <UsedProcedure href="ENOVAL_Procedures.proc#Markup_Complete"/>
+      </ProcedureForUsage>
+    </Method>
+  </Class>
+
+  <RelationClass Name="DMUValidationReviewInstance"
+         Uuid="dcd77a05-8ca6-4f88-acfd8929bb578f7f"
+         Abstract="No"
+         SuperName="PLMCoreInstance"
+         CustomerExposition="Programmer"
+         Specializable="Yes">
+
+    <CAAComment>
+      <ShortRole>Presentation Instance Object</ShortRole>
+      <Role>Presentation Instance Object tides the Validation with the features generated during the review</Role>
+    </CAAComment>
+
+    <Property Name="IconName" Value="I_VALReview"/>
+    <Property Name="3DIconName" Value="I_VALReview.cgr"/>
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="Searchable" Value="No"/>
+
+    <SubClause Name="from" TargetName="PLMCoreReference"/>
+    <SubClause Name="to"   TargetName="DMUValidationReviewReference"/>
+
+    <Method ImplementationType="Self">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#Remove"/>
+        <UsedProcedure href="ENOVAL_Procedures.proc#Markup_Complete"/>
+      </ProcedureForUsage>
+      <ProcedureForUsage>
+        <Usage href="ExportScope.meth#TransferSiteOwnership"/>
+        <UsedProcedure href="ENOVAL_Procedures.proc#Markup_Complete"/>
+      </ProcedureForUsage>
+    </Method>
+  </RelationClass>
+
+  <Class Name="DMUValidationReviewRepReference"
+         Uuid="93e6070e-c567-4676-9203fe20922edffc"
+         Abstract="No"
+         SuperName="PLMCoreRepReference"
+         CreateInstName="DMUValidationReviewRepInstance"
+         CustomerExposition="Programmer"
+         Abbreviation="mks"
+         NewMajorRevisionAvailability="No">
+
+    <CAAComment>
+      <ShortRole>Presentation Representation Reference Object</ShortRole>
+      <Role>Presentation Representation Reference Object contains all the features generated during the review</Role>
+    </CAAComment>
+
+    <Property Name="IconName" Value="I_VALReview"/>
+    <Property Name="3DIconName" Value="I_VALReview.cgr"/>
+    <Property Name="Searchable" Value="No"/>
+    <!-- Behavior patterns: default values -->
+    <Property Name="LockUnlockAvailability" Value="No"/>
+    <Property Name="TransferOwnershipAvailability" Value="No"/>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+  <RelationClass Name="DMUValidationReviewRepInstance"
+         Uuid="61879f54-029f-4c10-94b3181ff0946c65"
+         Abstract="No"
+         SuperName="PLMCoreRepInstance"
+         CustomerExposition="Programmer">
+
+    <CAAComment>
+      <ShortRole>Presentation Representation Instance Object</ShortRole>
+      <Role>Presentation Representation Instance Object tides the Validation with the features generated during the review</Role>
+    </CAAComment>
+
+    <Property Name="IconName" Value="I_VALReview"/>
+    <Property Name="3DIconName" Value="I_VALReview.cgr"/>
+    <Property Name="Searchable" Value="No"/>
+    <!-- Behavior patterns: default values -->
+    <Property Name="TransferOwnershipAvailability" Value="No"/>
+
+    <SubClause Name="from" TargetName="DMUValidationReviewReference"/>
+    <SubClause Name="to"   TargetName="DMUValidationReviewRepReference"/>
+
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </RelationClass>
+</Package>

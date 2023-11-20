@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><!-- COPYRIGHT DASSAULT SYSTEMES 2004, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" Name="VPMDECComponent" CustomerExposition="Programmer"
+    Uuid="ad4bfdd5-5eae-4b09-bdee-d2970460c0ce"
+    UseNames="VPMDEC">
+	
+	<Class Name="VPMDECComponent" Uuid="0782c80b-4121-4c23-a8d3-5c094c969360" Abstract="No" SuperName="VPMDECReference" >
+	<Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+	</Class>
+</Package>

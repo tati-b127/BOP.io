@@ -1,0 +1,6 @@
+#Prog Kwe_ExportEKLLibrary( iPLMIDSet : #In PLMIDSet, oPLMIDSet : #Out PLMIDSet ) : VoidType
+{
+/* Simplest rule possible: the library export contains only the library itself */
+oPLMIDSet = iPLMIDSet
+
+}

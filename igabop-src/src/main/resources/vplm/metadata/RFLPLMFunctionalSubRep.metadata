@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR RFL Logical Application -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2007, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" BelongsToModeler="RFLPLMFunctional" Name="RFLPLMFunctionalSubRep" 
+	Uuid="D032B8B2-B52B-4a55-83E7-F51F8705A6BE" 
+	UseNames="RFLPLMFunctional" 
+  CustomerExposition="Programmer"         
+	>
+	
+	<CAAComment>
+		<ShortRole>RFLPLM Functional Sub Rep Package</ShortRole>
+		<Role>This package describes the PLM Functional new Rep References</Role>
+	</CAAComment>
+		
+	<!-- ******************************************************************* -->
+	<!-- *  FunctionalDSContentRepReference (RFLVPMFunctionalRepReference) * -->
+	<!-- ******************************************************************* -->
+
+	<Class Name="FunctionalDSContentRepReference" Uuid="8E64E7CF-7A56-40d0-93A0-CDD04B17335C" 
+        CustomerExposition="Programmer"
+        CustomerExtensible="No"
+        Specializable="No"
+        Abstract="Yes"
+		    SuperName="RFLPLMFunctionalRepReference"  
+        Discipline="Yes"
+		>    
+    
+		<CAAComment>
+			<ShortRole>PLM Functional DS Content Rep Reference Object</ShortRole>
+			<Role>PLM Functional non DS Content Rep Reference Object</Role>
+		</CAAComment>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+  </Class>
+
+  <Class Name="FunctionalNonDSContentRepReference" Uuid="18A9ACEE-761E-4da5-939C-64F1C4679872"
+        CustomerExposition="Programmer"
+        CustomerExtensible="Yes"
+        Specializable="Yes"
+        Abstract="Yes"
+		    SuperName="RFLPLMFunctionalRepReference"
+        Discipline="Yes"
+		>
+
+    <CAAComment>
+      <ShortRole>PLM Functional DS Content Rep Reference Object</ShortRole>
+      <Role>PLM Functional non DS Content Rep Reference Object</Role>
+    </CAAComment>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+
+  </Class>  
+  
+</Package>

@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<!-- edited with XMLSpy v2007 (http://www.altova.com) by DASSAULT SYSTEMES (DASSAULT SYSTEMES) -->
+<ProcedurePackage xmlns="PLMDictionaryProcedure" Name="SIM_Procedures">
+  <Procedure Name="DefaultSimulationExport">
+		<Implementation Name="DefaultSimulationExport" FileLocation="DefaultSimulationExport.KProc" Language="EKL"/>
+		<Signature href="SIM_ProcedureSignatureExport"/>
+	</Procedure>
+	<Procedure Name="DefaultSimulationExport_Channel">
+		<Implementation Name="DefaultSimulationExport_Channel" FileLocation="DefaultSimulationExport_Channel.KProc" Language="EKL"/>
+		<Signature href="SIM_ProcedureSignatureExport"/>
+	</Procedure>
+  <Procedure Name="DefaultSimulationExport_Remove">
+    <Implementation Name="DefaultSimulationExport_Remove" FileLocation="DefaultSimulationExport_Remove.KProc" Language="EKL"/>
+    <Signature href="SIM_ProcedureSignatureExport"/>
+  </Procedure>
+	<Procedure Name="SimulationExportForGPS">
+		<Implementation Name="SimulationExportForGPS" FileLocation="SimulationExportForGPS.KProc" Language="EKL"/>
+		<Signature href="SIM_ProcedureSignatureExport"/>
+  </Procedure>
+  <Procedure Name="SimulationExportSimple">
+    <Implementation Name="SimulationExportSimple" FileLocation="SimulationExportSimple.KProc" Language="EKL"/>
+    <Signature href="SIM_ProcedureSignatureExport"/>
+	</Procedure>
+	<Procedure Name="LogicalSimulationExport">
+		<Implementation Name="LogicalSimulationExport" FileLocation="LogicalSimulationExport.KProc" Language="EKL"/>
+		<Signature href="SIM_ProcedureSignatureExport"/>
+	</Procedure>
+	<Procedure Name="FunctionalSimulationExport">
+		<Implementation Name="FunctionalSimulationExport" FileLocation="FunctionalSimulationExport.KProc" Language="EKL"/>
+		<Signature href="SIM_ProcedureSignatureExport"/>
+	</Procedure>
+  <Procedure Name="BioSystemsSimulationExport">
+    <Implementation Name="BioSystemsSimulationExport" FileLocation="BioSystemsSimulationExport.KProc" Language="EKL"/>
+    <Signature href="SIM_ProcedureSignatureExport"/>
+  </Procedure>
+  <Procedure Name="SimulationOpen_DesignSight">
+    <Implementation Name="SimulationOpen_DesignSight" FileLocation="SimulationOpen_DesignSight.KProc" Language="EKL"/>
+    <Signature href="SIM_ProcedureSignatureExport"/>
+  </Procedure>
+  <Procedure Name="SimulationOpen_GenerativeStress">
+    <Implementation Name="SimulationOpen_GenerativeStress" FileLocation="SimulationOpen_GenerativeStress.KProc" Language="EKL"/>
+    <Signature href="SIM_ProcedureSignatureExport"/>
+  </Procedure>
+  <Procedure Name="SimulationOpen_Kinematics">
+    <Implementation Name="SimulationOpen_Kinematics" FileLocation="SimulationOpen_Kinematics.KProc" Language="EKL"/>
+    <Signature href="SIM_ProcedureSignatureExport"/>
+  </Procedure>
+  <Procedure Name="SimulationOpen_BioSystems_Simulation">
+    <Implementation Name="SimulationOpen_BioSystems_Simulation" FileLocation="SimulationOpen_BioSystems_Simulation.KProc" Language="EKL"/>
+    <Signature href="SIM_ProcedureSignatureExport"/>
+  </Procedure>
+  
+  <Procedure Name="SimulationOpen_RulesDiscovery">
+    <Implementation Name="SimulationOpen_RulesDiscovery" FileLocation="SimulationOpen_RulesDiscovery.KProc" Language="EKL"/>
+    <Signature href="SIM_ProcedureSignatureExport"/>
+  </Procedure>
+    
+  <Procedure Name="DELRDYSimulationExport">
+    <Implementation Name="DELRDYSimulationExport" FileLocation="DELRDYSimulationExport.KProc" Language="EKL"/>
+    <Signature href="SIM_ProcedureSignatureExport"/>
+  </Procedure>
+  
+  <Procedure Name="BehaviorLibrarySimulationExport">
+		<Implementation Name="BehaviorLibrarySimulationExport" FileLocation="BehaviorLibrarySimulationExport.KProc" Language="EKL"/>
+		<Signature href="SIM_ProcedureSignatureExport"/>
+	</Procedure>
+  <Signature id="SIM_ProcedureSignatureExport">
+		<Parameter Name="InputIds" Lower="0" Upper="-1" MultiValuated="Yes" Direction="in" DataType="PLMId"/>
+		<Parameter Name="OutputIds" Lower="0" Upper="-1" MultiValuated="Yes" Direction="out" DataType="PLMId"/>
+	</Signature>
+	
+  <Procedure Name="SimulationOpen_ErgonomicsSimulation">
+    <Implementation Name="SimulationOpen_ErgonomicsSimulation" FileLocation="SimulationOpen_ErgonomicsSimulation.KProc" Language="EKL"/>
+    <Signature href="SIM_ProcedureSignatureExport"/>
+  </Procedure>
+	
+</ProcedurePackage>

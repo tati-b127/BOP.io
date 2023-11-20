@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2006, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" 
+         ModelerType="Top" 
+         BelongsToModeler="DELFmiFunctionalModel"
+         Name="DELFmiFunctionalModelPrerequisiteCnx"
+         Uuid="E98C6300-EF28-405B-BAB70066FF82C6B1"
+         UseNames="PLMCORE"
+         CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>Process Function Modeler</ShortRole>
+    <Role>"DELFmiFunctionalModelPrerequisiteCnx" package describes Process Function Prerequisite Connection</Role>
+  </CAAComment>
+  
+    <Class Name="DELFmiProcessPrerequisiteCnx"
+        Uuid="7A94B667-6772-478B-BC2AB13080FD3613"
+        SuperName="PLMConnection"
+        CustomerExposition="Programmer"
+        CustomerExtensible="No"
+        Specializable="No"
+        Abstract="No"
+      OwnerTypes="DELFmiFunctionReference"
+        >
+
+      <Property Name="Searchable" Value="No"/>
+      <Property Name="IconName" Value="I_PLMFunctionPrereqConstraint"/>
+
+      <CAAComment>
+        <ShortRole>Defines Process Function Prerequisite Connection</ShortRole>
+        <Role>Also called "Data requirement"?. Connects processes through Ports. One process needs the output of another process as input (i.e. Data driven)</Role>
+      </CAAComment>
+      
+       <Path Name="PMX_TargetOutPort"
+          Uuid="44BD91FC-71BC-4A62-9972EC2B4906A1C4"
+          MultiValuated="No"
+          RoleName="DELFmi_PrerequisiteCst_Target"
+       		Type="SemanticRelation" AdaptativeToMinor="Yes"
+      		SynchroSensitivity="PathAndLast"
+		      RerouteOnEffectivityChange="Yes" Orientation="In"
+          Semantics="Reference3"
+       />
+
+      <Path Name="PMX_TargetInPort"
+          Uuid="EB5401BD-08A1-43D7-8B665C72F2D10429"
+          MultiValuated="No"
+          RoleName="DELFmi_PrerequisiteCst_Source"		
+          Type="SemanticRelation" AdaptativeToMinor="Yes"
+		      SynchroSensitivity="Last"
+		      RerouteOnEffectivityChange="Yes" Orientation="Out"
+          Semantics="Reference5"
+	/>
+
+	<Method ImplementationType="None">
+		<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+	</Method>
+
+    </Class>
+</Package>

@@ -1,0 +1,238 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR 3D Layout For Systems - RouteLink -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2007, All rights reserved -->
+
+<!-- 
+   =========
+    Package
+   =========
+-->
+
+<Package xmlns="PLMDictionaryUnified"
+         Name="PLMLSRRouteConnection"
+         CustomerExposition="Programmer"
+         ModelerType="Top"
+         UseNames="PLMCORE"
+         Uuid="377B4663-0E1C-4672-A6E6-80B5A33ECA7F">
+
+  <!-- 
+    Comments
+   -->
+   
+   <CAAComment>
+      <ShortRole>PLM 3D Layout For Systems - Route Connection Package</ShortRole>
+      <Role>This package describes - The route connection model on top of PLMCore</Role>
+   </CAAComment>
+   <Comment>Initial creation: 2011-02-02</Comment>
+   <Comment>Unified syntax for Unicorn migration: LOK Apr 2012</Comment>
+
+
+<!-- 
+   ==========================
+    Route connection (class)
+   ==========================
+-->
+
+   <Class Name="PLMLSRRouteConnection"
+          Abstract="No"
+          CAAExposition="L0"
+          CustomerExposition="None"
+          CustomerExtensible="No"
+          Specializable="No"
+          SuperName="PLMConnection"
+          Uuid="2BD5280F-A172-4301-BA92-A0FF98A20350">
+
+   <!-- 
+    Properties
+   -->
+
+      <Property Name="Newable"
+                Value="No"/>
+      <Property Name="Searchable"
+                Value="No"/>
+
+      
+   <!-- 
+    Comments
+   -->
+
+      <CAAComment>
+         <ShortRole>PLM Routing Connection</ShortRole>
+         <Role>PLM Routing Connection</Role>
+      </CAAComment>
+
+
+   <!-- 
+    Attributes
+   -->
+
+      <Simple Name="V_Segregation"
+              CAAExposition="L0"
+              Faceted="No"
+              MaxLength="40"
+              MultiValuated="No"
+              Protection="Free"
+              Type="String"
+              Uuid="2757144F-F9B2-4722-9135-ECF8A1967B3A"/>
+      <Simple Name="V_RouteLength"
+              CAAExposition="L0"
+              Faceted="No"
+              Magnitude="LENGTH"
+              MultiValuated="No"
+              Protection="External"
+              Type="Double"
+              Uuid="92E61C20-F26B-41ad-8CBD-38DB7AD4CB9C"/>
+      <Simple Name="V_RouteType"
+              CAAExposition="L0"
+              Faceted="No"
+              MultiValuated="No"
+              Protection="Free"
+              Type="String"
+              Uuid="72753AEF-97A2-43ea-946A-44E1FE5100C1"/>
+
+   <!-- 
+    Relations
+   -->
+      
+      <Path Name="V_RouteFrom"
+                       Lower="0"
+                       MultiValuated="Yes"
+                       RoleName="LSR_RouteFrom"
+                       Semantics="Reference4"		 Orientation="In"
+                       Type="SemanticRelation" AdaptativeToMinor="No"
+	                  	 SynchroSensitivity="Last"
+		                   RerouteOnEffectivityChange="No"
+                       Upper="-1"
+                       Uuid="73F8AAB1-1BD5-417f-BA2F-ABCBAC7A9153"/>
+      <Path Name="V_RouteTo"
+                       Lower="0"
+                       MultiValuated="Yes"
+                       RoleName="LSR_RouteTo"
+                       Semantics="Reference"	
+                       Type="SemanticRelation" AdaptativeToMinor="No"
+		                   SynchroSensitivity="None"
+		                   RerouteOnEffectivityChange="No"
+                       Upper="-1"
+                       Uuid="369E1C60-B9C1-4977-A896-FEF8159EFD48"/>
+
+   <!-- 
+    Methods
+   -->
+
+      <Method ImplementationType="None">
+         <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+      </Method>
+   </Class>
+
+   
+<!-- 
+   ==============================================
+    Route connection (class - former discipline)
+   ==============================================
+-->
+
+   <Class Name="RouteConnection"
+          Abstract="No"
+          CAAExposition="L0"
+          CustomerExposition="None"
+          CustomerExtensible="No"
+          Discipline="Yes"
+          Specializable="No"
+          SuperName="PLMLSRRouteConnection"
+          Uuid="17960B2D-0A27-4f55-840C-0455E1284046">
+
+   <!-- 
+    Properties
+   -->
+
+      <Property Name="Newable"
+                Value="No"/>
+      <Property Name="Searchable"
+                Value="No"/>
+
+   <!-- 
+    Comments
+   -->
+
+      <CAAComment>
+         <ShortRole>Route Connection Class</ShortRole>
+         <Role>PLM Route Connection Class</Role>
+      </CAAComment>
+
+   </Class>
+
+
+<!-- 
+   =====================================================
+    SPL physical allocation (class - former discipline)
+   =====================================================
+-->
+
+   <Class Name="SPLPhysical3DAllocation"
+          Abstract="No"
+          CAAExposition="L0"
+          CustomerExposition="None"
+          CustomerExtensible="No"
+          Discipline="Yes"
+          Specializable="No"
+          SuperName="PLMLSRRouteConnection"
+          Uuid="ae6f38ac-9954-420e-b23d-b890f3c3fac0">
+
+   <!-- 
+    Properties
+   -->
+
+      <Property Name="Newable"
+                Value="No"/>
+      <Property Name="Searchable"
+                Value="No"/>
+
+   <!-- 
+    Comments
+   -->
+
+      <CAAComment>
+         <ShortRole>SPL Physical 3D Allocation Class</ShortRole>
+         <Role>PLM SPL Physical 3D Allocation Class</Role>
+      </CAAComment>
+
+   </Class>
+
+   
+<!-- 
+   =================
+    PLMQL functions
+   =================
+-->
+
+   <!-- 
+    Functions
+   -->
+
+   <Function Name="PLMLSRRouteConnection_AddLsrCnx">
+      <Implementation Name="PLMLSRRouteConnection_AddLsrCnx"
+                      FileLocation="PLMLSRRouteConnection_AddLsrCnx.plmql"
+                      Language="PLMQL"/>
+      <Signature href="PLMLSRRoute"/>
+   </Function>
+
+   <!-- 
+    Signatures
+   -->
+
+   <Signature id="PLMLSRRoute">
+      <Parameter Name="InputIds"
+                 DataType="PLMId"
+                 Direction="in"
+                 Lower="0"
+                 MultiValuated="Yes"
+                 Upper="-1"/>
+      <Parameter Name="OutputIds"
+                 DataType="PLMRouteSet"
+                 Direction="out"
+                 Lower="0"
+                 MultiValuated="No"
+                 Upper="-1"/>
+   </Signature>
+</Package>

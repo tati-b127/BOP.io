@@ -1,0 +1,17 @@
+EXPAND 
+
+     T0.PLM_ExternalID, T1.PLM_ExternalID ,T2.PLM_ExternalID ,
+     T0.PLMID, T1.PLMID ,T2.PLMID 
+
+FROM
+
+     SIMObjSimulation/SIMObjSimulationObject T0,
+
+     SIMObjSimulationCategoryAndProdCnx/SIMObjSimulationCategoryReference T1,
+
+     SIMObjSimulationCategoryAndProdCnx/SIMObjSimulationCategoryInstance T2
+
+FROM_ROOTS [?1?]
+DEPTH=1;
+
+

@@ -1,0 +1,127 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR RFL Logical Application Custo Sample-->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2006, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" DataRDB_OID="ENODR_RFLLDS" Name="RFLVPMLogicalDS"
+	Uuid="F0F53CE4-E0E9-43d4-A1D1-D46FD8818135" 
+	UseNames="RFLVPMLogical" 
+	>
+	
+<Property Name="OptionalInstallation" Value="Yes" /> 
+	<CAAComment>
+		<ShortRole>PLM Logical Customization Sample Package</ShortRole>
+		<Role>This package describes a Customization of PLM Logical model</Role>
+	</CAAComment>
+	
+	<Comment>last update 2007-02-15</Comment>
+	
+	<!-- ****************************************************************** -->
+	<!-- *  RFLVPMLogicalReferenceDS (RFLVPMLogicalReference)         * -->
+	<!-- ****************************************************************** -->
+
+	<Class Name="RFLVPMLogicalReferenceDS" 
+		Uuid="D5C5BCF2-14B1-4961-A45B-5147E1D3DD7B" 
+		 
+		SuperName="RFLVPMLogicalReference" 		
+		>
+
+		<CAAComment>
+			<ShortRole>Customized PLM Logical Reference Object</ShortRole>
+			<Role>Customized PLM Logical Reference Object</Role>
+		</CAAComment>
+
+    <IdentifierSet Name="Identifier"
+            Uuid="78AA024A-A245-4534-B5B3-735A03B5E6F1"
+            IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755"
+            IdentifierNames="PLM_ExternalID V_version" />
+	</Class>
+
+	<!-- ********************************************************* -->
+	<!-- * RFLVPMLogicalInstanceDS (RFLVPMLogicalInstance)   * -->
+	<!-- ********************************************************* -->
+
+	<Class Name="RFLVPMLogicalInstanceDS" 
+		Uuid="756F4B57-72BD-4604-9266-3D837473289D" 
+
+		SuperName="RFLVPMLogicalInstance"  		 
+		>
+
+		<CAAComment>
+			<ShortRole>Customized PLM Logical Instance Object</ShortRole>
+			<Role>Customized PLM Logical Instance Object</Role>
+		</CAAComment>
+
+	</Class>
+
+	<!-- ************************************************* -->
+	<!-- * RFLVPMLogicalPortDS (RFLVPMLogicalPort) * -->
+	<!-- ************************************************* -->
+
+	<Class Name="RFLVPMLogicalPortDS" 
+		Uuid="1235B3BF-59E4-4508-ABC9-E740FE425B81"
+
+		SuperName="RFLVPMLogicalPort" 		 
+		>
+
+		<CAAComment>
+			<ShortRole>Customized PLM Logical Port Object</ShortRole>
+			<Role>Customized PLM Logical Port Object</Role>
+		</CAAComment>
+
+	</Class>
+
+	<!-- ************************************************************* -->
+	<!-- * RFLVPMLogicalConnectionDS (RFLVPMLogicalConnection) * -->
+	<!-- ************************************************************* -->
+
+	<Class Name="RFLVPMLogicalConnectionDS"
+		Uuid="F375EE8A-7AAD-41ec-89F6-AE475AF48099"
+
+		SuperName="RFLVPMLogicalConnection" 
+		>
+
+		<CAAComment>
+			<ShortRole>Customized PLM Logical Connection Object</ShortRole>
+			<Role>Customized PLM Logical Connection Object</Role>
+		</CAAComment>
+	</Class>
+	
+	<!-- **************************************************************** -->
+	<!-- *  RFLVPMLogicalRepReferenceDS (RFLVPMLogicalRepReference) * -->
+	<!-- **************************************************************** -->
+
+	<Class Name="RFLVPMLogicalRepReferenceDS" 
+		Uuid="D6F562D2-B422-485c-8354-4D57574DD39C" 
+
+		SuperName="RFLVPMLogicalRepReference" 		 
+		>
+
+        <IdentifierSet Name="Identifier"
+            Uuid="B1FB25EB-A641-46ff-8958-83F50AF7F760"
+            IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755"
+            IdentifierNames="PLM_ExternalID V_version" />
+
+		<CAAComment>
+			<ShortRole>Customized PLM Logical Rep Reference Object</ShortRole>
+			<Role>Customized PLM Logical Rep Reference Object</Role>
+		</CAAComment>
+
+	</Class>
+	<!-- **************************************************** -->
+	<!-- *  RFLVPMLogicalRepInstanceDS (RFLVPMLogical)  * -->
+	<!-- **************************************************** -->
+
+	<Class Name="RFLVPMLogicalRepInstanceDS" 
+		Uuid="52C10DD9-DF7A-41ce-B795-4CFFB573A284" 
+
+		SuperName="RFLVPMLogicalRepInstance"
+		>
+
+		<CAAComment>
+			<ShortRole>Customized PLM Logical Rep Reference Object</ShortRole>
+			<Role>Customized PLM Logical Rep Reference Object</Role>
+		</CAAComment>
+
+	</Class>
+
+</Package>

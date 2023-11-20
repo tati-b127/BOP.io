@@ -1,0 +1,277 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2013, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" 
+         Name="PLMDELMIAExecSystemDisciplines"
+         UseNames="DELLmiProductionExecGeneralSystem DELLmiProductionExecTransfoSystem DELLmiProductionExecTransferSystem DELLmiProductionExecInterruptOperation DELLmiProductionExecStorageSystem"
+         Uuid="2692FEDF-DD07-4bfb-9A7F-BB6848B842E9" 
+         ModelerType="Top"
+         CustomerExposition="Programmer">
+
+  <!-- Disciplines for shop order -->
+
+  <Class Name="Prodsys_JobOrder_GeneralSystem"
+	       Uuid="5886865d-1530-4c03-b6eb-e9c9a061b435"
+         Abstract="No"
+         Discipline="Yes"
+         SuperName="DELLmiExecGeneralSystemReference"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         CustomerExposition="Programmer"
+         Abbreviation="gso"
+         InstantiationOwnerTypes="None">
+
+    <Property Name="KweNew_InstanciationMethod" Value="DELMPProdSystemAdvDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELLmiExecGeneralSystemInstance"/>
+    <Property Name="IconName" Value="I_UPRGeneralShopOrder"/>
+    <Property Name="3DIconName" Value="I_UPRGeneralShopOrder.cgr"/>
+    <Property Name="Newable" Value="No"/>
+    <Property Name="Searchable" Value="Yes"/>
+
+  </Class>
+
+
+  <Class Name="Prodsys_JobOrder_TransformationSystem"
+	       Uuid="937a157f-2b88-4a10-86a6-cecdfb9f969b"
+         Abstract="No"
+         Discipline="Yes"
+	       SuperName="DELLmiExecTransfoSystemReference"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         CustomerExposition="Programmer"
+         Abbreviation="tfso"
+         InstantiationOwnerTypes="None">
+
+    <Property Name="KweNew_InstanciationMethod" Value="DELMPProdSystemAdvDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELLmiExecTransfoSystemInstance"/>
+    <Property Name="IconName" Value="I_UPRTransformationShopOrder"/>
+    <Property Name="3DIconName" Value="I_UPRTransformationShopOrder.cgr"/>
+    <Property Name="Newable" Value="No"/>
+    <Property Name="Searchable" Value="Yes"/>
+
+  </Class>
+
+  <Class Name="Prodsys_JobOrder_TransferSystem"
+         Uuid="cc959f5c-4fa0-486a-a74c-4f96220be131"
+         Abstract="No"
+         Discipline="Yes"
+         SuperName="DELLmiExecTransferSystemReference"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         CustomerExposition="Programmer"
+         Abbreviation="trso"
+         InstantiationOwnerTypes="None">
+
+    <Property Name="KweNew_InstanciationMethod" Value="DELMPProdSystemAdvDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELLmiExecTransferSystemInstance"/>
+    <Property Name="IconName" Value="I_UPRTransferShopOrder"/>
+    <Property Name="3DIconName" Value="I_UPRTransferShopOrder.cgr"/>
+    <Property Name="Newable" Value="No"/>
+    <Property Name="Searchable" Value="Yes"/>
+    
+  </Class>
+
+  <Class Name="Prodsys_JobOrder_StorageSource" 
+         Uuid="848c6950-a8ff-4ba0-9b45-03f5e84db2bf"
+         Abstract="No"
+         Discipline="Yes"
+         SuperName="ExecSourceSystem"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         CustomerExposition="Programmer"
+         Abbreviation="scso"
+         InstantiationOwnerTypes="None">
+
+    <Property Name="KweNew_InstanciationMethod" Value="DELMPProdSystemAdvDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELLmiExecStorageSystemInstance"/>
+    <Property Name="IconName" Value="I_UPRSourceShopOrder"/>
+    <Property Name="3DIconName" Value="I_UPRSourceShopOrder.cgr"/>
+    <Property Name="Newable" Value="No"/>
+    <Property Name="Searchable" Value="Yes"/>
+
+  </Class>
+
+  <Class Name="Prodsys_JobOrder_StorageSink" 
+	       Uuid="4a52d7c2-9fd5-4610-ba8a-303327f712e5"
+         Abstract="No"
+         Discipline="Yes"
+         SuperName="ExecSinkSystem"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         CustomerExposition="Programmer"
+         Abbreviation="skso"
+         InstantiationOwnerTypes="None">
+
+    <Property Name="KweNew_InstanciationMethod" Value="DELMPProdSystemAdvDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELLmiExecStorageSystemInstance"/>
+    <Property Name="IconName" Value="I_UPRSinkShopOrder"/>
+    <Property Name="3DIconName" Value="I_UPRSinkShopOrder.cgr"/>
+    <Property Name="Newable" Value="No"/>
+    <Property Name="Searchable" Value="Yes"/>
+
+  </Class>
+
+  <Class Name="Prodsys_JobOrder_StorageBuffer" 
+	       Uuid="f6ba6c9b-27ea-4d9e-a460-0ddfd59dbf2e"
+         Abstract="No"
+         Discipline="Yes"
+         SuperName="ExecBufferSystem"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         CustomerExposition="Programmer"
+         Abbreviation="bso"
+         InstantiationOwnerTypes="None">
+
+    <Property Name="KweNew_InstanciationMethod" Value="DELMPProdSystemAdvDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELLmiExecStorageSystemInstance"/>
+    <Property Name="IconName" Value="I_UPRBufferShopOrder"/>
+    <Property Name="3DIconName" Value="I_UPRBufferShopOrder.cgr"/>
+    <Property Name="Newable" Value="No"/>
+    <Property Name="Searchable" Value="Yes"/>
+    
+   </Class>
+
+  <!-- Disciplines for storage System -->
+  
+  <Class Name="ExecSourceSystem" 
+         Uuid="9ea28773-e0c5-4aa1-831a-068d4faf2b82"
+         Abstract="No"
+         Discipline="Yes"
+         SuperName="DELLmiExecStorageSystemReference"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         CustomerExposition="Programmer"
+         Abbreviation="esr"
+         InstantiationOwnerTypes="DELLmiExecGeneralSystemReference;DELLmiExecTransfoSystemReference"
+         >
+
+    <Property Name="KweDisciplineAttributeValue" Value="Prodsys_ExecStorageSource"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELMPProdSystemAdvDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELLmiExecStorageSystemInstance"/>
+    <Property Name="IconName" Value="I_UPRSourceSystem"/>
+    <Property Name="3DIconName" Value="I_UPRSourceSystem.cgr"/>
+    <Property Name="Newable" Value="No"/>
+    <Property Name="Searchable" Value="Yes"/>
+
+ </Class>
+
+  <Class Name="ExecSinkSystem" 
+         Uuid="04373af5-6eb0-401d-b021-c9b9d2c6ef7e"
+         Abstract="No"
+         Discipline="Yes"
+         SuperName="DELLmiExecStorageSystemReference"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         CustomerExposition="Programmer"
+         Abbreviation="ess"
+         InstantiationOwnerTypes="DELLmiExecGeneralSystemReference;DELLmiExecTransfoSystemReference"
+         >
+    
+    <Property Name="KweDisciplineAttributeValue" Value="Prodsys_ExecStorageSink"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELMPProdSystemAdvDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELLmiExecStorageSystemInstance"/>
+    <Property Name="IconName" Value="I_UPRSinkSystem"/>
+    <Property Name="3DIconName" Value="I_UPRSinkSystem.cgr"/>
+    <Property Name="Newable" Value="No"/>
+    <Property Name="Searchable" Value="Yes"/>
+
+  </Class>
+
+  <Class Name="ExecBufferSystem" 
+         Uuid="13abd4f0-a259-4024-80f7-bd19e00c32f3"
+         Abstract="No"
+         Discipline="Yes"
+         SuperName="DELLmiExecStorageSystemReference"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         CustomerExposition="Programmer"
+         Abbreviation="ebs"
+         InstantiationOwnerTypes="DELLmiExecGeneralSystemReference;DELLmiExecTransfoSystemReference"
+         >
+    
+    <Property Name="KweDisciplineAttributeValue" Value="Prodsys_ExecStorageBuffer"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELMPProdSystemAdvDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELLmiExecStorageSystemInstance"/>
+    <Property Name="IconName" Value="I_UPRBufferSystem"/>
+    <Property Name="3DIconName" Value="I_UPRBufferSystem.cgr"/>
+    <Property Name="Newable" Value="No"/>
+    <Property Name="Searchable" Value="Yes"/>
+
+  </Class>
+
+  <!-- Disciplines for Interrupt operation -->
+
+  <Class Name="Prodsys_ExecInterruptRepair"
+		     Uuid="72dda230-1e32-4fd6-88cf-35ece5d6f92d"
+         Abstract="No"
+         Discipline="Yes"
+         SuperName="DELLmiExecInterruptOperationReference"
+         CustomerExposition="Programmer"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         Abbreviation="ero"
+         >
+    <Property Name="KweNew_InstanciationMethod" Value="DELLmiExecOpDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELLmiExecInterruptOperationInstance"/>
+  </Class>
+
+  <Class Name="Prodsys_ExecInterruptSetup"
+		     Uuid="39b303ee-c732-4193-ad2a-e65ffc073f8a"
+		     Abstract="No"
+         Discipline="Yes"
+	       SuperName="DELLmiExecInterruptOperationReference"
+         CustomerExposition="Programmer"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         Abbreviation="eso"
+         >
+    <Property Name="KweNew_InstanciationMethod" Value="DELLmiExecOpDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELLmiExecInterruptOperationInstance"/>
+  </Class>
+
+  <Class Name="Prodsys_ExecInterruptMaintenance"
+		     Uuid="ab0301b2-6dec-429a-bb9c-d923763d7ba1"
+         Abstract="No"
+		     Discipline="Yes"
+		     SuperName="DELLmiExecInterruptOperationReference"
+         CustomerExposition="Programmer"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         Abbreviation="emo"
+         >
+    <Property Name="KweNew_InstanciationMethod" Value="DELLmiExecOpDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELLmiExecInterruptOperationInstance"/>
+  </Class>
+
+  <Class Name="Prodsys_ExecInterruptInspection"
+		Uuid="f1710819-4309-4f77-83ae-dd0a9be6d5bf"
+         Abstract="No"
+		     Discipline="Yes"
+		     SuperName="DELLmiExecInterruptOperationReference"
+         CustomerExposition="Programmer"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         Abbreviation="eii"
+         >
+    <Property Name="KweNew_InstanciationMethod" Value="DELLmiExecOpDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELLmiExecInterruptOperationInstance"/>
+  </Class>
+
+  <Class Name="Prodsys_ExecInterruptShift"
+		     Uuid="c84a412b-5e92-4ae6-b328-8e1d65e82330"
+         Abstract="No"
+		     Discipline="Yes"
+		     SuperName="DELLmiExecInterruptOperationReference"
+         CustomerExposition="Programmer"
+         Specializable="Yes"
+         CustomerExtensible="Yes"
+         Abbreviation="eis"
+         >
+    <Property Name="KweNew_InstanciationMethod" Value="DELLmiExecOpDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELLmiExecInterruptOperationInstance"/>
+  </Class>
+
+
+</Package>
+

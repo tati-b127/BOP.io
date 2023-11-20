@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2009, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified" Name="Rendering" UseNames="PRODUCTCFG" CustomerExposition="Programmer" Uuid="620DF002-4B73-4359-B65D-84FB03AA8DC3" ModelerType="Top">
+
+  <Class Name="Rendering"
+	       Uuid="2e84306a-d0a7-4473-a551-6c0be8e807dc"
+	       CustomerExposition="Programmer"
+         Discipline="Yes"
+         Abstract="No"
+         Abbreviation="ren"
+	       SuperName="VPMRepReference">
+         <Method ImplementationType="AsFather">
+           <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+         </Method>
+  </Class>
+
+  <Class Name="Ambience"
+         Uuid="91462554-1ffb-4d2c-8146-1d39e64a9685"
+	       CustomerExposition="Programmer"
+         Discipline="Yes"
+         Abstract="No"
+         Abbreviation="ren"
+         SuperName="VPMRepReference">
+         <Method ImplementationType="AsFather">
+           <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+         </Method>
+  </Class>
+
+  <!-- New discipline for OPTIS partner -->
+  <Class Name="SPEOS"
+         Uuid="e08a7156-b575-43b7-ad18-e6989c936e74"
+	       CustomerExposition="Programmer"
+         Discipline="Yes"
+         Abstract="No"
+         Abbreviation="speos"
+         SuperName="VPMRepReference">
+         <Method ImplementationType="AsFather">
+           <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+         </Method>
+  </Class>
+
+  <!-- FUNCTIONS Declarations : here are declared PLMQL Functions -->
+
+  <Function Name="Rendering_AddRenderingRepresentations">
+    <Implementation Name="Rendering_AddRenderingRepresentations" FileLocation="Rendering_AddRenderingRepresentations.plmql" Language="PLMQL"/>
+    <Signature href="RenderingSignature"/>
+  </Function>
+
+  <Function Name="Rendering_AddExternalDocFromRenderingRep">
+    <Implementation Name="Rendering_AddExternalDocFromRenderingRep" FileLocation="Rendering_AddExternalDocFromRenderingRep.plmql" Language="PLMQL"/>
+    <Signature href="RenderingSignature"/>
+  </Function>
+
+  <Function Name="Rendering_AddPointedStickerAndIES">
+    <Implementation Name="Rendering_AddPointedStickerAndIES" FileLocation="Rendering_AddPointedStickerAndIES.plmql" Language="PLMQL"/>
+    <Signature href="RenderingSignature"/>
+  </Function>
+
+  <Signature id="RenderingSignature">
+    <Parameter Name="InputIds" Lower="0" Upper="-1" Direction="in" MultiValuated="Yes" DataType="PLMId"/>
+    <Parameter Name="OutputIds" Lower="0" Upper="-1" Direction="out" MultiValuated="No" DataType="PLMRouteSet"/>
+  </Signature>
+
+</Package>
+
+
+
+

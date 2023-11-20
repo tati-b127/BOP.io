@@ -1,0 +1,171 @@
+<?xml version="1.0"?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" CustomerExposition="Programmer"
+         Name="PLMEnsPhysical" Uuid="cfc86422-83fc-470e-97a9-367df85146b0"
+         UseNames="PRODUCTCFG">
+  <CAAComment>
+    <ShortRole>Equipment Domain Physical Package</ShortRole>
+    <Role>This package describes Equipment Domain data on top of physical modeler.</Role>
+  </CAAComment>
+
+  <Comment>Initial creation: 2009-06-12</Comment>
+  <Comment>Modified R213 2012-01-04 ADZ Export 3DVIA. RI 084667V6R2013</Comment>
+  <Comment>Modified R214 2012-03-07 ADZ New Typing</Comment>
+  <Comment>[V6R2013x] 2012-06-05 ADZ Add HVAC_Insulation Class</Comment>
+  <Comment>[V6R2013x] 2012-07-28 ADZ Remove Specializable="Yes" on abstract Class Insulation</Comment>
+  <Comment>[V6R2014] 2012-11-22 ADZ
+    1. Change ExternalIN Insulation attributes to External
+    2. Remove useless 'ExportScope' with ImplementationType 'AsFather'
+  </Comment>
+  <Comment>[V6R2014] 2012-12-20 ADZ Fix BelongsToModeler as per PGT request</Comment>
+  <Comment>[V6R2014] 2012-12-03 ADZ Add OccurrenceType property on Piping_Insulation and HVAC_Insulation classes</Comment>
+  <Comment>[V6R2014x] 2013-09-24 ADZ Add Property Name="3DPartAvailability" Value="3DPartOnly" on Insulation class</Comment>
+  <Comment>[V6R2015x] 2014-04-07 ADZ Add V_NominalSize, V_MinTemperature, V_MaxTemperature, V_MaterialName attributes</Comment>
+  <Comment>[V6R2015x] 2014-04-07 ADZ Add Property Name="Controller" Value="CATEnsPhyAttController" on Insulation V_InsulationType, V_NominalSize, V_MaterialName attributes</Comment>
+  <Comment>[V6R2015x] 2014-04-07 ADZ on PLMDictionaryCheck.sh request. 'ScopeRefs' is a deprecated tag. It MUST now be removed</Comment>
+  <Comment>[V6R2015x] 2014-04-07 ADZ Change V_InsulationType, V_InsulationThickness, V_Linearweight attributes protection to Free on Insulation class</Comment>
+  <Comment>[V6R2015x] 2014-05-21 ADZ Add Insulation_Inst/Piping_Insulation_Inst/HVAC_Insulation_Inst classes</Comment>
+  <Comment>[V6R2015x] 2014-05-21 ADZ Replace VPMInstance to related instance type in CreateInstName and KweNew_ReturnedType properties of Insulation/Piping_Insulation/HVAC_Insulation classes</Comment>
+  <Comment>[V6R2015x] 2014-06-11 ADZ Add missing IconName property on Piping_Insulation/HVAC_Insulation classes</Comment>
+  <Comment>[V6R2015x] 2014-07-02 ADZ Remove CreateInstName on all instance classes</Comment>
+  <Comment>[V6R2017x] 2016-03-25 ADZ Add V_InstanciationRule attribute on Insulation class and V_ReferenceMode attribute on Insulation_Inst class</Comment>
+  <Comment>[V6R2017x] 2016-03-31 ADZ Insulation_OutOfSpec extension on Insulation_Inst class</Comment>
+  <Comment>[V6R2017x] 2016-06-06 ADZ Dedicated .cgr for classes</Comment>
+
+  <Class Name="Insulation"
+         Uuid="831e39de-94d9-43bf-a2ba-f71815a9ca1f"
+         Abstract="Yes"
+         CustomerExposition="Programmer"
+         SuperName="VPMReference"
+         Discipline="Yes">
+    <Property Name="IconName"                Value="I_PLMInsulation"/>
+    <Property Name="3DIconName"              Value="V_PLMInsulation.cgr"/>
+    <Property Name="Configurable"            Value="Yes"/>
+    <Property Name="ChangeManagementSupport" Value="Yes"/>
+    <Property Name="3DPartAvailability"      Value="3DPartOnly"/>
+
+    <Simple Name="V_InsulationType"       Uuid="81f9ea3f-9656-4dbe-8430-d06398611053" Type="String" MaxLength="40"        Protection="Free"     CAAExposition="L0" MultiValuated="No"><Property Name="Controller" Value="CATEnsPhyAttController"/></Simple>
+    <Simple Name="V_InsulationThickness"  Uuid="579d1ca7-c1ee-4dea-8ae8-fb0591f455e1" Type="Double" Magnitude="LENGTH"    Protection="Free"     CAAExposition="L0" MultiValuated="No"/>
+    <Simple Name="V_Length"               Uuid="b8c1703b-7fd2-40c0-a4a0-6ebd67de0fbd" Type="Double" Magnitude="LENGTH"    Protection="External" CAAExposition="L0" MultiValuated="No"/>
+    <Simple Name="V_Linearweight"         Uuid="05c3dbe7-3ae1-4e29-9752-5a9fe4649261" Type="Double" Magnitude="LINEMASS"  Protection="Free"     CAAExposition="L0" MultiValuated="No"/>
+    <Simple Name="V_MinTemperature"       Uuid="30ec9363-8ed7-49de-812d-88e5dd72f8b8" Type="Double" Magnitude="TEMPRTRE"  Protection="Free"     CAAExposition="L0" MultiValuated="No"/>
+    <Simple Name="V_MaxTemperature"       Uuid="2a7a7fbb-5804-4c51-a441-1d30afae7bf0" Type="Double" Magnitude="TEMPRTRE"  Protection="Free"     CAAExposition="L0" MultiValuated="No"/>
+    <Simple Name="V_MaterialName"         Uuid="89d85e1c-29e6-4bc0-a6d6-0a1eca62a5da" Type="String" MaxLength="100"       Protection="Free"     CAAExposition="L0" MultiValuated="No"><Property Name="Controller" Value="CATEnsPhyAttController"/></Simple>
+
+    <Simple Name="V_InstanciationRule" Uuid="d4848264-98fe-43f1-8773-3dc297070acc" Type="Integer" Protection="ExternalIN" CAAExposition="L0" DefaultValue="1">
+      <Property Name="RangeAsEnumName" Value="Insulation_InstanciationRule_Enum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="Unknown;ReuseReference;NewReference"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+      </Range>
+    </Simple>
+    
+  </Class>
+  
+  <Class Name="Piping_Insulation"
+         Uuid="d25ce19c-6a6a-47c9-8da1-b1a83468c63e"
+         Abbreviation="pipins"
+         CustomerExposition="Programmer"
+         SuperName="Insulation"
+         Discipline="Yes"
+         CustomerExtensible="Yes"
+         CreateInstName="Piping_Insulation_Inst">
+    <Property Name="MergedExtensionType"        Value="EnsInsulation"/>
+    <Property Name="TypeForDisciplineValuation" Value="Piping_Insulation"/>
+    <Property Name="GroupingType"               Value="Piping_Insulation"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEInsulationDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="Piping_Insulation_Inst"/>
+    <Property Name="Newable"                    Value="All"/>
+    <Property Name="OccurrenceType"             Value="Piping_Insulation_Occurrence"/>
+    <Property Name="IconName"                   Value="I_PLMPiping_Insulation"/>
+    <Property Name="3DIconName"                 Value="V_PLMPiping_Insulation.cgr"/>
+
+    <Simple Name="V_NominalSize"  Uuid="3dcfae15-ed9c-42cf-932d-ea97898d49b0" Type="String" MaxLength="80"  Protection="Free" CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" Value="CATEnsPhyAttController"/>
+    </Simple>
+    
+  </Class>
+
+  <Class Name="HVAC_Insulation"
+         Uuid="2ccb3423-f69f-42da-aefd-f742b5750cd4"
+         Abbreviation="hvains"
+         CustomerExposition="Programmer"
+         SuperName="Insulation"
+         Discipline="Yes"
+         CustomerExtensible="Yes"
+         CreateInstName="HVAC_Insulation_Inst">
+    <Property Name="MergedExtensionType"        Value="EnsInsulation"/>
+    <Property Name="TypeForDisciplineValuation" Value="HVAC_Insulation"/>
+    <Property Name="GroupingType"               Value="HVAC_Insulation"/>
+    <Property Name="KweNew_InstanciationMethod" Value="CATEInsulationDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="HVAC_Insulation_Inst"/>
+    <Property Name="Newable"                    Value="All"/>
+    <Property Name="OccurrenceType"             Value="HVAC_Insulation_Occurrence"/>
+    <Property Name="IconName"                   Value="I_PLMHVAC_Insulation"/>
+    <Property Name="3DIconName"                 Value="V_PLMHVAC_Insulation.cgr"/>
+
+    <Simple Name="V_EquivalentDiameter" Uuid="26d69d4c-9be2-42a3-b0d0-7801d2f37eb8" Type="String" MaxLength="80"  Protection="Free" CAAExposition="L0" MultiValuated="No">
+      <Property Name="Controller" Value="CATEnsPhyAttController"/>
+    </Simple>
+    
+  </Class>
+
+  <RelationClass Name="Insulation_Inst"
+       Uuid="9f12c644-0c86-4490-9bfc-a52253ad4d19"
+       Abstract="Yes"
+       CustomerExposition="Programmer"
+       SuperName="VPMInstance"
+       Discipline="Yes">
+    <Property Name="IconName"                Value="I_PLMInsulation"/>
+
+    <Simple Name="V_ReferenceMode" Uuid="055245e6-e908-4032-a8d6-f6949cb6291c" Type="Integer" Protection="External" CAAExposition="L0" DefaultValue="1">
+      <Property Name="RangeAsEnumName" Value="Insulation_ReferenceMode_Enum"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="Unknown;Reuse;NewFrom"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+      </Range>
+    </Simple>
+    
+  </RelationClass>
+
+  <RelationClass Name="Piping_Insulation_Inst"
+         Uuid="090a9bd2-1207-4fbb-b4fe-611161f3a279"
+         CustomerExposition="Programmer"
+         SuperName="Insulation_Inst"
+         Discipline="Yes"
+         CustomerExtensible="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATEInsulationDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="Piping_Insulation_Inst"/>
+  </RelationClass>
+
+  <RelationClass Name="HVAC_Insulation_Inst"
+         Uuid="2704f0f2-ad9a-49f6-b3fc-508c841e8c85"
+         CustomerExposition="Programmer"
+         SuperName="Insulation_Inst"
+         Discipline="Yes"
+         CustomerExtensible="Yes">
+    <Property Name="KweNew_InstanciationMethod" Value="CATEInsulationDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType"        Value="HVAC_Insulation_Inst"/>
+  </RelationClass>
+
+  <Extension Name="Insulation_OutOfSpec" Uuid="442a54ea-413a-4a8e-8fca-c705679a4e24" ScopeNames="Insulation_Inst" CustomerExposition="Programmer" CAAExposition="L0">
+    <Simple Name="V_Insulation_Spec" Uuid="03207223-ad4e-4ec5-9fbd-0f6232958fd1" Type="String" MaxLength="40" Protection="External" CAAExposition="L0" MultiValuated="No"/>
+    <Simple Name="V_Additional_Spec" Uuid="80803064-42e9-4224-a3b4-81502c61736b" Type="String" MaxLength="40" Protection="External" CAAExposition="L0" MultiValuated="Yes"/>
+  </Extension>
+  
+  <Extension Name="EnsInsulation" Uuid="b9860e00-e2a6-47d8-bc604b0052809530" CustomerExposition="Programmer" CAAExposition="L0" ScopeNames="VPMReference">
+    <CAAComment>
+      <ShortRole>PLM Insulation Object</ShortRole>
+      <Role>PLM Insulation Object</Role>
+    </CAAComment>
+    <Simple Name="V_InsulationType" Type="String" Uuid="be63ee3d-8773-4786-b7d9eb643964e563" MaxLength="40" Protection="External" CAAExposition="L0" MultiValuated="No"/>
+    <Simple Name="V_InsulationThickness" Type="Double" Uuid="07acc82a-3df6-44aa-acfabd343a0de972" Magnitude="LENGTH" Protection="External" CAAExposition="L0" MultiValuated="No"/>
+    <Simple Name="V_Length" Type="Double" Uuid="50946F0e-c09c-4b9b-91848ce4914d129f" Magnitude="LENGTH" Protection="External" CAAExposition="L0" MultiValuated="No"/>
+    <Simple Name="V_Linearweight" Type="Double" Uuid="fa683904-37cd-473b-827818985962e9c5" Magnitude="LINEMASS" Protection="External" CAAExposition="L0" MultiValuated="No"/>
+  </Extension>
+</Package>

@@ -1,0 +1,68 @@
+#Prog SimulationProcessExport( iPLMIDSet : #In PLMIDSet, oPLMIDSet : #Out PLMIDSet ) : VoidType
+{
+ let ActivitySet(PLMIDSet) 
+ let ActivityRoute (PLMRouteSet)
+ 
+ let ConnectorSet(PLMIDSet) 
+ let ConnectorRoute (PLMRouteSet)
+ 
+ let ReqSet(PLMIDSet) 
+ let logRefSet(PLMIDSet)
+ 
+ let ContentSet(PLMIDSet)
+ let ContentRoute(PLMRouteSet)
+ 
+ let SimulationDataRoute(PLMRouteSet)
+ 
+ let ChildProductSet(PLMIDSet)
+ let ChildProductRoute(PLMRouteSet)
+ let ProductSet(PLMIDSet)
+ 
+ let SimulationSet(PLMIDSet)
+ 
+ let DocumentSet(PLMIDSet)
+ let logSimSet(PLMIDSet)
+	
+/* get activities from simulation */
+ ActivityRoute = ExecutePLMFunction("SimulationProcessExpand", iPLMIDSet) 
+ ActivitySet = Ids(ActivityRoute)
+ 
+/* get content from all activities */
+ ContentRoute = ExecutePLMFunction("SimulationContentExpand", Restrict(ActivitySet, "Class/SIMULATIONS")) 
+ 
+/* get Simulation Data (object parameters) from all activities */
+ SimulationDataRoute = ExecutePLMFunction("SimulationDataExpand", Restrict(ActivitySet, "Class/SIMULATIONS")) 
+ 
+ ContentSet = Ids(ContentRoute) + Ids(SimulationDataRoute)
+  
+/* It is decided for 15X we will not be exporting or importing connectors */
+/* get connectors from all activities 
+ ConnectorRoute = ExecutePLMFunction("SimulationConnectorExpand", Restrict(ActivitySet, "Class/Simulation Activity")) 
+ ConnectorSet = Ids(ConnectorRoute)
+*/
+
+/* expand to get it's children products */
+ ChildProductRoute = ExecutePLMFunction("PRODUCTCFG", "ProductCfg_AddChildrenProduct", Restrict(ContentSet, "PRODUCTCFG/VPMReference"))
+ ChildProductSet = Ids(ChildProductRoute)
+
+/* calling Product Procedure*/
+ProductSet  =  ExecutePLMProcedure(  "VPMEditor_GetAllRepresentations",  ChildProductSet ) 
+
+/* call expand on documents */
+ DocumentSet = ExecutePLMProcedure("DocumentCompletion", Restrict(ContentSet, "Class/DOCUMENTS"))
+ 
+/* call expand on requirements */
+ ReqSet = ExecutePLMProcedure("Rmt_Requirement_ExportCompletion", Restrict(ContentSet, "Class/Requirement"))
+ 
+ /* call expand on simulations */
+ SimulationSet = ExecutePLMProcedure("DefaultSimulationExport", Restrict(ContentSet, "SIMObjSimulationGeneric/SIMObjSimulationObjectGeneric"))
+ 
+ /* calling logical reference procedure */
+ logRefSet = ExecutePLMProcedure("Logical_ExportReference_Design", Restrict(ContentSet, "RFLVPMLogical/RFLVPMLogicalReference"))
+
+ /* calling Logical Simulation*/
+ logSimSet = ExecutePLMProcedure("LogicalSimulationExport", Restrict(ContentSet, "SIMObjSimulationGeneric/LogicalSimulation"))
+
+ oPLMIDSet = ActivitySet + ContentSet + ConnectorSet + DocumentSet + ChildProductSet + ProductSet + SimulationSet + ReqSet + logRefSet + logSimSet
+}
+

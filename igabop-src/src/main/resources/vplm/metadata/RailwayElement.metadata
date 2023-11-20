@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2012, All rights reserved -->
+
+<Package CustomerExposition = "Programmer" ModelerType = "Top" Name = "RailwayElement" UseNames = "CivilEngineeringElement" Uuid = "41A75B97-5AA9-497C-BDF0-F75E29ADD648" xmlns = "PLMDictionaryUnified">
+  <Class Abstract = "Yes" CustomerExposition = "Programmer" Discipline = "Yes" Name = "RailwayElement" SuperName = "CivilEngineeringElement" Uuid = "7EB809C5-34CE-4FAC-BBCB-4D9D74EFDC3A">
+    <Property Name = "GroupingType" Value = "RailwayElement"/>
+    <Property Name = "InstantiationOwnerTypes" Value = "PPRContext;RailwaySpatialStructureElement;AecElementAssembly;RailwayElement;BuildingSpace"/>
+  </Class>
+  <Class Abstract = "Yes" CustomerExposition = "Programmer" Discipline = "Yes" Name = "RailwayElementType" SuperName = "CivilEngineeringElementType" Uuid = "3E88E4EE-5DDE-4615-8E00-E40425094365">
+    <Property Name = "GroupingType" Value = "RailwayElementType"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "RailwayOtherElement" Specializable = "Yes" SuperName = "RailwayElement" Uuid = "C72ACA1A-412E-4302-A363-A1C22F7C1622">
+    <Property Name = "IconName" Value = "I_RailwayOtherElement"/>
+    <Property Name = "3DIconName" Value = "I_RailwayOtherElement.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATEAECDelegateInstanciation"/>
+    <Property Name = "Newable" Value = "All_Offline_CAA"/>
+    <Property Name = "InstantiationOwnerTypes" Value = "PPRContext;RailwaySpatialStructureElement;AecElementAssembly;RailwayElement;BuildingSpace"/>
+    <Property Name = "3DPartAvailability" Value = "UserChoiceReferenceDefault"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "RailwayOtherElementType" Specializable = "Yes" SuperName = "RailwayElementType" Uuid = "D6D2730C-2C5F-449B-99D8-E958F77DAEB7">
+    <Property Name = "IconName" Value = "I_RailwayOtherElementType"/>
+    <Property Name = "3DIconName" Value = "I_RailwayOtherElementType.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATCbaObjectTypeDelegateInstanciation"/>
+    <Property Name = "Newable" Value = "New_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "ReferenceOnly"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "RailwayTrackPanel" SuperName = "RailwayElement" Uuid = "507B03AA-9054-4583-814A-5F87D018DA83">
+    <Property Name = "IconName" Value = "I_RailwayTrackPanel"/>
+    <Property Name = "3DIconName" Value = "I_RailwayTrackPanel.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATEAECDelegateInstanciation"/>
+    <Property Name = "Newable" Value = "All_Offline_CAA"/>
+    <Property Name = "InstantiationOwnerTypes" Value = "PPRContext;RailwaySpatialStructureElement;AecElementAssembly;RailwayOtherElement;RailwayTrackPanel;RailwayTrackTurnout;BuildingSpace"/>
+    <Property Name = "3DPartAvailability" Value = "UserChoiceReferenceDefault"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "RailwayTrackPanelType" SuperName = "RailwayElementType" Uuid = "3C1AA8DC-F2D4-49CD-AA9F-AD4860646362">
+    <Property Name = "IconName" Value = "I_RailwayTrackPanelType"/>
+    <Property Name = "3DIconName" Value = "I_RailwayTrackPanelType.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATCbaObjectTypeDelegateInstanciation"/>
+    <Property Name = "Newable" Value = "New_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "ReferenceOnly"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "RailwayTrackRail" SuperName = "RailwayElement" Uuid = "CE4F5B74-84DB-4395-A5FD-90A1A42D5AD4">
+    <Property Name = "IconName" Value = "I_RailwayTrackRail"/>
+    <Property Name = "3DIconName" Value = "I_RailwayTrackRail.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATEAECDelegateInstanciation"/>
+    <Property Name = "Newable" Value = "All_Offline_CAA"/>
+    <Property Name = "InstantiationOwnerTypes" Value = "PPRContext;RailwaySpatialStructureElement;AecElementAssembly;RailwayOtherElement;RailwayTrackPanel;RailwayTrackRail;RailwayTrackTurnout;BuildingSpace"/>
+    <Property Name = "3DPartAvailability" Value = "UserChoiceReferenceDefault"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "RailwayTrackRailType" SuperName = "RailwayElementType" Uuid = "5F9E2F97-BCCC-4BFB-91E2-E3284003A763">
+    <Property Name = "IconName" Value = "I_RailwayTrackRailType"/>
+    <Property Name = "3DIconName" Value = "I_RailwayTrackRailType.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATCbaObjectTypeDelegateInstanciation"/>
+    <Property Name = "Newable" Value = "New_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "ReferenceOnly"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "RailwayTrackSleeper" SuperName = "RailwayElement" Uuid = "CF2BD853-58E1-4CEE-B5C6-56C0B13BCC74">
+    <Property Name = "IconName" Value = "I_RailwayTrackSleeper"/>
+    <Property Name = "3DIconName" Value = "I_RailwayTrackSleeper.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATEAECDelegateInstanciation"/>
+    <Property Name = "Newable" Value = "All_Offline_CAA"/>
+    <Property Name = "InstantiationOwnerTypes" Value = "PPRContext;RailwaySpatialStructureElement;AecElementAssembly;RailwayOtherElement;RailwayTrackPanel;RailwayTrackSleeper;RailwayTrackTurnout;BuildingSpace"/>
+    <Property Name = "3DPartAvailability" Value = "UserChoiceReferenceDefault"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "RailwayTrackSleeperType" SuperName = "RailwayElementType" Uuid = "AEDE9478-4514-49A9-BE36-153137832456">
+    <Property Name = "IconName" Value = "I_RailwayTrackSleeperType"/>
+    <Property Name = "3DIconName" Value = "I_RailwayTrackSleeperType.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATCbaObjectTypeDelegateInstanciation"/>
+    <Property Name = "Newable" Value = "New_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "ReferenceOnly"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "RailwayTrackTurnout" SuperName = "RailwayElement" Uuid = "809CABE3-A90E-4D78-A49E-979150EDCCAB">
+    <Property Name = "IconName" Value = "I_RailwayTrackTurnout"/>
+    <Property Name = "3DIconName" Value = "I_RailwayTrackTurnout.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATEAECDelegateInstanciation"/>
+    <Property Name = "Newable" Value = "All_Offline_CAA"/>
+    <Property Name = "InstantiationOwnerTypes" Value = "PPRContext;RailwaySpatialStructureElement;AecElementAssembly;RailwayOtherElement;RailwayTrackTurnout;BuildingSpace"/>
+    <Property Name = "3DPartAvailability" Value = "UserChoiceReferenceDefault"/>
+  </Class>
+  <Class CustomerExposition = "Programmer" Discipline = "Yes" Name = "RailwayTrackTurnoutType" SuperName = "RailwayElementType" Uuid = "0A0866E0-314E-4805-9E48-5735F8E08760">
+    <Property Name = "IconName" Value = "I_RailwayTrackTurnoutType"/>
+    <Property Name = "3DIconName" Value = "I_RailwayTrackTurnoutType.cgr"/>
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATCbaObjectTypeDelegateInstanciation"/>
+    <Property Name = "Newable" Value = "New_Offline_CAA"/>
+    <Property Name = "3DPartAvailability" Value = "ReferenceOnly"/>
+  </Class>
+</Package>

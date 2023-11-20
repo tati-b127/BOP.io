@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2010, All rights reserved -->
+<Package xmlns="PLMDictionaryCusto" ModelerType="Custo" Name="DELWkiAlertDS" Uuid="9deeece1-f401-45ad-9a0395325a772b55" UseNames="DELWkiAlert" >
+<Property Name="OptionalInstallation" Value="Yes" /> 
+	<CAAComment>
+		<ShortRole>Standard DELMIA Work Instruction Alert Package</ShortRole>
+		<Role>This package includes default customized DELMIA Work Instruction Alert</Role>
+	</CAAComment>
+	<Comment>last update 2010-05-27</Comment>
+
+	<Class Name="DELWkiAlertReferenceCusto" Uuid="c1eea015-4712-4b2e-995a33b99338caf6" SuperName="DELWkiAlertReference"  >
+
+    <IdentifierSet Name="Identifier"
+        Uuid="db208487-c26c-4c4c-af70065cc40e6b88"
+        IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755"
+        IdentifierNames="PLM_ExternalID V_version" />
+    
+    <CAAComment>
+			<ShortRole>Standard DELMIA Work Instruction Alert Reference</ShortRole>
+			<Role>Default customized DELMIA Work Instruction Alert Reference</Role>
+		</CAAComment>
+	</Class>
+
+  <RelationClass Name="DELWkiAlertInstanceCusto" Uuid="ed29dabc-1311-471d-8226339e0bb8c61d" SuperName="DELWkiAlertInstance"   >
+    <CAAComment>
+      <ShortRole>Standard DELMIA Work Instruction Alert Instance</ShortRole>
+      <Role>Default customized DELMIA Work Instruction Alert Instance</Role>
+    </CAAComment>
+    <!-- ********************************************************* -->
+    <!-- * Overload(s) of PLMCoreInstance attributes. -->
+    <!-- ********************************************************* -->
+    <SubClause Name="to"   TargetName="DELWkiAlertReferenceCusto"/>
+  </RelationClass>
+
+
+</Package>

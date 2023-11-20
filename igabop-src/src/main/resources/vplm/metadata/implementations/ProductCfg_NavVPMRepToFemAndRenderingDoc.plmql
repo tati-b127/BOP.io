@@ -1,0 +1,37 @@
+NAVIGATE
+ T0.PLM_ExternalID,  T1.PLM_ExternalID , T0.PLMID,  T1.PLMID  
+
+FROM
+PLMDmtDocument/PLMDMTDocument T0,
+PLM3DXEnvironment/PLM3DXEnvironment T1
+
+FROM_ROOTS [?1?]
+
+ON 
+(( 
+	RELATION 
+	(
+		FROM=PRODUCTCFG/VPMRepReference
+		TO=PLMDmtDocument/PLMDMTDocument
+		THROUGH=POINTSTO
+	)
+	WITH QUALITY_FILTER 
+		(ROLE=SIM_ExternalDocument)
+		OR (ROLE=SIM_FmtFEMRules)
+		OR (ROLE=SIM_FmtFEMReport)
+		OR (ROLE=CATMaterialReferenceToTextureLink)
+		OR (ROLE=CATMaterialReferenceToAssetLink)
+		OR (ROLE=CATStkImageLink)
+		OR (ROLE=CATLightIESLink)
+)
+OR
+(
+	RELATION
+	(
+		FROM=PRODUCTCFG/VPMRepReference
+		TO=PLM3DXEnvironment/PLM3DXEnvironment
+		THROUGH=POINTSTO
+	)
+	WITH QUALITY_FILTER(ROLE=CATMaterialReferenceToReflectionLink)
+))
+;

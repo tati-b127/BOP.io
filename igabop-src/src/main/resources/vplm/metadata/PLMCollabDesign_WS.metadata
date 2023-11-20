@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2007, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" ModelerType="Top" CustomerExposition="Programmer" Name="PLMCollabDesign_WS" Uuid="899a5459-2af6-4882-88bc9ed78ff4bbc0" UseNames="PLMCORE"  >
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+  <Comment>last update 2007-03-07-16.00.00</Comment>
+  <!-- ***************************************** -->
+  <!-- CCD Workspace Elements -->
+  <!-- ***************************************** -->
+  <Class Name="PLMCCDWorkspaceReference" Uuid="db8c2489-92a2-4d9c-86f6-9310e08e83a0" Abstract="No"  SuperName="PLMCoreReference" CustomerExposition="Programmer">
+  	<Simple Name="V_ShortDescription" Uuid="bb5654b8-b0f8-4209-909e-79b0d2663778"  Type="String"  MultiValuated="No" MaxLength="40"  Protection="External" CAAExposition="L0"/>
+      <Simple Name="V_Description" Uuid="7bce5d13-6f55-4310-aafd-caae1fc574f7" Type="String"  MultiValuated="No" MaxLength="200"  Protection="External" CAAExposition="L0"/>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>    
+  </Class>
+  <!-- ***************************************** -->
+  <!--CoDesign Connections -->
+  <!-- ***************************************** -->
+  <!--## Buddy List Connection (derivation from PLMConnection) ##-->
+  <Class Name="PLMCCDBuddyListConnection" Uuid="e6bb66f6-0c4a-43e9-bd89-8acf8412af56"  SuperName="PLMConnection" CustomerExposition="Programmer"  Abstract="No" >
+    <!--~~ RelationShip to the ProductReference Rep ~~-->
+    <Path Name="PLMCCDConnection_BuddyList" Uuid="0aba9860-b6a6-4531-bbf8605ea6ac12b0"   MultiValuated="Yes" RoleName="PLMCCDConnection_BuddyList" Semantics="Reference2" Protection="Internal" Type="SemanticRelation" AdaptativeToMinor="No"		SynchroSensitivity="None"		RerouteOnEffectivityChange="No" />
+    <Path Name="PLMCCDConnection_Target" Uuid="ae17caa0-d849-4758-840a2a838bd3bd4f"   MultiValuated="No"  RoleName="PLMCCDConnection_Target" Semantics="Reference5" Type="SemanticRelation" AdaptativeToMinor="No"		SynchroSensitivity="Last"		RerouteOnEffectivityChange="No"  Orientation="Out"/>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+</Package>

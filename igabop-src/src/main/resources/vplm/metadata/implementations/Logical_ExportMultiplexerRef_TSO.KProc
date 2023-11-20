@@ -1,0 +1,16 @@
+#Prog Logical_ExportMultiplexerRef_TSO (iPLMIDSet :  #In PLMIDSet,oPLMIDSet :  #Out PLMIDSet) : VoidType
+{
+  let InputPLMIDSetRestrictedToRefs(PLMIDSet)
+  let SetOfPLMRoutesMuxObjects(PLMRouteSet)
+  let SetOfConfigObjectsPLMIDs(PLMIDSet)
+
+  InputPLMIDSetRestrictedToRefs = Restrict(iPLMIDSet,"RFLVPMLogicalCommunication/RFLVPMLogicalCommunicationReference")
+ 
+  /* Get ports, type instances under the logical communication reference (resp: F1T) */
+  SetOfPLMRoutesMuxObjects = ExecutePLMFunction("RFLVPMLogical","RFLVPMLogicalCommunicationReference_Aggregated1stLvlObjects",InputPLMIDSetRestrictedToRefs)
+  
+  /*Completes with configuration */
+  SetOfConfigObjectsPLMIDs = ExecutePLMProcedure("Config_GetStructConfig",InputPLMIDSetRestrictedToRefs)
+  
+  oPLMIDSet = iPLMIDSet + Ids(SetOfPLMRoutesMuxObjects) + SetOfConfigObjectsPLMIDs
+}

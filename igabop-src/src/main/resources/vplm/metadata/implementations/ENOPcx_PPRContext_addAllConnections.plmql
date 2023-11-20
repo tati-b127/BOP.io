@@ -1,0 +1,17 @@
+EXPAND  
+  	T0.PLMID, T1.PLMID, T2.PLMID, T3.PLMID, T4.PLMID, T5.PLMID, T6.PLMID, T6.V_discipline
+FROM
+	DELRmiResourceModelProdSysImplCnx/PLMDELProdSysImplCnx T0,
+	DELRmiResourceModelImplCnx/PLMDELImplCnx T1,
+	DELRmiAcceptedPackagingCnx/DELRmiAcceptedPackagingCnx T2,
+	PLMPrototypeCnx/PLMPrototypeInstantiationCnx T3,
+	DELPPRContextModelProcessCnx/PLMDELPPRProcessCnx T4,
+	DELPPRContextModelSystemCnx/PLMDELPPRSystemCnx T5,
+	PLMHistorizationCnx/PLMHistoLinkCnx T6
+
+FROM_ROOTS  [?1?]
+
+WITH ATTRIBUTE_FILTER((T6.V_discipline='HistorizationLinkRefRef'))
+;    
+
+

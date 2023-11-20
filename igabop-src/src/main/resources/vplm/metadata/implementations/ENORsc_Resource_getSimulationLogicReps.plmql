@@ -1,0 +1,18 @@
+EXPAND     
+
+T0.V_discipline,
+T0.PLMID
+ 
+
+FROM      
+
+PRODUCTCFG/VPMRepReference T0
+
+
+FROM_ROOTS[?1?]
+
+WITH ATTRIBUTE_FILTER ((T0.V_discipline='SimulationLogic'))
+
+ITER=1;
+
+

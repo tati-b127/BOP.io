@@ -1,0 +1,7 @@
+//G88 #CLASSIFICATION_EXPAND.KProc file
+
+#Prog CLASSIFICATION_EXCHANGE( iPLMIDSet : #In PLMIDSet, oPLMIDSet : #Out PLMIDSet ) : VoidType
+{
+	oPLMIDSet = ExecuteJavaProcedure("com.matrixone.apps.library.EKLProcedureCalls_Classification_Expand", iPLMIDSet)
+}
+

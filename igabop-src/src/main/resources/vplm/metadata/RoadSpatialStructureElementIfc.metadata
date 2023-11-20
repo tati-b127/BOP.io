@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2012, All rights reserved -->
+
+<Package CustomerExposition = "Programmer" ModelerType = "Top" Name = "RoadSpatialStructureElementIfc" UseNames = "AECCommonSpatialStructureElementIfc;RoadSpatialStructureElement" Uuid = "C8F11DA4-4A1D-4554-AC30-E9EE9C7EC888" xmlns = "PLMDictionaryUnified">
+  <Extension CustomerExposition = "Programmer" Name = "IfcRoad" ScopeNames = "Road" Uuid = "714ACF45-B086-4F3A-8F07-6C6954895662">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcRoad_ObjectType" Protection = "Free" Type = "String" Uuid = "714ACF45-B086-4F3A-8F07-1ad52eb2ea5e"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcRoad_LongName" Protection = "Free" Type = "String" Uuid = "714ACF45-B086-4F3A-8F07-47d2c9dc49ee"/>
+    <Simple CAAExposition = "L0" DefaultValue = "2" Name = "IfcRoad_CompositionType" Protection = "Free" Type = "Integer" Uuid = "714ACF45-B086-4F3A-8F07-f65bd56122dd">
+      <Property Name = "RangeAsEnumName" Value = "AECCommonSpatialStructureElementIfc.IfcElementCompositionEnum"/>
+      <Property Name = "RangeAsEnumAuthorizedValues" Value = "COMPLEX;ELEMENT;PARTIAL"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+      </Range>
+    </Simple>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcRoadPart" ScopeNames = "RoadPart" Uuid = "88FC0D69-C556-4420-996F-438F32EEA1B2">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcRoadPart_ObjectType" Protection = "Free" Type = "String" Uuid = "88FC0D69-C556-4420-996F-1ad52eb2ea5e"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcRoadPart_LongName" Protection = "Free" Type = "String" Uuid = "88FC0D69-C556-4420-996F-47d2c9dc49ee"/>
+    <Simple CAAExposition = "L0" DefaultValue = "2" Name = "IfcRoadPart_CompositionType" Protection = "Free" Type = "Integer" Uuid = "88FC0D69-C556-4420-996F-f65bd56122dd">
+      <Property Name = "RangeAsEnumName" Value = "AECCommonSpatialStructureElementIfc.IfcElementCompositionEnum"/>
+      <Property Name = "RangeAsEnumAuthorizedValues" Value = "COMPLEX;ELEMENT;PARTIAL"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+      </Range>
+    </Simple>
+    <Simple CAAExposition = "L0" DefaultValue = "99" Name = "IfcRoadPart_PredefinedType" Protection = "Free" Type = "Integer" Uuid = "ADFB1289-3B26-4435-9BC1-A46F5FB382E9">
+      <Property Name = "RangeAsEnumName" Value = "IfcRoadPartTypeEnum"/>
+      <Property Name = "RangeAsEnumAuthorizedValues" Value = "INTERCHANGE;RAMP;STRETCH;USERDEFINED;NOTDEFINED"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>98</Equal>
+        <Equal>99</Equal>
+      </Range>
+    </Simple>
+  </Extension>
+  <Extension CustomerExposition = "Programmer" Name = "IfcRoadPartType" ScopeNames = "RoadPartType" Uuid = "7F0C2B07-5275-4264-AB76-581BDB39CDFA">
+    <Property Name = "KweNew_InstanciationMethod" Value = "CATAECDelegateExtension"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcRoadPartType_Tag" Protection = "Free" Type = "String" Uuid = "7F0C2B07-5275-4264-AB76-cc2a36316812"/>
+    <Simple CAAExposition = "L0" MaxLength = "255" Name = "IfcRoadPartType_ElementType" Protection = "Free" Type = "String" Uuid = "7F0C2B07-5275-4264-AB76-d84421a52c4a"/>
+    <Simple CAAExposition = "L0" DefaultValue = "99" Name = "IfcRoadPartType_PredefinedType" Protection = "Free" Type = "Integer" Uuid = "FD4A5FF1-1A13-44F6-93C6-23B135F358BF">
+      <Property Name = "RangeAsEnumName" Value = "IfcRoadPartTypeEnum"/>
+      <Property Name = "RangeAsEnumAuthorizedValues" Value = "INTERCHANGE;RAMP;STRETCH;USERDEFINED;NOTDEFINED"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+        <Equal>98</Equal>
+        <Equal>99</Equal>
+      </Range>
+    </Simple>
+  </Extension>
+</Package>

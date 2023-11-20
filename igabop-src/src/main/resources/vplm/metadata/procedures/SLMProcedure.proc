@@ -1,0 +1,73 @@
+<?xml version="1.0" ?>
+<ProcedurePackage 
+	xmlns="PLMDictionaryProcedure"
+	Name="SLMProcedure">
+			
+	<!-- Ok to run with Fiper -->
+	<Procedure Name="SLMCheckOKToRunWithFIPER">
+		<Implementation Name="invoke" FileLocation="com.dassault_systemes.vplm.simulationNav.remoteProc.SLMProcCheckFiper" Language="JAVA"/>
+		<Signature href="SLMCheckOKToRunWithFIPER_sig"/>
+	</Procedure>
+	
+	<Signature id="SLMCheckOKToRunWithFIPER_sig">
+		<Parameter Name="in" MultiValuated="Yes" Direction="in" DataType="PLMId"/>
+		<Parameter Name="out" MultiValuated="Yes" Direction="out" DataType="String"/>
+	</Signature>
+	
+	<!-- Run -->
+	<Procedure Name="SLMRun">
+		<Implementation Name="invoke" FileLocation="com.dassault_systemes.vplm.simulationNav.remoteProc.SLMProcRun" Language="JAVA"/>
+		<Signature href="SLMRun_sig"/>
+	</Procedure>
+	
+	<Signature id="SLMRun_sig">
+		<Parameter Name="in" MultiValuated="Yes" Direction="in" DataType="String"/>
+		<Parameter Name="out" MultiValuated="Yes" Direction="out" DataType="String"/>
+	</Signature>
+	
+	<!-- Abort -->
+	<Procedure Name="SLMAbort">
+		<Implementation Name="invoke" FileLocation="com.dassault_systemes.vplm.simulationNav.remoteProc.SLMProcAbort" Language="JAVA"/>
+		<Signature href="SLMAbort_sig"/>
+	</Procedure>
+	
+	<Signature id="SLMAbort_sig">
+		<Parameter Name="in" MultiValuated="Yes" Direction="in" DataType="PLMId"/>
+		<Parameter Name="out" MultiValuated="Yes" Direction="out" DataType="String"/>
+	</Signature>
+
+  <!-- Get Template Instantiation Options -->
+  <Procedure Name="SLMGetTemplateInstantiationOptions">
+    <Implementation Name="invoke" FileLocation="com.dassault_systemes.vplm.simulationNav.remoteProc.SLMProcInstantiationOptions" Language="JAVA"/>
+    <Signature href="SLMGetInstantationOptions_sig"/>
+  </Procedure>
+
+  <Signature id="SLMGetInstantationOptions_sig">
+    <Parameter Name="templateID" MultiValuated="No" Direction="in" DataType="PLMId"/>
+    <Parameter Name="templateOptions" MultiValuated="No" Direction="out" DataType="String"/>
+  </Signature>
+
+  <!-- Instantiate Template -->
+  <Procedure Name="SLMInstantiateTemplate">
+    <Implementation Name="invoke" FileLocation="com.dassault_systemes.vplm.simulationNav.remoteProc.SLMProcInstantiate" Language="JAVA"/>
+    <Signature href="SLMInstantiateTemplate_sig"/>
+  </Procedure>
+
+  <Signature id="SLMInstantiateTemplate_sig">
+    <Parameter Name="templateID" MultiValuated="No" Direction="in" DataType="PLMId"/>
+    <Parameter Name="templateOptions" MultiValuated="No" Direction="in" DataType="String"/>
+    <Parameter Name="instanceID" MultiValuated="No" Direction="out" DataType="PLMId"/>
+  </Signature>
+
+  <!-- Format Log -->
+  <Procedure Name="SLMFormatJobLog">
+    <Implementation Name="invoke" FileLocation="com.dassault_systemes.vplm.simulationNav.remoteProc.SLMProcFormatJobLog" Language="JAVA"/>
+    <Signature href="SLMFormatJobLog_sig"/>
+  </Procedure>
+
+  <Signature id="SLMFormatJobLog_sig">
+    <Parameter Name="in" MultiValuated="No" Direction="in" DataType="PLMId"/>
+    <Parameter Name="out" MultiValuated="No" Direction="out" DataType="String"/>
+  </Signature>
+
+</ProcedurePackage>

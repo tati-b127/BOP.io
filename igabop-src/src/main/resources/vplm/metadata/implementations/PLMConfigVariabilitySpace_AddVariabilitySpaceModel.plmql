@@ -1,0 +1,42 @@
+NAVIGATE
+	T0.physicalid,
+	T0.logicalid,
+	T0.type,
+	T1.physicalid,
+	T1.logicalid,
+	T1.type,
+	T2.physicalid,
+	T2.logicalid,
+	T2.type,
+	T3.physicalid,
+	T3.logicalid,
+	T3.type,
+	T4.physicalid,
+	T4.logicalid,
+	T4.type,
+	T5.physicalid,
+	T5.logicalid,
+	T5.type,
+	T6.physicalid,
+	T6.logicalid,
+	T6.type
+FROM
+	"PLMConfigVariabilitySpace/PLMCfgVariabilitySpace" T0, 
+	"Class/Model" T1, 
+	"Class/Product Line" T2, 
+	"Class/Products" T3, 
+	"RelationClass/VPLM Projection" T4,
+	"RelationClass/Product Line Models" T5,
+	"RelationClass/Relation.Products" T6
+FROM_ROOTS [?1?]
+ON ( (	RELATION(FROM="PLMConfigVariabilitySpace/PLMCfgVariabilitySpace" TO="RelationClass/VPLM Projection" THROUGH=POINTEDBY) WITH QUALITY_FILTER (CATEGORY=ISINSTANCEOF) 
+		THEN RELATION(FROM="RelationClass/VPLM Projection" TO="Class/Model" THROUGH=POINTSTO) WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY) )
+	OR (RELATION(FROM="PLMConfigVariabilitySpace/PLMCfgVariabilitySpace" TO="RelationClass/VPLM Projection" THROUGH=POINTEDBY) WITH QUALITY_FILTER (CATEGORY=ISINSTANCEOF) 
+		THEN RELATION(FROM="RelationClass/VPLM Projection" TO="Class/Product Line" THROUGH=POINTSTO) WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY) 
+		THEN RELATION(FROM="Class/Product Line" TO="RelationClass/Product Line Models" THROUGH=POINTEDBY) WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY)  
+		THEN RELATION(FROM="RelationClass/Product Line Models" TO="Class/Model" THROUGH=POINTSTO) WITH QUALITY_FILTER (CATEGORY=ISINSTANCEOF) )
+	OR (RELATION(FROM="PLMConfigVariabilitySpace/PLMCfgVariabilitySpace" TO="RelationClass/VPLM Projection" THROUGH=POINTEDBY) WITH QUALITY_FILTER (CATEGORY=ISINSTANCEOF) 
+		THEN RELATION(FROM="RelationClass/VPLM Projection" TO="Class/Products" THROUGH=POINTSTO) WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY) 
+		THEN RELATION(FROM="Class/Products" TO="RelationClass/Relation.Products" THROUGH=POINTEDBY) WITH QUALITY_FILTER (CATEGORY=ISINSTANCEOF) 
+		THEN RELATION(FROM="RelationClass/Relation.Products" TO="Class/Model" THROUGH=POINTSTO) WITH QUALITY_FILTER (CATEGORY=ISOWNEDBY) )  ) 
+;

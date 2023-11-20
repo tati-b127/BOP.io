@@ -1,0 +1,35 @@
+NAVIGATE
+	T0.PLM_ExternalID,
+	T1.PLM_ExternalID,
+	T2.PLM_ExternalID,
+	T3.PLM_ExternalID,
+	T4.PLM_ExternalID,
+	T5.PLM_ExternalID,
+	T0.PLMID,
+	T1.PLMID,
+	T2.PLMID,
+	T3.PLMID,
+	T4.PLMID,
+	T5.PLMID
+FROM
+	DMUValidationBase/DMUValidationValidation T0,
+	DMUValidationBase/DMUValidationCheck T1,
+	DMUValidationBase/DMUValidationExposedPresentation T2,
+	DMUValidationContext/DMUValidationContext T3,
+	DMUValidationParticipants/DMUValidationParticipants T4,
+	DMUValidationValidated/DMUValidationValidated T5
+FROM_ROOTS [?1?]
+ON
+(
+	RELATION
+	(
+		FROM=DMUValidationBase/DMUValidationValidation
+		TO=DMUValidationBase/DMUValidationCheck, DMUValidationBase/DMUValidationExposedPresentation, DMUValidationBase/DMUValidationExposedPresentation, DMUValidationContext/DMUValidationContext, DMUValidationParticipants/DMUValidationParticipants, DMUValidationValidated/DMUValidationValidated
+		THROUGH=POINTEDBY
+	)
+	WITH QUALITY_FILTER
+	(
+		CATEGORY=ISOWNEDBY
+	)
+)
+;

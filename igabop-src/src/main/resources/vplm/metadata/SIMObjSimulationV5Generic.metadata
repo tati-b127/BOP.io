@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified" BelongsToModeler="SIMObjSimulation" ModelerType="Top" Name="SIMObjSimulationV5Generic" Uuid="f10fd39b-6257-4257-9ab8-8e144cb2a463" UseNames="SIMObjSimulation" CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>This package includes the V5 simulation Representations.</ShortRole>
+    <Role>This package includes the V5 simulation Representations.</Role>
+  </CAAComment>
+  <Class Name="SIMObjSimulationV5RepReferenceGeneric" Uuid="ff2afc77-0350-44b7-b029-a38048f5df0a" Abstract="No" SuperName="SIMObjSimulationRepReference" CreateInstName="SIMObjSimulationV5RepInstanceGeneric" CustomerExposition="Programmer" Specializable="No" CustomerExtensible="No">
+    <Property Name="KweNew_InstanciationMethod" Value="CATESIMObjV5RepReferenceGeneric"/>
+    <Property Name="Searchable" Value="No"/>
+    <Property Name="IconName"        Value="I_SimulationRep"/>
+    <Property Name="3DIconName"        Value="PSM_REPGEN_3DNAVREP.cgr"/>
+    <Property Name="Configurable" Value="No" />
+    <Property Name="Filtrable" Value="No" />
+    <!-- Behavior patterns: default values -->
+    <Property Name="SaveAsNewAvailability"         Value="No"/>    
+    <CAAComment>
+      <ShortRole>V5 Simulation Representation Reference</ShortRole>
+      <Role>V5 Simulation Representation Reference</Role>
+    </CAAComment>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+   <!-- <IdentifierSet Name="identifier" Uuid="36daed46-8c21-4a57-b71d-948fc3c2082a" IdentifierUuids="86A2CB5C-4D50-4593-8489DF068C40FAAB 9528ED8F-6280-43E0-AD67CCB0D32A0755" IdentifierNames="PLM_ExternalID V_version"/> -->
+  </Class>
+  
+  <RelationClass Name="SIMObjSimulationV5RepInstanceGeneric" Uuid="3b06da5b-eee7-4599-9156-35e71bc82ac3" Abstract="No" SuperName="SIMObjSimulationRepInstance" CustomerExposition="Programmer" Specializable="No" CustomerExtensible="No">
+    <Property Name="Searchable" Value="No"/>
+    <Property Name="Configurable" Value="No" />
+    <Property Name="Filtrable" Value="No" />
+    <Property Name="IconName"        Value="I_SimulationV5Rep"/>
+    <!-- Behavior patterns: default values -->
+    <Property Name="TransferOwnershipAvailability" Value="No"/>
+    <CAAComment>
+      <ShortRole>V5 Simulation Representation Instance</ShortRole>
+      <Role>V5 Simulation Representation Instance</Role>
+    </CAAComment>
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </RelationClass>
+  
+</Package>

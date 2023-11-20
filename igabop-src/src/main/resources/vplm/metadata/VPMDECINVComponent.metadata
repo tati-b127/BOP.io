@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2012, All rights reserved -->
+
+<Package
+  xmlns="PLMDictionaryUnified"
+  Name="VPMDECINVComponent"
+  ModelerType="Top"
+  Uuid="672e4206-1480-454b-b3a5-8d90a10c87ec"
+  UseNames="VPMDECComponent"
+  CustomerExposition="Programmer">
+
+  <Class
+    Name="VPMDECINVComponent"
+    Uuid="addd6de1-79b4-4820-9c94-fddbca126b85"
+    SuperName="VPMDECComponent"
+    CustomerExposition="Programmer">
+    <Property Name="IconName"   Value="I_DECPrtINV"/>
+    <Property Name="3DIconName" Value="DECPrtINV.cgr"/>
+    <!-- Behavior patterns: default values -->
+    <Property Name="LockUnlockAvailability" Value="No"/>
+    <Property Name="TransferOwnershipAvailability" Value="No"/>
+    
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+  
+</Package>

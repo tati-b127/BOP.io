@@ -1,0 +1,140 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY FOR DELMIA Production System Application -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2008, All rights reserved -->
+<Package xmlns="PLMDictionaryUnified"
+         ModelerType="Top"
+         Name="DELLmiProductionInterruptOperation"
+	       Uuid="8d115fb4-a03f-4719-8931-5ab6df59bcaf"
+         BelongsToModeler="DELLmiProductionSystem"
+	       UseNames="DELLmiProductionOperation DELLmiProductionOperationPPR"
+         CustomerExposition="Programmer">
+  <Property Name="FormerTypingLegacy" Value="Yes"/>
+
+  <CAAComment>
+    <ShortRole>PLM DELMIA Interrupt Operation </ShortRole>
+    <Role>This package describes the PLM DELMIA Interrupt Operation model on top of DELLmiProductionOperationPPR</Role>
+  </CAAComment>
+
+  <Comment>last update 2012-01-20</Comment>
+
+  <Class Name="DELLmiInterruptOperationReference"
+		     Uuid="e0d41902-21ee-428a-ab2a-f681a7df2324"
+     		 Abstract="No"
+	     	 SuperName="DELLmiOperationPPRReference"
+         CustomerExposition="Programmer"
+         Specializable="No"
+         CustomerExtensible="No"
+         CreateInstName="DELLmiInterruptOperationInstance"
+         Abbreviation="iop"
+         InstantiationOwnerTypes="DELLmiGeneralSystemReference;DELLmiWorkPlanSystemReference;DELLmiTransformationSystemReference;DELLmiTransferSystemReference;DELLmiHeaderOperationReference;DELLmiExecHeaderOperationReference"
+         >
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELMPProdSystemAdvDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELLmiInterruptOperationInstance"/>
+    <Property Name="IconName" Value="I_PPRSeqInterrupt"/>
+    <Property Name="3DIconName" Value="I_PPRSeqInterrupt.cgr"/>
+    <Property Name="Newable" Value="Insert_CAA"/>
+    <Property Name="Searchable" Value="Yes"/>
+
+    <CAAComment>
+      <ShortRole>PLM DELMIA Interrupt Operation Reference</ShortRole>
+      <Role>PLM DELMIA Interrupt Operation Reference</Role>
+    </CAAComment>
+
+    <Simple Name="V_OccurrenceTime"
+            Uuid="8bc43d68-313f-4f86-a106-29305bab666a"
+            Type="Double"
+            MultiValuated="No"
+            Protection="Free"
+            CAAExposition="L0">
+    </Simple>
+
+    <Simple Name="V_OccurrenceTimeMode" Uuid="2920fdb3-8ffe-4243-a043-9b92e8b1de58" Type="Integer" Protection="Free" CAAExposition="L0" DefaultValue="1" Faceted="Yes">
+      <Property Name="RangeAsEnumName" Value="DELLmiProductionOperation.DELLmi_OccurrenceTimeMode"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="TOTAL_TIME;BUSY_TIME;NUMBER_OF_PRODUCTS"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+      </Range>
+    </Simple>
+
+    <Simple Name="V_StopingOnGoingOp" Uuid="9fed0739-bdc0-43be-b3e9-ff2260d78a84" Type="Integer" Protection="Free" CAAExposition="L0" DefaultValue="1" Faceted="Yes">
+      <Property Name="RangeAsEnumName" Value="DELLmiProductionOperation.DELLmi_StopingOnGoingOp"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="IMMEDIATE;WHEN_OPERATIONS_END"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+      </Range>
+    </Simple>
+
+    <Simple Name="V_InputResources" Uuid="7eb77720-1713-4b05-a3d1-2d7beac479e5" Type="Integer" Protection="Free" CAAExposition="L0" DefaultValue="1" Faceted="Yes">
+      <Property Name="RangeAsEnumName" Value="DELLmiProductionOperation.DELLmi_InputResources"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="RETURN_BACK;KEEP_RESERVED;AVAILABLE_FOR_OTHERS"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+      </Range>
+    </Simple>
+
+    <Simple Name="V_Restart" Uuid="405bee71-75dc-4656-bca5-fa69f4873dd1" Type="Integer" Protection="Free" CAAExposition="L0" DefaultValue="1" Faceted="Yes">
+      <Property Name="RangeAsEnumName" Value="DELLmiProductionOperation.DELLmi_Restart"/>
+      <Property Name="RangeAsEnumAuthorizedValues" Value="CONTINUE;RESTART;SCRAP_INPUT_PRODUCTS"/>
+      <Range>
+        <Equal>1</Equal>
+        <Equal>2</Equal>
+        <Equal>3</Equal>
+      </Range>
+    </Simple>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+
+
+  </Class>
+
+  <RelationClass Name="DELLmiInterruptOperationInstance"
+		     Uuid="09c20670-ec63-414c-8778-ea8e8caaa68f"
+		     Abstract="No"
+		     SuperName="DELLmiOperationPPRInstance"
+         CustomerExposition="Programmer"
+         Specializable="Yes"
+         CustomerExtensible="Yes">
+
+    <Property Name="DMCDerivable" Value="Yes"/>
+    <Property Name="KweNew_InstanciationMethod" Value="DELMPProdSystemAdvDelegateInstanciation"/>
+    <Property Name="KweNew_ReturnedType" Value="DELLmiInterruptOperationInstance"/>
+
+    <CAAComment>
+      <ShortRole>PLM DELMIA Interrupt Operation Instance</ShortRole>
+      <Role>PLM DELMIA Interrupt Operation Instance</Role>
+    </CAAComment>
+
+    <Volatile Name="Reference"
+              Uuid="76B4AECD-0AA0-432f-9858-EB993929ADFE"
+              Accessor="PLMModelerReferenceKweAttribute"
+              TypeName="DELLmiInterruptOperationReference"
+              AccessMode="ReadOnly" />
+
+    <SubClause Name="to"   TargetName="DELLmiInterruptOperationReference"/>
+
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+    <Method ImplementationType="AsFather">
+      <RealizeMethodType href="ExchangeScope.meth#ExchangeScope"/>
+    </Method>
+
+
+  </RelationClass>
+
+
+
+</Package>

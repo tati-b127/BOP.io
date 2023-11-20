@@ -1,0 +1,13 @@
+#Prog DIFStandardRep_ExportSelf (iPLMIDSet :  #In PLMIDSet, oPLMIDSet :  #Out PLMIDSet) : VoidType
+{
+
+let PLMDifStandardRepSet(PLMRouteSet)
+let PLMDifStandardRepIDSet(PLMIDSet)
+
+/* Retrieve Symbol Library from iPLMIDSet */
+PLMDifStandardRepSet = ExecutePLMFunction("DIFStandard", "DifStandardModeler_AddStandard", iPLMIDSet)
+PLMDifStandardRepIDSet = Ids(PLMDifStandardRepSet)
+
+oPLMIDSet = iPLMIDSet + PLMDifStandardRepIDSet
+
+}

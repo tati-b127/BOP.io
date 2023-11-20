@@ -1,0 +1,178 @@
+<?xml version="1.0"?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2004, All rights reserved -->
+<Package xmlns="PLMDictionaryCore" Name="HISTORY" Uuid="ebd74175-1309-4a7b-b319dea4a0ab618a" 
+  ModelerType="Core" CustomerExposition="None">
+
+
+	<!-- ******************* -->
+	<!-- HistoryRecord -->
+	<!-- If nothing is specified the attribute is not expected to be used in the where clause of the query -->
+	<!-- ******************* -->
+
+	
+	<Class Name="HistoryEntry" Uuid="67a4b29e-a986-4f16-953528f5c68fc79e"   Abstract="Yes"  CustomerExposition="None" >
+
+	<!-- 
+		Transaction specific 
+		All these data are supposed to be the same for all objects implied in the transaction
+	-->
+
+		<!-- 
+			ActionID a string containing the plmid of the action under which this modification was done
+			This field can be put in a where clause
+		-->
+		<Simple Name="ActionID" Uuid="452e63a8-38dd-4a54-b6bebe5951bccc65"  Type="String"   MultiValuated="No" Protection="Internal" SetOnlyOnce="AtCreation" MaxLength="255"/>
+
+		<!-- 
+			CompCES: CEStamp of the component after modification
+		-->
+		<Simple Name="CompCES" Uuid="F2FA8D32-F61E-4bc7-9792-84573FBEA100"  Type="String"   MultiValuated="No" Protection="Internal"  SetOnlyOnce="AtCreation" MaxLength="255"/>
+
+		<!-- 
+			User: user that modified the component 
+		-->
+		<Simple Name="User" Uuid="68E6B14E-7C84-4008-97A4-BC1A73FE7473"  Type="String"   MultiValuated="No" Protection="Internal" SetOnlyOnce="AtCreation" MaxLength="32"/>
+
+		<!-- 
+			Role: Role of the user that modifies the component 
+		-->
+		<Simple Name="Role" Uuid="8703B133-C567-4ea5-9335-495D6E9832F2"  Type="String"   MultiValuated="No" Protection="Internal" SetOnlyOnce="AtCreation" MaxLength="32"/>
+		<!-- 
+			Project: Project of the user that modifies the component 
+		-->
+		<Simple Name="Project" Uuid="1F583E87-C62F-4301-9B44-E451DAE723AB"  Type="String"   MultiValuated="No" Protection="Internal" SetOnlyOnce="AtCreation" MaxLength="32"/>
+
+		<!-- 
+			ModificationDate: Date of the modification 
+			This field can be put in a where clause
+		-->		
+		<Simple Name="ModificationDate" Uuid="17006E63-A613-4a3b-B004-5AA7A2F559C7"  Type="Date"   MultiValuated="No" Protection="Internal"  SetOnlyOnce="AtCreation" />
+		<!-- 
+			HistoryComment: user defined comment that explains the purpose of the modification 
+		-->
+		<Simple Name="HistoryComment" Uuid="5D98065B-B663-487a-B496-DAE70ED7B1D6"  Type="String"   MultiValuated="No" Protection="Internal" SetOnlyOnce="AtCreation" MaxLength="255"/>
+
+<!-- Component specific -->
+
+		<!-- 
+			CompID: id of the component on which operation occurred 
+			This field can be put in a where clause
+		-->
+		<Simple Name="CompPLMID" Uuid="3E65A791-40A1-4f46-A5BE-7B199016BC65"  Type="String"   MultiValuated="No" Protection="Internal" SetOnlyOnce="AtCreation" MaxLength="255"/>
+
+
+		<!-- 
+		Operation:  that occured on the component
+		N.B.: It will match exactly the name of the operation in the enum.
+		-->
+		<Simple Name="Operation" Uuid="5CD92259-AEEB-4dee-A66D-11208B159AEA"  Type="String"   MultiValuated="No" Protection="Internal" SetOnlyOnce="AtCreation" MaxLength="255"/>
+
+		<!-- DisplayName-->
+		<!-- 
+		<Simple Name="CompDisplayName" Uuid=""  Type="Enum"   MultiValuated="No" Protection="InternalRO" MaxLength="255"/>
+		-->
+
+
+                <!-- CompCUS CUpdatestamp of the component -->
+		<Simple Name="CompCUS" Uuid="373E7ADB-BDD2-4cc6-B1D6-2E4CA30559E1"  Type="Integer"   MultiValuated="No" Protection="Internal" SetOnlyOnce="AtCreation" />
+	
+	
+		<!-- Event ID that led to the creation of the event on the component -->
+		<Simple Name="EventID" Uuid="DDD667B3-8382-4C40-8163-BBF7C2625CB2"  Type="String"   MultiValuated="No" Protection="Internal" SetOnlyOnce="AtCreation" />
+	
+		<!-- If the event was generated from a ConfiguredSplit-UserFact this indicates  from which object the component is derived from-->
+		<Simple Name="DerivedFrom" Uuid="56C6B1D0-C6B4-4CD7-AA25-38211F31BE5D"  Type="String"   MultiValuated="No" Protection="Internal" SetOnlyOnce="AtCreation" />
+
+		<!-- UserFact ID that led to the creation of the event on the component -->
+		<Simple Name="UserFactID" Uuid="A0141532-B893-48AD-ABDE-8442FB1CCFDA"  Type="String"   MultiValuated="No" Protection="Internal" SetOnlyOnce="AtCreation" />
+		
+		<!-- UserFactName that led to the creation of the event on the component -->
+		<Simple Name="UserFactName" Uuid="3D8B2546-55CD-496E-848E-300B55068B2C"  Type="String"   MultiValuated="No" Protection="Internal" SetOnlyOnce="AtCreation" />
+	
+		<!-- User Data related to the userfact-->	
+		<Simple Name="UserData" Uuid="68369DC8-F83B-42C7-8FA2-95DB3F17C6F2"  Type="String"   MultiValuated="No" Protection="Internal" SetOnlyOnce="AtCreation" />
+		
+		<!-- User Fact's Date of Creation in DB -->	
+		<Simple Name="UserFactDate" Uuid="6FEE90CB-2AC8-4026-AC38-4CC02ED975AE"  Type="Date"   MultiValuated="No" Protection="Internal" SetOnlyOnce="AtCreation" />
+
+
+	<!-- These data do not change for the life cycle of the Object-->
+	<!-- Owner of the instance/port -->
+	<Simple Name="CompOwner" Uuid="D4419A1A-664A-44d9-859B-D64AC441415F"   Type="String"   MultiValuated="No" Protection="Internal" SetOnlyOnce="AtCreation" MaxLength="255" />	<!-- value will be encoded as string with a PLMIDV0  -->
+
+	<!-- ref that has generated this instance -->
+	<Simple Name="CompInstanceOf" Uuid="983EB5EA-D9AD-4f08-9F32-BB131AB039DC"   Type="String"   MultiValuated="No" Protection="Internal" SetOnlyOnce="AtCreation" MaxLength="255" /> <!-- value will be encoded as string with a PLMIDV0  -->
+
+	<!-- Operation specific data:  -->		
+		<Simple Name="OperationData" Uuid="4A721C4D-E0B2-45f5-848C-FEAA223E2C40"  Type="String"   MultiValuated="Yes" Protection="Internal" SetOnlyOnce="AtCreation" MaxLength="255"/>
+		
+		
+		<Property Name="VPLMAdminClass"       Value = "Yes"/>
+		
+	</Class>
+
+<!-- Possible values for Operation -->
+<Enum Name="OperationName" Uuid="A56A9637-AF91-40e3-96D5-FFB6E384B9D1">
+<Enumerator Name="Create" Value="1" Uuid="EEADE972-CCBA-4ba9-AED7-3C8247DD78CF" />
+<Enumerator Name="Update" Value="2" Uuid="30B92257-059B-4de2-A103-BE8EB44B8354" />
+<Enumerator Name="Delete" Value="3" Uuid="73FBAD12-9EE9-4597-A740-67326C2EA5A9" />
+<Enumerator Name="ChangeStatus" Value="4" Uuid="09F736B2-B90B-4dd9-A155-290C4AAC706D" />
+<Enumerator Name="Lock" Value="5" Uuid="F75A98B9-CB49-47f0-A824-C8621DE17CDE" />
+<Enumerator Name="UnLock" Value="6" Uuid="CF2BAF5C-21DD-45e1-9AB9-3E6D33C24593" />
+<Enumerator Name="ChangeAuthoritycontrol" Value="7" Uuid="24256D2A-FB3D-4f02-9DBA-9C715D0D3327" />
+<Enumerator Name="TransferOwnership" Value="8" Uuid="2878FF88-1C36-4546-A78E-AD11B09D76AD" />
+<Enumerator Name="NewVersion" Value="9" Uuid="41E33FEF-DE94-4949-8275-006E3CB3F1F0" />
+<Enumerator Name="Clone" Value="10" Uuid="D23475DC-40C2-4b16-B1E3-4DE5104D0E9B" />
+
+</Enum>
+<!-- All these enums are to be used as index in OperationData list according to value in Operation field-->
+<Enum Name="CreateData" Uuid="0627AA8A-1909-455d-AE1D-869C7BF789A2">
+	<!-- source of the object if object was created by a clone like operation -->
+	<Enumerator Name="OriginObject" Value="1" Uuid="72AB8D42-6104-439a-A358-EA70C0BF3872" /> <!-- value will be encoded as string with a PLMIDV0  -->
+</Enum>
+
+<Enum Name="UpdateData" Uuid="AF4BB2EF-A372-401e-9148-73716D9B205D">
+</Enum>
+
+<Enum Name="DeleteData" Uuid="561B8E2A-6C62-4c66-A673-673E74F5B0F2">
+</Enum>
+
+<Enum  Name="ChangeStatusData" Uuid="5409AF8C-7ECF-4a14-8000-46AEB4B6A9E1">
+	<!-- Object was in this state before change status -->
+	<Enumerator Name="PreviousState" Value="1" Uuid="20F5B085-EFFB-4e34-86D1-09D6AB46C8FB" />
+	<!-- Object is in this state after change status -->
+	<Enumerator Name="NewState" Value="2" Uuid="8667E46E-2901-4c52-B9A7-7566C4DF2493" />
+</Enum>
+<Enum  Name="ChangeOwnershipData" Uuid="1547D6B5-D906-4c2f-B0D8-6D5A55917CFA">
+	<!-- Object was owned by PreviousOwner before ChangeOwnership -->
+	<Enumerator Name="PreviousOwner" Value="1" Uuid="EB0BEBAC-80B3-4599-B97A-997AFB7044BF" />
+	<!-- Object is owned by NewOwner after ChangeOwnership -->
+	<Enumerator Name="NewOwner" Value="2" Uuid="284FB4C2-89B6-437d-8E94-6818CAF67D23" />
+	<!-- Object belonged to PreviousProject before ChangeOwnership -->
+	<Enumerator Name="PreviousProject" Value="3" Uuid="EFF84201-4B34-40f6-BAE3-50291A972B1B" />
+	<!-- Object belongs to NewProject after ChangeOwnership -->
+	<Enumerator Name="NewProject" Value="4" Uuid="3BDD2993-C4F6-4da8-AE03-ABA90BBDF85A" />
+	<!-- Object belongs to PreviousOrg before ChangeOwnership -->
+	<Enumerator Name="PreviousOrg" Value="5" Uuid="A7F9D072-45EA-48f8-9650-E926FFA9C9CD" />
+	<!-- Object belongs to NewOrg after ChangeOwnership -->
+	<Enumerator Name="NewOrg" Value="6" Uuid="138F1DA8-4B6B-4040-B1AD-1E48BC19674E" />
+</Enum>
+
+<Enum  Name="NewVersionData" Uuid="2BBB7875-79BD-4ffe-A25C-52E6516C0CC0">
+	<!-- The object that is created -->
+	<Enumerator Name="NewObject" Value="1" Uuid="31CFDDA7-1915-4185-AD65-0B4D0AE7E96C" />
+</Enum>
+<Enum  Name="Clone" Uuid="8F91F08D-CB4F-4ec9-92C6-9C83FB9F787D">
+	<!-- The object that is created -->
+	<Enumerator Name="NewObject" Value="1" Uuid="6AF64B7F-3164-4b4e-BB5C-847C2BF5039F" />
+</Enum>
+<Enum  Name="ChangeAuthorityControl" Uuid="46071DEE-DF87-46ff-A0B2-C0A5446AFB50">
+	<!-- Value will be True or False -->
+	<Enumerator Name="PreviousVal" Value="1" Uuid="A0BBD94B-AE75-40de-9E26-B3CDB115D2ED" />
+	<!-- Value will be True or False -->
+	<Enumerator Name="NewVal" Value="2" Uuid="7B39FFF0-5FD2-48fc-9221-51267624EA96" />
+</Enum>
+</Package>
+

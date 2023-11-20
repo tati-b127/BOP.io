@@ -1,0 +1,80 @@
+<?xml version="1.0" ?>
+
+<!-- ENOVIA DICTIONARY  -->
+<!-- COPYRIGHT DASSAULT SYSTEMES 2007, All rights reserved -->
+
+<Package xmlns="PLMDictionaryUnified"
+		ModelerType="Top" 
+		BelongsToModeler="PRODUCT" 
+		Name="LPPRIVATEREPDisciplines"
+    Uuid="7c3c38b0-bf05-11e3-b1b6-0800200c9a66"
+    UseNames="LPPRIVATEREP"
+		CustomerExposition="Programmer"
+   >
+
+  <CAAComment>
+    <ShortRole>Common package for internal Representation in Logical and Physical Models</ShortRole>
+    <Role>This package includes the common entities for internal Representation in Logical and Physical Models</Role>
+  </CAAComment>
+
+  <Class Name="InstanciationDefinition"
+	  Uuid="b1978970-2fc0-4408-9107-cc47901d0745"
+		SuperName="LPPrivateRepReference"
+	  CustomerExposition="ProgrammerOnly"
+	  Discipline="Yes"
+		Searchable="No"
+		Abbreviation="pmrd"   
+	>
+    <Property Name="UniqueNamingRule" Value="No"/>    
+    
+		<Method ImplementationType="None">
+		 <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+  </Class>
+  
+  <Class Name="InstanciationValue"
+	  Uuid="a454ce36-3108-468e-9ef6-926ee257b18a"
+		SuperName="LPPrivateRepReference"
+	  CustomerExposition="ProgrammerOnly"
+	  Discipline="Yes"
+		Searchable="No"
+		Abbreviation="pmr"   
+	  >
+    <Property Name="UniqueNamingRule" Value="No"/>    
+    
+		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+  </Class>
+  
+  <Class Name="PGPRep"
+	  Uuid="71306f11-bf08-11e3-b1b6-0800200c9a66"
+		SuperName="LPPrivateRepReference"
+	  CustomerExposition="ProgrammerOnly"
+	  Discipline="Yes"
+		Searchable="No"
+		Abbreviation="pgp"   
+	  >
+    <Property Name="UniqueNamingRule" Value="No"/>    
+    
+		<Method ImplementationType="None">
+			<RealizeMethodType href="ExportScope.meth#ExportScope"/>
+		</Method>
+  </Class>
+
+  <Class Name="VPMProposalLog"
+	  Uuid="1d58d8c5-1de9-429e-8f4d-18591d629f54"
+		SuperName="LPPrivateRepReference"
+	  CustomerExposition="ProgrammerOnly"
+	  Discipline="Yes"
+		Searchable="No"
+	  >
+    <Property Name="UniqueNamingRule" Value="No"/>    
+    
+    <Method ImplementationType="None">
+      <RealizeMethodType href="ExportScope.meth#ExportScope"/>
+    </Method>
+  </Class>
+
+</Package>
+

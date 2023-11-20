@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!-- COPYRIGHT DASSAULT SYSTEMES 2004, All rights reserved -->
+<Package
+    xmlns="PLMDictionaryResources" 
+    ModelerType="Resources" 
+    Name="PLMConfigResources" 
+    Uuid="71B02C2F-3772-42dd-AE71-EF6F90BCAAD9" 
+    UseProcedures="ENOCfg_WSProcedures"
+    >
+   
+
+</Package>

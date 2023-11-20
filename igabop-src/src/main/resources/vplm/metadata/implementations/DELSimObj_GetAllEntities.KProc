@@ -1,0 +1,57 @@
+/*********************************************************************************************************************************/
+/* Export procedure for Simulation Object in DELMIA scenario                                                                     */
+/*    Simulation Object is connected to a Physical Resource or a PPR Context                                                     */
+/* --> Retrieves all agregated PLM objects (References, Ref Instances, Rep References, Rep Instances, Ports and Connections)     */
+/*********************************************************************************************************************************/
+#Prog DELSimObj_GetAllEntities ( iPLMIDSet : #In PLMIDSet, oPLMIDSet : #Out PLMIDSet ) : VoidType
+{
+	let PLMRouteSet01 (PLMRouteSet)
+	let PLMRouteSet02 (PLMRouteSet)
+	let PLMRouteSet03 (PLMRouteSet)	
+	let PLMRouteSet04 (PLMRouteSet)
+	let PLMRouteSet05 (PLMRouteSet)
+	let PLMRouteSet06 (PLMRouteSet)	
+	
+	let PLMIDSet01 (PLMIDSet)
+	let PLMIDSet02 (PLMIDSet)	
+	let PLMIDSet03 (PLMIDSet)		
+	let PLMIDSet04 (PLMIDSet)
+	let PLMIDSet05 (PLMIDSet)	
+	let PLMIDSet06 (PLMIDSet)		
+	let PLMIDSet07 (PLMIDSet)		
+	
+	/*************************************************************************************************************/
+	/* Retrieves PLMIDs of simulation objects                                                                    */
+	/*************************************************************************************************************/  	
+	/* getting categories */
+	PLMRouteSet02 = ExecutePLMFunction("SIMObjSimulationGeneric", "sim_retrieveCategories", Restrict(iPLMIDSet, "SIMObjSimulation/SIMObjSimulationObject"))
+	PLMIDSet02 = Ids(PLMRouteSet02)
+	
+	/* getting Physical Resource or PPR Context */
+	PLMRouteSet01 = ExecutePLMFunction("SIMObjSimulationGeneric", "sim_addSimulatedModel", Restrict(PLMIDSet02, "SIMObjSimulationCategoryAndProdCnx/SIMObjSimulationCategoryReference"))
+	PLMIDSet01 =   Ids(PLMRouteSet01)
+	
+	/* getting External documents */
+	PLMRouteSet03 = ExecutePLMFunction("PLMDocConnection", "PLMDocConnection_retrieveAllDocuments", PLMIDSet02)
+	PLMIDSet03 = Ids(PLMRouteSet03)
+	
+	/* getting simu rep under category */
+	PLMRouteSet04 = ExecutePLMFunction("SIMObjSimulationGeneric", "sim_retrieveSimuRep", Restrict(PLMIDSet02, "SIMObjSimulationCategoryAndProdCnx/SIMObjSimulationCategoryReference"))
+	PLMIDSet04 = Ids(PLMRouteSet04)
+
+	/* getting external doc from simu rep */
+	PLMRouteSet05 = ExecutePLMFunction("SIMObjSimulationGeneric", "sim_retrieveExternalDocumentfromSimuRep", Restrict(PLMIDSet04, "SIMObjSimulationV5Generic/SIMObjSimulationV5RepReferenceGeneric"))
+	PLMIDSet05 = Ids(PLMRouteSet05)
+
+	/* getting publish result */
+	PLMRouteSet06 = ExecutePLMFunction("SIMObjSimulationGeneric", "sim_addPublishResultCnx", Restrict(PLMIDSet02, "SIMObjSimulationCategoryAndProdCnx/SIMObjSimulationCategoryReference"))
+	PLMIDSet06 = Ids(PLMRouteSet06)
+
+	/* getting everything under the PPRContext (see procedure PPRContext_GetAllEntities for details) */
+	PLMIDSet07 = ExecutePLMProcedure("PPRContext_GetAllEntitiesForOpen", Restrict(PLMIDSet01, "PLMCORE/PLMCoreReference"))
+
+	/**********************/
+	/* Returns all PLMIds */
+	/**********************/
+	oPLMIDSet = iPLMIDSet + PLMIDSet01 + PLMIDSet02 + PLMIDSet03 + PLMIDSet04 + PLMIDSet05 + PLMIDSet06 + PLMIDSet07
+}
